@@ -55,9 +55,12 @@ The site documents existing work. There is no Lab, speculative product section
 or website-only interaction demo. Design documentation distinguishes established
 principles and app patterns from the website's own colours, typography and mark.
 The [shared Pebble UI standard](src/pages/docs/design/pebble-ui-system.md) records
-the agreed design for the next watchapp and phone settings updates. It is marked
-implementation pending, and current guides keep describing installed releases.
-This documentation does not change any watch app.
+the shared design implemented in local Dynamic 0.17.0, Dashboard 0.5.0, Timer
+0.13.0 and Open Activity 0.2.0 candidates. Repository tests, builds, packaged
+settings/browser checks and native emulator checks pass; real-phone and
+physical-watch verification remain separate. The candidates are not published.
+Public project downloads remain pinned to the published baselines; current user
+guides and older screenshots keep their release context.
 
 ## Maintaining content
 
@@ -79,9 +82,12 @@ provider guide or change published release files to update a website link.
 The site's colours and typography are a first visual proposal. They do not
 change the design or settings of any app.
 
-The four consuming app repositories keep concise `docs/UX-ALIGNMENT.md` handoffs
-and maintainer pointers to the canonical standard. Keep common rules here and
-project-specific implementation gaps there. The website is not published yet;
+The four consuming app repositories keep concise `docs/UX-ALIGNMENT.md` adoption
+records and maintainer pointers to the canonical standard. Keep common rules here
+and project-specific implementation/evidence there. Appearance is configured on
+the phone: Timer has a minimal Light/Dark page with help, and Open Activity has a
+separate Watch appearance selector alongside its two shortcut choices. Native
+timer editing and alarm ownership remain on the watch. The website is not published yet;
 those handoffs identify the sibling checkout and local preview rather than
 claiming a public documentation URL.
 
@@ -98,6 +104,13 @@ internal links, anchors, assets and versioned download links. Browser checks use
 an installed Chromium and native Node CDP support; see
 `scripts/browser-smoke.mjs` for environment options. Evidence is under `docs/qa/`.
 These checks are browser automation and do not imply physical-watch testing.
+
+The local UI documentation integration passed `npm test`: 26 pages, 959 internal
+references, 155 anchors and 11 referenced assets, with no type errors or warnings.
+`docs/qa/VALIDATION.json` records that check and points to each app's local
+candidate evidence. Earlier browser captures remain historical; they were not
+rerun for this documentation update. Public release catalogue entries remain
+unchanged, and real-phone/physical-watch verification is separate.
 
 ## Licences and assets
 

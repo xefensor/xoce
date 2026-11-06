@@ -24,13 +24,20 @@ for XOCE — Xef's Open Computing Ecosystem.
   For developers, Design and About. Do not add a Lab, fictional demos, speculative
   product pages or future-platform sections without Xef's request.
 - Design guidance covers verified current patterns and the separately labelled
-  agreed target in `src/pages/docs/design/pebble-ui-system.md`. App implementation
-  remains pending; keep current user guides and release claims accurate. This
-  documentation request does not authorize changing app behaviour or artifacts.
+  standard in `src/pages/docs/design/pebble-ui-system.md`. Local app candidates now
+  implement the standard and have passed their automated, packaged/browser and
+  native emulator checks. Keep that evidence separate from physical-device
+  verification, public releases, user guides and older screenshots. Do not update published
+  catalogue versions or download links merely because a local candidate exists.
 - Website colours, fonts and marks describe the website. The agreed Pebble
   standard has its own native/watch and phone-settings roles; do not silently
-  copy the website palette or web fonts into the apps. Exact app accents,
-  unmeasured native metrics and shared-code packaging remain open decisions.
+  copy the website palette or web fonts into the apps. The standard records
+  implemented phone accent roles and app-specific fitted native layouts. No new
+  shared framework/token package was created. Preserve the user’s decision that
+  appearance is configured on the phone: Timer’s small Light/Dark page is not a
+  phone timer editor, and Open Activity keeps two shortcut pickers plus separate
+  Watch appearance. Legacy close-URL settings remain explicitly distinct from
+  the modern confirmed stay-open configuration pages.
 - Preserve each project's actual licence. The site has no project-wide licence
   decision yet; dependencies and imported assets retain their own terms.
 

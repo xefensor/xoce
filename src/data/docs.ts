@@ -8,7 +8,7 @@ export interface DocLink {
 export const docSections = [
   { title: 'For users', href: '/users/', description: 'Choose an app, set up your watch and find help.', icon: 'watch' },
   { title: 'For developers', href: '/developers/', description: 'Work with the libraries, integrate activities and contribute.', icon: 'code' },
-  { title: 'Design', href: '/design/', description: 'Current interfaces and the agreed standard for the next Pebble UI updates.', icon: 'spark' },
+  { title: 'Design', href: '/design/', description: 'Published interfaces and the shared standard validated in local Pebble candidates.', icon: 'spark' },
 ] as const;
 
 export const docs: DocLink[] = [
@@ -58,7 +58,7 @@ export const docs: DocLink[] = [
     title: 'Pebble UI and UX standard',
     href: '/docs/design/pebble-ui-system/',
     section: 'Design',
-    description: 'Agreed watch and phone settings design, including Save confirmation. App implementation is pending.',
+    description: 'Shared watch and phone settings design, implemented and validated in local candidates; not published.',
   },
   {
     title: 'Design principles',

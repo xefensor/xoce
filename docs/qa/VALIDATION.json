@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-06T15:01:16.873445+00:00",
+  "checked_at_utc": "2026-11-06T16:35:12Z",
   "local_only": true,
   "remote_configured": false,
   "hosted_site_registered": false,
@@ -25,12 +25,16 @@
       "UX and interaction"
     ],
     "app_runtime_changed": false,
-    "shared_ui_status": "Agreed target; app implementation pending"
+    "app_runtime_scope": "This website integration changes documentation only; app implementations and their final evidence belong to the sibling app repositories.",
+    "shared_ui_status": "Implemented and validated in local candidates; not pushed or published. Timer Appearance2105 and AppGlance2104 coexistence passes shared-store regressions and fresh native probes."
   },
   "build": {
+    "command": "npm test",
+    "passed": true,
+    "checked_at_utc": "2026-11-06T16:33:48Z",
     "pages": 26,
-    "internal_references_checked": 956,
-    "anchors_checked": 152,
+    "internal_references_checked": 959,
+    "anchors_checked": 155,
     "referenced_assets_checked": 11,
     "products": 4,
     "libraries": 2,
@@ -39,6 +43,7 @@
   },
   "production_browser_report": "docs/qa/browser-2026-11-06T15-00-28-144Z/report.json",
   "production_browser_report_sha256": "0a8554894267c74a64d9ac8f88750c52c35ba5871314aa1d3ee87177ccdbbf1f",
+  "browser_evidence_scope": "Historical browser evidence from the earlier documentation pass. No browser session was rerun for this prose/status integration; those reports and screenshots are unchanged.",
   "browser": {
     "passed": true,
     "workflow_groups": 12,
@@ -60,12 +65,51 @@
     "no_javascript_navigation_checked": true
   },
   "evidence_note": "Automated real Chromium browser checks. Product screenshots are native emulator captures with example data; no physical-device testing is implied.",
-  "history_note": "Earlier browser reports remain historical. A supplemental check found the guide title differed from its search metadata; titles were aligned and both final browser checks passed. No app UI implementation or release was performed.",
+  "history_note": "Earlier browser reports remain historical. A supplemental check found the guide title differed from its search metadata; titles were aligned and both final browser checks passed. That earlier documentation-only pass performed no app UI implementation or release. Subsequent app-local implementations are documented separately below; the public website catalogue and published downloads remain frozen.",
   "canonical_design": {
     "path": "src/pages/docs/design/pebble-ui-system.md",
-    "sha256": "caa9a9daa90477ee1595b4ea2eb60476eef26d18a8475f6b130601f64225ef21",
-    "status": "agreed target; implementation pending"
+    "sha256": "89534e8ccd311e84c8569d15deee452e896fc37ecc3c2d93fdb7aa16fd9e1b8b",
+    "status": "Implemented in four local app candidates; automated, exact packaged/browser and native emulator checks passed. No publication or physical-device claim.",
+    "integration_scope": [
+      "Canonical shared standard, local-candidate adoption table and published baseline context",
+      "Design guide cross-links, overview, search registry and contributor instructions",
+      "Phone appearance ownership, actual language coverage, confirmed stay-open Save and legacy close-URL distinction",
+      "Discard preserves visible context through browser scroll anchoring when restored controls change height, without promising a fixed scrollY"
+    ]
   },
+  "local_candidate_paths_relative_to": "XOCE repository root; sibling workspace paths, not website routes or published downloads.",
+  "local_candidate_evidence": [
+    {
+      "repository": "pebble-watchface-dynamic",
+      "version": "0.17.0",
+      "validation_path": "../pebble-watchface-dynamic/docs/qa/0.17.0/",
+      "alignment_path": "../pebble-watchface-dynamic/docs/UX-ALIGNMENT.md",
+      "status": "Local automated, packaged/browser and native emulator checks passed; not published."
+    },
+    {
+      "repository": "pebble-app-dashboard",
+      "version": "0.5.0",
+      "validation_path": "../pebble-app-dashboard/docs/qa/0.5.0/",
+      "alignment_path": "../pebble-app-dashboard/docs/UX-ALIGNMENT.md",
+      "status": "Local automated, packaged/browser and native emulator checks passed; not published."
+    },
+    {
+      "repository": "pebble-app-timer",
+      "version": "0.13.0",
+      "validation_path": "../pebble-app-timer/docs/qa/0.13.0/",
+      "alignment_path": "../pebble-app-timer/docs/UX-ALIGNMENT.md",
+      "status": "Local automated, exact packaged/browser and fresh native emulator checks passed after correcting independent Appearance2105/AppGlance2104 persistence; not published."
+    },
+    {
+      "repository": "pebble-app-open-activity",
+      "version": "0.2.0",
+      "validation_path": "../pebble-app-open-activity/docs/qa/0.2.0/",
+      "alignment_path": "../pebble-app-open-activity/docs/UX-ALIGNMENT.md",
+      "status": "Local automated, packaged/browser and native emulator checks passed; not published."
+    }
+  ],
+  "device_verification": "Real-phone WebView/storage and physical-watch readability, button feel, vibration and battery checks remain separate; no such verification is claimed here.",
+  "documentation_handoffs_scope": "Historical documentation-only handoffs before app implementation. These commits are not the current candidate identities.",
   "documentation_handoffs": [
     {
       "repository": "pebble-watchface-dynamic",

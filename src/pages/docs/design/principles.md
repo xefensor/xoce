@@ -8,7 +8,7 @@ order: 1
 
 These principles record decisions used in the current website and Pebble projects. Individual apps own their layouts and native controls. The [visual identity](/docs/design/visual-identity/) describes the website’s styling; [UI patterns](/docs/design/ui-patterns/) and [interaction guidance](/docs/design/interaction/) explain existing app behaviour.
 
-The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the newly agreed shared watch-app and phone-settings design. Its app alignment is pending; the current examples below do not establish that every app already follows that target.
+The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the shared design implemented and validated in the local app candidates. They have not been published; real-device verification remains separate. The examples below retain their published-build context, without relabelling an older screenshot or release.
 
 ## Start with a person’s task
 

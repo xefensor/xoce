@@ -13,21 +13,21 @@ const examples = [
   { name: 'Timer', href: '/projects/timer/', image: '/images/projects/timer.png', alt: 'Timer showing the local time, a large 20-second countdown, a blue hourglass and a pause action.', detail: 'A stable countdown and hourglass carry the state. Available actions sit beside the physical buttons.' },
 ];
 ---
-<BaseLayout title="Design" description="Current XOCE interfaces and the agreed shared UI and UX standard for the next Pebble watchapp and phone settings updates.">
+<BaseLayout title="Design" description="Published XOCE interfaces and the shared UI and UX implemented in local Pebble watchapp and phone settings candidates.">
   <main id="main" class="wrap section page-main">
-    <header class="page-heading"><p class="eyebrow">Design</p><h1>Visuals, interfaces<br />and interaction.</h1><p class="lead">The design of the current XOCE projects, plus the agreed shared UI standard for their next updates. Existing screenshots and guides describe today’s apps.</p></header>
+    <header class="page-heading"><p class="eyebrow">Design</p><h1>Visuals, interfaces<br />and interaction.</h1><p class="lead">The shared UI is implemented and validated in local app candidates. They have not been published. Explore the standard and its verification boundaries; existing screenshots keep their published-build context.</p></header>
     <a class="getting-started-banner" href="/docs/design/pebble-ui-system/">
       <div class="banner-icon"><Icon name="watch" size={28}/></div>
-      <div><span class="eyebrow">Agreed design · implementation pending</span><h2>One shared Pebble experience.</h2><p>The watch UI, phone settings and Save confirmation we’ll align across the apps.</p></div>
+      <div><span class="eyebrow">Validated locally · not published</span><h2>One shared Pebble experience.</h2><p>Watch layouts, phone appearance and confirmed Save feedback across the local candidates.</p></div>
       <Icon name="arrow" size={24}/>
     </a>
     <div class="guide-grid design-guides">{guides.map(guide => <a class="guide-card" href={guide.href}><Icon name={guide.icon} size={28}/><h2>{guide.title}</h2><p>{guide.description}</p><span>{guide.action} <Icon name="arrow" size={17}/></span></a>)}</div>
     <section class="design-examples" aria-labelledby="design-examples-title">
-      <div class="section-heading"><div><p class="eyebrow">Current Pebble interfaces</p><h2 id="design-examples-title">The patterns in use.</h2></div><p class="lead">Shared principles take different forms on a watchface, an overview and a focused app.</p></div>
+      <div class="section-heading"><div><p class="eyebrow">Published Pebble examples</p><h2 id="design-examples-title">The patterns in use.</h2></div><p class="lead">Shared principles take different forms on a watchface, an overview and a focused app.</p></div>
       <div class="design-example-grid">{examples.map(example => <article class="design-example"><a href={example.href} class="design-example-image"><img src={example.image} alt={example.alt} width="200" height="228" loading="lazy" decoding="async"/></a><div><h3><a href={example.href}>{example.name}</a></h3><p>{example.detail}</p></div></article>)}</div>
       <p class="image-caption">Native emulator captures with example data. Dashboard’s unchanged watch layout is shown using its 0.4.1 capture; the current release is 0.4.3. These images do not establish physical-watch testing.</p>
     </section>
-    <aside class="callout"><Icon name="book" size={25}/><div><h2>Current behaviour and the next standard.</h2><p>The shared standard records the agreed design for implementation. The guides below it document current patterns; the visual identity guide describes this website. App updates are still pending. Project-specific setup and controls remain in the <a href="/users/">user guides</a>, while API contracts belong in the <a href="/developers/">developer guides</a>.</p></div></aside>
+    <aside class="callout"><Icon name="book" size={25}/><div><h2>Published examples and local implementations.</h2><p>The shared standard records local adoption and passed automated, packaged browser and native emulator checks. Real-device verification remains separate. Older screenshots keep their original versions; public download links still point to published builds. The visual identity guide describes this website. Project-specific setup and controls remain in the <a href="/users/">user guides</a>, while API contracts belong in the <a href="/developers/">developer guides</a>.</p></div></aside>
   </main>
 </BaseLayout>
 <style>

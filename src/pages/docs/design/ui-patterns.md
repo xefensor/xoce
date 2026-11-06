@@ -8,7 +8,7 @@ order: 3
 
 These patterns describe current Pebble Time 2 interfaces and phone settings. They are concrete examples of the [design principles](/docs/design/principles/). The watch builds target a 200 × 228 screen with physical buttons.
 
-For the agreed next shared design, use the [Pebble UI and UX standard](/docs/design/pebble-ui-system/). Implementation is pending. This page continues to describe the current builds rather than presenting the target as already shipped.
+This page’s screenshots and baseline descriptions refer to the published builds. The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records adoption in Dynamic 0.17.0, Dashboard 0.5.0, Timer 0.13.0 and Open Activity 0.2.0 local candidates. Automated, packaged browser and native emulator checks pass; real-device verification remains separate. Those candidates have not replaced the public downloads.
 
 ## Activity content and context
 
@@ -74,7 +74,7 @@ The state should also be understandable through the countdown and available acti
 
 ## Phone settings with a clear job
 
-The apps keep settings close to the thing they configure:
+The published baseline apps keep settings close to the thing they configure:
 
 | Project | Existing settings structure |
 | --- | --- |
@@ -85,7 +85,11 @@ The apps keep settings close to the thing they configure:
 
 Phone appearance is separate from watch appearance. Opening settings or choosing a named app should not automatically focus a text input. Keep an edited item’s fields together and show relevant validation beside them.
 
-In Dashboard, global Save includes an open pin editor. A confirmed save closes that editor while leaving the settings page open; validation or save/transport failures preserve the unfinished edit. Open Activity also leaves settings open, and an uncertain save keeps its draft and offers an explicit saved-state reload or retry. Dynamic currently submits and closes its Clay page. The shared target is [Save-and-stay with inline confirmation](/docs/design/pebble-ui-system/#save-stays-open), which requires a controller change in Dynamic.
+In Dashboard, global Save includes an open pin editor. A confirmed save closes that editor while leaving the settings page open; validation or save/transport failures preserve the unfinished edit. Open Activity also leaves settings open, and an uncertain save keeps its draft and offers an explicit saved-state reload or retry. Published Dynamic 0.16.2 submits and closes its Clay page. Local Dynamic 0.17.0 adds the bundled controller for [Save-and-stay with inline confirmation](/docs/design/pebble-ui-system/#save-stays-open). The modern local configuration pages follow that workflow; legacy return-URL submission still closes.
+
+## Phone appearance in the local candidates
+
+Appearance stays on the phone. Timer 0.13.0 adds a small Light/Dark watch-appearance page with help, while timer creation, editing and alarms remain on the watch. Open Activity 0.2.0 adds a separate Watch appearance selector alongside its Primary and Secondary shortcut pickers. These are local candidate changes, not features of the older captures above.
 
 ## Platform boundaries
 

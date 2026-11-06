@@ -8,7 +8,7 @@ order: 4
 
 Interaction design explains what happens before and after a press, not only how a screen looks. This guide records the current Pebble workflows and rules behind them. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
 
-The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the agreed alignment target, including shared Save feedback. Those app changes have not been implemented by documenting them here.
+The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the implemented shared design and passed local automated, packaged browser and native emulator checks. The candidates are not published releases, and real-device verification remains separate. The published baselines and older evidence keep their original version context.
 
 ## Navigation preserves context
 
@@ -30,13 +30,19 @@ An old action binding must not become a command for a replacement item. Reconnec
 
 The complete settings workflow includes reopening the app and reading the confirmed choices. The page needs to distinguish an unsaved draft from a confirmed save or an uncertain result.
 
-Dashboard and Open Activity currently keep their settings pages open after saving. Dynamic’s Clay flow currently submits and closes; on reopening it shows prior watch-delivery status. The agreed target for all existing phone settings is [Save stays open](/docs/design/pebble-ui-system/#save-stays-open) with Saving…, ✓ Saved, Unsaved changes and relevant failure feedback. Dynamic needs an implementation change before that target can be described as its behaviour.
+The modern bundled pages in the local candidates implement [Save stays open](/docs/design/pebble-ui-system/#save-stays-open): Saving…, persistent ✓ Saved, Unsaved changes and relevant failure feedback. Dynamic 0.17.0 retains Clay rendering and adds SDK configuration messages for verified phone persistence. Its published 0.16.2 flow still submits and closes and shows prior watch-delivery status on reopening. The legacy return-URL fallbacks still close to deliver their result; they do not provide modern in-page confirmation.
 
 Dashboard gathers an open pinned-item editor when global Save is pressed. It validates the fields and closes the editor only after saving is confirmed. Validation or transport errors keep the form intact.
 
-Open Activity saves its two shortcuts through the active phone runtime while the helper is running, or its configuration plugin when closed. The UI confirms the exact returned choices. An uncertain result retains the draft and offers Reload saved or an explicit retry. Discarding a local draft cannot promise to undo a save already sent.
+Open Activity saves its preferences through the active phone runtime while the helper is running, or its configuration plugin when closed. The UI confirms the exact returned choices. An uncertain result retains the draft and offers Reload saved or an explicit retry. Discarding a local draft cannot promise to undo a save already sent.
+
+Discard retains the visible page context using normal browser scroll anchoring when restored controls change height. This does not promise a pixel-fixed scroll offset; it avoids forcing the page to the top or opening the keyboard.
 
 Opening an editor, selecting a store result or visiting settings does not automatically focus a text field. Explicit Search is an intentional exception: opening the website’s search dialog focuses the search field so it can be used immediately.
+
+## Appearance belongs in phone settings
+
+In the local candidates, Timer has a minimal phone Light/Dark appearance page with help, and Open Activity has a separate Watch appearance selector beside its two role choices. The phone page follows the phone’s theme independently. Appearance preferences remain app-local. Timer’s native duration editor, Reset, pause/resume and alarm ownership stay on the watch; the appearance page does not issue those operations.
 
 ## Loading, empty and unavailable
 
