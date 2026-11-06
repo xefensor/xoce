@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-06T15:00:44.593Z",
+  "url": "http://127.0.0.1:4322/",
+  "guide": "/docs/design/pebble-ui-system/",
+  "checks": [
+    {
+      "name": "Design target link, current/target notice, saved-state text, anchors, search, desktop/mobile, table containment, dark and no-JS content",
+      "passed": true,
+      "tables": [
+        {
+          "viewport": 320,
+          "content": 320,
+          "left": 20,
+          "right": 340
+        },
+        {
+          "viewport": 320,
+          "content": 320,
+          "left": 20,
+          "right": 340
+        },
+        {
+          "viewport": 320,
+          "content": 320,
+          "left": 20,
+          "right": 340
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    "pebble-ui-standard-desktop-light.png",
+    "pebble-ui-standard-save-desktop-light.png",
+    "pebble-ui-standard-search.png",
+    "pebble-ui-standard-mobile-light.png",
+    "pebble-ui-standard-save-mobile-light.png",
+    "pebble-ui-standard-mobile-dark.png"
+  ],
+  "exceptions": [],
+  "failedResponses": []
+}

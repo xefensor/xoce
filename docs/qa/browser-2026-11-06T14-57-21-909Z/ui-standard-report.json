@@ -1,0 +1,15 @@
+{
+  "passed": false,
+  "checkedAt": "2026-11-06T14:58:58.889Z",
+  "url": "http://127.0.0.1:4322/",
+  "guide": "/docs/design/pebble-ui-system/",
+  "checks": [],
+  "screenshots": [
+    "pebble-ui-standard-desktop-light.png",
+    "pebble-ui-standard-save-desktop-light.png",
+    "standard-failure.png"
+  ],
+  "exceptions": [],
+  "failedResponses": [],
+  "error": "Error: Timed out: standard in local search\n    at until (file:///tmp/xoce-ui-standard-browser.mjs:131:9)\n    at async file:///tmp/xoce-ui-standard-browser.mjs:249:3"
+}

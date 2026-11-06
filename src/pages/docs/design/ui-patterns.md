@@ -8,6 +8,8 @@ order: 3
 
 These patterns describe current Pebble Time 2 interfaces and phone settings. They are concrete examples of the [design principles](/docs/design/principles/). The watch builds target a 200 × 228 screen with physical buttons.
 
+For the agreed next shared design, use the [Pebble UI and UX standard](/docs/design/pebble-ui-system/). Implementation is pending. This page continues to describe the current builds rather than presenting the target as already shipped.
+
 ## Activity content and context
 
 An activity carries source content; the consuming app decides how much space it receives. Either the primary or secondary role can contain any supported activity source. Secondary describes a space constraint, not a particular source such as Music.
@@ -83,7 +85,7 @@ The apps keep settings close to the thing they configure:
 
 Phone appearance is separate from watch appearance. Opening settings or choosing a named app should not automatically focus a text input. Keep an edited item’s fields together and show relevant validation beside them.
 
-In Dashboard, global Save includes an open pin editor. A confirmed save closes it; validation and delivery failures preserve the unfinished edit. In Open Activity, an uncertain save keeps its draft and offers an explicit saved-state reload or retry.
+In Dashboard, global Save includes an open pin editor. A confirmed save closes that editor while leaving the settings page open; validation or save/transport failures preserve the unfinished edit. Open Activity also leaves settings open, and an uncertain save keeps its draft and offers an explicit saved-state reload or retry. Dynamic currently submits and closes its Clay page. The shared target is [Save-and-stay with inline confirmation](/docs/design/pebble-ui-system/#save-stays-open), which requires a controller change in Dynamic.
 
 ## Platform boundaries
 

@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-06T14:39:13.373629+00:00",
+  "checked_at_utc": "2026-11-06T15:01:16.873445+00:00",
   "local_only": true,
   "remote_configured": false,
   "hosted_site_registered": false,
@@ -16,31 +16,33 @@
     ],
     "current_products_only": true,
     "lab_removed": true,
-    "guides": 11,
+    "guides": 12,
     "design_guides": [
+      "Pebble UI and UX standard",
       "Design principles",
       "Visual identity",
       "UI patterns",
       "UX and interaction"
     ],
-    "watch_apps_changed": false
+    "app_runtime_changed": false,
+    "shared_ui_status": "Agreed target; app implementation pending"
   },
   "build": {
-    "pages": 25,
-    "internal_references_checked": 882,
-    "anchors_checked": 137,
+    "pages": 26,
+    "internal_references_checked": 956,
+    "anchors_checked": 152,
     "referenced_assets_checked": 11,
     "products": 4,
     "libraries": 2,
     "type_errors": 0,
     "type_warnings": 0
   },
-  "production_browser_report": "docs/qa/browser-2026-11-06T14-37-49-201Z/report.json",
-  "production_browser_report_sha256": "5d09b88f5356760661f6e184b7a9055fb73b6eb47c39c0ee383988868692692b",
+  "production_browser_report": "docs/qa/browser-2026-11-06T15-00-28-144Z/report.json",
+  "production_browser_report_sha256": "0a8554894267c74a64d9ac8f88750c52c35ba5871314aa1d3ee87177ccdbbf1f",
   "browser": {
     "passed": true,
     "workflow_groups": 12,
-    "main_routes": 24,
+    "main_routes": 25,
     "viewport_widths": [
       1440,
       360
@@ -58,5 +60,55 @@
     "no_javascript_navigation_checked": true
   },
   "evidence_note": "Automated real Chromium browser checks. Product screenshots are native emulator captures with example data; no physical-device testing is implied.",
-  "history_note": "Earlier browser evidence remains historical. The first restructuring run failed on a smooth-scroll timing issue in the test helper, fixed by instant positioning before pointer input; the current production run passed."
+  "history_note": "Earlier browser reports remain historical. A supplemental check found the guide title differed from its search metadata; titles were aligned and both final browser checks passed. No app UI implementation or release was performed.",
+  "canonical_design": {
+    "path": "src/pages/docs/design/pebble-ui-system.md",
+    "sha256": "caa9a9daa90477ee1595b4ea2eb60476eef26d18a8475f6b130601f64225ef21",
+    "status": "agreed target; implementation pending"
+  },
+  "documentation_handoffs": [
+    {
+      "repository": "pebble-watchface-dynamic",
+      "local_commit": "d77ec4bf2e82aad2de2fc7c7065fa76b1f7e3d3e",
+      "files": [
+        "AGENTS.md",
+        "docs/UX-ALIGNMENT.md"
+      ],
+      "runtime_or_release_files_changed": false
+    },
+    {
+      "repository": "pebble-app-dashboard",
+      "local_commit": "e92dfe14a81f5c15b013de833422832d554a3df6",
+      "files": [
+        "AGENTS.md",
+        "docs/UX-ALIGNMENT.md"
+      ],
+      "runtime_or_release_files_changed": false
+    },
+    {
+      "repository": "pebble-app-timer",
+      "local_commit": "c4d3b8202393baa08db6ce5693610445a88b21d0",
+      "files": [
+        "AGENTS.md",
+        "docs/UX-ALIGNMENT.md"
+      ],
+      "runtime_or_release_files_changed": false
+    },
+    {
+      "repository": "pebble-app-open-activity",
+      "local_commit": "e0c69179252a6c7e3434bc0b39c36483dc8579f2",
+      "files": [
+        "AGENTS.md",
+        "docs/UX-ALIGNMENT.md"
+      ],
+      "runtime_or_release_files_changed": false
+    }
+  ],
+  "documentation_browser_report": {
+    "path": "docs/qa/browser-2026-11-06T15-00-28-144Z/ui-standard-report.json",
+    "sha256": "b386a79070f4bac7a7b666c5d84bc523a5f6fad46400bec33c6f0a7edb500253",
+    "passed": true,
+    "screenshots": 6,
+    "scope": "New guide notice, Save states, navigation, anchors, title search, responsive tables, light/dark and no-JavaScript content."
+  }
 }

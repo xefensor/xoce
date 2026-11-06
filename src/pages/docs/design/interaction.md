@@ -8,6 +8,8 @@ order: 4
 
 Interaction design explains what happens before and after a press, not only how a screen looks. This guide records the current Pebble workflows and rules behind them. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
 
+The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the agreed alignment target, including shared Save feedback. Those app changes have not been implemented by documenting them here.
+
 ## Navigation preserves context
 
 Dashboard’s Up and Down buttons move between items. Holding Up from Snapshot opens Activities; holding Down opens Pinned. Collection navigation and Back retain the originating selection and viewport.
@@ -27,6 +29,8 @@ An old action binding must not become a command for a replacement item. Reconnec
 ## Save, close and reopen
 
 The complete settings workflow includes reopening the app and reading the confirmed choices. The page needs to distinguish an unsaved draft from a confirmed save or an uncertain result.
+
+Dashboard and Open Activity currently keep their settings pages open after saving. Dynamic’s Clay flow currently submits and closes; on reopening it shows prior watch-delivery status. The agreed target for all existing phone settings is [Save stays open](/docs/design/pebble-ui-system/#save-stays-open) with Saving…, ✓ Saved, Unsaved changes and relevant failure feedback. Dynamic needs an implementation change before that target can be described as its behaviour.
 
 Dashboard gathers an open pinned-item editor when global Save is pressed. It validates the fields and closes the editor only after saving is confirmed. Validation or transport errors keep the form intact.
 

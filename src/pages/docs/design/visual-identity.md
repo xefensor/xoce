@@ -6,7 +6,7 @@ section: Design
 order: 2
 ---
 
-This page documents the visual styling of the current XOCE website. It provides a reference for maintaining these pages. The Pebble apps retain their own native fonts, colours and controls; a shared visual system across every app has not been established.
+This page documents the visual styling of the current XOCE website. It provides a reference for maintaining these pages. The Pebble apps retain their own native fonts, colours and controls. The newly agreed [Pebble UI and UX standard](/docs/design/pebble-ui-system/) defines their shared target; implementation across the apps is pending.
 
 ## Name and website mark
 

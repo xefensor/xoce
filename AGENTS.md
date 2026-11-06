@@ -23,9 +23,14 @@ for XOCE — Xef's Open Computing Ecosystem.
 - Document current projects only. Keep the main sections Projects, For users,
   For developers, Design and About. Do not add a Lab, fictional demos, speculative
   product pages or future-platform sections without Xef's request.
-- Design guidance covers established principles and verified app patterns.
-  Website colours, fonts and marks describe the website; they do not establish
-  a shared app design system or authorize redesigning the watch applications.
+- Design guidance covers verified current patterns and the separately labelled
+  agreed target in `src/pages/docs/design/pebble-ui-system.md`. App implementation
+  remains pending; keep current user guides and release claims accurate. This
+  documentation request does not authorize changing app behaviour or artifacts.
+- Website colours, fonts and marks describe the website. The agreed Pebble
+  standard has its own native/watch and phone-settings roles; do not silently
+  copy the website palette or web fonts into the apps. Exact app accents,
+  unmeasured native metrics and shared-code packaging remain open decisions.
 - Preserve each project's actual licence. The site has no project-wide licence
   decision yet; dependencies and imported assets retain their own terms.
 

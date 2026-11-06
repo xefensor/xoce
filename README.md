@@ -40,7 +40,7 @@ the preview servers are local development tools, not a required backend.
 - Dedicated For users, For developers and Design sections, accessible from the
   main navigation and linked from the current project pages.
 - Six project pages: four installable apps/watchfaces and two developer libraries.
-- Eleven curated guides for setup, controls, troubleshooting, developers,
+- Twelve curated guides for setup, controls, troubleshooting, developers,
   visual identity, UI patterns, interaction, design principles and licensing.
   Library references point to reviewed released sources.
 - About/contributing, a custom 404 page, project filters and local search.
@@ -54,7 +54,10 @@ and are clearly labelled as development prereleases.
 The site documents existing work. There is no Lab, speculative product section
 or website-only interaction demo. Design documentation distinguishes established
 principles and app patterns from the website's own colours, typography and mark.
-It does not declare a shared app design system or redesign any watch app.
+The [shared Pebble UI standard](src/pages/docs/design/pebble-ui-system.md) records
+the agreed design for the next watchapp and phone settings updates. It is marked
+implementation pending, and current guides keep describing installed releases.
+This documentation does not change any watch app.
 
 ## Maintaining content
 
@@ -64,6 +67,7 @@ It does not declare a shared app design system or redesign any watch app.
 | `src/data/docs.ts` | Guide navigation and search descriptions |
 | `src/pages/users/`, `developers/`, `design/` | Audience and design section overviews |
 | `src/pages/docs/` | Website-owned user, developer introduction and design guides |
+| `src/pages/docs/design/pebble-ui-system.md` | Canonical agreed Pebble watch/phone UI standard and implementation status |
 | `src/pages/projects/[slug].astro` | Shared project-page presentation |
 | `src/styles/` | Site typography, colour roles, layouts and device-specific responses |
 | `docs/asset-provenance.json` | Exact screenshot origins, capture versions and hashes |
@@ -74,6 +78,12 @@ provider guide or change published release files to update a website link.
 
 The site's colours and typography are a first visual proposal. They do not
 change the design or settings of any app.
+
+The four consuming app repositories keep concise `docs/UX-ALIGNMENT.md` handoffs
+and maintainer pointers to the canonical standard. Keep common rules here and
+project-specific implementation gaps there. The website is not published yet;
+those handoffs identify the sibling checkout and local preview rather than
+claiming a public documentation URL.
 
 ## Validation
 

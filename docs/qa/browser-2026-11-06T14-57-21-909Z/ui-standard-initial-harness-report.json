@@ -1,0 +1,14 @@
+{
+  "passed": false,
+  "checkedAt": "2026-11-06T14:58:28.748Z",
+  "url": "http://127.0.0.1:4322/",
+  "guide": "/docs/design/pebble-ui-system/",
+  "checks": [],
+  "screenshots": [
+    "pebble-ui-standard-desktop-light.png",
+    "standard-failure.png"
+  ],
+  "exceptions": [],
+  "failedResponses": [],
+  "error": "AssertionError [ERR_ASSERTION]: Save section anchor is visible\n    at file:///tmp/xoce-ui-standard-browser.mjs:244:10"
+}
