@@ -14,9 +14,12 @@ npm run dev
 ```
 
 Open **http://127.0.0.1:4321/**. Astro's development server watches source files
-and refreshes the preview. With Astro 7, the server runs in the background:
+and refreshes the preview. In a normal terminal, press Ctrl+C to stop it.
+The review preview started for you runs in the background. To start it that way
+yourself, or check and stop that background server:
 
 ```sh
+npm run dev -- --background
 npm run dev:status
 npm run dev:stop
 ```
