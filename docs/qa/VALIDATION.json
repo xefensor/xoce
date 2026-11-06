@@ -1,0 +1,38 @@
+{
+  "checked_at_utc": "2026-11-06T13:58:38.569874+00:00",
+  "local_only": true,
+  "remote_configured": false,
+  "hosted_site_registered": false,
+  "deployed": false,
+  "framework": "astro@7.4.7",
+  "node": "v26.12.0",
+  "build": {
+    "pages": 20,
+    "internal_references_checked": 557,
+    "anchors_checked": 101,
+    "referenced_assets_checked": 11,
+    "products": 4,
+    "libraries": 2,
+    "type_errors": 0,
+    "type_warnings": 0
+  },
+  "browser_reports": [
+    {
+      "path": "docs/qa/browser-2026-11-06T13-47-54-560Z/report.json",
+      "passed": false,
+      "sha256": "cb7420117e8bbcb5798461a5806edbb13821ac1c67dad23dddbafc097c6da87e"
+    },
+    {
+      "path": "docs/qa/browser-2026-11-06T13-49-00-340Z/report.json",
+      "passed": true,
+      "sha256": "3a95ff929e6fd3521dfbb424ad4f887f33bee3e18e40e0785c758b72359ff56b"
+    },
+    {
+      "path": "docs/qa/browser-2026-11-06T13-55-06-573Z/report.json",
+      "passed": true,
+      "sha256": "1b7177f2f77ec9cbdfa67d4a9e87b57419d4c39fa679121904028534b26aa2c6"
+    }
+  ],
+  "production_browser_report": "docs/qa/browser-2026-11-06T13-55-06-573Z/report.json",
+  "illustration_note": "Desktop/phone artwork and Lab study are illustrative; product screenshots are native emulator captures with example data."
+}

@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+const path = Astro.url.pathname;
+const links = [{ label: 'Projects', href: '/projects/' }, { label: 'Docs', href: '/docs/' }, { label: 'Lab', href: '/lab/' }, { label: 'About', href: '/about/' }];
+---
+<header class="site-header">
+  <div class="header-inner wrap">
+    <a class="brand" href="/" aria-label="XOCE home"><span class="brand-symbol" aria-hidden="true">✳</span><span class="wordmark">XOCE</span></a>
+    <nav id="site-navigation" data-site-nav aria-label="Main navigation">
+      {links.map(link => <a href={link.href} aria-current={path.startsWith(link.href) ? 'page' : undefined}>{link.label}</a>)}
+    </nav>
+    <div class="header-actions">
+      <button class="search-trigger" data-search-open aria-label="Search XOCE" aria-haspopup="dialog"><Icon name="search" size={18} /><span>Search</span><kbd data-search-shortcut>Ctrl K</kbd></button>
+      <label class="theme-control"><Icon name="sun" size={18} /><span class="sr-only">Color theme</span><select data-theme-select aria-label="Color theme"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></label>
+      <button class="menu-toggle icon-button" data-menu-toggle aria-controls="site-navigation" aria-expanded="false" aria-label="Open navigation"><Icon name="menu" /></button>
+    </div>
+  </div>
+</header>
+<script>
+  const menu = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.querySelector<HTMLElement>('[data-site-nav]');
+  const setMenu = (open: boolean) => { menu?.setAttribute('aria-expanded', String(open)); menu?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.toggleAttribute('data-open', open); };
+  menu?.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
+  nav?.addEventListener('click', (event) => { if ((event.target as HTMLElement).closest('a')) setMenu(false); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true' && !document.querySelector('[data-search-dialog][open]')) { setMenu(false); menu.focus(); } });
+  const shortcut = document.querySelector('[data-search-shortcut]');
+  if (shortcut && /Mac|iPhone|iPad/.test(navigator.platform)) shortcut.textContent = '⌘ K';
+  const wide = matchMedia('(min-width: 800px)');
+  wide.addEventListener('change', () => { if (wide.matches) setMenu(false); });
+
+  const theme = document.querySelector<HTMLSelectElement>('[data-theme-select]');
+  const system = matchMedia('(prefers-color-scheme: dark)');
+  const readPreference = () => { try { return localStorage.getItem('xoce-theme') ?? 'system'; } catch { return 'system'; } };
+  const apply = (choice: string) => { document.documentElement.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light'; };
+  if (theme) theme.value = ['light', 'dark'].includes(readPreference()) ? readPreference() : 'system';
+  theme?.addEventListener('change', () => { try { theme.value === 'system' ? localStorage.removeItem('xoce-theme') : localStorage.setItem('xoce-theme', theme.value); } catch {} apply(theme.value); });
+  system.addEventListener('change', () => { if (theme?.value === 'system') apply('system'); });
+  window.addEventListener('storage', event => { if (event.key === 'xoce-theme') { const choice = readPreference(); if (theme) theme.value = choice; apply(choice); } });
+</script>

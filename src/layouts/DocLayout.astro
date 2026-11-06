@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { docs } from '../data/docs';
+interface Props { frontmatter: { title: string; description: string; section: string; order?: number }; headings?: { depth: number; slug: string; text: string }[] }
+const { frontmatter, headings = [] } = Astro.props;
+const groups = [...new Set(docs.map(doc => doc.section))];
+const path = Astro.url.pathname;
+const index = docs.findIndex(doc => doc.href === path);
+const previous = docs[index - 1];
+const next = docs[index + 1];
+---
+<BaseLayout title={frontmatter.title} description={frontmatter.description} bodyClass="docs-page">
+  <div class="docs-shell wrap">
+    <details class="docs-mobile-nav"><summary>Browse the documentation</summary><nav aria-label="Mobile documentation navigation">{docs.map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}</nav></details>
+    <aside class="docs-sidebar"><a class="docs-home" href="/docs/"><Icon name="book" size={18} /> Documentation</a><nav aria-label="Documentation navigation">{groups.map(group => <div class="docs-group"><p class="eyebrow">{group}</p>{docs.filter(doc => doc.section === group).map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}</div>)}</nav></aside>
+    <main id="main" class="doc-main">
+      <div class="breadcrumb"><a href="/docs/">Docs</a><Icon name="chevron" size={12} /><span>{frontmatter.section}</span></div>
+      <header class="doc-heading"><span class="eyebrow">{frontmatter.section}</span><h1>{frontmatter.title}</h1><p class="lead">{frontmatter.description}</p></header>
+      <article class="prose"><slot /></article>
+      <nav class="doc-pagination" aria-label="Previous and next guides">{previous ? <a href={previous.href}><span>Previous</span><strong>{previous.title}</strong></a> : <span />}{next && <a href={next.href}><span>Next guide <Icon name="arrow" size={14} /></span><strong>{next.title}</strong></a>}</nav>
+    </main>
+    {headings.some(heading => heading.depth === 2) && <aside class="docs-toc"><span class="eyebrow">On this page</span>{headings.filter(heading => heading.depth === 2).map(heading => <a href={`#${heading.slug}`}>{heading.text}</a>)}</aside>}
+  </div>
+</BaseLayout>

@@ -1,0 +1,14 @@
+---
+import type { Project } from '../data/projects';
+import WatchPreview from './WatchPreview.astro';
+import Icon from './Icon.astro';
+interface Props { project: Project }
+const { project } = Astro.props;
+const library = project.kind === 'library';
+---
+<article class:list={['project-card', `project-${project.slug}`]} data-project-card data-project-kind={project.kind}>
+  <a class="project-card-link" href={`/projects/${project.slug}/`}>
+    <div class="card-visual">{project.image ? <WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} native emulator preview with example data`} /> : <div class="library-visual" aria-hidden="true"><Icon name="code" size={64} /><span>{project.slug === 'activities' ? 'A → B' : '{ core }'}</span></div>}</div>
+    <div class="card-copy"><span class="eyebrow">{library ? 'Developer library' : project.kind === 'watchface' ? 'Pebble watchface' : 'Pebble app'}</span><h3>{project.name}</h3><p>{project.description}</p><div class="card-bottom"><span class="version-tag">v{project.version}</span><span class="card-arrow"><span class="sr-only">Explore {project.name}</span><Icon name="arrow" /></span></div></div>
+  </a>
+</article>

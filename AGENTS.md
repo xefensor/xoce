@@ -1,0 +1,31 @@
+# XOCE website
+
+This repository is the website, cross-project guides and design documentation
+for XOCE — Xef's Open Computing Ecosystem.
+
+- Keep this checkout local until Xef requests publication. No remote or hosting
+  identity is configured for the first review.
+- Astro builds static HTML. Keep browser JavaScript small and use native links,
+  forms, dialogs and platform conventions. Keep the primary content usable
+  without JavaScript. Respect reduced motion and keyboard navigation.
+- `src/data/projects.ts` owns the explicit current release catalogue. Link exact
+  GitHub release versions, including prereleases; never infer them from a generic
+  latest-release endpoint. Public npm package names differ from repository names.
+- The four Pebble products target Emery / Pebble Time 2 development builds.
+  Linux, Android and spatial computing are broader directions; do not invent
+  available applications, compatibility or completed integrations.
+- Website user guides live here. Library repositories own API contracts and
+  build instructions. Link reviewed versions of those references. Do not import
+  legacy specifications or design proposals as current behaviour.
+- Native screenshot assets are emulator captures with example data. Preserve
+  exact pixels and provenance in `docs/asset-provenance.json`. They do not prove
+  physical-watch testing. Keep third-party font and asset notices.
+- Lab interactions are clearly labelled website studies. They do not control
+  real devices or claim to be the existing spatial desktop prototype.
+- Preserve each project's actual licence. The site has no project-wide licence
+  decision yet; dependencies and imported assets retain their own terms.
+
+Use Node >=22.23.4. Run `npm ci`, `npm test`, then start `npm run dev` for browser
+checks. `npm run check:browser` checks the running local site with the installed
+Chromium browser. Save meaningful browser evidence in `docs/qa/` and distinguish
+automated checks from a user's review. Do not publish as part of validation.

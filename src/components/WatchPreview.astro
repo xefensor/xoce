@@ -1,0 +1,8 @@
+---
+interface Props { image: string; alt: string; eager?: boolean; class?: string }
+const { image, alt, eager = false, class: className = '' } = Astro.props;
+---
+<div class:list={['watch-preview', className]}>
+  <div class="watch-strap" aria-hidden="true"></div>
+  <div class="watch-case"><span class="watch-button watch-button-one" aria-hidden="true"></span><span class="watch-button watch-button-two" aria-hidden="true"></span><span class="watch-button watch-button-three" aria-hidden="true"></span><img src={image} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
+</div>

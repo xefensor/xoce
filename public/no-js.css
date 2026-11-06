@@ -1,0 +1,10 @@
+/* Only loaded by browsers with JavaScript disabled. */
+.search-trigger, .theme-control, .menu-toggle, .filter-group,
+.workspace-toolbar button, [data-workspace-status], .workspace-coordinate {
+  display: none !important;
+}
+.header-inner { height: auto; min-height: 82px; flex-wrap: wrap; padding-block: 18px; gap: 12px; }
+#site-navigation { display: flex; position: static; order: 3; width: 100%; flex-direction: row; flex-wrap: wrap; gap: 24px; padding: 0; box-shadow: none; border: 0; background: transparent; }
+#site-navigation a { padding: 9px 0; }
+.workspace-canvas { display: flex; flex-wrap: wrap; gap: 22px; height: auto; padding: 25px; }
+.workspace-canvas [data-window] { position: static; max-width: 100%; }

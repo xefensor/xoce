@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WatchPreview from '../../components/WatchPreview.astro';
+import Icon from '../../components/Icon.astro';
+import { projects } from '../../data/projects';
+import type { Project } from '../../data/projects';
+export function getStaticPaths() { return projects.map(project => ({ params: { slug: project.slug }, props: { project } })); }
+interface Props { project: Project }
+const { project } = Astro.props;
+const library = project.kind === 'library';
+---
+<BaseLayout title={project.name} description={project.description}>
+  <main id="main" class="wrap page-main">
+    <div class="breadcrumb"><a href="/projects/">Projects</a><Icon name="chevron" size={12}/><span>{project.name}</span></div>
+    <section class:list={['product-hero', `project-${project.slug}`]}><div class="product-copy"><p class="eyebrow">{library ? 'XOCE developer library' : project.kind === 'watchface' ? 'XOCE / Pebble watchface' : 'XOCE / Pebble app'}</p><h1>{project.name}</h1><p class="lead">{project.description}</p><p>{project.summary}</p><div class="button-row">{!library && project.download ? <a class="button button-primary" href={project.download}>Download v{project.version} <Icon name="download" size={18}/></a> : <a class="button button-primary" href={project.guide}>Developer guide <Icon name="arrow" size={18}/></a>}<a class="button button-plain" href={!library ? project.guide : project.repo}>{library ? 'View the source' : 'Setup & guide'}<Icon name={library ? 'external' : 'arrow'} size={18}/></a></div><div class="product-facts"><div><span>Platform</span><strong>{project.platform}</strong></div><div><span>Release</span><strong>{project.version}</strong></div><div><span>Status</span><strong>{project.status}</strong></div></div></div><div class="product-preview">{project.image ? <><WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} native emulator preview with example data`} eager/><span class="product-preview-label">Native emulator preview · example data</span></> : <div class="big-library-mark"><Icon name="code" size={92}/><span>{project.slug === 'activities' ? 'Content → host → view' : 'Data → context → app'}</span><p>Embedded in applications.<br />Built for developers.</p></div>}</div></section>
+    <section class="product-details"><div><p class="eyebrow">In practice</p><h2>{library ? 'A shared foundation.' : 'A few useful details.'}</h2></div><ul class="feature-list">{project.features.map(feature => <li><Icon name="check" size={20}/><span>{feature}</span></li>)}</ul></section>
+    <section class="product-links"><a href={project.guide}><Icon name="book" size={24}/><div><h2>{library ? 'Integration guide' : 'Read the guide'}</h2><p>{library ? 'Examples, responsibilities and the current contract.' : 'Setup, controls and the things worth knowing.'}</p></div><Icon name="arrow"/></a><a href={`${project.repo}/releases/tag/${project.tag}`}><Icon name="download" size={24}/><div><h2>Release files</h2><p>Versioned downloads, source archives and checksums.</p></div><Icon name="external"/></a><a href={project.repo}><Icon name="code" size={24}/><div><h2>Source & issues</h2><p>Follow the project or report something that needs work.</p></div><Icon name="external"/></a></section>
+    <p class="product-license">Project licence: <a href={`${project.repo}/blob/${project.tag}/LICENSE`}>PolyForm Noncommercial 1.0.0</a>. {library ? 'Public package names are documented in the integration guide.' : 'These are development builds; see the guide for supported devices and limitations.'}</p>
+  </main>
+</BaseLayout>
