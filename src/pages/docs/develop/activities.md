@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Build an activity provider
 description: Publish typed activity content with the current schema 4 API and leave presentation to the host.
-section: Develop
+section: For developers
 order: 1
 ---
 

@@ -20,8 +20,12 @@ for XOCE — Xef's Open Computing Ecosystem.
 - Native screenshot assets are emulator captures with example data. Preserve
   exact pixels and provenance in `docs/asset-provenance.json`. They do not prove
   physical-watch testing. Keep third-party font and asset notices.
-- Lab interactions are clearly labelled website studies. They do not control
-  real devices or claim to be the existing spatial desktop prototype.
+- Document current projects only. Keep the main sections Projects, For users,
+  For developers, Design and About. Do not add a Lab, fictional demos, speculative
+  product pages or future-platform sections without Xef's request.
+- Design guidance covers established principles and verified app patterns.
+  Website colours, fonts and marks describe the website; they do not establish
+  a shared app design system or authorize redesigning the watch applications.
 - Preserve each project's actual licence. The site has no project-wide licence
   decision yet; dependencies and imported assets retain their own terms.
 

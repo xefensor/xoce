@@ -2,11 +2,11 @@
 layout: ../../layouts/DocLayout.astro
 title: Getting started
 description: Choose the Pebble apps you need and understand how they work together.
-section: Use XOCE
+section: For users
 order: 1
 ---
 
-XOCE is a growing collection of useful software and computing experiments. Its first documented collection is for PebbleOS: a watchface, an overview app, a timer and a Quick Launch helper.
+XOCE’s current collection is for PebbleOS: Dynamic, Dashboard, Timer and Open Activity. This guide helps you choose and use the apps; the [developer section](/developers/) covers the libraries and integrations behind them.
 
 The current watch builds target **Pebble Time 2 / Emery, 200 × 228**, and are published as development prereleases. Support for other Pebble models is not established by these builds.
 
@@ -50,7 +50,7 @@ A pin can show a reading, perform an action, open an associated app, or combine 
 - Open Activity opens the associated app as a whole. It does not choose a particular timer or notification inside it.
 - Timer Pause/Resume from Dashboard is not implemented.
 
-Screenshots on this site are identified as emulator captures or illustrations. Automated and emulator checks are recorded in the repositories; they are distinct from testing on your phone and physical watch.
+Product screenshots on this site are native emulator captures with example data, shown inside illustrated watch cases. Automated and emulator checks are recorded in the repositories; they are distinct from testing on your phone and physical watch.
 
 ## Next steps
 

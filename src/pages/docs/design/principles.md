@@ -1,18 +1,18 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Design principles
-description: Readable, predictable interfaces that respect each device and the person using it.
+description: Established choices for readable content, predictable actions and interfaces that fit the device.
 section: Design
 order: 1
 ---
 
-XOCE explores new technology and new ways to interact with it. The everyday experience should be understandable, responsive and useful. These are the initial shared principles for the project; platform-specific components remain owned by their apps.
+These principles record decisions used in the current website and Pebble projects. Individual apps own their layouts and native controls. The [visual identity](/docs/design/visual-identity/) describes the website’s styling; [UI patterns](/docs/design/ui-patterns/) and [interaction guidance](/docs/design/interaction/) explain existing app behaviour.
 
 ## Start with a person’s task
 
 Lead with what someone can do. Reveal technical details when those details help them make a choice. Common actions should be easy to find without knowing a UUID, protocol name or internal data shape.
 
-An unfamiliar interaction needs a visible reason to exist and an understandable result. A prototype should explain what it is exploring and which parts are illustrative.
+An unfamiliar interaction needs a visible reason to exist and an understandable result. Dashboard’s named app picker makes choosing an associated app practical; a custom UUID route remains available for an unlisted destination without becoming the ordinary setup path.
 
 ## Make the hierarchy readable
 
@@ -22,9 +22,9 @@ On Dynamic, the primary activity has a larger content area and the secondary has
 
 ## Respect the platform
 
-Pebble has physical buttons, a small display, constrained memory and a battery budget. Android has its own navigation, permissions and input conventions. KDE applications should behave naturally within the desktop.
+The current watch builds target Pebble Time 2’s 200 × 228 display, with physical buttons, constrained memory and a battery budget. The website uses responsive layouts, ordinary browser links and keyboard focus.
 
-Share terminology, semantic colour roles and useful icon meanings across the project. Adapt layout, typography, controls and density to the actual platform.
+Share useful terminology and clear action meanings. Adapt layout, typography, controls and density to the platform. The website’s orange palette and web fonts are not a requirement for the watch apps.
 
 ## Make state and actions predictable
 
@@ -40,26 +40,29 @@ Use short, bounded transitions for meaningful changes. A new media item can arri
 
 Watch text stays static, starts at the beginning and cuts off at the end when it does not fit. It does not marquee, automatically page or cycle. Avoid decorative work while a watch app is covered or a device is otherwise idle.
 
-On the website, support reduced motion, clear focus indicators and ordinary browser navigation. Interactive experiments should remain optional to reading the surrounding material.
+On the website, support reduced motion, clear focus indicators and ordinary browser navigation. Primary navigation and guide content remain usable without JavaScript.
 
 ## Preserve the source’s truth
 
 Data can be current, expired, unavailable or unconfirmed. These states are not interchangeable. A new transport receipt does not make an old observation fresh.
 
-A displayed timer countdown is a presentation of the owner’s state. It does not authorize another app to cancel the timer’s native alarm. The interface should describe the actual capability and result.
+A displayed timer countdown is a presentation of the owner’s state. It does not authorize another app to cancel the timer’s native alarm. Dashboard Timer Pause/Resume remains deferred; the interface should describe the actual capability and result.
+
+Timer’s Reset restores the saved duration as Ready. Starting again requires a separate Select, and Ready persists through closing and reopening. Opening Timer through an associated app destination opens the whole app without selecting or operating a particular timer.
 
 ## Be clear about maturity
 
-Label development builds, prototypes and planned work honestly. An emulator capture establishes a rendering result; a browser study explores a design. Neither alone establishes physical-device battery life, radio reliability or comfort.
+Label development builds honestly. Product images on this site are native emulator captures with example data. They establish a rendering result; they do not establish physical-device battery life, radio reliability or comfort.
 
-Keep user guides focused on released behaviour. Preserve historical research and superseded designs with their original context.
+Keep user guides focused on current implemented behaviour. Historical research and superseded designs retain their original context in the owning repositories.
 
 ## Existing examples
 
-These app-level documents informed the initial principles:
+These app-level documents record the existing implementations:
 
 - [Dynamic’s native style and motion](https://github.com/xefensor/pebble-watchface-dynamic/blob/7b5daced6a8c7974425e1b3fb927071d1501df3d/docs/NATIVE-STYLE.md)
 - [Dashboard’s implementation and interaction rules](https://github.com/xefensor/pebble-app-dashboard/blob/61e4babc91bef0409c14f8c8699053d047baa2be/docs/IMPLEMENTATION.md)
-- [Timer’s current release](https://github.com/xefensor/pebble-app-timer/releases/tag/v0.12.0)
+- [Timer 0.12.0 and its Reset behaviour](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md)
+- [Open Activity 0.1.6 settings and launch behaviour](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md)
 
-The site is the place to develop shared guidance. A common visual identity should grow through reviewed examples and actual device constraints.
+Shared guidance lives here; project-specific rendering and controls remain documented with their owning implementations. This does not imply a completed shared component kit or visual redesign of the apps.

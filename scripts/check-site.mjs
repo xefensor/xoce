@@ -65,8 +65,22 @@ for (const filename of files.filter((file) => file.endsWith('.html'))) {
   pages.set(route, { filename, html, ids: new Set(ids), references: references(html) });
 }
 
-for (const route of ['/', '/projects/', '/docs/', '/lab/', '/about/']) {
+const mainRoutes = ['/projects/', '/users/', '/developers/', '/design/', '/about/'];
+const designRoutes = ['/docs/design/principles/', '/docs/design/visual-identity/',
+  '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+for (const route of ['/', ...mainRoutes, '/docs/', ...designRoutes]) {
   if (!pages.has(route)) problems.push(`Required page is missing: ${route}`);
+}
+for (const [route, page] of pages) {
+  if (route.startsWith('/lab/')) problems.push(`Removed Lab route is still published: ${route}`);
+  if (page.references.some((reference) => /^\/lab(?:\/|#|$)/.test(reference))) {
+    problems.push(`${route}: still links to the removed Lab`);
+  }
+  if (/\bdata-workspace(?:[-\s=>])/.test(page.html)) problems.push(`${route}: still includes the removed workspace demo`);
+  const navigation = page.html.match(/<nav\b(?=[^>]*\bdata-site-nav\b)[^>]*>([\s\S]*?)<\/nav>/i)?.[1];
+  if (!navigation || mainRoutes.some((destination) => !references(navigation).includes(destination))) {
+    problems.push(`${route}: global navigation must expose Projects, For users, For developers, Design and About`);
+  }
 }
 
 function checkReference(value, from) {
@@ -122,10 +136,27 @@ for (const slug of ['dynamic', 'dashboard', 'timer', 'open-activity', 'activitie
   assert.ok(projects.some((project) => project.slug === slug), `The current Pebble collection is missing ${slug}.`);
 }
 const products = projects.filter((project) => project.kind !== 'library');
+function needsLink(route, destination, purpose) {
+  if (!pages.get(route)?.references.includes(destination)) problems.push(`${route}: missing ${purpose} link to ${destination}`);
+}
+for (const product of products) needsLink('/users/', `/projects/${product.slug}/`, 'installable project');
+for (const library of projects.filter((project) => project.kind === 'library')) {
+  needsLink('/developers/', `/projects/${library.slug}/`, 'developer library');
+  needsLink('/developers/', library.guide, 'integration guide');
+}
+for (const route of designRoutes) needsLink('/design/', route, 'design guide');
 for (const project of projects) {
   const route = `/projects/${project.slug}/`;
   const page = pages.get(route);
   if (!page) { problems.push(`Missing project page: ${route}`); continue; }
+  needsLink(route, project.guide, project.kind === 'library' ? 'integration guide' : 'user guide');
+  if (project.kind !== 'library' && !page.references.some((reference) => reference === '/developers/' || reference.startsWith('/docs/develop/'))) {
+    problems.push(`${route}: missing the developer path for this project`);
+  }
+  if (project.kind === 'library') {
+    const consumers = project.slug === 'activities' ? products : products.filter((product) => ['dynamic', 'dashboard'].includes(product.slug));
+    for (const consumer of consumers) needsLink(route, `/projects/${consumer.slug}/`, 'consuming project');
+  }
   if (project.tag !== 'v' + project.version) problems.push(`${route}: release tag does not match its version`);
   if (project.kind !== 'library') {
     if (!project.download) { problems.push(`${route}: missing PBW download`); continue; }
@@ -135,6 +166,28 @@ for (const project of projects) {
     }
     if (!project.download.endsWith('-' + project.version + '.pbw')) problems.push(`${route}: PBW filename/version differ`);
     if (!page.references.includes(project.download)) problems.push(`${route}: declared PBW download is not linked`);
+  }
+}
+
+const searchPath = path.join(dist, 'search.json');
+if (!fs.existsSync(searchPath)) problems.push('Missing local search index');
+else {
+  const entries = JSON.parse(fs.readFileSync(searchPath, 'utf8'));
+  if (!Array.isArray(entries)) problems.push('Search index must be an array');
+  else {
+    const destinations = entries.map((entry) => entry.href);
+    if (new Set(destinations).size !== destinations.length) problems.push('Duplicate search destinations');
+    for (const entry of entries) {
+      if (typeof entry.href !== 'string' || !entry.title || !entry.description) {
+        problems.push('Incomplete search entry');
+        continue;
+      }
+      if (entry.href.startsWith('/lab/')) problems.push('Search still advertises the removed Lab');
+      checkReference(entry.href, '/search.json');
+    }
+    for (const route of ['/users/', '/developers/', '/design/', ...designRoutes]) {
+      if (!destinations.includes(route)) problems.push(`Search is missing ${route}`);
+    }
   }
 }
 

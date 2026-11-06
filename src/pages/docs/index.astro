@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
-import { docs } from '../../data/docs';
-const sections = [...new Set(docs.map(doc => doc.section))];
+import { docs, docSections } from '../../data/docs';
 ---
-<BaseLayout title="Documentation" description="Set up XOCE’s Pebble apps, develop activity plugins, and explore the shared design principles.">
-  <main id="main" class="wrap section page-main"><header class="page-heading"><p class="eyebrow">Documentation</p><h1>A little guidance.<br />A lot of possibility.</h1><p class="lead">Start using the apps, build an integration, or understand the thinking behind the design.</p></header><a class="getting-started-banner" href="/docs/getting-started/"><div class="banner-icon"><Icon name="arrow" size={28}/></div><div><span class="eyebrow">Start here</span><h2>Welcome to XOCE.</h2><p>What’s available, what fits together, and where to begin.</p></div><Icon name="arrow" size={24}/></a><div class="docs-index-grid">{sections.map(section => <section class="docs-index-group"><h2>{section}</h2>{docs.filter(doc => doc.section === section).map(doc => <a href={doc.href}><div><h3>{doc.title}</h3><p>{doc.description}</p></div><Icon name="chevron" size={17}/></a>)}</section>)}</div><aside class="callout"><Icon name="code" size={25}/><div><h2>Looking for the precise API contract?</h2><p>The developer guides link to reviewed specifications in the owning library repositories. Current Activities guides use schema 4 summaries; older contracts are labelled as compatibility material there.</p></div></aside></main>
+<BaseLayout title="All guides" description="User guides, developer integration references and design documentation for the current XOCE projects.">
+  <main id="main" class="wrap section page-main">
+    <header class="page-heading"><p class="eyebrow">Documentation</p><h1>All guides.</h1><p class="lead">Install and use the Pebble apps, work with the libraries, or understand the visual and interaction decisions behind them.</p></header>
+    <div class="guide-grid audience-entry-grid">{docSections.map(section => <a class="guide-card" href={section.href}><Icon name={section.icon} size={28} /><h2>{section.title}</h2><p>{section.description}</p><span>Open this section <Icon name="arrow" size={17} /></span></a>)}</div>
+    <div class="docs-index-grid">{docSections.map(section => <section class="docs-index-group"><h2>{section.title}</h2>{docs.filter(doc => doc.section === section.title).map(doc => <a href={doc.href}><div><h3>{doc.title}</h3><p>{doc.description}</p></div><Icon name="chevron" size={17}/></a>)}</section>)}</div>
+  </main>
 </BaseLayout>

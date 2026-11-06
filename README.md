@@ -36,12 +36,13 @@ the preview servers are local development tools, not a required backend.
 
 ## What's included
 
-- A homepage introducing the project and the current Pebble collection.
+- A homepage showing the current Pebble collection with real emulator captures.
+- Dedicated For users, For developers and Design sections, accessible from the
+  main navigation and linked from the current project pages.
 - Six project pages: four installable apps/watchfaces and two developer libraries.
-- Eight curated guides for setup, controls, troubleshooting, developers, design
-  and licensing. Library references point to reviewed released sources.
-- A Lab page with a small draggable/keyboard-accessible workspace study. This
-  is website demonstration code, separate from the existing spatial prototype.
+- Eleven curated guides for setup, controls, troubleshooting, developers,
+  visual identity, UI patterns, interaction, design principles and licensing.
+  Library references point to reviewed released sources.
 - About/contributing, a custom 404 page, project filters and local search.
 - System/light/dark themes with a saved local preference. Primary content and
   navigation remain available without JavaScript.
@@ -50,12 +51,18 @@ Linux/KDE and Android are broader project directions, not invented released
 products. The currently documented watch builds target Emery / Pebble Time 2
 and are clearly labelled as development prereleases.
 
+The site documents existing work. There is no Lab, speculative product section
+or website-only interaction demo. Design documentation distinguishes established
+principles and app patterns from the website's own colours, typography and mark.
+It does not declare a shared app design system or redesign any watch app.
+
 ## Maintaining content
 
 | Location | Owner and purpose |
 | --- | --- |
 | `src/data/projects.ts` | Current version-pinned project catalogue and download links |
 | `src/data/docs.ts` | Guide navigation and search descriptions |
+| `src/pages/users/`, `developers/`, `design/` | Audience and design section overviews |
 | `src/pages/docs/` | Website-owned user, developer introduction and design guides |
 | `src/pages/projects/[slug].astro` | Shared project-page presentation |
 | `src/styles/` | Site typography, colour roles, layouts and device-specific responses |
@@ -88,7 +95,7 @@ Individual Pebble projects retain their own PolyForm Noncommercial licences.
 The website's own project-wide licence has not been selected. The npm package
 is private and marked `UNLICENSED` pending that decision.
 
-Project images are exact native emulator captures with example data. Desktop
-and phone artwork is illustrative. Space Grotesk and Inter are self-hosted under
+Project images are exact native emulator captures with example data. Their watch
+cases are CSS illustrations. Space Grotesk and Inter are self-hosted under
 the SIL Open Font License. Full notices are in
 [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

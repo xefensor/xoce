@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { projects } from '../../data/projects';
+const apps = projects.filter(project => project.kind !== 'library');
+---
+<BaseLayout title="For users" description="Choose, install and use XOCE’s current Pebble watchface and apps. Find setup instructions, settings, controls and help.">
+  <main id="main" class="wrap section page-main">
+    <header class="page-heading">
+      <p class="eyebrow">For users</p>
+      <h1>Apps for your Pebble.</h1>
+      <p class="lead">See what is happening, keep a timer handy and open the apps you need. Choose the parts that suit you; you can use them individually.</p>
+    </header>
+
+    <a class="getting-started-banner" href="/docs/getting-started/">
+      <div class="banner-icon"><Icon name="watch" size={28} /></div>
+      <div><span class="eyebrow">Start here</span><h2>Find your first app.</h2><p>What each app does, how they fit together and a useful first setup.</p></div>
+      <Icon name="arrow" size={24} />
+    </a>
+
+    <section class="section" aria-labelledby="user-guides">
+      <div class="section-heading"><div><p class="eyebrow">Using the collection</p><h2 id="user-guides">Set up. Make it yours.</h2></div></div>
+      <div class="guide-grid">
+        <a class="guide-card" href="/docs/pebble/setup/"><Icon name="download" size={28} /><h3>Install & configure</h3><p>Download the apps, choose your activities and pinned items, and set Quick Launch shortcuts.</p><span>Follow the setup guide <Icon name="arrow" size={17} /></span></a>
+        <a class="guide-card" href="/docs/pebble/controls/"><Icon name="watch" size={28} /><h3>Learn the controls</h3><p>Use timers, music controls, notifications and shortcuts with the watch’s buttons.</p><span>Watch controls <Icon name="arrow" size={17} /></span></a>
+        <a class="guide-card" href="/docs/pebble/troubleshooting/"><Icon name="book" size={28} /><h3>Find help</h3><p>Check missing activities, saved settings, permissions and app-opening shortcuts.</p><span>Troubleshooting <Icon name="arrow" size={17} /></span></a>
+      </div>
+    </section>
+
+    <section id="apps" aria-labelledby="user-apps">
+      <div class="section-heading"><div><p class="eyebrow">Available now</p><h2 id="user-apps">Choose your apps.</h2></div><div class="section-intro"><p>Each project page has its screenshots, current download and guide. There is no separate library app to install.</p></div></div>
+      <div class="collection-note"><span class="status-dot"></span><span>Development builds for Pebble Time 2 / Emery. Check compatibility before installing.</span></div>
+      <div class="project-grid">{apps.map(project => <ProjectCard project={project} />)}</div>
+      <p class="image-caption">Native emulator previews with example data. Watch cases are illustrations.</p>
+    </section>
+
+    <aside class="callout"><Icon name="clock" size={25} /><div><h2>Try a connected workflow.</h2><p>Start a countdown in <a href="/projects/timer/">Timer</a>, follow it on <a href="/projects/dynamic/">Dynamic</a>, then use <a href="/projects/open-activity/">Open Activity</a> to return to Timer. <a href="/docs/getting-started/#a-useful-first-setup">The first-setup guide walks through it.</a></p></div></aside>
+  </main>
+</BaseLayout>

@@ -15,6 +15,8 @@ applications. They are copied without pixel changes from native Emery emulator
 captures in their project repositories. They show example data and are not
 physical-watch photographs or browser design mock-ups.
 
+The website's watch cases are CSS illustrations around those unchanged captures.
+
 | Website asset | Source and capture version |
 | --- | --- |
 | `dynamic.png` | [Dynamic 0.16.2](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.16.2/docs/qa/0.16.2/native-previews/music-24-light.png) |

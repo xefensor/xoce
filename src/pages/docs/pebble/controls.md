@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Watch controls
 description: Use Timer, Dashboard and Open Activity with predictable watch-button actions.
-section: Use XOCE
+section: For users
 order: 3
 ---
 

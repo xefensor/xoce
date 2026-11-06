@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Integrate Core
 description: Understand the shared readings library and the responsibilities retained by its host.
-section: Develop
+section: For developers
 order: 2
 ---
 

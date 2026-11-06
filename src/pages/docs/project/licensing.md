@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Licensing and source
 description: Find the source, licence and release records for each XOCE project.
-section: Use XOCE
+section: For users
 order: 5
 ---
 
@@ -43,7 +43,7 @@ Repository names and package identities are separate. The libraries still use `p
 
 ## Website credits
 
-Product previews are native emulator captures with example data, presented inside illustrated watch cases. Desktop and phone artwork is conceptual. The Lab interaction study was created for this website and is separate from the existing spatial desktop prototype.
+Product previews are native emulator captures with example data, presented inside illustrated watch cases. Their capture versions and sources are recorded in the website repository’s `docs/asset-provenance.json`. A screenshot is evidence of rendering in that emulator state, not of physical-watch verification.
 
 Space Grotesk and Inter are self-hosted under the SIL Open Font License 1.1. Their complete notices are available here: [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt) and [Inter licence](/fonts/inter-LICENSE.txt).
 

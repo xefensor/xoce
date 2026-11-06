@@ -11,6 +11,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projects.ts')).href);
 const productCount = projects.filter((project) => project.kind !== 'library').length;
 const libraryCount = projects.length - productCount;
+const mainSections = [
+  { href: '/projects/', label: 'Projects' },
+  { href: '/users/', label: 'For users' },
+  { href: '/developers/', label: 'For developers' },
+  { href: '/design/', label: 'Design' },
+  { href: '/about/', label: 'About' },
+];
+const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/',
+  '/docs/design/ui-patterns/', '/docs/design/interaction/'];
 const base = new URL(process.env.XOCE_SITE_URL || 'http://127.0.0.1:4321/');
 assert.ok(['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname), 'Browser checks are restricted to a local preview.');
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -143,7 +152,7 @@ async function navigate(route) {
 
 async function click(selector) {
   const point = await client.evaluate(`(()=>{const element=Array.from(document.querySelectorAll(${JSON.stringify(selector)})).find(el=>el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden');
-    if(!element)throw Error('Missing '+${JSON.stringify(selector)});element.scrollIntoView({block:'center'});
+    if(!element)throw Error('Missing '+${JSON.stringify(selector)});element.scrollIntoView({block:'center',behavior:'instant'});
     const box=element.getBoundingClientRect();if(!box.width||!box.height)throw Error('Hidden '+${JSON.stringify(selector)});
     return{x:box.x+box.width/2,y:box.y+box.height/2};})()`);
   await client.send('Input.dispatchMouseEvent', { type: 'mousePressed', button: 'left', clickCount: 1, ...point });
@@ -181,6 +190,21 @@ async function noOverflow(route, width) {
   assert.ok(state.main && state.title.includes('XOCE'), route + ' lacks accessible page structure');
 }
 
+async function headerFits(width) {
+  await viewport(width, 1000);
+  await navigate('/');
+  await noOverflow('/', width);
+  const collisions = await client.evaluate(`(()=>{
+    const elements=[...document.querySelectorAll('.site-header a,.site-header button,.site-header select')]
+      .filter(el=>el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden')
+      .map(el=>({label:el.getAttribute('aria-label')||el.textContent.trim(),rect:el.getBoundingClientRect()}));
+    return elements.flatMap((a,i)=>elements.slice(i+1).filter(b=>
+      Math.min(a.rect.right,b.rect.right)-Math.max(a.rect.left,b.rect.left)>1&&
+      Math.min(a.rect.bottom,b.rect.bottom)-Math.max(a.rect.top,b.rect.top)>1
+    ).map(b=>[a.label,b.label]));})()`);
+  assert.deepEqual(collisions, [], 'Header controls overlap at ' + width + 'px');
+}
+
 function routesFromBuild() {
   function walk(directory) {
     return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -212,6 +236,39 @@ async function runChecks() {
   await screenshot('home-mobile-light');
   await viewport(1440, 1000);
   passed('System appearance and initial focus');
+
+  const navigation = await client.evaluate(`Array.from(document.querySelectorAll('[data-site-nav] a')).map(a=>({href:a.getAttribute('href'),label:a.textContent.trim()}))`);
+  assert.deepEqual(navigation, mainSections, 'Expose the agreed five sections in the main navigation.');
+  assert.equal(await client.evaluate(`!!document.querySelector('a[href^="/lab/"],[data-workspace-canvas]')`), false, 'Remove the Lab and its website-only demo.');
+  const index = await (await fetch(new URL('/search.json', base))).json();
+  assert.equal(index.some((entry) => entry.href.startsWith('/lab/')), false, 'Search must not retain the removed Lab.');
+  for (const href of ['/users/', '/developers/', '/design/', ...designGuides]) {
+    assert.ok(index.some((entry) => entry.href === href), 'Search should include ' + href);
+  }
+  await click('#main a[href="/users/"]');
+  await until(`location.pathname==='/users/'&&document.readyState==='complete'`, 'homepage user path');
+  assert.ok(await client.evaluate(`Array.from(document.querySelectorAll('main a')).some(a=>a.getAttribute('href')==='/docs/pebble/setup/')`), 'Users need the setup guide.');
+  await screenshot('users-desktop-light');
+  await click('main a[href="/projects/timer/"]');
+  await until(`location.pathname==='/projects/timer/'&&document.readyState==='complete'`, 'user path to Timer');
+  const timer = projects.find((project) => project.slug === 'timer');
+  await click(`main a[href="${timer.guide}"]`);
+  await until(`location.pathname===${JSON.stringify(timer.guide.split('#')[0])}&&document.readyState==='complete'`, 'Timer user guide');
+  await click('[data-site-nav] a[href="/developers/"]');
+  await until(`location.pathname==='/developers/'&&document.readyState==='complete'`, 'developer hub');
+  await screenshot('developers-desktop-light');
+  await click('main a[href="/projects/activities/"]');
+  await until(`location.pathname==='/projects/activities/'&&document.readyState==='complete'`, 'developer path to Activities library');
+  await click('main a[href="/docs/develop/activities/"]');
+  await until(`location.pathname==='/docs/develop/activities/'&&document.readyState==='complete'`, 'current activity provider guide');
+  await click('[data-site-nav] a[href="/design/"]');
+  await until(`location.pathname==='/design/'&&document.readyState==='complete'`, 'design hub');
+  await screenshot('design-desktop-light');
+  await click('main a[href="/docs/design/visual-identity/"]');
+  await until(`location.pathname==='/docs/design/visual-identity/'&&document.readyState==='complete'`, 'visual identity guidance');
+  await screenshot('visual-identity-desktop-light');
+  for (const width of [768, 900, 1024, 1440]) await headerFits(width);
+  passed('User, developer and Design paths reach real projects and guides; five-section header fits intermediate widths');
 
   await theme('dark');
   await until(`document.documentElement.dataset.theme==='dark'`, 'manual dark theme');
@@ -263,10 +320,14 @@ async function runChecks() {
   await client.send('Input.insertText', { text: 'timer' });
   await until(`document.querySelectorAll('[data-search-results] a').length>0`, 'Timer search results');
   const results = await client.evaluate(`Array.from(document.querySelectorAll('[data-search-results] a')).map(a=>({href:a.getAttribute('href'),text:a.textContent}))`);
-  assert.ok(results.every((result) => result.href.startsWith('/docs/') || result.href.startsWith('/projects/')));
+  assert.ok(results.some((result) => result.href === '/projects/timer/'), 'A Timer search must find Timer itself.');
+  assert.ok(results.every((result) => result.href.startsWith('/')));
   await click('[data-search-clear]');
   await client.send('Input.insertText', { text: 'registerSourceHandler' });
   await until(`Array.from(document.querySelectorAll('[data-search-results] a')).some(a=>a.getAttribute('href')==='/docs/develop/activities/')`, 'full-text API search');
+  await click('[data-search-clear]');
+  await client.send('Input.insertText', { text: 'visual identity' });
+  await until(`Array.from(document.querySelectorAll('[data-search-results] a')).some(a=>a.getAttribute('href')==='/docs/design/visual-identity/')`, 'design guide search');
   await click('[data-search-clear]');
   await client.send('Input.insertText', { text: 'zz-no-such-xoce-guide-zz' });
   await until(`document.querySelectorAll('[data-search-results] a').length===0`, 'empty search result');
@@ -288,12 +349,25 @@ async function runChecks() {
   const destination = await client.evaluate(`document.querySelector('[data-search-results] a').getAttribute('href')`);
   await click('[data-search-results] a');
   await until(`location.pathname===${JSON.stringify(destination.split('#')[0])} && document.readyState==='complete'`, 'search result navigation');
-  passed('Search shortcut, full-text API lookup, no-results state, clear, Escape and actual navigation', { timerResults: results.length });
+  passed('Search shortcut, full-text API and Design lookup, no-results state, clear, Escape and actual navigation', { timerResults: results.length });
 
   await navigate('/projects/dynamic/');
   await screenshot('project-dynamic-desktop-light');
   await navigate('/docs/pebble/setup/');
   await screenshot('setup-guide-desktop-light');
+
+  for (const project of projects) {
+    await navigate(`/projects/${project.slug}/`);
+    const links = await client.evaluate(`Array.from(document.querySelectorAll('main a')).map(a=>a.getAttribute('href'))`);
+    assert.ok(links.includes(project.guide), project.name + ' must link its current guide.');
+    if (project.kind !== 'library') {
+      assert.ok(links.some((href) => href === '/developers/' || href.startsWith('/docs/develop/')), project.name + ' needs a developer path.');
+    } else {
+      const consumers = project.slug === 'activities' ? projects.filter((item) => item.kind !== 'library') : projects.filter((item) => ['dynamic', 'dashboard'].includes(item.slug));
+      for (const consumer of consumers) assert.ok(links.includes(`/projects/${consumer.slug}/`), project.name + ' should show ' + consumer.name + ' as a consumer.');
+    }
+  }
+  passed('Project pages connect user guides, developer integration and real consuming apps');
 
   const routes = routesFromBuild();
   for (const width of [1440, 360]) {
@@ -305,6 +379,13 @@ async function runChecks() {
   }
   passed('Every generated route renders without horizontal page overflow', { routes: routes.length, widths: [1440, 360] });
 
+  await navigate('/users/');
+  await screenshot('users-mobile-light');
+  await navigate('/developers/');
+  await screenshot('developers-mobile-light');
+  await navigate('/design/');
+  await screenshot('design-mobile-light');
+
   await navigate('/');
   await click('[data-menu-toggle]');
   assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`), 'true');
@@ -312,8 +393,8 @@ async function runChecks() {
   await key('Escape', 'Escape');
   await until(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'`, 'Escape closes mobile menu');
   await click('[data-menu-toggle]');
-  await click('[data-site-nav] a[href="/projects/"]');
-  await until(`location.pathname==='/projects/' && document.readyState==='complete'`, 'mobile menu navigation');
+  await click('[data-site-nav] a[href="/users/"]');
+  await until(`location.pathname==='/users/' && document.readyState==='complete'`, 'mobile menu navigation');
   assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`), 'false');
   await navigate('/');
   await media('dark');
@@ -326,35 +407,16 @@ async function runChecks() {
 
   await viewport(1440, 1000);
   await media('light', 'reduce');
-  await navigate('/lab/');
-  await until(`!!document.querySelector('[data-window="notes"]')?.style.left`, 'workspace initial layout');
-  const position = `(()=>{const window=document.querySelector('[data-window="notes"]');return{x:parseFloat(window.style.left),y:parseFloat(window.style.top)};})()`;
-  const initialPosition = await client.evaluate(position);
-  await client.evaluate(`document.querySelector('[data-window="notes"]').focus()`);
-  await key('ArrowRight', 'ArrowRight');
-  await key('ArrowDown', 'ArrowDown');
-  assert.deepEqual(await client.evaluate(position), { x: initialPosition.x + 12, y: initialPosition.y + 12 });
-  await click('[data-workspace-reset]');
-  assert.deepEqual(await client.evaluate(position), initialPosition);
-  const drag = await client.evaluate(`(()=>{const title=document.querySelector('[data-window="notes"] .window-title');title.scrollIntoView({block:'center'});const box=title.getBoundingClientRect();return{x:box.left+30,y:box.top+box.height/2};})()`);
-  await client.send('Input.dispatchMouseEvent', { type: 'mousePressed', button: 'left', clickCount: 1, ...drag });
-  await client.send('Input.dispatchMouseEvent', { type: 'mouseMoved', button: 'left', buttons: 1, x: drag.x + 30, y: drag.y + 24 });
-  await client.send('Input.dispatchMouseEvent', { type: 'mouseReleased', button: 'left', clickCount: 1, x: drag.x + 30, y: drag.y + 24 });
-  assert.deepEqual(await client.evaluate(position), { x: initialPosition.x + 30, y: initialPosition.y + 24 });
-  await click('[data-workspace-reset]');
-  assert.deepEqual(await client.evaluate(position), initialPosition);
-  const unboundedWindows = await client.evaluate(`Array.from(document.querySelectorAll('[data-window]')).filter(el=>{const canvas=el.closest('[data-workspace-canvas]');const x=parseFloat(el.style.left),y=parseFloat(el.style.top);return x<0||y<0||x+el.offsetWidth>canvas.clientWidth+1||y+el.offsetHeight>canvas.clientHeight+1;}).map(el=>el.dataset.window)`);
-  assert.deepEqual(unboundedWindows, []);
-  passed('Workspace study supports keyboard movement, pointer drag and reset within its bounds');
+  await navigate('/design/');
   const motion = await client.evaluate(`Array.from(document.querySelectorAll('*')).filter(el=>el.getClientRects().length>0).flatMap(el=>{
     const style=getComputedStyle(el);const durations=[...style.animationDuration.split(','),...style.transitionDuration.split(',')].map(x=>parseFloat(x)||0);
     return Math.max(...durations)>.1?[{tag:el.tagName,class:el.className,durations}]:[];})`);
   assert.deepEqual(motion, [], 'Respect reduced motion for animations and transitions.');
-  await screenshot('lab-desktop-reduced-motion');
+  await screenshot('design-desktop-reduced-motion');
   passed('Reduced-motion preference');
 
   await client.send('Emulation.setScriptExecutionDisabled', { value: true });
-  for (const route of ['/', '/projects/', '/docs/']) {
+  for (const route of ['/', '/projects/', '/users/', '/developers/', '/design/', '/docs/']) {
     await navigate(route);
     assert.ok(await client.evaluate(`document.querySelector('main').innerText.trim().length>100`), 'Primary content must exist without client JavaScript.');
   }
@@ -371,14 +433,21 @@ async function runChecks() {
   await noOverflow('/projects/', 360);
   assert.equal((await client.evaluate(visibleKinds)).length, projects.length);
   assert.ok(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-filter],[data-search-open]')).every(el=>!el.getClientRects().length||getComputedStyle(el).display==='none')`), 'Hide controls that require JavaScript when scripting is disabled.');
-  await navigate('/lab/');
-  await noOverflow('/lab/', 360);
-  const staticWindows = await client.evaluate(`Array.from(document.querySelectorAll('[data-window]')).map(el=>{const rect=el.getBoundingClientRect();return{top:rect.top,bottom:rect.bottom};}).sort((a,b)=>a.top-b.top)`);
-  assert.equal(staticWindows.length, 3);
-  assert.ok(staticWindows.every((rect, index) => index === 0 || rect.top >= staticWindows[index - 1].bottom - 1), 'Mobile study content must stack without JavaScript.');
-  await screenshot('lab-mobile-no-javascript');
+  await click('[data-site-nav] a[href="/developers/"]');
+  await until(`location.pathname==='/developers/'&&document.readyState==='complete'`, 'developer hub without JavaScript');
+  await noOverflow('/developers/', 360);
+  await click('[data-site-nav] a[href="/design/"]');
+  await until(`location.pathname==='/design/'&&document.readyState==='complete'`, 'design hub without JavaScript');
+  await click('main a[href="/docs/design/ui-patterns/"]');
+  await until(`location.pathname==='/docs/design/ui-patterns/'&&document.readyState==='complete'`, 'UI patterns without JavaScript');
+  await noOverflow('/docs/design/ui-patterns/', 360);
+  await screenshot('design-guide-mobile-no-javascript');
+  await click('.docs-mobile-nav summary');
+  await click('.docs-mobile-nav a[href="/docs/design/interaction/"]');
+  await until(`location.pathname==='/docs/design/interaction/'&&document.readyState==='complete'`, 'contextual Design guide navigation');
+  await noOverflow('/docs/design/interaction/', 360);
   await client.send('Emulation.setScriptExecutionDisabled', { value: false });
-  passed('Core content, mobile navigation and static Lab remain usable without browser JavaScript');
+  passed('User/developer/Design content, mobile global navigation and contextual guide navigation work without JavaScript');
   assert.deepEqual(exceptions, [], 'Unexpected browser JavaScript errors');
   assert.deepEqual(failedResponses, [], 'Missing local pages or assets');
   passed('No browser exceptions or local HTTP failures');

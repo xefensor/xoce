@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Troubleshooting
 description: Find help with missing activities, settings, permissions and Quick Launch handoff.
-section: Use XOCE
+section: For users
 order: 4
 ---
 

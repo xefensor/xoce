@@ -2,7 +2,7 @@
 layout: ../../../layouts/DocLayout.astro
 title: Set up your Pebble
 description: Install the Pebble development builds, configure activities and choose Quick Launch shortcuts.
-section: Use XOCE
+section: For users
 order: 2
 ---
 
