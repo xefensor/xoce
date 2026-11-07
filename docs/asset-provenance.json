@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "prepared_on": "2026-11-07",
-  "scope": "XOCE local website native product screenshots and official Pebble Appstore device frame",
+  "scope": "XOCE website native product screenshots and official Pebble Appstore device frame",
   "recommended_caption": "Native emulator previews. Example data.",
   "notes": [
     "The original four versioned native captures remain unchanged. Four current-release captures were added on 2026-11-07 under new filenames; their native pixels are unchanged.",
@@ -29,9 +29,15 @@
     "native_capture_pixel_changes": "none",
     "native_capture_aspect_ratio": "200:228, fitted without stretching; matte black fills unused display aperture.",
     "physical_watch_test_evidence": false,
-    "licence_status": "No asset-specific permissive licence has been verified. The source-provided asset is included for local review; this provenance record grants no additional licence.",
-    "distribution_scope": "local-review-only",
-    "note": "The official transparent PNG is used unchanged around separately rendered native emulator captures. Neither the composited preview nor the source frame establishes physical-watch verification."
+    "licence_status": "No asset-specific permissive licence has been independently verified; this provenance record grants no additional licence.",
+    "distribution_scope": "public-website-at-owner-request",
+    "note": "The official transparent PNG is used unchanged around separately rendered native emulator captures. Neither the composited preview nor the source frame establishes physical-watch verification.",
+    "publication_decision": {
+      "date": "2026-11-07",
+      "requested_by": "Xef",
+      "instruction": "use the pebble frame but make it better",
+      "scope": "Retain the existing source-provided frame in the GitHub Pages website; improve presentation without changing the frame or native capture pixels."
+    }
   },
   "images": [
     {

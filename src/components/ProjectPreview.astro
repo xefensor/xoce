@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/site';
 import type { Project } from '../data/projects';
 import Icon from './Icon.astro';
 import WatchPreview from './WatchPreview.astro';
@@ -11,7 +12,7 @@ const watch = project.previewType === 'watch';
   <div class="device-preview"><WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} on a Pebble Time 2`} eager={eager} /></div>
 ) : project.image ? (
   <div class:list={['screenshot-preview', { 'watch-screenshot': watch, 'phone-screenshot': project.previewType === 'phone', 'compact-preview': compact }]}>
-    <img src={project.image} alt={project.imageAlt ?? `${project.name} screenshot`} width={watch ? 200 : undefined} height={watch ? 228 : undefined} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <img src={sitePath(project.image)} alt={project.imageAlt ?? `${project.name} screenshot`} width={watch ? 200 : undefined} height={watch ? 228 : undefined} loading={eager ? 'eager' : 'lazy'} decoding="async" />
   </div>
 ) : (
   <div class:list={['project-symbol', { 'compact-preview': compact }]} aria-hidden={compact ? 'true' : undefined}>

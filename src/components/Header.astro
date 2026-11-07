@@ -1,7 +1,8 @@
 ---
+import { sitePath, routePath } from '../lib/site';
 import Icon from './Icon.astro';
 import { projects } from '../data/projects';
-const path = Astro.url.pathname;
+const path = routePath(Astro.url.pathname);
 const currentProject = projects.find(project => path.startsWith(`/projects/${project.slug}/`));
 const appsCurrent = currentProject ? currentProject.kind !== 'library' : ['/projects/', '/android/', '/pebble/'].some(prefix => path.startsWith(prefix));
 const links = [
@@ -12,9 +13,9 @@ const links = [
 ---
 <header class="site-header">
   <div class="header-inner wrap">
-    <a class="brand" href="/" aria-label="XOCE home"><span class="brand-name">XOCE</span></a>
+    <a class="brand" href={sitePath('/')} aria-label="XOCE home"><span class="brand-name">XOCE</span></a>
     <nav id="site-navigation" data-site-nav aria-label="Main navigation">
-      {links.map(link => <a href={link.href} aria-current={path === link.href ? 'page' : link.current ? 'true' : undefined}>{link.label}</a>)}
+      {links.map(link => <a href={sitePath(link.href)} aria-current={path === link.href ? 'page' : link.current ? 'true' : undefined}>{link.label}</a>)}
     </nav>
     <div class="header-actions">
       <button class="search-trigger" data-search-open aria-label="Search XOCE" aria-haspopup="dialog"><Icon name="search" size={18} /><span>Search</span><kbd data-search-shortcut>Ctrl K</kbd></button>

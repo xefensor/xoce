@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import WatchPreview from '../components/WatchPreview.astro';
@@ -13,15 +14,15 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
         <h1 id="intro-title">Everyday apps.<br/><span>Built to connect.</span></h1>
         <p class="intro-description">A project for KDE Plasma, Android and PebbleOS. The goal: open-source everyday apps and shared tasks across your desktop, phone and watch.</p>
         <p class="intro-status"><span class="status-dot" aria-hidden="true"></span>Starting with four Pebble apps.</p>
-        <div class="button-row intro-actions"><a class="button button-primary" href="/projects/">Explore the software <Icon name="arrow" size={18}/></a><a class="text-link" href="/about/">Why XOCE <Icon name="arrow" size={17}/></a></div>
+        <div class="button-row intro-actions"><a class="button button-primary" href={sitePath('/projects/')}>Explore the software <Icon name="arrow" size={18}/></a><a class="text-link" href={sitePath('/about/')}>Why XOCE <Icon name="arrow" size={17}/></a></div>
       </div>
       <fieldset id="current-work" class="watch-showcase glass" data-home-current-work>
         <legend class="sr-only">Preview the current Pebble apps</legend>
-        <div class="showcase-heading"><span class="eyebrow">On the watch today</span><a href="/pebble/">Pebble Time 2 <Icon name="arrow" size={14}/></a></div>
+        <div class="showcase-heading"><span class="eyebrow">On the watch today</span><a href={sitePath('/pebble/')}>Pebble Time 2 <Icon name="arrow" size={14}/></a></div>
         {apps.map((app, index) => <input class="preview-radio sr-only" type="radio" name="watch-preview" id={`preview-${app.slug}`} value={app.slug} checked={index === 0} aria-label={`Preview ${app.name}`} />)}
         <div class="watch-stages">{apps.map((app, index) => <div class="watch-stage" data-watch-preview={app.slug}>
           <WatchPreview image={app.image!} alt={`${app.name} emulator screen in the official Pebble Time 2 frame.`} eager={index === 0}/>
-          <div class="watch-stage-caption"><p class="preview-type">{app.kind === 'watchface' ? 'Watchface' : 'Watch app'}</p><h2>{app.name}</h2><p class="preview-type">v{app.imageVersion} · native emulator</p><p class="preview-description">{app.description}</p><a href={`/projects/${app.slug}/`} class="text-link"><span>Explore {app.name}</span><Icon name="arrow" size={16}/></a></div>
+          <div class="watch-stage-caption"><p class="preview-type">{app.kind === 'watchface' ? 'Watchface' : 'Watch app'}</p><h2>{app.name}</h2><p class="preview-type">v{app.imageVersion} · native emulator</p><p class="preview-description">{app.description}</p><a href={sitePath(`/projects/${app.slug}/`)} class="text-link"><span>Explore {app.name}</span><Icon name="arrow" size={16}/></a></div>
         </div>)}</div>
         <div class="watch-choices" aria-label="Choose a screen to preview">{apps.map(app => <label for={`preview-${app.slug}`}>{app.name}</label>)}</div>
         <p class="showcase-note">Emulator screens · official device frame</p>
@@ -37,11 +38,11 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
 
     <section class="current-downloads" aria-labelledby="downloads-title">
       <div><p class="eyebrow">Available now · development builds</p><h2 id="downloads-title">Start on Pebble Time 2.</h2><p>Try a countdown in Timer and follow it on Dynamic. Add Dashboard for an overview, or Open Activity to jump into the app behind an update.</p></div>
-      <div class="download-actions"><a class="text-link" href="/projects/#available-apps">Get the Pebble apps <Icon name="download" size={18}/></a><a class="text-link" href="/docs/pebble/setup/">Installation and requirements <Icon name="arrow" size={17}/></a><p>Activity features need the Pebble phone app’s plugin preview.</p></div>
+      <div class="download-actions"><a class="text-link" href={sitePath('/projects/#available-apps')}>Get the Pebble apps <Icon name="download" size={18}/></a><a class="text-link" href={sitePath('/docs/pebble/setup/')}>Installation and requirements <Icon name="arrow" size={17}/></a><p>Activity features need the Pebble phone app’s plugin preview.</p></div>
     </section>
 
     <section id="approach" class="connected-section" aria-labelledby="connected-title" data-home-ecosystem>
-      <div class="connected-copy"><p class="eyebrow">Where this could lead</p><h2 id="connected-title">One timer.<br/>Whichever device is handy.</h2><p>Set it on your phone. Check it on your watch. Pause it from your computer. One countdown, with the same remaining time everywhere.</p><p class="connection-status">This is a future goal. Today’s apps share activities on the watch; connecting the desktop, phone and watch still lies ahead.</p><a class="text-link" href="/about/#connected-devices">The idea behind the ecosystem <Icon name="arrow" size={17}/></a></div>
+      <div class="connected-copy"><p class="eyebrow">Where this could lead</p><h2 id="connected-title">One timer.<br/>Whichever device is handy.</h2><p>Set it on your phone. Check it on your watch. Pause it from your computer. One countdown, with the same remaining time everywhere.</p><p class="connection-status">This is a future goal. Today’s apps share activities on the watch; connecting the desktop, phone and watch still lies ahead.</p><a class="text-link" href={sitePath('/about/#connected-devices')}>The idea behind the ecosystem <Icon name="arrow" size={17}/></a></div>
       <figure class="connection-concept glass" aria-label="Future concept: one shared timer available on desktop, phone and watch">
         <div class="concept-top"><span class="eyebrow">Shared timer</span><span class="status-label">Future concept</span></div>
         <div class="shared-timer"><Icon name="clock" size={38}/><strong>One countdown</strong><span>View it. Pause it. Resume it.</span></div>
@@ -52,11 +53,11 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
     </section>
 
     <section class="project-direction" aria-labelledby="direction-title">
-      <header><div><p class="eyebrow">Small steps, a wider idea</p><h2 id="direction-title">Start with apps. Build from there.</h2></div><a class="text-link" href="/about/#stages">Read the project plan <Icon name="arrow" size={17}/></a></header>
+      <header><div><p class="eyebrow">Small steps, a wider idea</p><h2 id="direction-title">Start with apps. Build from there.</h2></div><a class="text-link" href={sitePath('/about/#stages')}>Read the project plan <Icon name="arrow" size={17}/></a></header>
       <ol><li><span>01 · Starting here</span><h3>Small, replaceable apps</h3><p>Useful tools and a manageable place to try new ideas.</p></li><li><span>02 · Later</span><h3>Dependable daily software</h3><p>Stable editions, alongside separate interface experiments.</p></li><li><span>03 · Longer term</span><h3>Deeper system work</h3><p>Build further into Android, PebbleOS and the desktop.</p></li></ol>
     </section>
 
-    <section class="home-participate" aria-labelledby="participate-title"><div class="participate-heading"><div><p class="eyebrow">An early project, started by Xef</p><h2 id="participate-title">A useful place to start.</h2></div><p>Try an app, report what gets in your way, or help shape what comes next.</p></div><nav aria-label="Use and contribute"><a href="/docs/"><span><strong>Use the software</strong><small>Set up your watch and try the apps</small></span><Icon name="arrow" size={19}/></a><a href="/docs/develop/building/"><span><strong>Build from source</strong><small>Repositories, libraries and build instructions</small></span><Icon name="arrow" size={19}/></a><a href="/about/#contribute"><span><strong>Help build XOCE</strong><small>Code, design, documentation and bug reports</small></span><Icon name="arrow" size={19}/></a></nav></section>
+    <section class="home-participate" aria-labelledby="participate-title"><div class="participate-heading"><div><p class="eyebrow">An early project, started by Xef</p><h2 id="participate-title">A useful place to start.</h2></div><p>Try an app, report what gets in your way, or help shape what comes next.</p></div><nav aria-label="Use and contribute"><a href={sitePath('/docs/')}><span><strong>Use the software</strong><small>Set up your watch and try the apps</small></span><Icon name="arrow" size={19}/></a><a href={sitePath('/docs/develop/building/')}><span><strong>Build from source</strong><small>Repositories, libraries and build instructions</small></span><Icon name="arrow" size={19}/></a><a href={sitePath('/about/#contribute')}><span><strong>Help build XOCE</strong><small>Code, design, documentation and bug reports</small></span><Icon name="arrow" size={19}/></a></nav></section>
   </main>
 </BaseLayout>
 <style>
@@ -74,7 +75,7 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
   .showcase-heading > a { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; font-size: .75rem; text-decoration: none; color: var(--muted); }
   .showcase-heading > a:hover { text-decoration: underline; }
   .watch-stage { display: none; grid-template-columns: minmax(0,1.18fr) minmax(0,1fr); gap: 18px; align-items: center; padding-block: 13px 17px; }
-  .watch-stage :global(.watch-preview) { --watch-width: 222px; margin-inline: auto; }
+  .watch-stage :global(.watch-preview) { --watch-width: 244px; margin-inline: auto; }
   #preview-dynamic:checked ~ .watch-stages [data-watch-preview='dynamic'], #preview-dashboard:checked ~ .watch-stages [data-watch-preview='dashboard'], #preview-timer:checked ~ .watch-stages [data-watch-preview='timer'], #preview-open-activity:checked ~ .watch-stages [data-watch-preview='open-activity'] { display: grid; }
   .watch-stage-caption { min-width: 0; }
   .preview-type { color: var(--muted); font-size: .6875rem; }
@@ -133,6 +134,14 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
     .connected-section { grid-template-columns: minmax(0,1fr); gap: 24px; padding-block: 33px; }.connected-copy h2 { font-size: 2rem; }.connected-copy p:not(.eyebrow) { margin-top: 16px; font-size: .9375rem; }.connected-copy .text-link { font-size: .8125rem; }.connection-concept { padding: 19px; }.connected-devices,.connection-branches { width: 90%; }
     .project-direction { padding-block: 31px; }.project-direction h2 { font-size: 1.65rem; }.project-direction ol { grid-template-columns: minmax(0,1fr); gap: 19px; margin-top: 23px; }.project-direction li { display: grid; grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr); gap: 7px 20px; padding-top: 16px; }.project-direction li > span { grid-row: 1 / 3; }.project-direction h3 { margin-top: 0; }.project-direction li p { grid-column: 2; margin-top: 0; font-size: .8125rem; }
     .home-participate { padding-block: 29px 0; }.participate-heading { align-items: start; flex-direction: column; gap: 14px; }.home-participate h2 { font-size: 1.75rem; }.participate-heading > p { max-width: 45ch; font-size: .875rem; }.home-participate nav { grid-template-columns: minmax(0,1fr); gap: 0; margin-top: 20px; }.home-participate nav > a { padding-block: 15px; border-top: 0; }.home-participate nav > a:first-child { border-top: 1px solid var(--line); }.home-participate small { font-size: .8125rem; }
+  }
+  @media (max-width: 480px) {
+    .watch-stage { grid-template-columns: minmax(0,1fr); gap: 9px; }
+    .watch-stage :global(.watch-preview) { --watch-width: 244px; }
+    .watch-stage-caption { text-align: center; }
+    .watch-stage-caption h2 { margin-top: 4px; }
+    .preview-description { max-width: 34ch; margin: 7px auto 0; }
+    .watch-stage-caption .text-link { margin-inline: auto; }
   }
   @media (max-width: 380px) { .project-full-name { font-size: .75rem; }.watch-stage { gap: 12px; }.preview-description { font-size: .75rem; line-height: 1.65; }.project-direction li { grid-template-columns: minmax(0,.6fr) minmax(0,1.4fr); gap: 7px 14px; } }
 </style>

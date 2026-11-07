@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Audit the generated site, including links that only exist on secondary pages.
 import assert from 'node:assert/strict';
+import { basePath, sitePath, routePath } from '../src/lib/site.ts';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -32,7 +33,7 @@ function pageRoute(filename) {
   return relative === 'index.html' ? '/' : '/' + relative.replace(/index\.html$/, '');
 }
 
-function references(html) {
+function references(html, canonical = true) {
   const markup = html.replace(/(<(?:script|style)\b[^>]*>)[\s\S]*?<\/(?:script|style)>/gi, '$1</script>');
   const values = [];
   for (const tag of markup.match(/<[a-z][^>]*>/gi) || []) {
@@ -44,7 +45,7 @@ function references(html) {
       } else values.push(decode(match[3]));
     }
   }
-  return values;
+  return canonical ? values.map(routePath) : values;
 }
 
 const files = walk(dist);
@@ -104,13 +105,18 @@ function checkReference(value, from) {
     return;
   }
   let url;
-  try { url = new URL(value, 'https://xoce.invalid' + from); }
+  try { url = new URL(value, 'https://xoce.invalid' + sitePath(from)); }
   catch { problems.push(`${from}: malformed URL ${value}`); return; }
   if (url.origin !== 'https://xoce.invalid') return;
   checkedReferences++;
   let pathname;
   try { pathname = decodeURIComponent(url.pathname); }
   catch { problems.push(`${from}: invalid URL encoding ${value}`); return; }
+  if (!pathname.startsWith(basePath)) {
+    problems.push(`${from}: reference escapes the GitHub Pages base: ${value}`);
+    return;
+  }
+  pathname = routePath(pathname);
   let destination = path.resolve(dist, '.' + pathname);
   if (destination !== dist && !destination.startsWith(dist + path.sep)) {
     problems.push(`${from}: path leaves the site ${value}`);
@@ -133,7 +139,7 @@ function checkReference(value, from) {
 }
 
 for (const [route, page] of pages) {
-  for (const reference of page.references) checkReference(reference, route);
+  for (const reference of references(page.html, false)) checkReference(reference, route);
 }
 const redirects = {
   '/users/': '/docs/',
@@ -149,7 +155,8 @@ for (const [route, destination] of Object.entries(redirects)) {
   if (!/<meta\b[^>]*http-equiv="refresh"/i.test(html) || !references(html).includes(destination)) {
     problems.push(`${route}: compatibility route must redirect directly, with a visible link and no-JavaScript fallback`);
   }
-  checkReference(destination, route);
+  if (!html.includes(`content="0;url=${sitePath(destination)}"`)) problems.push(`${route}: refresh must use the project base`);
+  checkReference(sitePath(destination), route);
   for (const match of html.matchAll(/\bdata-fragments="([^"]*)"/g)) {
     try { for (const target of Object.values(JSON.parse(decode(match[1])))) checkReference(target, route); }
     catch { problems.push(`${route}: invalid compatibility fragment mapping`); }
@@ -247,10 +254,12 @@ for (const project of projects) {
   if (project.image && !links.includes(project.image)) problems.push(`${route}: missing the native product capture`);
 }
 const provenance = JSON.parse(fs.readFileSync(path.join(root, 'docs/asset-provenance.json'), 'utf8'));
-for (const entry of provenance.images) {
+for (const entry of [provenance.device_presentation, ...provenance.images]) {
   const filename = path.join(root, 'public', entry.site_path);
   if (!fs.existsSync(filename)) { problems.push('Missing native capture ' + entry.site_path); continue; }
   const bytes = fs.readFileSync(filename);
+  const published = path.join(dist, entry.site_path);
+  if (!fs.existsSync(published) || createHash('sha256').update(fs.readFileSync(published)).digest('hex') !== entry.sha256) problems.push('Published asset differs from provenance: ' + entry.site_path);
   if (createHash('sha256').update(bytes).digest('hex') !== entry.sha256) problems.push('Native capture pixels changed: ' + entry.site_path);
   if (bytes.readUInt32BE(16) !== entry.width || bytes.readUInt32BE(20) !== entry.height) problems.push('Native capture dimensions changed: ' + entry.site_path);
 }
@@ -265,15 +274,15 @@ else {
   const entries = JSON.parse(fs.readFileSync(searchPath, 'utf8'));
   if (!Array.isArray(entries)) problems.push('Search index must be an array');
   else {
-    const destinations = entries.map(entry => entry.href);
+    const destinations = entries.map(entry => routePath(entry.href));
     if (new Set(destinations).size !== destinations.length) problems.push('Duplicate search destinations');
     for (const entry of entries) {
       if (typeof entry.href !== 'string' || !entry.title || !entry.description) { problems.push('Incomplete search entry'); continue; }
-      if (entry.href.startsWith('/lab/') || Object.hasOwn(redirects, entry.href)) problems.push('Search advertises a removed page or alias: ' + entry.href);
+      if (entry.href.startsWith('/lab/') || Object.hasOwn(redirects, routePath(entry.href))) problems.push('Search advertises a removed page or alias: ' + entry.href);
       checkReference(entry.href, '/search.json');
     }
     if (products.filter(project => project.availability === 'planned').some(project => destinations.includes(`/projects/${project.slug}/`))) problems.push('Search must present future Phone work in About, rather than as available software');
-    const phoneDirection = entries.find(entry => entry.href === '/about/#phone-plan');
+    const phoneDirection = entries.find(entry => routePath(entry.href) === '/about/#phone-plan');
     if (!phoneDirection || !/planned/i.test([phoneDirection.description, phoneDirection.text, phoneDirection.section].join(' '))) problems.push('Search must identify the contextual Android/Phone direction as planned');
     const expected = ['/projects/', '/pebble/', '/docs/', '/about/', '/about/#phone-plan', ...docs.map(doc => doc.href === '/docs/getting-started/' ? '/docs/' : doc.href), ...projects.filter(project => project.availability !== 'planned').map(project => `/projects/${project.slug}/`)];
     for (const route of expected) if (!destinations.includes(route)) problems.push('Search is missing ' + route);
@@ -283,7 +292,7 @@ if (problems.length) {
   console.error(problems.join('\n'));
   process.exitCode = 1;
 } else {
-  console.log(JSON.stringify({ passed:true, pages:pages.size, internalReferences:checkedReferences,
+  console.log(JSON.stringify({ passed:true, base:basePath, pages:pages.size, internalReferences:checkedReferences,
     anchors:checkedAnchors, referencedAssets:checkedAssets.size, catalogueProducts:catalogueProducts.length,
     downloadableApps:catalogueProducts.filter(project => project.download).length, plannedProjects:planned.length,
     libraries:libraries.length, guides:docs.length, preservedNativeCaptures:provenance.images.filter(entry => !entry.current_release_capture).length,

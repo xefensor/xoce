@@ -1,11 +1,15 @@
 # XOCE
 
-The local static website and documentation for **XOCE — Xef’s Open Computing Ecosystem**,
+The static website and documentation for **XOCE — Xef’s Open Computing Ecosystem**,
 covering PebbleOS projects and the planned Android/KDE direction.
 
 The catalogue links to published GitHub releases. Current downloads are Pebble development
-builds; cross-device synchronization and Phone remain plans. The website has no published
-download, configured hosting or deployment.
+builds; cross-device synchronization and Phone remain plans.
+
+**[Visit XOCE](https://xefensor.github.io/xoce/)** · [Source](https://github.com/xefensor/xoce) · [Actions](https://github.com/xefensor/xoce/actions/workflows/checks.yml)
+
+GitHub Pages deploys `main` after type, build, link, documentation and desktop/mobile
+browser checks pass. Pull requests run the same checks without deployment.
 
 ## Run locally
 
@@ -17,8 +21,8 @@ npm test
 npm run dev
 ```
 
-Open the local URL printed by Astro, normally http://127.0.0.1:4321/. `npm run build` writes
-`dist/`; `npm run preview` serves it on 127.0.0.1:4322. Navigation and articles support keyboard
+Open the local URL printed by Astro, normally http://127.0.0.1:4321/xoce/. `npm run build` writes
+`dist/`; `npm run preview` serves it at http://127.0.0.1:4322/xoce/. Navigation and articles support keyboard
 and no-JavaScript use. No backend or Pebble SDK is required.
 
 ## Content and compatibility

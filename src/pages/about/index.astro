@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../../lib/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
 import { projects } from '../../data/projects';
@@ -34,7 +35,7 @@ const stages = [
 
     <section id="everyday-software" class="about-section two-column" aria-labelledby="everyday-title">
       <div><p class="eyebrow">Why start small?</p><h2 id="everyday-title">Make something useful.<br/>Learn from using it.</h2></div>
-      <div class="reading-copy"><p>A timer is a manageable place to try an idea. If it does not work for you, another app can take its place. That makes small, replaceable tools a useful first step towards a much larger project.</p><p>The wider focus is everyday software: messaging, calls, file management, notes, terminals and more. The exact apps and priorities will develop with the project. Making a task understandable matters as much as adding features; a different interface is worth exploring when it could make that task easier.</p><p id="phone-plan">Phone is planned as a standalone Android app, with an optional Pebble companion. <a href="/projects/phone/">Read the Phone plan.</a></p><a class="text-link" href="/projects/">See the current software <Icon name="arrow" size={17}/></a></div>
+      <div class="reading-copy"><p>A timer is a manageable place to try an idea. If it does not work for you, another app can take its place. That makes small, replaceable tools a useful first step towards a much larger project.</p><p>The wider focus is everyday software: messaging, calls, file management, notes, terminals and more. The exact apps and priorities will develop with the project. Making a task understandable matters as much as adding features; a different interface is worth exploring when it could make that task easier.</p><p id="phone-plan">Phone is planned as a standalone Android app, with an optional Pebble companion. <a href={sitePath('/projects/phone/')}>Read the Phone plan.</a></p><a class="text-link" href={sitePath('/projects/')}>See the current software <Icon name="arrow" size={17}/></a></div>
     </section>
 
     <section id="connected-devices" class="connection-goal" aria-labelledby="connections-title">
@@ -55,13 +56,13 @@ const stages = [
       <div><p class="eyebrow">Take part</p><h2 id="contribute-title">Start with something<br/>you want to improve.</h2><p class="contribution-context">Try a build, work on an interface, fix a guide or contribute code. The current app repositories are the place to report problems and propose changes.</p></div>
       <div class="reading-copy">
         <p>Found a problem? Include the app version, your watch and phone, what you did, and what you expected to happen.</p>
-        <nav class="issue-links" aria-label="Report a problem with an app">{maintained.map(project => <a href={`${project.repo}/issues`}><span>{project.name}</span><span>Issues <Icon name="external" size={14}/></span></a>)}</nav>
-        <p>For code or documentation changes, use the <a href="/docs/develop/building/">build and contribution instructions</a>. To make an activity provider, start with the <a href="/docs/develop/activities/">Activities guide</a>.</p>
+        <nav class="issue-links" aria-label="Report a problem with an app">{maintained.map(project => <a href={sitePath(`${project.repo}/issues`)}><span>{project.name}</span><span>Issues <Icon name="external" size={14}/></span></a>)}</nav>
+        <p>For code or documentation changes, use the <a href={sitePath('/docs/develop/building/')}>build and contribution instructions</a>. To make an activity provider, start with the <a href={sitePath('/docs/develop/activities/')}>Activities guide</a>.</p>
       </div>
     </section>
 
     <section id="source-and-licences" class="source-note" aria-labelledby="source-title">
-      <h2 id="source-title">Source and licences</h2><p>The open-source ecosystem is the project’s aim. Current Pebble releases make their source available under <strong>PolyForm Noncommercial 1.0.0</strong>. Check each project’s terms before reusing its source or assets.</p><a class="text-link" href="/docs/project/licensing/">Licences and asset credits <Icon name="arrow" size={16}/></a>
+      <h2 id="source-title">Source and licences</h2><p>The open-source ecosystem is the project’s aim. Current Pebble releases make their source available under <strong>PolyForm Noncommercial 1.0.0</strong>. Check each project’s terms before reusing its source or assets.</p><a class="text-link" href={sitePath('/docs/project/licensing/')}>Licences and asset credits <Icon name="arrow" size={16}/></a>
     </section>
   </main>
 </BaseLayout>

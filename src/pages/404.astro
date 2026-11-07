@@ -1,5 +1,6 @@
 ---
+import { sitePath } from '../lib/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 ---
-<BaseLayout title="Page not found"><main id="main" class="wrap error-page"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">This address doesn’t lead to a page. Find an app or browse the guides.</p><div class="button-row"><a class="button button-primary" href="/projects/">Browse apps <Icon name="arrow" size={18}/></a><a class="button button-plain" href="/docs/">Browse guides <Icon name="book" size={18}/></a></div></main></BaseLayout>
+<BaseLayout title="Page not found"><main id="main" class="wrap error-page"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">This address doesn’t lead to a page. Find an app or browse the guides.</p><div class="button-row"><a class="button button-primary" href={sitePath('/projects/')}>Browse apps <Icon name="arrow" size={18}/></a><a class="button button-plain" href={sitePath('/docs/')}>Browse guides <Icon name="book" size={18}/></a></div></main></BaseLayout>

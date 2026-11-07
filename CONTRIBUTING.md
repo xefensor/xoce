@@ -28,11 +28,11 @@ npm run dev
 ```
 
 `npm test` checks types, builds static pages, validates links/references and checks active
-documentation links. `npm run preview` serves `dist/` on 127.0.0.1:4322. For real Chromium
+documentation links. `npm run preview` serves `dist/` at http://127.0.0.1:4322/xoce/. For real Chromium
 checks of the built site:
 
 ```sh
-XOCE_SITE_URL=http://127.0.0.1:4322/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
+XOCE_SITE_URL=http://127.0.0.1:4322/xoce/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
 ```
 
 Keep development and preview servers local. Disposable browser evidence belongs in ignored
@@ -47,10 +47,18 @@ catalogue moves to a newer release.
 
 Read [maintenance contracts](docs/MAINTENANCE.md) and the [publication
 boundary](docs/RELEASING.md). No hosting, deployment, app release tooling or backend is needed
-for routine website work. Commit coherent authorized maintenance locally; do not push or publish
-implicitly.
+for routine local website work. A push to `main` deploys to GitHub Pages after checks pass;
+only push when authorized. Development uses http://127.0.0.1:4321/xoce/.
+
+`src/lib/site.ts` owns the public origin and base path. Use `sitePath()` for template
+links/assets and `routePath()` when comparing a request path with canonical catalogue
+routes. Markdown URLs receive the same prefix through the Sätteri plugin. Preserve the
+existing dependency pins; the Markdown processor is declared directly at the version
+already locked by Astro.
 
 [History index](docs/history/index.md).
 
 Ordinary GitHub CI also runs the browser suite using the hosted runner’s Chrome and
-retains its report/screenshots for 14 days. This checks the built site without deployment.
+retains its report/screenshots for 14 days. Successful `main` runs then publish the exact
+checked build; pull requests and other branches do not deploy. See the publication guide
+for manual reruns and recovery.

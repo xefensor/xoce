@@ -1,12 +1,13 @@
 ---
+import { sitePath } from '../lib/site';
 import Icon from './Icon.astro';
 ---
 <footer class="site-footer wrap">
-  <div><a class="brand footer-brand" href="/"><span class="brand-name">XOCE</span></a><p>Xef’s Open Computing Ecosystem.<br />KDE Plasma · Android · PebbleOS</p></div>
+  <div><a class="brand footer-brand" href={sitePath('/')}><span class="brand-name">XOCE</span></a><p>Xef’s Open Computing Ecosystem.<br />KDE Plasma · Android · PebbleOS</p></div>
   <nav aria-label="Footer navigation">
-    <div><span class="footer-nav-title">Software</span><a href="/projects/">All software</a><a href="/pebble/">PebbleOS</a></div>
-    <div><span class="footer-nav-title">Docs</span><a href="/docs/">Getting started</a><a href="/docs/pebble/controls/">Watch controls</a><a href="/docs/pebble/troubleshooting/">Troubleshooting</a><a href="/docs/develop/building/">For developers</a></div>
-    <div><span class="footer-nav-title">Project</span><a href="/about/">About XOCE</a><a href="/about/#stages">Project plan</a><a href="/about/#contribute">Contribute</a><a href="/docs/project/licensing/">Source & licences</a><a href="https://github.com/xefensor">GitHub <Icon name="external" size={15} /></a></div>
+    <div><span class="footer-nav-title">Software</span><a href={sitePath('/projects/')}>All software</a><a href={sitePath('/pebble/')}>PebbleOS</a></div>
+    <div><span class="footer-nav-title">Docs</span><a href={sitePath('/docs/')}>Getting started</a><a href={sitePath('/docs/pebble/controls/')}>Watch controls</a><a href={sitePath('/docs/pebble/troubleshooting/')}>Troubleshooting</a><a href={sitePath('/docs/develop/building/')}>For developers</a></div>
+    <div><span class="footer-nav-title">Project</span><a href={sitePath('/about/')}>About XOCE</a><a href={sitePath('/about/#stages')}>Project plan</a><a href={sitePath('/about/#contribute')}>Contribute</a><a href={sitePath('/docs/project/licensing/')}>Source & licences</a><a href="https://github.com/xefensor">GitHub <Icon name="external" size={15} /></a></div>
   </nav>
-  <div class="footer-bottom"><span>An early project, started by Xef.</span><a href="/docs/project/licensing/">Each project has its own licence.</a></div>
+  <div class="footer-bottom"><span>An early project, started by Xef.</span><a href={sitePath('/docs/project/licensing/')}>Each project has its own licence.</a></div>
 </footer>

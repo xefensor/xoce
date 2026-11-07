@@ -2,14 +2,15 @@
 
 ## Scope
 
-This is a local static website; do not publish or configure hosting without an explicit request.
+This is the static XOCE website, hosted on GitHub Pages at https://xefensor.github.io/xoce/.
+A successful push or manual workflow run on main deploys automatically. Do not push or change hosting without authorization.
 Read [CONTRIBUTING](CONTRIBUTING.md) for setup, output locations and commit/release policy.
 The active Astro source is on main. Historical QA and screenshot evidence remains frozen.
 History is not a second active specification.
 
 ## Important boundaries
 
-Keep the site local until publication is explicitly requested. Public releases and merged-but-unpublished app implementations are distinct; catalogue/download metadata stays pinned to actual public releases. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
+Use local development/preview for validation. Preserve the established GitHub Pages deployment policy in docs/RELEASING.md. Public releases and merged-but-unpublished app implementations are distinct; catalogue/download metadata stays pinned to actual public releases. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
 
 ## Read only what the task needs
 

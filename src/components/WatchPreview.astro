@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/site';
 /** Official Pebble Appstore frame; source and credits in docs/asset-provenance.json.
  * The native screen remains a separate, unchanged image with its 200:228 ratio.
  */
@@ -15,16 +16,16 @@ const { image, alt, caption, compact = false, eager = false, class: className = 
 <figure class:list={['watch-preview', { 'watch-preview-compact': compact }, className]}>
   <div class="pebble-device" data-watch-device>
     <div class="pebble-display">
-      <img src={image} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+      <img src={sitePath(image)} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />
     </div>
-    <img class="pebble-frame" src="/images/devices/pebble-time-2.png" alt="" aria-hidden="true" width="488" height="700" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <img class="pebble-frame" src={sitePath('/images/devices/pebble-time-2.png')} alt="" aria-hidden="true" width="488" height="700" loading={eager ? 'eager' : 'lazy'} decoding="async" />
   </div>
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
 
 <style>
   .watch-preview {
-    --watch-width: 340px;
+    --watch-width: 348px;
     display: grid;
     justify-items: center;
     align-content: center;
@@ -37,7 +38,7 @@ const { image, alt, caption, compact = false, eager = false, class: className = 
     position: relative;
     width: 100%;
     aspect-ratio: 488 / 700;
-    filter: drop-shadow(0 14px 14px rgb(12 24 21 / .16));
+    filter: drop-shadow(0 2px 2px rgb(12 24 21 / .14)) drop-shadow(0 16px 18px rgb(12 24 21 / .13));
   }
   .pebble-display {
     position: absolute;
@@ -48,11 +49,17 @@ const { image, alt, caption, compact = false, eager = false, class: className = 
     display: flex;
     align-items: center;
     background: #000;
+    /* The matte follows the aperture, so its corners cannot protrude. */
+    border-radius: 14% / 12%;
+    overflow: hidden;
   }
   .pebble-display img {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 200 / 228;
+    object-fit: contain;
+    flex: 0 0 auto;
     max-width: none;
     margin: 0;
     border: 0;
@@ -69,6 +76,9 @@ const { image, alt, caption, compact = false, eager = false, class: className = 
     height: auto;
     max-width: none;
     pointer-events: none;
+  }
+  :global([data-theme='dark']) .pebble-device {
+    filter: drop-shadow(0 2px 2px rgb(0 0 0 / .3)) drop-shadow(0 18px 22px rgb(0 0 0 / .3));
   }
   figcaption {
     max-width: 34ch;

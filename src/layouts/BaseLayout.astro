@@ -1,4 +1,5 @@
 ---
+import { sitePath } from '../lib/site';
 import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/theme.css';
@@ -20,7 +21,7 @@ const { title = 'XOCE', description = 'Xef’s Open Computing Ecosystem: a proje
     <meta property="og:title" content={title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`} />
     <meta property="og:description" content={description} />
     <link rel="icon" href="data:," />
-    <noscript><link rel="stylesheet" href="/no-js.css" /></noscript>
+    <noscript><link rel="stylesheet" href={sitePath('/no-js.css')} /></noscript>
     <title>{title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`}</title>
     <script is:inline>
       (() => { let saved; try { saved = localStorage.getItem('xoce-theme'); } catch {} const root = document.documentElement; root.dataset.theme = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#1c2222' : '#f5f4ef'); })();

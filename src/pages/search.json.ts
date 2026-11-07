@@ -1,3 +1,4 @@
+import { sitePath } from '../lib/site';
 import type { APIRoute } from 'astro';
 import { projects } from '../data/projects';
 import { docs } from '../data/docs';
@@ -13,4 +14,4 @@ export const GET: APIRoute = () => new Response(JSON.stringify([
   { title: 'About XOCE', description: 'The ecosystem goal, KDE Plasma, Android, PebbleOS and how to contribute.', href: '/about/', section: 'Project' },
   { title: 'Project plan', description: 'Early apps, dependable stable editions, separate experiments and deeper system work.', href: '/about/#stages', section: 'Project', text: 'roadmap stages phase development experimental JMAP calendars tasks contacts' },
   { title: 'Connected devices', description: 'The goal of shared state and actions across desktop, phone and watch.', href: '/about/#connected-devices', section: 'Project', text: 'timer countdown synchronization sync ecosystem future' },
-]), { headers: { 'Content-Type': 'application/json; charset=utf-8' } });
+].map(entry => ({ ...entry, href: sitePath(entry.href) }))), { headers: { 'Content-Type': 'application/json; charset=utf-8' } });

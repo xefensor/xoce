@@ -1,10 +1,14 @@
-name: Source and workflow checks
-on: [push, pull_request]
+name: Website checks and deployment
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -28,12 +32,12 @@ jobs:
           trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
           ready=false
           for attempt in {1..40}; do
-            if curl --silent --fail http://127.0.0.1:4322/ > /dev/null; then ready=true; break; fi
+            if curl --silent --fail http://127.0.0.1:4322/xoce/ > /dev/null; then ready=true; break; fi
             sleep 0.5
           done
           if [ "$ready" != true ]; then cat build/qa/browser/server.log; exit 1; fi
           export CHROMIUM_BINARY="$(command -v google-chrome || command -v chromium)"
-          XOCE_SITE_URL=http://127.0.0.1:4322/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
+          XOCE_SITE_URL=http://127.0.0.1:4322/xoce/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
       - name: Retain browser report and screenshots
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -41,3 +45,36 @@ jobs:
           name: website-browser-evidence
           path: build/qa/browser
           retention-days: 14
+      - name: Configure Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
+      - name: Upload the checked website
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: dist
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the checked website
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+      - name: Verify public routes and assets
+        env:
+          PAGES_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          for route in '' 'projects/' 'docs/' 'search.json' 'images/devices/pebble-time-2.png'; do
+            curl --fail --silent --show-error --retry 6 --retry-all-errors --retry-delay 5 "${PAGES_URL%/}/$route" --output /dev/null
+          done

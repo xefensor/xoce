@@ -5,15 +5,17 @@ relevant subsystem, not as a requirement to reread every document for every edit
 
 ## Ownership and compatibility
 
-Keep the site local until publication is explicitly requested. Public releases and merged-but-unpublished app implementations are distinct; catalogue/download metadata stays pinned to actual public releases. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
+The website is hosted on GitHub Pages at https://xefensor.github.io/xoce/ following Xef’s explicit publication request. Local tests do not authorize a push; main pushes deploy after checks pass. Public releases and merged-but-unpublished app implementations are distinct; catalogue/download metadata stays pinned to actual public releases. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
 
 ## Current interaction and product boundaries
 
-Retain Software/Docs/About navigation and four available Pebble products. Phone/companion work remains an accurately labelled plan, linked quietly from About. Docs opens the actual Getting started article. Website identity/materials remain distinct from watch UI. Preserve the official Time2 frame and200x228 native image proportions, Inter/type roles and reduced motion/transparency. The accepted native UI is now on each app’s main branch; public download versions remain unchanged.
+Retain Software/Docs/About navigation and four available Pebble products. Phone/companion work remains an accurately labelled plan, linked quietly from About. Docs opens the actual Getting started article. Website identity/materials remain distinct from watch UI. Preserve the official Time2 frame and 200×228 native image proportions, Inter/type roles and reduced motion/transparency. The accepted native UI is now on each app’s main branch; public download versions remain unchanged.
 
 ## Source ownership
 
-Astro builds static pages; src/data/projects.ts owns exact release/catalogue metadata; src/data/docs.ts owns navigation. src/pages/docs holds articles; shared layouts/components and styles own presentation.
+Astro builds static pages beneath `/xoce/`; `src/lib/site.ts` owns public paths.
+The Sätteri plugin prefixes rendered Markdown links and images; templates, search
+and redirects use the same helper. src/data/projects.ts owns exact release/catalogue metadata; src/data/docs.ts owns navigation. src/pages/docs holds articles; shared layouts/components and styles own presentation.
 
 ## Phone persistence and evidence
 
@@ -43,14 +45,14 @@ status above replaces older local-candidate version descriptions.
 
 
 
-This repository contains the local website, guides and design documentation for
+This repository contains the static website, guides and design documentation for
 XOCE — Xef’s Open Computing Ecosystem. User instructions and accepted changes
 supersede these maintenance notes.
 
 ## Scope and source of truth
 
-- Keep this checkout local until Xef requests publication. Do not register a
-  hosting project, configure a public identity or deploy as part of validation.
+- Keep development and previews local. A main push deploys to the established
+  GitHub Pages site after checks pass; hosting changes still need authorization.
 - Preserve existing work, historical QA evidence, release files and credits.
   Do not commit, push or change another app repository unless requested.
 - `src/data/projects.ts` owns product identity, availability, exact release and
@@ -154,8 +156,9 @@ watch case. `ProjectPreview.astro` uses the frame for larger previews and direct
 captures for compact views. Preserve the native 200 × 228 screen proportions
 and exact screenshot bytes; fit captures within the aperture with matte black
 letterboxing rather than stretching them. Keep all source and hash records.
-The frame is currently included for local review; no asset-specific permissive
-licence has been verified and no additional licence is granted by this repo.
+Xef explicitly requested retaining this frame for the public website on 2026-11-07.
+No asset-specific permissive licence has been independently verified and no additional
+licence is granted by this repo. The provenance record preserves that distinction.
 Captions distinguish emulator previews in a device frame from photographs of
 running apps or physical-device testing. Do not fabricate phone or desktop
 interfaces for plans.

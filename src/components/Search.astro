@@ -9,6 +9,7 @@ import Icon from './Icon.astro';
   <div class="search-help"><span>Software, guides and project plans</span><span><kbd>esc</kbd> to close</span></div>
 </dialog>
 <script>
+  import { sitePath } from '../lib/site';
   interface SearchEntry { title: string; description: string; href: string; section: string; text?: string }
   const dialog = document.querySelector<HTMLDialogElement>('[data-search-dialog]');
   const input = document.querySelector<HTMLInputElement>('[data-search-input]');
@@ -39,7 +40,7 @@ import Icon from './Icon.astro';
     if (entries) return;
     if (loading) return loading;
     failed = false;
-    loading = (async () => { try { const response = await fetch('/search.json'); if (!response.ok) throw new Error('Search unavailable'); entries = await response.json() as SearchEntry[]; } catch { failed = true; } finally { loading = undefined; render(); } })();
+    loading = (async () => { try { const response = await fetch(sitePath('/search.json')); if (!response.ok) throw new Error('Search unavailable'); entries = await response.json() as SearchEntry[]; } catch { failed = true; } finally { loading = undefined; render(); } })();
     return loading;
   }
   function open() { if (!dialog) return; if (!dialog.open) dialog.showModal(); input?.focus(); render(); void load(); }
