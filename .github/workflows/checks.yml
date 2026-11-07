@@ -6,13 +6,38 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          node-version: 22
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
           cache: npm
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
         with:
-          python-version: '3.12'
+          python-version-file: .python-version
+      - run: npm run check:setup
       - run: npm ci --ignore-scripts
       - run: npm test
+      - name: Inspect desktop and mobile pages in Chrome
+        run: |
+          mkdir -p build/qa/browser
+          npm run preview > build/qa/browser/server.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for attempt in {1..40}; do
+            if curl --silent --fail http://127.0.0.1:4322/ > /dev/null; then ready=true; break; fi
+            sleep 0.5
+          done
+          if [ "$ready" != true ]; then cat build/qa/browser/server.log; exit 1; fi
+          export CHROMIUM_BINARY="$(command -v google-chrome || command -v chromium)"
+          XOCE_SITE_URL=http://127.0.0.1:4322/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
+      - name: Retain browser report and screenshots
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: website-browser-evidence
+          path: build/qa/browser
+          retention-days: 14

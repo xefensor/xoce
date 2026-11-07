@@ -254,6 +254,11 @@ for (const entry of provenance.images) {
   if (createHash('sha256').update(bytes).digest('hex') !== entry.sha256) problems.push('Native capture pixels changed: ' + entry.site_path);
   if (bytes.readUInt32BE(16) !== entry.width || bytes.readUInt32BE(20) !== entry.height) problems.push('Native capture dimensions changed: ' + entry.site_path);
 }
+for (const project of products.filter(project => project.image)) {
+  const capture = provenance.images.find(entry => entry.site_path === project.image);
+  if (!capture || capture.capture_version !== project.imageVersion) problems.push(`${project.slug}: screenshot version/provenance differs`);
+  if (!mainMarkup(`/projects/${project.slug}/`).includes(`${project.name} v${project.imageVersion}`)) problems.push(`${project.slug}: screenshot version caption is missing`);
+}
 const searchPath = path.join(dist, 'search.json');
 if (!fs.existsSync(searchPath)) problems.push('Missing local search index');
 else {
@@ -281,5 +286,6 @@ if (problems.length) {
   console.log(JSON.stringify({ passed:true, pages:pages.size, internalReferences:checkedReferences,
     anchors:checkedAnchors, referencedAssets:checkedAssets.size, catalogueProducts:catalogueProducts.length,
     downloadableApps:catalogueProducts.filter(project => project.download).length, plannedProjects:planned.length,
-    libraries:libraries.length, guides:docs.length, preservedNativeCaptures:provenance.images.length }, null, 2));
+    libraries:libraries.length, guides:docs.length, preservedNativeCaptures:provenance.images.filter(entry => !entry.current_release_capture).length,
+    currentNativeCaptures:provenance.images.filter(entry => entry.current_release_capture).length }, null, 2));
 }

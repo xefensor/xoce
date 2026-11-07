@@ -42,7 +42,7 @@ const appGuides = [
               {project.requirements && <ul class="requirements">{project.requirements.map(requirement => <li>{requirement}</li>)}</ul>}
             </div>}
           </div>
-          {project.image && <div class="product-preview"><ProjectPreview project={project} eager/><p class="preview-caption">Native emulator capture · example data</p></div>}
+          {project.image && <div class="product-preview"><ProjectPreview project={project} eager/><p class="preview-caption">{project.name} v{project.imageVersion} · native emulator · example data</p></div>}
         </section>
         <div class="product-information">
           <section class="product-details" aria-labelledby="product-features"><div><h2 id="product-features">{library ? 'What the library provides' : 'On your watch'}</h2><p class="product-summary">{project.summary}</p></div><ul class="feature-list">{project.features.map(feature => <li><Icon name="check" size={18}/><span>{feature}</span></li>)}</ul></section>

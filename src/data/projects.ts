@@ -16,6 +16,8 @@ export type Project = {
   features: string[];
   image?: string;
   imageAlt?: string;
+  imageVersion?: string;
+  imageCapturedOn?: string;
   platform: string;
   status: string;
   availability?: 'available' | 'planned';
@@ -90,8 +92,10 @@ export const projects: Project[] = [
       'Follow music with the song, artist and optional artwork',
       'Choose which activities appear and their order',
     ],
-    image: '/images/projects/dynamic.png',
-    imageAlt: 'Dynamic displayed on the Pebble Time 2 emulator.',
+    image: '/images/projects/dynamic-0.18.3.png',
+    imageVersion: '0.18.3',
+    imageCapturedOn: '2026-11-07',
+    imageAlt: "Dynamic 0.18.3 on the Emery emulator. Clock, readings and an example music activity.",
     platform: 'PebbleOS',
     status: 'Development prerelease',
   },
@@ -121,8 +125,10 @@ export const projects: Project[] = [
       'Use pins for a reading, an action or an app shortcut',
       'Choose Dashboard’s activity order independently of Dynamic',
     ],
-    image: '/images/projects/dashboard.png',
-    imageAlt: 'Dashboard displayed on the Pebble Time 2 emulator.',
+    image: '/images/projects/dashboard-0.6.3.png',
+    imageVersion: '0.6.3',
+    imageCapturedOn: '2026-11-07',
+    imageAlt: "Dashboard 0.6.3 on the Emery emulator. Example timer activity, notification and pinned readings.",
     platform: 'PebbleOS',
     status: 'Development prerelease',
   },
@@ -152,8 +158,10 @@ export const projects: Project[] = [
       'Pause or resume; reset to Ready and choose when to start again',
       'Let the watch handle the alarm and share the countdown with compatible activities',
     ],
-    image: '/images/projects/timer.png',
-    imageAlt: 'Timer displayed on the Pebble Time 2 emulator.',
+    image: '/images/projects/timer-0.14.5.png',
+    imageVersion: '0.14.5',
+    imageCapturedOn: '2026-11-07',
+    imageAlt: "Timer 0.14.5 on the Emery emulator. A running timer seeded with emulator-only example data.",
     platform: 'PebbleOS',
     status: 'Development prerelease',
   },
@@ -184,8 +192,10 @@ export const projects: Project[] = [
       'Follow the app destination that Dynamic recently displayed',
       'Open from the watch’s app list to set it up on your phone',
     ],
-    image: '/images/projects/open-activity.png',
-    imageAlt: 'Open Activity’s setup screen on the Pebble Time 2 emulator.',
+    image: '/images/projects/open-activity-0.3.3.png',
+    imageVersion: '0.3.3',
+    imageCapturedOn: '2026-11-07',
+    imageAlt: "Open Activity 0.3.3 on the Emery emulator. Passive setup after an ordinary app launch.",
     platform: 'PebbleOS',
     status: 'Development prerelease',
   },

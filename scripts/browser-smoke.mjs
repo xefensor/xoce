@@ -561,6 +561,7 @@ async function runChecks() {
         assert.deepEqual(actual.sort(),(project.consumers??[]).map(slug=>`/projects/${slug}/`).sort());
       }
     }
+    if (project.image) assert.ok((await client.evaluate(`document.querySelector('.preview-caption').textContent`)).includes(project.name+' v'+project.imageVersion), 'Visible screenshot version for '+project.name);
     const current=project.kind==='library'?'/docs/':'/projects/';
     assert.equal(await client.evaluate(`document.querySelector('[data-site-nav] > a[href="${current}"]').getAttribute('aria-current')`),'true');
   }

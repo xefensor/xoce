@@ -19,7 +19,8 @@
     "check:links": "node scripts/check-site.mjs",
     "check:browser": "node scripts/browser-smoke.mjs",
     "test": "npm run check && npm run build && npm run check:links && npm run check:docs",
-    "check:docs": "python3 scripts/check-docs.py"
+    "check:docs": "python3 scripts/check-docs.py",
+    "check:setup": "python3 scripts/check-setup.py"
   },
   "dependencies": {
     "astro": "7.4.7",

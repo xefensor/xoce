@@ -1,5 +1,23 @@
 # Developing the XOCE website
 
+## Select the development environment
+
+This checkout selects **Node 22.23.4** in `.node-version` and **Python 3.12.15** in
+`.python-version`; CI reads those same files. A Node version manager that reads
+`.node-version` can select it automatically. With fnm and uv already installed:
+
+```sh
+fnm use --install-if-missing
+uv venv --python "$(cat .python-version)" .venv
+. .venv/bin/activate
+npm run check:setup
+```
+
+The setup check reports missing or mismatched runtimes and installs nothing.
+The virtual environment stays in ignored `.venv/`. Install locked dependencies
+with `npm ci --ignore-scripts` after selecting the runtimes.
+
+
 Use the Node version required by package.json (22.23.4 or newer). The pinned Astro/TypeScript
 dependencies are in package-lock.json. No Pebble SDK or sibling checkout is needed.
 
@@ -33,3 +51,6 @@ for routine website work. Commit coherent authorized maintenance locally; do not
 implicitly.
 
 [History index](docs/history/index.md).
+
+Ordinary GitHub CI also runs the browser suite using the hosted runner’s Chrome and
+retains its report/screenshots for 14 days. This checks the built site without deployment.
