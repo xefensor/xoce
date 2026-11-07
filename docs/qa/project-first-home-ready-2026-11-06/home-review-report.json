@@ -1,0 +1,121 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-06T21:36:11.718Z",
+  "observations": [
+    {
+      "appearance": "light",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sections": [
+        {
+          "name": "project-intro",
+          "height": 523
+        },
+        {
+          "name": "approach",
+          "height": 1259
+        },
+        {
+          "name": "current-work",
+          "height": 570
+        },
+        {
+          "name": "next-direction",
+          "height": 213
+        },
+        {
+          "name": "participate",
+          "height": 268
+        }
+      ],
+      "reducedTransparencyRemainingBlur": []
+    },
+    {
+      "appearance": "light",
+      "width": 360,
+      "scrollWidth": 360,
+      "sections": [
+        {
+          "name": "project-intro",
+          "height": 487
+        },
+        {
+          "name": "approach",
+          "height": 1941
+        },
+        {
+          "name": "current-work",
+          "height": 1010
+        },
+        {
+          "name": "next-direction",
+          "height": 364
+        },
+        {
+          "name": "participate",
+          "height": 363
+        }
+      ],
+      "reducedTransparencyRemainingBlur": []
+    },
+    {
+      "appearance": "dark",
+      "width": 1440,
+      "scrollWidth": 1440,
+      "sections": [
+        {
+          "name": "project-intro",
+          "height": 523
+        },
+        {
+          "name": "approach",
+          "height": 1259
+        },
+        {
+          "name": "current-work",
+          "height": 570
+        },
+        {
+          "name": "next-direction",
+          "height": 213
+        },
+        {
+          "name": "participate",
+          "height": 268
+        }
+      ],
+      "reducedTransparencyRemainingBlur": []
+    },
+    {
+      "appearance": "dark",
+      "width": 360,
+      "scrollWidth": 360,
+      "sections": [
+        {
+          "name": "project-intro",
+          "height": 487
+        },
+        {
+          "name": "approach",
+          "height": 1941
+        },
+        {
+          "name": "current-work",
+          "height": 1010
+        },
+        {
+          "name": "next-direction",
+          "height": 364
+        },
+        {
+          "name": "participate",
+          "height": 363
+        }
+      ],
+      "reducedTransparencyRemainingBlur": []
+    }
+  ],
+  "captures": 16,
+  "exceptions": [],
+  "failedResponses": []
+}

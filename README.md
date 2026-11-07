@@ -1,124 +1,136 @@
 # XOCE
 
-The website, user guides and shared design documentation for **XOCE — Xef's
-Open Computing Ecosystem**. This first version is a local review checkout:
-there is no Git remote, registered hosted Site, deployment or public domain.
+The local website and documentation for **XOCE — Xef’s Open Computing
+Ecosystem**: a project to build everyday software across KDE Plasma, Android
+and PebbleOS, with shared state and actions and room to try new interfaces.
+
+Current downloads are Pebble development builds. Cross-device timer
+synchronization, JMAP-based personal-data tools and deeper platform work are
+goals, not released features.
+
+This checkout remains local. No Git remote, hosting registration or deployment
+is configured.
+
+## Technology
+
+- **Astro 7.4.7** builds static pages and shared components.
+- **TypeScript 6.0.3** checks source; Markdown holds documentation.
+- **CSS** provides responsive layouts, glass materials and the four-choice
+  native radio preview on Home.
+- Small browser scripts handle search and appearance.
+
+The site needs no application backend. Navigation, articles, disclosures and
+the watch showcase remain usable without JavaScript. Dependencies and exact
+versions are recorded in `package-lock.json`.
 
 ## Run locally
 
-Use Node **22.23.4 or newer** (developed and checked with Node 26.12.0).
+Use **Node 22.23.4 or newer**.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open **http://127.0.0.1:4321/**. Astro's development server watches source files
-and refreshes the preview. In a normal terminal, press Ctrl+C to stop it.
-The review preview started for you runs in the background. To start it that way
-yourself, or check and stop that background server:
+Open the Local URL printed by Astro, normally **http://127.0.0.1:4321/**.
+Source changes update the preview. Astro may select another port when busy.
+The existing background preview can be inspected with `npm run dev:status`
+and stopped with `npm run dev:stop`.
 
-```sh
-npm run dev -- --background
-npm run dev:status
-npm run dev:stop
-```
-
-To review the production output instead:
+For the generated static output:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-The production preview uses **http://127.0.0.1:4322/**. The website is static;
-the preview servers are local development tools, not a required backend.
+Preview normally uses **http://127.0.0.1:4322/**. Both servers are local review
+tools; running them does not publish the website.
 
-## What's included
+## Pages and content
 
-- A homepage showing the current Pebble collection with real emulator captures.
-- Dedicated For users, For developers and Design sections, accessible from the
-  main navigation and linked from the current project pages.
-- Six project pages: four installable apps/watchfaces and two developer libraries.
-- Twelve curated guides for setup, controls, troubleshooting, developers,
-  visual identity, UI patterns, interaction, design principles and licensing.
-  Library references point to reviewed released sources.
-- About/contributing, a custom 404 page, project filters and local search.
-- System/light/dark themes with a saved local preference. Primary content and
-  navigation remain available without JavaScript.
+The main navigation is **Software · Docs · About**.
 
-Linux/KDE and Android are broader project directions, not invented released
-products. The currently documented watch builds target Emery / Pebble Time 2
-and are clearly labelled as development prereleases.
-
-The site documents existing work. There is no Lab, speculative product section
-or website-only interaction demo. Design documentation distinguishes established
-principles and app patterns from the website's own colours, typography and mark.
-The [shared Pebble UI standard](src/pages/docs/design/pebble-ui-system.md) records
-the shared design implemented in local Dynamic 0.17.0, Dashboard 0.5.0, Timer
-0.13.0 and Open Activity 0.2.0 candidates. Repository tests, builds, packaged
-settings/browser checks and native emulator checks pass; real-phone and
-physical-watch verification remain separate. The candidates are not published.
-Public project downloads remain pinned to the published baselines; current user
-guides and older screenshots keep their release context.
-
-## Maintaining content
-
-| Location | Owner and purpose |
+| Destination | Purpose |
 | --- | --- |
-| `src/data/projects.ts` | Current version-pinned project catalogue and download links |
-| `src/data/docs.ts` | Guide navigation and search descriptions |
-| `src/pages/users/`, `developers/`, `design/` | Audience and design section overviews |
-| `src/pages/docs/` | Website-owned user, developer introduction and design guides |
-| `src/pages/docs/design/pebble-ui-system.md` | Canonical agreed Pebble watch/phone UI standard and implementation status |
-| `src/pages/projects/[slug].astro` | Shared project-page presentation |
-| `src/styles/` | Site typography, colour roles, layouts and device-specific responses |
-| `docs/asset-provenance.json` | Exact screenshot origins, capture versions and hashes |
+| Home | Introduce the ecosystem, preview the current Pebble apps on a watch, then explain the future connection goal, general stages and participation |
+| `/projects/` | Four exact available Pebble downloads; no filter bar while only one platform has downloads |
+| Product pages | Purpose, actual screens, compatibility, requirements, download, help and source |
+| `/pebble/` | Current watch collection, prerequisites and installation |
+| `/projects/phone/` | Future Android/companion plan, linked quietly from About and retained for compatibility |
+| `/docs/` | Getting started directly; 13 articles under Guides, Developers and Design |
+| `/about/` | Platform choices, shared-state goal, flexible stages, later JMAP work and contribution links |
 
-Detailed APIs, native build instructions and validation history remain in their
-owning code repositories. Do not copy legacy activity contracts into the current
-provider guide or change published release files to update a website link.
+Old documentation portals and Phone-plan URLs remain direct compatibility
+redirects. Phone is described briefly in About rather than promoted on Home or
+in the Software catalogue. The site has no Lab, intermediate Docs hub, logo or
+graphical favicon.
 
-The site's colours and typography are a first visual proposal. They do not
-change the design or settings of any app.
+About distinguishes the early replaceable apps, future dependable stable
+editions alongside deliberate experiments, and longer-term platform work.
+There are no fixed dates or invented product releases. Xef is starting phase
+one; later stages need broader participation.
 
-The four consuming app repositories keep concise `docs/UX-ALIGNMENT.md` adoption
-records and maintainer pointers to the canonical standard. Keep common rules here
-and project-specific implementation/evidence there. Appearance is configured on
-the phone: Timer has a minimal Light/Dark page with help, and Open Activity has a
-separate Watch appearance selector alongside its two shortcut choices. Native
-timer editing and alarm ownership remain on the watch. The website is not published yet;
-those handoffs identify the sibling checkout and local preview rather than
-claiming a public documentation URL.
+## Maintaining the site
+
+| Location | Owns |
+| --- | --- |
+| `src/data/projects.ts` | Exact releases, availability, downloads, connections, compatibility, consumers and licences |
+| `src/data/docs.ts` | Article navigation and search descriptions |
+| `src/pages/docs/` | User, developer and design articles |
+| `src/layouts/DocLayout.astro` | Direct article layout, native disclosures and pagination |
+| `src/components/WatchPreview.astro` | Official Pebble Appstore Time 2 frame around unchanged native captures |
+| `src/components/ProjectPreview.astro` | Device presentation and compact direct screen views |
+| `src/styles/theme.css` | Shared semantic colours and glass roles |
+| `src/styles/global.css` | Header, footer, shared layout and controls |
+| `src/styles/guide.css` | Article surface and quiet documentation rails |
+| `docs/site-structure.json` | Current page jobs, routing and content boundaries |
+| `docs/xoce-visual-identity.json` | Website palette, material roles, typography and assets |
+| `docs/asset-provenance.json` | Screenshot origins, capture versions and hashes |
+| [docs/phone-plan.md](docs/phone-plan.md) | Working Phone plan, Android/Pebble research, native call ownership and device checks |
+
+The website uses Inter, teal, warm white and charcoal, with 10px/6px/4px corner
+roles, warm neutral/charcoal backgrounds and quiet static offset-plane artwork.
+The compact Home showcase places the watch beside its explanation; the Software
+catalogue uses open rows and larger native captures. The official Pebble frame provides physical
+context. Emulator screens retain their native pixels and do not claim
+physical-watch verification. Glass and typography on the website remain
+separate from the [native Pebble UI standard](src/pages/docs/design/pebble-ui-system.md).
+
+Keep public release metadata distinct from local UI candidates. The four
+published apps and two developer libraries retain their exact source links,
+versions and individual terms. API contracts and build instructions remain
+in their owning repositories.
 
 ## Validation
 
 ```sh
 npm test
-# With the local preview running:
-npm run check:browser
+# With a local preview running at the printed URL:
+XOCE_SITE_URL=http://127.0.0.1:4321/ npm run check:browser
 ```
 
-`npm test` type-checks the Astro source, builds all static routes and audits
-internal links, anchors, assets and versioned download links. Browser checks use
-an installed Chromium and native Node CDP support; see
-`scripts/browser-smoke.mjs` for environment options. Evidence is under `docs/qa/`.
-These checks are browser automation and do not imply physical-watch testing.
+The first command checks Astro types, builds static output and audits generated
+links, anchors, product facts and search entries. Chromium checks exercise
+navigation, native previews, catalogue links, themes, search, mobile layouts,
+keyboard interaction and the no-JavaScript paths.
 
-The local UI documentation integration passed `npm test`: 26 pages, 959 internal
-references, 155 anchors and 11 referenced assets, with no type errors or warnings.
-`docs/qa/VALIDATION.json` records that check and points to each app's local
-candidate evidence. Earlier browser captures remain historical; they were not
-rerun for this documentation update. Public release catalogue entries remain
-unchanged, and real-phone/physical-watch verification is separate.
+Evidence belongs in `docs/qa/`; `docs/qa/VALIDATION.json` identifies its scope.
+Existing reports describe their original source and do not establish that a
+later rebuild passed. Browser checks also do not establish physical-phone or
+watch behaviour. Report checks only after they complete.
 
-## Licences and assets
+## Licences and credits
 
-Individual Pebble projects retain their own PolyForm Noncommercial licences.
-The website's own project-wide licence has not been selected. The npm package
-is private and marked `UNLICENSED` pending that decision.
+The ecosystem’s goal is open source. Current Pebble projects use **PolyForm
+Noncommercial 1.0.0**, so their source is not presented as unrestricted
+open-source software. Planned products and the website have no project-wide
+licence decision; this private npm package remains `UNLICENSED`.
 
-Project images are exact native emulator captures with example data. Their watch
-cases are CSS illustrations. Space Grotesk and Inter are self-hosted under
-the SIL Open Font License. Full notices are in
-[THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+Native screenshots are unchanged emulator captures with example data. The
+watch frame comes unchanged from the Pebble Appstore and is credited to Core
+Devices. No permissive licence has been verified for that source-provided asset;
+it is included for local review and this record grants no additional licence.
+Inter is self-hosted under the SIL Open Font License. Historical Space Grotesk
+assets and Spatial Desktop material/artwork credits remain retained.
+See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).

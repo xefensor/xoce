@@ -5,3 +5,6 @@
 .header-inner { height: auto; min-height: 82px; flex-wrap: wrap; padding-block: 18px; gap: 12px; }
 #site-navigation { display: flex; position: static; order: 3; width: 100%; flex-direction: row; flex-wrap: wrap; gap: 24px; padding: 0; box-shadow: none; border: 0; background: transparent; }
 #site-navigation a { padding: 9px 0; }
+#site-navigation { max-height: none; overflow: visible; align-items: center; }
+html[data-ui='material'] .header-inner { height: auto; min-height: 66px; }
+html[data-ui='material'] .site-header { position: static; }

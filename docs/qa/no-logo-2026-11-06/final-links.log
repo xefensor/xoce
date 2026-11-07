@@ -1,0 +1,13 @@
+
+> xoce@0.1.0 check:links
+> node scripts/check-site.mjs
+
+{
+  "passed": true,
+  "pages": 26,
+  "internalReferences": 932,
+  "anchors": 155,
+  "referencedAssets": 10,
+  "products": 4,
+  "libraries": 2
+}

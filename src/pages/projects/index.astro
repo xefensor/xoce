@@ -3,17 +3,94 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Icon from '../../components/Icon.astro';
 import { projects } from '../../data/projects';
+const available = projects.filter(project => project.kind !== 'library' && project.availability !== 'planned');
+const platforms = [...new Set(available.map(project => project.platform))];
+const libraries = projects.filter(project => project.kind === 'library');
 ---
-<BaseLayout title="Projects" description="Explore the XOCE Pebble apps, watchface and developer libraries, with current downloads and setup guides.">
-  <main id="main" class="wrap section page-main"><header class="page-heading"><p class="eyebrow">The XOCE collection</p><h1>The current projects.</h1><p class="lead">Four Pebble apps and watchfaces, plus the two libraries behind them. Find a download, a guide or the source code.</p></header>
-    <div class="catalogue-toolbar"><div class="filter-group" aria-label="Filter projects"><button data-project-filter="all" aria-pressed="true">All projects</button><button data-project-filter="apps" aria-pressed="false">Apps & watchfaces</button><button data-project-filter="libraries" aria-pressed="false">Developer tools</button></div><span data-project-count aria-live="polite">6 projects</span></div>
-    <div class="project-grid" id="project-list">{projects.map(project => <ProjectCard project={project} />)}</div><p class="image-caption">App previews are native emulator captures with example data. Current apps target Pebble Time 2 development builds.</p>
-    <aside class="callout"><Icon name="book" size={25} /><div><h2>New to the collection?</h2><p>You can use the apps individually. The <a href="/docs/pebble/setup/">setup guide</a> explains how Timer, Dynamic and Open Activity work together, and how to start with Dashboard.</p></div></aside>
+<BaseLayout title="Software" description="Download XOCE’s current Pebble apps and watchface, and check their requirements.">
+  <main id="main" class="wrap software-page">
+    <header class="page-intro software-intro"><p class="eyebrow">Try XOCE</p><h1>Software</h1><p>A watchface, a dashboard, a timer and a shortcut into your apps. Choose the pieces you need.</p></header>
+    <div class="catalogue-toolbar">{platforms.length > 1 && <div class="filter-group" data-project-filters hidden aria-label="Filter software by platform"><button type="button" data-project-filter="all" aria-pressed="true">All software</button>{platforms.map(platform => <button type="button" data-project-filter={platform} aria-pressed="false">{platform}</button>)}</div>}<span data-project-count aria-live="polite" aria-atomic="true">{available.length} downloads</span></div>
+    <div id="project-list">
+      <section class="catalogue-group available-group" data-project-group="available" aria-labelledby="available-apps">
+        <header class="group-heading"><div><h2 id="available-apps">Pebble Time 2</h2><p>Available now · development prereleases</p></div><a class="text-link" href="/pebble/">Check requirements<Icon name="arrow" size={17}/></a></header>
+        <div class="app-list">{available.map(project => <ProjectCard project={project} wide />)}</div>
+        <p class="capture-note">Screens shown are native emulator captures with example data.</p>
+      </section>
+    </div>
+    <section class="software-support" aria-labelledby="software-help"><div><h2 id="software-help">Already installed?</h2><p>Find the controls, change your settings or troubleshoot a connection.</p></div><a class="text-link" href="/docs/">Read the docs<Icon name="arrow" size={18}/></a></section>
+    <section class="developer-path" aria-labelledby="developer-libraries"><div><p class="eyebrow">For developers</p><h2 id="developer-libraries">Build on the shared tools.</h2><p>Activities and Core are libraries included in the apps that use them. Start with their integration guides.</p></div><div class="library-links">{libraries.map(project => <a href={project.guide}><span>{project.name}<small>{project.description}</small></span><Icon name="arrow" size={18}/></a>)}<a href="/docs/develop/building/"><span>Build and contribute</span><Icon name="code" size={18}/></a></div></section>
   </main>
 </BaseLayout>
 <script>
   const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-project-filter]')];
   const cards = [...document.querySelectorAll<HTMLElement>('[data-project-card]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-project-group]')];
   const count = document.querySelector('[data-project-count]');
-  filters.forEach(button => button.addEventListener('click', () => { const filter = button.dataset.projectFilter; filters.forEach(other => other.setAttribute('aria-pressed', String(other === button))); let visible = 0; cards.forEach(card => { card.hidden = !(filter === 'all' || (filter === 'libraries' ? card.dataset.projectKind === 'library' : card.dataset.projectKind !== 'library')); if (!card.hidden) visible++; }); if (count) count.textContent = `${visible} project${visible === 1 ? '' : 's'}`; }));
+  const filterPanel = document.querySelector<HTMLElement>('[data-project-filters]');
+  function applyFilter(platform: string) {
+    filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.projectFilter === platform)));
+    let downloadable = 0;
+    cards.forEach(card => {
+      card.hidden = platform !== 'all' && !(card.dataset.projectPlatform ?? '').split(' ').includes(platform);
+      if (!card.hidden) {
+        if (card.dataset.projectDownloadable === 'true') downloadable++;
+      }
+    });
+    groups.forEach(group => { group.hidden = !group.querySelector('[data-project-card]:not([hidden])'); });
+    if (count) count.textContent = `${downloadable} download${downloadable === 1 ? '' : 's'}`;
+  }
+  filters.forEach(button => button.addEventListener('click', () => {
+    const platform = button.dataset.projectFilter ?? 'all';
+    applyFilter(platform);
+    const address = new URL(location.href);
+    if (platform === 'all') address.searchParams.delete('platform');
+    else address.searchParams.set('platform', platform);
+    history.replaceState(null, '', address);
+  }));
+  const selected = new URLSearchParams(location.search).get('platform');
+  applyFilter(filters.some(button => button.dataset.projectFilter === selected) ? selected! : 'all');
+  if (filterPanel) filterPanel.hidden = false;
 </script>
+<style>
+  .software-page { padding-top:clamp(30px,4.5vw,52px); }
+  .software-intro { max-width:800px; margin-bottom:23px; }
+  .software-intro h1 { margin-top:14px; font-size:clamp(2.3rem,4vw,3.4rem); line-height:1.1; letter-spacing:-.05em; }
+  .software-intro > p:last-child { max-width:58ch; margin-top:17px; color:var(--muted); font-size:1.0625rem; line-height:1.75; }
+  .catalogue-toolbar { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px 25px; padding-bottom:17px; }
+  .filter-group { display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
+  .filter-group button { min-height:44px; padding:10px 16px; border:1px solid transparent; border-radius:var(--radius-control); color:var(--muted); background:transparent; font-size:.85rem; cursor:pointer; }
+  .filter-group button[aria-pressed='true'] { border-color:var(--line); background:var(--glass-surface); color:var(--ink); font-weight:600; }
+  .filter-group button:hover { background:var(--glass-hover); }
+  [data-project-count] { color:var(--muted); font-size:.8rem; }
+  .available-group { min-width:0; }
+  .group-heading { display:flex; align-items:center; justify-content:space-between; gap:14px 25px; padding-block:19px; border-block:1px solid var(--line); }
+  .group-heading h2 { font-size:1.1rem; line-height:1.3; letter-spacing:-.02em; }
+  .group-heading p { margin-top:5px; color:var(--muted); font-size:.8125rem; line-height:1.7; }
+  .group-heading > a { font-size:.82rem; flex-shrink:0; }
+  .app-list { min-width:0; }
+  .app-list > :global(.project-card:last-child) { border-bottom:0; }
+  .capture-note { padding-top:10px; color:var(--muted); font-size:.75rem; line-height:1.6; }
+  .software-support { display:flex; justify-content:space-between; align-items:center; gap:22px; margin-top:38px; padding-block:28px; border-block:1px solid var(--line); }
+  .software-support h2 { font-size:1.2rem; letter-spacing:-.02em; }
+  .software-support p { max-width:51ch; margin-top:9px; color:var(--muted); font-size:.9rem; line-height:1.7; }
+  .software-support > a { flex-shrink:0; font-size:.9rem; }
+  .developer-path { display:grid; grid-template-columns:1fr 1fr; align-items:start; gap:70px; padding-top:54px; }
+  .developer-path h2 { max-width:15ch; margin-top:14px; font-size:clamp(1.8rem,2.7vw,2.4rem); letter-spacing:-.045em; line-height:1.15; }
+  .developer-path p:not(.eyebrow) { max-width:45ch; margin-top:19px; color:var(--muted); font-size:.95rem; line-height:1.75; }
+  .library-links a { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:19px 0; min-height:48px; border-bottom:1px solid var(--line); text-decoration:none; font-size:1rem; font-weight:550; }
+  .library-links a:first-child { padding-top:0; }
+  .library-links a:hover { text-decoration:underline; }
+  .library-links :global(svg) { flex-shrink:0; color:var(--accent-text); }
+  .library-links small { display:block; max-width:46ch; margin-top:7px; color:var(--muted); font-size:.82rem; font-weight:400; line-height:1.7; }
+  @media (max-width:700px) {
+    .software-intro { margin-bottom:21px; }
+    .software-intro > p:last-child { font-size:1rem; }
+    .catalogue-toolbar { gap:11px; padding-bottom:18px; }
+    .filter-group button { padding-inline:12px; font-size:.8rem; }
+    [data-project-count] { width:100%; }
+    .group-heading { align-items:start; flex-direction:column; gap:5px; }
+    .software-support { flex-direction:column; align-items:start; gap:10px; margin-top:28px; padding-block:23px; }
+    .developer-path { grid-template-columns:minmax(0,1fr); gap:30px; padding-top:36px; }
+  }
+</style>

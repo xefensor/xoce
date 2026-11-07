@@ -1,0 +1,95 @@
+{
+  "checked_at_utc": "2026-11-06T17:22:52Z",
+  "status": "validated local redesign; not deployed",
+  "source_scope": "Website only; app repositories and published release artifacts were not changed.",
+  "navigation": [
+    "Apps: Android / PebbleOS / All apps",
+    "Guides",
+    "Developers",
+    "Design",
+    "About"
+  ],
+  "catalogue": {
+    "available_pebble_apps": 4,
+    "libraries": 2,
+    "planned_android_apps": 1,
+    "planned_pebble_companions": 1,
+    "working_names": [
+      "Phone",
+      "Phone for Pebble"
+    ],
+    "android_optional_connection": "pebble-phone",
+    "companion_requires": "phone",
+    "old_release_versions_urls_and_image_refs_preserved": true
+  },
+  "checks": {
+    "npm_test": "PASS",
+    "astro_checked_files": 27,
+    "type_errors": 0,
+    "type_warnings": 0,
+    "built_pages": 32,
+    "internal_references": 1378,
+    "anchors": 180,
+    "referenced_assets": 11,
+    "browser_workflow_groups": 13,
+    "browser_screenshots": 26,
+    "browser_report": "report.json",
+    "browser_exceptions": 0,
+    "failed_local_http_requests": 0
+  },
+  "visual_review": {
+    "final_frames_reviewed": [
+      "projects-desktop-light.png",
+      "android-desktop-light.png",
+      "android-mobile-dark.png",
+      "phone-mobile-dark.png"
+    ],
+    "scope": "Additional home, guide, menu, design and planned-product frames were reviewed during the preceding passing run; final card cleanup rechecked here. Not every capture was manually reviewed."
+  },
+  "input_sha256": {
+    "public/no-js.css": "fa4d24f295ce335d4016eb3e5abb9886fe01201eb52a7dcc057fe7bdeb9eb272",
+    "src/components/Footer.astro": "c557f9b46c28682cd8a96c93d904c40dd7d6a36eea2892f90453b5249ae4f6d9",
+    "src/components/Header.astro": "e37bd92ac36894661109c8680b0d4429e6e416d395f704d52ca2876074be0f7d",
+    "src/components/Icon.astro": "c2500db485acd1e2be925ccf91c0b5d4d925810ac9d1e1f16dbcc0e949da1af4",
+    "src/components/ProjectCard.astro": "d5ef5c9b9b1dc81dc150447609d23f7ebcc8ec5fb2e93ab0f7030d2fe1f001c1",
+    "src/components/ProjectPreview.astro": "016b005141fbd3f836aae4c811ae7bf388a2292ffafc22df0897ec1a58177e10",
+    "src/components/Search.astro": "30f0f7a1e9e56b0423471f9fcb5678eb5e5893865834db99065923121c562274",
+    "src/components/WatchPreview.astro": "2b52a1a9058d87c1a73c1100bdb594dd99d8148d27dac1509c8e4f1c1ca44306",
+    "src/data/docs.ts": "a59c970402b4895383f1767470857f688dec92598779530bf9dc088fc77a0efe",
+    "src/data/projects.ts": "54b3622a66d8d054070f3656108e66ce177f5432cd0caa14182bd2ab0771141a",
+    "src/layouts/BaseLayout.astro": "02c885b3ccbf869e9611a666fda50f7a9133d1cd78b9894d8ea376f1adf1a0a5",
+    "src/layouts/DocLayout.astro": "cc36772223e362943367989f9a57976bd4abc95c9d2539de8d89465218ba22ff",
+    "src/pages/404.astro": "0ac3fca6097722663c463cd02ad8f292eb2b91ef6d9852661820edcca7be54f7",
+    "src/pages/about/index.astro": "27f849ecf3c31b592e12276bebc553b9eea9afef5b7b1d3f83dbb2b9370f9e4f",
+    "src/pages/android/index.astro": "0751677d716443acb2341069307b8f886e4d3deb728af365b9fb5e0cfc327e17",
+    "src/pages/design/index.astro": "44ac0a247d5c1665edd334c2b598a11451db25bb91fe00aa3b4249637bfea9a3",
+    "src/pages/developers/index.astro": "9bd021349913f077354a8a73dd516ea202493025dc292ed357170e127c1d87b2",
+    "src/pages/docs/index.astro": "43fecff6b92e05afd1c975d4bf8d925e1821e13db7c1426799bcd7ed0c6c13d5",
+    "src/pages/index.astro": "5c25b20891ba03520f9ed1c75eed31a647357cffb2d1d3a4fe176a493cc1e042",
+    "src/pages/pebble/index.astro": "909cc50d5a0d8952857bad56aea047b5401ddfb957eff01a8346958317bb8784",
+    "src/pages/projects/[slug].astro": "536c99b6471c12d00b8951cac36e5734a3ac6adb859f69e35d09f65e5c7f6349",
+    "src/pages/projects/index.astro": "11441a640c70022f51584a8ac3ad678905b5e2b44ada578a202d5f06a0bb1dc6",
+    "src/pages/search.json.ts": "f5c9a5f553ba3f91dbe7052fa5806f47f715afa326990688791994220a01f5c5",
+    "src/pages/users/index.astro": "690027579b02191774cfca59558626ffccfc9ac397aa3816023171e4a5a46f76",
+    "src/styles/global.css": "654e81a6ffe666822501f7984eff0751950bcb1d7916f46cf114b8d19504dd9c"
+  },
+  "limits": [
+    "Local desktop Chromium with mobile viewport emulation; no physical-phone testing.",
+    "Android app and Pebble companion are approved plans with working names, no downloadable build or fabricated UI.",
+    "Website is local-only; no remote, hosting registration, deployment or publication."
+  ],
+  "superseded_runs": [
+    {
+      "path": "../platform-redesign-2026-11-06/report.json",
+      "reason": "Initial keyboard harness lacked the native Enter character; corrected and verified with actual keyboard events."
+    },
+    {
+      "path": "../platform-redesign-final-2026-11-06/report.json",
+      "reason": "Caught missing visible Planned label in Phone search result. Search now displays platform and Planned; final workflow passes."
+    },
+    {
+      "path": "../platform-redesign-verified-2026-11-06/report.json",
+      "reason": "Passing architecture/workflow run before the final planned-card visual simplification. Retained as historical."
+    }
+  ]
+}

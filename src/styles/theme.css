@@ -1,0 +1,139 @@
+/* XOCE website identity: teal, warm neutrals and layered glass.
+ * Earlier glass declarations adapted from Spatial Desktop (reference647b6e1),
+ * GPL-3.0-or-later. Copyright2026 Alexej Tušl (xefensor).
+ * Retained attribution: docs/spatial-material-reference.json.
+ * Original XOCE planes replace the desktop wallpaper. These website roles
+ * are separate from the native Pebble app standards. */
+html[data-ui='material'] {
+  --bg: #f5f3ee;
+  --paper: #fffdf8;
+  --shell: #eceee8;
+  --surface-raised: #e9ece6;
+  --surface-hover: #e1e9e2;
+  --accent: #176b5b;
+  --accent-text: #155d50;
+  --accent-ink: #ffffff;
+  --focus: #08765d;
+  --product-dynamic: #215e97;
+  --product-dashboard: #096556;
+  --product-timer: #315b96;
+  --product-open-activity: #704598;
+  --glass-face: rgba(255,254,250,.90);
+  --glass-navigation-face: rgba(250,249,245,.82);
+  --glass-feature-face: rgba(254,253,248,.72);
+  --glass-reading-face: rgba(255,254,250,.97);
+  --glass-fallback: #faf9f3;
+  --glass-edge: rgba(255,255,255,.88);
+  --glass-edge-soft: rgba(255,255,255,.50);
+  --glass-highlight: rgba(255,255,255,.90);
+  --glass-groove: rgba(40,59,53,.19);
+  --glass-groove-low: rgba(40,59,53,.07);
+  --glass-hover: rgba(203,229,212,.38);
+  --glass-down: rgba(122,172,145,.22);
+  --glass-text: #202d2b;
+  --glass-muted: #52605c;
+  --glass-reflection: rgba(255,255,255,.28);
+  --glass-field: rgba(210,230,214,.22);
+  --backdrop-light: rgba(155,204,181,.15);
+  --backdrop-warm: rgba(227,206,166,.16);
+  --plane-ink: #5e9d82;
+  --plane-opacity: .20;
+  --header-surface: #f5f4ef;
+  --preview-surface: linear-gradient(135deg,rgba(218,231,221,.44),rgba(255,253,245,.62));
+  --glass-shadow: 0 8px 30px rgba(24,60,45,.06),inset 0 1px var(--glass-highlight),inset 0 -1px var(--glass-groove-low);
+  color-scheme: light;
+  --ink: var(--glass-text);
+  --muted: var(--glass-muted);
+  --line: var(--glass-groove);
+  --radius-pane: 10px;
+  --radius-control: 6px;
+  --radius-small: 4px;
+  --font-display: var(--font-body);
+  --glass-reflection-layer: linear-gradient(125deg,var(--glass-reflection),transparent 35% 78%,rgba(255,255,255,.015));
+  --glass-surface: var(--glass-reflection-layer),var(--glass-face);
+  --glass-navigation-surface: var(--glass-reflection-layer),var(--glass-navigation-face);
+  --glass-feature-surface: var(--glass-reflection-layer),var(--glass-feature-face);
+  --glass-reading-surface: var(--glass-reflection-layer),var(--glass-reading-face);
+  --content-shadow: var(--glass-shadow);
+  --shadow: var(--glass-shadow);
+}
+html[data-ui='material'][data-theme='dark'] {
+  --bg: #171b1c;
+  --paper: #212729;
+  --shell: #252e2d;
+  --surface-raised: #293331;
+  --surface-hover: #33423e;
+  --accent: #8ad9bd;
+  --accent-text: #a5e8d0;
+  --accent-ink: #142d24;
+  --focus: #abe9ce;
+  --product-dynamic: #9ac8f5;
+  --product-dashboard: #8bd4c6;
+  --product-timer: #a7c8f2;
+  --product-open-activity: #cdb0f1;
+  --glass-face: rgba(37,45,44,.90);
+  --glass-navigation-face: rgba(23,29,28,.90);
+  --glass-feature-face: rgba(44,56,52,.70);
+  --glass-reading-face: rgba(34,41,40,.98);
+  --glass-fallback: #252d2b;
+  --glass-edge: rgba(205,222,212,.22);
+  --glass-edge-soft: rgba(205,222,212,.12);
+  --glass-highlight: rgba(211,239,221,.18);
+  --glass-groove: rgba(205,222,212,.20);
+  --glass-groove-low: rgba(0,16,10,.28);
+  --glass-hover: rgba(160,217,180,.09);
+  --glass-down: rgba(8,20,14,.32);
+  --glass-text: #edf1ed;
+  --glass-muted: #b8c1bc;
+  --glass-reflection: rgba(219,248,227,.045);
+  --glass-field: rgba(145,205,164,.06);
+  --backdrop-light: rgba(62,131,99,.12);
+  --backdrop-warm: rgba(142,123,82,.06);
+  --plane-ink: #6ab996;
+  --plane-opacity: .16;
+  --header-surface: #1c2222;
+  --preview-surface: linear-gradient(135deg,rgba(52,72,62,.48),rgba(43,47,45,.62));
+  --glass-shadow: 0 8px 30px rgba(0,12,7,.16),inset 0 1px var(--glass-highlight),inset 0 -1px var(--glass-groove-low);
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  html[data-ui='material']:not([data-theme]) {
+    --bg: #171b1c;
+    --paper: #212729;
+    --shell: #252e2d;
+    --surface-raised: #293331;
+    --surface-hover: #33423e;
+    --accent: #8ad9bd;
+    --accent-text: #a5e8d0;
+    --accent-ink: #142d24;
+    --focus: #abe9ce;
+    --product-dynamic: #9ac8f5;
+    --product-dashboard: #8bd4c6;
+    --product-timer: #a7c8f2;
+    --product-open-activity: #cdb0f1;
+    --glass-face: rgba(37,45,44,.90);
+    --glass-navigation-face: rgba(23,29,28,.90);
+    --glass-feature-face: rgba(44,56,52,.70);
+    --glass-reading-face: rgba(34,41,40,.98);
+    --glass-fallback: #252d2b;
+    --glass-edge: rgba(205,222,212,.22);
+    --glass-edge-soft: rgba(205,222,212,.12);
+    --glass-highlight: rgba(211,239,221,.18);
+    --glass-groove: rgba(205,222,212,.20);
+    --glass-groove-low: rgba(0,16,10,.28);
+    --glass-hover: rgba(160,217,180,.09);
+    --glass-down: rgba(8,20,14,.32);
+    --glass-text: #edf1ed;
+    --glass-muted: #b8c1bc;
+    --glass-reflection: rgba(219,248,227,.045);
+    --glass-field: rgba(145,205,164,.06);
+    --backdrop-light: rgba(62,131,99,.12);
+    --backdrop-warm: rgba(142,123,82,.06);
+    --plane-ink: #6ab996;
+    --plane-opacity: .16;
+    --header-surface: #1c2222;
+    --preview-surface: linear-gradient(135deg,rgba(52,72,62,.48),rgba(43,47,45,.62));
+    --glass-shadow: 0 8px 30px rgba(0,12,7,.16),inset 0 1px var(--glass-highlight),inset 0 -1px var(--glass-groove-low);
+    color-scheme: dark;
+  }
+}

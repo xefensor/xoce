@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 880" fill="none">
+  <!-- Original XOCE website motif: two offset panes with illuminated edges. -->
+  <defs>
+    <linearGradient id="face" x1="720" y1="90" x2="1350" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity=".2"/><stop offset="1" stop-color="white" stop-opacity=".025"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="630" y1="90" x2="1330" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity=".95"/><stop offset=".55" stop-color="white" stop-opacity=".28"/><stop offset="1" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="rotate(-14 1090 350)">
+    <rect x="710" y="-35" width="670" height="410" rx="18" fill="url(#face)" stroke="url(#edge)" stroke-width="1.5"/>
+    <rect x="1000" y="240" width="580" height="360" rx="18" fill="url(#face)" stroke="url(#edge)" stroke-width="1.5"/>
+    <path d="M728-34H1362" stroke="white" stroke-opacity=".5"/>
+    <path d="M1018 241H1562" stroke="white" stroke-opacity=".5"/>
+  </g>
+</svg>

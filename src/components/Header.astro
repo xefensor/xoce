@@ -1,15 +1,20 @@
 ---
 import Icon from './Icon.astro';
-import { docs, docSections } from '../data/docs';
+import { projects } from '../data/projects';
 const path = Astro.url.pathname;
-const currentGuide = docs.find(doc => doc.href === path);
-const links = [{ label: 'Projects', href: '/projects/' }, ...docSections.map(section => ({ label: section.title, href: section.href })), { label: 'About', href: '/about/' }];
+const currentProject = projects.find(project => path.startsWith(`/projects/${project.slug}/`));
+const appsCurrent = currentProject ? currentProject.kind !== 'library' : ['/projects/', '/android/', '/pebble/'].some(prefix => path.startsWith(prefix));
+const links = [
+  { label: 'Software', href: '/projects/', current: appsCurrent },
+  { label: 'Docs', href: '/docs/', current: path.startsWith('/docs/') || currentProject?.kind === 'library' },
+  { label: 'About', href: '/about/', current: path.startsWith('/about/') },
+];
 ---
 <header class="site-header">
   <div class="header-inner wrap">
-    <a class="brand" href="/" aria-label="XOCE home"><span class="brand-symbol" aria-hidden="true">✳</span><span class="wordmark">XOCE</span></a>
+    <a class="brand" href="/" aria-label="XOCE home"><span class="brand-name">XOCE</span></a>
     <nav id="site-navigation" data-site-nav aria-label="Main navigation">
-      {links.map(link => <a href={link.href} aria-current={path === link.href ? 'page' : path.startsWith(link.href) || currentGuide?.section === link.label ? 'true' : undefined}>{link.label}</a>)}
+      {links.map(link => <a href={link.href} aria-current={path === link.href ? 'page' : link.current ? 'true' : undefined}>{link.label}</a>)}
     </nav>
     <div class="header-actions">
       <button class="search-trigger" data-search-open aria-label="Search XOCE" aria-haspopup="dialog"><Icon name="search" size={18} /><span>Search</span><kbd data-search-shortcut>Ctrl K</kbd></button>
@@ -23,8 +28,12 @@ const links = [{ label: 'Projects', href: '/projects/' }, ...docSections.map(sec
   const nav = document.querySelector<HTMLElement>('[data-site-nav]');
   const setMenu = (open: boolean) => { menu?.setAttribute('aria-expanded', String(open)); menu?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.toggleAttribute('data-open', open); };
   menu?.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
-  nav?.addEventListener('click', (event) => { if ((event.target as HTMLElement).closest('a')) setMenu(false); });
-  document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true' && !document.querySelector('[data-search-dialog][open]')) { setMenu(false); menu.focus(); } });
+  nav?.addEventListener('click', event => { if ((event.target as HTMLElement).closest('a')) setMenu(false); });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !document.querySelector('[data-search-dialog][open]') && menu?.getAttribute('aria-expanded') === 'true') {
+      event.preventDefault(); setMenu(false); menu.focus({preventScroll:true});
+    }
+  });
   const shortcut = document.querySelector('[data-search-shortcut]');
   if (shortcut && /Mac|iPhone|iPad/.test(navigator.platform)) shortcut.textContent = '⌘ K';
   const wide = matchMedia('(min-width: 1000px)');
@@ -33,7 +42,7 @@ const links = [{ label: 'Projects', href: '/projects/' }, ...docSections.map(sec
   const theme = document.querySelector<HTMLSelectElement>('[data-theme-select]');
   const system = matchMedia('(prefers-color-scheme: dark)');
   const readPreference = () => { try { return localStorage.getItem('xoce-theme') ?? 'system'; } catch { return 'system'; } };
-  const apply = (choice: string) => { document.documentElement.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light'; };
+  const apply = (choice: string) => { const root = document.documentElement; root.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#1c2222' : '#f5f4ef'); };
   if (theme) theme.value = ['light', 'dark'].includes(readPreference()) ? readPreference() : 'system';
   theme?.addEventListener('change', () => { try { theme.value === 'system' ? localStorage.removeItem('xoce-theme') : localStorage.setItem('xoce-theme', theme.value); } catch {} apply(theme.value); });
   system.addEventListener('change', () => { if (theme?.value === 'system') apply('system'); });

@@ -1,0 +1,64 @@
+{
+  "source_repository": "https://github.com/xefensor/spatial-desktop",
+  "source_commit": "647b6e1bd1607c28669036795cdcd66ce31197e2",
+  "scope": "Historical material-code ancestry and retained, unused silk artwork. Current XOCE identity and original artwork are documented in docs/xoce-visual-identity.json.",
+  "reference_rendering": "Isolated Chromium captures of the actual Desktop Guide and populated desktop, light and graphite, inspected before implementation.",
+  "material_sources": [
+    {
+      "path": "dist/index.html",
+      "sha256": "1b000d5c355934604707e58563802850abaa67553dc018506dafa33df3b2b390"
+    },
+    {
+      "path": "dist/desktop-shell.css",
+      "sha256": "8e63cefea7447ea7f574709ba8f6c77398d410d4ab968b11251f85a5eec4beaa"
+    },
+    {
+      "path": "dist/semantic-colors.css",
+      "sha256": "126f10fd5b53894d7aff7f67aba5fdce57251449e9fec645b8328dc11632eec1"
+    },
+    {
+      "path": "dist/glass-controls.css",
+      "sha256": "49ec4213985d7ba983bf07eadef4ac32a86e0f1371002a6dd160caf98d76f873"
+    },
+    {
+      "path": "dist/panel-desktop.css",
+      "sha256": "63966ff7d064c95dc9caffddb3a80a49359350683b29455221181e13fe3d44b9"
+    },
+    {
+      "path": "dist/widget-popovers.css",
+      "sha256": "30ec9c64e133273b651e5bf4f44f4bcd505e05450afdb4520dd03df9a7cc56e0"
+    },
+    {
+      "path": "dist/desktop-background.css",
+      "sha256": "04e77fa50d3e71d08415de56ff445f9f5a503e60044cd0f455beb1214f823825"
+    }
+  ],
+  "artwork": {
+    "source_path": "dist/assets/wallpaper-silk.svg",
+    "site_path": "public/images/materials/spatial-silk.svg",
+    "source_url": "https://github.com/xefensor/spatial-desktop/blob/647b6e1bd1607c28669036795cdcd66ce31197e2/dist/assets/wallpaper-silk.svg",
+    "creator": "Alexej Tu\u0161l (xefensor)",
+    "copyright_year": 2026,
+    "licence": "CC-BY-SA-4.0",
+    "licence_copy": "public/licenses/spatial-desktop-artwork-CC-BY-SA-4.0.txt",
+    "changes": "None to SVG; composed with static colour gradients on the website. No ambient animation imported.",
+    "sha256": "aacc539e46350c1d38a26fc6c97b549117420ef01780bd1739d4a41506bad6fd",
+    "rendered_by_current_pages": false
+  },
+  "code_terms": {
+    "licence": "GPL-3.0-or-later",
+    "licence_copy": "public/licenses/spatial-desktop-materials-GPL-3.0.txt",
+    "scope": "Adapted desktop material declarations; does not change separate app/product licences or grant a new licence to their screenshots or website prose."
+  },
+  "preserved": [
+    "Direct Docs article entry and native documentation tree",
+    "All current product data, exact releases and download links",
+    "Four unmodified native watch screenshots",
+    "Plain-text XOCE with no logo",
+    "No desktop runtime, window-management controls or authored philosophy prose imported"
+  ],
+  "current_direction": {
+    "status": "Superseded by user-approved original XOCE identity; retained material-code attribution remains applicable.",
+    "reference": "docs/xoce-visual-identity.json"
+  }
+}

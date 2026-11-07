@@ -6,7 +6,7 @@ section: Design
 order: 4
 ---
 
-Interaction design explains what happens before and after a press, not only how a screen looks. This guide records the current Pebble workflows and rules behind them. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
+Interaction design explains what happens before and after a press, not only how a screen looks. Common rules apply across XOCE: preserve the person’s context, bind actions to the intended target, and distinguish a draft from a confirmed result. The concrete workflows below are implemented Pebble examples; they do not establish an Android interaction API or finished Phone design. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
 
 The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the implemented shared design and passed local automated, packaged browser and native emulator checks. The candidates are not published releases, and real-device verification remains separate. The published baselines and older evidence keep their original version context.
 
@@ -95,6 +95,12 @@ Dynamic uses short incoming transitions for activity replacements or media-item 
 Timer rotates its hourglass for a state transition and settles within 300ms. Ready and paused presentations remain still; ordinary reopening does not replay the flip. Visible falling sand reuses the running second tick.
 
 Neither Dynamic nor Dashboard scrolls text automatically. The watch shows the beginning that fits. The website respects reduced motion and keeps primary navigation and guide content available without JavaScript.
+
+## Android interaction scope
+
+Phone is planned as a standalone Android app, with an optional Pebble companion. Android interaction guidance will follow its actual interface as it develops. The companion will have its own watch controls.
+
+The common rules in this guide remain useful goals. The watch’s tap/hold mappings, Quick Launch handoff and activity bindings belong to the Pebble implementations described above. Android interaction guidance needs to follow the actual Android product rather than inheriting those mappings.
 
 ## References and verification
 

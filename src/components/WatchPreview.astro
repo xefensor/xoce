@@ -1,8 +1,85 @@
 ---
-interface Props { image: string; alt: string; eager?: boolean; class?: string }
-const { image, alt, eager = false, class: className = '' } = Astro.props;
+/** Official Pebble Appstore frame; source and credits in docs/asset-provenance.json.
+ * The native screen remains a separate, unchanged image with its 200:228 ratio.
+ */
+interface Props {
+  image: string;
+  alt: string;
+  caption?: string;
+  compact?: boolean;
+  eager?: boolean;
+  class?: string;
+}
+const { image, alt, caption, compact = false, eager = false, class: className = '' } = Astro.props;
 ---
-<div class:list={['watch-preview', className]}>
-  <div class="watch-strap" aria-hidden="true"></div>
-  <div class="watch-case"><span class="watch-button watch-button-one" aria-hidden="true"></span><span class="watch-button watch-button-two" aria-hidden="true"></span><span class="watch-button watch-button-three" aria-hidden="true"></span><img src={image} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
-</div>
+<figure class:list={['watch-preview', { 'watch-preview-compact': compact }, className]}>
+  <div class="pebble-device" data-watch-device>
+    <div class="pebble-display">
+      <img src={image} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    </div>
+    <img class="pebble-frame" src="/images/devices/pebble-time-2.png" alt="" aria-hidden="true" width="488" height="700" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .watch-preview {
+    --watch-width: 340px;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    width: min(var(--watch-width), 100%);
+    min-width: 0;
+    margin: 0;
+    isolation: isolate;
+  }
+  .pebble-device {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 488 / 700;
+    filter: drop-shadow(0 14px 14px rgb(12 24 21 / .16));
+  }
+  .pebble-display {
+    position: absolute;
+    left: 20.287%;
+    top: 26.857%;
+    width: 57.582%;
+    height: 48.286%;
+    display: flex;
+    align-items: center;
+    background: #000;
+  }
+  .pebble-display img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    image-rendering: pixelated;
+  }
+  .pebble-frame {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    pointer-events: none;
+  }
+  figcaption {
+    max-width: 34ch;
+    margin-top: 19px;
+    color: var(--muted);
+    font-size: .75rem;
+    line-height: 1.65;
+    text-align: center;
+    text-wrap: pretty;
+  }
+  .watch-preview-compact { --watch-width: 160px; }
+  .watch-preview-compact figcaption { font-size: .7rem; }
+  @media (forced-colors: active) { .pebble-device { outline: 1px solid CanvasText; } }
+</style>

@@ -1,0 +1,87 @@
+
+> xoce@0.1.0 test
+> npm run check && npm run build && npm run check:links
+
+
+> xoce@0.1.0 check
+> astro check
+
+23:37:21 [types] Generated 86ms
+23:37:21 [check] Getting diagnostics for Astro files in /home/xela/Projekty/Pebble/xoce...
+Result (30 files): 
+- 0 errors
+- 0 warnings
+- 0 hints
+
+
+> xoce@0.1.0 build
+> astro build
+
+23:37:23 [types] Generated 89ms
+23:37:23 [build] output: "static"
+23:37:23 [build] mode: "static"
+23:37:23 [build] directory: /home/xela/Projekty/Pebble/xoce/dist/
+23:37:23 [build] Collecting build info...
+23:37:23 [build] ✓ Completed in 111ms.
+23:37:23 [build] Building static entrypoints...
+23:37:24 [vite] ✓ built in 383ms
+23:37:24 [vite] ✓ built in 14ms
+23:37:24 [build] Rearranging server assets...
+
+ generating static routes 
+23:37:24   ├─ /404.html (+8ms) 
+23:37:24   ├─ /about/index.html (+2ms) 
+23:37:24   ├─ /android/index.html (+2ms) 
+23:37:24   ├─ /design/index.html (+2ms) 
+23:37:24   ├─ /developers/index.html (+2ms) 
+23:37:24   ├─ /docs/android/phone/index.html (+1ms) 
+23:37:24   ├─ /docs/design/interaction/index.html (+3ms) 
+23:37:24   ├─ /docs/design/pebble-ui-system/index.html (+3ms) 
+23:37:24   ├─ /docs/design/principles/index.html (+2ms) 
+23:37:24   ├─ /docs/design/ui-patterns/index.html (+2ms) 
+23:37:24   ├─ /docs/design/visual-identity/index.html (+2ms) 
+23:37:24   ├─ /docs/develop/activities/index.html (+2ms) 
+23:37:24   ├─ /docs/develop/building/index.html (+1ms) 
+23:37:24   ├─ /docs/develop/core/index.html (+1ms) 
+23:37:24   ├─ /docs/getting-started/index.html (+1ms) 
+23:37:24   ├─ /docs/pebble/controls/index.html (+1ms) 
+23:37:24   ├─ /docs/pebble/phone-connection/index.html (+2ms) 
+23:37:24   ├─ /docs/pebble/setup/index.html (+2ms) 
+23:37:24   ├─ /docs/pebble/troubleshooting/index.html (+1ms) 
+23:37:24   ├─ /docs/project/licensing/index.html (+1ms) 
+23:37:24   ├─ /docs/index.html (+1ms) 
+23:37:24   ├─ /pebble/index.html (+2ms) 
+23:37:24   ├─ /projects/phone/index.html (+2ms) 
+23:37:24   ├─ /projects/pebble-phone/index.html (+1ms) 
+23:37:24   ├─ /projects/dynamic/index.html (+2ms) 
+23:37:24   ├─ /projects/dashboard/index.html (+1ms) 
+23:37:24   ├─ /projects/timer/index.html (+1ms) 
+23:37:24   ├─ /projects/open-activity/index.html (+1ms) 
+23:37:24   ├─ /projects/activities/index.html (+1ms) 
+23:37:24   ├─ /projects/core/index.html (+1ms) 
+23:37:24   ├─ /projects/index.html (+7ms) 
+23:37:24   ├─ /search.json (+3ms) 
+23:37:24   ├─ /users/index.html (+1ms) 
+23:37:24   ├─ /index.html (+2ms) 
+23:37:24 ✓ Completed in 83ms.
+
+23:37:24 [build] ✓ Completed in 516ms.
+23:37:24 [build] 33 page(s) built in 631ms
+23:37:24 [build] Complete!
+
+> xoce@0.1.0 check:links
+> node scripts/check-site.mjs
+
+{
+  "passed": true,
+  "pages": 33,
+  "internalReferences": 1602,
+  "anchors": 364,
+  "referencedAssets": 19,
+  "catalogueProducts": 5,
+  "downloadableApps": 4,
+  "plannedProjects": 1,
+  "libraries": 2,
+  "guides": 13,
+  "preservedNativeCaptures": 4
+}

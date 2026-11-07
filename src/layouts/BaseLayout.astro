@@ -1,29 +1,31 @@
 ---
 import '../styles/fonts.css';
 import '../styles/global.css';
+import '../styles/theme.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Search from '../components/Search.astro';
 interface Props { title?: string; description?: string; bodyClass?: string }
-const { title = 'XOCE', description = 'Pebble apps, watchfaces and developer libraries from Xef’s Open Computing Ecosystem. Downloads, setup guides and design documentation.', bodyClass = '' } = Astro.props;
+const { title = 'XOCE', description = 'Xef’s Open Computing Ecosystem: a project for everyday software on KDE Plasma, Android and PebbleOS. Try the current apps and see where the ecosystem is heading.', bodyClass = '' } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-ui="material">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f5f3ec" />
+    <meta name="theme-color" content="#f5f4ef" />
     <meta name="color-scheme" content="light dark" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`} />
     <meta property="og:description" content={description} />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="data:," />
     <noscript><link rel="stylesheet" href="/no-js.css" /></noscript>
     <title>{title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`}</title>
     <script is:inline>
-      (() => { let saved; try { saved = localStorage.getItem('xoce-theme'); } catch {} document.documentElement.dataset.theme = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; })();
+      (() => { let saved; try { saved = localStorage.getItem('xoce-theme'); } catch {} const root = document.documentElement; root.dataset.theme = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#1c2222' : '#f5f4ef'); })();
     </script>
+    <slot name="head" />
   </head>
   <body class={bodyClass}>
     <a class="skip-link" href="#main">Skip to content</a>

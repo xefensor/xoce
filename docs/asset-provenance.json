@@ -1,14 +1,38 @@
 {
   "schema": 1,
   "prepared_on": "2026-11-06",
-  "scope": "XOCE local website product screenshots",
+  "scope": "XOCE local website native product screenshots and official Pebble Appstore device frame",
   "recommended_caption": "Native emulator previews. Example data.",
   "notes": [
     "All four images were copied byte-for-byte from versioned project evidence.",
     "These are native emulator renderings, not physical-watch photography or browser design mock-ups.",
+    "Some presentations place unchanged native captures inside the official Pebble Appstore Time 2 frame; catalogue and documentation views may display the captures directly.",
     "Dashboard reuses an older capture of its unchanged watch layout; that reuse is identified in its entry.",
     "No new licence is granted by this provenance record; source-project licences and third-party notices remain authoritative."
   ],
+  "device_presentation": {
+    "kind": "official-pebble-appstore-frame",
+    "component": "src/components/WatchPreview.astro",
+    "hardware_reference": "Pebble Time 2 / Emery",
+    "source_url": "https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png",
+    "source_page": "https://apps.repebble.com/",
+    "site_path": "/images/devices/pebble-time-2.png",
+    "copyright": "Core Devices",
+    "attribution": "Source-provided Pebble Appstore watch frame from Core Devices.",
+    "retrieved_on": "2026-11-06",
+    "bytes": 103751,
+    "width": 488,
+    "height": 700,
+    "sha256": "ec5f810dda6cfa769df5421c3fcbebb5bd45a36839029a6c396ea4acc7609c54",
+    "pixel_changes": "none",
+    "third_party_photo_or_artwork_copied": true,
+    "native_capture_pixel_changes": "none",
+    "native_capture_aspect_ratio": "200:228, fitted without stretching; matte black fills unused display aperture.",
+    "physical_watch_test_evidence": false,
+    "licence_status": "No asset-specific permissive licence has been verified. The source-provided asset is included for local review; this provenance record grants no additional licence.",
+    "distribution_scope": "local-review-only",
+    "note": "The official transparent PNG is used unchanged around separately rendered native emulator captures. Neither the composited preview nor the source frame establishes physical-watch verification."
+  },
   "images": [
     {
       "id": "dynamic",

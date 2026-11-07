@@ -1,0 +1,177 @@
+{
+  "passed": true,
+  "excludedPresentationFields": [
+    "description",
+    "summary",
+    "features",
+    "requirements",
+    "setupGuide",
+    "controlsGuide",
+    "helpGuide"
+  ],
+  "preservedFacts": [
+    {
+      "slug": "phone",
+      "name": "Phone",
+      "kind": "app",
+      "availability": "planned",
+      "platform": "Android",
+      "status": "Planned · working name",
+      "guide": "/docs/android/phone/",
+      "optionalConnections": [
+        "pebble-phone"
+      ]
+    },
+    {
+      "slug": "pebble-phone",
+      "name": "Phone for Pebble",
+      "kind": "app",
+      "availability": "planned",
+      "platform": "PebbleOS",
+      "status": "Planned · working name",
+      "guide": "/docs/pebble/phone-connection/",
+      "requires": [
+        "phone"
+      ]
+    },
+    {
+      "slug": "dynamic",
+      "availability": "available",
+      "compatibility": "Pebble Time 2 / Emery",
+      "previewType": "watch",
+      "developerGuide": "/docs/develop/activities/",
+      "developerNote": "A watchface that displays compatible activities; providers supply content while Dynamic owns placement and priority.",
+      "name": "Dynamic",
+      "kind": "watchface",
+      "version": "0.16.2",
+      "repo": "https://github.com/xefensor/pebble-watchface-dynamic",
+      "tag": "v0.16.2",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.16.2/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-watchface-dynamic/releases/download/v0.16.2/Dynamic-0.16.2.pbw",
+      "guide": "/docs/pebble/setup/#dynamic",
+      "image": "/images/projects/dynamic.png",
+      "imageAlt": "Dynamic displayed on the Pebble Time 2 emulator.",
+      "platform": "PebbleOS",
+      "status": "Development prerelease"
+    },
+    {
+      "slug": "dashboard",
+      "availability": "available",
+      "compatibility": "Pebble Time 2 / Emery",
+      "previewType": "watch",
+      "developerGuide": "/docs/develop/activities/#app-opening-and-actions",
+      "developerNote": "An interactive activity host. Controls depend on the bound source; Timer Pause/Resume is not implemented.",
+      "name": "Dashboard",
+      "kind": "app",
+      "version": "0.4.3",
+      "repo": "https://github.com/xefensor/pebble-app-dashboard",
+      "tag": "v0.4.3",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-app-dashboard/blob/v0.4.3/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-app-dashboard/releases/download/v0.4.3/Dashboard-0.4.3.pbw",
+      "guide": "/docs/pebble/setup/#dashboard",
+      "image": "/images/projects/dashboard.png",
+      "imageAlt": "Dashboard displayed on the Pebble Time 2 emulator.",
+      "platform": "PebbleOS",
+      "status": "Development prerelease"
+    },
+    {
+      "slug": "timer",
+      "availability": "available",
+      "compatibility": "Pebble Time 2 / Emery",
+      "previewType": "watch",
+      "developerGuide": "/docs/develop/activities/",
+      "developerNote": "Timer owns native countdowns and alarms. Its bundled provider shares summaries with compatible activity hosts.",
+      "name": "Timer",
+      "kind": "app",
+      "version": "0.12.0",
+      "repo": "https://github.com/xefensor/pebble-app-timer",
+      "tag": "v0.12.0",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-app-timer/releases/download/v0.12.0/Timer-0.12.0.pbw",
+      "guide": "/docs/pebble/controls/#timer",
+      "image": "/images/projects/timer.png",
+      "imageAlt": "Timer displayed on the Pebble Time 2 emulator.",
+      "platform": "PebbleOS",
+      "status": "Development prerelease"
+    },
+    {
+      "slug": "open-activity",
+      "availability": "available",
+      "compatibility": "Pebble Time 2 / Emery",
+      "previewType": "watch",
+      "developerGuide": "/docs/develop/activities/#app-opening-and-actions",
+      "developerNote": "Uses Dynamic’s recent displayed destinations. Opens the associated app without selecting a particular item inside it.",
+      "requires": [
+        "dynamic"
+      ],
+      "name": "Open Activity",
+      "kind": "app",
+      "version": "0.1.6",
+      "repo": "https://github.com/xefensor/pebble-app-open-activity",
+      "tag": "v0.1.6",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-app-open-activity/releases/download/v0.1.6/Open-Activity-0.1.6.pbw",
+      "guide": "/docs/pebble/setup/#open-activity",
+      "image": "/images/projects/open-activity.png",
+      "imageAlt": "Open Activity’s setup screen on the Pebble Time 2 emulator.",
+      "platform": "PebbleOS",
+      "status": "Development prerelease"
+    },
+    {
+      "slug": "activities",
+      "availability": "available",
+      "consumers": [
+        "dynamic",
+        "dashboard",
+        "timer",
+        "open-activity"
+      ],
+      "name": "Activities",
+      "kind": "library",
+      "version": "0.4.4",
+      "repo": "https://github.com/xefensor/pebble-lib-activities",
+      "tag": "v0.4.4",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-lib-activities/releases/download/v0.4.4/pebble-activities-0.4.4.tgz",
+      "guide": "/docs/develop/activities/",
+      "platform": "PebbleOS",
+      "status": "Development prerelease"
+    },
+    {
+      "slug": "core",
+      "availability": "available",
+      "consumers": [
+        "dynamic",
+        "dashboard"
+      ],
+      "name": "Core",
+      "kind": "library",
+      "version": "0.5.1",
+      "repo": "https://github.com/xefensor/pebble-lib-core",
+      "tag": "v0.5.1",
+      "licence": {
+        "name": "PolyForm Noncommercial 1.0.0",
+        "url": "https://github.com/xefensor/pebble-lib-core/blob/v0.5.1/LICENSE"
+      },
+      "download": "https://github.com/xefensor/pebble-lib-core/releases/download/v0.5.1/pebble-watchface-core-0.5.1.tgz",
+      "guide": "/docs/develop/core/",
+      "platform": "PebbleOS",
+      "status": "Published library"
+    }
+  ]
+}

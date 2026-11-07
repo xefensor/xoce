@@ -1,0 +1,234 @@
+/* The article is the glass surface; navigation stays quiet beside it. */
+html[data-ui='material'] .guide-shell {
+  --guide-gutter: 36px;
+  --guide-reading-width: 680px;
+  display: grid;
+  grid-template-columns: 192px minmax(0, 760px) 174px;
+  justify-content: center;
+  align-items: start;
+  gap: 32px;
+  width: min(1376px, calc(100% - 64px));
+  padding-block: 36px 72px;
+}
+.guide-shell .docs-sidebar,
+.guide-shell .docs-toc {
+  position: sticky;
+  top: 96px;
+  min-width: 0;
+  padding-top: 10px;
+}
+.guide-shell .docs-home {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  margin-bottom: 15px;
+  padding-inline: 8px;
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.guide-shell .docs-home svg { color: var(--accent-text); }
+.guide-shell .docs-section + .docs-section { margin-top: 8px; }
+.guide-shell .docs-section > summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 8px;
+  border-radius: var(--radius-control);
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 550;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+.guide-shell .docs-section > summary::-webkit-details-marker { display: none; }
+.guide-shell .docs-section > summary::after {
+  content: '›';
+  margin-left: auto;
+  font-size: 1.125rem;
+  line-height: 1;
+  transform: rotate(0deg);
+}
+.guide-shell .docs-section[open] > summary::after { transform: rotate(90deg); }
+.guide-shell .docs-section > summary[aria-current] { color: var(--ink); font-weight: 600; }
+.guide-shell .docs-section > summary:hover { color: var(--ink); background: var(--glass-hover); }
+.guide-shell .docs-section > summary:active { background: var(--glass-down); }
+.guide-shell .docs-group { margin-block: 5px 15px; }
+.guide-shell .group-label {
+  margin: 14px 8px 5px;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 550;
+  line-height: 1.6;
+}
+.guide-shell .docs-group a {
+  display: block;
+  padding: 9px 9px 9px 15px;
+  border-left: 2px solid transparent;
+  border-radius: 0 var(--radius-small) var(--radius-small) 0;
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.guide-shell .docs-group a:hover { color: var(--ink); background: var(--glass-hover); }
+.guide-shell .docs-group a:active { background: var(--glass-down); }
+.guide-shell .docs-group a[aria-current] {
+  color: var(--ink);
+  border-left-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+  font-weight: 550;
+}
+/* Expanded navigation remains part of ordinary page scrolling. */
+.guide-shell .docs-sidebar:has(.docs-section[open] ~ .docs-section[open]),
+.guide-shell .docs-toc.long-contents { position: static; }
+
+.guide-shell .reading-surface {
+  min-width: 0;
+  color: var(--ink);
+  background: var(--glass-reading-surface);
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-pane);
+  box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(24px) saturate(1.08);
+  backdrop-filter: blur(24px) saturate(1.08);
+}
+.guide-shell .document-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-height: 47px;
+  padding: 10px var(--guide-gutter);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .75rem;
+  line-height: 1.6;
+}
+.guide-shell .document-bar > svg:first-child { color: var(--accent-text); }
+.guide-shell .document-bar a { text-decoration: none; }
+.guide-shell .document-bar a:hover { text-decoration: underline; }
+.guide-shell :is(.doc-heading, .prose, .doc-pagination, .guide-contents) {
+  width: min(calc(100% - var(--guide-gutter) - var(--guide-gutter)), var(--guide-reading-width));
+  max-width: var(--guide-reading-width);
+  margin-inline: auto;
+}
+.guide-shell .doc-heading { padding-block: 33px 28px; }
+.guide-shell .doc-heading h1 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(2rem, 3.2vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+.guide-shell .doc-heading .lead {
+  max-width: 60ch;
+  margin-top: 17px;
+  color: var(--muted);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.guide-shell .prose { min-width: 0; font-size: 1.0625rem; line-height: 1.8; overflow-wrap: anywhere; }
+.guide-shell .prose > :first-child { margin-top: 0; }
+.guide-shell .prose p { margin-block: 17px; }
+.guide-shell .prose :is(h2, h3, h4) { font-family: var(--font-body); font-weight: 600; line-height: 1.3; letter-spacing: -.025em; }
+.guide-shell .prose [id] { scroll-margin-top: 20px; }
+.guide-shell .prose h2 { margin-block: 43px 18px; font-size: 1.65rem; }
+.guide-shell .prose h3 { margin-block: 29px 15px; font-size: 1.25rem; }
+.guide-shell .prose h4 { margin-block: 25px 12px; font-size: 1.0625rem; }
+.guide-shell .prose a { color: var(--accent-text); text-decoration-color: color-mix(in srgb, var(--accent-text) 55%, transparent); text-underline-offset: .2em; }
+.guide-shell .prose a:hover { text-decoration-color: currentColor; }
+.guide-shell .prose :is(ul, ol) { padding-left: 23px; }
+.guide-shell .prose li + li { margin-top: 9px; }
+.guide-shell .prose code { border-radius: var(--radius-small); overflow-wrap: anywhere; }
+.guide-shell .prose pre { max-width: 100%; overflow-x: auto; border-radius: var(--radius-control); }
+.guide-shell .prose pre code { white-space: pre; overflow-wrap: normal; }
+.guide-shell .prose table { display: block; max-width: 100%; overflow-x: auto; }
+.guide-shell .prose :is(th, td) { min-width: 90px; }
+.guide-shell .prose figure { margin-block: 27px; }
+.guide-shell .prose figure img { width: auto; height: auto; max-width: 100%; }
+.guide-shell .prose .image-caption { font-size: .8125rem; line-height: 1.6; }
+
+.guide-shell .doc-pagination {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 39px;
+  padding-block: 23px 28px;
+  border-top: 1px solid var(--line);
+}
+.guide-shell .doc-pagination a {
+  display: block;
+  min-height: 70px;
+  padding: 8px 6px;
+  border-radius: var(--radius-control);
+  color: var(--ink);
+  text-decoration: none;
+}
+.guide-shell .doc-pagination a:last-child { text-align: right; }
+.guide-shell .doc-pagination a:hover { background: var(--glass-hover); }
+.guide-shell .doc-pagination a:active { background: var(--glass-down); }
+.guide-shell .doc-pagination span { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .75rem; line-height: 1.6; }
+.guide-shell .doc-pagination a:last-child span { justify-content: flex-end; }
+.guide-shell .doc-pagination strong { display: block; margin-top: 7px; font-size: .9375rem; font-weight: 550; line-height: 1.5; }
+
+.guide-shell .docs-toc { padding: 14px 0 0 18px; border-left: 1px solid var(--line); }
+.guide-shell .docs-toc > .eyebrow { color: var(--ink); font-size: .75rem; font-weight: 550; }
+.guide-shell .docs-toc nav { margin-top: 12px; }
+.guide-shell .docs-toc a { display: block; margin-inline: -7px; padding: 8px 7px; border-radius: var(--radius-small); color: var(--muted); font-size: .8125rem; line-height: 1.5; text-decoration: none; overflow-wrap: anywhere; }
+.guide-shell .docs-toc a:hover { color: var(--ink); background: var(--glass-hover); }
+.guide-shell .docs-toc a:active { background: var(--glass-down); }
+.guide-shell :is(.guide-contents, .docs-mobile-nav) { display: none; }
+
+@media (max-width: 1240px) {
+  html[data-ui='material'] .guide-shell { grid-template-columns: 192px minmax(0, 800px); gap: 28px; width: min(1060px, calc(100% - 48px)); }
+  .guide-shell .docs-toc { display: none; }
+  .guide-shell .guide-contents { display: block; margin-block: 0 24px; padding-block: 0; border-block: 1px solid var(--line); }
+  .guide-shell .guide-contents > summary { min-height: 44px; padding-block: 10px; color: var(--muted); font-size: .875rem; font-weight: 550; line-height: 1.65; cursor: pointer; }
+  .guide-shell .guide-contents > summary:hover { color: var(--ink); }
+  .guide-shell .guide-contents nav { display: grid; padding-bottom: 12px; }
+  .guide-shell .guide-contents a { display: flex; align-items: center; min-height: 44px; padding-block: 9px; color: var(--muted); font-size: .875rem; line-height: 1.5; text-decoration: none; }
+  .guide-shell .guide-contents a:hover { color: var(--ink); text-decoration: underline; }
+}
+@media (max-width: 900px) {
+  html[data-ui='material'] .guide-shell { grid-template-columns: minmax(0, 1fr); gap: 15px; width: min(760px, calc(100% - 40px)); padding-block: 19px 48px; }
+  .guide-shell .docs-sidebar { display: none; }
+  .guide-shell .docs-mobile-nav { display: block; padding-inline: 4px; border-bottom: 1px solid var(--line); }
+  .guide-shell .docs-mobile-nav > summary { min-height: 44px; padding-block: 9px; color: var(--ink); font-size: .9375rem; line-height: 1.7; cursor: pointer; }
+  .guide-shell .docs-mobile-nav nav { padding-block: 4px 15px; }
+  .guide-shell .docs-mobile-nav .docs-home { margin-block: 5px 8px; }
+  .guide-shell .docs-mobile-nav .docs-group a { min-height: 44px; padding-block: 10px; font-size: .9375rem; }
+  .guide-shell .docs-mobile-nav .docs-section > summary { font-size: .9375rem; }
+}
+@media (max-width: 650px) {
+  html[data-ui='material'] .guide-shell { --guide-gutter: 20px; width: calc(100% - 24px); padding-top: 12px; gap: 12px; }
+  .guide-shell .document-bar { min-height: 41px; padding-block: 8px; gap: 6px; }
+  .guide-shell .doc-heading { padding-block: 24px; }
+  .guide-shell .doc-heading h1 { font-size: 2rem; line-height: 1.16; }
+  .guide-shell .doc-heading .lead { margin-top: 13px; font-size: 1rem; line-height: 1.65; }
+  .guide-shell .prose { font-size: 1rem; line-height: 1.75; }
+  .guide-shell .prose h2 { margin-top: 35px; font-size: 1.5rem; }
+  .guide-shell .prose h3 { font-size: 1.1875rem; }
+  .guide-shell .doc-pagination { margin-top: 30px; padding-bottom: 20px; }
+}
+@media (max-width: 480px) {
+  .guide-shell .doc-pagination { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .guide-shell .doc-pagination > span:empty { display: none; }
+  .guide-shell .doc-pagination a:last-child { text-align: left; }
+  .guide-shell .doc-pagination a:last-child span { justify-content: flex-start; }
+}
+@media (max-width: 350px) { html[data-ui='material'] .guide-shell { --guide-gutter: 16px; } }
+@media (max-height: 880px) { .guide-shell :is(.docs-sidebar, .docs-toc) { position: static; } }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .guide-shell .reading-surface { background: var(--paper); }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .guide-shell .reading-surface { background: var(--paper); -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; }
+}

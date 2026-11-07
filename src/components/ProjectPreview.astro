@@ -1,0 +1,33 @@
+---
+import type { Project } from '../data/projects';
+import Icon from './Icon.astro';
+import WatchPreview from './WatchPreview.astro';
+interface Props { project: Project; eager?: boolean; compact?: boolean }
+const { project, eager = false, compact = false } = Astro.props;
+const library = project.kind === 'library';
+const watch = project.previewType === 'watch';
+---
+{project.image && watch && !compact ? (
+  <div class="device-preview"><WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} on a Pebble Time 2`} eager={eager} /></div>
+) : project.image ? (
+  <div class:list={['screenshot-preview', { 'watch-screenshot': watch, 'phone-screenshot': project.previewType === 'phone', 'compact-preview': compact }]}>
+    <img src={project.image} alt={project.imageAlt ?? `${project.name} screenshot`} width={watch ? 200 : undefined} height={watch ? 228 : undefined} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  </div>
+) : (
+  <div class:list={['project-symbol', { 'compact-preview': compact }]} aria-hidden={compact ? 'true' : undefined}>
+    <Icon name={library ? 'code' : project.platform === 'Android' ? 'phone' : 'watch'} size={compact ? 28 : 32} />
+  </div>
+)}
+<style>
+  .device-preview { display: flex; align-items: center; justify-content: center; width: 100%; min-width: 0; padding: 12px 0; }
+  .screenshot-preview { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 290px; padding: 28px 18px; background: var(--preview-surface); border: 0; border-radius: var(--radius-pane); box-shadow: none; }
+  .screenshot-preview.compact-preview { min-height: 0; padding: 0; background: transparent; border-radius: 0; }
+  .screenshot-preview img { display: block; width: auto; max-width: 100%; height: auto; max-height: 440px; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; }
+  .watch-screenshot img { width: 200px; image-rendering: pixelated; }
+  .phone-screenshot img { max-width: min(270px,100%); }
+  .compact-preview img { width: auto; max-width: 100%; max-height: 180px; border-radius: 0; }
+  .watch-screenshot.compact-preview img { width: 140px; max-height: none; image-rendering: pixelated; }
+  .project-symbol { display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: .88rem; }
+  .project-symbol :global(svg) { flex: 0 0 auto; color: var(--project-tone,var(--accent-text)); }
+  .project-symbol.compact-preview { width: 52px; height: 52px; justify-content: center; color: var(--glass-text); background: var(--preview-surface); border: 0; border-radius: var(--radius-control); box-shadow: none; }
+</style>

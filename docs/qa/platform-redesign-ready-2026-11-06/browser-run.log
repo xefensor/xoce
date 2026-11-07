@@ -1,0 +1,36 @@
+
+> xoce@0.1.0 check:browser
+> node scripts/browser-smoke.mjs
+
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/home-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/home-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/users-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/pebble-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/developers-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/design-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/visual-identity-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/docs-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/projects-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/project-dynamic-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/setup-guide-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/planned-phone-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/planned-pebble-phone-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/android-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/android-guide-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/users-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/developers-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/design-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/apps-menu-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/home-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/search-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/android-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/phone-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/design-desktop-reduced-motion.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/docs-mobile-no-javascript.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06/design-guide-mobile-no-javascript.png"}
+{
+  "passed": true,
+  "checks": 13,
+  "screenshots": 26,
+  "output": "/home/xela/Projekty/Pebble/xoce/docs/qa/platform-redesign-ready-2026-11-06"
+}

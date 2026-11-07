@@ -1,0 +1,372 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-06T21:02:20.000Z",
+  "observations": [
+    {
+      "route": "/",
+      "appearance": "light",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "NAV",
+          "selector": "platform-entries",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ARTICLE",
+          "selector": "featured-app",
+          "alpha": "rgba(250, 250, 244, 0.64)",
+          "radius": "10px"
+        },
+        {
+          "tag": "A",
+          "selector": "docs-entrance",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(155, 204, 181, 0.27), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(227, 206, 166, 0.22), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-home-light.png"
+    },
+    {
+      "route": "/projects/",
+      "appearance": "light",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "SECTION",
+          "selector": "catalogue-shelf",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(155, 204, 181, 0.27), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(227, 206, 166, 0.22), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-projects-light.png"
+    },
+    {
+      "route": "/projects/dynamic/",
+      "appearance": "light",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "SECTION",
+          "selector": "product-hero has-screenshot",
+          "alpha": "rgba(250, 250, 244, 0.64)",
+          "radius": "10px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "product-information",
+          "alpha": "rgba(252, 251, 247, 0.96)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(155, 204, 181, 0.27), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(227, 206, 166, 0.22), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-projects-dynamic-light.png"
+    },
+    {
+      "route": "/docs/",
+      "appearance": "light",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(250, 249, 244, 0.74)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ASIDE",
+          "selector": "docs-sidebar",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        },
+        {
+          "tag": "MAIN",
+          "selector": "doc-main reading-surface",
+          "alpha": "rgba(252, 251, 247, 0.96)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ASIDE",
+          "selector": "docs-toc",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(251, 250, 245, 0.84)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(252, 251, 247, 0.96)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(155, 204, 181, 0.27), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(227, 206, 166, 0.22), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-docs-light.png"
+    },
+    {
+      "route": "/",
+      "appearance": "dark",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "NAV",
+          "selector": "platform-entries",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ARTICLE",
+          "selector": "featured-app",
+          "alpha": "rgba(29, 45, 38, 0.7)",
+          "radius": "10px"
+        },
+        {
+          "tag": "A",
+          "selector": "docs-entrance",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(62, 131, 99, 0.21), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(142, 123, 82, 0.09), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-home-dark.png"
+    },
+    {
+      "route": "/projects/",
+      "appearance": "dark",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "SECTION",
+          "selector": "catalogue-shelf",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(62, 131, 99, 0.21), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(142, 123, 82, 0.09), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-projects-dark.png"
+    },
+    {
+      "route": "/projects/dynamic/",
+      "appearance": "dark",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "SECTION",
+          "selector": "product-hero has-screenshot",
+          "alpha": "rgba(29, 45, 38, 0.7)",
+          "radius": "10px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "product-information",
+          "alpha": "rgba(26, 37, 33, 0.96)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(0, 0, 0, 0)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(62, 131, 99, 0.21), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(142, 123, 82, 0.09), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-projects-dynamic-dark.png"
+    },
+    {
+      "route": "/docs/",
+      "appearance": "dark",
+      "surfaces": [
+        {
+          "tag": "HEADER",
+          "selector": "site-header",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "0px"
+        },
+        {
+          "tag": "DIV",
+          "selector": "apps-menu-panel",
+          "alpha": "rgba(21, 33, 29, 0.76)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ASIDE",
+          "selector": "docs-sidebar",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        },
+        {
+          "tag": "MAIN",
+          "selector": "doc-main reading-surface",
+          "alpha": "rgba(26, 37, 33, 0.96)",
+          "radius": "10px"
+        },
+        {
+          "tag": "ASIDE",
+          "selector": "docs-toc",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        },
+        {
+          "tag": "FOOTER",
+          "selector": "site-footer wrap",
+          "alpha": "rgba(27, 39, 35, 0.86)",
+          "radius": "10px"
+        }
+      ],
+      "main": {
+        "background": "rgba(26, 37, 33, 0.96)",
+        "art": "url(\"http://127.0.0.1:4401/images/materials/xoce-planes.svg\")",
+        "oldBackground": "radial-gradient(62% 76% at 88% 7%, rgba(62, 131, 99, 0.21), rgba(0, 0, 0, 0) 78%), radial-gradient(55% 70% at 7% 24%, rgba(142, 123, 82, 0.09), rgba(0, 0, 0, 0) 80%)",
+        "animation": "none"
+      },
+      "reducedTransparencyRemainingBlur": [],
+      "screenshot": "fallback-docs-dark.png"
+    }
+  ],
+  "exceptions": [],
+  "failedResponses": []
+}

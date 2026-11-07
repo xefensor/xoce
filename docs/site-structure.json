@@ -1,0 +1,215 @@
+{
+  "scope": "XOCE local website rebuilt around the ecosystem goal, current software and concrete participation.",
+  "technology": {
+    "framework": "Astro 7.4.7",
+    "language": "TypeScript 6.0.3",
+    "articles": "Markdown",
+    "presentation": "CSS and native HTML, with small progressive-enhancement scripts",
+    "output": "static",
+    "runtime_backend": null,
+    "local_only": true
+  },
+  "navigation": {
+    "main": [
+      {
+        "label": "Software",
+        "href": "/projects/"
+      },
+      {
+        "label": "Docs",
+        "href": "/docs/"
+      },
+      {
+        "label": "About",
+        "href": "/about/"
+      }
+    ],
+    "software_entry": "Direct catalogue of available software. Show a platform filter only when more than one platform has available downloads; no filter is shown for the current Pebble-only collection.",
+    "docs_entry": "Actual Getting started article, without a hub or category gateway.",
+    "footer_groups": [
+      "Software",
+      "Docs",
+      "Project"
+    ],
+    "future_plans_entry": "One understated Phone paragraph and plain canonical-plan link in About. No standalone Home promotion, catalogue plan card or explicit Android-plans footer link."
+  },
+  "pages": [
+    {
+      "route": "/",
+      "job": "Explain the ecosystem and show real current work immediately.",
+      "order": [
+        "Short everyday-app mission beside a compact four-choice official Pebble watch preview and app explanation",
+        "KDE Plasma, Android and PebbleOS platform focus",
+        "Current download/setup path and supported-build context",
+        "Clearly labelled future shared-timer concept across three devices",
+        "Short general three-stage direction without a promoted Phone plan",
+        "Direct use, build and contribution links"
+      ],
+      "preview": "Native CSS radios, keyboard-operable and usable without JavaScript; one static screen visible, no automatic cycling.",
+      "downloads": "A direct catalogue path; Software owns the four exact downloads.",
+      "composition": "Compact open introduction and side-by-side watch/caption glass showcase; quieter platform/setup section, concrete future connection, three-column stages and contribution links."
+    },
+    {
+      "route": "/projects/",
+      "job": "Choose current software, check requirements and download it.",
+      "entries": {
+        "available_apps": 4,
+        "promoted_plans": 0,
+        "libraries": "Direct developer-guide links, separate from consumer rows"
+      },
+      "filter": "No filter bar while all four available downloads are PebbleOS. An empty Android filter is not offered. Planned metadata does not establish an available platform.",
+      "downloads": "Four exact versioned PBW links.",
+      "composition": "Short introduction, open catalogue rows and larger unchanged native captures; download and setup actions beside each product."
+    },
+    {
+      "route": "/pebble/",
+      "job": "Understand the watch collection and prerequisites, then install.",
+      "order": [
+        "Actual watch presentation",
+        "Current app relationships",
+        "Emery/Pebble Time 2 and plugin prerequisites",
+        "Installation, controls and troubleshooting"
+      ]
+    },
+    {
+      "route": "/projects/<released-app>/",
+      "job": "Understand a product and install it.",
+      "order": [
+        "Purpose and real device preview",
+        "Download beside status, compatibility and requirements",
+        "Concrete capabilities",
+        "Setup, controls and help",
+        "Source, exact release and licence"
+      ]
+    },
+    {
+      "route": "/projects/phone/",
+      "job": "Own the single substantive Phone plan.",
+      "order": [
+        "Planned status and Android purpose",
+        "Independent Android app",
+        "Optional separate Pebble companion",
+        "Undecided implementation and availability"
+      ],
+      "anchors": [
+        "android-app",
+        "pebble-companion",
+        "plan-scope-title",
+        "connections-title",
+        "plan-unknowns-title"
+      ],
+      "no_build": true
+    },
+    {
+      "route": "/projects/<library>/",
+      "job": "Integrate the right developer library.",
+      "order": [
+        "Integration guide",
+        "Exact package version",
+        "Concepts and explicit consumers",
+        "Source and licence"
+      ]
+    },
+    {
+      "route": "/docs/",
+      "job": "Complete a first useful setup.",
+      "articles": 13,
+      "sections": [
+        "Guides",
+        "Developers",
+        "Design"
+      ],
+      "reader": "One dense glass article, quiet desktop navigation and contents rails, native collapsed Browse docs and On this page on mobile.",
+      "pagination": "Articles follow their section order; planned Phone content is a direct link to its product plan.",
+      "user_sequence": [
+        "/docs/getting-started/",
+        "/docs/pebble/setup/",
+        "/docs/pebble/controls/",
+        "/docs/pebble/troubleshooting/",
+        "/docs/project/licensing/"
+      ]
+    },
+    {
+      "route": "/about/",
+      "job": "Explain the project scope, development stages and ways to participate.",
+      "order": [
+        "Compact introduction, founder and project rationale",
+        "One platform per device category",
+        "Everyday software, a brief Phone-plan link and shared state/actions",
+        "Flexible three-stage progression",
+        "Later JMAP personal-data tools",
+        "Concrete contribution routes",
+        "Current source terms"
+      ],
+      "anchors": [
+        "platforms",
+        "everyday-software",
+        "connected-devices",
+        "stages",
+        "direction",
+        "phase-one",
+        "phase-two",
+        "phase-three",
+        "personal-data",
+        "contribute",
+        "source-and-licences"
+      ]
+    }
+  ],
+  "compatibility_routes": {
+    "/users/": "/docs/",
+    "/developers/": "/docs/develop/activities/",
+    "/design/": "/docs/design/principles/",
+    "/android/": "/projects/phone/#android-app",
+    "/projects/pebble-phone/": "/projects/phone/#pebble-companion",
+    "/docs/android/phone/": "/projects/phone/",
+    "/docs/pebble/phone-connection/": "/projects/phone/#pebble-companion"
+  },
+  "legacy_phone_fragments": {
+    "/docs/android/phone/#with-or-without-a-watch": "/projects/phone/#android-app",
+    "/docs/android/phone/#availability": "/projects/phone/#plan-unknowns-title",
+    "/docs/android/phone/#if-you-also-use-a-pebble": "/projects/phone/#pebble-companion",
+    "/docs/pebble/phone-connection/#what-you-would-need": "/projects/phone/#pebble-companion",
+    "/docs/pebble/phone-connection/#availability-and-setup": "/projects/phone/#plan-unknowns-title"
+  },
+  "content_rules": [
+    "Use actual project decisions: KDE Plasma desktop, Android mobile and PebbleOS watch; easy everyday use, interface experiments and eventual shared state/actions.",
+    "Basic-app examples do not form a closed inventory or fixed priority list.",
+    "Flexible stages have no dates: replaceable apps; dependable stable editions alongside deliberate experimental editions; deeper platform work with exact form undecided.",
+    "The ecosystem goal is open source; current Pebble releases retain PolyForm Noncommercial terms.",
+    "Keep exact public release, download, licence and relationship metadata authoritative and distinct from local candidates.",
+    "Current Pebble activity sharing does not establish completed desktop-phone-watch synchronization.",
+    "Phone and its optional watch companion are one planned piece of work, without fabricated interfaces or builds.",
+    "Xef starts the first stage; later stages need contributors, not an invented existing team.",
+    "No Lab, logo, empty future-platform portals or extra Docs landing page.",
+    "Keep existing useful URLs and article fragments working, with new links going directly to canonical content.",
+    "Phone remains future project/proposal content: no standalone Home promotion, catalogue plan card or explicit Android-plans footer link. Offer catalogue filters only for platforms with available software."
+  ],
+  "research": [
+    {
+      "source": "https://www.gnome.org/",
+      "observation": "Concrete software and device presentation."
+    },
+    {
+      "source": "https://kde.org/",
+      "observation": "Project identity and distinct software within a broader ecosystem."
+    },
+    {
+      "source": "https://kdeconnect.kde.org/",
+      "observation": "Explain connections through recognizable outcomes such as sharing files and controlling music."
+    },
+    {
+      "source": "https://repebble.com/watch",
+      "observation": "Accurate Pebble Time 2 device reference for original artwork."
+    },
+    {
+      "source": "https://www.apple.com/mac/",
+      "observation": "Readable product presentation and direct action hierarchy."
+    },
+    {
+      "source": "https://fluent2.microsoft.design/material",
+      "observation": "Material density suited to the task."
+    }
+  ],
+  "validation": "Final rebuild verification is recorded in docs/qa/VALIDATION.json after checks complete; retained historical reports describe their own source."
+}

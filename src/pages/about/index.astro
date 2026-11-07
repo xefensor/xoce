@@ -1,11 +1,142 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Icon from '../../components/Icon.astro';
+import { projects } from '../../data/projects';
+const maintained = projects.filter(project => project.repo && project.kind !== 'library');
+const platforms = [
+  { device: 'Desktop', platform: 'KDE Plasma', icon: 'monitor', detail: 'Linux with KDE Plasma is the desktop focus. The rest of the system stack is still to be decided.' },
+  { device: 'Phone', platform: 'Android', icon: 'phone', detail: 'Android is the mobile focus. Mobile Linux is a longer-term interest, rather than a current target.' },
+  { device: 'Watch', platform: 'PebbleOS', icon: 'watch', detail: 'Pebble is the watch platform, starting with apps and a watchface for Pebble Time 2.' },
+];
+const stages = [
+  { number: '01', id: 'phase-one', title: 'Start with replaceable apps', status: 'Starting here', text: 'Begin with smaller apps where a failed experiment has limited consequences and another tool can take over. Rapid, AI-assisted development can help make this first stage achievable. The current Pebble downloads are development builds.' },
+  { number: '02', id: 'phase-two', title: 'Build dependable everyday software', status: 'Later', text: 'Develop stable editions for daily use, alongside separate experimental editions for trying different interfaces and workflows. An experimental edition would explore an alternative idea; it would not simply be the unfinished next release.' },
+  { number: '03', id: 'phase-three', title: 'Work deeper in the systems', status: 'Longer term', text: 'Move beyond individual apps into our own Android and PebbleOS variants and deeper Linux or KDE work. Whether the desktop needs a distribution, a KDE fork or another approach is still to be decided.' },
+];
 ---
-<BaseLayout title="About XOCE" description="XOCE is Xef’s Open Computing Ecosystem. Meet the current Pebble projects, the principles behind the work and ways to contribute.">
-  <main id="main" class="wrap section page-main"><header class="page-heading about-heading"><p class="eyebrow">Xef’s Open Computing Ecosystem</p><h1>Useful software.<br />Thoughtful details.</h1><p class="lead">XOCE is the home for Xef’s projects and their documentation. This website covers the Pebble watchface, apps and developer libraries available today.</p></header>
-    <section class="about-intro"><div class="about-monogram" aria-hidden="true"><span>✳</span><strong>XOCE</strong><small>XEF’S OPEN COMPUTING ECOSYSTEM</small></div><div class="prose"><h2>The current collection.</h2><p><a href="/projects/dynamic/">Dynamic</a> displays the time, readings and ongoing activities. <a href="/projects/dashboard/">Dashboard</a> brings an activity, notifications and pinned items into one overview. <a href="/projects/timer/">Timer</a> manages countdowns on the watch, and <a href="/projects/open-activity/">Open Activity</a> connects Quick Launch to Dynamic’s displayed activities.</p><p>Two embedded libraries support developers: <a href="/projects/activities/">Activities</a> defines activity content and lifecycle, and <a href="/projects/core/">Core</a> provides shared readings and transport. Each of the six projects has its own repository and releases.</p><p>XOCE’s broader interests include Linux and KDE Plasma, Android, modern standards and new interaction ideas. The current collection documented here is for PebbleOS.</p></div></section>
-    <section class="section about-principles"><p class="eyebrow">What guides the work</p><h2>Keep common tasks simple.</h2><div class="guide-grid"><article class="principle-card"><span class="principle-number">01</span><h3>Make it understandable.</h3><p>Use readable content, clear actions and useful feedback. Give people control over what they see.</p></article><article class="principle-card"><span class="principle-number">02</span><h3>Respect the device.</h3><p>Account for the screen, buttons, platform conventions and battery. Each app should work comfortably where it runs.</p></article><article class="principle-card"><span class="principle-number">03</span><h3>Be clear about state.</h3><p>Show current information, handle missing data and explain whether an action or saved change succeeded.</p></article></div><p class="image-caption"><a href="/design/">Read the design principles and current interface guidance.</a></p></section>
-    <section class="contribute-panel" id="contribute"><div><p class="eyebrow">Get involved</p><h2>Help improve what is here.</h2><p>Try a development build, report a clear bug, improve a guide or build an activity provider. Share issues and code contributions in the affected project’s maintained repository.</p><div class="button-row"><a class="button button-primary" href="/users/">Use the apps <Icon name="arrow" size={18}/></a><a class="button button-plain" href="/developers/">Developer resources <Icon name="arrow" size={18}/></a></div></div><div class="contribute-details"><Icon name="code" size={34}/><h3>Source and licences.</h3><p>The current Pebble projects publish their source under PolyForm Noncommercial 1.0.0. Project pages link to exact development releases, compatibility notes and their own licences.</p><a class="text-link" href="/docs/project/licensing/">Licensing & credits <Icon name="arrow" size={17}/></a></div></section>
+<BaseLayout title="About XOCE" description="XOCE’s goal: an open-source ecosystem across KDE Plasma, Android and PebbleOS, starting with everyday apps and growing with contributors.">
+  <main id="main" class="wrap about-page">
+    <header class="about-intro">
+      <p class="eyebrow">Xef’s Open Computing Ecosystem</p>
+      <h1>About XOCE</h1>
+      <p class="about-lead">Useful apps. Shared tasks.<br/>Room to try another way.</p>
+      <p class="about-intro-detail">XOCE is Xef’s project to build an open-source ecosystem for KDE Plasma, Android and PebbleOS. It starts with small apps and a bigger question: how could everyday software work better, on its own and across devices?</p>
+    </header>
+
+    <section id="platforms" class="platform-scope" aria-labelledby="platforms-title">
+      <h2 id="platforms-title" class="scope-heading">The platforms the project is built around</h2>
+      <div class="platform-row">{platforms.map(item => <article>
+        <div class="platform-label"><Icon name={item.icon} size={23}/><span>{item.device}</span></div>
+        <h3>{item.platform}</h3>
+        <p>{item.detail}</p>
+      </article>)}</div>
+    </section>
+
+    <section id="everyday-software" class="about-section two-column" aria-labelledby="everyday-title">
+      <div><p class="eyebrow">Why start small?</p><h2 id="everyday-title">Make something useful.<br/>Learn from using it.</h2></div>
+      <div class="reading-copy"><p>A timer is a manageable place to try an idea. If it does not work for you, another app can take its place. That makes small, replaceable tools a useful first step towards a much larger project.</p><p>The wider focus is everyday software: messaging, calls, file management, notes, terminals and more. The exact apps and priorities will develop with the project. Making a task understandable matters as much as adding features; a different interface is worth exploring when it could make that task easier.</p><p id="phone-plan">Phone is planned as a standalone Android app, with an optional Pebble companion. <a href="/projects/phone/">Read the Phone plan.</a></p><a class="text-link" href="/projects/">See the current software <Icon name="arrow" size={17}/></a></div>
+    </section>
+
+    <section id="connected-devices" class="connection-goal" aria-labelledby="connections-title">
+      <div class="connection-heading"><p class="eyebrow">What makes it an ecosystem?</p><h2 id="connections-title">Pick up the same task<br/>on another device.</h2></div>
+      <div class="reading-copy"><p>A timer should be the same countdown wherever you look at it. Starting it on a phone, checking it on a watch and pausing it from a computer would share both its state and its controls.</p><p>That connection is a future goal. Today’s Pebble apps can share a timer summary with compatible watch apps and the watchface. Sharing it with the phone and desktop still lies ahead.</p></div>
+    </section>
+
+    <section id="stages" class="about-section stages" aria-labelledby="stages-title">
+      <header id="direction" class="section-intro"><p class="eyebrow">How the project could grow</p><h2 id="stages-title">A direction,<br/>one step at a time.</h2><p>These are flexible stages, without dates. Work can overlap, with cross-device connections developing along the way. Xef is starting the first stage; later work will need more contributors.</p></header>
+      <ol class="stage-list">{stages.map(stage => <li id={stage.id}>
+        <span class="stage-number" aria-hidden="true">{stage.number}</span>
+        <div><p class="stage-status">{stage.status}</p><h3>{stage.title}</h3><p>{stage.text}</p></div>
+      </li>)}</ol>
+      <div id="personal-data" class="later-goal"><h3>Personal data and JMAP</h3><p>Later work should also include JMAP-based calendars, tasks, contacts and related tools. The exact apps, server choices and timing have not been decided.</p></div>
+    </section>
+
+    <section id="contribute" class="about-section two-column contribution" aria-labelledby="contribute-title">
+      <div><p class="eyebrow">Take part</p><h2 id="contribute-title">Start with something<br/>you want to improve.</h2><p class="contribution-context">Try a build, work on an interface, fix a guide or contribute code. The current app repositories are the place to report problems and propose changes.</p></div>
+      <div class="reading-copy">
+        <p>Found a problem? Include the app version, your watch and phone, what you did, and what you expected to happen.</p>
+        <nav class="issue-links" aria-label="Report a problem with an app">{maintained.map(project => <a href={`${project.repo}/issues`}><span>{project.name}</span><span>Issues <Icon name="external" size={14}/></span></a>)}</nav>
+        <p>For code or documentation changes, use the <a href="/docs/develop/building/">build and contribution instructions</a>. To make an activity provider, start with the <a href="/docs/develop/activities/">Activities guide</a>.</p>
+      </div>
+    </section>
+
+    <section id="source-and-licences" class="source-note" aria-labelledby="source-title">
+      <h2 id="source-title">Source and licences</h2><p>The open-source ecosystem is the project’s aim. Current Pebble releases make their source available under <strong>PolyForm Noncommercial 1.0.0</strong>. Check each project’s terms before reusing its source or assets.</p><a class="text-link" href="/docs/project/licensing/">Licences and asset credits <Icon name="arrow" size={16}/></a>
+    </section>
   </main>
 </BaseLayout>
+<style>
+  .about-page { padding-top: clamp(32px,4.5vw,54px); }
+  .about-intro { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:0 70px; align-items:end; padding-bottom:clamp(30px,4.5vw,50px); }
+  .about-intro > .eyebrow { grid-column:1 / -1; }
+  .about-intro h1 { grid-column:1 / -1; margin-top:17px; font-size:clamp(2.5rem,4.2vw,3.7rem); font-weight:600; line-height:1.08; letter-spacing:-.05em; }
+  .about-lead { max-width:28ch; margin-top:25px; font-size:clamp(1.45rem,2.5vw,2rem); line-height:1.4; letter-spacing:-.025em; }
+  .about-intro-detail { max-width:52ch; margin-top:25px; font-size:1rem; line-height:1.8; color:var(--muted); }
+  .platform-scope { border-block: 1px solid var(--line); padding-block: 26px 32px; }
+  .scope-heading { font-size: .875rem; line-height: 1.5; font-weight: 550; color: var(--muted); }
+  .platform-row { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px; margin-top: 27px; }
+  .platform-label { display: flex; align-items: center; gap: 11px; color: var(--accent-text); font-size: .875rem; }
+  .platform-row h3 { font-size: 1.35rem; font-weight: 600; line-height: 1.3; letter-spacing: -.025em; margin-top: 13px; }
+  .platform-row p { max-width: 35ch; margin-top: 12px; color: var(--muted); font-size: .9375rem; line-height: 1.75; }
+  .about-section { padding-block: clamp(35px,4.5vw,54px); }
+  .two-column { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(34px,7vw,92px); }
+  .about-section h2, .connection-goal h2 { margin-top: 15px; font-size: clamp(1.95rem,3.2vw,2.8rem); font-weight: 600; line-height: 1.13; letter-spacing: -.045em; }
+  .reading-copy { font-size: 1.0625rem; line-height: 1.8; }
+  .reading-copy p { color: var(--muted); }
+  .reading-copy p + p { margin-top: 19px; }
+  .reading-copy a:not(.text-link) { text-underline-offset: .2em; }
+  .reading-copy .text-link { margin-top: 20px; color: var(--accent-text); }
+  .connection-goal { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(34px,7vw,92px); padding: clamp(28px,4.4vw,52px); background: var(--glass-feature-surface); border: 1px solid var(--glass-edge); border-radius: var(--radius-pane); box-shadow: var(--glass-shadow); -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+  .connection-heading { min-width: 0; }
+  .connection-goal .reading-copy { font-size: 1rem; }
+  .stages { display: grid; grid-template-columns: .85fr 1.15fr; column-gap: clamp(34px,7vw,92px); align-items: start; }
+  .section-intro { position: sticky; top: 110px; }
+  .section-intro > p:last-child { margin-top: 22px; color: var(--muted); font-size: .9375rem; line-height: 1.8; max-width: 37ch; }
+  .stage-list { list-style: none; margin: 0; padding: 0; }
+  .stage-list li { display: grid; grid-template-columns: 36px 1fr; gap: 20px; padding-block: 29px; border-top: 1px solid var(--line); }
+  .stage-list li:first-child { padding-top: 0; border-top: 0; }
+  .stage-number { color: var(--accent-text); font-size: .875rem; line-height: 1.6; padding-top: 2px; }
+  .stage-status { color: var(--accent-text); font-size: .8125rem; font-weight: 550; line-height: 1.6; }
+  .stage-list h3 { margin-top: 8px; font-size: 1.3rem; font-weight: 600; line-height: 1.35; letter-spacing: -.025em; }
+  .stage-list h3 + p { margin-top: 14px; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+  .later-goal { grid-column: 2; padding: 24px 0 0 56px; border-top: 1px solid var(--line); }
+  .later-goal h3 { font-size: 1rem; font-weight: 600; line-height: 1.5; }
+  .later-goal p { margin-top: 12px; color: var(--muted); font-size: .9375rem; line-height: 1.8; }
+  .contribution { border-top: 1px solid var(--line); }
+  .contribution-context { margin-top: 22px; color: var(--muted); font-size: .9375rem; line-height: 1.8; max-width: 36ch; }
+  .issue-links { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 26px; margin-block: 23px; }
+  .issue-links a { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 48px; border-bottom: 1px solid var(--line); font-size: .9375rem; text-decoration: none; }
+  .issue-links a:hover { text-decoration: underline; }
+  .issue-links a > span:last-child { display: flex; align-items: center; gap: 5px; font-size: .75rem; color: var(--muted); }
+  .source-note { display: grid; grid-template-columns: .85fr 1.15fr; column-gap: clamp(34px,7vw,92px); border-top: 1px solid var(--line); padding-top: 26px; }
+  .source-note h2 { font-size: 1rem; font-weight: 550; line-height: 1.6; }
+  .source-note p { font-size: .875rem; line-height: 1.8; color: var(--muted); }
+  .source-note .text-link { grid-column: 2; margin-top: 13px; color: var(--accent-text); font-size: .875rem; }
+  @media (max-width: 760px) {
+    .about-intro { grid-template-columns:minmax(0,1fr); gap:0; }
+    .about-intro h1 { font-size:clamp(2.5rem,8vw,3.5rem); }
+    .about-intro-detail { margin-top:18px; }
+    .platform-row { gap: 24px; }
+    .two-column, .connection-goal, .stages, .source-note { grid-template-columns: minmax(0,1fr); gap: 25px; }
+    .section-intro { position: static; }
+    .section-intro > p:last-child, .contribution-context { max-width: 62ch; }
+    .later-goal, .source-note .text-link { grid-column: 1; }
+    .reading-copy { font-size: 1rem; }
+    .connection-goal h2 br { display: none; }
+    .source-note { gap: 12px; }
+    .source-note .text-link { margin-top: 0; }
+  }
+  @media (max-width: 520px) {
+    .platform-row { grid-template-columns: minmax(0,1fr); gap: 22px; }
+    .platform-row article { display: grid; grid-template-columns: 92px 1fr; gap: 8px 16px; }
+    .platform-label { grid-column: 1; grid-row: 1 / 3; align-items: start; padding-top: 3px; gap: 8px; }
+    .platform-row h3 { margin-top: 0; font-size: 1.1875rem; }
+    .platform-row p { grid-column: 2; margin-top: 0; }
+    .connection-goal { padding: 26px 23px; }
+    .stage-list li { grid-template-columns: 28px 1fr; gap: 15px; }
+    .later-goal { padding-left: 43px; }
+    .issue-links { column-gap: 20px; }
+    .issue-links a { gap: 8px; }
+  }
+  @media (max-width: 360px) { .issue-links { grid-template-columns: minmax(0,1fr); } }
+</style>

@@ -1,0 +1,110 @@
+{
+  "passed": true,
+  "url": "http://127.0.0.1:4401/",
+  "observations": [
+    {
+      "width": 1440,
+      "appearance": "light",
+      "scripts": true,
+      "home": {
+        "phoneCards": 0,
+        "planLinks": 0,
+        "stages": 3,
+        "overflow": -15
+      },
+      "catalogue": {
+        "cards": [
+          "/projects/dynamic/",
+          "/projects/dashboard/",
+          "/projects/timer/",
+          "/projects/open-activity/"
+        ],
+        "plans": 0,
+        "filters": 0,
+        "count": "4 downloads",
+        "overflow": -15
+      }
+    },
+    {
+      "width": 360,
+      "appearance": "light",
+      "scripts": true,
+      "home": {
+        "phoneCards": 0,
+        "planLinks": 0,
+        "stages": 3,
+        "overflow": 0
+      },
+      "catalogue": {
+        "cards": [
+          "/projects/dynamic/",
+          "/projects/dashboard/",
+          "/projects/timer/",
+          "/projects/open-activity/"
+        ],
+        "plans": 0,
+        "filters": 0,
+        "count": "4 downloads",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 320,
+      "appearance": "dark",
+      "scripts": true,
+      "home": {
+        "phoneCards": 0,
+        "planLinks": 0,
+        "stages": 3,
+        "overflow": 0
+      },
+      "catalogue": {
+        "cards": [
+          "/projects/dynamic/",
+          "/projects/dashboard/",
+          "/projects/timer/",
+          "/projects/open-activity/"
+        ],
+        "plans": 0,
+        "filters": 0,
+        "count": "4 downloads",
+        "overflow": 0
+      }
+    },
+    {
+      "width": 360,
+      "appearance": "light",
+      "scripts": false,
+      "home": {
+        "phoneCards": 0,
+        "planLinks": 0,
+        "stages": 3,
+        "overflow": 0
+      },
+      "catalogue": {
+        "cards": [
+          "/projects/dynamic/",
+          "/projects/dashboard/",
+          "/projects/timer/",
+          "/projects/open-activity/"
+        ],
+        "plans": 0,
+        "filters": 0,
+        "count": "4 downloads",
+        "overflow": 0
+      }
+    }
+  ],
+  "screenshots": [
+    "home-direction-1440-light.png",
+    "software-1440-light.png",
+    "home-direction-360-light.png",
+    "software-360-light.png",
+    "home-direction-320-dark.png",
+    "software-320-dark.png",
+    "home-direction-360-light-no-js.png",
+    "software-360-light-no-js.png"
+  ],
+  "exceptions": [],
+  "failedResponses": []
+}

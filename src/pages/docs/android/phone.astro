@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const destination = '/projects/phone/';
+const fragments = { 'with-or-without-a-watch': '/projects/phone/#android-app', availability: '/projects/phone/#plan-unknowns-title', 'if-you-also-use-a-pebble': '/projects/phone/#pebble-companion' };
+---
+<BaseLayout title="Phone plan" description="The Android app and its optional Pebble companion share one Phone plan.">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href={destination} />
+    <meta name="phone-plan-destination" content={destination} data-fragments={JSON.stringify(fragments)} />
+    <script is:inline>
+      const config = document.querySelector('meta[name="phone-plan-destination"]');
+      const fragments = JSON.parse(config.dataset.fragments);
+      location.replace(Object.hasOwn(fragments, location.hash.slice(1)) ? fragments[location.hash.slice(1)] : config.content);
+    </script>
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+  </Fragment>
+  <main id="main" class="wrap page-main page-intro">
+    <h1>Phone’s plan has moved</h1>
+    <p><a href={destination}>Read the Android app and Pebble companion plan.</a></p>
+  </main>
+</BaseLayout>

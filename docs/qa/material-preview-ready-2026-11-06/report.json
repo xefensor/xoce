@@ -1,0 +1,243 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-06T17:41:18.417Z",
+  "url": "http://127.0.0.1:4401/",
+  "evidence": "Automated Chromium desktop/mobile viewport checks; no physical-device testing.",
+  "browserProfile": "/tmp/xoce-browser-qzV2z7",
+  "browserVersions": [
+    {
+      "protocolVersion": "1.3",
+      "product": "Chrome/156.0.8078.79",
+      "revision": "@a21ce95c24ce3964416f09ae1862f53f319eb4d0",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "jsVersion": "15.6.75.27"
+    },
+    {
+      "protocolVersion": "1.3",
+      "product": "Chrome/156.0.8078.79",
+      "revision": "@a21ce95c24ce3964416f09ae1862f53f319eb4d0",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "jsVersion": "15.6.75.27"
+    }
+  ],
+  "checks": [
+    {
+      "name": "System appearance and initial focus",
+      "passed": true
+    },
+    {
+      "name": "Apps menu uses native keyboard disclosure, normal links, Escape focus return and outside dismissal",
+      "passed": true
+    },
+    {
+      "name": "Guides, platform Apps, developer and Design paths reach their destinations; header fits intermediate widths",
+      "passed": true
+    },
+    {
+      "name": "Manual appearance persists across routes, reload and browser restart",
+      "passed": true
+    },
+    {
+      "name": "System choice removes manual override and follows OS appearance",
+      "passed": true
+    },
+    {
+      "name": "Real platform filters show the correct apps and planned availability, with libraries linked separately",
+      "passed": true,
+      "products": 6,
+      "libraries": 2
+    },
+    {
+      "name": "Search shortcut, full-text API and Design lookup, no-results state, clear, Escape and actual navigation",
+      "passed": true,
+      "timerResults": 9
+    },
+    {
+      "name": "Product guides, explicit consumers, honest planned pages, optional/required companions and Android-only pagination",
+      "passed": true
+    },
+    {
+      "name": "Every generated route renders without horizontal page overflow",
+      "passed": true,
+      "routes": 31,
+      "widths": [
+        1440,
+        360
+      ]
+    },
+    {
+      "name": "Mobile main and Apps navigation support nested Escape, normal links and platform destinations",
+      "passed": true
+    },
+    {
+      "name": "Reduced-motion preference",
+      "passed": true
+    },
+    {
+      "name": "Limited material preview preserves downloads, planned availability, early mobile reading, native contents, scoped typography/palette and reduced motion",
+      "passed": true,
+      "samples": [
+        {
+          "route": "/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(228, 232, 236)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(228, 232, 236)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(228, 232, 236)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(228, 232, 236)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "appearance": "light",
+          "background": "rgb(245, 243, 236)",
+          "headingFont": "\"Space Grotesk Variable\", \"Space Grotesk\", system-ui, sans-serif"
+        },
+        {
+          "route": "/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(24, 29, 33)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(24, 29, 33)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(24, 29, 33)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(24, 29, 33)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "appearance": "dark",
+          "background": "rgb(29, 33, 29)",
+          "headingFont": "\"Space Grotesk Variable\", \"Space Grotesk\", system-ui, sans-serif"
+        }
+      ],
+      "articlePositions": [
+        {
+          "appearance": "light",
+          "articleTop": 428.671875,
+          "viewport": 800
+        },
+        {
+          "appearance": "dark",
+          "articleTop": 428.671875,
+          "viewport": 800
+        }
+      ],
+      "jumps": [
+        {
+          "scripting": true,
+          "fragment": "#before-installing",
+          "headingTop": 410.671875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "scripting": true,
+          "fragment": "#before-installing",
+          "headingTop": 410.671875,
+          "headerBottom": 67,
+          "viewport": 800
+        }
+      ]
+    },
+    {
+      "name": "Preview guide contents links work natively without JavaScript and clear the actual header",
+      "passed": true,
+      "scripting": false,
+      "fragment": "#before-installing",
+      "headingTop": 201.671875,
+      "headerBottom": -668,
+      "viewport": 800
+    },
+    {
+      "name": "Platform/product/guide/developer/Design content, native Apps menu, companion links and contextual guide navigation work without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions or local HTTP failures",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "home-desktop-light.png",
+    "home-mobile-light.png",
+    "users-desktop-light.png",
+    "pebble-desktop-light.png",
+    "developers-desktop-light.png",
+    "design-desktop-light.png",
+    "visual-identity-desktop-light.png",
+    "docs-desktop-dark.png",
+    "projects-desktop-light.png",
+    "project-dynamic-desktop-light.png",
+    "setup-guide-desktop-light.png",
+    "planned-phone-desktop-light.png",
+    "planned-pebble-phone-desktop-light.png",
+    "android-desktop-light.png",
+    "android-guide-desktop-light.png",
+    "users-mobile-light.png",
+    "developers-mobile-light.png",
+    "design-mobile-light.png",
+    "apps-menu-mobile-light.png",
+    "home-mobile-dark.png",
+    "search-mobile-dark.png",
+    "android-mobile-dark.png",
+    "phone-mobile-dark.png",
+    "design-desktop-reduced-motion.png",
+    "material-home-desktop-light.png",
+    "material-setup-desktop-light.png",
+    "material-home-mobile-light.png",
+    "material-setup-mobile-light.png",
+    "material-home-desktop-dark.png",
+    "material-setup-desktop-dark.png",
+    "material-home-mobile-dark.png",
+    "material-setup-mobile-dark.png",
+    "docs-mobile-no-javascript.png",
+    "material-setup-mobile-no-javascript.png",
+    "design-guide-mobile-no-javascript.png"
+  ],
+  "exceptions": [],
+  "failedResponses": []
+}

@@ -1,12 +1,6 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Icon from '../../components/Icon.astro';
-import { docs, docSections } from '../../data/docs';
+// The Markdown component already applies DocLayout with its frontmatter and
+// headings. Reuse it directly so Docs opens the article without another index.
+import { Content as GettingStarted } from './getting-started.md';
 ---
-<BaseLayout title="All guides" description="User guides, developer integration references and design documentation for the current XOCE projects.">
-  <main id="main" class="wrap section page-main">
-    <header class="page-heading"><p class="eyebrow">Documentation</p><h1>All guides.</h1><p class="lead">Install and use the Pebble apps, work with the libraries, or understand the visual and interaction decisions behind them.</p></header>
-    <div class="guide-grid audience-entry-grid">{docSections.map(section => <a class="guide-card" href={section.href}><Icon name={section.icon} size={28} /><h2>{section.title}</h2><p>{section.description}</p><span>Open this section <Icon name="arrow" size={17} /></span></a>)}</div>
-    <div class="docs-index-grid">{docSections.map(section => <section class="docs-index-group"><h2>{section.title}</h2>{docs.filter(doc => doc.section === section.title).map(doc => <a href={doc.href}><div><h3>{doc.title}</h3><p>{doc.description}</p></div><Icon name="chevron" size={17}/></a>)}</section>)}</div>
-  </main>
-</BaseLayout>
+<GettingStarted />

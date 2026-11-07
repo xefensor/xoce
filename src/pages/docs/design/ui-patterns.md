@@ -1,12 +1,18 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: UI patterns
-description: Existing activity layouts, button bars, information hierarchy and settings patterns in the Pebble collection.
+description: Common interface ideas demonstrated by current Pebble layouts and settings, with platform boundaries made explicit.
 section: Design
 order: 3
 ---
 
-These patterns describe current Pebble Time 2 interfaces and phone settings. They are concrete examples of the [design principles](/docs/design/principles/). The watch builds target a 200 × 228 screen with physical buttons.
+A useful interface gives the main task enough room, keeps related content and actions together, and makes current state readable. Those [common principles](/docs/design/principles/) can apply across XOCE; their layout and controls depend on the device.
+
+The concrete patterns below describe Pebble Time 2 interfaces and their phone settings. The watch builds target a 200 × 228 screen with physical buttons. The Pebble activity schema is a contract for compatible Pebble hosts, not a universal interface or data model for Android products.
+
+## Android implementation scope
+
+Phone and its optional Pebble companion are planned. No Android interface patterns, screenshots or component kit have been published. Use the common principles as direction; do not treat the watch action bar, compact activity row or bundled Pebble settings controller as an implemented Android app design.
 
 This page’s screenshots and baseline descriptions refer to the published builds. The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records adoption in Dynamic 0.17.0, Dashboard 0.5.0, Timer 0.13.0 and Open Activity 0.2.0 local candidates. Automated, packaged browser and native emulator checks pass; real-device verification remains separate. Those candidates have not replaced the public downloads.
 
@@ -93,6 +99,6 @@ Appearance stays on the phone. Timer 0.13.0 adds a small Light/Dark watch-appear
 
 ## Platform boundaries
 
-These are Pebble patterns shaped by its screen, buttons and lifecycle. The [website visual identity](/docs/design/visual-identity/) records web-specific choices separately. Cross-project consistency comes from clear hierarchy, honest state and predictable actions; app layouts and packaged assets remain owned by their projects.
+These are Pebble patterns shaped by its screen, buttons and lifecycle. Phone’s eventual Android interface needs its own implementation guidance; this page does not claim that work is complete. The [website visual identity](/docs/design/visual-identity/) records web-specific choices separately. Cross-project consistency comes from clear hierarchy, honest state and predictable actions; app layouts and packaged assets remain owned by their projects.
 
 Detailed examples live in [Dynamic’s native style](https://github.com/xefensor/pebble-watchface-dynamic/blob/7b5daced6a8c7974425e1b3fb927071d1501df3d/docs/NATIVE-STYLE.md), [Dashboard’s implementation](https://github.com/xefensor/pebble-app-dashboard/blob/61e4babc91bef0409c14f8c8699053d047baa2be/docs/IMPLEMENTATION.md), [Timer 0.12.0](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md) and [Open Activity 0.1.6](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md).

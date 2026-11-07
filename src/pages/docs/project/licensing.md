@@ -6,7 +6,7 @@ section: For users
 order: 5
 ---
 
-Licensing is stated per project. The current Pebble repositories declare **PolyForm Noncommercial License 1.0.0**. This website preview does not change those licences or the notices shipped with their releases.
+Licensing is stated per project. The current Pebble repositories declare **PolyForm Noncommercial License 1.0.0**. Their source is available, but this is not an OSI-approved open-source licence. Each repository’s terms and the notices shipped with its release remain authoritative.
 
 ## Maintained repositories
 
@@ -43,8 +43,8 @@ Repository names and package identities are separate. The libraries still use `p
 
 ## Website credits
 
-Product previews are native emulator captures with example data, presented inside illustrated watch cases. Their capture versions and sources are recorded in the website repository’s `docs/asset-provenance.json`. A screenshot is evidence of rendering in that emulator state, not of physical-watch verification.
+Product previews use native emulator captures with example data. Some appear inside the [official Pebble Appstore Time 2 frame](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png), credited to Core Devices. The frame and native screen files remain unchanged; their sources and hashes are recorded in `docs/asset-provenance.json`. The composite does not establish physical-watch verification.
 
-Space Grotesk and Inter are self-hosted under the SIL Open Font License 1.1. Their complete notices are available here: [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt) and [Inter licence](/fonts/inter-LICENSE.txt).
+The current website uses self-hosted **Inter** under the SIL Open Font License 1.1. Space Grotesk assets remain from an earlier website design. Both notices remain available: [Inter licence](/fonts/inter-LICENSE.txt) and [retained Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt).
 
 The website’s own project-wide licence has not been selected. The individual project and third-party licences above remain unchanged.

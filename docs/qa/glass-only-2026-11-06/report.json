@@ -1,0 +1,840 @@
+{
+  "passed": true,
+  "checkedAt": "2026-11-06T20:46:08.616Z",
+  "url": "http://127.0.0.1:4401/",
+  "evidence": "Automated Chromium desktop/mobile viewport checks; no physical-device testing.",
+  "browserProfile": "/tmp/xoce-browser-ru3r17",
+  "browserVersions": [
+    {
+      "protocolVersion": "1.3",
+      "product": "Chrome/156.0.8078.79",
+      "revision": "@a21ce95c24ce3964416f09ae1862f53f319eb4d0",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "jsVersion": "15.6.75.27"
+    },
+    {
+      "protocolVersion": "1.3",
+      "product": "Chrome/156.0.8078.79",
+      "revision": "@a21ce95c24ce3964416f09ae1862f53f319eb4d0",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+      "jsVersion": "15.6.75.27"
+    }
+  ],
+  "checks": [
+    {
+      "name": "System appearance and initial focus",
+      "passed": true
+    },
+    {
+      "name": "Apps menu uses native keyboard disclosure, normal links, Escape focus return and outside dismissal",
+      "passed": true
+    },
+    {
+      "name": "Former documentation portals and developer bookmarks resolve directly to articles",
+      "passed": true
+    },
+    {
+      "name": "One Docs entrance reaches user guides, developer libraries and design references; header fits intermediate widths",
+      "passed": true
+    },
+    {
+      "name": "Manual appearance persists across routes, reload and browser restart",
+      "passed": true
+    },
+    {
+      "name": "System choice removes manual override and follows OS appearance",
+      "passed": true
+    },
+    {
+      "name": "Real platform filters show the correct apps and planned availability, with libraries linked separately",
+      "passed": true,
+      "products": 6,
+      "libraries": 2
+    },
+    {
+      "name": "Search shortcut, full-text API and Design lookup, no-results state, clear, Escape and actual navigation",
+      "passed": true,
+      "timerResults": 9
+    },
+    {
+      "name": "Product guides, explicit consumers, honest planned pages, optional/required companions and Android-only pagination",
+      "passed": true
+    },
+    {
+      "name": "Every generated route renders without horizontal page overflow",
+      "passed": true,
+      "routes": 33,
+      "widths": [
+        1440,
+        360,
+        320
+      ]
+    },
+    {
+      "name": "Mobile main and Apps navigation support nested Escape, normal links and platform destinations",
+      "passed": true
+    },
+    {
+      "name": "Reduced-motion preference",
+      "passed": true
+    },
+    {
+      "name": "Whole-site design preserves downloads, planned availability, early mobile reading, native contents, consistent typography/palette and reduced motion",
+      "passed": true,
+      "samples": [
+        {
+          "route": "/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/dynamic/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/phone/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/pebble/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/building/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/principles/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/about/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/android/phone/",
+          "width": 1440,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/dynamic/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/phone/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/pebble/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/building/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/principles/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/about/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/android/phone/",
+          "width": 360,
+          "appearance": "light",
+          "background": "rgb(217, 221, 224)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/dynamic/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/phone/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/pebble/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/building/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/principles/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/about/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/android/phone/",
+          "width": 1440,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/dynamic/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/projects/phone/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/android/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/pebble/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/building/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/principles/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/about/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        },
+        {
+          "route": "/docs/android/phone/",
+          "width": 360,
+          "appearance": "dark",
+          "background": "rgb(22, 26, 28)",
+          "headingFont": "\"Inter Variable\", Inter, system-ui, sans-serif",
+          "interLoaded": true
+        }
+      ],
+      "articlePositions": [
+        {
+          "route": "/docs/",
+          "appearance": "light",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/building/",
+          "appearance": "light",
+          "articleTop": 472.984375,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/principles/",
+          "appearance": "light",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "appearance": "light",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "appearance": "light",
+          "articleTop": 472.984375,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "appearance": "light",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/android/phone/",
+          "appearance": "light",
+          "articleTop": 409.484375,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/",
+          "appearance": "dark",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/building/",
+          "appearance": "dark",
+          "articleTop": 472.984375,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/principles/",
+          "appearance": "dark",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "appearance": "dark",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "appearance": "dark",
+          "articleTop": 472.984375,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "appearance": "dark",
+          "articleTop": 435.875,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/android/phone/",
+          "appearance": "dark",
+          "articleTop": 409.484375,
+          "viewport": 800
+        }
+      ],
+      "jumps": [
+        {
+          "route": "/docs/",
+          "scripting": true,
+          "fragment": "#choose-your-platform",
+          "headingTop": 470.375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/building/",
+          "scripting": true,
+          "fragment": "#build-and-test",
+          "headingTop": 511.984375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/principles/",
+          "scripting": true,
+          "fragment": "#start-with-a-persons-task",
+          "headingTop": 535.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "scripting": true,
+          "fragment": "#before-installing",
+          "headingTop": 536.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "scripting": true,
+          "fragment": "#start-with-a-summary",
+          "headingTop": 520.984375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "scripting": true,
+          "fragment": "#project-name",
+          "headingTop": 475.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/android/phone/",
+          "scripting": true,
+          "fragment": "#availability",
+          "headingTop": 540.734375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/",
+          "scripting": true,
+          "fragment": "#choose-your-platform",
+          "headingTop": 470.375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/building/",
+          "scripting": true,
+          "fragment": "#build-and-test",
+          "headingTop": 445.984375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/principles/",
+          "scripting": true,
+          "fragment": "#start-with-a-persons-task",
+          "headingTop": 484.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/pebble/setup/",
+          "scripting": true,
+          "fragment": "#before-installing",
+          "headingTop": 413.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/develop/activities/",
+          "scripting": true,
+          "fragment": "#start-with-a-summary",
+          "headingTop": 520.984375,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/design/visual-identity/",
+          "scripting": true,
+          "fragment": "#project-name",
+          "headingTop": 535.875,
+          "headerBottom": 67,
+          "viewport": 800
+        },
+        {
+          "route": "/docs/android/phone/",
+          "scripting": true,
+          "fragment": "#availability",
+          "headingTop": 540.734375,
+          "headerBottom": 67,
+          "viewport": 800
+        }
+      ]
+    },
+    {
+      "name": "Guide contents links work natively without JavaScript and clear the actual header",
+      "passed": true,
+      "scripting": false,
+      "fragment": "#before-installing",
+      "headingTop": 185.5625,
+      "headerBottom": -701.3125,
+      "viewport": 800
+    },
+    {
+      "name": "Platform/product/guide/developer/Design content, native Apps menu, companion links and contextual guide navigation work without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions or local HTTP failures",
+      "passed": true
+    }
+  ],
+  "screenshots": [
+    "home-desktop-light.png",
+    "home-mobile-light.png",
+    "users-desktop-light.png",
+    "pebble-desktop-light.png",
+    "design-desktop-light.png",
+    "visual-identity-desktop-light.png",
+    "docs-desktop-dark.png",
+    "projects-desktop-light.png",
+    "project-dynamic-desktop-light.png",
+    "setup-guide-desktop-light.png",
+    "planned-phone-desktop-light.png",
+    "planned-pebble-phone-desktop-light.png",
+    "android-desktop-light.png",
+    "android-guide-desktop-light.png",
+    "users-mobile-light.png",
+    "developers-mobile-light.png",
+    "design-mobile-light.png",
+    "apps-menu-mobile-light.png",
+    "home-mobile-dark.png",
+    "search-mobile-dark.png",
+    "android-mobile-dark.png",
+    "phone-mobile-dark.png",
+    "design-desktop-reduced-motion.png",
+    "site-home-desktop-light.png",
+    "site-projects-desktop-light.png",
+    "site-projects-dynamic-desktop-light.png",
+    "site-projects-phone-desktop-light.png",
+    "site-android-desktop-light.png",
+    "site-pebble-desktop-light.png",
+    "site-docs-desktop-light.png",
+    "site-docs-develop-building-desktop-light.png",
+    "site-docs-design-principles-desktop-light.png",
+    "site-about-desktop-light.png",
+    "site-docs-pebble-setup-desktop-light.png",
+    "site-docs-develop-activities-desktop-light.png",
+    "site-docs-design-visual-identity-desktop-light.png",
+    "site-docs-android-phone-desktop-light.png",
+    "site-home-mobile-light.png",
+    "site-projects-mobile-light.png",
+    "site-projects-dynamic-mobile-light.png",
+    "site-projects-phone-mobile-light.png",
+    "site-android-mobile-light.png",
+    "site-pebble-mobile-light.png",
+    "site-docs-mobile-light.png",
+    "site-docs-develop-building-mobile-light.png",
+    "site-docs-design-principles-mobile-light.png",
+    "site-about-mobile-light.png",
+    "site-docs-pebble-setup-mobile-light.png",
+    "site-docs-develop-activities-mobile-light.png",
+    "site-docs-design-visual-identity-mobile-light.png",
+    "site-docs-android-phone-mobile-light.png",
+    "site-home-desktop-dark.png",
+    "site-projects-desktop-dark.png",
+    "site-projects-dynamic-desktop-dark.png",
+    "site-projects-phone-desktop-dark.png",
+    "site-android-desktop-dark.png",
+    "site-pebble-desktop-dark.png",
+    "site-docs-desktop-dark.png",
+    "site-docs-develop-building-desktop-dark.png",
+    "site-docs-design-principles-desktop-dark.png",
+    "site-about-desktop-dark.png",
+    "site-docs-pebble-setup-desktop-dark.png",
+    "site-docs-develop-activities-desktop-dark.png",
+    "site-docs-design-visual-identity-desktop-dark.png",
+    "site-docs-android-phone-desktop-dark.png",
+    "site-home-mobile-dark.png",
+    "site-projects-mobile-dark.png",
+    "site-projects-dynamic-mobile-dark.png",
+    "site-projects-phone-mobile-dark.png",
+    "site-android-mobile-dark.png",
+    "site-pebble-mobile-dark.png",
+    "site-docs-mobile-dark.png",
+    "site-docs-develop-building-mobile-dark.png",
+    "site-docs-design-principles-mobile-dark.png",
+    "site-about-mobile-dark.png",
+    "site-docs-pebble-setup-mobile-dark.png",
+    "site-docs-develop-activities-mobile-dark.png",
+    "site-docs-design-visual-identity-mobile-dark.png",
+    "site-docs-android-phone-mobile-dark.png",
+    "docs-mobile-no-javascript.png",
+    "site-setup-mobile-no-javascript.png",
+    "docs-tree-mobile-no-javascript.png",
+    "design-guide-mobile-no-javascript.png"
+  ],
+  "exceptions": [],
+  "failedResponses": []
+}

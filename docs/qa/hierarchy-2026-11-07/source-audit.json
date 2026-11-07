@@ -1,0 +1,137 @@
+{
+  "checked_at_utc": "2026-11-06T23:37:53.025Z",
+  "passed": true,
+  "scope": "Source integrity and mathematical colour checks only; no browser rendering or device testing.",
+  "project_facts_unchanged_except_descriptions": true,
+  "docs_reader_and_article_source_unchanged": true,
+  "official_frame_and_all_image_bytes_unchanged": true,
+  "dark_system_and_explicit_tokens_match": true,
+  "colour_contrast": {
+    "scope": "Normal text roles over base colours and representative alpha-composited backdrop/plane/glass surfaces; gradients, actual pixels, control boundaries and browser rendering are not evaluated.",
+    "results": [
+      {
+        "theme": "light",
+        "role": "--glass-text",
+        "minimum_contrast": 10.74,
+        "passed": true
+      },
+      {
+        "theme": "light",
+        "role": "--glass-muted",
+        "minimum_contrast": 4.96,
+        "passed": true
+      },
+      {
+        "theme": "light",
+        "role": "--accent-text",
+        "minimum_contrast": 5.82,
+        "passed": true
+      },
+      {
+        "theme": "light",
+        "role": "primary button text",
+        "minimum_contrast": 6.38,
+        "passed": true
+      },
+      {
+        "theme": "dark",
+        "role": "--glass-text",
+        "minimum_contrast": 10.82,
+        "passed": true
+      },
+      {
+        "theme": "dark",
+        "role": "--glass-muted",
+        "minimum_contrast": 6.69,
+        "passed": true
+      },
+      {
+        "theme": "dark",
+        "role": "--accent-text",
+        "minimum_contrast": 8.85,
+        "passed": true
+      },
+      {
+        "theme": "dark",
+        "role": "primary button text",
+        "minimum_contrast": 8.91,
+        "passed": true
+      }
+    ]
+  },
+  "changed_files": [
+    "src/data/projects.ts",
+    "src/pages/index.astro",
+    "src/components/Header.astro",
+    "src/components/ProjectCard.astro",
+    "src/components/ProjectPreview.astro",
+    "src/layouts/BaseLayout.astro",
+    "src/styles/theme.css",
+    "src/pages/projects/index.astro",
+    "src/pages/about/index.astro",
+    "README.md",
+    "docs/xoce-visual-identity.json",
+    "docs/site-structure.json",
+    "scripts/browser-smoke.mjs"
+  ],
+  "unchanged_files": [
+    "src/data/docs.ts",
+    "src/pages/search.json.ts",
+    "src/pages/404.astro",
+    "src/components/Icon.astro",
+    "src/components/Search.astro",
+    "src/components/Footer.astro",
+    "src/components/LegacyDocsRedirect.astro",
+    "src/components/WatchPreview.astro",
+    "src/layouts/DocLayout.astro",
+    "src/styles/fonts.css",
+    "src/styles/guide.css",
+    "src/styles/global.css",
+    "src/pages/docs/getting-started.md",
+    "src/pages/docs/index.astro",
+    "src/pages/projects/[slug].astro",
+    "src/pages/users/index.astro",
+    "src/pages/developers/index.astro",
+    "src/pages/design/index.astro",
+    "src/pages/android/index.astro",
+    "src/pages/pebble/index.astro",
+    "src/pages/docs/pebble/setup.md",
+    "src/pages/docs/pebble/controls.md",
+    "src/pages/docs/pebble/troubleshooting.md",
+    "src/pages/docs/pebble/phone-connection.astro",
+    "src/pages/docs/develop/activities.md",
+    "src/pages/docs/develop/core.md",
+    "src/pages/docs/develop/building.md",
+    "src/pages/docs/design/principles.md",
+    "src/pages/docs/design/visual-identity.md",
+    "src/pages/docs/design/ui-patterns.md",
+    "src/pages/docs/design/interaction.md",
+    "src/pages/docs/design/pebble-ui-system.md",
+    "src/pages/docs/project/licensing.md",
+    "src/pages/docs/android/phone.astro",
+    "AGENTS.md",
+    "docs/qa/VALIDATION.json",
+    "public/images/projects/dynamic.png",
+    "public/images/projects/dashboard.png",
+    "public/images/projects/timer.png",
+    "public/images/projects/open-activity.png",
+    "public/images/materials/spatial-silk.svg",
+    "public/images/materials/xoce-planes.svg",
+    "public/images/devices/pebble-time-2.png"
+  ],
+  "source_hashes": {
+    "src/data/projects.ts": "8c81eff0afcb5cd76eee87567b7d293f063228c98dfcb87cd6a070a04c7d43a8",
+    "src/pages/index.astro": "d0a5b52bae2775cc0ececd0151749e5016ee63eed59dad96b74fe2da62772fe9",
+    "src/components/Header.astro": "e9e3c307b6caab240c261072d7ee3c52f8c600aec86dfa842ef6aa53bf11e397",
+    "src/components/ProjectCard.astro": "0a95a1d472156bbf7cc732c6fee7a649e8c23c44696a58b90e3c596452b9c69e",
+    "src/components/ProjectPreview.astro": "a7e2b4f5af3aecc421e8c5435159b4a13a0b77d1887075de9368f157ba8b70cd",
+    "src/layouts/BaseLayout.astro": "439cbcf06fba5444f49b68a2b6e93d5589d6b77e250476dd90cef0bb70c3a98e",
+    "src/styles/theme.css": "15c393f8e5cea01b1c73272ac86a7744ddd897f0cda3382fb53599316d0828cb",
+    "src/pages/projects/index.astro": "ab5c01b48f3784f758dc387945a6829711833e8eca3e011e2015ab92eb4d3073",
+    "src/pages/about/index.astro": "4a97d117ca478bf1f4ebb692bc3fb32d3591bb71fed6a8843cd07d2f080b2625",
+    "README.md": "26c670c55b1de38f96ccffd9e8d5aab07168230a977f9be54c6695c646829aee",
+    "docs/xoce-visual-identity.json": "e898ca37df38fb44afc8a0a42d8947e508ee6a5ae7966d255d218462c13b7851",
+    "docs/site-structure.json": "3092255b483fc16e2770ffb11f5dd6de6982da284702cee86e912ecffbbc61e9",
+    "scripts/browser-smoke.mjs": "ea0d18e71020415f1b2f9024cf89fceed5fe0858cffbf13ad9eaf7fc7b1eb640"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-11-06T23:38:49.595632+00:00",
+  "local_only": true,
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "change": "Tighten Home, enlarge catalogue previews, clarify project rationale in About, and separate neutral backdrops from teal/glass surfaces. Preserve current releases, native image bytes, Docs structure and native no-JavaScript preview controls.",
+  "build": {
+    "command": "npm test",
+    "passed": true,
+    "astro_errors": 0,
+    "astro_warnings": 0,
+    "audit": {
+      "passed": true,
+      "pages": 33,
+      "internalReferences": 1575,
+      "anchors": 365,
+      "referencedAssets": 20,
+      "catalogueProducts": 4,
+      "downloadableApps": 4,
+      "plannedProjects": 0,
+      "libraries": 2,
+      "guides": 13,
+      "preservedNativeCaptures": 4
+    },
+    "log": "build-and-links.log"
+  },
+  "source_audit": {
+    "passed": true,
+    "report": "source-audit.json",
+    "scope": "Source integrity and mathematical colour checks only; no browser rendering or device testing."
+  },
+  "browser": {
+    "passed": null,
+    "status": "blocked_by_environment",
+    "current_source_verified": false,
+    "reason": "Local Astro server could not bind 127.0.0.1:4321 (listen EPERM). Chromium exited 133 at startup with crashpad setsockopt Operation not permitted. No current browser screenshots or interaction results are claimed.",
+    "not_verified": [
+      "Rendered desktop and mobile layouts",
+      "Pointer/keyboard/no-JavaScript watch selection",
+      "Navigation and search interactions",
+      "Theme saving, reopening and browser restart",
+      "Zoom, overflow and actual composited-pixel contrast"
+    ]
+  },
+  "historical_browser_baselines": [
+    "../ecosystem-rebuild-ready-2026-11-06/report.json",
+    "../official-pebble-frame-2026-11-06/focused-report.json",
+    "../phone-presentation-2026-11-07/focused-report.json"
+  ],
+  "historical_note": "These reports describe earlier source and do not validate this revision.",
+  "physical_device_testing": false,
+  "follow_up_validation": "With a local preview available, run XOCE_SITE_URL=<local-url> npm run check:browser and inspect the resulting desktop/mobile captures."
+}

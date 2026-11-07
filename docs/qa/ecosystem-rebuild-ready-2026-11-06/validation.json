@@ -1,0 +1,62 @@
+{
+  "checked_at_utc": "2026-11-06T22:39:20.977137+00:00",
+  "local_only": true,
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "review_url": "http://127.0.0.1:4323/",
+  "packaged_test_url": "http://127.0.0.1:4401/",
+  "stack": {
+    "framework": "Astro 7.4.7",
+    "language": "TypeScript 6.0.3",
+    "content": "Markdown",
+    "styling": "CSS",
+    "output": "static HTML"
+  },
+  "build": {
+    "command": "npm test",
+    "passed": true,
+    "log": "build-and-links.log",
+    "audit": {
+      "passed": true,
+      "pages": 33,
+      "internalReferences": 1602,
+      "anchors": 364,
+      "referencedAssets": 19,
+      "catalogueProducts": 5,
+      "downloadableApps": 4,
+      "plannedProjects": 1,
+      "libraries": 2,
+      "guides": 13,
+      "preservedNativeCaptures": 4
+    }
+  },
+  "browser": {
+    "passed": true,
+    "workflow_groups": 21,
+    "screenshots": 65,
+    "report": "report.json",
+    "sha256": "504926e1bc6275f9e93e805f326150d8dc21840b43288b2e06e93caa810f666c"
+  },
+  "scope": [
+    "Ground-up homepage, shared shell, Software catalogue, app pages, Pebble presentation, consolidated Phone plan, About and Docs reader",
+    "Four native watch previews with pointer, keyboard and JavaScript-disabled operation",
+    "Four exact downloads and public product metadata preserved",
+    "13 actual guides, direct Docs entry and preserved compatibility routes",
+    "System/light/dark appearance, saving, reload and browser restart",
+    "Desktop/mobile/320px rendering, reduced motion/transparency, no automatic text focus"
+  ],
+  "source_manifest": "source-sha256.json",
+  "source_manifest_sha256": "b1f4f0fd99955b15af66db2ddafcc430e5b0cfebe7ea2271c17c4032bd49a827",
+  "verification_limit": "Automated real Chromium and source checks; physical-watch and real-phone app verification are separate.",
+  "earlier_attempt": {
+    "report": "../ecosystem-rebuild-2026-11-06/report.json",
+    "result": "Failed reduced-transparency fallback for Phone plan; corrected and rebuilt before this passing run."
+  },
+  "backup": "/tmp/xoce-before-rebuild-20261106-232231/source.tar.gz",
+  "independent_review": {
+    "result": "No substantive findings",
+    "scope": "Read-only source and representative desktop/mobile light/dark screenshot review of Home, Software, products, canonical plan, Docs, search, theme and legacy routes.",
+    "full_browser_run_repeated": false
+  }
+}

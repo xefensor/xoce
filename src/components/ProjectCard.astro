@@ -1,14 +1,60 @@
 ---
 import type { Project } from '../data/projects';
-import WatchPreview from './WatchPreview.astro';
+import ProjectPreview from './ProjectPreview.astro';
 import Icon from './Icon.astro';
-interface Props { project: Project }
-const { project } = Astro.props;
-const library = project.kind === 'library';
+interface Props { project: Project; wide?: boolean }
+const { project, wide = false } = Astro.props;
+const planned = project.availability === 'planned';
+const phonePlan = project.slug === 'phone';
+const type = project.kind === 'watchface' ? 'Watchface' : project.kind === 'library' ? 'Library' : 'App';
+const href = `/projects/${project.slug}/`;
 ---
-<article class:list={['project-card', `project-${project.slug}`]} data-project-card data-project-kind={project.kind}>
-  <a class="project-card-link" href={`/projects/${project.slug}/`}>
-    <div class="card-visual">{project.image ? <WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} native emulator preview with example data`} /> : <div class="library-visual" aria-hidden="true"><Icon name="code" size={64} /><span>{project.slug === 'activities' ? 'A → B' : '{ core }'}</span></div>}</div>
-    <div class="card-copy"><span class="eyebrow">{library ? 'Developer library' : project.kind === 'watchface' ? 'Pebble watchface' : 'Pebble app'}</span><h3>{project.name}</h3><p>{project.description}</p><div class="card-bottom"><span class="version-tag">v{project.version}</span><span class="card-arrow"><span class="sr-only">Explore {project.name}</span><Icon name="arrow" /></span></div></div>
-  </a>
+<article class:list={['project-card', `project-${project.slug}`, { 'wide-row': wide, 'planned-row': planned }]} data-project-card data-project-kind={project.kind} data-project-platform={phonePlan ? 'Android PebbleOS' : project.platform} data-project-availability={project.availability ?? 'available'} data-project-downloadable={project.download ? 'true' : 'false'}>
+  <a class="project-card-preview" href={href} aria-label={`Explore ${project.name}`}><ProjectPreview project={project} compact /></a>
+  <div class="project-card-copy">
+    <p class="project-card-meta">{phonePlan ? 'Android · optional Pebble companion' : `${project.platform} · ${type}`}{project.version && <span>v{project.version}</span>}</p>
+    <h3><a href={href}>{project.name}</a></h3>
+    <p class="project-card-description">{project.description}</p>
+    {planned && <p class="planned-status">Planned · no build available yet</p>}
+  </div>
+  <div class="project-card-actions">
+    {project.download ? <><a class="row-download" href={project.download} aria-label={`Download ${project.name} v${project.version}`}>Download<Icon name="download" size={16}/></a><a class="row-guide" href={project.setupGuide ?? project.guide}>Set up<Icon name="arrow" size={15}/></a></> : <a class="row-guide" href={href}>Read the plan<Icon name="arrow" size={16}/></a>}
+  </div>
 </article>
+<style>
+  .project-card { display:grid; grid-template-columns:160px minmax(0,1fr); grid-template-areas:'preview copy' 'preview actions'; gap:8px 30px; align-items:center; min-width:0; padding:27px 0; border-bottom:1px solid var(--line); }
+  .project-card-preview { grid-area:preview; display:flex; align-items:center; justify-content:center; min-width:0; padding:12px 10px; text-decoration:none; background:var(--preview-surface); border:1px solid var(--glass-edge-soft); border-radius:var(--radius-control); }
+  .project-card-preview :global(img) { max-width:100%; }
+  .project-card-copy { grid-area:copy; min-width:0; }
+  .project-card-meta { display:flex; flex-wrap:wrap; gap:4px 12px; color:var(--muted); font-size:.78rem; line-height:1.6; }
+  .project-card-meta span { padding-left:12px; border-left:1px solid var(--line); }
+  .project-card h3 { margin:9px 0; font-size:clamp(1.4rem,2.1vw,1.75rem); font-weight:600; letter-spacing:-.035em; line-height:1.25; }
+  .project-card h3 a { text-decoration:none; }
+  .project-card h3 a:hover { text-decoration:underline; text-underline-offset:4px; }
+  .project-card-description { max-width:49ch; color:var(--muted); font-size:.95rem; line-height:1.7; }
+  .planned-status { margin-top:10px; color:var(--muted); font-size:.8rem; }
+  .project-card-actions { grid-area:actions; display:flex; flex-wrap:wrap; align-items:center; gap:6px 22px; }
+  .project-card-actions a { display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:44px; padding-block:10px; font-size:.85rem; font-weight:550; text-decoration:none; }
+  .row-download { padding-inline:15px; color:var(--accent-text); border:1px solid var(--line); border-radius:var(--radius-control); background:var(--glass-field); }
+  .row-download:hover { background:var(--glass-hover); }
+  .row-download:active { background:var(--glass-down); }
+  .row-guide { color:var(--accent-text); }
+  .row-guide:hover { text-decoration:underline !important; }
+  .planned-row .project-card-preview { color:var(--accent-text); }
+  @media (min-width:850px) {
+    .wide-row { grid-template-columns:160px minmax(0,1fr) 142px; grid-template-areas:'preview copy actions'; gap:34px; }
+    .wide-row .project-card-actions { flex-direction:column; align-items:start; gap:3px; }
+  }
+  @media (max-width:600px) {
+    .project-card { grid-template-columns:104px minmax(0,1fr); gap:8px 20px; padding-block:23px; }
+    .project-card-preview { padding:9px 6px; }
+    .project-card-meta { font-size:.73rem; gap:4px 8px; }
+    .project-card-meta span { padding-left:8px; }
+    .project-card-description { font-size:.875rem; }
+    .project-card-actions a { font-size:.8rem; }
+  }
+  @media (max-width:380px) {
+    .project-card { grid-template-columns:96px minmax(0,1fr); grid-template-areas:'preview copy' 'actions actions'; column-gap:17px; }
+    .project-card-actions { padding-top:5px; }
+  }
+</style>

@@ -1,0 +1,38 @@
+{
+  "checked_at_utc": "2026-11-06T23:19:57.346852+00:00",
+  "local_only": true,
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "review_url": "http://127.0.0.1:4323/",
+  "change": "Remove the standalone Phone promotion from Home and the software catalogue. Keep the future Phone direction as a contextual paragraph in About, preserve canonical plan and legacy routes. Catalogue contains four available downloads and has no single-platform filter bar.",
+  "build": {
+    "command": "npm test",
+    "passed": true,
+    "audit": {
+      "passed": true,
+      "pages": 33,
+      "internalReferences": 1575,
+      "anchors": 365,
+      "referencedAssets": 20,
+      "catalogueProducts": 4,
+      "downloadableApps": 4,
+      "plannedProjects": 0,
+      "libraries": 2,
+      "guides": 13,
+      "preservedNativeCaptures": 4
+    },
+    "log": "build-and-links.log"
+  },
+  "focused_browser": {
+    "passed": true,
+    "cases": 4,
+    "screenshots": 8,
+    "report": "focused-report.json",
+    "scope": "Home stages layout, four current downloads, absent Phone promotion, stale Android query showing all available software, plain About link and Phone search journey, desktop/mobile/light/dark and JavaScript-disabled use.",
+    "exceptions": 0,
+    "local_http_failures": 0
+  },
+  "broader_browser_baseline": "../ecosystem-rebuild-ready-2026-11-06/report.json",
+  "verification_note": "Focused browser coverage for this presentation change; the broader21-group suite was not repeated."
+}

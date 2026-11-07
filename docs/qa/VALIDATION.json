@@ -1,5 +1,5 @@
 {
-  "checked_at_utc": "2026-11-06T16:35:12Z",
+  "checked_at_utc": "2026-11-06T23:38:49.595632+00:00",
   "local_only": true,
   "remote_configured": false,
   "hosted_site_registered": false,
@@ -8,15 +8,13 @@
   "node": "v26.12.0",
   "scope": {
     "navigation": [
-      "Projects",
-      "For users",
-      "For developers",
-      "Design",
+      "Software",
+      "Docs",
       "About"
     ],
     "current_products_only": true,
     "lab_removed": true,
-    "guides": 12,
+    "guides": 13,
     "design_guides": [
       "Pebble UI and UX standard",
       "Design principles",
@@ -26,55 +24,72 @@
     ],
     "app_runtime_changed": false,
     "app_runtime_scope": "This website integration changes documentation only; app implementations and their final evidence belong to the sibling app repositories.",
-    "shared_ui_status": "Implemented and validated in local candidates; not pushed or published. Timer Appearance2105 and AppGlance2104 coexistence passes shared-store regressions and fresh native probes."
+    "shared_ui_status": "Implemented and validated in local candidates; not pushed or published. Timer Appearance2105 and AppGlance2104 coexistence passes shared-store regressions and fresh native probes.",
+    "platform_sections": [
+      "Android",
+      "PebbleOS"
+    ],
+    "content_scope": "Current releases plus the explicitly user-approved Phone/Phone for Pebble plans; no invented available apps, features or UI.",
+    "documentation_sections": [
+      "Guides",
+      "Developers",
+      "Design"
+    ],
+    "documentation_entry": "Getting started article directly at /docs/; no intermediate index/category overview.",
+    "apps_entry": "Direct /projects/ catalogue with four available Pebble products, open rows and larger native captures; no filter bar while only one platform has downloads.",
+    "home_entry": "Short everyday-app mission with platform scope beside a compact official-watch preview; current setup path, future connection concept, general stages and contribution links.",
+    "catalogue_products": 4,
+    "downloadable_apps": 4,
+    "planned_projects": 0,
+    "canonical_phone_plan": "/projects/phone/",
+    "watch_device_previews": true,
+    "native_no_javascript_preview": true,
+    "catalogue_available_only": true,
+    "phone_plan_presentation": "Brief contextual paragraph in About; no standalone Home or catalogue promotion."
   },
   "build": {
     "command": "npm test",
     "passed": true,
-    "checked_at_utc": "2026-11-06T16:33:48Z",
-    "pages": 26,
-    "internal_references_checked": 959,
-    "anchors_checked": 155,
-    "referenced_assets_checked": 11,
-    "products": 4,
+    "checked_at_utc": "2026-11-06T23:38:49.595632+00:00",
+    "pages": 33,
+    "internal_references_checked": 1575,
+    "anchors_checked": 365,
+    "referenced_assets_checked": 20,
+    "catalogue_products": 4,
+    "downloadable_apps": 4,
+    "planned_projects": 0,
     "libraries": 2,
-    "type_errors": 0,
-    "type_warnings": 0
+    "guides": 13,
+    "log": "docs/qa/hierarchy-2026-11-07/build-and-links.log"
   },
-  "production_browser_report": "docs/qa/browser-2026-11-06T15-00-28-144Z/report.json",
-  "production_browser_report_sha256": "0a8554894267c74a64d9ac8f88750c52c35ba5871314aa1d3ee87177ccdbbf1f",
-  "browser_evidence_scope": "Historical browser evidence from the earlier documentation pass. No browser session was rerun for this prose/status integration; those reports and screenshots are unchanged.",
+  "production_browser_report": null,
+  "production_browser_report_sha256": "504926e1bc6275f9e93e805f326150d8dc21840b43288b2e06e93caa810f666c",
+  "browser_evidence_scope": "Current source has passing Astro/build/link checks and a separate source-integrity/mathematical-contrast audit. Current browser verification is blocked by the execution environment. Retained passing browser reports describe earlier revisions only.",
   "browser": {
-    "passed": true,
-    "workflow_groups": 12,
-    "main_routes": 25,
-    "viewport_widths": [
-      1440,
-      360
-    ],
-    "header_widths": [
-      768,
-      900,
-      1024,
-      1440
-    ],
-    "screenshots": 18,
-    "exceptions": 0,
-    "failed_local_http_responses": 0,
-    "theme_persisted_across_browser_restart": true,
-    "no_javascript_navigation_checked": true
+    "passed": null,
+    "status": "blocked_by_environment",
+    "current_source_verified": false,
+    "reason": "Local Astro server could not bind 127.0.0.1:4321 (listen EPERM). Chromium exited 133 at startup with crashpad setsockopt Operation not permitted. No current browser screenshots or interaction results are claimed.",
+    "not_verified": [
+      "Rendered desktop and mobile layouts",
+      "Pointer/keyboard/no-JavaScript watch selection",
+      "Navigation and search interactions",
+      "Theme saving, reopening and browser restart",
+      "Zoom, overflow and actual composited-pixel contrast"
+    ]
   },
-  "evidence_note": "Automated real Chromium browser checks. Product screenshots are native emulator captures with example data; no physical-device testing is implied.",
+  "evidence_note": "Current evidence is compilation, static generated-site auditing, source integrity and mathematical colour checks. No current-source browser or physical-device verification is claimed.",
   "history_note": "Earlier browser reports remain historical. A supplemental check found the guide title differed from its search metadata; titles were aligned and both final browser checks passed. That earlier documentation-only pass performed no app UI implementation or release. Subsequent app-local implementations are documented separately below; the public website catalogue and published downloads remain frozen.",
   "canonical_design": {
     "path": "src/pages/docs/design/pebble-ui-system.md",
-    "sha256": "89534e8ccd311e84c8569d15deee452e896fc37ecc3c2d93fdb7aa16fd9e1b8b",
+    "sha256": "41a801f24f3be252d0fe6fb7fac32ef82ebbc8df42330f6efe1cff4aac2ea51c",
     "status": "Implemented in four local app candidates; automated, exact packaged/browser and native emulator checks passed. No publication or physical-device claim.",
     "integration_scope": [
       "Canonical shared standard, local-candidate adoption table and published baseline context",
       "Design guide cross-links, overview, search registry and contributor instructions",
       "Phone appearance ownership, actual language coverage, confirmed stay-open Save and legacy close-URL distinction",
-      "Discard preserves visible context through browser scroll anchoring when restored controls change height, without promising a fixed scrollY"
+      "Discard preserves visible context through browser scroll anchoring when restored controls change height, without promising a fixed scrollY",
+      "Corrected only the stale website-identity sentence; native app UI standard otherwise unchanged."
     ]
   },
   "local_candidate_paths_relative_to": "XOCE repository root; sibling workspace paths, not website routes or published downloads.",
@@ -154,5 +169,219 @@
     "passed": true,
     "screenshots": 6,
     "scope": "New guide notice, Save states, navigation, anchors, title search, responsive tables, light/dark and no-JavaScript content."
+  },
+  "no_logo_change": {
+    "status": "local changes; not published",
+    "decision": "Use the plain-text XOCE name without a logo or custom browser icon. Individual app icons remain their own assets.",
+    "changes": [
+      "Removed header/footer symbol and styled wordmark treatment",
+      "Removed decorative About logo panel and unused styles",
+      "Removed graphical favicon; empty data icon prevents browser fallback requests",
+      "Updated design guidance and navigation/search descriptions"
+    ],
+    "browser_report": "docs/qa/no-logo-2026-11-06/report.json",
+    "browser_report_sha256": "595ed846774b30bceaeea28ac4230da7dc4efd7f8d6c521c42b362adf70b2394",
+    "passed": true,
+    "checks": 3,
+    "captures": 8,
+    "scope": "Focused Chromium check: home/About/visual-identity routes at 320,360,1000,1440px in light/dark; header/footer plain text, no graphics, no horizontal overflow/overlap, mobile navigation/home link, no browser errors or failed local assets. Four home/About frames visually reviewed. No physical-device test."
+  },
+  "historical_production_browser_reports": [
+    {
+      "path": "docs/qa/browser-2026-11-06T15-00-28-144Z/report.json",
+      "sha256": "0a8554894267c74a64d9ac8f88750c52c35ba5871314aa1d3ee87177ccdbbf1f",
+      "scope": "Earlier website documentation/browser baseline; unchanged historical evidence."
+    },
+    {
+      "path": "docs/qa/platform-redesign-ready-2026-11-06/report.json",
+      "sha256": "a71c6498828d6e3d0318f0537ee3c284e5f5b6d35a32922509ab6c2b7303d09e",
+      "scope": "Earlier full platform redesign, before this limited visual prototype."
+    },
+    {
+      "path": "docs/qa/material-preview-ready-2026-11-06/report.json",
+      "sha256": "981e36f847018f58d104dc444269fb242263a8ba6d39d5371501cc2f9a0f6235",
+      "scope": "Historical two-page material prototype, before whole-site rollout."
+    },
+    {
+      "path": "docs/qa/site-material-2026-11-06/report.json",
+      "sha256": "3b523d90d7fa8dc321b56f58b6b67c59770bde8eab5c344fe1c306be1abbd5a8",
+      "scope": "Passing first whole-site run; predates final small visual refinements."
+    },
+    {
+      "path": "docs/qa/site-material-ready-2026-11-06/report.json",
+      "sha256": "a9094773d00758eed48f017cd16ff34f10cb1b5bd515883c1b5c0e4059f6b688",
+      "scope": "Previous whole-site material layout, before direct documentation reader adoption."
+    },
+    {
+      "path": "docs/qa/docs-consolidation-2026-11-06/report.json",
+      "sha256": "058733e9725c396ea0ea48aa5218ed778cfb6d3851aa77165a4f084e1036553e",
+      "scope": "Historical rejected intermediate Docs hub; not the approved current reader."
+    },
+    {
+      "path": "docs/qa/docs-consolidation-ready-2026-11-06/report.json",
+      "sha256": "a6cb6f968531c06cccec796a28933e73bab5001d15c35951e9bcb75c2392d024",
+      "scope": "Historical rejected intermediate Docs hub; not the approved current reader."
+    },
+    {
+      "path": "docs/qa/docs-consolidation-final-2026-11-06/report.json",
+      "sha256": "c0f7690bbac7c0254199c8ee817c6eebf76abb5de208cbefdca339ba6275306a",
+      "scope": "Historical rejected intermediate Docs hub; not the approved current reader."
+    },
+    {
+      "path": "docs/qa/direct-docs-2026-11-06/report.json",
+      "sha256": "9958da708578d5c2b9fb6de1111716a45857bc64be91a213297cfb61a605b699",
+      "scope": "Direct documentation reader before the actual Spatial Desktop material adaptation."
+    },
+    {
+      "path": "docs/qa/desktop-materials-2026-11-06/report.json",
+      "sha256": "a64b2cd0c0a7480c96f4fba33826a01d58d1f604c3d58c644bab59815990e54c",
+      "scope": "Intermediate desktop-material adaptation; see current validation for refinements."
+    },
+    {
+      "path": "docs/qa/desktop-materials-ready-2026-11-06/report.json",
+      "sha256": "27e06089aa2d859f1b0eaba28138b86172b625496615bb68f445423f5acc6243",
+      "scope": "Intermediate desktop-material adaptation; see current validation for refinements."
+    },
+    {
+      "path": "docs/qa/desktop-materials-final-2026-11-06/report.json",
+      "sha256": "976906375d7071b9388b20252a23973212bf389e289f128434b69d54362ebf43",
+      "scope": "Historical mixed ABS/glass version rejected by Xef; superseded by glass-only implementation."
+    },
+    {
+      "path": "docs/qa/glass-only-2026-11-06/report.json",
+      "sha256": "b621028cdea98d2897b0f316ef1e5571fff0c5874365a723ec7056f651de4752",
+      "scope": "Earlier glass-only version with Spatial Desktop wallpaper; superseded by the approved original XOCE identity."
+    },
+    {
+      "path": "docs/qa/xoce-identity-2026-11-06/report.json",
+      "sha256": "21a6aaddf8c4eb31a0f6026895e23fda4306f278f3d5bcd3c6f2984e8fccee16",
+      "scope": "Original XOCE visual identity before the layout/content/structure revision."
+    },
+    {
+      "path": "docs/qa/site-structure-ready-2026-11-06/report.json",
+      "sha256": "28429527bc9d86b64434bb250a4744448eeaa00d73aa5d4b4871e86f85bf984f",
+      "scope": "Earlier layout/content revision with four equal Home download cards; superseded by the user-approved project-first homepage."
+    },
+    {
+      "path": "docs/qa/project-first-home-ready-2026-11-06/report.json",
+      "sha256": "4d65ce1b1886ff1696d4d1798f50cdc97da4cd4062432e39adde26a28a9b43ea",
+      "scope": "Earlier project-first website before the ecosystem rebuild."
+    }
+  ],
+  "platform_redesign": {
+    "validation": "docs/qa/platform-redesign-ready-2026-11-06/validation.json",
+    "preview_url": "http://127.0.0.1:4323/",
+    "status": "local review; not published",
+    "published_release_links_preserved": true,
+    "logo": "Plain-text XOCE; no logo or custom graphical favicon."
+  },
+  "material_direction_preview": {
+    "routes": [
+      "/",
+      "/docs/pebble/setup/"
+    ],
+    "status": "Historical two-page prototype; superseded by the approved whole-site rollout.",
+    "validation": "docs/qa/material-preview-ready-2026-11-06/validation.json",
+    "preview_urls": [
+      "http://127.0.0.1:4323/",
+      "http://127.0.0.1:4323/docs/pebble/setup/"
+    ],
+    "other_pages_restyled": true
+  },
+  "material_direction_rollout": {
+    "status": "Historical whole-site material rollout; current original XOCE identity is documented separately.",
+    "validation": "docs/qa/site-material-ready-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "pages": 32,
+    "guides": 14,
+    "unchanged_product_metadata": true,
+    "unchanged_native_screenshot_pixels": true
+  },
+  "documentation_reader": {
+    "status": "Earlier reader validation; current reader belongs to the ecosystem rebuild.",
+    "validation": "docs/qa/direct-docs-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/docs/",
+    "entry_article": "Getting started",
+    "intermediate_hub": false,
+    "guides": 13
+  },
+  "desktop_material_adaptation": {
+    "status": "Historical mixed ABS/glass version rejected; superseded by glass-only implementation.",
+    "reference_commit": "647b6e1bd1607c28669036795cdcd66ce31197e2",
+    "reference_entry": "Actual desktop dist/index.html",
+    "validation": "docs/qa/desktop-materials-final-2026-11-06/validation.json",
+    "provenance": "docs/spatial-material-reference.json",
+    "review_url": "http://127.0.0.1:4323/"
+  },
+  "glass_only": {
+    "status": "Historical glass-only base; superseded by original XOCE identity, with glass retained.",
+    "validation": "docs/qa/glass-only-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "no_abs_casings": true,
+    "no_raised_caps_or_nested_wells": true,
+    "direct_docs_preserved": true
+  },
+  "xoce_identity": {
+    "status": "Original visual identity retained; current layout/content validation is recorded in site_structure.",
+    "validation": "docs/qa/xoce-identity-2026-11-06/validation.json",
+    "provenance": "docs/xoce-visual-identity.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "original_background": true,
+    "role_specific_glass_density": true,
+    "direct_docs_preserved": true
+  },
+  "site_structure": {
+    "status": "Earlier site structure; superseded by the ecosystem rebuild and current docs/site-structure.json.",
+    "validation": "docs/qa/site-structure-ready-2026-11-06/validation.json",
+    "page_jobs": "docs/site-structure.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "direct_apps_and_docs": true,
+    "published_release_facts_preserved": true,
+    "content_corrections_verified_against_tagged_source": true
+  },
+  "project_first_home": {
+    "status": "Historical project-first Home; superseded by the ecosystem rebuild.",
+    "validation": "docs/qa/project-first-home-ready-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "four_home_download_cards_removed": true,
+    "downloads_owned_by_apps_catalogue": true,
+    "project_data_and_native_assets_preserved": true
+  },
+  "ecosystem_rebuild": {
+    "status": "Implemented and validated locally; uncommitted, not pushed or published",
+    "validation": "docs/qa/ecosystem-rebuild-ready-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "public_product_data_and_native_assets_unchanged": true
+  },
+  "official_watch_frame_revision": {
+    "status": "Implemented and checked locally; not committed, pushed or published",
+    "validation": "docs/qa/official-pebble-frame-2026-11-06/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "official_source": "https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png",
+    "native_screenshots_unchanged": true,
+    "focused_browser_cases": 16
+  },
+  "phone_presentation_revision": {
+    "status": "Implemented and checked locally; not committed, pushed or published",
+    "validation": "docs/qa/phone-presentation-2026-11-07/validation.json",
+    "review_url": "http://127.0.0.1:4323/",
+    "focused_browser_cases": 4
+  },
+  "historical_browser_baseline": {
+    "passed": true,
+    "workflow_groups": 21,
+    "screenshots": 65,
+    "report": "docs/qa/ecosystem-rebuild-ready-2026-11-06/report.json",
+    "scope": "The ecosystem rebuild has21 passing workflow groups in its recorded baseline. Later image/presentation changes have separate focused evidence:16official-frame preview cases and4Phone-presentation workflows. The broader suite was not repeated for these scoped revisions.",
+    "status": "Historical passing report; does not verify the hierarchy/material refinement."
+  },
+  "historical_production_browser_report": "docs/qa/ecosystem-rebuild-ready-2026-11-06/report.json",
+  "hierarchy_refinement": {
+    "status": "Implemented locally; build/static audits passed, current browser verification blocked by environment. Uncommitted and unpublished.",
+    "validation": "docs/qa/hierarchy-2026-11-07/validation.json",
+    "current_browser_verified": false,
+    "public_release_facts_unchanged": true,
+    "docs_reader_structure_unchanged": true,
+    "native_asset_bytes_unchanged": true
   }
 }

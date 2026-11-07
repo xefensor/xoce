@@ -1,0 +1,121 @@
+{
+  "scope": "Current local XOCE website visual identity, separate from native app UI standards.",
+  "status": "Hierarchy and material refinement implemented locally; current verification is recorded separately. No publication implied.",
+  "name": {
+    "display": "XOCE",
+    "expanded": "Xef’s Open Computing Ecosystem",
+    "treatment": "Plain text; no logo or graphical favicon"
+  },
+  "typography": {
+    "family": "Inter Variable",
+    "delivery": "Self-hosted, font-display swap",
+    "heading_face": "Same as body",
+    "legacy_assets": "Retained Space Grotesk files and licence are historical, not the current heading face"
+  },
+  "palette": {
+    "source": "src/styles/theme.css",
+    "light": {
+      "background": "#f5f3ee",
+      "text": "#202d2b",
+      "supporting_text": "#52605c",
+      "accent": "#176b5b"
+    },
+    "dark": {
+      "background": "#171b1c",
+      "text": "#edf1ed",
+      "supporting_text": "#b8c1bc",
+      "accent": "#8ad9bd"
+    },
+    "treatment": "Warm neutral light background and charcoal dark background, quieter static artwork, teal emphasis and distinct navigation/showcase/reading glass densities."
+  },
+  "material_roles": [
+    "glass-navigation-surface",
+    "glass-feature-surface",
+    "glass-surface",
+    "glass-reading-surface"
+  ],
+  "corner_roles_px": {
+    "pane": 10,
+    "control": 6,
+    "small": 4
+  },
+  "compositions": {
+    "home": "Short everyday-app introduction beside a compact glass showcase: official watch and app explanation side by side. Platform strip and current setup path, future shared-timer concept, three-column stages and contribution links; no standalone Phone promotion.",
+    "catalogue": "Compact introduction and open rows with larger native captures, direct downloads and setup for the four available Pebble products. No enclosing catalogue pane, planned-app card or single-platform filter bar.",
+    "product": "Recognizable watch/device presentation beside purpose and installation details.",
+    "about": "Compact two-column opening, project rationale grounded in replaceable apps and interface exploration, platform row and readable stage progression, with one understated Phone-plan paragraph and plain link.",
+    "docs": "A sole dense article surface with quiet sidebar and contents rails; native collapsed mobile disclosures."
+  },
+  "device_presentation": {
+    "component": "src/components/WatchPreview.astro",
+    "kind": "Official Pebble Appstore Time 2 frame around native emulator captures",
+    "frame_asset": "public/images/devices/pebble-time-2.png",
+    "reference": "https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png",
+    "copyright": "Core Devices",
+    "frame_pixels": [
+      488,
+      700
+    ],
+    "frame_sha256": "ec5f810dda6cfa769df5421c3fcbebb5bd45a36839029a6c396ea4acc7609c54",
+    "frame_pixel_changes": "none",
+    "screen_pixels": [
+      200,
+      228
+    ],
+    "native_captures": "Unchanged bytes and 200:228 aspect ratio; matte black letterboxing avoids stretching in the taller aperture. Provenance remains in docs/asset-provenance.json.",
+    "claims": "Native emulator screens composited with an official device frame; not a photograph of the running apps or physical-watch verification.",
+    "compact_views": "Direct native screen captures remain useful for compact lists and documentation.",
+    "interaction": "Home uses native CSS radios for four static app previews, with no automatic cycling.",
+    "licence_status": "No permissive licence verified for the official frame; source-provided asset included for local review, with no additional licence granted."
+  },
+  "artwork": {
+    "site_path": "public/images/materials/xoce-planes.svg",
+    "source": "Original geometric vector artwork authored for the XOCE website.",
+    "sha256": "c908a4d239e4ee9090510f63c21a428fb9df2bfa50d93bfecc65e7e13e8fd72e",
+    "motion": "None; static themed top-of-page mask, reduced on Docs."
+  },
+  "interaction": {
+    "appearance": "System, Light and Dark; explicit choices saved in the browser.",
+    "controls": "Flush controls, visible focus and brief hover/pressed feedback.",
+    "motion": "No idle, pointer-following or automatic showcase animation; reduced motion respected.",
+    "transparency": "Opaque fallbacks for unsupported backdrop filtering and reduced transparency.",
+    "focus": "Ordinary visits leave inputs unfocused; explicit Search focuses its field.",
+    "without_javascript": "Navigation, article reading, native disclosures, available-software catalogue and watch preview remain usable; search and theme controls enhance the static base."
+  },
+  "design_references": [
+    {
+      "source": "https://www.gnome.org/",
+      "observation": "Concrete software and device presentation."
+    },
+    {
+      "source": "https://kde.org/",
+      "observation": "Project identity and distinct software within a broader ecosystem."
+    },
+    {
+      "source": "https://kdeconnect.kde.org/",
+      "observation": "Explain connections through recognizable outcomes such as sharing files and controlling music."
+    },
+    {
+      "source": "https://repebble.com/watch",
+      "observation": "Official Pebble hardware reference; frame image itself comes from the Pebble Appstore."
+    },
+    {
+      "source": "https://www.apple.com/mac/",
+      "observation": "Readable product presentation and direct action hierarchy."
+    },
+    {
+      "source": "https://fluent2.microsoft.design/material",
+      "observation": "Material density suited to the task."
+    }
+  ],
+  "historical_material_ancestry": "docs/spatial-material-reference.json",
+  "preserved": [
+    "Plain-text XOCE and existing app icons",
+    "Software/Docs/About navigation with direct Docs article entry",
+    "Exact release links, licences and development status",
+    "Unchanged native screenshot pixels and provenance",
+    "Separate canonical Pebble UI standard",
+    "Third-party notices and retained historical evidence"
+  ],
+  "validation": "Final rebuild verification is recorded in docs/qa/VALIDATION.json after checks complete; retained historical reports describe their own source."
+}

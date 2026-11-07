@@ -2,11 +2,11 @@
 import Icon from './Icon.astro';
 ---
 <dialog class="search-dialog" data-search-dialog aria-labelledby="search-heading">
-  <div class="search-dialog-heading"><h2 id="search-heading">Find your way.</h2><button class="icon-button" data-search-close aria-label="Close search"><Icon name="close" /></button></div>
+  <div class="search-dialog-heading"><h2 id="search-heading">Search XOCE</h2><button class="icon-button" data-search-close aria-label="Close search"><Icon name="close" /></button></div>
   <label class="search-field"><Icon name="search" /><span class="sr-only">Search projects and documentation</span><input data-search-input type="search" placeholder="Projects, guides, activities…" autocomplete="off" spellcheck="false" /><button class="text-button" data-search-clear hidden>Clear</button></label>
   <p class="search-status" data-search-status aria-live="polite">Search projects and documentation.</p>
   <div data-search-results class="search-results"></div>
-  <div class="search-help"><span>Type to explore XOCE</span><span><kbd>esc</kbd> to close</span></div>
+  <div class="search-help"><span>Software, guides and project plans</span><span><kbd>esc</kbd> to close</span></div>
 </dialog>
 <script>
   interface SearchEntry { title: string; description: string; href: string; section: string; text?: string }

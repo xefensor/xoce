@@ -1,0 +1,43 @@
+{
+  "checked_at_utc": "2026-11-06T22:53:40.516073+00:00",
+  "local_only": true,
+  "committed": false,
+  "pushed": false,
+  "published": false,
+  "review_url": "http://127.0.0.1:4323/",
+  "change": "Replace original CSS watch drawing with the unchanged official Pebble Appstore Time 2 frame. Native screenshots remain separate images with original bytes and 200:228 proportions.",
+  "frame": {
+    "source": "https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png",
+    "path": "public/images/devices/pebble-time-2.png",
+    "sha256": "ec5f810dda6cfa769df5421c3fcbebb5bd45a36839029a6c396ea4acc7609c54"
+  },
+  "build": {
+    "command": "npm test",
+    "passed": true,
+    "audit": {
+      "passed": true,
+      "pages": 33,
+      "internalReferences": 1611,
+      "anchors": 364,
+      "referencedAssets": 20,
+      "catalogueProducts": 5,
+      "downloadableApps": 4,
+      "plannedProjects": 1,
+      "libraries": 2,
+      "guides": 13,
+      "preservedNativeCaptures": 4
+    },
+    "log": "build-and-links.log"
+  },
+  "focused_browser": {
+    "passed": true,
+    "preview_cases": 16,
+    "screenshots": 6,
+    "report": "focused-report.json",
+    "report_sha256": "85483213e370f1df77521c51ddcc5b0d0a80350215edd5edddff4e86b326c8b6",
+    "scope": "All four Home previews at desktop/mobile light/dark,320px without JavaScript; Timer and Pebble shared component; exact image dimensions and aspect ratio; no page overflow, browser exceptions or local HTTP errors.",
+    "capture_note": "A first Chromium surface screenshot timed out. Viewport capture with fromSurface:false succeeded."
+  },
+  "broader_browser_baseline": "../ecosystem-rebuild-ready-2026-11-06/report.json",
+  "verification_note": "Focused checks cover this frame-only revision; the previous21-group website run was not repeated. No physical-device testing implied."
+}

@@ -16,7 +16,7 @@ The design covers [Dynamic](/projects/dynamic/), [Dashboard](/projects/dashboard
 
 Use a neutral light/dark base with a restrained accent for each app. Keep strong contrast, readable content, recognisable controls and useful feedback. Share typography roles and interaction rules while preserving each app’s purpose.
 
-Dynamic keeps its configurable watchface colours. Phone settings follow the phone’s appearance independently of the selected watch palette. The website’s warm surfaces, orange accent, Space Grotesk and Inter remain the [website identity](/docs/design/visual-identity/); they are not the watch-app palette or fonts.
+Dynamic keeps its configurable watchface colours. Phone settings follow the phone’s appearance independently of the selected watch palette. The website’s warm neutral glass, teal accent and Inter remain the [website identity](/docs/design/visual-identity/); they are not the watch-app palette or fonts.
 
 The candidates use the phone colour roles below. These describe app settings, separately from the website palette and Dynamic’s user-selected watch colours.
 

@@ -1,0 +1,75 @@
+
+> xoce@0.1.0 check:browser
+> node scripts/browser-smoke.mjs
+
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/home-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/home-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/watch-showcase-keyboard.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/navigation-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-home-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dynamic-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dashboard-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-timer-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-open-activity-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-phone-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-pebble-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-develop-building-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-principles-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-about-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-pebble-setup-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-visual-identity-desktop-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-home-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dynamic-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dashboard-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-timer-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-open-activity-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-phone-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-pebble-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-develop-building-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-principles-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-about-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-pebble-setup-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-visual-identity-mobile-light.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-home-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dynamic-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dashboard-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-timer-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-open-activity-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-phone-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-pebble-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-develop-building-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-principles-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-about-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-pebble-setup-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-visual-identity-desktop-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-home-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dynamic-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-dashboard-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-timer-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-open-activity-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-projects-phone-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-pebble-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-develop-building-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-principles-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-about-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-pebble-setup-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-docs-design-visual-identity-mobile-dark.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-reduced-motion.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/site-reduced-transparency.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/watch-showcase-no-javascript.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/docs-mobile-no-javascript.png"}
+{"screenshot":"/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06/design-mobile-no-javascript.png"}
+{
+  "passed": true,
+  "checks": 21,
+  "screenshots": 65,
+  "output": "/home/xela/Projekty/Pebble/xoce/docs/qa/ecosystem-rebuild-ready-2026-11-06"
+}

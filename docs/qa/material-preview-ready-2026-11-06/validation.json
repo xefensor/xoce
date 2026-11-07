@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-06T17:43:08Z",
+  "status": "local two-page visual direction preview; not rolled out or deployed",
+  "routes": [
+    "/",
+    "/docs/pebble/setup/"
+  ],
+  "review_urls": [
+    "http://127.0.0.1:4323/",
+    "http://127.0.0.1:4323/docs/pebble/setup/"
+  ],
+  "design": [
+    "Cool neutral light and graphite dark website palettes",
+    "Inter typography and compact structural navigation",
+    "Opaque rounded product and reading surfaces",
+    "Four exact direct app downloads and unmodified native screenshots",
+    "Smaller planned Phone row with optional companion",
+    "One reading column and native mobile contents disclosure"
+  ],
+  "verification": {
+    "npm_test": "PASS",
+    "astro_checked_files": 27,
+    "type_errors": 0,
+    "type_warnings": 0,
+    "static_pages": 32,
+    "internal_references": 1405,
+    "anchors": 190,
+    "referenced_assets": 12,
+    "browser_workflow_groups": 15,
+    "screenshots": 35,
+    "exceptions": 0,
+    "failed_local_http_requests": 0,
+    "report": "report.json",
+    "all_other_routes_preserve_previous_appearance": true,
+    "guide_markdown_unchanged": true,
+    "physical_phone_testing": false
+  },
+  "visual_review": {
+    "final_captures": [
+      "material-home-desktop-dark.png",
+      "material-setup-desktop-light.png",
+      "material-setup-mobile-light.png",
+      "material-setup-mobile-no-javascript.png"
+    ],
+    "additional_scope": "Earlier home light/mobile and guide light/dark frames reviewed before the final alignment/divider fix; final guide rechecked here. Not every screenshot manually inspected."
+  },
+  "contrast_ratios": {
+    "light_body_on_paper": 14.85,
+    "light_secondary_on_paper": 6.08,
+    "light_primary_action": 6.75,
+    "dark_body_on_paper": 12.31,
+    "dark_secondary_on_paper": 7.54,
+    "dark_primary_action": 9.2
+  },
+  "input_sha256": {
+    "src/pages/index.astro": "124e89e0e12b00d6d7024be65d6de6c64e6782726b67489719d19e5fe5921a23",
+    "src/layouts/BaseLayout.astro": "0bf859fec9950a3c9ed889c6c81c4ae654aa55ef73a7cfc5a7de458705b68a5e",
+    "src/layouts/DocLayout.astro": "96bbdac335eb23c5297290bbbf083cc80804036b9592a97f2e8f47be5b13ada2",
+    "src/components/Header.astro": "bb324871f1b64558ae90c193df0cc65785e4be2fb3bec2c427124effef0a0804",
+    "src/styles/material-preview.css": "7acecfc70311a5d911ee727fe0e43bfdba05d449d91c90881bea218626766de1",
+    "src/styles/material-guide-preview.css": "f6c829adc140690fad1dc6cf3c9912c704bdca8494978c6e29d90f02aaff967f",
+    "public/no-js.css": "d5745da1c64c2657b15b40bf90ee2a1ab7cb59b6a517edf3822d4acaef16c8b1",
+    "src/pages/docs/pebble/setup.md": "9847dd327948ae08f62635c8e381182c77b522431595b084793c45324fc30432",
+    "src/data/projects.ts": "54b3622a66d8d054070f3656108e66ce177f5432cd0caa14182bd2ab0771141a",
+    "scripts/browser-smoke.mjs": "d184e78f1bd56daf58ebb11b8ca74c0e85bed1e27ee08a69893dc9427ec97e8d"
+  },
+  "preserved": [
+    "Earlier platform redesign and all existing product/guide URLs",
+    "Product identities, availability, release versions/download URLs and licensing",
+    "Unmodified watch screenshot pixels and original provenance",
+    "Canonical Pebble UI standard and all app repositories",
+    "Plain-text XOCE name without a logo"
+  ],
+  "superseded_attempts": [
+    {
+      "report": "../material-preview-2026-11-06/report.json",
+      "reason": "Outside-menu test clicked a headline now beneath the open menu; corrected to a real pointer click in empty page margin."
+    },
+    {
+      "report": "../material-preview-check-2026-11-06/report.json",
+      "reason": "Main/preview checks passed; no-JS test helper incorrectly awaited a disabled requestAnimationFrame. Helper corrected, native geometry checks retained. Also predates guide alignment/divider cleanup."
+    }
+  ]
+}

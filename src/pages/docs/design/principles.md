@@ -1,70 +1,66 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Design principles
-description: Established choices for readable content, predictable actions and interfaces that fit the device.
+description: Practical guidance for understandable interfaces, new interaction ideas and the devices XOCE targets.
 section: Design
 order: 1
 ---
 
-These principles record decisions used in the current website and Pebble projects. Individual apps own their layouts and native controls. The [visual identity](/docs/design/visual-identity/) describes the website’s styling; [UI patterns](/docs/design/ui-patterns/) and [interaction guidance](/docs/design/interaction/) explain existing app behaviour.
+XOCE aims to make everyday software easy to use while leaving room to try different interfaces. This guide records practical choices for that work. The examples come from the current website and Pebble apps; an Android interface standard has not been implemented yet.
 
-The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the shared design implemented and validated in the local app candidates. They have not been published; real-device verification remains separate. The examples below retain their published-build context, without relabelling an older screenshot or release.
+Use the [Pebble UI and UX standard](/docs/design/pebble-ui-system/) for the native watch and phone-settings design. [UI patterns](/docs/design/ui-patterns/) and [interaction guidance](/docs/design/interaction/) describe the actual Pebble workflows. The [visual identity](/docs/design/visual-identity/) covers this website.
 
 ## Start with a person’s task
 
-Lead with what someone can do. Reveal technical details when those details help them make a choice. Common actions should be easy to find without knowing a UUID, protocol name or internal data shape.
+Explain what someone can do, and make the usual action easy to find. Technical details belong where they help someone choose or complete a task.
 
-An unfamiliar interaction needs a visible reason to exist and an understandable result. Dashboard’s named app picker makes choosing an associated app practical; a custom UUID route remains available for an unlisted destination without becoming the ordinary setup path.
+Dashboard’s named app picker is one example: a person can choose an associated app by name. A custom UUID remains available for an unlisted app without becoming the ordinary setup path.
+
+Trying a different interface should answer a concrete question about use. A future experimental edition can test that idea alongside a dependable stable edition. Experimental does not simply mean an unfinished release.
 
 ## Make the hierarchy readable
 
-Give the most important content enough room and a clear visual weight. Keep essential values and their units together. Use labels when they identify meaning; avoid repeating the same fact in an icon, title and secondary line.
+Give essential content enough room. Keep values and units together, and use labels that identify meaning without repeating it.
 
-On Dynamic, the primary activity has a larger content area and the secondary has one row. In Dashboard, one activity, one notification and two pinned items form the initial overview. These are device-specific decisions, not a universal grid imposed on every XOCE app.
+Dynamic gives its main activity a larger area and its secondary activity one row. Dashboard starts with one activity, one notification and two pins. Each layout is fitted to its task and display.
 
 ## Respect the platform
 
-The current watch builds target Pebble Time 2’s 200 × 228 display, with physical buttons, constrained memory and a battery budget. The website uses responsive layouts, ordinary browser links and keyboard focus.
+The current watch builds target Pebble Time 2’s 200 × 228 display, physical buttons, limited memory and battery. The website uses responsive layouts, browser links and keyboard navigation.
 
-Share useful terminology and clear action meanings. Adapt layout, typography, controls and density to the platform. The website’s orange palette and web fonts are not a requirement for the watch apps.
+Share useful terms and predictable action meanings. Adapt the layout, typography and controls to each device. The website’s glass, palette and web fonts are separate from the native Pebble design. The planned Android Phone app will need its own Android interface.
 
 ## Make state and actions predictable
 
-Show the action that is actually available. Keep an absent capability distinct from a disabled or failed one. A summary with no useful action does not need an empty detail screen.
+Offer actions the source supports. Preserve the selected target when live content changes. If that target disappears, a press must not silently operate on its replacement.
 
-Preserve selection when content moves. If a selected item disappears, do not silently turn the user’s next press into an action on another item.
-
-Save feedback should reflect a confirmed write. Keep an unfinished draft after a failure. Opening settings should leave keyboard focus and scrolling under the user’s control.
+A save confirmation follows a confirmed write. A failure keeps the draft and explains what can be done next. Opening settings should leave keyboard focus under the user’s control.
 
 ## Let motion explain a change
 
-Use short, bounded transitions for meaningful changes. A new media item can arrive with motion; an ordinary clock tick or artwork correction should settle quietly.
+Keep transitions short and bounded. Dynamic can animate a new media item without replaying the entrance on a timer tick or artwork correction.
 
-Watch text stays static, starts at the beginning and cuts off at the end when it does not fit. It does not marquee, automatically page or cycle. Avoid decorative work while a watch app is covered or a device is otherwise idle.
-
-On the website, support reduced motion, clear focus indicators and ordinary browser navigation. Primary navigation and guide content remain usable without JavaScript.
+Watch text stays still and shows the beginning that fits. Avoid decorative work while the app is covered or idle. The website respects reduced motion and keeps primary navigation and guides usable without JavaScript.
 
 ## Preserve the source’s truth
 
-Data can be current, expired, unavailable or unconfirmed. These states are not interchangeable. A new transport receipt does not make an old observation fresh.
+Missing, expired, unavailable and confirmed-empty data have different meanings. A fresh transport receipt does not make an old observation current.
 
-A displayed timer countdown is a presentation of the owner’s state. It does not authorize another app to cancel the timer’s native alarm. Dashboard Timer Pause/Resume remains deferred; the interface should describe the actual capability and result.
-
-Timer’s Reset restores the saved duration as Ready. Starting again requires a separate Select, and Ready persists through closing and reopening. Opening Timer through an associated app destination opens the whole app without selecting or operating a particular timer.
+A countdown summary reflects the timer owner’s state; displaying it does not grant permission to change its alarm. Dashboard can open Timer, while its Timer Pause/Resume control remains deferred. The Activities library is a Pebble integration, rather than a decided data model for all future XOCE products.
 
 ## Be clear about maturity
 
-Label development builds honestly. Product images on this site are native emulator captures with example data. They establish a rendering result; they do not establish physical-device battery life, radio reliability or comfort.
+Distinguish available builds, planned work and deliberate experiments. Desktop–phone–watch synchronization is a future goal, not a shipped feature of the Pebble apps.
 
-Keep user guides focused on current implemented behaviour. Historical research and superseded designs retain their original context in the owning repositories.
+The website uses native emulator captures with example data. They show rendering results, not physical-device battery life or radio reliability. Local app candidates implementing the shared UI standard retain their own validation records; older public downloads and screenshots keep their original version context.
 
 ## Existing examples
 
-These app-level documents record the existing implementations:
+The owning projects document their implementations:
 
 - [Dynamic’s native style and motion](https://github.com/xefensor/pebble-watchface-dynamic/blob/7b5daced6a8c7974425e1b3fb927071d1501df3d/docs/NATIVE-STYLE.md)
 - [Dashboard’s implementation and interaction rules](https://github.com/xefensor/pebble-app-dashboard/blob/61e4babc91bef0409c14f8c8699053d047baa2be/docs/IMPLEMENTATION.md)
-- [Timer 0.12.0 and its Reset behaviour](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md)
-- [Open Activity 0.1.6 settings and launch behaviour](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md)
+- [Timer 0.12.0](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md)
+- [Open Activity 0.1.6](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md)
 
-Shared guidance lives here; project-specific rendering and controls remain documented with their owning implementations. This does not imply a completed shared component kit or visual redesign of the apps.
+Those references and the native UI standard own the detailed controls and rendering guidance. There is no shared cross-platform component kit.

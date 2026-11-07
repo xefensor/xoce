@@ -1,31 +1,67 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import '../styles/guide.css';
 import Icon from '../components/Icon.astro';
 import { docs, docSections } from '../data/docs';
 interface Props { frontmatter: { title: string; description: string; section: string; order?: number }; headings?: { depth: number; slug: string; text: string }[] }
 const { frontmatter, headings = [] } = Astro.props;
-const path = Astro.url.pathname;
+const path = Astro.url.pathname === '/docs/' ? '/docs/getting-started/' : Astro.url.pathname;
+const sectionHeadings = headings.filter(heading => heading.depth === 2);
 const current = docs.find(doc => doc.href === path);
 const section = docSections.find(section => section.title === (current?.section ?? frontmatter.section)) ?? docSections[0];
 const guides = docs.filter(doc => doc.section === section.title);
-const index = guides.findIndex(doc => doc.href === path);
-const previous = index > 0 ? guides[index - 1] : undefined;
-const next = index >= 0 ? guides[index + 1] : undefined;
+const userSection = section.title === 'For users';
+const sectionLabel = userSection ? 'Guides' : section.title === 'For developers' ? 'Developers' : section.title;
+const navigation = docSections.map(item => {
+  const items = docs.filter(doc => doc.section === item.title);
+  return {
+    ...item,
+    label: item.title === 'For users' ? 'Guides' : item.title === 'For developers' ? 'Developers' : item.title,
+    groups: item.title === 'For users' ? [
+      { title: '', guides: items.filter(doc => doc.href === '/docs/getting-started/') },
+      { title: 'PebbleOS', guides: items.filter(doc => doc.platform === 'PebbleOS' && !doc.project) },
+      { title: 'Project', guides: items.filter(doc => !doc.platform && doc.href !== '/docs/getting-started/') },
+    ].filter(group => group.guides.length) : [{ title: '', guides: items }],
+  };
+});
+// Planned products live with their canonical plan. This reader contains the
+// available guides, ordered within Guides, Developers or Design.
+const sequence = guides;
+const index = sequence.findIndex(doc => doc.href === path);
+const previous = index > 0 ? sequence[index - 1] : undefined;
+const next = index >= 0 ? sequence[index + 1] : undefined;
+const returnTo = userSection
+  ? current?.platform === 'PebbleOS'
+      ? { href: '/pebble/', title: 'PebbleOS apps' }
+      : { href: '/docs/', title: 'Getting started' }
+  : { href: section.href, title: docs.find(doc => doc.href === section.href)?.title ?? sectionLabel };
 ---
 <BaseLayout title={frontmatter.title} description={frontmatter.description} bodyClass="docs-page">
-  <div class="docs-shell wrap">
-    <details class="docs-mobile-nav"><summary>Browse {section.title === 'Design' ? 'design' : section.title === 'For developers' ? 'developer' : 'user'} guides</summary><nav aria-label="Mobile documentation navigation"><a href={section.href}>{section.title} overview</a>{guides.map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}<a href="/docs/">All guides</a></nav></details>
-    <aside class="docs-sidebar">
-      <a class="docs-home" href={section.href}><Icon name={section.icon} size={18} /> {section.title}</a>
-      <nav aria-label="Documentation navigation"><div class="docs-group">{guides.map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}</div></nav>
-      <nav class="docs-other-sections" aria-label="Other documentation sections"><p class="eyebrow">Also on XOCE</p>{docSections.filter(other => other.title !== section.title).map(other => <a href={other.href}>{other.title}<Icon name="arrow" size={14} /></a>)}<a href="/docs/">All guides<Icon name="book" size={14} /></a></nav>
+  <div class="docs-shell wrap guide-shell">
+    <details class="docs-mobile-nav">
+      <summary>Browse docs</summary>
+      <nav aria-label="Mobile documentation navigation">
+        <a class="docs-home" href="/docs/"><Icon name="book" size={18}/>Docs</a>
+        {navigation.map(item => <details class="docs-section" open={item.title === section.title} data-docs-section={item.label}>
+          <summary aria-current={item.title === section.title ? 'true' : undefined}><Icon name={item.icon} size={17}/><span>{item.label}</span></summary>
+          {item.groups.map(group => <div class="docs-group mobile-guide-group" role="group" aria-label={group.title || item.label}>{group.title && <p class="group-label">{group.title}</p>}{group.guides.map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}</div>)}
+        </details>)}
+      </nav>
+    </details>
+    <aside class="docs-sidebar" aria-label="Documentation sections">
+      <a class="docs-home" href="/docs/"><Icon name="book" size={18} />Docs</a>
+      <nav aria-label="Documentation navigation">{navigation.map(item => <details class="docs-section" open={item.title === section.title} data-docs-section={item.label}>
+        <summary aria-current={item.title === section.title ? 'true' : undefined}><Icon name={item.icon} size={17}/><span>{item.label}</span></summary>
+        {item.groups.map(group => <div class="docs-group" role="group" aria-label={group.title || item.label}>{group.title && <p class="group-label">{group.title}</p>}{group.guides.map(doc => <a href={doc.href} aria-current={path === doc.href ? 'page' : undefined}>{doc.title}</a>)}</div>)}
+      </details>)}</nav>
     </aside>
-    <main id="main" class="doc-main">
-      <div class="breadcrumb"><a href={section.href}>{section.title}</a><Icon name="chevron" size={12} /><span>Guide</span></div>
-      <header class="doc-heading"><span class="eyebrow">{section.title}</span><h1>{frontmatter.title}</h1><p class="lead">{frontmatter.description}</p></header>
+    <main id="main" class="doc-main reading-surface" tabindex="-1">
+      <div class="breadcrumb document-bar"><Icon name="book" size={16} /><a href="/docs/">Docs</a><Icon name="chevron" size={12}/><span>{sectionLabel}</span>{current?.platform && <><Icon name="chevron" size={12}/><span>{current.platform}</span></>}</div>
+      <header class="doc-heading"><h1>{frontmatter.title}</h1><p class="lead">{frontmatter.description}</p></header>
+      {sectionHeadings.length > 0 && <details class="guide-contents" data-guide-contents><summary>On this page</summary><nav aria-label="On this page">{sectionHeadings.map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</nav></details>}
       <article class="prose"><slot /></article>
-      <nav class="doc-pagination" aria-label="Previous and next guides">{previous ? <a href={previous.href}><span>Previous guide</span><strong>{previous.title}</strong></a> : <span />}{next ? <a href={next.href}><span>Next guide <Icon name="arrow" size={14} /></span><strong>{next.title}</strong></a> : <a href={section.href}><span>Back to</span><strong>{section.title}</strong></a>}</nav>
+      <nav class="doc-pagination" aria-label="Previous and next guides">{previous ? <a href={previous.href}><span>Previous guide</span><strong>{previous.title}</strong></a> : <span />}{next ? <a href={next.href}><span>Next guide <Icon name="arrow" size={14} /></span><strong>{next.title}</strong></a> : <a href={returnTo.href}><span>Back to</span><strong>{returnTo.title}</strong></a>}</nav>
     </main>
-    {headings.some(heading => heading.depth === 2) && <aside class="docs-toc"><span class="eyebrow">On this page</span>{headings.filter(heading => heading.depth === 2).map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</aside>}
+    {sectionHeadings.length > 0 && <aside class:list={['docs-toc', { 'long-contents': sectionHeadings.length > 12 }]}><span class="eyebrow">On this page</span><nav aria-label="On this page">{sectionHeadings.map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</nav></aside>}
   </div>
 </BaseLayout>

@@ -6,11 +6,11 @@ section: For users
 order: 4
 ---
 
-Start with the current versions on the [project pages](/projects/). The current builds target Pebble Time 2 / Emery and use phone-mediated plugin sources.
+Check the version on the affected [app page](/projects/) first. The current downloads target **Pebble Time 2** (`emery`). Activity sharing uses the official Pebble phone app’s plugin preview, not the planned XOCE Phone app.
 
 ## An activity is missing
 
-1. Check that the watch and phone are connected and the phone app supports plugins.
+1. Check that the watch and phone are connected and the Pebble phone app’s plugin preview is enabled.
 2. Open the source app. For Timer, start or resume a countdown on the watch.
 3. Check the source’s permissions in the Pebble phone app.
 4. In Dynamic or Dashboard, check that the activity is enabled and its priority is where you expect it.
@@ -18,7 +18,7 @@ Start with the current versions on the [project pages](/projects/). The current 
 
 Dynamic and Dashboard own separate priority lists. Enabling or reordering a provider in one does not change the other.
 
-Only current, valid sources are displayed. Reconnecting or polling a saved snapshot does not make an old observation new.
+Music and notification previews are currently Android-only. If a source stops supplying valid data, its activity disappears rather than continuing to show an old value.
 
 ## A paused timer disappeared
 
@@ -42,7 +42,7 @@ That is the expected result when the chosen activity has no valid app destinatio
 - Your phone settings and Pebble’s Quick Launch assignment refer to the same shortcut.
 - Only one watch is connected for the supported launch setup.
 
-An absent Secondary does not open Primary instead. A destination expires after a short bounded interval, and opening the helper cannot renew it.
+Return to Dynamic, wait for the intended activity and try the shortcut again. Open Activity uses a recent destination; launching it cannot refresh old activity data. An absent Secondary does not open Primary instead.
 
 ## I cannot reach Open Activity’s settings
 
@@ -52,9 +52,13 @@ Use the configured Quick Launch shortcuts for activity handoff, rather than the 
 
 ## Settings seem not to save
 
-Wait for the page’s saved confirmation, then close and reopen it to check the result. If loading fails or saving is uncertain, use the page’s Retry or readback controls and preserve your draft.
+- **Dynamic 0.16.2:** Save submits and closes the settings page. Reopen it to check your choices. Its reopened delivery status is not an in-page confirmation of a new Save.
+- **Dashboard 0.4.3 and Open Activity 0.1.6:** settings stay open. Wait for the page’s saved confirmation, then close and reopen to check the result. If loading fails or saving is uncertain, preserve your draft and use the page’s retry or saved-state recovery controls.
+- **Timer 0.12.0:** timer settings are on the watch; this release has no phone appearance page.
 
-Dashboard 0.4.3 and Open Activity 0.1.6 include fixes for settings being overwritten when the Android phone runtime closes. Dashboard also lets you save directly with a pin editor open.
+Dashboard 0.4.3 and Open Activity 0.1.6 include fixes for choices being overwritten when the Android phone runtime closes. Dashboard’s global Save also includes the pin currently open in its editor.
+
+The newer [shared Save-and-stay design](/docs/design/pebble-ui-system/#save-stays-open) is implemented in separate local candidates. It does not change the behaviour of these published downloads.
 
 ## Dashboard cannot find an app
 

@@ -1,76 +1,94 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Visual identity
-description: The current website’s wordmark, colour roles, typography and assets, with their actual scope.
+description: The website’s typography, glass materials, device previews and content hierarchy.
 section: Design
 order: 2
 ---
 
-This page documents the visual styling of the current XOCE website. It provides a reference for maintaining these pages. The Pebble apps retain their own native fonts, colours and controls. The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the separate native/watch and phone-settings design implemented and validated in local app candidates, which have not been published. It does not apply the website’s web fonts or orange palette to the apps.
+This guide describes the XOCE website: deep teal, warm white and charcoal, self-hosted Inter, and layered glass with modest corners. The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) owns the watch and phone-settings design separately. The website does not set an Android app palette or final Phone identity.
 
-## Name and website mark
+<span id="name-and-website-mark"></span>
 
-The project name is **XOCE — Xef’s Open Computing Ecosystem**. The website header and footer pair the XOCE wordmark with an asterisk symbol. The wordmark uses Space Grotesk at a bold weight with tight letter spacing.
+## Project name
 
-The small browser icon uses an eight-spoke mark on an orange rounded square. Its exact SVG is available as [the website favicon](/favicon.svg). It is a website asset; it does not replace the individual watch apps’ icons.
+**XOCE** means **Xef’s Open Computing Ecosystem**. Header and footer use the plain-text name. There is no logo or custom graphical favicon. The individual Pebble apps keep their icons.
 
-The wordmark and icon are the current website treatment. This guide does not assign them a new licence or declare a final identity for all XOCE applications. See [licensing and source](/docs/project/licensing/) before reusing assets.
+Phone remains a working product name. A plan does not establish a finished app icon or visual identity. Asset and source terms are listed in [licensing and source](/docs/project/licensing/).
 
 ## Colours by role
 
-Pages use warm neutral surfaces, dark green/charcoal text and an orange accent. Components refer to semantic CSS properties so light and dark themes keep the same roles.
+Use semantic roles from `src/styles/theme.css`. Light pages use warm-white surfaces and teal actions; dark pages use charcoal and lighter teal. Supporting text stays readable against the surface beneath it.
 
-| Role | CSS property | Light theme | Dark theme |
-| --- | --- | --- | --- |
-| Page background | `--bg` | `#f5f3ec` | `#1d211d` |
-| Contained surface | `--paper` | `#fffef9` | `#272c25` |
-| Main text | `--ink` | `#25271f` | `#f1f1e7` |
-| Supporting text | `--muted` | `#64675d` | `#b1b8ab` |
-| Borders and dividers | `--line` | `#d8d9cf` | `#41483c` |
-| Filled accent and focus ring | `--accent` | `#ed754c` | `#f0936a` |
-| Accent-coloured text | `--accent-text` | `#a83c1c` | `#f5a17d` |
-| Text on a filled accent | `--accent-ink` | `#29251c` | `#25251e` |
+| Role | CSS property | Use |
+| --- | --- | --- |
+| Background | `--bg` | The page behind its content |
+| Opaque surface | `--paper` | Content and fallbacks that need an opaque base |
+| Main text | `--ink` | Titles, values and reading text |
+| Supporting text | `--muted` | Captions and secondary explanations |
+| Dividers | `--line` | Grouping and boundaries |
+| Filled action | `--accent` | Primary controls |
+| Accent text | `--accent-text` | Links and selected emphasis |
+| Text on an accent | `--accent-ink` | Labels inside filled controls |
+| Focus | `--focus` | Visible keyboard focus |
 
-Use the dedicated text role for accent-coloured words. A decorative fill and small text have different contrast needs. Keep selected state, errors and action meaning understandable through words, shape or icons as well as colour.
+Use `--accent-text` for coloured words, rather than assuming the fill colour is suitable for text. State and selection also need labels, shapes or icons.
 
-Project illustrations use four additional surface colours: sage `#d7dfcd`, lilac `#ded4e8`, apricot `#f3d0ba` and sky `#d4e3e5`. These colours remain the same in both themes. Content over them needs an appropriate foreground rather than inheriting dark-theme light text blindly.
-
-The favicon has its own fixed orange `#ee683d` and dark mark `#211f1b`. The CSS roles above describe the page interface, not every pixel of an image asset.
+The existing app accents use `--product-dynamic`, `--product-dashboard`, `--product-timer` and `--product-open-activity`. These are website roles; native screenshots retain their own colours. Exact values live in the stylesheet, so this guide does not maintain a second palette.
 
 ## Typography
 
-**Space Grotesk** is the display face for headings and the wordmark. **Inter** is the body face for paragraphs, navigation and controls. Both are self-hosted variable fonts with a system sans-serif fallback and `font-display: swap`.
+**Inter** is used for headings, reading text, navigation and the plain-text name. It is self-hosted with a system sans-serif fallback and `font-display: swap`.
 
-The base body size is 16px with generous line height. Heading sizes adapt to the viewport. Reading layouts keep prose in a bounded column, while code and wide tables can scroll horizontally within their own area.
+Use readable body text, a clear heading hierarchy and short contextual labels. Promotional headings can be larger than guide headings. Let text wrap with the available space; avoid giving every title the same forced line breaks.
 
-Keep long instructions in ordinary sentence case. Small uppercase labels provide section context; they should not carry the only explanation of an important action. Use real text for headings and labels rather than baking it into pictures.
+Documentation uses one bounded reading column for headings and paragraphs. Wide code and tables may scroll within that column without making the whole page overflow. Navigation, contents and pagination support the article.
 
-Current font inputs and SIL Open Font License notices are recorded in the repository’s `src/styles/fonts.css` and `THIRD-PARTY-NOTICES.md`. Public copies of the [Inter licence](/fonts/inter-LICENSE.txt) and [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt) accompany the site.
+Font inputs are recorded in `src/styles/fonts.css`. The [Inter licence](/fonts/inter-LICENSE.txt) and retained [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt) remain available. Space Grotesk belongs to earlier website styling and is not the current heading face.
 
 ## Surfaces, spacing and controls
 
-Use whitespace and thin dividers to establish hierarchy. Cards and contained controls use modest rounded corners. Filled orange identifies a prominent action; quieter text links handle ordinary navigation.
+Glass groups content where it helps. Open page sections, a software showcase and a reading surface can have different compositions.
 
-The main container has a maximum width of 1200px and responsive side margins. Documentation uses a reading column with section navigation and, where space allows, an on-page table of contents. Smaller screens collapse navigation into explicit disclosure controls.
+| Surface | CSS role | Purpose |
+| --- | --- | --- |
+| Navigation | `--glass-navigation-surface` | Header and navigation controls |
+| Showcase | `--glass-feature-surface` | Device and software presentations |
+| Regular content | `--glass-surface` | Browsing and supporting information |
+| Reading | `--glass-reading-surface` | Stronger frost behind longer articles |
 
-Keep interactive targets comfortably usable, focus rings visible and labels attached to controls. The search dialog opens through an explicit Search action or keyboard shortcut. Routine page loads leave text-field focus alone.
+Corners use `--radius-pane` (10px), `--radius-control` (6px) and `--radius-small` (4px). Use spacing and fine dividers inside a surface. Keep controls flush, with clear focus and brief hover or pressed feedback.
+
+The website’s panels have no plastic rims or recessed reading wells. The official Pebble device frame provides physical context for a watch preview; it is separate from the styling of website controls.
+
+Home introduces the ecosystem goal, then presents current Pebble work and the intended cross-device experience. Current software and future goals need visibly distinct context. The current collection can use one watch with manually selected app previews; it does not automatically cycle.
+
+Software opens the catalogue directly. Product pages explain a product and put compatibility beside the download. About owns the project’s scope and stages. Docs opens the actual Getting started article, with Guides, Developers and Design in its reading navigation. There is no extra documentation portal or Lab.
+
+On smaller screens, documentation navigation and contents use native collapsible disclosures. The article remains near the start of the page, and guide navigation works without JavaScript. Routine visits leave keyboard focus alone; explicitly opening Search focuses its search field.
 
 ## Appearance and motion
 
-The theme selector offers System, Light and Dark. An explicit choice is saved in the browser; System follows the operating system. Content, hierarchy and available actions stay consistent across appearances.
+System, Light and Dark are available. An explicit choice is saved in the browser; System follows the operating system.
 
-Hover and entrance movement should remain brief and optional. The website respects the browser’s reduced-motion preference. Readability and meaningful state do not depend on animation.
+The background artwork stays static. There is no idle animation, pointer-following effect or automatically advancing showcase. A person chooses which app preview to see. Motion stays brief and optional, and the website respects reduced motion.
+
+Opaque fallbacks keep content readable when backdrop filtering is unavailable or reduced transparency is requested. Important information and actions remain visible in either theme.
 
 ## Screenshots and assets
 
-Use real screenshots of current projects. Keep watch pixels intact and provide useful alt text. Describe a rendering as an emulator capture when that is its source. If a watch case is drawn around it, identify the case as an illustration.
+Use actual project captures with useful alt text. Keep the native screenshot files unchanged and preserve their 200 × 228 screen ratio.
 
-Dashboard’s current website image is a 0.4.1 emulator capture reused for its unchanged native layout in 0.4.3. The asset record preserves that distinction instead of relabelling it as a fresh capture.
+The Pebble Time 2 presentation on Home and product pages uses the [official Pebble Appstore frame](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png), credited to Core Devices. The transparent frame image is unchanged. Native captures fit inside it without stretching; matte black fills the unused part of the taller aperture. A caption identifies the composite as an emulator preview in a device frame. It does not imply a photograph of the running app or physical-watch verification.
 
-The repository keeps screenshot origins, source versions and hashes in `docs/asset-provenance.json`. The [project catalogue](/projects/) links current applications and their owning repositories.
+Direct screen views remain useful for close reading in documentation and compact catalogue previews. No fake phone or desktop app interface is needed to illustrate planned work.
+
+Dashboard’s image is a 0.4.1 emulator capture reused for the unchanged native layout in 0.4.3. Native image origins, source versions and hashes stay in `docs/asset-provenance.json`. Do not relabel an older capture when a release changes.
+
+The offset-plane artwork is authored for XOCE and recorded in `docs/xoce-visual-identity.json`. The older silk artwork remains a historical asset and is not rendered. It is credited to Spatial Desktop and Alexej Tušl (xefensor) under [CC BY-SA 4.0](/licenses/spatial-desktop-artwork-CC-BY-SA-4.0.txt). Adapted material code retains its [GPL 3 terms](/licenses/spatial-desktop-materials-GPL-3.0.txt), recorded in `docs/spatial-material-reference.json`. Those terms do not replace each app’s own licence.
 
 ## Maintaining this reference
 
-The website’s colour roles, typography and shared layouts are implemented in `src/styles/global.css` and `src/styles/fonts.css`. Header/footer components own the wordmark treatment, and `public/favicon.svg` owns the browser icon. Update this guide when those actual choices change.
+`src/styles/theme.css` owns colour and material roles. `src/styles/global.css` owns common layout and controls; `src/styles/guide.css` owns the reading layout. Page and component styles handle their specific compositions.
 
-For app behaviour, use [design principles](/docs/design/principles/), [UI patterns](/docs/design/ui-patterns/) and [UX & interaction](/docs/design/interaction/).
+Keep this guide aligned with the implementation. For native app behaviour, use [UI patterns](/docs/design/ui-patterns/), [UX and interaction](/docs/design/interaction/) and the [Pebble standard](/docs/design/pebble-ui-system/). Versioned API contracts remain with the libraries that own them.
