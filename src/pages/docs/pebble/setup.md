@@ -21,24 +21,24 @@ The linked GitHub release pages also contain source, debugging files and checksu
 
 ## Timer
 
-Install [Timer 0.12.0](/projects/timer/), then open it on the watch.
+Install [Timer 0.14.5](/projects/timer/), then open it on the watch.
 
 1. Choose **New timer**.
 2. Set hours, minutes and seconds using Up, Select and Down.
 3. Start the countdown. Timer saves the run on the watch, schedules its native alarm and shares its reported state with the phone.
 
-Timer has no separate phone settings page. Its duration editor and **More options** on the watch are its settings surface. You can keep up to eight saved timers.
+Timer’s phone settings select Light/Dark watch appearance. Save stays open with a confirmed **✓ Saved** state. Timer creation, the duration editor and **More options** remain on the watch; you can keep up to eight saved timers.
 
 If Timer reports an alarm or storage error, keep it open and follow the message on the watch. Seeing its countdown in another app does not confirm that its background alarm was set.
 
 ## Dynamic
 
-Install [Dynamic 0.16.2](/projects/dynamic/) and choose it as your watchface.
+Install [Dynamic 0.18.3](/projects/dynamic/) and choose it as your watchface.
 
 1. Open Dynamic’s settings in the Pebble phone app.
 2. Under **Content & priority → Activity priority**, enable the sources you want and reorder them.
 3. Keep Timer visible while testing the first countdown. The first eligible activity becomes primary; the next becomes the compact secondary row.
-4. Choose **Save settings**. The published Dynamic 0.16.2 page closes after submitting. Reopen settings to check your choices, then return to the watchface.
+4. Choose **Save settings** and wait for **✓ Saved**. The modern settings page stays open after confirmed phone persistence. Reopen settings to check your choices, then return to the watchface. Legacy return-URL submission remains a separate closing fallback.
 
 Music and Notifications share this priority list. Notifications defaults to Off. Enable it deliberately and choose how much notification information to show.
 
@@ -48,7 +48,7 @@ Dynamic’s colour settings, activity order and visibility belong to Dynamic. Da
 
 ## Open Activity
 
-Install [Open Activity 0.1.6](/projects/open-activity/) if you want Quick Launch to open the app associated with an activity.
+Install [Open Activity 0.3.3](/projects/open-activity/) if you want Quick Launch to open the app associated with an activity.
 
 1. Open **Open Activity from the watch’s app list**. It stays on a setup screen.
 2. Open its phone settings.
@@ -65,7 +65,7 @@ Open Activity uses **Dynamic’s recent displayed activities**. A missing or exp
 
 ## Dashboard
 
-Install [Dashboard 0.4.3](/projects/dashboard/) and open it once on the watch so its phone runtime can discover available providers.
+Install [Dashboard 0.6.3](/projects/dashboard/) and open it once on the watch so its phone runtime can discover available providers.
 
 1. Open Dashboard’s phone settings.
 2. Choose the activities you want and their order.
@@ -80,6 +80,6 @@ You can assign Dashboard itself to a separate Quick Launch shortcut for opening 
 
 Start a timer, return to Dynamic and wait for its activity. Use your Primary shortcut to open Timer. Pause it in Timer, return to Dynamic, and check that the activity disappears after five minutes while the timer remains saved.
 
-After changing settings, close and reopen the page to check the saved choices. Dynamic 0.16.2 submits and closes its page; Dashboard and Open Activity keep their settings pages open. If one of those pages reports an uncertain or failed save, preserve your draft and follow its retry or saved-state recovery controls.
+After changing settings, close and reopen the page to check the saved choices. The current modern settings pages keep Save open with confirmation. Legacy return-URL fallbacks close after submission. If a page reports an uncertain or failed save, preserve your draft and follow its retry or saved-state recovery controls.
 
 Need help? [Troubleshoot activities and settings](/docs/pebble/troubleshooting/).

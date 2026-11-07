@@ -41,7 +41,7 @@ let scriptingEnabled = true;
 const base = new URL(process.env.XOCE_SITE_URL || 'http://127.0.0.1:4321/');
 assert.ok(['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname), 'Browser checks are restricted to a local preview.');
 const stamp = new Date().toISOString().replace(/[:.]/g, '-');
-const output = path.resolve(process.env.XOCE_QA_OUTPUT || path.join(root, 'docs/qa', 'browser-' + stamp));
+const output = path.resolve(process.env.XOCE_QA_OUTPUT || path.join(root, 'build/qa', 'browser-' + stamp));
 const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'xoce-browser-'));
 fs.mkdirSync(output, { recursive: true });
 const browserLog = path.join(output, 'chromium.log');

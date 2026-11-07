@@ -1,0 +1,85 @@
+---
+layout: ../../../layouts/DocLayout.astro
+title: Set up your Pebble
+description: Install the Pebble development builds, configure activities and choose Quick Launch shortcuts.
+section: For users
+order: 2
+---
+
+This guide covers the published development builds for **Pebble Time 2** (`emery`). Use the official **Pebble phone app** to install and configure them. The planned XOCE Phone app is separate and is not required.
+
+## Before installing
+
+1. Check that your watch is **Pebble Time 2**. The current downloads do not include other watch models.
+2. For activities, readings and app opening, enable the Pebble phone app’s **plugin preview**. Allow the permissions needed by your chosen sources.
+3. Use **Download** on the [app page](/projects/) to get its versioned `.pbw` file.
+4. Open that file with the Pebble phone app and follow its installation flow.
+
+Music and notification previews in Dynamic and Dashboard are currently **Android-only**. Other plugin features depend on the sources and permissions available in your Pebble phone app.
+
+The linked GitHub release pages also contain source, debugging files and checksums; those are not the watch installation file.
+
+## Timer
+
+Install [Timer 0.12.0](/projects/timer/), then open it on the watch.
+
+1. Choose **New timer**.
+2. Set hours, minutes and seconds using Up, Select and Down.
+3. Start the countdown. Timer saves the run on the watch, schedules its native alarm and shares its reported state with the phone.
+
+Timer has no separate phone settings page. Its duration editor and **More options** on the watch are its settings surface. You can keep up to eight saved timers.
+
+If Timer reports an alarm or storage error, keep it open and follow the message on the watch. Seeing its countdown in another app does not confirm that its background alarm was set.
+
+## Dynamic
+
+Install [Dynamic 0.16.2](/projects/dynamic/) and choose it as your watchface.
+
+1. Open Dynamic’s settings in the Pebble phone app.
+2. Under **Content & priority → Activity priority**, enable the sources you want and reorder them.
+3. Keep Timer visible while testing the first countdown. The first eligible activity becomes primary; the next becomes the compact secondary row.
+4. Choose **Save settings**. The published Dynamic 0.16.2 page closes after submitting. Reopen settings to check your choices, then return to the watchface.
+
+Music and Notifications share this priority list. Notifications defaults to Off. Enable it deliberately and choose how much notification information to show.
+
+For the two readings above the activities, configure slots 1–2 under **Complications** in the Pebble phone app. These are shared choices and can affect other watchfaces using those slots. Dynamic does not include its own weather provider; select an available source there.
+
+Dynamic’s colour settings, activity order and visibility belong to Dynamic. Dashboard keeps its own choices.
+
+## Open Activity
+
+Install [Open Activity 0.1.6](/projects/open-activity/) if you want Quick Launch to open the app associated with an activity.
+
+1. Open **Open Activity from the watch’s app list**. It stays on a setup screen.
+2. Open its phone settings.
+3. Choose a shortcut for **Primary activity** and a different shortcut for **Secondary activity**, or leave either unassigned.
+4. Save the choices.
+5. In the phone app’s Quick Launch settings, assign **Open Activity** to those same shortcuts.
+6. Press Back on the watch and return to Dynamic.
+
+For example, you can choose Hold Down for Primary and Hold Up for Secondary. These are choices, not hardcoded requirements. The app supports stock taps, holds and the listed button combinations; availability in system settings depends on your phone and firmware versions.
+
+Use one connected watch for the supported launch setup. The current launch API does not let this helper select between multiple connected watches.
+
+Open Activity uses **Dynamic’s recent displayed activities**. A missing or expired destination closes the helper. Secondary does not silently fall back to Primary.
+
+## Dashboard
+
+Install [Dashboard 0.4.3](/projects/dashboard/) and open it once on the watch so its phone runtime can discover available providers.
+
+1. Open Dashboard’s phone settings.
+2. Choose the activities you want and their order.
+3. Add or edit your Pinned items. A pin can have a reading, a Select action and a Hold Select app destination.
+4. Save and wait for the page’s confirmation. It stays open, and Save includes a pin editor you are still editing.
+
+For a native app destination, choose **Hold Select → Open app** and select an app by name. PebbleOS apps such as Weather have named entries; their availability depends on the watch and OS. Store search can find other app names, but a result does not prove that app is installed on your watch.
+
+You can assign Dashboard itself to a separate Quick Launch shortcut for opening the overview directly.
+
+## Check the complete workflow
+
+Start a timer, return to Dynamic and wait for its activity. Use your Primary shortcut to open Timer. Pause it in Timer, return to Dynamic, and check that the activity disappears after five minutes while the timer remains saved.
+
+After changing settings, close and reopen the page to check the saved choices. Dynamic 0.16.2 submits and closes its page; Dashboard and Open Activity keep their settings pages open. If one of those pages reports an uncertain or failed save, preserve your draft and follow its retry or saved-state recovery controls.
+
+Need help? [Troubleshoot activities and settings](/docs/pebble/troubleshooting/).

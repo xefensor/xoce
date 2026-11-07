@@ -6,11 +6,11 @@ section: For developers
 order: 3
 ---
 
-Choose the project you want to change, then use its versioned README for SDK requirements, build commands and validation. The references below match the public versions listed on this website. Separate local candidates do not replace those releases or their instructions.
+Choose the project you want to change, then use its versioned README for SDK requirements, build commands and validation. The references below match the public versions listed on this website. Development candidates do not replace those releases or their instructions.
 
 ## Current development workflow
 
-For current main, start with each repository’s CONTRIBUTING.md. The accepted UI is merged locally; public downloads below remain version-pinned to the released source. Ordinary Pebble app builds produce a permission-packaged candidate under build/candidate, and QA uses build/qa. They do not overwrite frozen release files. Library builds similarly preserve the root dist.zip and do not repin consumers.
+For current main, start with each repository’s CONTRIBUTING.md. Main includes maintenance beyond the release tags; the downloads below stay pinned to their released source. Ordinary Pebble app builds produce a permission-packaged candidate under build/candidate, and QA uses build/qa. They do not overwrite frozen release files. Library builds similarly preserve the root dist.zip and do not repin consumers.
 
 Run relevant source checks and inspect the affected workflow. Version bumps, source/debug release archives and publication are separate explicit milestones. Keep new native/browser evidence distinct from historical records. The site itself remains local and has no publication side effect from a build.
 
@@ -21,11 +21,11 @@ Open the relevant build instructions before setting up your environment:
 | Project | Version | Build instructions |
 | --- | --- | --- |
 | Activities | 0.4.4 | [Build and check](https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/README.md#build-and-check) |
-| Core | 0.5.1 | [Build and test](https://github.com/xefensor/pebble-lib-core/blob/v0.5.1/README.md#build-and-test) |
-| Dynamic | 0.16.2 | [Build and install](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.16.2/README.md#build-and-install) |
-| Dashboard | 0.4.3 | [Build and validate](https://github.com/xefensor/pebble-app-dashboard/blob/v0.4.3/README.md#build-and-validate) |
-| Timer | 0.12.0 | [Build and check](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md#build-and-check) |
-| Open Activity | 0.1.6 | [Development and validation](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md#development-and-validation) |
+| Core | 0.5.2 | [Build and test](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/CONTRIBUTING.md) |
+| Dynamic | 0.18.3 | [Build and install](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.18.3/CONTRIBUTING.md) |
+| Dashboard | 0.6.3 | [Build and validate](https://github.com/xefensor/pebble-app-dashboard/blob/v0.6.3/CONTRIBUTING.md) |
+| Timer | 0.14.5 | [Build and check](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/CONTRIBUTING.md) |
+| Open Activity | 0.3.3 | [Development and validation](https://github.com/xefensor/pebble-app-open-activity/blob/v0.3.3/CONTRIBUTING.md) |
 
 Work from the source version relevant to your change. When reproducing a reported bug, record the installed release and use its matching tag. When working on newer source, follow that revision’s README and say which revision you tested.
 

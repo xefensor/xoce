@@ -4,8 +4,8 @@
 
 This is a local static website; do not publish or configure hosting without an explicit request.
 Read [CONTRIBUTING](CONTRIBUTING.md) for setup, output locations and commit/release policy.
-The accepted app UI is on main. Older candidates, QA records and source archives
-remain frozen; history is not a second active specification.
+The active Astro source is on main. Historical QA and screenshot evidence remains frozen.
+History is not a second active specification.
 
 ## Important boundaries
 
@@ -13,7 +13,7 @@ Keep the site local until publication is explicitly requested. Public releases a
 
 ## Read only what the task needs
 
-- Ownership, storage, source lifecycle, privacy or capabilities:
+- Catalogue, navigation, accessibility and screenshot provenance:
   [current maintenance contracts](docs/MAINTENANCE.md).
 - Versioning, archives, tags, upload or deployment: [release boundary](docs/RELEASING.md).
 

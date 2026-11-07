@@ -6,7 +6,7 @@ section: For developers
 order: 2
 ---
 
-**Core 0.5.1** is a library embedded in consuming watchfaces. It supplies selected readings, bounded state and transport helpers. It is not an installed app or background service.
+**Core 0.5.2** is a library embedded in consuming watchfaces. It supplies selected readings, bounded state and transport helpers. It is not an installed app or background service.
 
 Its repository is `pebble-lib-core`; the stable package and import name remain **`pebble-watchface-core`**.
 
@@ -28,12 +28,12 @@ Use one dispatcher and one shared message queue. Core does not register a second
 
 ## Pin the package
 
-Download the exact versioned package and checksums from [Core 0.5.1](https://github.com/xefensor/pebble-lib-core/releases/tag/v0.5.1). A consuming project can vendor the package and reference it from its manifest:
+Download the exact versioned package and checksums from [Core 0.5.2](https://github.com/xefensor/pebble-lib-core/releases/tag/v0.5.2). A consuming project can vendor the package and reference it from its manifest:
 
 ```json
 {
   "dependencies": {
-    "pebble-watchface-core": "file:vendor/pebble-watchface-core-0.5.1.tgz"
+    "pebble-watchface-core": "file:vendor/pebble-watchface-core-0.5.2.tgz"
   }
 }
 ```
@@ -66,8 +66,8 @@ Core’s compatible legacy context behaviour is documented for existing consumer
 
 The repository owns the exact function signatures, storage range, packet budgets and compatibility rules:
 
-- [Core 0.5.1 host contract](https://github.com/xefensor/pebble-lib-core/blob/v0.5.1/docs/HOST-CONTRACT.md)
-- [Released source](https://github.com/xefensor/pebble-lib-core/tree/v0.5.1)
-- [Package, SDK archive and checksums](https://github.com/xefensor/pebble-lib-core/releases/tag/v0.5.1)
+- [Core 0.5.2 host contract](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/docs/HOST-CONTRACT.md)
+- [Released source](https://github.com/xefensor/pebble-lib-core/tree/v0.5.2)
+- [Package, SDK archive and checksums](https://github.com/xefensor/pebble-lib-core/releases/tag/v0.5.2)
 
 Treat a package update as an independent consumer change: pin it, build it, check the affected native behaviour and publish that consumer’s own version.

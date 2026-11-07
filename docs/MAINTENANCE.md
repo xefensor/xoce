@@ -64,10 +64,11 @@ supersede these maintenance notes.
   use the Pebble phone app’s plugin preview; built-in Music and Notifications
   in the public Dynamic and Dashboard releases require Android. Do not invent
   other platform support or completed cross-device synchronization.
-- Public downloads and local UI candidates are distinct. Published Dynamic
-  0.16.2 submits and closes its Clay settings; Dashboard 0.4.3 and Open Activity
-  0.1.6 have their documented stay-open flows; Timer 0.12.0 has no phone page.
-  Keep newer candidate behaviour in its labelled native UI standard and evidence.
+- Catalogue entries are pinned to the verified Dynamic 0.18.3, Dashboard 0.6.3,
+  Timer 0.14.5 and Open Activity 0.3.3 releases. Modern settings pages confirm
+  phone persistence while staying open; legacy return-URL fallback still closes.
+  Timer's appearance page never edits a timer. Older screenshots retain their
+  original versions, layouts and evidence scope.
 - The ecosystem’s aim is open source. Current Pebble projects retain PolyForm
   Noncommercial 1.0.0; do not describe those releases as unrestricted open-source
   software. Planned products and the website have no project-wide licence

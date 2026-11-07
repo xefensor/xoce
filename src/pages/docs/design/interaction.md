@@ -6,6 +6,9 @@ section: Design
 order: 4
 ---
 
+This article preserves the design study and native captures from before the current releases. Versioned examples and local-candidate descriptions below retain their original scope. For current downloads and settings behavior, use [watch setup](/docs/pebble/setup/) and the project pages: [Dynamic 0.18.3](/projects/dynamic/), [Dashboard 0.6.3](/projects/dashboard/), [Timer 0.14.5](/projects/timer/) and [Open Activity 0.3.3](/projects/open-activity/). The older captures are not images of those releases.
+
+
 Interaction design explains what happens before and after a press, not only how a screen looks. Common rules apply across XOCE: preserve the person’s context, bind actions to the intended target, and distinguish a draft from a confirmed result. The concrete workflows below are implemented Pebble examples; they do not establish an Android interaction API or finished Phone design. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
 
 The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the implemented shared design and passed local automated, packaged browser and native emulator checks. The candidates are not published releases, and real-device verification remains separate. The published baselines and older evidence keep their original version context.

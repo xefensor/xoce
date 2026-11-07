@@ -6,6 +6,9 @@ section: Design
 order: 5
 ---
 
+This article preserves the design study and native captures from before the current releases. Versioned examples and local-candidate descriptions below retain their original scope. For current downloads and settings behavior, use [watch setup](/docs/pebble/setup/) and the project pages: [Dynamic 0.18.3](/projects/dynamic/), [Dashboard 0.6.3](/projects/dashboard/), [Timer 0.14.5](/projects/timer/) and [Open Activity 0.3.3](/projects/open-activity/). The older captures are not images of those releases.
+
+
 **Status: accepted and merged into local main; not published.** Current app implementations are Dynamic 0.18.2, Dashboard 0.6.2, Timer 0.14.4 and Open Activity 0.3.2. Their automated/packaged and native-emulator evidence is recorded in the owning repositories. Fresh browser rendering of the latest phone presentation changes and real-phone/physical-watch checks remain unverified. The public catalogue/downloads retain the published baselines.
 
 The [UI patterns](/docs/design/ui-patterns/) and [interaction guide](/docs/design/interaction/) distinguish published behaviour from the local candidates. Existing screenshots keep their original capture versions; they do not become evidence of a new binary. The rules below are the shared implementation reference.
@@ -156,7 +159,7 @@ The owning repositories link current contracts from AGENTS.md and CONTRIBUTING.m
 
 ## Published baselines before alignment
 
-The public catalogue still lists Dynamic 0.16.2, Dashboard 0.4.3, Timer 0.12.0 and Open Activity 0.1.6. Their files and tags remain unchanged.
+The historical catalogue baseline for this study was Dynamic 0.16.2, Dashboard 0.4.3, Timer 0.12.0 and Open Activity 0.1.6. Their files and tags remain unchanged; current downloads are linked above.
 
 | Published baseline | Historical difference addressed by the local candidate |
 | --- | --- |

@@ -6,6 +6,9 @@ section: Design
 order: 3
 ---
 
+This article preserves the design study and native captures from before the current releases. Versioned examples and local-candidate descriptions below retain their original scope. For current downloads and settings behavior, use [watch setup](/docs/pebble/setup/) and the project pages: [Dynamic 0.18.3](/projects/dynamic/), [Dashboard 0.6.3](/projects/dashboard/), [Timer 0.14.5](/projects/timer/) and [Open Activity 0.3.3](/projects/open-activity/). The older captures are not images of those releases.
+
+
 A useful interface gives the main task enough room, keeps related content and actions together, and makes current state readable. Those [common principles](/docs/design/principles/) can apply across XOCE; their layout and controls depend on the device.
 
 The concrete patterns below describe Pebble Time 2 interfaces and their phone settings. The watch builds target a 200 × 228 screen with physical buttons. The Pebble activity schema is a contract for compatible Pebble hosts, not a universal interface or data model for Android products.

@@ -1,19 +1,11 @@
-# XOCE website: release boundary
+# XOCE website publication boundary
 
-Routine builds/checks are documented in [CONTRIBUTING](../CONTRIBUTING.md).
-They do not publish or rewrite old artifacts. A commit on main does not itself
-make an unpublished implementation a public download.
+[CONTRIBUTING](../CONTRIBUTING.md) documents local setup and checks. This site remains local. Building or previewing does not authorize hosting registration, a push or deployment.
 
-## Explicit milestone only
+Before an explicitly requested publication, review the exact source commit and built pages, verify catalogue tags/downloads/licence links, and run type, build, link, documentation and Chromium checks. Preserve existing routes, keyboard/no-JavaScript navigation and screenshot hashes/provenance. Record physical-device and browser gaps honestly.
 
-The website remains local. Building/previewing is not permission to register
-hosting, create a public identity or deploy. Publication needs an explicit
-request and a reviewed concrete result; keep all licence/provenance boundaries.
+Generated site output belongs in ignored `dist/`; disposable browser evidence belongs in `build/qa/`. Historical `docs/qa/` evidence keeps its original scope. Updating download metadata does not publish an app release or replace its artifacts.
 
-## Historical verification
+Publication requires a separate explicit request and a concrete reviewed result. No hosting service, credentials, domain or deployment is configured by maintenance.
 
-Use the original source commit/tag and original versioned evidence. Current docs
-may describe newer implementation; they are not a replacement source snapshot.
-Do not run a source-archive freshness check against a later documentation commit
-and "repair" the old release. Preserve licences, source maps in separate debug
-archives, privacy and documented physical-device gaps.
+[Earlier publication policy](history/release-policy-before-maintenance.md).

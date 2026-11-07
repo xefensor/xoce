@@ -36,7 +36,7 @@ Pebble.registerSourceHandler(provider.handleSource);
 
 Declare the provider in the plugin manifest’s `sources` list: category `activity`, item `summary`, and the properties in `summary.SOURCE_PROPERTIES`. The provider exposes the complete serializable declaration as `provider.sourceDeclaration` for your packaging step.
 
-For a bundled PBW, that declaration belongs under `pebble.plugin.sources` in `package.json`, and the packaged app must include its plugin script. The [Timer manifest](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/package.json) is a complete bundled example; it also declares older compatibility sources that a new summary-only provider does not need.
+For a bundled PBW, that declaration belongs under `pebble.plugin.sources` in `package.json`, and the packaged app must include its plugin script. The [Timer manifest](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/package.json) is a complete bundled example; it also declares older compatibility sources that a new summary-only provider does not need.
 
 The helper manages response metadata. Your authoring code supplies the content. Keep an item’s ID stable while it represents the same ongoing instance. Return `[]` in the next complete response when nothing should be displayed.
 

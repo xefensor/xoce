@@ -46,19 +46,19 @@ Return to Dynamic, wait for the intended activity and try the shortcut again. Op
 
 ## I cannot reach Open Activity’s settings
 
-Open **Open Activity from the watch’s app list**, then open its settings in the phone app. Version 0.1.6 keeps a normal launch open on a static setup screen. Use Back on the watch when you finish.
+Open **Open Activity from the watch’s app list**, then open its settings in the phone app. Version 0.3.3 keeps a normal launch open on a static setup screen. Use Back on the watch when you finish.
 
 Use the configured Quick Launch shortcuts for activity handoff, rather than the normal app-list launch.
 
 ## Settings seem not to save
 
-- **Dynamic 0.16.2:** Save submits and closes the settings page. Reopen it to check your choices. Its reopened delivery status is not an in-page confirmation of a new Save.
-- **Dashboard 0.4.3 and Open Activity 0.1.6:** settings stay open. Wait for the page’s saved confirmation, then close and reopen to check the result. If loading fails or saving is uncertain, preserve your draft and use the page’s retry or saved-state recovery controls.
-- **Timer 0.12.0:** timer settings are on the watch; this release has no phone appearance page.
+- **Dynamic 0.18.3:** the modern page stays open while Saving… changes to **✓ Saved** after confirmed phone persistence. Legacy return-URL submission closes; reopen settings to check that fallback.
+- **Dashboard 0.6.3 and Open Activity 0.3.3:** settings stay open. Wait for the page’s saved confirmation, then close and reopen to check the result. If loading fails or saving is uncertain, preserve your draft and use the page’s retry or saved-state recovery controls.
+- **Timer 0.14.5:** the phone page selects Light/Dark watch appearance and keeps confirmed Save open. Timer creation, Reset and alarm controls remain on the watch.
 
-Dashboard 0.4.3 and Open Activity 0.1.6 include fixes for choices being overwritten when the Android phone runtime closes. Dashboard’s global Save also includes the pin currently open in its editor.
+Dashboard 0.6.3 and Open Activity 0.3.3 include fixes for choices being overwritten when the Android phone runtime closes. Dashboard’s global Save also includes the pin currently open in its editor.
 
-The newer [shared Save-and-stay design](/docs/design/pebble-ui-system/#save-stays-open) is implemented in separate local candidates. It does not change the behaviour of these published downloads.
+The [shared Save-and-stay design](/docs/design/pebble-ui-system/#save-stays-open) is included in the current published downloads. Phone persistence confirmation does not establish watch delivery or native alarm acceptance.
 
 ## Dashboard cannot find an app
 

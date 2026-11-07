@@ -12,12 +12,12 @@ Licensing is stated per project. The current Pebble repositories declare **PolyF
 
 | Project | Source | Licence at the listed release |
 | --- | --- | --- |
-| Dynamic 0.16.2 | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.16.2/LICENSE) |
-| Dashboard 0.4.3 | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/v0.4.3/LICENSE) |
-| Timer 0.12.0 | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/LICENSE) |
-| Open Activity 0.1.6 | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/LICENSE) |
+| Dynamic 0.18.3 | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.18.3/LICENSE) |
+| Dashboard 0.6.3 | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/v0.6.3/LICENSE) |
+| Timer 0.14.5 | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/LICENSE) |
+| Open Activity 0.3.3 | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/v0.3.3/LICENSE) |
 | Activities 0.4.4 | [pebble-lib-activities](https://github.com/xefensor/pebble-lib-activities) | [LICENSE](https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/LICENSE) |
-| Core 0.5.1 | [pebble-lib-core](https://github.com/xefensor/pebble-lib-core) | [LICENSE](https://github.com/xefensor/pebble-lib-core/blob/v0.5.1/LICENSE) |
+| Core 0.5.2 | [pebble-lib-core](https://github.com/xefensor/pebble-lib-core) | [LICENSE](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/LICENSE) |
 
 Each repository’s licence and required notices are authoritative for its code. Font and other third-party notices accompany the relevant project and release files.
 
