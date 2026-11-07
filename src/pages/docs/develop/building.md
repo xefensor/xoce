@@ -8,6 +8,12 @@ order: 3
 
 Choose the project you want to change, then use its versioned README for SDK requirements, build commands and validation. The references below match the public versions listed on this website. Separate local candidates do not replace those releases or their instructions.
 
+## Current development workflow
+
+For current main, start with each repository’s CONTRIBUTING.md. The accepted UI is merged locally; public downloads below remain version-pinned to the released source. Ordinary Pebble app builds produce a permission-packaged candidate under build/candidate, and QA uses build/qa. They do not overwrite frozen release files. Library builds similarly preserve the root dist.zip and do not repin consumers.
+
+Run relevant source checks and inspect the affected workflow. Version bumps, source/debug release archives and publication are separate explicit milestones. Keep new native/browser evidence distinct from historical records. The site itself remains local and has no publication side effect from a build.
+
 ## Build and test
 
 Open the relevant build instructions before setting up your environment:

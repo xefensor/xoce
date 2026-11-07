@@ -1,5 +1,10 @@
 # XOCE
 
+Main contains the current implementation. [Development](CONTRIBUTING.md),
+[current maintenance contracts](docs/MAINTENANCE.md) and [release policy](docs/RELEASING.md)
+are the active contributor references. Public downloads and frozen evidence keep
+their original versions; a merge to main is not publication.
+
 The local website and documentation for **XOCE — Xef’s Open Computing
 Ecosystem**: a project to build everyday software across KDE Plasma, Android
 and PebbleOS, with shared state and actions and room to try new interfaces.

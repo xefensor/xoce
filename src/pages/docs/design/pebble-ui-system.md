@@ -6,9 +6,17 @@ section: Design
 order: 5
 ---
 
-**Status: implemented and validated in local candidates; not published.** The local candidates are Dynamic 0.17.0, Dashboard 0.5.0, Timer 0.13.0 and Open Activity 0.2.0. Their automated tests, packaged settings/browser checks, builds and native emulator checks pass. Real-phone and physical-watch verification remain separate. The public project catalogue and download links still identify the published baselines.
+**Status: accepted and merged into local main; not published.** Current app implementations are Dynamic 0.18.2, Dashboard 0.6.2, Timer 0.14.4 and Open Activity 0.3.2. Their automated/packaged and native-emulator evidence is recorded in the owning repositories. Fresh browser rendering of the latest phone presentation changes and real-phone/physical-watch checks remain unverified. The public catalogue/downloads retain the published baselines.
 
 The [UI patterns](/docs/design/ui-patterns/) and [interaction guide](/docs/design/interaction/) distinguish published behaviour from the local candidates. Existing screenshots keep their original capture versions; they do not become evidence of a new binary. The rules below are the shared implementation reference.
+
+## Readability and full-height action rails
+
+Use readable utility roles together: Roboto Condensed Bold 26 for time, 24 for primary labels and 22 for secondary text (about 19/17/16 px capital ink); dominant Dynamic/Timer values keep Fredoka. Dynamic reading labels may use 20 pt. Fit related text, icons, row heights and gaps as a complete composition. Keep structured values, units and critical instructions complete.
+
+Timer and Dashboard reserve a 34 px contrasting action rail for the entire 228 px screen height. Headers, dividers and footers stay within the 166 px content column. Keep the clock size and use concise context or collection position where needed. The rail must reach both the top and bottom, including in editors, confirmation, alarms and error states. Dynamic and Open Activity have no action rail.
+
+Timer keeps spacious list rows and rigid 120 ms selection without stretching; Dashboard selection is immediate and stationary. Actual ink, accents/descenders and optical icon alignment govern fitting. A successful build or geometry assertion alone does not establish visual quality. Each app's current docs/UI.md owns its exact current geometry and interactions.
 
 ## Scope and agreed direction
 
@@ -41,7 +49,7 @@ Accent text, focus and filled buttons need an appropriate contrasting foreground
 
 Use Fredoka for prominent numeric content and Roboto Condensed for interface text, building on the current Dynamic, Dashboard and Timer resources. Keep the existing font licences and notices. Open Activity’s local setup joins the same visual family using a small native font set. Each app retains its own fitted layout and resource budget.
 
-Give essential text a readable role, generally around 18–20px on the current display, and make primary values larger. These are fitting targets, not a promise that every string already fits or a requirement to make every supporting label the same size. Check actual glyph ink, baselines, long translations and value/unit pairs in native rendering. Do not repeatedly shrink important content to make an overcrowded screen fit.
+Give essential text a readable role, generally around 18–20 px on the current display, and make primary values larger. These are fitting targets, not a promise that every string already fits or a requirement to make every supporting label the same size. Check actual glyph ink, baselines, long translations and value/unit pairs in native rendering. Do not repeatedly shrink important content to make an overcrowded screen fit.
 
 Primary data, context and optional detail have distinct visual weight. Related content stays together. An icon, title and subtitle should not repeat the same information. A symbol plus value is sufficient when its meaning is clear; a device or command needs enough identity to explain what it affects.
 
@@ -49,11 +57,11 @@ Primary data, context and optional detail have distinct visual weight. Related c
 
 Watch apps use a short screen title on the left and regular local time on the right, respecting the watch’s 12/24-hour setting. List position, app-opening hints and feedback have deliberate space instead of routinely replacing the clock. The local candidates implement this treatment in their headers and reusable native widgets; their native captures check critical messages and recovery actions. Future changes still need fitting checks.
 
-Dashboard 0.5.0 fits an auxiliary context title and an 18px count/status in the left side of its existing header, while the clock stays right. Its activity, notification and two pin rows retain their geometry. Do not add a permanent second strip that squeezes those values or Timer’s countdown. Keep critical failure layouts readable and check new geometry in native captures.
+Dashboard 0.5.0 fits an auxiliary context title and an 18 px count/status in the left side of its existing header, while the clock stays right. Its activity, notification and two pin rows retain their geometry. Do not add a permanent second strip that squeezes those values or Timer’s countdown. Keep critical failure layouts readable and check new geometry in native captures.
 
 Dynamic is a watchface and retains its own time/date composition. Open Activity’s transient handoff stays minimal; the shared treatment must not add a menu or lengthen its opening attempt.
 
-Use a right-side action bar where physical-button actions need explanation. Emery’s SDK action bar is 34px wide, leaving 166px of a 200px screen for the content beside it. Use platform geometry rather than assuming those dimensions on every model. Passive screens need no empty action bar. Icons share a clear weight and familiar meanings, and unavailable actions do not look executable. See [Pebble’s action-bar reference](https://developer.repebble.com/docs/c/User_Interface/Layers/ActionBarLayer/).
+Use a right-side action bar where physical-button actions need explanation. Emery’s SDK action bar is 34 px wide, leaving 166 px of a 200 px screen for the content beside it. Use platform geometry rather than assuming those dimensions on every model. Passive screens need no empty action bar. Icons share a clear weight and familiar meanings, and unavailable actions do not look executable. See [Pebble’s action-bar reference](https://developer.repebble.com/docs/c/User_Interface/Layers/ActionBarLayer/).
 
 Use a strong inverted foreground/background treatment for selection. Accent colour supports hierarchy and app identity; selection, warnings and action meaning also remain understandable through text, icons or shape. Dark appearance needs the same hierarchy and contrast as light appearance, including the first frame and loading states.
 
@@ -91,9 +99,9 @@ Phone configuration pages use a shared anatomy:
 3. Disclosed setup/help and advanced options where useful.
 4. A consistently placed Save area with a small status indicator.
 
-Use matching system typography, spacing, cards, selectors, switches, inline errors and button treatments. Body text should be comfortably readable, with a 16px starting target. Aim for at least 44px touch targets and a 48px primary action. These are implementation targets to verify in the actual phone pages, including enlarged text.
+Use matching system typography, spacing, cards, selectors, switches, inline errors and button treatments. Body text should be comfortably readable, with a 16 px starting target. Aim for at least 44 px touch targets and a 48 px primary action. These are implementation targets to verify in the actual phone pages, including enlarged text.
 
-Use common terminology and translated interface text across settings. Preserve Dynamic’s existing 17-language coverage and provide equivalent wording for new controls and Save states; alignment must not silently replace a localised page with English-only text. The local Dashboard 0.5.0, Timer 0.13.0 and Open Activity 0.2.0 settings provide English and Czech owned interface copy; other phone locales fall back to English. Dynamic retains its existing 17-language settings. Provider names, saved user labels and source values retain their own text and are not rewritten by interface localisation. These are the included languages, not a claim of 17-language coverage in every app.
+Use common terminology and translated interface text across settings. Preserve Dynamic’s existing 17-language coverage and provide equivalent wording for new controls and Save states; alignment must not silently replace a localised page with English-only text. The merged Dashboard 0.6.2, Timer 0.14.4 and Open Activity 0.3.2 settings provide English and Czech owned interface copy; other phone locales fall back to English. Dynamic retains its existing 17-language settings. Provider names, saved user labels and source values retain their own text and are not rewritten by interface localisation. These are the included languages, not a claim of 17-language coverage in every app.
 
 Long pages can have section shortcuts. Small pages keep their small structure: Open Activity has one Primary shortcut picker and one Secondary picker, plus a separate Watch appearance selector. The standard does not require a navigation system or extra sections on every page.
 
@@ -133,18 +141,18 @@ Keep labels, descriptions and inline errors associated with their controls. Anno
 
 Fixed Save controls reserve their measured height. When a keyboard, short viewport or enlarged text makes that layout unsuitable, the actions move into normal document flow. The final field and help text must stay reachable. Keep the existing independent phone/watch appearance behaviour.
 
-## Local candidate adoption and validation
+## Main adoption and validation
 
-These local implementations have passed their repository tests, packaged settings checks, builds and native emulator validation. They are not new public releases. These results do not establish real-phone WebView behaviour or physical-watch readability, button feel, vibration and battery life.
+The approved implementation is now merged into each app’s local main branch. This does not publish a release, change the public download links or turn historical browser/device evidence into fresh results.
 
-| Project | Local candidate implementation | Validation status |
+| Project | Current main implementation | Evidence boundary |
 | --- | --- | --- |
-| Dynamic 0.17.0 | Bundled configuration page retains Clay’s existing settings and 17-language interface while using SDK configuration messages for verified Save-and-stay. Custom watch palettes and activity composition remain intact. | Packaged stay-open browser checks, legacy-route checks, build/artifact checks and native emulator checks pass. |
-| Dashboard 0.5.0 | Persistent clock with compact left count/status, Cancel-first target-specific confirmation, neutral/teal phone shell, English/Czech owned copy and confirmed stay-open Save. | Portable, actual packaged browser/runtime, native UX and startup-theme checks pass. Real-device checks remain separate. |
-| Timer 0.13.0 | Shared neutral light/dark native presentation and target-specific Delete context. A minimal phone appearance page selects Light/Dark; native timers and alarms stay watch-owned. | Portable, packaged phone appearance, build/artifact and native emulator checks pass. |
-| Open Activity 0.2.0 | Shared native font/header treatment, saved light/dark appearance, purple phone accent and English/Czech interface. Appearance is separate from its two shortcut pickers; modern Save stays open. | Packaged/browser and native checks pass. Real-device checks remain separate. |
+| Dynamic 0.18.2 | Coherent readable Roboto/Fredoka layout, fixed secondary/primary/footer roles, confirmed Save-and-stay. | Current automated, packaged and native-emulator evidence; latest phone presentation has no fresh browser rendering. |
+| Dashboard 0.6.2 | Full-height action rail, readable clock/context, centered four-item Snapshot, adaptive lists and safe confirmation. | Current packaged/native checks; real providers and physical device testing remain separate. |
+| Timer 0.14.4 | Full-height contrasting rail, readable full counter/editor/warnings, rigid short option movement and native alarm ownership. | Current portable, packaged/native UI, action and bank checks; physical timing/vibration unverified. |
+| Open Activity 0.3.2 | Readable passive setup, full clock and retained bounded Quick Launch routing. | Packaged/native setup/reopen and portable protocol checks; real Quick Launch/phone checks remain separate. |
 
-Each local repository keeps its release-specific evidence and `docs/UX-ALIGNMENT.md`. The relevant local evidence folders are `pebble-watchface-dynamic/docs/qa/0.17.0/`, `pebble-app-dashboard/docs/qa/0.5.0/`, `pebble-app-timer/docs/qa/0.13.0/` and `pebble-app-open-activity/docs/qa/0.2.0/`. These sibling paths are local workspace references, not published website downloads.
+The owning repositories link current contracts from AGENTS.md and CONTRIBUTING.md. Their historical docs/qa/version records stay bound to the original built artifacts. Everyday candidates/evidence live under build/candidate and build/qa; source/debug release archives are frozen only for an explicit milestone.
 
 ## Published baselines before alignment
 

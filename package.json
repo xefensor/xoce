@@ -5,7 +5,9 @@
   "type": "module",
   "description": "The local website and documentation for Xef's Open Computing Ecosystem.",
   "license": "UNLICENSED",
-  "engines": { "node": ">=22.23.4" },
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
     "dev": "astro dev --host 127.0.0.1 --port 4321",
     "start": "npm run dev",
@@ -16,7 +18,8 @@
     "check": "astro check",
     "check:links": "node scripts/check-site.mjs",
     "check:browser": "node scripts/browser-smoke.mjs",
-    "test": "npm run check && npm run build && npm run check:links"
+    "test": "npm run check && npm run build && npm run check:links && npm run check:docs",
+    "check:docs": "python3 scripts/check-docs.py"
   },
   "dependencies": {
     "astro": "7.4.7",
