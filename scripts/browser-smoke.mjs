@@ -9,7 +9,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projects.ts')).href);
+const { projects, homeWatchPreviews } = await import(pathToFileURL(path.join(root, 'src/data/projects.ts')).href);
 const products = projects.filter(project => project.kind !== 'library');
 const catalogueProducts = products.filter(project => project.availability !== 'planned');
 const availableApps = products.filter(project => project.download);
@@ -21,7 +21,7 @@ const mainSections = [
 ];
 const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
 const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
-  '/projects/open-activity/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
+  '/projects/open-activity/', '/projects/halftone/', '/projects/chmu-weather/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
   '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/design/visual-identity/'];
 const redirects = {
   '/users/':'/docs/', '/developers/':'/docs/develop/activities/', '/design/':'/docs/design/principles/',
@@ -322,7 +322,7 @@ async function checkHomeOverview() {
   })()`);
   for (const device of ['desktop','phone','watch']) assert.ok(state.intro.includes(device),'The introduction explains the '+device+' scope.');
   for (const href of ['/projects/','/docs/','/docs/develop/building/','/about/']) assert.ok(state.links.includes(sitePath(href)),'Home has a direct path to '+href);
-  assert.deepEqual(state.previews.map(item=>item.value),availableApps.map(project=>project.slug),'Visitors can explore every current watch app.');
+  assert.deepEqual(state.previews.map(item=>item.value),homeWatchPreviews.map(project=>project.slug),'Home retains its selected native watch previews.');
   assert.ok(state.previews.every(item=>item.label?.length),'Watch preview choices have accessible names.');
   assert.match(state.text,/future goal|working towards/i,'The connected-device experience remains identifiable as future work.');
   assert.equal(state.links.includes(sitePath('/projects/phone/')),false,'Home does not feature the planned Phone app.');
@@ -341,7 +341,7 @@ async function checkWatchSelection(slug) {
 async function checkWatchShowcase(scripts=true) {
   await navigate('/');
   await checkWatchSelection('dynamic');
-  for (const project of availableApps) {
+  for (const project of homeWatchPreviews) {
     await click(`.watch-choices label[for="preview-${project.slug}"]`);
     await checkWatchSelection(project.slug);
   }

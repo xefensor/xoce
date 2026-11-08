@@ -69,3 +69,9 @@ Open Activity launched normally from the app list stays on its setup screen. Pre
 Dynamic is a watchface. Its activity order, visibility, appearance and notification privacy are configured on the phone. Text stays static; media changes can use a short incoming transition.
 
 Use Open Activity for the configured activity-opening shortcuts. Dynamic itself displays activity data and app destinations; it does not invoke provider playback or other contextual actions.
+
+## Halftone
+
+Halftone is a passive watchface. The public rc.6 has no custom button, touch or motion controls. Use Pebble’s normal Timeline and Quick Launch gestures; use the Music app for playback controls.
+
+The first two global reading choices keep their left and right positions. A new enabled notification briefly takes priority over music. Timeline Peek hides the face’s contextual panel while keeping the two readings above Pebble’s own panel. Appearance and **Bigger Text** are configured on the phone.

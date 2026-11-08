@@ -46,19 +46,19 @@
         "Direct use, build and contribution links"
       ],
       "preview": "Native CSS radios, keyboard-operable and usable without JavaScript; one static screen visible, no automatic cycling.",
-      "downloads": "A direct catalogue path; Software owns the four exact downloads.",
+      "downloads": "A direct catalogue path; Software owns the six exact public downloads.",
       "composition": "Compact open introduction and side-by-side watch/caption glass showcase; quieter platform/setup section, concrete future connection, three-column stages and contribution links."
     },
     {
       "route": "/projects/",
       "job": "Choose current software, check requirements and download it.",
       "entries": {
-        "available_apps": 4,
+        "available_apps": 6,
         "promoted_plans": 0,
         "libraries": "Direct developer-guide links, separate from consumer rows"
       },
-      "filter": "No filter bar while all four available downloads are PebbleOS. An empty Android filter is not offered. Planned metadata does not establish an available platform.",
-      "downloads": "Four exact versioned PBW links.",
+      "filter": "No filter bar while all six available downloads belong to the Pebble collection. An empty Android filter is not offered. Planned metadata does not establish an available platform.",
+      "downloads": "Six exact versioned PBW links: five watch builds and one phone plugin.",
       "composition": "Short introduction, open catalogue rows and larger unchanged native captures; download and setup actions beside each product."
     },
     {

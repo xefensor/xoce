@@ -14,9 +14,9 @@ const libraries = projects.filter(project => project.kind === 'library');
     <div class="catalogue-toolbar">{platforms.length > 1 && <div class="filter-group" data-project-filters hidden aria-label="Filter software by platform"><button type="button" data-project-filter="all" aria-pressed="true">All software</button>{platforms.map(platform => <button type="button" data-project-filter={platform} aria-pressed="false">{platform}</button>)}</div>}<span data-project-count aria-live="polite" aria-atomic="true">{available.length} downloads</span></div>
     <div id="project-list">
       <section class="catalogue-group available-group" data-project-group="available" aria-labelledby="available-apps">
-        <header class="group-heading"><div><h2 id="available-apps">Pebble Time 2</h2><p>Available now · development prereleases</p></div><a class="text-link" href={sitePath('/pebble/')}>Check requirements<Icon name="arrow" size={17}/></a></header>
+        <header class="group-heading"><div><h2 id="available-apps">Pebble collection</h2><p>Watchfaces, apps and a phone plugin · public downloads</p></div><a class="text-link" href={sitePath('/pebble/')}>Check requirements<Icon name="arrow" size={17}/></a></header>
         <div class="app-list">{available.map(project => <ProjectCard project={project} wide />)}</div>
-        <p class="capture-note">Screens shown are native emulator captures with example data.</p>
+        <p class="capture-note">Watch screens are native emulator captures with example data. ČHMÚ Weather is shown with its provider icon.</p>
       </section>
     </div>
     <section class="software-support" aria-labelledby="software-help"><div><h2 id="software-help">Already installed?</h2><p>Find the controls, change your settings or troubleshoot a connection.</p></div><a class="text-link" href={sitePath('/docs/')}>Read the docs<Icon name="arrow" size={18}/></a></section>

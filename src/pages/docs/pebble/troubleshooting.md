@@ -6,7 +6,7 @@ section: For users
 order: 4
 ---
 
-Check the version on the affected [app page](/projects/) first. The current downloads target **Pebble Time 2** (`emery`). Activity sharing uses the official Pebble phone app’s plugin preview, not the planned XOCE Phone app.
+Check the version on the affected [app page](/projects/) first. The watch downloads target **Pebble Time 2** (`emery`); ČHMÚ Weather runs in the Pebble phone app. Activity sharing uses the official Pebble phone app’s plugin preview, not the planned XOCE Phone app.
 
 ## An activity is missing
 
@@ -75,3 +75,17 @@ Timer could not secure the background alarm. Keep the app open and follow the vi
 Use the issue link on the affected [project page](/projects/). Include the app version, watch model, phone platform, steps to reproduce, expected result and actual result. Remove private notification text, song metadata and other personal content from screenshots or logs before sharing them.
 
 The old repository names are retained as read-only historical archives. New issues belong in the maintained repositories linked from this site.
+
+## Halftone readings or weather are missing
+
+Check the first two global **Complications** choices in the Pebble phone app, then confirm the selected source’s permissions and current data. Missing choices stay in their original left/right positions. A selected reading with no usable value shows `--`.
+
+The public Halftone rc.6 does not display generic activities or Timer. Music and optional notification summaries are separate integrations. For weather, configure the provider in Pebble rather than looking for an independent weather client in Halftone.
+
+## ČHMÚ Weather has no current reading
+
+Check Location and internet permissions, the saved weather location and the plugin’s **Latest loaded readings** and **Source details**. Automatic station selection needs a usable nearby measurement; a fixed station remains your explicit choice. ČHMÚ measurements and ALADIN coverage focus on Czechia.
+
+A station measurement older than one hour is not shown as a current measurement. When a measurement is unavailable, available forecasts and enabled Open-Meteo completion may fill fields. Read the source timestamp and measured/forecast status before treating a refreshed screen as new weather data.
+
+Confirm **ČHMÚ Weather** is selected in Pebble’s Weather provider settings or in the compatible reading’s source selection. The plugin’s forecast controls and unit handling are documented in its [public 1.0.1 guide](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/README.md).

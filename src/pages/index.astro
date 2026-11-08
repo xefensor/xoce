@@ -3,8 +3,7 @@ import { sitePath } from '../lib/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import WatchPreview from '../components/WatchPreview.astro';
-import { projects } from '../data/projects';
-const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => projects.find(project => project.slug === slug)!);
+import { homeWatchPreviews as apps } from '../data/projects';
 ---
 <BaseLayout description="XOCE is a project for everyday software on KDE Plasma, Android and PebbleOS. Try the current Pebble apps and explore the goal of connected tasks across your devices.">
   <main id="main" class="home wrap">
@@ -13,11 +12,11 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
         <p class="eyebrow project-full-name">Xef’s Open Computing Ecosystem</p>
         <h1 id="intro-title">Everyday apps.<br/><span>Built to connect.</span></h1>
         <p class="intro-description">A project for KDE Plasma, Android and PebbleOS. The goal: open-source everyday apps and shared tasks across your desktop, phone and watch.</p>
-        <p class="intro-status"><span class="status-dot" aria-hidden="true"></span>Starting with four Pebble apps.</p>
+        <p class="intro-status"><span class="status-dot" aria-hidden="true"></span>Starting with Pebble software.</p>
         <div class="button-row intro-actions"><a class="button button-primary" href={sitePath('/projects/')}>Explore the software <Icon name="arrow" size={18}/></a><a class="text-link" href={sitePath('/about/')}>Why XOCE <Icon name="arrow" size={17}/></a></div>
       </div>
       <fieldset id="current-work" class="watch-showcase glass" data-home-current-work>
-        <legend class="sr-only">Preview the current Pebble apps</legend>
+        <legend class="sr-only">Preview selected Pebble watch apps</legend>
         <div class="showcase-heading"><span class="eyebrow">On the watch today</span><a href={sitePath('/pebble/')}>Pebble Time 2 <Icon name="arrow" size={14}/></a></div>
         {apps.map((app, index) => <input class="preview-radio sr-only" type="radio" name="watch-preview" id={`preview-${app.slug}`} value={app.slug} checked={index === 0} aria-label={`Preview ${app.name}`} />)}
         <div class="watch-stages">{apps.map((app, index) => <div class="watch-stage" data-watch-preview={app.slug}>

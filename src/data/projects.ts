@@ -1,7 +1,7 @@
 export type Project = {
   slug: string;
   name: string;
-  kind: 'watchface' | 'app' | 'library';
+  kind: 'watchface' | 'app' | 'plugin' | 'library';
   description: string;
   version?: string;
   repo?: string;
@@ -18,7 +18,9 @@ export type Project = {
   imageAlt?: string;
   imageVersion?: string;
   imageCapturedOn?: string;
+  imageCaption?: string;
   platform: string;
+  runtime?: string;
   status: string;
   availability?: 'available' | 'planned';
   compatibility?: string;
@@ -200,6 +202,62 @@ export const projects: Project[] = [
     status: 'Development prerelease',
   },
   {
+    slug: 'halftone',
+    name: 'Halftone',
+    kind: 'watchface',
+    availability: 'available',
+    platform: 'PebbleOS',
+    compatibility: 'Pebble Time 2 / Emery',
+    status: 'Public release candidate',
+    version: '1.9.0-rc.6',
+    repo: 'https://github.com/xefensor/halftone-watchface',
+    tag: 'v1.9.0-rc.6',
+    download: 'https://github.com/xefensor/halftone-watchface/releases/download/v1.9.0-rc.6/Halftone-1.9.0-rc.6.pbw',
+    licence: { name: 'PolyForm Noncommercial 1.0.0', url: 'https://github.com/xefensor/halftone-watchface/blob/v1.9.0-rc.6/LICENSE' },
+    guide: '/docs/pebble/setup/#halftone',
+    setupGuide: '/docs/pebble/setup/#halftone',
+    controlsGuide: '/docs/pebble/controls/#halftone',
+    helpGuide: '/docs/pebble/troubleshooting/#halftone-readings-or-weather-are-missing',
+    requirements: ['Sideload with a Pebble phone app supporting the plugin preview.', 'Configure the first two global Complications choices and allow the selected sources’ permissions.'],
+    description: 'A wide clock, two readings and a dotted border that continues the watch bezel.',
+    summary: 'Two readings keep their left and right positions when music, a notification or Timeline Peek needs room. Choose your colours, clock format and Bigger Text option in the phone settings.',
+    features: ['Use the first two global Complications choices', 'Show music and optional notification summaries', 'Keep both readings above Pebble’s Timeline Peek'],
+    developerNote: 'The public rc.6 embeds Core 0.1.0. Its own clock, dot border and layout remain in Halftone. Generic activity and Timer integration are not included in this release.',
+    image: '/images/projects/halftone-1.9.0-rc.6.png',
+    imageVersion: '1.9.0-rc.5',
+    imageCaption: 'Halftone v1.9.0-rc.5 · native emulator · unchanged in rc.6',
+    imageAlt: 'Halftone with orange colours and two readings. Native rc.5 capture verified unchanged in rc.6.',
+    previewType: 'watch',
+  },
+  {
+    slug: 'chmu-weather',
+    name: 'ČHMÚ Weather',
+    kind: 'plugin',
+    availability: 'available',
+    platform: 'PebbleOS',
+    runtime: 'Pebble phone app',
+    compatibility: 'Pebble phone app with plugin support',
+    status: 'Published release',
+    version: '1.0.1',
+    repo: 'https://github.com/xefensor/pebble-chmu-weather',
+    tag: 'v1.0.1',
+    download: 'https://github.com/xefensor/pebble-chmu-weather/releases/download/v1.0.1/CHMU-Weather-1.0.1.pbw',
+    licence: { name: 'PolyForm Noncommercial 1.0.0', url: 'https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/LICENSE' },
+    guide: '/docs/pebble/setup/#čhmú-weather',
+    setupGuide: '/docs/pebble/setup/#čhmú-weather',
+    helpGuide: '/docs/pebble/troubleshooting/#čhmú-weather-has-no-current-reading',
+    requirements: ['Allow Location and the public weather sources’ internet permissions in Pebble.', 'ČHMÚ station measurements and ALADIN coverage focus on Czechia. Open-Meteo completion is optional.'],
+    description: 'Czech station measurements and local forecasts for Pebble’s weather source.',
+    developerNote: 'A phone-only plugin serving Pebble’s standard weather/location source. Its public build uses public feeds without a separate app backend or API key.',
+    summary: 'This unofficial plugin runs inside the Pebble phone app. It combines public ČHMÚ measurements and ALADIN forecasts, with optional Open-Meteo completion, and serves the standard weather source to compatible watchfaces.',
+    features: ['Choose an automatic or fixed nearby station', 'Keep measurements, forecasts and their timestamps distinct', 'Use Pebble’s saved weather locations and units without an API key'],
+    image: '/images/projects/chmu-weather-1.0.1.png',
+    imageVersion: '1.0.1',
+    imageCaption: 'ČHMÚ Weather v1.0.1 · provider icon',
+    imageAlt: 'ČHMÚ Weather’s original sun, cloud and rain icon; not an official provider logo.',
+    previewType: 'image',
+  },
+  {
     slug: 'activities',
     availability: 'available',
     consumers: ['dynamic', 'dashboard', 'timer', 'open-activity'],
@@ -244,3 +302,8 @@ export const projects: Project[] = [
     status: 'Published library',
   },
 ];
+
+// The Home showcase remains a compact selection of native watch previews.
+// The Software catalogue owns the complete collection, including phone plugins.
+export const homeWatchPreviews = ['dynamic', 'dashboard', 'timer', 'open-activity']
+  .map(slug => projects.find(project => project.slug === slug)!);

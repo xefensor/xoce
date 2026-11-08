@@ -7,13 +7,13 @@ interface Props { project: Project; wide?: boolean }
 const { project, wide = false } = Astro.props;
 const planned = project.availability === 'planned';
 const phonePlan = project.slug === 'phone';
-const type = project.kind === 'watchface' ? 'Watchface' : project.kind === 'library' ? 'Library' : 'App';
+const type = project.kind === 'watchface' ? 'Watchface' : project.kind === 'library' ? 'Library' : project.kind === 'plugin' ? 'Phone plugin' : 'App';
 const href = `/projects/${project.slug}/`;
 ---
 <article class:list={['project-card', `project-${project.slug}`, { 'wide-row': wide, 'planned-row': planned }]} data-project-card data-project-kind={project.kind} data-project-platform={phonePlan ? 'Android PebbleOS' : project.platform} data-project-availability={project.availability ?? 'available'} data-project-downloadable={project.download ? 'true' : 'false'}>
   <a class="project-card-preview" href={sitePath(href)} aria-label={`Explore ${project.name}`}><ProjectPreview project={project} compact /></a>
   <div class="project-card-copy">
-    <p class="project-card-meta">{phonePlan ? 'Android · optional Pebble companion' : `${project.platform} · ${type}`}{project.version && <span>v{project.version}</span>}</p>
+    <p class="project-card-meta">{phonePlan ? 'Android · optional Pebble companion' : `${project.runtime ?? project.platform} · ${type}`}{project.version && <span>v{project.version}</span>}</p>
     <h3><a href={sitePath(href)}>{project.name}</a></h3>
     <p class="project-card-description">{project.description}</p>
     {planned && <p class="planned-status">Planned · no build available yet</p>}

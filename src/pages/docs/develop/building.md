@@ -26,6 +26,10 @@ Open the relevant build instructions before setting up your environment:
 | Dashboard | 0.6.3 | [Build and validate](https://github.com/xefensor/pebble-app-dashboard/blob/v0.6.3/CONTRIBUTING.md) |
 | Timer | 0.14.5 | [Build and check](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/CONTRIBUTING.md) |
 | Open Activity | 0.3.3 | [Development and validation](https://github.com/xefensor/pebble-app-open-activity/blob/v0.3.3/CONTRIBUTING.md) |
+| Halftone | 1.9.0-rc.6 | [Released source and setup](https://github.com/xefensor/halftone-watchface/blob/v1.9.0-rc.6/README.md) |
+| ČHMÚ Weather | 1.0.1 | [Build and check](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/README.md#build-and-check) |
+
+ČHMÚ Weather is a JavaScript phone plugin and does not need the native Pebble SDK. Halftone rc.6 embeds Core 0.1.0; the current Core 0.5.2 guide describes a later library interface.
 
 Work from the source version relevant to your change. When reproducing a reported bug, record the installed release and use its matching tag. When working on newer source, follow that revision’s README and say which revision you tested.
 

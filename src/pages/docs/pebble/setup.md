@@ -6,11 +6,11 @@ section: For users
 order: 2
 ---
 
-This guide covers the published development builds for **Pebble Time 2** (`emery`). Use the official **Pebble phone app** to install and configure them. The planned XOCE Phone app is separate and is not required.
+This guide covers the published Pebble downloads. The watch builds target **Pebble Time 2** (`emery`); ČHMÚ Weather runs inside the phone app. Use the official **Pebble phone app** to install and configure them. The planned XOCE Phone app is separate and is not required.
 
 ## Before installing
 
-1. Check that your watch is **Pebble Time 2**. The current downloads do not include other watch models.
+1. For a watchface or watch app, check that your watch is **Pebble Time 2**. Support for other models is not established.
 2. For activities, readings and app opening, enable the Pebble phone app’s **plugin preview**. Allow the permissions needed by your chosen sources.
 3. Use **Download** on the [app page](/projects/) to get its versioned `.pbw` file.
 4. Open that file with the Pebble phone app and follow its installation flow.
@@ -83,3 +83,25 @@ Start a timer, return to Dynamic and wait for its activity. Use your Primary sho
 After changing settings, close and reopen the page to check the saved choices. The current modern settings pages keep Save open with confirmation. Legacy return-URL fallbacks close after submission. If a page reports an uncertain or failed save, preserve your draft and follow its retry or saved-state recovery controls.
 
 Need help? [Troubleshoot activities and settings](/docs/pebble/troubleshooting/).
+
+## Halftone
+
+Install [Halftone 1.9.0-rc.6](/projects/halftone/) and select it as your watchface.
+
+1. Enable the Pebble phone app’s plugin preview where required.
+2. In the phone app’s global **Complications** settings, choose slots 1–2. Halftone keeps the first on the left and the second on the right.
+3. Open Halftone’s settings to choose colours, clock format, **Bigger Text**, effects and optional dynamic content. Save your choices.
+4. Allow the permissions needed by your selected reading sources. Notification summaries and message text start disabled; enable them deliberately.
+
+Both readings stay visible above music, a new notification or native Timeline Peek. This public rc.6 does not include Timer or generic activity integration. Its [tagged guide](https://github.com/xefensor/halftone-watchface/blob/v1.9.0-rc.6/README.md) documents the released behaviour.
+
+## ČHMÚ Weather
+
+Install [ČHMÚ Weather 1.0.1](/projects/chmu-weather/) by opening its `.pbw` with a Pebble phone app that supports plugins. The plugin runs on the phone and does not add a watch app.
+
+1. Allow **Location** and internet access to `data-provider.chmi.cz`, `opendata.chmi.cz` and `api.open-meteo.com` through Pebble’s permission flow.
+2. Under **Weather → Weather provider**, select **ČHMÚ Weather** to supply Pebble’s Weather app and Timeline. The exact menu labels depend on your phone app version.
+3. Open the plugin settings and refresh. Choose a fixed nearby station or leave station selection on Automatic. Pebble’s saved weather locations and units are used.
+4. For a watchface, choose a compatible weather reading and provider in Pebble’s global **Complications** settings. Dynamic and Halftone use the first two choices.
+
+ČHMÚ station measurements and public ALADIN forecasts focus on Czechia. Open-Meteo completion is optional. The plugin identifies measurement and forecast timestamps; a fallback forecast does not become a fresh station measurement. Read the [public plugin guide](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/README.md) for coverage and available fields.

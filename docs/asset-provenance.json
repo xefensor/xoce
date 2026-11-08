@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "prepared_on": "2026-11-07",
-  "scope": "XOCE website native product screenshots and official Pebble Appstore device frame",
+  "prepared_on": "2026-11-08",
+  "scope": "XOCE native product screenshots, a released provider icon and the official Pebble Appstore frame",
   "recommended_caption": "Native emulator previews. Example data.",
   "notes": [
     "The original four versioned native captures remain unchanged. Four current-release captures were added on 2026-11-07 under new filenames; their native pixels are unchanged.",
-    "These are native emulator renderings, not physical-watch photography or browser design mock-ups.",
+    "Watch previews are native emulator renderings, not physical-watch photography or browser mock-ups. ČHMÚ Weather uses its released original provider icon, labelled separately.",
     "Some presentations place unchanged native captures inside the official Pebble Appstore Time 2 frame; catalogue and documentation views may display the captures directly.",
     "Dashboard reuses an older capture of its unchanged watch layout; that reuse is identified in its entry.",
     "No new licence is granted by this provenance record; source-project licences and third-party notices remain authoritative."
@@ -268,6 +268,52 @@
       "phone_javascript_executed": false,
       "physical_watch_capture": false,
       "pixel_changes": "none"
+    },
+    {
+      "id": "halftone-1.9.0-rc.6",
+      "name": "Halftone",
+      "ref": "v1.9.0-rc.6",
+      "source_path": "store/emery_01_orange.png",
+      "capture_version": "1.9.0-rc.5",
+      "represented_release": "1.9.0-rc.6",
+      "historical_reuse": true,
+      "source_repository": "https://github.com/xefensor/halftone-watchface",
+      "source_url": "https://github.com/xefensor/halftone-watchface/releases/download/v1.9.0-rc.6/Halftone-1.9.0-rc.6-store-package.zip",
+      "source_archive_sha256": "03805809dea05d84c44a1c564442fe17dd7d6148a30b9bebb8ad9a97a5a22ae9",
+      "site_path": "/images/projects/halftone-1.9.0-rc.6.png",
+      "sha256": "d75e736b20791b5683d2df634b0d371e29e63e0b87cceefc941fc5893e875267",
+      "bytes": 3792,
+      "width": 200,
+      "height": 228,
+      "evidence_type": "native-emulator-screenshot",
+      "fixture_data": true,
+      "physical_watch_capture": false,
+      "pixel_changes": "none",
+      "current_release_capture": true,
+      "reuse_note": "The published rc.6 store provenance records all five listing images as unchanged from rc.5 and verifies them against the final rc.6 native binary and resources; no new capture date is inferred."
+    },
+    {
+      "id": "chmu-weather-1.0.1",
+      "name": "ČHMÚ Weather",
+      "ref": "v1.0.1",
+      "source_path": "store/icon-large-144.png",
+      "capture_version": "1.0.1",
+      "represented_release": "1.0.1",
+      "historical_reuse": false,
+      "source_repository": "https://github.com/xefensor/pebble-chmu-weather",
+      "source_url": "https://github.com/xefensor/pebble-chmu-weather/releases/download/v1.0.1/CHMU-Weather-1.0.1-store-package.zip",
+      "source_archive_sha256": "1e3069642e344c262898990619762d373ec31653c682eb6042bf532707aa663f",
+      "site_path": "/images/projects/chmu-weather-1.0.1.png",
+      "sha256": "f0fde8a6c64cd1b5238e920ab84621aa350f6749b7c60714bf3fd360c4b0a62a",
+      "bytes": 4692,
+      "width": 144,
+      "height": 144,
+      "evidence_type": "provider-icon",
+      "fixture_data": false,
+      "physical_watch_capture": false,
+      "pixel_changes": "none",
+      "current_release_capture": false,
+      "artwork_note": "Original generic sun/cloud/rain vector from the released store package; not an official ČHMÚ logo or a phone screenshot."
     }
   ]
 }

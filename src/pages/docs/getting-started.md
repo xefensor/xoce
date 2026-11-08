@@ -6,11 +6,11 @@ section: For users
 order: 1
 ---
 
-This guide covers the available Pebble apps: **Dynamic**, **Dashboard**, **Timer** and **Open Activity**. Install the apps you need; there is no separate XOCE app or library service to install.
+This guide covers **Dynamic**, **Halftone**, **Dashboard**, **Timer**, **Open Activity** and the **ČHMÚ Weather** phone plugin. Install the apps you need; there is no separate XOCE app or library service to install.
 
 ## Current Pebble builds
 
-The current downloads are development builds for **Pebble Time 2** (`emery`, 200 × 228). Other watch models are not included in these builds.
+The watch downloads target **Pebble Time 2** (`emery`, 200 × 228). Support for other watch models is not established. ČHMÚ Weather runs in the Pebble phone app; check each download’s release status and requirements.
 
 Activity sharing and app opening need the official **Pebble phone app with plugin preview enabled**, a connection and the permissions required by the sources you choose. Music and notification previews in Dynamic and Dashboard are currently Android-only. The planned XOCE Phone app is not required.
 
@@ -31,6 +31,8 @@ Use the [complete setup instructions](/docs/pebble/setup/) for permissions, read
 | If you want to… | Use |
 | --- | --- |
 | See the time, readings and ongoing activities | [Dynamic](/projects/dynamic/) |
+| Keep two readings beside a wide clock and dotted border | [Halftone](/projects/halftone/) |
+| Add Czech weather measurements and forecasts to Pebble | [ČHMÚ Weather](/projects/chmu-weather/) |
 | Start and manage countdowns on the watch | [Timer](/projects/timer/) |
 | Browse an activity, notifications and pinned items | [Dashboard](/projects/dashboard/) |
 | Open the app associated with Dynamic’s displayed activity | [Open Activity](/projects/open-activity/) |
