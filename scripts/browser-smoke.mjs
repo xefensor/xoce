@@ -120,7 +120,7 @@ async function launch() {
   fs.closeSync(log);
   let spawnFailure;
   browser.once('error', (error) => { spawnFailure = error; });
-  for (let step = 0; step < 200 && !fs.existsSync(portFile); step++) {
+  for (let step = 0; step < 600 && !fs.existsSync(portFile); step++) {
     if (spawnFailure) throw spawnFailure;
     if (browser.exitCode !== null) throw Error(fs.readFileSync(browserLog, 'utf8').slice(-2200));
     await delay(50);
@@ -149,7 +149,12 @@ async function stopBrowser() {
 
 async function until(expression, name) {
   for (let step = 0; step < 150; step++) {
-    if (await client.evaluate(expression)) return;
+    try {
+      if (await client.evaluate(expression)) return;
+    } catch (error) {
+      // Redirects can replace the execution context while readiness is polled.
+      if (!/Execution context was destroyed|Cannot find context with specified id|Inspected target navigated or closed/.test(error.message)) throw error;
+    }
     await delay(40);
   }
   throw Error('Timed out: ' + name);
@@ -179,9 +184,13 @@ function resolvedTarget(route, scripts = scriptingEnabled) {
 }
 async function navigate(route) {
   const target = resolvedTarget(route);
-  await client.send('Page.navigate', {url:routeURL(route).href});
-  await until(`location.pathname===${JSON.stringify(target.pathname)} && location.hash===${JSON.stringify(target.hash)} && document.readyState==='complete'`, 'page '+route);
-  await client.evaluate('document.fonts.ready.then(()=>true)');
+  const previousDocument = await client.evaluate('performance.timeOrigin');
+  // Page.navigate supplies loaderId for a new document, but not a fragment jump:
+  // https://chromedevtools.github.io/devtools-protocol/tot/Page/#method-navigate
+  const navigation = await client.send('Page.navigate', {url:routeURL(route).href});
+  assert.equal(navigation.errorText, undefined, 'Navigation failed: '+route);
+  const documentReady = navigation.loaderId ? `performance.timeOrigin!==${previousDocument}` : 'true';
+  await until(`${documentReady} && location.pathname===${JSON.stringify(target.pathname)} && location.hash===${JSON.stringify(target.hash)} && document.readyState==='complete' && document.fonts.status==='loaded'`, 'page '+route);
   await settleHash();
 }
 
