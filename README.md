@@ -3,8 +3,11 @@
 The static website and documentation for **XOCE — Xef’s Open Computing Ecosystem**,
 covering PebbleOS projects and the planned Android/KDE direction.
 
-The catalogue links to published GitHub releases. Current downloads are Pebble development
-builds; cross-device synchronization and Phone remain plans.
+The catalogue links to published GitHub releases, including development builds and
+Halftone’s release candidate. Cross-device synchronization and Phone remain plans.
+
+The website includes app comparisons, watch-button labels, a Timer + Dynamic
+walkthrough and 24 release-sourced screenshots across six consumer products.
 
 **[Visit XOCE](https://xefensor.github.io/xoce/)** · [Source](https://github.com/xefensor/xoce) · [Actions](https://github.com/xefensor/xoce/actions/workflows/checks.yml)
 
@@ -27,7 +30,7 @@ and no-JavaScript use. No backend or Pebble SDK is required.
 
 ## Content and compatibility
 
-[Project metadata](src/data/projects.ts) owns exact versions, download and licence links. The existing catalogue entries are Dynamic 0.18.3, Dashboard 0.6.3, Timer 0.14.5, Open Activity 0.3.3, Activities 0.4.4 and Core 0.5.2. Pebble downloads target Time 2 / Emery; requirements are shown per project. Existing native screenshots keep their original provenance and version.
+[Project metadata](src/data/projects.ts) owns exact versions, download and licence links. The catalogue entries are Dynamic 0.18.3, Dashboard 0.6.3, Timer 0.14.5, Open Activity 0.3.3, Halftone 1.9.0-rc.6, ČHMÚ Weather 1.0.1, Activities 0.4.4 and Core 0.5.2. Watch downloads target Pebble Time 2 / Emery; ČHMÚ Weather runs in the Pebble phone app. Requirements are shown per project. Existing native screenshots keep their original provenance and version.
 
 [Contributor guide](CONTRIBUTING.md) explains type/build/link checks and Chromium inspection. [Maintenance contracts](docs/MAINTENANCE.md), [publication boundary](docs/RELEASING.md) and the [history index](docs/history/index.md) separate active source, generated output and original QA evidence.
 

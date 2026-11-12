@@ -6,6 +6,8 @@ section: For users
 order: 3
 ---
 
+New to the watch? [See the labelled button guide](/pebble/#watch-buttons). **Back** is on the left; **Up**, **Select** and **Down** are on the right.
+
 The apps use Pebble’s physical buttons. The instructions below describe the current development builds; a provider can add capabilities only where a consuming app supports them.
 
 ## Timer
@@ -69,3 +71,11 @@ Open Activity launched normally from the app list stays on its setup screen. Pre
 Dynamic is a watchface. Its activity order, visibility, appearance and notification privacy are configured on the phone. Text stays static; media changes can use a short incoming transition.
 
 Use Open Activity for the configured activity-opening shortcuts. Dynamic itself displays activity data and app destinations; it does not invoke provider playback or other contextual actions.
+
+## Halftone
+
+Halftone is a watchface. Change its colours, Big text, dot border and notification privacy through its settings gear in the Pebble phone app. The published 1.9.0-rc.6 candidate has no custom button, touch or motion controls; use Pebble’s Music app for playback controls. [Set up Halftone](/docs/pebble/halftone/).
+
+## ČHMÚ Weather
+
+The plugin has no watch screen or watch buttons. Configure it in the Pebble phone app’s Plugins tab. Your watch’s normal Weather app retains its own controls. [Choose the weather source](/docs/pebble/chmu-weather/).

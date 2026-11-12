@@ -11,7 +11,7 @@ const watch = project.previewType === 'watch';
 {project.image && watch && !compact ? (
   <div class="device-preview"><WatchPreview image={project.image} alt={project.imageAlt ?? `${project.name} on a Pebble Time 2`} eager={eager} /></div>
 ) : project.image ? (
-  <div class:list={['screenshot-preview', { 'watch-screenshot': watch, 'phone-screenshot': project.previewType === 'phone', 'compact-preview': compact }]}>
+  <div class:list={['screenshot-preview', { 'watch-screenshot': watch, 'phone-screenshot': project.previewType === 'phone', 'icon-preview': project.previewType === 'icon', 'compact-preview': compact }]}>
     <img src={sitePath(project.image)} alt={project.imageAlt ?? `${project.name} screenshot`} width={watch ? 200 : undefined} height={watch ? 228 : undefined} loading={eager ? 'eager' : 'lazy'} decoding="async" />
   </div>
 ) : (
@@ -25,6 +25,7 @@ const watch = project.previewType === 'watch';
   .screenshot-preview.compact-preview { min-height: 0; padding: 0; background: transparent; border-radius: 0; }
   .screenshot-preview img { display: block; width: auto; max-width: 100%; height: auto; max-height: 440px; object-fit: contain; border: 0; border-radius: 0; box-shadow: none; }
   .watch-screenshot img { width: 200px; image-rendering: pixelated; }
+  .icon-preview { min-height:280px; } .icon-preview img { width:144px; height:144px; } .icon-preview.compact-preview { min-height:0; } .icon-preview.compact-preview img { width:80px; height:80px; }
   .phone-screenshot img { max-width: min(270px,100%); }
   .compact-preview img { width: auto; max-width: 100%; max-height: 180px; border-radius: 0; }
   .watch-screenshot.compact-preview img { width: 140px; max-height: none; image-rendering: pixelated; }

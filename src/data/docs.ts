@@ -28,6 +28,20 @@ export const docs: DocLink[] = [
     description: 'Install the development builds, configure activities and set Quick Launch shortcuts.',
   },
   {
+    title: 'Set up Halftone',
+    href: '/docs/pebble/halftone/',
+    section: 'For users',
+    platform: 'PebbleOS',
+    description: 'Choose Halftone as your watchface and configure its two readings and dot border.',
+  },
+  {
+    title: 'Set up ČHMÚ Weather',
+    href: '/docs/pebble/chmu-weather/',
+    section: 'For users',
+    platform: 'PebbleOS',
+    description: 'Install the optional Czech weather plugin and use it with Pebble Weather or shared readings.',
+  },
+  {
     title: 'Watch controls',
     href: '/docs/pebble/controls/',
     section: 'For users',

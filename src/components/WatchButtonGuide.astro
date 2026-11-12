@@ -1,0 +1,19 @@
+---
+import WatchPreview from './WatchPreview.astro';
+import { projects } from '../data/projects';
+const timer = projects.find(project => project.slug === 'timer')!;
+---
+<figure class="watch-button-guide">
+  <div class="button-map" role="img" aria-label="Pebble buttons: Back on the left. Up, Select and Down from top to bottom on the right.">
+    <div class="left-label"><span>Back →</span></div>
+    <WatchPreview image={timer.image!} alt="Timer emulator screen in the official Pebble Time 2 frame."/>
+    <div class="right-labels"><span>← Up</span><span>← Select</span><span>← Down</span></div>
+  </div>
+  <figcaption>One button on the left, three on the right. Tap means a short press; hold means keeping the button pressed. Emulator screen in the official device frame.</figcaption>
+</figure>
+<style>
+  .watch-button-guide { margin:24px 0; } .button-map { display:grid; grid-template-columns:minmax(44px,1fr) minmax(120px,210px) minmax(56px,1fr); gap:4px; max-width:420px; margin-inline:auto; }
+  .button-map :global(.watch-preview) { --watch-width:210px; width:100%; } .left-label,.right-labels { position:relative; min-width:0; color:var(--accent-text); font-size:clamp(.7rem,2vw,.85rem); font-weight:600; white-space:nowrap; }
+  .left-label > span { position:absolute; top:34%; right:0; } .right-labels > span { position:absolute; left:0; } .right-labels > span:nth-child(1) { top:34%; } .right-labels > span:nth-child(2) { top:47%; } .right-labels > span:nth-child(3) { top:60%; }
+  figcaption { max-width:56ch; margin:14px auto 0; color:var(--muted); text-align:center; font-size:.8rem; line-height:1.7; }
+</style>

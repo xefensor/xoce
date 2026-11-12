@@ -3,22 +3,28 @@ import { sitePath } from '../../lib/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import Icon from '../../components/Icon.astro';
+import AppChooser from '../../components/AppChooser.astro';
 import { projects } from '../../data/projects';
 const available = projects.filter(project => project.kind !== 'library' && project.availability !== 'planned');
+const watchApps = available.filter(project => project.kind !== 'plugin');
+const plugins = available.filter(project => project.kind === 'plugin');
 const platforms = [...new Set(available.map(project => project.platform))];
 const libraries = projects.filter(project => project.kind === 'library');
 ---
-<BaseLayout title="Software" description="Download XOCE’s current Pebble apps and watchface, and check their requirements.">
+<BaseLayout title="Software" description="Download XOCE’s Pebble watchfaces, watch apps and weather plugin, and check their requirements.">
   <main id="main" class="wrap software-page">
-    <header class="page-intro software-intro"><p class="eyebrow">Try XOCE</p><h1>Software</h1><p>A watchface, a dashboard, a timer and a shortcut into your apps. Choose the pieces you need.</p></header>
+    <header class="page-intro software-intro"><p class="eyebrow">Try XOCE</p><h1>Software</h1><p>Two watchfaces, useful watch apps and an optional Czech weather source. Choose the pieces you need.</p></header>
+    <aside class="first-install"><strong>First time here?</strong><p>Start with Timer + Dynamic. Halftone is an alternative watchface. Watch builds support Pebble Time 2; the ČHMÚ plugin runs on your phone.</p><a class="text-link" href={sitePath('/docs/')}>Follow the first setup<Icon name="arrow" size={17}/></a></aside>
     <div class="catalogue-toolbar">{platforms.length > 1 && <div class="filter-group" data-project-filters hidden aria-label="Filter software by platform"><button type="button" data-project-filter="all" aria-pressed="true">All software</button>{platforms.map(platform => <button type="button" data-project-filter={platform} aria-pressed="false">{platform}</button>)}</div>}<span data-project-count aria-live="polite" aria-atomic="true">{available.length} downloads</span></div>
     <div id="project-list">
       <section class="catalogue-group available-group" data-project-group="available" aria-labelledby="available-apps">
-        <header class="group-heading"><div><h2 id="available-apps">Pebble Time 2</h2><p>Available now · development prereleases</p></div><a class="text-link" href={sitePath('/pebble/')}>Check requirements<Icon name="arrow" size={17}/></a></header>
-        <div class="app-list">{available.map(project => <ProjectCard project={project} wide />)}</div>
+        <header class="group-heading"><div><h2 id="available-apps">Watchfaces and apps · Pebble Time 2</h2><p>Development builds and release candidates</p></div><a class="text-link" href={sitePath('/pebble/')}>Check requirements<Icon name="arrow" size={17}/></a></header>
+        <div class="app-list">{watchApps.map(project => <ProjectCard project={project} wide />)}</div>
         <p class="capture-note">Screens shown are native emulator captures with example data.</p>
       </section>
+      <section class="catalogue-group available-group plugin-group" data-project-group="plugins" aria-labelledby="available-plugins"><header class="group-heading"><div><h2 id="available-plugins">Plugins · run on your phone</h2><p>Optional sources for Pebble Weather and compatible watchfaces and apps</p></div></header><div class="app-list">{plugins.map(project => <ProjectCard project={project} wide />)}</div></section>
     </div>
+    <AppChooser />
     <section class="software-support" aria-labelledby="software-help"><div><h2 id="software-help">Already installed?</h2><p>Find the controls, change your settings or troubleshoot a connection.</p></div><a class="text-link" href={sitePath('/docs/')}>Read the docs<Icon name="arrow" size={18}/></a></section>
     <section class="developer-path" aria-labelledby="developer-libraries"><div><p class="eyebrow">For developers</p><h2 id="developer-libraries">Build on the shared tools.</h2><p>Activities and Core are libraries included in the apps that use them. Start with their integration guides.</p></div><div class="library-links">{libraries.map(project => <a href={sitePath(project.guide)}><span>{project.name}<small>{project.description}</small></span><Icon name="arrow" size={18}/></a>)}<a href={sitePath('/docs/develop/building/')}><span>Build and contribute</span><Icon name="code" size={18}/></a></div></section>
   </main>
@@ -54,6 +60,8 @@ const libraries = projects.filter(project => project.kind === 'library');
   if (filterPanel) filterPanel.hidden = false;
 </script>
 <style>
+  .first-install { padding:22px 0; margin-bottom:20px; border-block:1px solid var(--line); } .first-install p { max-width:65ch; margin-top:8px; font-size:.92rem; line-height:1.8; color:var(--muted); } .first-install .text-link { margin-top:8px; font-size:.85rem; }
+  .plugin-group { margin-top:35px; }
   .software-page { padding-top:clamp(30px,4.5vw,52px); }
   .software-intro { max-width:800px; margin-bottom:23px; }
   .software-intro h1 { margin-top:14px; font-size:clamp(2.3rem,4vw,3.4rem); line-height:1.1; letter-spacing:-.05em; }

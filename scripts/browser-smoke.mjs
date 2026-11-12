@@ -13,6 +13,7 @@ const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projec
 const products = projects.filter(project => project.kind !== 'library');
 const catalogueProducts = products.filter(project => project.availability !== 'planned');
 const availableApps = products.filter(project => project.download);
+const previewApps = availableApps.filter(project => project.previewType === 'watch');
 const libraryCount = projects.length - products.length;
 const mainSections = [
   { href:'/projects/', label:'Software' },
@@ -21,7 +22,7 @@ const mainSections = [
 ];
 const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
 const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
-  '/projects/open-activity/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
+  '/projects/open-activity/', '/projects/halftone/', '/projects/chmu-weather/', '/docs/pebble/halftone/', '/docs/pebble/chmu-weather/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
   '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/design/visual-identity/'];
 const redirects = {
   '/users/':'/docs/', '/developers/':'/docs/develop/activities/', '/design/':'/docs/design/principles/',
@@ -320,9 +321,9 @@ async function checkHomeOverview() {
       links:Array.from(main.querySelectorAll('a[href]')).map(a=>a.getAttribute('href')),
       previews:Array.from(main.querySelectorAll('input[name="watch-preview"]')).map(input=>({value:input.value,label:input.getAttribute('aria-label')}))};
   })()`);
-  for (const device of ['desktop','phone','watch']) assert.ok(state.intro.includes(device),'The introduction explains the '+device+' scope.');
+  for (const device of ['KDE Plasma','Android','PebbleOS']) assert.ok(state.intro.includes(device),'The introduction explains the '+device+' scope.');
   for (const href of ['/projects/','/docs/','/docs/develop/building/','/about/']) assert.ok(state.links.includes(sitePath(href)),'Home has a direct path to '+href);
-  assert.deepEqual(state.previews.map(item=>item.value),availableApps.map(project=>project.slug),'Visitors can explore every current watch app.');
+  assert.deepEqual(state.previews.map(item=>item.value).sort(),previewApps.map(project=>project.slug).sort(),'Visitors can explore every current watch app; phone plugins have no invented watch screen.');
   assert.ok(state.previews.every(item=>item.label?.length),'Watch preview choices have accessible names.');
   assert.match(state.text,/future goal|working towards/i,'The connected-device experience remains identifiable as future work.');
   assert.equal(state.links.includes(sitePath('/projects/phone/')),false,'Home does not feature the planned Phone app.');
@@ -341,16 +342,16 @@ async function checkWatchSelection(slug) {
 async function checkWatchShowcase(scripts=true) {
   await navigate('/');
   await checkWatchSelection('dynamic');
-  for (const project of availableApps) {
+  for (const project of previewApps) {
     await click(`.watch-choices label[for="preview-${project.slug}"]`);
     await checkWatchSelection(project.slug);
   }
   await click('.watch-choices label[for="preview-dynamic"]');
   await client.evaluate(`document.getElementById('preview-dynamic').focus({preventScroll:true})`);
   await key('ArrowRight','ArrowRight');
-  await checkWatchSelection('dashboard');
-  assert.equal(await client.evaluate(`document.activeElement.id`),'preview-dashboard','Native radio keyboard navigation keeps focus with the selected choice.');
-  const outline=await client.evaluate(`getComputedStyle(document.querySelector('.watch-choices label[for="preview-dashboard"]')).outlineStyle`);
+  await checkWatchSelection('halftone');
+  assert.equal(await client.evaluate(`document.activeElement.id`),'preview-halftone','Native radio keyboard navigation keeps focus with the selected choice.');
+  const outline=await client.evaluate(`getComputedStyle(document.querySelector('.watch-choices label[for="preview-halftone"]')).outlineStyle`);
   assert.notEqual(outline,'none','Keyboard selection has visible focus.');
   await key('ArrowLeft','ArrowLeft');
   await checkWatchSelection('dynamic');
@@ -361,7 +362,7 @@ async function followHomeToDownloads() {
   await checkHomeOverview();
   await click('.intro-actions a[href="/projects/"]');
   await until(`location.pathname===${JSON.stringify(sitePath('/projects/'))}&&document.readyState==='complete'`,'Home reaches Software');
-  const links=await client.evaluate(`Array.from(document.querySelectorAll('[data-project-group="available"] a')).filter(a=>a.getClientRects().length>0).map(a=>a.getAttribute('href'))`);
+  const links=await client.evaluate(`Array.from(document.querySelectorAll('[data-project-card] a')).filter(a=>a.getClientRects().length>0).map(a=>a.getAttribute('href'))`);
   for (const project of availableApps) assert.ok(links.includes(project.download),'The Software journey exposes the exact '+project.name+' download.');
   const known=new Set(availableApps.map(project=>project.download));
   assert.ok(links.filter(href=>/\.pbw(?:$|[?#])/i.test(href)).every(href=>known.has(href)),'No invented watch downloads.');

@@ -4,7 +4,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Icon from '../components/Icon.astro';
 import WatchPreview from '../components/WatchPreview.astro';
 import { projects } from '../data/projects';
-const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => projects.find(project => project.slug === slug)!);
+import AppChooser from '../components/AppChooser.astro';
+import PebbleBasics from '../components/PebbleBasics.astro';
+const apps = ['dynamic', 'halftone', 'dashboard', 'timer', 'open-activity'].map(slug => projects.find(project => project.slug === slug)!);
 ---
 <BaseLayout description="XOCE is a project for everyday software on KDE Plasma, Android and PebbleOS. Try the current Pebble apps and explore the goal of connected tasks across your devices.">
   <main id="main" class="home wrap">
@@ -12,9 +14,9 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
       <div class="intro-copy">
         <p class="eyebrow project-full-name">Xef’s Open Computing Ecosystem</p>
         <h1 id="intro-title">Everyday apps.<br/><span>Built to connect.</span></h1>
-        <p class="intro-description">A project for KDE Plasma, Android and PebbleOS. The goal: open-source everyday apps and shared tasks across your desktop, phone and watch.</p>
-        <p class="intro-status"><span class="status-dot" aria-hidden="true"></span>Starting with four Pebble apps.</p>
-        <div class="button-row intro-actions"><a class="button button-primary" href={sitePath('/projects/')}>Explore the software <Icon name="arrow" size={18}/></a><a class="text-link" href={sitePath('/about/')}>Why XOCE <Icon name="arrow" size={17}/></a></div>
+        <p class="intro-description">Small apps that work on their own and do more together. Start with a timer, a watchface and useful shortcuts for your Pebble. The wider goal connects everyday tasks across KDE Plasma, Android and PebbleOS.</p>
+        <p class="intro-status"><span class="status-dot" aria-hidden="true"></span>Watchfaces, apps and a weather plugin for Pebble</p>
+        <div class="button-row intro-actions"><a class="button button-primary" href={sitePath('/docs/')}>Get started with Pebble <Icon name="arrow" size={18}/></a><a class="text-link" href={sitePath('/projects/')}>Explore the apps <Icon name="arrow" size={17}/></a></div>
       </div>
       <fieldset id="current-work" class="watch-showcase glass" data-home-current-work>
         <legend class="sr-only">Preview the current Pebble apps</legend>
@@ -29,6 +31,9 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
       </fieldset>
     </section>
 
+    <PebbleBasics />
+    <AppChooser />
+
     <div class="platform-focus" aria-label="XOCE’s platform focus">
       <p class="platform-intro">Three platforms.<br/><strong>One direction.</strong></p>
       <div><Icon name="monitor" size={23}/><p><span>Desktop</span><strong>KDE Plasma</strong></p></div>
@@ -37,8 +42,8 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
     </div>
 
     <section class="current-downloads" aria-labelledby="downloads-title">
-      <div><p class="eyebrow">Available now · development builds</p><h2 id="downloads-title">Start on Pebble Time 2.</h2><p>Try a countdown in Timer and follow it on Dynamic. Add Dashboard for an overview, or Open Activity to jump into the app behind an update.</p></div>
-      <div class="download-actions"><a class="text-link" href={sitePath('/projects/#available-apps')}>Get the Pebble apps <Icon name="download" size={18}/></a><a class="text-link" href={sitePath('/docs/pebble/setup/')}>Installation and requirements <Icon name="arrow" size={17}/></a><p>Activity features need the Pebble phone app’s plugin preview.</p></div>
+      <div><p class="eyebrow">Your first setup · Timer + Dynamic</p><h2 id="downloads-title">Start a timer. Keep it in sight.</h2><p>Start a countdown in Timer, return to Dynamic and see how much time is left on your clock screen. Timer handles the alarm; Dynamic keeps the countdown visible.</p><ol class="first-steps"><li>Install Timer and Dynamic.</li><li>Enable plugins in the Pebble phone app.</li><li>Start a countdown and return to your watchface.</li></ol></div>
+      <div class="download-actions"><a class="button button-primary" href={sitePath('/docs/#a-useful-first-setup')}>Follow the first setup <Icon name="arrow" size={18}/></a><a class="text-link" href={sitePath('/projects/#available-apps')}>Browse all software <Icon name="download" size={17}/></a><p>Development builds. Shared information needs a connected phone and plugin preview enabled.</p></div>
     </section>
 
     <section id="approach" class="connected-section" aria-labelledby="connected-title" data-home-ecosystem>
@@ -62,6 +67,7 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
 </BaseLayout>
 <style>
   .home { padding-bottom: 24px; }
+  .first-steps { margin:18px 0 0; padding-left:22px; font-size:.9rem; line-height:1.9; color:var(--muted); } .first-steps li::marker { color:var(--accent-text); }
   .home-intro { display: grid; grid-template-columns: minmax(0,1.12fr) minmax(0,1fr); gap: clamp(32px,5vw,72px); align-items: center; padding-block: 48px 40px; }
   .project-full-name { color: var(--accent-text); }
   .intro-copy h1 { margin-top: 20px; font-size: clamp(2.8rem,4.6vw,4.2rem); line-height: 1.08; letter-spacing: -.055em; font-weight: 600; }
@@ -76,7 +82,7 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
   .showcase-heading > a:hover { text-decoration: underline; }
   .watch-stage { display: none; grid-template-columns: minmax(0,1.18fr) minmax(0,1fr); gap: 18px; align-items: center; padding-block: 13px 17px; }
   .watch-stage :global(.watch-preview) { --watch-width: 244px; margin-inline: auto; }
-  #preview-dynamic:checked ~ .watch-stages [data-watch-preview='dynamic'], #preview-dashboard:checked ~ .watch-stages [data-watch-preview='dashboard'], #preview-timer:checked ~ .watch-stages [data-watch-preview='timer'], #preview-open-activity:checked ~ .watch-stages [data-watch-preview='open-activity'] { display: grid; }
+  #preview-halftone:checked ~ .watch-stages [data-watch-preview='halftone'], #preview-dynamic:checked ~ .watch-stages [data-watch-preview='dynamic'], #preview-dashboard:checked ~ .watch-stages [data-watch-preview='dashboard'], #preview-timer:checked ~ .watch-stages [data-watch-preview='timer'], #preview-open-activity:checked ~ .watch-stages [data-watch-preview='open-activity'] { display: grid; }
   .watch-stage-caption { min-width: 0; }
   .preview-type { color: var(--muted); font-size: .6875rem; }
   .watch-stage-caption h2 { margin-top: 8px; font-size: clamp(1.125rem,1.8vw,1.5rem); letter-spacing: -.035em; }
@@ -85,9 +91,10 @@ const apps = ['dynamic', 'dashboard', 'timer', 'open-activity'].map(slug => proj
   .watch-stage-caption .text-link > span { min-width: 0; }
   .watch-choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4px; padding-top: 11px; border-top: 1px solid var(--line); }
   .watch-choices label { display: flex; justify-content: center; align-items: center; padding: 8px 6px; min-height: 42px; font-size: .8125rem; cursor: pointer; border-radius: var(--radius-control); border: 1px solid transparent; color: var(--muted); }
+  .watch-choices label:last-child { grid-column:1 / -1; }
   .watch-choices label:hover { background: var(--glass-hover); color: var(--ink); }
-  #preview-dynamic:checked ~ .watch-choices [for='preview-dynamic'], #preview-dashboard:checked ~ .watch-choices [for='preview-dashboard'], #preview-timer:checked ~ .watch-choices [for='preview-timer'], #preview-open-activity:checked ~ .watch-choices [for='preview-open-activity'] { background: var(--glass-field); color: var(--accent-text); border-color: var(--line); font-weight: 600; }
-  #preview-dynamic:focus-visible ~ .watch-choices [for='preview-dynamic'], #preview-dashboard:focus-visible ~ .watch-choices [for='preview-dashboard'], #preview-timer:focus-visible ~ .watch-choices [for='preview-timer'], #preview-open-activity:focus-visible ~ .watch-choices [for='preview-open-activity'] { outline: 2px solid var(--focus); outline-offset: 1px; }
+  #preview-halftone:checked ~ .watch-choices [for='preview-halftone'], #preview-dynamic:checked ~ .watch-choices [for='preview-dynamic'], #preview-dashboard:checked ~ .watch-choices [for='preview-dashboard'], #preview-timer:checked ~ .watch-choices [for='preview-timer'], #preview-open-activity:checked ~ .watch-choices [for='preview-open-activity'] { background: var(--glass-field); color: var(--accent-text); border-color: var(--line); font-weight: 600; }
+  #preview-halftone:focus-visible ~ .watch-choices [for='preview-halftone'], #preview-dynamic:focus-visible ~ .watch-choices [for='preview-dynamic'], #preview-dashboard:focus-visible ~ .watch-choices [for='preview-dashboard'], #preview-timer:focus-visible ~ .watch-choices [for='preview-timer'], #preview-open-activity:focus-visible ~ .watch-choices [for='preview-open-activity'] { outline: 2px solid var(--focus); outline-offset: 1px; }
   .showcase-note { margin-top: 10px; color: var(--muted); text-align: center; font-size: .6875rem; line-height: 1.5; }
   .platform-focus { display: grid; grid-template-columns: 1.12fr repeat(3,1fr); align-items: center; padding-block: 21px; border-block: 1px solid var(--line); }
   .platform-intro { color: var(--muted); font-size: .8125rem; line-height: 1.65; }

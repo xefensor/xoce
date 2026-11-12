@@ -1,0 +1,30 @@
+---
+import { sitePath } from '../lib/site';
+import Icon from './Icon.astro';
+const apps = [
+  { slug: 'dynamic', name: 'Dynamic', type: 'Watchface', purpose: 'Your everyday clock, with weather, music and ongoing countdowns.', note: 'Start here for information at a glance.' },
+  { slug: 'timer', name: 'Timer', type: 'Watch app', purpose: 'Set, save and manage countdowns. The alarm runs on your watch.', note: 'Works on its own. Add Dynamic to see the countdown on your clock screen.' },
+  { slug: 'dashboard', name: 'Dashboard', type: 'Optional watch app', purpose: 'Open an overview of your activity, notification and pinned shortcuts.', note: 'Add it when you want more than a clock screen.' },
+  { slug: 'open-activity', name: 'Open Activity', type: 'Optional shortcut helper', purpose: 'Use a button shortcut to open the app shown by Dynamic.', note: 'Requires Dynamic and a configured Quick Launch shortcut.' },
+  { slug: 'halftone', name: 'Halftone', type: 'Alternative watchface', purpose: 'A bold clock, two readings and a configurable halftone dot border.', note: 'Choose it instead of Dynamic. The released candidate does not show Timer activities.' },
+  { slug: 'chmu-weather', name: 'ČHMÚ Weather', type: 'Optional phone plugin', purpose: 'Czech station observations and forecasts for Pebble Weather and compatible readings.', note: 'Runs inside the Pebble phone app. Works as an optional weather source for Dynamic, Halftone and Dashboard.' },
+];
+---
+<section class="app-chooser" aria-labelledby="choose-apps-title">
+  <header><p class="eyebrow">Watchfaces, apps and a weather source.</p><h2 id="choose-apps-title">You don’t need to install everything.</h2><p>Start with Timer and Dynamic to try a countdown on your watchface. Halftone is an alternative clock; Dashboard, Open Activity and ČHMÚ Weather are optional.</p></header>
+  <div class="choices">{apps.map(app => <article><p class="choice-type">{app.type}</p><h3><a href={sitePath(`/projects/${app.slug}/`)}>{app.name}<Icon name="arrow" size={17}/></a></h3><p>{app.purpose}</p><small>{app.note}</small></article>)}</div>
+</section>
+<style>
+  .app-chooser { padding-block:36px 40px; border-top:1px solid var(--line); }
+  header { max-width:70ch; } h2 { margin-top:12px; font-size:clamp(1.65rem,2.7vw,2.25rem); line-height:1.2; letter-spacing:-.04em; }
+  header > p:last-child { margin-top:16px; color:var(--muted); line-height:1.8; }
+  .choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:30px; margin-top:28px; }
+  article { min-width:0; padding-top:18px; border-top:1px solid var(--line); }
+  article:first-child,article:nth-child(2) { border-top-color:var(--accent-text); }
+  .choice-type { font-size:.75rem; color:var(--muted); }
+  h3 { margin-top:10px; font-size:1.2rem; letter-spacing:-.025em; } h3 a { display:flex; align-items:center; gap:10px; text-decoration:none; } h3 a:hover { text-decoration:underline; } h3 :global(svg) { color:var(--accent-text); flex-shrink:0; }
+  article > p:not(.choice-type) { margin-top:14px; font-size:.92rem; line-height:1.75; }
+  small { display:block; margin-top:13px; color:var(--muted); font-size:.8rem; line-height:1.7; }
+  @media(max-width:900px) { .choices { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; } }
+  @media(max-width:520px) { .choices { grid-template-columns:1fr; gap:21px; } .app-chooser { padding-block:28px; } }
+</style>

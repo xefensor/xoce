@@ -1,0 +1,15 @@
+---
+import { sitePath } from '../lib/site';
+import Icon from './Icon.astro';
+---
+<aside class="pebble-basics" aria-labelledby="new-to-pebble-title">
+  <div><p class="eyebrow">New to Pebble?</p><h2 id="new-to-pebble-title">A watch, a phone app, then your apps.</h2><p>Pebble is the watch platform. Its official phone app pairs your watch and manages your apps and settings. XOCE is Xef’s independent collection of software for it.</p></div>
+  <div class="basics-next"><p>The watchfaces and watch apps currently support <strong>Pebble Time 2 only</strong>. ČHMÚ Weather is a separate plugin running on your phone.</p><a class="text-link" href="https://repebble.com/app">Get the official Pebble phone app<Icon name="external" size={16}/></a><a class="text-link" href={sitePath('/docs/getting-started/#new-to-pebble')}>Start with the basics<Icon name="arrow" size={16}/></a></div>
+</aside>
+<style>
+  .pebble-basics { display:grid; grid-template-columns:1.2fr 1fr; gap:45px; padding:30px 0; border-block:1px solid var(--line); }
+  h2 { margin-top:12px; font-size:1.4rem; letter-spacing:-.035em; line-height:1.3; }
+  p:not(.eyebrow) { max-width:65ch; margin-top:13px; color:var(--muted); font-size:.92rem; line-height:1.8; }
+  .basics-next { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; } .basics-next > p { margin-top:0; } .text-link { font-size:.84rem; margin-top:8px; } strong { color:var(--ink); }
+  @media(max-width:700px) { .pebble-basics { grid-template-columns:1fr; gap:18px; padding-block:25px; } }
+</style>

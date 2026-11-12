@@ -268,6 +268,20 @@ for (const project of products.filter(project => project.image)) {
   if (!capture || capture.capture_version !== project.imageVersion) problems.push(`${project.slug}: screenshot version/provenance differs`);
   if (!mainMarkup(`/projects/${project.slug}/`).includes(`${project.name} v${project.imageVersion}`)) problems.push(`${project.slug}: screenshot version caption is missing`);
 }
+const { screenshotGalleries } = await import(pathToFileURL(path.join(root, 'src/data/screenshots.ts')).href);
+for (const [slug, screenshots] of Object.entries(screenshotGalleries)) {
+  const project = projects.find(project => project.slug === slug);
+  const markup = mainMarkup(`/projects/${slug}/`);
+  if (!project || !markup.includes('id="screenshots"')) problems.push(`${slug}: gallery is missing`);
+  for (const screenshot of screenshots) {
+    const capture = provenance.images.find(entry => entry.site_path === screenshot.image);
+    const expectedEvidence = screenshot.kind === 'watch' ? 'native-emulator-screenshot' : 'packaged-settings-browser-preview';
+    if (!capture || capture.evidence_type !== expectedEvidence || capture.capture_version !== project?.version || screenshot.version !== project?.version || capture.source_url !== screenshot.source) problems.push(`${slug}: screenshot release, source or evidence classification differs: ${screenshot.image}`);
+    if (!capture || capture.width !== screenshot.width || capture.height !== screenshot.height) problems.push(`${slug}: gallery dimensions differ: ${screenshot.image}`);
+    if (!references(markup).includes(screenshot.image) || !references(markup).includes(screenshot.source)) problems.push(`${slug}: screenshot or source link missing: ${screenshot.image}`);
+    if (screenshot.kind === 'watch' && (screenshot.width !== 200 || screenshot.height !== 228)) problems.push(`${slug}: native watch capture proportions differ`);
+  }
+}
 const searchPath = path.join(dist, 'search.json');
 if (!fs.existsSync(searchPath)) problems.push('Missing local search index');
 else {
@@ -296,5 +310,8 @@ if (problems.length) {
     anchors:checkedAnchors, referencedAssets:checkedAssets.size, catalogueProducts:catalogueProducts.length,
     downloadableApps:catalogueProducts.filter(project => project.download).length, plannedProjects:planned.length,
     libraries:libraries.length, guides:docs.length, preservedNativeCaptures:provenance.images.filter(entry => !entry.current_release_capture).length,
-    currentNativeCaptures:provenance.images.filter(entry => entry.current_release_capture).length }, null, 2));
+    currentNativeCaptures:provenance.images.filter(entry => entry.current_release_capture && entry.evidence_type === 'native-emulator-screenshot').length,
+    galleryScreenshots:Object.values(screenshotGalleries).flat().length,
+    phoneSettingsPreviews:provenance.images.filter(entry => entry.evidence_type === 'packaged-settings-browser-preview').length,
+    pluginIcons:provenance.images.filter(entry => entry.evidence_type === 'original-plugin-icon').length }, null, 2));
 }

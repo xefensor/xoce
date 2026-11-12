@@ -7,7 +7,7 @@ interface Props { project: Project; wide?: boolean }
 const { project, wide = false } = Astro.props;
 const planned = project.availability === 'planned';
 const phonePlan = project.slug === 'phone';
-const type = project.kind === 'watchface' ? 'Watchface' : project.kind === 'library' ? 'Library' : 'App';
+const type = project.kind === 'watchface' ? 'Watchface' : project.kind === 'library' ? 'Library' : project.kind === 'plugin' ? 'Phone plugin' : 'App';
 const href = `/projects/${project.slug}/`;
 ---
 <article class:list={['project-card', `project-${project.slug}`, { 'wide-row': wide, 'planned-row': planned }]} data-project-card data-project-kind={project.kind} data-project-platform={phonePlan ? 'Android PebbleOS' : project.platform} data-project-availability={project.availability ?? 'available'} data-project-downloadable={project.download ? 'true' : 'false'}>
@@ -19,7 +19,7 @@ const href = `/projects/${project.slug}/`;
     {planned && <p class="planned-status">Planned · no build available yet</p>}
   </div>
   <div class="project-card-actions">
-    {project.download ? <><a class="row-download" href={sitePath(project.download)} aria-label={`Download ${project.name} v${project.version}`}>Download<Icon name="download" size={16}/></a><a class="row-guide" href={sitePath(project.setupGuide ?? project.guide)}>Set up<Icon name="arrow" size={15}/></a></> : <a class="row-guide" href={sitePath(href)}>Read the plan<Icon name="arrow" size={16}/></a>}
+    {project.download ? <><a class="row-download" href={sitePath(project.download)} aria-label={`Download ${project.name} v${project.version}`}>Download .pbw<Icon name="download" size={16}/></a><a class="row-guide" href={sitePath(project.setupGuide ?? project.guide)}>Install and set up<Icon name="arrow" size={15}/></a></> : <a class="row-guide" href={sitePath(href)}>Read the plan<Icon name="arrow" size={16}/></a>}
   </div>
 </article>
 <style>

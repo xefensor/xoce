@@ -2,6 +2,8 @@
 import { sitePath } from '../../lib/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
+import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
+import { screenshotGalleries } from '../../data/screenshots';
 import Icon from '../../components/Icon.astro';
 import { projects } from '../../data/projects';
 import type { Project } from '../../data/projects';
@@ -9,6 +11,7 @@ export function getStaticPaths() { return projects.map(project => ({ params: { s
 interface Props { project: Project }
 const { project } = Astro.props;
 const library = project.kind === 'library';
+const plugin = project.kind === 'plugin';
 const planned = project.availability === 'planned';
 const companionRedirect = project.slug === 'pebble-phone';
 const consumers = projects.filter(item => project.consumers?.includes(item.slug));
@@ -19,6 +22,14 @@ const appGuides = [
   { href: project.controlsGuide, label: 'Watch controls', icon: 'watch' },
   { href: project.helpGuide, label: 'Troubleshooting', icon: 'book' },
 ].filter(item => item.href);
+const newcomerNotes: Record<string, string> = {
+  halftone: 'Halftone is an alternative to Dynamic for your everyday clock screen. Choose one active watchface at a time. The published rc.6 candidate supports readings, music and optional notifications; it does not show Timer activities.',
+  'chmu-weather': 'A weather plugin supplies data; it is not another watchface or watch app. It runs inside the official Pebble phone app. Dynamic, Halftone and Dashboard can use its weather readings, and it can be selected for Pebble’s own Weather app. It is independent of ČHMÚ.',
+  dynamic: 'A watchface is your everyday clock screen. The small readings show information such as weather; the larger area shows an ongoing activity, such as a song or countdown. Timer is optional.',
+  timer: 'Use Timer on its own to manage countdowns. Add Dynamic if you want to see the countdown on your everyday clock screen. Sharing it needs your connected phone and plugin preview.',
+  dashboard: 'Dashboard is a watch app you open when you want an overview. Pins use the plugins you configure; the kitchen light in the screenshot is example data, not a built-in smart-home connection.',
+  'open-activity': 'This is an optional helper for Dynamic. You can open Timer from your app list without it. Quick Launch means assigning an app to a watch-button shortcut.',
+};
 ---
 <BaseLayout title={project.name} description={project.description}>
   {companionRedirect && <Fragment slot="head"><meta name="robots" content="noindex,follow"/><link rel="canonical" href={sitePath('/projects/phone/')}/><meta http-equiv="refresh" content={`0;url=${sitePath('/projects/phone/#pebble-companion')}`}/><script is:inline>location.replace(document.querySelector('meta[http-equiv="refresh"]').content.replace(/^0;url=/, ''));</script></Fragment>}
@@ -35,19 +46,24 @@ const appGuides = [
         <nav class="plan-links" aria-label="Other XOCE work"><a class="text-link" href={sitePath('/projects/')}>Explore current software<Icon name="arrow" size={17}/></a><a class="text-link" href={sitePath('/about/#contribute')}>Help build XOCE<Icon name="code" size={17}/></a></nav>
       </> : <>
         <section class:list={['product-hero', { 'has-screenshot': !!project.image, 'library-product': library }]} aria-labelledby="product-title">
-          <div class="product-copy"><p class="product-kind">{library ? 'Pebble developer library' : `PebbleOS · ${project.kind === 'watchface' ? 'Watchface' : 'App'}`}</p><h1 id="product-title">{project.name}</h1><p class="product-purpose">{project.description}</p>
+          <div class="product-copy"><p class="product-kind">{library ? 'Pebble developer library' : plugin ? 'Pebble · Weather plugin · Runs on your phone' : `PebbleOS · ${project.kind === 'watchface' ? 'Watchface' : 'App'}`}</p><h1 id="product-title">{project.name}</h1><p class="product-purpose">{project.description}</p>
             {library ? <div class="library-start"><a class="button button-primary" href={sitePath(project.guide)}>Integration guide<Icon name="code" size={18}/></a>{project.download && <a class="package-download" href={sitePath(project.download)}>Download package v{project.version}<Icon name="download" size={17}/></a>}<p class="release-status">v{project.version} · {project.status}</p></div> : <div class="download-area">
               {required.length > 0 && <p class="required-apps">Requires {required.map((item, index) => <>{index > 0 && ', '}<a href={sitePath(`/projects/${item.slug}/`)}>{item.name}</a></>)}.</p>}
-              <div class="button-row">{project.download && <a class="button button-primary product-download" href={sitePath(project.download)} aria-label={`Download ${project.name} v${project.version}`}>Download v{project.version}<Icon name="download" size={18}/></a>}<a class="text-link" href={sitePath(project.setupGuide ?? project.guide)}>Install and set up<Icon name="arrow" size={17}/></a></div>
+              <div class="button-row"><a class="button button-primary" href={sitePath(project.setupGuide ?? project.guide)}>Install and set up<Icon name="arrow" size={18}/></a>{project.download && <a class="text-link product-download" href={sitePath(project.download)} aria-label={`Download ${project.name} v${project.version}`}>Download .pbw · v{project.version}<Icon name="download" size={17}/></a>}</div>
+              <p class="download-explanation">{plugin ? 'Open the .pbw with the official Pebble phone app to install the plugin on your phone.' : 'The .pbw file installs on your watch through the official Pebble phone app.'} <a href="https://repebble.com/app">Get the Pebble phone app</a> · <a href={sitePath(plugin ? project.guide : '/docs/pebble/setup/#before-installing')}>Installation instructions</a>.</p>
               <dl class="project-facts"><div><dt>For</dt><dd>{project.compatibility}</dd></div><div><dt>Release</dt><dd>{project.status}</dd></div></dl>
               {project.requirements && <ul class="requirements">{project.requirements.map(requirement => <li>{requirement}</li>)}</ul>}
             </div>}
           </div>
-          {project.image && <div class="product-preview"><ProjectPreview project={project} eager/><p class="preview-caption">{project.name} v{project.imageVersion} · native emulator · example data</p></div>}
+          {project.image && <div class="product-preview"><ProjectPreview project={project} eager/><p class="preview-caption">{project.name} v{project.imageVersion} · {project.imageCaption ?? 'native emulator · example data'}</p></div>}
         </section>
+        {screenshotGalleries[project.slug] && <a class="text-link screenshot-jump" href="#screenshots">See {screenshotGalleries[project.slug].length} screenshots<Icon name="arrow" size={17}/></a>}
         <div class="product-information">
-          <section class="product-details" aria-labelledby="product-features"><div><h2 id="product-features">{library ? 'What the library provides' : 'On your watch'}</h2><p class="product-summary">{project.summary}</p></div><ul class="feature-list">{project.features.map(feature => <li><Icon name="check" size={18}/><span>{feature}</span></li>)}</ul></section>
+          {!library && <aside class="newcomer-note"><div><p class="eyebrow">Before you start</p><h2>Where {project.name} fits.</h2><p>{newcomerNotes[project.slug]}</p></div><nav aria-label={`${project.name} first steps`}><a class="text-link" href={sitePath('/docs/')}>New to XOCE? Start here<Icon name="arrow" size={17}/></a><a class="text-link" href={sitePath(['halftone', 'chmu-weather'].includes(project.slug) ? project.guide : `/docs/pebble/setup/#${project.slug}`)}>Already installed? Configure {project.name}<Icon name="arrow" size={17}/></a></nav></aside>}
+          <section class="product-details" aria-labelledby="product-features"><div><h2 id="product-features">{library ? 'What the library provides' : plugin ? 'Weather for your Pebble' : 'On your watch'}</h2><p class="product-summary">{project.summary}</p></div><ul class="feature-list">{project.features.map(feature => <li><Icon name="check" size={18}/><span>{feature}</span></li>)}</ul></section>
+          {['halftone', 'chmu-weather'].includes(project.slug) && <aside class="timer-connection"><Icon name="sun" size={24}/><p>{plugin ? <>Use its readings in <a href={sitePath('/projects/dynamic/')}>Dynamic</a>, <a href={sitePath('/projects/halftone/')}>Halftone</a> or <a href={sitePath('/projects/dashboard/')}>Dashboard</a>. Configure the source and the reading you want in the Pebble phone app.</> : <>Want Czech weather? <a href={sitePath('/projects/chmu-weather/')}>ČHMÚ Weather</a> is an optional source for Halftone’s readings. Other compatible sources work too.</>}</p></aside>}
           {project.slug === 'timer' && <aside class="timer-connection"><Icon name="watch" size={24}/><p>The countdown can also appear in <a href={sitePath('/projects/dynamic/')}>Dynamic</a> and <a href={sitePath('/projects/dashboard/')}>Dashboard</a>. Timer keeps ownership of the watch alarm.</p></aside>}
+          <ScreenshotGallery slug={project.slug} name={project.name}/>
           {!library && appGuides.length > 0 && <section class="product-guides" aria-labelledby="product-guides-title"><h2 id="product-guides-title">Use {project.name}</h2><nav aria-label={`${project.name} guides`}>{appGuides.map(guide => <a href={sitePath(guide.href)}><Icon name={guide.icon} size={21}/><span>{guide.label}</span><Icon name="arrow" size={17}/></a>)}</nav></section>}
           {library && consumers.length > 0 && <section class="project-context" aria-labelledby="project-consumers"><div><h2 id="project-consumers">Included in these apps</h2><p>Each app owns its interface and release.</p></div><nav class="project-consumer-links" aria-label={`${project.name} consumers`}>{consumers.map(item => <a href={sitePath(`/projects/${item.slug}/`)}>{item.name}<Icon name="arrow" size={16}/></a>)}</nav></section>}
           {!library && (project.developerNote || project.developerGuide) && <details class="developer-details"><summary id="project-developers">Developer information</summary>{project.developerNote && <p>{project.developerNote}</p>}<nav aria-label={`${project.name} developer resources`}>{project.developerGuide && <a href={sitePath(project.developerGuide)}>Integration guide<Icon name="arrow" size={16}/></a>}<a href={sitePath('/docs/develop/building/')}>Build from source<Icon name="code" size={16}/></a></nav></details>}
@@ -58,7 +74,11 @@ const appGuides = [
   </main>
 </BaseLayout>
 <style>
+  .screenshot-jump { margin-bottom:12px; min-height:44px; font-size:.9rem; }
   .product-page { padding-top:30px; }
+  .download-explanation { max-width:60ch; margin-top:15px; color:var(--muted); font-size:.8rem; line-height:1.75; } .download-explanation a { color:var(--accent-text); }
+  .newcomer-note { display:grid; grid-template-columns:1.2fr 1fr; gap:35px; margin-bottom:35px; padding-bottom:30px; border-bottom:1px solid var(--line); } .newcomer-note h2 { margin-top:10px; font-size:1.4rem; } .newcomer-note p:not(.eyebrow) { margin-top:14px; color:var(--muted); font-size:.94rem; line-height:1.8; } .newcomer-note nav { display:flex; align-items:flex-start; justify-content:center; flex-direction:column; } .newcomer-note .text-link { font-size:.84rem; }
+  @media(max-width:650px) { .newcomer-note { grid-template-columns:1fr; gap:15px; } }
   .product-breadcrumb { display:flex; align-items:center; flex-wrap:wrap; gap:9px; min-height:44px; color:var(--muted); font-size:.8rem; }
   .product-breadcrumb a { padding-block:9px; text-decoration:none; }
   .product-breadcrumb a:hover { text-decoration:underline; }

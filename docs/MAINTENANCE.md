@@ -1,7 +1,26 @@
 # XOCE website maintenance contracts
 
+## Catalogue additions (2026-11-12)
+
+The imported website includes Halftone and ČHMÚ Weather. The catalogue now has
+five watch apps/faces and one phone plugin. Halftone is pinned to 1.9.0-rc.6;
+ČHMÚ Weather is pinned to the public 1.0.1 package. Describe the published
+features, not newer main-branch implementations. Plugins have no watch UI; keep
+their type, compatibility and icon captions distinct from watchface captures.
+
+
 These are current implementation constraints. They apply when changing the
 relevant subsystem, not as a requirement to reread every document for every edit.
+
+## Screenshot galleries (2026-11-12)
+
+The website has 24 release-sourced screenshots across all six consumer
+products. `src/data/screenshots.ts` owns gallery captions, evidence type, dimensions
+and source links. Native watch captures and browser settings previews are shown
+in separate groups. Gallery and hero image hashes are recorded in
+`docs/asset-provenance.json`; old assets remain historical and unchanged. New
+captures must match the downloadable release, rather than newer main-branch UI.
+Dynamic previews are decoded unchanged from its release PBW’s embedded PNG table.
 
 ## Ownership and compatibility
 
@@ -9,7 +28,7 @@ The website is hosted on GitHub Pages at https://xefensor.github.io/xoce/ follow
 
 ## Current interaction and product boundaries
 
-Retain Software/Docs/About navigation and four available Pebble products. Phone/companion work remains an accurately labelled plan, linked quietly from About. Docs opens the actual Getting started article. Website identity/materials remain distinct from watch UI. Preserve the official Time2 frame and 200×228 native image proportions, Inter/type roles and reduced motion/transparency. The accepted native UI is now on each app’s main branch; public download versions remain unchanged.
+Retain Software/Docs/About navigation and six available Pebble products. Phone/companion work remains an accurately labelled plan, linked quietly from About. Docs opens the actual Getting started article. Website identity/materials remain distinct from watch UI. Preserve the official Time2 frame and 200×228 native image proportions, Inter/type roles and reduced motion/transparency. The accepted native UI is now on each app’s main branch; public download versions remain unchanged.
 
 ## Source ownership
 
@@ -58,7 +77,7 @@ supersede these maintenance notes.
 - `src/data/projects.ts` owns product identity, availability, exact release and
   download URLs, prerequisites, required/optional connections, library consumers
   and per-project licences. Do not infer versions from latest-release endpoints.
-- The Software catalogue shows only the four available Pebble products.
+- The Software catalogue shows only the six available Pebble products.
   Keep planned Phone and companion metadata and canonical/legacy routes intact,
   without promoting the plan as a catalogue item or Home feature. A plain link
   in About may describe the future Android app and its optional watch companion.
@@ -67,7 +86,9 @@ supersede these maintenance notes.
   in the public Dynamic and Dashboard releases require Android. Do not invent
   other platform support or completed cross-device synchronization.
 - Catalogue entries are pinned to the verified Dynamic 0.18.3, Dashboard 0.6.3,
-  Timer 0.14.5 and Open Activity 0.3.3 releases. Modern settings pages confirm
+  Timer 0.14.5, Open Activity 0.3.3, Halftone 1.9.0-rc.6 and ČHMÚ Weather 1.0.1
+  releases. ČHMÚ Weather runs in the Pebble phone app and has no watch interface.
+  Modern settings pages confirm
   phone persistence while staying open; legacy return-URL fallback still closes.
   Timer's appearance page never edits a timer. Older screenshots retain their
   original versions, layouts and evidence scope.
@@ -94,13 +115,13 @@ ordinary visits; explicit Search may focus its own field.
 
 - Main navigation is **Software · Docs · About**. Software opens `/projects/`
   directly. Show platform filters only when downloads exist for more than one
-  platform. Current downloads are all PebbleOS, so there is no filter bar or
+  platform. Current downloads belong to the Pebble collection, so there is no filter bar or
   empty Android choice. Planned records do not count as available platforms.
 - Home introduces the ecosystem goal alongside a real watch preview. Continue
   with platform focus and the current download/setup path, a labelled future
   shared-timer concept, a short general three-stage direction and useful
   contribution links. Do not restore a standalone Phone promotion or plan card
-  on Home, in the catalogue or as an explicit Android-plans footer link. Native CSS radios select one of four static app previews;
+  on Home, in the catalogue or as an explicit Android-plans footer link. Native CSS radios select one of five static watch previews;
   the showcase does not automatically cycle.
 - `/pebble/` explains the current watch collection, requirements and setup.
   `/projects/phone/` owns the standalone Android Phone plan and optional separate
@@ -123,7 +144,7 @@ ordinary visits; explicit Search may focus its own field.
 - Xef is starting the first stage. Later work needs contributors; do not invent
   an existing team, community scale, sponsorship or maintained task programme.
 - `/docs/` opens the actual Getting started article immediately. There are
-  currently 13 articles under native expandable Guides, Developers and Design
+  currently 15 articles under native expandable Guides, Developers and Design
   sections. Do not add a category portal or another step before the article.
   Detailed API contracts and build commands stay with their owning repositories.
 - Keep old routes and fragments usable. `/users/`, `/developers/` and `/design/`
