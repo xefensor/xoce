@@ -322,7 +322,7 @@ async function checkHomeOverview() {
       previews:Array.from(main.querySelectorAll('input[name="watch-preview"]')).map(input=>({value:input.value,label:input.getAttribute('aria-label')}))};
   })()`);
   for (const device of ['KDE Plasma','Android','PebbleOS']) assert.ok(state.intro.includes(device),'The introduction explains the '+device+' scope.');
-  for (const href of ['/projects/','/docs/','/docs/develop/building/','/about/']) assert.ok(state.links.includes(sitePath(href)),'Home has a direct path to '+href);
+  for (const href of ['/projects/','/docs/','/docs/develop/building/']) assert.ok(state.links.includes(sitePath(href)),'Home has a direct path to '+href);
   assert.deepEqual(state.previews.map(item=>item.value).sort(),previewApps.map(project=>project.slug).sort(),'Visitors can explore every current watch app; phone plugins have no invented watch screen.');
   assert.ok(state.previews.every(item=>item.label?.length),'Watch preview choices have accessible names.');
   assert.match(state.text,/future goal|working towards/i,'The connected-device experience remains identifiable as future work.');
@@ -626,7 +626,7 @@ async function runChecks() {
   await viewport(360,800,true); await checkWatchShowcase(false);
   await navigate('/'); await followHomeToDownloads();
   assert.equal((await client.evaluate(visibleCards)).length,catalogueProducts.length,'All software remains available without filters.');
-  assert.equal(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-group]')).filter(el=>el.getClientRects().length>0).length`),1);
+  assert.deepEqual(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-group]')).filter(el=>el.getClientRects().length>0).map(el=>el.dataset.projectGroup).sort()`),['available','plugins'],'Watch apps and phone plugins stay available in their own groups without JavaScript.');
   assert.equal(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-filter],[data-search-open]')).some(el=>el.getClientRects().length>0)`),false,'Unavailable scripted controls are hidden.');
   await click('[data-site-nav] a[href="/about/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/about/'))}&&document.readyState==='complete'`,'About without JavaScript');
   await click('main a[href="/projects/phone/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/projects/phone/'))}&&document.readyState==='complete'`,'contextual Phone plan without JavaScript');
