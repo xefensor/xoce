@@ -257,6 +257,15 @@ async function noOverflow(route, width) {
   assert.equal(state.headings, 1, route + ' needs one main heading');
   assert.ok(state.main && state.title.includes('XOCE'), route + ' lacks accessible page structure');
   assert.equal(state.ui, 'material', route + ' must use the shared website style');
+  const watchDevices = await client.evaluate(`Array.from(document.querySelectorAll('[data-watch-device]')).map((el,index)=>el.getClientRects().length>0?index:null).filter(index=>index!==null)`);
+  if (watchDevices.length) {
+    const position = await client.evaluate('({left:scrollX,top:scrollY})');
+    for (const index of watchDevices) {
+      await client.evaluate(`document.querySelectorAll('[data-watch-device]')[${index}].scrollIntoView({block:'center',behavior:'instant'})`);
+      await until(`Array.from(document.querySelectorAll('[data-watch-device]')[${index}].querySelectorAll('img')).every(img=>img.complete&&img.naturalWidth>0)`, 'scrolled watch preview loads at '+route);
+    }
+    await client.evaluate(`scrollTo({...${JSON.stringify(position)},behavior:'instant'})`);
+  }
   await until(`Array.from(document.querySelectorAll('[data-watch-device]')).filter(el=>el.getClientRects().length>0).every(el=>Array.from(el.querySelectorAll('img')).every(img=>img.complete&&img.naturalWidth>0))`, 'frame and native screen load at '+route);
   const previews = await client.evaluate(`Array.from(document.querySelectorAll('[data-watch-device]')).filter(el=>el.getClientRects().length>0).map(el=>{
     const image=el.querySelector('.pebble-display img'),frame=el.querySelector('.pebble-frame');
