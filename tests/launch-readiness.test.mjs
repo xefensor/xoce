@@ -7,7 +7,7 @@ const listing={id:'0123456789abcdef01234567',uuid:project.uuid,visible:true,hard
 function response(data){return {ok:true,status:200,json:async()=>data,arrayBuffer:async()=>data};}
 function fixture(override={}){return async url=>{
  if(url.includes('/apps/uuid/'))return response({data:[{...listing,...override}]});
- if(url.includes('api.github.com'))return response({draft:false,tag_name:project.tag,assets:[{browser_download_url:project.download}]});
+ if(url.includes('api.github.com'))return response({draft:false,prerelease:false,tag_name:project.tag,assets:[{browser_download_url:project.download}]});
  return response(bytes);
 };}
 test('a preview never reaches the network or advertises an invented release',async()=>{
@@ -29,4 +29,11 @@ test('wrong release URLs, unavailable assets and API failures stop publication',
  assert.ok(metadataProblems({...project,storeUrl:'https://apps.repebble.com/placeholder'}).length);
  assert.ok((await verifyRelease(project,async()=>({ok:false,status:404}))).length);
  const request=fixture();assert.ok((await verifyRelease(project,async url=>url.includes('api.github.com')?response({draft:true,tag_name:project.tag,assets:[]}):request(url))).length);
+});
+test('a GitHub prerelease cannot activate the stable Store launch',async()=>{
+ const request=fixture();
+ const errors=await verifyRelease(project,async url=>url.includes('api.github.com')
+   ? response({draft:false,prerelease:true,tag_name:project.tag,assets:[{browser_download_url:project.download}]})
+   : request(url));
+ assert.ok(errors.some(error=>error.includes('stable')));
 });

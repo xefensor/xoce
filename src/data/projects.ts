@@ -98,7 +98,7 @@ export const projects: Project[] = [
     "name": "Dynamic",
     "kind": "watchface",
     "description": "The time, weather and updates from your apps, right on your watchface.",
-    "version": "0.19.0",
+    "version": "0.19.1",
     "repo": "https://github.com/xefensor/pebble-watchface-dynamic",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -111,9 +111,9 @@ export const projects: Project[] = [
       "Follow music with the song, artist and optional artwork",
       "Choose which activities appear and their order"
     ],
-    "image": "/images/screenshots/dynamic-0.19.0-emery-clock-and-readings.png",
-    "imageVersion": "0.19.0",
-    "imageAlt": "Dynamic 0.19.0, Time 2: clock and readings.",
+    "image": "/images/screenshots/dynamic-0.19.1-emery-clock-and-readings.png",
+    "imageVersion": "0.19.1",
+    "imageAlt": "Dynamic 0.19.1, Time 2: clock and readings.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -130,16 +130,16 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dynamic-0.19.0-emery-clock-and-readings.png",
-        "alt": "Dynamic 0.19.0, Time 2: clock and readings."
+        "image": "/images/screenshots/dynamic-0.19.1-emery-clock-and-readings.png",
+        "alt": "Dynamic 0.19.1, Time 2: clock and readings."
       },
       "gabbro": {
-        "image": "/images/screenshots/dynamic-0.19.0-gabbro-clock-and-readings.png",
-        "alt": "Dynamic 0.19.0, Round 2: clock and readings."
+        "image": "/images/screenshots/dynamic-0.19.1-gabbro-clock-and-readings.png",
+        "alt": "Dynamic 0.19.1, Round 2: clock and readings."
       }
     },
     "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-    "artifactSha256": "596e0de5e0f2394e38e3e1489e1a954afb491bf1d8939a46878c11a1d39db53b"
+    "artifactSha256": "c5b3de037721778499d236ba694d7dfae446f658c2e6f7c2774b5d4cac851f19"
   },
   {
     "slug": "dashboard",
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     "name": "Dashboard",
     "kind": "app",
     "description": "Your current activity, latest notification and pinned shortcuts in one place.",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "repo": "https://github.com/xefensor/pebble-app-dashboard",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -171,9 +171,9 @@ export const projects: Project[] = [
       "Open collections and use the controls a source provides",
       "Choose readings, actions and app shortcuts for your pins"
     ],
-    "image": "/images/screenshots/dashboard-0.7.0-emery-overview.png",
-    "imageVersion": "0.7.0",
-    "imageAlt": "Dashboard 0.7.0, Time 2: overview.",
+    "image": "/images/screenshots/dashboard-0.7.1-emery-overview.png",
+    "imageVersion": "0.7.1",
+    "imageAlt": "Dashboard 0.7.1, Time 2: overview.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -190,16 +190,16 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dashboard-0.7.0-emery-overview.png",
-        "alt": "Dashboard 0.7.0, Time 2: overview."
+        "image": "/images/screenshots/dashboard-0.7.1-emery-overview.png",
+        "alt": "Dashboard 0.7.1, Time 2: overview."
       },
       "gabbro": {
-        "image": "/images/screenshots/dashboard-0.7.0-gabbro-overview.png",
-        "alt": "Dashboard 0.7.0, Round 2: overview."
+        "image": "/images/screenshots/dashboard-0.7.1-gabbro-overview.png",
+        "alt": "Dashboard 0.7.1, Round 2: overview."
       }
     },
     "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
-    "artifactSha256": "37684a12269fde1dfa964c2fc119639e1fc220808ed893c8ef93113b2c10172a"
+    "artifactSha256": "7170f478443ce90509fd80808341027479860cc03da8147451c6a157c175aa45"
   },
   {
     "slug": "timer",
@@ -217,7 +217,7 @@ export const projects: Project[] = [
     "name": "Timer",
     "kind": "app",
     "description": "Set a timer. Keep it ready for next time.",
-    "version": "0.15.0",
+    "version": "0.15.1",
     "repo": "https://github.com/xefensor/pebble-app-timer",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -230,9 +230,9 @@ export const projects: Project[] = [
       "Pause, resume or reset a saved timer when you need it",
       "See the countdown in Dynamic, Halftone or Dashboard with a connected phone"
     ],
-    "image": "/images/screenshots/timer-0.15.0-emery-edit-a-duration.png",
-    "imageVersion": "0.15.0",
-    "imageAlt": "Timer 0.15.0, Time 2: edit a duration.",
+    "image": "/images/screenshots/timer-0.15.1-emery-your-first-timer.png",
+    "imageVersion": "0.15.1",
+    "imageAlt": "Timer 0.15.1, Time 2: your first timer.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -249,16 +249,16 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/timer-0.15.0-emery-edit-a-duration.png",
-        "alt": "Timer 0.15.0, Time 2: edit a duration."
+        "image": "/images/screenshots/timer-0.15.1-emery-your-first-timer.png",
+        "alt": "Timer 0.15.1, Time 2: your first timer."
       },
       "gabbro": {
-        "image": "/images/screenshots/timer-0.15.0-gabbro-edit-a-duration.png",
-        "alt": "Timer 0.15.0, Round 2: edit a duration."
+        "image": "/images/screenshots/timer-0.15.1-gabbro-saved-timers.png",
+        "alt": "Timer 0.15.1, Round 2: saved timers."
       }
     },
     "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-    "artifactSha256": "ec36ca616f20ebafce4d8c5ebf468f841b5d4d7b9f1173fdabf13d96a353955c"
+    "artifactSha256": "ef0bc144cb324cca6fdc7d82ebb0adfecc116d348a2be53d98c63b118e95fb0f"
   },
   {
     "slug": "open-activity",
@@ -279,7 +279,7 @@ export const projects: Project[] = [
     "name": "Open Activity",
     "kind": "app",
     "description": "Use Quick Launch to open the app behind a timer or other activity.",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "repo": "https://github.com/xefensor/pebble-app-open-activity",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -292,9 +292,9 @@ export const projects: Project[] = [
       "Assign different shortcuts to primary and secondary activities",
       "Open from the app list for setup; use Quick Launch to open an activity"
     ],
-    "image": "/images/screenshots/open-activity-0.4.0-emery-shortcut-setup.png",
-    "imageVersion": "0.4.0",
-    "imageAlt": "Open Activity 0.4.0, Time 2: shortcut setup.",
+    "image": "/images/screenshots/open-activity-0.4.1-emery-shortcut-setup.png",
+    "imageVersion": "0.4.1",
+    "imageAlt": "Open Activity 0.4.1, Time 2: shortcut setup.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -311,12 +311,12 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/open-activity-0.4.0-emery-shortcut-setup.png",
-        "alt": "Open Activity 0.4.0, Time 2: shortcut setup."
+        "image": "/images/screenshots/open-activity-0.4.1-emery-shortcut-setup.png",
+        "alt": "Open Activity 0.4.1, Time 2: shortcut setup."
       },
       "gabbro": {
-        "image": "/images/screenshots/open-activity-0.4.0-gabbro-shortcut-setup.png",
-        "alt": "Open Activity 0.4.0, Round 2: shortcut setup."
+        "image": "/images/screenshots/open-activity-0.4.1-gabbro-shortcut-setup.png",
+        "alt": "Open Activity 0.4.1, Round 2: shortcut setup."
       }
     },
     "optionalConnections": [
@@ -324,7 +324,7 @@ export const projects: Project[] = [
       "halftone"
     ],
     "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
-    "artifactSha256": "f7be97b05edc0ee79738a8c03f38bb626b888af877c020d6e386590948bb69b7"
+    "artifactSha256": "0cabf5d92b9b105ac301dbed43d61a0d746c83fda017e28f305c8a98071f2293"
   },
   {
     "slug": "halftone",
@@ -334,7 +334,7 @@ export const projects: Project[] = [
     "platform": "PebbleOS",
     "compatibility": "Pebble Time 2 and Round 2",
     "status": "Store release in preparation",
-    "version": "1.10.0",
+    "version": "1.10.1",
     "repo": "https://github.com/xefensor/halftone-watchface",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -362,9 +362,9 @@ export const projects: Project[] = [
       "chmu-weather"
     ],
     "previewType": "watch",
-    "image": "/images/screenshots/halftone-1.10.0-emery-clock-and-readings.png",
-    "imageVersion": "1.10.0",
-    "imageAlt": "Halftone 1.10.0, Time 2: clock and readings.",
+    "image": "/images/screenshots/halftone-1.10.1-emery-clock-and-readings.png",
+    "imageVersion": "1.10.1",
+    "imageAlt": "Halftone 1.10.1, Time 2: clock and readings.",
     "previousRelease": {
       "version": "1.9.0-rc.6",
       "tag": "v1.9.0-rc.6",
@@ -379,16 +379,16 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/halftone-1.10.0-emery-clock-and-readings.png",
-        "alt": "Halftone 1.10.0, Time 2: clock and readings."
+        "image": "/images/screenshots/halftone-1.10.1-emery-clock-and-readings.png",
+        "alt": "Halftone 1.10.1, Time 2: clock and readings."
       },
       "gabbro": {
-        "image": "/images/screenshots/halftone-1.10.0-gabbro-clock-and-readings.png",
-        "alt": "Halftone 1.10.0, Round 2: clock and readings."
+        "image": "/images/screenshots/halftone-1.10.1-gabbro-clock-and-readings.png",
+        "alt": "Halftone 1.10.1, Round 2: clock and readings."
       }
     },
     "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
-    "artifactSha256": "49d92e9cf5a434095c75bde06e0ec4386ce7112bdf010b7cdd5f2e48462c74ef"
+    "artifactSha256": "029dccc901c0df0a071f4253fe911d45af1a2491def4e53b66957c5544e746ec"
   },
   {
     "slug": "chmu-weather",

@@ -24,7 +24,7 @@ XOCE_SITE_URL=http://127.0.0.1:4322/xoce/ XOCE_QA_OUTPUT=build/qa/browser npm ru
 
 ## Launch content
 
-The preview covers Dynamic 0.19.0, Halftone 1.10.0, Dashboard 0.7.0, Timer 0.15.0, Open Activity 0.4.0 and ČHMÚ Weather 1.0.2. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch screen. Duo and Personal Weather are excluded.
+The preview covers Dynamic 0.19.1, Halftone 1.10.1, Dashboard 0.7.1, Timer 0.15.1, Open Activity 0.4.1 and ČHMÚ Weather 1.0.2. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch screen. Duo and Personal Weather are excluded.
 
 [Project metadata](src/data/projects.ts) owns publication status, Store links, exact GitHub downloads, UUIDs, checked PBW hashes and per-shape previews. [Screenshot metadata](src/data/launch-screenshots.json), [asset provenance](docs/asset-provenance.json) and [policy provenance](docs/policy-provenance.json) distinguish native emulator images, packaged settings previews and app-owned privacy documents. Historical images keep their original bytes and records.
 

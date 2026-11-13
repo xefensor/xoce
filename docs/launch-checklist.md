@@ -6,11 +6,11 @@ The redesign is a local preview on `feat/pebble-store-launch`. The public site a
 
 | Product | Version | Website | Support | Privacy |
 | --- | --- | --- | --- | --- |
-| Dynamic | 0.19.0 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
-| Halftone | 1.10.0 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
-| Dashboard | 0.7.0 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
-| Timer | 0.15.0 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
-| Open Activity | 0.4.0 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
+| Dynamic | 0.19.1 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
+| Halftone | 1.10.1 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
+| Dashboard | 0.7.1 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
+| Timer | 0.15.1 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
+| Open Activity | 0.4.1 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
 | ČHMÚ Weather | 1.0.2 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
 
 Public URLs use `https://xefensor.github.io/xoce` before these routes. They become public only when the website is deployed. Until then, use already-published app-owned documentation for Store fields; do not point a live listing to an unavailable page. This website task does not edit app manifests or Store submissions.
@@ -43,4 +43,27 @@ After separately authorized publication, verify the six product pages, installat
 
 ## Inspect packages when refreshing the preview
 
-`python3 scripts/audit-review-packages.py --bundle /path/to/Round2-Development/revision-2 --weather-pbw /path/to/CHMU-Weather-1.0.2.pbw --output docs/reviewed-artifacts.json` reads the actual appinfo manifests, verifies UUID/version/platforms and checked hashes against website metadata, and records the inspected bytes. This prevents an older cached package from being described as a newer version. The command reads app artifacts and never builds, edits or publishes an app.
+`python3 scripts/audit-review-packages.py --bundle /path/to/Store-Launch/stable-2026-11-13 --output docs/reviewed-artifacts.json` reads all six actual appinfo manifests, verifies UUID/version/platforms and checked hashes against website metadata, and records the inspected bytes. The older five-native-app bundle form accepts a separate `--weather-pbw` argument. Both forms require each public product exactly once. This prevents an older cached package from being described as a newer version. The command reads app artifacts and never builds, edits or publishes an app.
+
+## Stable launch acceptance — 2026-11-13
+
+Xef reviewed and accepted the Round 2 implementation and selected listed, stable
+public releases. No additional physical-device review is a prerequisite for this
+launch. Recorded emulator, simulated phone, live-service and physical-device
+evidence remain distinct; approval is not a new test result. The five native
+patch versions preserve all older frozen archives. Public ČHMÚ 1.0.2 is reused
+unchanged. GitHub prereleases cannot pass the stable website launch gate.
+
+The prepared six-product bundle records exact source commits, packages, vendor
+archives, checksums and upload instructions. Halftone updates existing Store
+listing `48d7f4eab704414c8bc1fa7e`; the other UUIDs had no public listing when
+checked. Before creating a listing, inspect the signed-in Dashboard for drafts or
+hidden entries and verify ownership and the unused numeric version.
+
+Publish matching GitHub assets first and upload those same frozen PBWs through
+the Developer Dashboard. Use app-owned GitHub privacy/support URLs for initial
+submissions. Once all public metadata and PBW bytes pass `check:launch`, activate
+and deploy this website, verify its routes, then update Store listing URLs to the
+hosted product/support/privacy pages. Current preview records retain no active
+installation links before that verification. Weather's qualifying main pushes
+can publish GitHub releases automatically; the native apps use manual dispatch.

@@ -34,7 +34,7 @@ export async function verifyRelease(project, request=fetch) {
     const app=response.data?.find(a=>a.uuid?.toLowerCase()===project.uuid.toLowerCase());
     errors.push(...listingProblems(project,app));if(errors.length)return errors;
     const release=await read('https://api.github.com/repos/'+new URL(project.repo).pathname.slice(1)+'/releases/tags/'+project.tag);
-    if(release.draft||release.tag_name!==project.tag||!release.assets?.some(a=>a.browser_download_url===project.download))return ['GitHub release or exact PBW asset is not public'];
+    if(release.draft||release.prerelease!==false||release.tag_name!==project.tag||!release.assets?.some(a=>a.browser_download_url===project.download))return ['GitHub release must be public and stable with the exact PBW asset'];
     const storePbw=app.latest_release.pbw_file;
     const host=new URL(storePbw).hostname;
     if(!['appstore-api.repebble.com','assets.repebble.com'].includes(host)||new URL(storePbw).protocol!=='https:')return ['Unexpected Store artifact origin'];
