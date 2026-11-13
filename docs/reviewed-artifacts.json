@@ -3,15 +3,15 @@
   "artifacts": [
     {
       "product": "Dynamic",
-      "version": "0.19.1",
+      "version": "1.0.0",
       "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "c5b3de037721778499d236ba694d7dfae446f658c2e6f7c2774b5d4cac851f19",
-      "sourceCommit": "13e340ebe338b13bc0d3aab57f2c06a402125d32",
-      "sourceFile": "Dynamic-0.19.1.pbw"
+      "sha256": "2c13fae81107fe793c0df3a23270eb1b1463dd1518dac2f68cdf0625f755f3f3",
+      "sourceCommit": "417e5bc2e4813dd6b1e47670ff07c42a92581baa",
+      "sourceFile": "Dynamic-1.0.0.pbw"
     },
     {
       "product": "Halftone",
@@ -27,39 +27,39 @@
     },
     {
       "product": "Dashboard",
-      "version": "0.7.1",
+      "version": "1.0.0",
       "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "7170f478443ce90509fd80808341027479860cc03da8147451c6a157c175aa45",
-      "sourceCommit": "85f2ab6952ee227dd0e634b38fe216278287cbdd",
-      "sourceFile": "Dashboard-0.7.1.pbw"
+      "sha256": "96cd53f2ad6dfc477ee70f1d237fc8a9f5702cf83c02e208f91358a3285cf5a3",
+      "sourceCommit": "a5e77ee9728782ab1c0acb2b2aef10e28c1ebcf2",
+      "sourceFile": "Dashboard-1.0.0.pbw"
     },
     {
       "product": "Timer",
-      "version": "0.15.1",
+      "version": "1.0.0",
       "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "ef0bc144cb324cca6fdc7d82ebb0adfecc116d348a2be53d98c63b118e95fb0f",
-      "sourceCommit": "10ad8e51f86cb39c2d749f6adaec2d7169a93109",
-      "sourceFile": "Timer-0.15.1.pbw"
+      "sha256": "317f212f1d4739e9fd72dd9bbf1c86e290d8ae606fd9b05e20c584a0f29392bb",
+      "sourceCommit": "d6aa23f139e3343b5525bf7571b0938e579dafa8",
+      "sourceFile": "Timer-1.0.0.pbw"
     },
     {
       "product": "Open Activity",
-      "version": "0.4.1",
+      "version": "1.0.0",
       "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "0cabf5d92b9b105ac301dbed43d61a0d746c83fda017e28f305c8a98071f2293",
-      "sourceCommit": "5cc51ad7bef963af32a9cce51cdd8e0c94b47a6f",
-      "sourceFile": "Open-Activity-0.4.1.pbw"
+      "sha256": "89626b480cfff05435536119215c54a15e9d206acd4034cdbdfe460326ce303c",
+      "sourceCommit": "fd58564ce4f75a6f51f38e7cdfe96e4d4ef128fc",
+      "sourceFile": "Open-Activity-1.0.0.pbw"
     },
     {
       "product": "ČHMÚ Weather",

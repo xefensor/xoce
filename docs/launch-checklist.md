@@ -6,11 +6,11 @@ The redesign is a local preview on `feat/pebble-store-launch`. The public site a
 
 | Product | Version | Website | Support | Privacy |
 | --- | --- | --- | --- | --- |
-| Dynamic | 0.19.1 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
+| Dynamic | 1.0.0 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
 | Halftone | 1.10.1 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
-| Dashboard | 0.7.1 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
-| Timer | 0.15.1 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
-| Open Activity | 0.4.1 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
+| Dashboard | 1.0.0 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
+| Timer | 1.0.0 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
+| Open Activity | 1.0.0 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
 | ČHMÚ Weather | 1.0.2 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
 
 Public URLs use `https://xefensor.github.io/xoce` before these routes. They become public only when the website is deployed. Until then, use already-published app-owned documentation for Store fields; do not point a live listing to an unavailable page. This website task does not edit app manifests or Store submissions.
@@ -43,15 +43,14 @@ After separately authorized publication, verify the six product pages, installat
 
 ## Inspect packages when refreshing the preview
 
-`python3 scripts/audit-review-packages.py --bundle /path/to/Store-Launch/stable-2026-11-13 --output docs/reviewed-artifacts.json` reads all six actual appinfo manifests, verifies UUID/version/platforms and checked hashes against website metadata, and records the inspected bytes. The older five-native-app bundle form accepts a separate `--weather-pbw` argument. Both forms require each public product exactly once. This prevents an older cached package from being described as a newer version. The command reads app artifacts and never builds, edits or publishes an app.
+`python3 scripts/audit-review-packages.py --bundle /path/to/Store-Launch/stable-1.0-2026-11-13 --output docs/reviewed-artifacts.json` reads all six actual appinfo manifests, verifies UUID/version/platforms and checked hashes against website metadata, and records the inspected bytes. The older five-native-app bundle form accepts a separate `--weather-pbw` argument. Both forms require each public product exactly once. This prevents an older cached package from being described as a newer version. The command reads app artifacts and never builds, edits or publishes an app.
 
 ## Stable launch acceptance — 2026-11-13
 
 Xef reviewed and accepted the Round 2 implementation and selected listed, stable
 public releases. No additional physical-device review is a prerequisite for this
 launch. Recorded emulator, simulated phone, live-service and physical-device
-evidence remain distinct; approval is not a new test result. The five native
-patch versions preserve all older frozen archives. Public ČHMÚ 1.0.2 is reused
+evidence remain distinct; approval is not a new test result. The four first-stable 1.0.0 versions preserve all older frozen archives. Public ČHMÚ 1.0.2 is reused
 unchanged. GitHub prereleases cannot pass the stable website launch gate.
 
 The prepared six-product bundle records exact source commits, packages, vendor
@@ -67,3 +66,5 @@ and deploy this website, verify its routes, then update Store listing URLs to th
 hosted product/support/privacy pages. Current preview records retain no active
 installation links before that verification. Weather's qualifying main pushes
 can publish GitHub releases automatically; the native apps use manual dispatch.
+
+Xef selected 1.0.0 for Dynamic, Dashboard, Timer and Open Activity as their first stable public launch. Halftone remains 1.10.1 and ČHMÚ Weather remains 1.0.2. The earlier patch-version kits stay frozen and are superseded by the `stable-1.0-2026-11-13` bundle.
