@@ -8,13 +8,13 @@ order: 3
 
 [Halftone](/projects/halftone/) is an alternative everyday clock to Dynamic. Its dot border, large clock and two readings have their own appearance. You can keep both watchfaces installed and choose which one is active.
 
-This guide describes the downloadable **1.9.0-rc.6 release candidate**, not newer development source. It supports **Pebble Time 2**. This candidate does **not** show Timer activities or work with Open Activity; use [Dynamic](/projects/dynamic/) for the Timer + watchface setup.
+This guide describes **Halftone 1.10.0** for **Time 2 and Round 2**. Halftone can display Timer and other compatible activities, and works with Open Activity. Check its product page for release status.
 
 ## Install and choose the watchface
 
-1. Set up the [official Pebble phone app](https://repebble.com/app) and pair your Pebble Time 2.
+1. Set up the [official Pebble phone app](https://repebble.com/app) and pair your Time 2 or Round 2.
 2. In the phone app, enable **Settings → Plugins → Plugins/permissions preview** for shared readings. Labels can vary between phone-app versions.
-3. Download **Halftone 1.9.0-rc.6** from its [product page](/projects/halftone/), then open the `.pbw` with Pebble. See the [Android and iPhone file-opening instructions](/docs/pebble/setup/#before-installing) if needed.
+3. Once the release is published, open its Pebble Store listing from the [Halftone product page](/projects/halftone/) and install it. A matching `.pbw` will also be available for manual installation. See the [Android and iPhone file-opening instructions](/docs/pebble/setup/#before-installing) if needed.
 4. Choose Halftone in the phone app’s Watchfaces section to make it your active clock screen.
 
 Clock and date remain native watch functions. Weather and other shared readings depend on your phone, its available plugins and their permissions.
@@ -38,6 +38,12 @@ The two readings make room for music or a new notification while remaining visib
 Music and notification sources in this release require **Android**. Allow the relevant permissions through Pebble. Music is enabled by default; notification summaries and message text are **off** by default.
 
 If you enable notifications, choose how much private information should appear on the watch. You can filter the displayed apps in Halftone’s settings. Playback controls remain in Pebble’s Music app; Halftone has no custom watch-button controls.
+
+## Add Timer and other activities
+
+Open Halftone’s settings and choose which activities appear and their priority. Enable Timer, start a countdown on the watch, then return to Halftone with the phone connected. The primary activity uses the larger lower area; the secondary activity stays in its compact row.
+
+For shortcuts, choose **Halftone** as the watchface in [Open Activity settings](/docs/pebble/setup/#open-activity), then match its Primary/Secondary shortcuts to Pebble Quick Launch.
 
 ## If a reading is missing
 

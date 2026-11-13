@@ -4,10 +4,10 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 const destination = '/projects/phone/';
 const fragments = { 'with-or-without-a-watch': '/projects/phone/#android-app', availability: '/projects/phone/#plan-unknowns-title', 'if-you-also-use-a-pebble': '/projects/phone/#pebble-companion' };
 ---
-<BaseLayout title="Phone plan" description="The Android app and its optional Pebble companion share one Phone plan.">
+<BaseLayout canonical={destination.split('#')[0]} title="Phone plan" description="The Android app and its optional Pebble companion share one Phone plan.">
   <Fragment slot="head">
     <meta name="robots" content="noindex,follow" />
-    <link rel="canonical" href={sitePath(destination)} />
+
     <meta name="phone-plan-destination" content={sitePath(destination)} data-fragments={JSON.stringify(Object.fromEntries(Object.entries(fragments).map(([key, value]) => [key, sitePath(value)])))} />
     <script is:inline>
       const config = document.querySelector('meta[name="phone-plan-destination"]');

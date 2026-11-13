@@ -8,14 +8,14 @@ order: 4
 
 [ČHMÚ Weather](/projects/chmu-weather/) is an **unofficial weather plugin by Xef**. It runs inside the official Pebble phone app and supplies data to Pebble Weather and compatible watchfaces and apps. It has no watch screen of its own.
 
-This guide covers the public **1.0.1** release. It uses public ČHMÚ station observations and ALADIN forecasts, with optional Open-Meteo completion. Coverage is for **Czech locations**; nearby stations do not measure your exact street.
+This guide covers **ČHMÚ Weather 1.0.2**. Check its product page for release status. It uses public ČHMÚ station observations and ALADIN forecasts, with optional Open-Meteo completion. Coverage is for **Czech locations**; nearby stations do not measure your exact street.
 
 ## Install the phone plugin
 
 1. Install and update the [official Pebble phone app](https://repebble.com/app). Enable **Settings → Plugins → Plugins/permissions preview** if needed.
-2. Download the public **ČHMÚ Weather 1.0.1** `.pbw` from its [product page](/projects/chmu-weather/).
-3. Open the file with the Pebble phone app. On Android, use the download’s **Open with / Share** menu if necessary. On iPhone, open it from Files and choose Pebble in the share sheet. The plugin is installed in the phone app, not as an app in the watch’s launcher.
-4. Allow the plugin’s required location and internet access through Pebble’s permission prompts.
+2. Once published, install **ČHMÚ Weather 1.0.2** from the Store link on its [product page](/projects/chmu-weather/), or use the matching manual `.pbw` download.
+3. If installing a `.pbw` manually, open it with the Pebble phone app. On Android, use the download’s **Open with / Share** menu if necessary. On iPhone, open it from Files and choose Pebble in the share sheet. The plugin is installed in the phone app, not as an app in the watch’s launcher.
+4. Allow the required public-data Internet access. Location access is optional when you use a saved location through Pebble’s permission prompts.
 5. Find **ČHMÚ Weather** in the Pebble phone app’s Plugins tab and open its settings.
 
 There is no API key, separate Android application or weather-service account to create. This is the public plugin, not the separately labelled **ČHMÚ Weather Personal** build.
@@ -56,6 +56,6 @@ Weather-service failures, missing observations and Pebble’s import schedule ca
 
 Weather data comes from **Český hydrometeorologický ústav (ČHMÚ)** and, when enabled, **Open-Meteo**, with their applicable attribution terms. The plugin is independent of those providers and Core Devices. It has no ads, analytics or developer-operated server.
 
-The public release excludes ČHMÚ’s authenticated mobile-app service. [Privacy information](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/PRIVACY.md) and [third-party notices](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/THIRD_PARTY.md) describe its data sources and requests.
+The public release excludes ČHMÚ’s authenticated mobile-app service. [Privacy information](/projects/chmu-weather/privacy/) and [third-party notices](https://github.com/xefensor/pebble-chmu-weather/blob/main/THIRD_PARTY.md) describe its data sources and requests.
 
 [Download ČHMÚ Weather](/projects/chmu-weather/) · [Choose your XOCE apps](/docs/#choose-what-you-need)

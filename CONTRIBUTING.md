@@ -62,3 +62,7 @@ Ordinary GitHub CI also runs the browser suite using the hosted runner’s Chrom
 retains its report/screenshots for 14 days. Successful `main` runs then publish the exact
 checked build; pull requests and other branches do not deploy. See the publication guide
 for manual reruns and recovery.
+
+## Store launch preview
+
+The six consumer records may describe checked launch candidates when `publication` is `preview`; these have no active installation links. This explicitly approved local preview does not replace public releases. See [launch checklist](docs/launch-checklist.md) for exact Store/GitHub verification and the main deployment gate. Run `npm run test:launch` for the offline verification regressions. `npm run check:launch` performs public read-only network checks and intentionally fails for preview records.

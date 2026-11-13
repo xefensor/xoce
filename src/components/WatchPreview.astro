@@ -1,95 +1,14 @@
 ---
 import { sitePath } from '../lib/site';
-/** Official Pebble Appstore frame; source and credits in docs/asset-provenance.json.
- * The native screen remains a separate, unchanged image with its 200:228 ratio.
- */
-interface Props {
-  image: string;
-  alt: string;
-  caption?: string;
-  compact?: boolean;
-  eager?: boolean;
-  class?: string;
-}
-const { image, alt, caption, compact = false, eager = false, class: className = '' } = Astro.props;
+import type { WatchPlatform } from '../data/projects';
+interface Props { image: string; alt: string; caption?: string; compact?: boolean; eager?: boolean; class?: string; platform?: WatchPlatform; framed?: boolean }
+const { image, alt, caption, compact = false, eager = false, class: className = '', platform = 'emery', framed = !compact } = Astro.props;
+const round = platform === 'gabbro';
 ---
-<figure class:list={['watch-preview', { 'watch-preview-compact': compact }, className]}>
-  <div class="pebble-device" data-watch-device>
-    <div class="pebble-display">
-      <img src={sitePath(image)} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" fetchpriority={eager ? 'high' : 'auto'} />
-    </div>
+<figure class:list={['watch-preview', { 'watch-preview-compact': compact, 'round-preview': round, 'raw-preview': !framed || round }, className]} data-watch-platform={platform}>
+  {framed && !round ? <div class="pebble-device" data-watch-device>
+    <div class="pebble-display"><img src={sitePath(image)} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
     <img class="pebble-frame" src={sitePath('/images/devices/pebble-time-2.png')} alt="" aria-hidden="true" width="488" height="700" loading={eager ? 'eager' : 'lazy'} decoding="async" />
-  </div>
+  </div> : <img class="native-screen" src={sitePath(image)} alt={alt} width={round ? 260 : 200} height={round ? 260 : 228} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
   {caption && <figcaption>{caption}</figcaption>}
 </figure>
-
-<style>
-  .watch-preview {
-    --watch-width: 348px;
-    display: grid;
-    justify-items: center;
-    align-content: center;
-    width: min(var(--watch-width), 100%);
-    min-width: 0;
-    margin: 0;
-    isolation: isolate;
-  }
-  .pebble-device {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 488 / 700;
-    filter: drop-shadow(0 2px 2px rgb(12 24 21 / .14)) drop-shadow(0 16px 18px rgb(12 24 21 / .13));
-  }
-  .pebble-display {
-    position: absolute;
-    left: 20.287%;
-    top: 26.857%;
-    width: 57.582%;
-    height: 48.286%;
-    display: flex;
-    align-items: center;
-    background: #000;
-    /* The matte follows the aperture, so its corners cannot protrude. */
-    border-radius: 14% / 12%;
-    overflow: hidden;
-  }
-  .pebble-display img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 200 / 228;
-    object-fit: contain;
-    flex: 0 0 auto;
-    max-width: none;
-    margin: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    image-rendering: pixelated;
-  }
-  .pebble-frame {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: none;
-    pointer-events: none;
-  }
-  :global([data-theme='dark']) .pebble-device {
-    filter: drop-shadow(0 2px 2px rgb(0 0 0 / .3)) drop-shadow(0 18px 22px rgb(0 0 0 / .3));
-  }
-  figcaption {
-    max-width: 34ch;
-    margin-top: 19px;
-    color: var(--muted);
-    font-size: .75rem;
-    line-height: 1.65;
-    text-align: center;
-    text-wrap: pretty;
-  }
-  .watch-preview-compact { --watch-width: 160px; }
-  .watch-preview-compact figcaption { font-size: .7rem; }
-  @media (forced-colors: active) { .pebble-device { outline: 1px solid CanvasText; } }
-</style>

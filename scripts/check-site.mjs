@@ -64,6 +64,7 @@ for (const filename of files.filter((file) => file.endsWith('.html'))) {
   if ((html.match(/<h1(?:\s|>)/g) || []).length !== 1) problems.push(`${route}: expected one main heading`);
   if (!/<title>[^<]*XOCE[^<]*<\/title>/i.test(html)) problems.push(`${route}: missing meaningful XOCE title`);
   if (!/<main(?:\s|>)/i.test(html)) problems.push(`${route}: missing main landmark`);
+  if ((html.match(/<link\b[^>]*rel="canonical"/g) || []).length !== 1) problems.push(`${route}: expected one canonical URL`);
   pages.set(route, { filename, html, ids: new Set(ids), references: references(html) });
 }
 
@@ -249,9 +250,30 @@ for (const project of projects) {
     if (!project.download.startsWith(project.repo?.replace(/\/$/, '') + '/releases/download/' + project.tag + '/')) problems.push(`${route}: download is not pinned to its declared repository and release`);
     if (project.kind !== 'library' && !project.download.endsWith('-' + project.version + '.pbw')) problems.push(`${route}: PBW filename/version differ`);
     needsLink(route, project.download, 'exact released download');
-  } else if (project.kind !== 'library') problems.push(`${route}: available watch app is missing a download`);
+  } else if (project.kind !== 'library' && project.publication !== 'preview') problems.push(`${route}: published app is missing a download`);
+  if (project.publication === 'published') { needsLink(route, project.storeUrl, 'public Store listing'); if (!main.includes('data-install-state="published"')) problems.push(`${route}: published installation action missing`); }
+  if (project.publication === 'preview' && (project.download || project.storeUrl)) problems.push(`${route}: preview advertises an unverified install`);
+  if (project.publication === 'preview' && !main.includes('data-install-state="preview"')) problems.push(`${route}: release preparation must be visible`);
+  if (project.kind !== 'library') {
+    needsLink(route, project.supportUrl, 'product support'); needsLink(route, project.privacyUrl, 'product privacy');
+    for (const suffix of ['privacy','support']) if (!pages.has(`/projects/${project.slug}/${suffix}/`)) problems.push(`${route}: missing ${suffix} page`);
+    if (project.previewType === 'watch') for (const shape of ['emery','gabbro']) {
+      const image=project.previews?.[shape];
+      if (!image || !links.includes(image.image)) problems.push(`${route}: missing ${shape} preview`);
+    }
+  }
   if (project.licence) needsLink(route, project.licence.url, 'project licence');
   if (project.image && !links.includes(project.image)) problems.push(`${route}: missing the native product capture`);
+}
+const policies=JSON.parse(fs.readFileSync(path.join(root,'docs/policy-provenance.json'),'utf8'));
+for (const record of policies.filter(r=>r.kind==='privacy')) {
+  const source=fs.readFileSync(path.join(root,'src/pages/projects',record.project,'privacy.md'),'utf8').replace(/^---[\s\S]*?---\n\n/,'');
+  if (createHash('sha256').update(source).digest('hex')!==record.source_body_sha256) problems.push(record.project+': privacy text differs from app-owned policy');
+}
+const reviewed=JSON.parse(fs.readFileSync(path.join(root,'docs/reviewed-artifacts.json'),'utf8'));
+for (const project of catalogueProducts) {
+  const artifact=reviewed.artifacts.find(a=>a.product===project.name);
+  if (!artifact || artifact.version!==project.version || artifact.uuid.toLowerCase()!==project.uuid?.toLowerCase() || artifact.sha256!==project.artifactSha256 || JSON.stringify(artifact.watchPlatforms)!==JSON.stringify([...(project.watchPlatforms??[])].sort())) problems.push(project.name+': website differs from the inspected PBW');
 }
 const provenance = JSON.parse(fs.readFileSync(path.join(root, 'docs/asset-provenance.json'), 'utf8'));
 for (const entry of [provenance.device_presentation, ...provenance.images]) {
@@ -276,10 +298,10 @@ for (const [slug, screenshots] of Object.entries(screenshotGalleries)) {
   for (const screenshot of screenshots) {
     const capture = provenance.images.find(entry => entry.site_path === screenshot.image);
     const expectedEvidence = screenshot.kind === 'watch' ? 'native-emulator-screenshot' : 'packaged-settings-browser-preview';
-    if (!capture || capture.evidence_type !== expectedEvidence || capture.capture_version !== project?.version || screenshot.version !== project?.version || capture.source_url !== screenshot.source) problems.push(`${slug}: screenshot release, source or evidence classification differs: ${screenshot.image}`);
+    if (!capture || capture.evidence_type !== expectedEvidence || capture.capture_version !== project?.version || screenshot.version !== project?.version || (capture.source_url ?? '/preview-provenance.json') !== screenshot.source) problems.push(`${slug}: screenshot release, source or evidence classification differs: ${screenshot.image}`);
     if (!capture || capture.width !== screenshot.width || capture.height !== screenshot.height) problems.push(`${slug}: gallery dimensions differ: ${screenshot.image}`);
     if (!references(markup).includes(screenshot.image) || !references(markup).includes(screenshot.source)) problems.push(`${slug}: screenshot or source link missing: ${screenshot.image}`);
-    if (screenshot.kind === 'watch' && (screenshot.width !== 200 || screenshot.height !== 228)) problems.push(`${slug}: native watch capture proportions differ`);
+    if (screenshot.kind === 'watch' && (screenshot.width !== (screenshot.platform==='gabbro'?260:200) || screenshot.height !== (screenshot.platform==='gabbro'?260:228))) problems.push(`${slug}: native watch capture proportions differ`);
   }
 }
 const searchPath = path.join(dist, 'search.json');

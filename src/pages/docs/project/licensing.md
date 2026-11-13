@@ -12,12 +12,12 @@ Licensing is stated per project. The current Pebble repositories declare **PolyF
 
 | Project | Source | Licence at the listed release |
 | --- | --- | --- |
-| Dynamic 0.18.3 | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.18.3/LICENSE) |
-| Dashboard 0.6.3 | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/v0.6.3/LICENSE) |
-| Timer 0.14.5 | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/LICENSE) |
-| Open Activity 0.3.3 | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/v0.3.3/LICENSE) |
-| Halftone 1.9.0-rc.6 | [halftone-watchface](https://github.com/xefensor/halftone-watchface) | [LICENSE](https://github.com/xefensor/halftone-watchface/blob/v1.9.0-rc.6/LICENSE) |
-| ČHMÚ Weather 1.0.1 | [pebble-chmu-weather](https://github.com/xefensor/pebble-chmu-weather) | [LICENSE](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/LICENSE) |
+| Dynamic 0.19.0 | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/main/LICENSE) |
+| Dashboard 0.7.0 | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/main/LICENSE) |
+| Timer 0.15.0 | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/main/LICENSE) |
+| Open Activity 0.4.0 | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/main/LICENSE) |
+| Halftone 1.10.0 | [halftone-watchface](https://github.com/xefensor/halftone-watchface) | [LICENSE](https://github.com/xefensor/halftone-watchface/blob/main/LICENSE) |
+| ČHMÚ Weather 1.0.2 | [pebble-chmu-weather](https://github.com/xefensor/pebble-chmu-weather) | [LICENSE](https://github.com/xefensor/pebble-chmu-weather/blob/main/LICENSE) |
 | Activities 0.4.4 | [pebble-lib-activities](https://github.com/xefensor/pebble-lib-activities) | [LICENSE](https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/LICENSE) |
 | Core 0.5.2 | [pebble-lib-core](https://github.com/xefensor/pebble-lib-core) | [LICENSE](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/LICENSE) |
 

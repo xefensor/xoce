@@ -1,0 +1,17 @@
+---
+import type { Project, WatchPlatform } from '../data/projects';
+import WatchPreview from './WatchPreview.astro';
+interface Props { project: Project }
+const { project } = Astro.props;
+const shapes: {id: WatchPlatform; name: string}[] = [{id:'emery',name:'Time 2'},{id:'gabbro',name:'Round 2'}];
+---
+<fieldset class="shape-preview" data-shape-preview>
+  <legend class="sr-only">Preview {project.name} on your watch</legend>
+  {shapes.map((shape,index)=><input class="shape-radio sr-only" type="radio" name={`shape-${project.slug}`} id={`${project.slug}-${shape.id}`} value={shape.id} checked={index===0} aria-label={`${project.name} on ${shape.name}`}/>)}
+  <div class="shape-choices">{shapes.map(shape=><label for={`${project.slug}-${shape.id}`}>{shape.name}</label>)}</div>
+  <div class="shape-stages">{shapes.map(shape=>{
+    const preview=project.previews?.[shape.id];
+    return preview && <div class={`shape-stage stage-${shape.id}`}><WatchPreview image={preview.image} alt={preview.alt} platform={shape.id} eager/></div>;
+  })}</div>
+  <p class="preview-caption">{project.name} v{project.imageVersion} · native emulator<br/>Example data · {project.publication === 'preview' ? 'launch preview' : 'released version'}</p>
+</fieldset>

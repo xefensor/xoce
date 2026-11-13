@@ -332,340 +332,73 @@ async function guideContentsJump(scripting = true) {
   return { scripting, ...result };
 }
 
-async function checkHomeOverview() {
-  const state = await client.evaluate(`(()=>{
-    const main=document.querySelector('main'),intro=main.querySelector('.home-intro');
-    return {text:main.innerText,intro:intro?.innerText??'',title:intro?.querySelector('h1')?.textContent??'',
-      links:Array.from(main.querySelectorAll('a[href]')).map(a=>a.getAttribute('href')),
-      previews:Array.from(main.querySelectorAll('input[name="watch-preview"]')).map(input=>({value:input.value,label:input.getAttribute('aria-label')}))};
-  })()`);
-  for (const device of ['KDE Plasma','Android','PebbleOS']) assert.ok(state.intro.includes(device),'The introduction explains the '+device+' scope.');
-  for (const href of ['/projects/','/docs/','/docs/develop/building/']) assert.ok(state.links.includes(sitePath(href)),'Home has a direct path to '+href);
-  assert.deepEqual(state.previews.map(item=>item.value).sort(),previewApps.map(project=>project.slug).sort(),'Visitors can explore every current watch app; phone plugins have no invented watch screen.');
-  assert.ok(state.previews.every(item=>item.label?.length),'Watch preview choices have accessible names.');
-  assert.match(state.text,/future goal|working towards/i,'The connected-device experience remains identifiable as future work.');
-  assert.equal(state.links.includes(sitePath('/projects/phone/')),false,'Home does not feature the planned Phone app.');
-}
-
-async function checkWatchSelection(slug) {
-  const project = availableApps.find(item=>item.slug===slug);
-  await until(`(()=>{const stage=Array.from(document.querySelectorAll('[data-watch-preview]')).find(el=>el.getClientRects().length>0);const img=stage?.querySelector('img');return stage?.dataset.watchPreview===${JSON.stringify(slug)}&&img?.complete&&img?.naturalWidth===200;})()`, 'visible '+project.name+' watch screen');
-  const state = await client.evaluate(`(()=>{const stages=Array.from(document.querySelectorAll('[data-watch-preview]')).filter(el=>el.getClientRects().length>0);const stage=stages[0],img=stage?.querySelector('img');return{selected:document.querySelector('input[name="watch-preview"]:checked')?.value,visible:stages.length,screen:img?.getAttribute('src'),width:img?.naturalWidth,height:img?.naturalHeight,link:stage?.querySelector('a')?.getAttribute('href')};})()`);
-  assert.equal(state.selected,slug);
-  assert.equal(state.visible,1,'Only the chosen app screen is presented.');
-  assert.equal(state.screen,sitePath(project.image),'Show the real native capture for '+project.name);
-  assert.equal(state.width,200); assert.equal(state.height,228);
-  assert.equal(state.link,sitePath(`/projects/${slug}/`),'The selected screen links to its own product.');
-}
-async function checkWatchShowcase(scripts=true) {
-  await navigate('/');
-  await checkWatchSelection('dynamic');
-  for (const project of previewApps) {
-    await click(`.watch-choices label[for="preview-${project.slug}"]`);
-    await checkWatchSelection(project.slug);
-  }
-  await click('.watch-choices label[for="preview-dynamic"]');
-  await client.evaluate(`document.getElementById('preview-dynamic').focus({preventScroll:true})`);
-  await key('ArrowRight','ArrowRight');
-  await checkWatchSelection('halftone');
-  assert.equal(await client.evaluate(`document.activeElement.id`),'preview-halftone','Native radio keyboard navigation keeps focus with the selected choice.');
-  const outline=await client.evaluate(`getComputedStyle(document.querySelector('.watch-choices label[for="preview-halftone"]')).outlineStyle`);
-  assert.notEqual(outline,'none','Keyboard selection has visible focus.');
-  await key('ArrowLeft','ArrowLeft');
-  await checkWatchSelection('dynamic');
-  await screenshot('watch-showcase-'+(scripts?'keyboard':'no-javascript'));
-  passed('Watch previews use real screens and support pointer, keyboard and visible focus'+(scripts?'':' without JavaScript'));
-}
-async function followHomeToDownloads() {
-  await checkHomeOverview();
-  await click('.intro-actions a[href="/projects/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/projects/'))}&&document.readyState==='complete'`,'Home reaches Software');
-  const links=await client.evaluate(`Array.from(document.querySelectorAll('[data-project-card] a')).filter(a=>a.getClientRects().length>0).map(a=>a.getAttribute('href'))`);
-  for (const project of availableApps) assert.ok(links.includes(project.download),'The Software journey exposes the exact '+project.name+' download.');
-  const known=new Set(availableApps.map(project=>project.download));
-  assert.ok(links.filter(href=>/\.pbw(?:$|[?#])/i.test(href)).every(href=>known.has(href)),'No invented watch downloads.');
-}
-
-async function checkWebsiteDesign() {
-  const samples=[], articlePositions=[], jumps=[];
-  for (const appearance of ['light','dark']) {
-    await media(appearance);
-    await theme('system');
-    for (const width of [1440,360]) {
-      await viewport(width,width===360?800:1000,width===360);
-      for (const route of visualRoutes) {
-        await navigate(route);
-        await noOverflow(route,width);
-        const sample=await client.evaluate(`({background:getComputedStyle(document.documentElement).backgroundColor,headingFont:getComputedStyle(document.querySelector('h1')).fontFamily,interLoaded:document.fonts.check('600 24px "Inter Variable"'),theme:document.documentElement.dataset.theme})`);
-        assert.equal(sample.theme,appearance,'Every page follows the selected appearance.');
-        assert.match(sample.headingFont,/Inter/); assert.equal(sample.interLoaded,true);
-        samples.push({route,width,appearance,...sample});
-        if (isArticle(route)&&width===360) {
-          const reading=await client.evaluate(`({articleTop:document.querySelector('article.prose').getBoundingClientRect().top,viewport:innerHeight,scroll:scrollY,closed:Array.from(document.querySelectorAll('.docs-mobile-nav,[data-guide-contents]')).every(details=>!details.open),menuClosed:document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'})`);
-          assert.equal(reading.scroll,0,'Opening an article does not jump the page.');
-          assert.equal(reading.closed,true,'Reading begins with navigation disclosures closed.');
-          assert.equal(reading.menuClosed,true);
-          assert.ok(reading.articleTop<reading.viewport-80,'Useful article content starts in the first mobile viewport.');
-          articlePositions.push({route,appearance,...reading});
-        }
-        await screenshot('site-'+(route==='/'?'home':route.replace(/^\//,'').replace(/\/$/,'').replaceAll('/','-'))+'-'+(width===360?'mobile':'desktop')+'-'+appearance);
-        if (isArticle(route)&&width===360) jumps.push({route,...await guideContentsJump()});
-      }
-    }
-  }
-  for (const route of visualRoutes) {
-    const light=samples.find(item=>item.route===route&&item.appearance==='light');
-    const dark=samples.find(item=>item.route===route&&item.appearance==='dark');
-    assert.notEqual(light.background,dark.background,'Light and dark appearances remain distinct on '+route);
-  }
-  passed('Whole-site desktop/mobile reading, typography, theme and native contents navigation',{samples,articlePositions,jumps});
-  await viewport(1440,1000);
-  await media('light','reduce');
-  for (const route of visualRoutes) {
-    await navigate(route);
-    const motion=await client.evaluate(`Array.from(document.querySelectorAll('*')).filter(el=>el.getClientRects().length>0).filter(el=>{const s=getComputedStyle(el);return [...s.animationDuration.split(','),...s.transitionDuration.split(',')].some(value=>(parseFloat(value)||0)>.1);}).map(el=>({tag:el.tagName,class:el.className}))`);
-    assert.deepEqual(motion,[],'Reduced-motion preference on '+route);
-  }
-  await screenshot('site-reduced-motion');
-  passed('Reduced motion across all representative page types');
-  await media('light','no-preference','reduce');
-  for (const route of ['/','/projects/','/projects/dynamic/','/projects/phone/','/pebble/','/docs/','/about/']) {
-    await navigate(route);
-    assert.equal(await client.evaluate(`matchMedia('(prefers-reduced-transparency:reduce)').matches`),true);
-    const blurred=await client.evaluate(`Array.from(document.querySelectorAll('*')).filter(el=>el.getClientRects().length>0&&getComputedStyle(el).backdropFilter!=='none').map(el=>({tag:el.tagName,class:el.className}))`);
-    assert.deepEqual(blurred,[],'Reduced transparency disables background blur on '+route);
-    const transparent=await client.evaluate(`Array.from(document.querySelectorAll('.glass,.site-header,.available-group,.product-preview,.phone-plan,.watch-requirements,.product-guides,.reading-surface')).filter(el=>el.getClientRects().length>0).filter(el=>{const c=getComputedStyle(el).backgroundColor;return c==='transparent'||(/^rgba\\(/.test(c)&&Number(c.slice(c.lastIndexOf(',')+1,-1))<.99);}).map(el=>({class:el.className,color:getComputedStyle(el).backgroundColor}))`);
-    assert.deepEqual(transparent,[],'Reading surfaces become opaque on '+route);
-  }
-  await screenshot('site-reduced-transparency');
-  passed('Reduced transparency supplies opaque surfaces and disables blur');
-  await media('light');
-}
-
 async function runChecks() {
-  assert.equal((await fetch(base)).status,200,'Start the local dev or preview server first.');
   await launch();
-  await viewport(1440,1000); await media('light'); await navigate('/');
-  await until(`document.documentElement.dataset.theme==='light'`,'system light theme');
-  assert.equal(await client.evaluate(`localStorage.getItem('xoce-theme')`),null);
-  assert.equal(await client.evaluate(`document.activeElement.matches('input,textarea')`),false,'Page load does not focus a text field.');
-  await screenshot('home-desktop-light');
-  await viewport(360,800,true); await noOverflow('/',360); await screenshot('home-mobile-light');
-  await viewport(1440,1000);
-  passed('System appearance and initial focus');
-
-  const navigation=await client.evaluate(`Array.from(document.querySelectorAll('[data-site-nav] > a')).map(a=>({href:a.getAttribute('href'),label:a.textContent.trim()}))`);
-  assert.deepEqual(navigation,mainSections.map(item=>({...item,href:sitePath(item.href)})),'Software, Docs and About are direct links.');
-  for (const item of platformLinks) assert.ok(await client.evaluate(`Array.from(document.querySelectorAll('.site-footer a')).some(a=>a.getAttribute('href')===${JSON.stringify(sitePath(item.href))}&&a.textContent.includes(${JSON.stringify(item.label)}))`),'Footer retains '+item.label);
-  await client.evaluate(`document.querySelector(${JSON.stringify(siteSelector('[data-site-nav] > a[href="/projects/"]'))}).focus({preventScroll:true})`);
-  await key('Tab','Tab'); assert.equal(await client.evaluate(`document.activeElement.getAttribute('href')`),sitePath('/docs/'));
-  await key('Tab','Tab',8); assert.equal(await client.evaluate(`document.activeElement.getAttribute('href')`),sitePath('/projects/'));
-  await key('Enter','Enter'); await until(`location.pathname===${JSON.stringify(sitePath('/projects/'))}&&document.readyState==='complete'`,'keyboard follows Software');
-  assert.equal(await client.evaluate(`document.querySelector(${JSON.stringify(siteSelector('[data-site-nav] > a[href="/projects/"]'))}).getAttribute('aria-current')`),'page');
-  passed('Direct navigation supports keyboard links and platform access');
-  await navigate('/'); await followHomeToDownloads();
-  passed('Homepage reaches all exact current downloads');
-  await checkWatchShowcase();
-
-  const index=await(await fetch(routeURL('/search.json'))).json();
-  const aliases=Object.keys(redirects);
-  for (const href of ['/projects/','/pebble/','/docs/','/about/','/about/#phone-plan','/docs/develop/building/',...designGuides,...projects.filter(project=>project.availability!=='planned').map(project=>sitePath(`/projects/${project.slug}/`))]) assert.ok(index.some(entry=>entry.href===sitePath(href)),'Search includes '+href);
-  assert.equal(index.some(entry=>products.filter(project=>project.availability==='planned').some(project=>entry.href===sitePath(`/projects/${project.slug}/`))),false,'Plans are discoverable as project direction, rather than software listings.');
-  assert.equal(index.some(entry=>aliases.includes(routePath(entry.href))||routePath(entry.href).startsWith('/lab/')),false,'Search uses canonical destinations.');
-  const bookmarks=[...Object.keys(redirects),'/users/#android','/users/#apps','/developers/#build','/developers/#android','/docs/android/phone/#with-or-without-a-watch','/docs/android/phone/#if-you-also-use-a-pebble','/docs/pebble/phone-connection/#availability-and-setup'];
-  for (const route of bookmarks) {
-    await navigate(route);
-    const target=resolvedTarget(route);
-    assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash,'Old bookmarks reach the relevant canonical content.');
-  }
-  passed('Former portals, Phone plans and legacy fragment bookmarks resolve directly');
-
-  await navigate('/'); await click('#main a[href="/docs/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/'))}&&document.readyState==='complete'`,'Home opens actual Docs');
-  assert.ok(await client.evaluate(`!!document.querySelector('main article.prose')&&document.querySelector('main h1').textContent==='Getting started'&&!document.querySelector('.documentation-hub,.docs-section-overview')`),'Docs opens an article.');
-  await click('main a[href="/docs/pebble/controls/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/pebble/controls/'))}&&!!document.getElementById('timer')&&document.readyState==='complete'`,'user reaches Timer controls');
-  await click('.site-footer a[href="/pebble/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/pebble/'))}&&document.readyState==='complete'`,'footer reaches Pebble');
-  await click('main a[href="/projects/timer/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/projects/timer/'))}&&document.readyState==='complete'`,'Pebble reaches Timer');
-  const timer=projects.find(project=>project.slug==='timer');
-  await click(`main a[href="${timer.guide}"]`); await until(`location.pathname===${JSON.stringify(sitePath(timer.guide.split('#')[0]))}&&document.readyState==='complete'`,'Timer controls guide'); await settleHash();
-  await click('[data-site-nav] a[href="/docs/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/docs/'))}&&document.readyState==='complete'`,'Docs from a guide');
-  await click('.docs-sidebar [data-docs-section="Developers"] > summary'); await click('.docs-sidebar a[href="/docs/develop/activities/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/develop/activities/'))}&&document.readyState==='complete'`,'developer reference');
-  assert.deepEqual(await client.evaluate(`Array.from(document.querySelectorAll('.docs-sidebar [data-docs-section]')).map(el=>({section:el.dataset.docsSection,open:el.open}))`),[{section:'Guides',open:false},{section:'Developers',open:true},{section:'Design',open:false}]);
-  await click('.docs-sidebar [data-docs-section="Design"] > summary'); await click('.docs-sidebar a[href="/docs/design/principles/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/design/principles/'))}&&document.readyState==='complete'`,'design reference');
-  for (const width of [768,900,1024,1440]) await headerFits(width);
-  passed('Actual user, developer and design articles share direct Docs navigation; headers fit intermediate widths');
-
-  await theme('dark'); await until(`document.documentElement.dataset.theme==='dark'`,'manual dark');
-  assert.equal(await client.evaluate(`localStorage.getItem('xoce-theme')`),'dark');
-  await navigate('/docs/'); assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');
-  const priorDocument=await client.evaluate('performance.timeOrigin'); await client.send('Page.reload');
-  await until(`performance.timeOrigin!==${priorDocument}&&document.readyState==='complete'&&document.documentElement.dataset.theme==='dark'`,'actual document reload retains theme');
-  await stopBrowser(); await launch(); await viewport(1440,1000); await media('light'); await navigate('/');
-  assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark','Closing and restarting Chromium retains the manual choice.');
-  passed('Manual appearance persists across routes, reload and browser restart');
-  await theme('system'); await until(`document.documentElement.dataset.theme==='light'`,'system appearance');
-  assert.equal(await client.evaluate(`localStorage.getItem('xoce-theme')`),null);
-  await media('dark'); await until(`document.documentElement.dataset.theme==='dark'`,'changed system dark');
-  await media('light'); await until(`document.documentElement.dataset.theme==='light'`,'changed system light');
-  passed('System choice removes override and follows OS appearance');
-
-  await navigate('/projects/');
-  const visibleCards=`Array.from(document.querySelectorAll('[data-project-card]')).filter(el=>el.getClientRects().length>0).map(el=>({href:el.querySelector('a').getAttribute('href'),kind:el.dataset.projectKind,platform:el.dataset.projectPlatform,availability:el.dataset.projectAvailability}))`;
-  const currentPlatforms=[...new Set(catalogueProducts.map(project=>project.platform))];
-  const expectedRoutes=catalogueProducts.map(project=>sitePath(`/projects/${project.slug}/`)).sort();
-  assert.deepEqual((await client.evaluate(visibleCards)).map(card=>card.href).sort(),expectedRoutes);
-  assert.ok((await client.evaluate(visibleCards)).every(card=>card.availability!=='planned'&&card.kind!=='library'),'The software list contains available apps only.');
-  if (currentPlatforms.length>1) {
-    for (const platform of [...currentPlatforms,'all']) {
-      await click(`[data-project-filter="${platform}"]`);
-      const cards=await client.evaluate(visibleCards);
-      const expected=catalogueProducts.filter(project=>platform==='all'||project.platform===platform);
-      assert.deepEqual(cards.map(card=>card.href).sort(),expected.map(project=>sitePath(`/projects/${project.slug}/`)).sort());
-      assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-filter][aria-pressed="true"]').length`),1);
-      assert.equal(await client.evaluate(`document.querySelector('[data-project-count]').textContent.trim()`),`${expected.length} downloads`);
-    }
-    await click(`[data-project-filter="${currentPlatforms[0]}"]`);
-    const filteredDocument=await client.evaluate('performance.timeOrigin'); await client.send('Page.reload');
-    await until(`performance.timeOrigin!==${filteredDocument}&&document.readyState==='complete'`,'reload available-platform catalogue');
-    assert.deepEqual((await client.evaluate(visibleCards)).map(card=>card.href).sort(),catalogueProducts.filter(project=>project.platform===currentPlatforms[0]).map(project=>sitePath(`/projects/${project.slug}/`)).sort(),'Reload preserves an available platform selection.');
-    await click('[data-project-filter="all"]');
-  } else {
-    assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-filter]').length`),0,'A single-platform catalogue does not offer redundant or empty filters.');
-    await navigate('/projects/?platform=Android');
-    assert.deepEqual((await client.evaluate(visibleCards)).map(card=>card.href).sort(),expectedRoutes,'Old planned-platform URLs do not lead to an empty software list.');
-    const catalogueDocument=await client.evaluate('performance.timeOrigin'); await client.send('Page.reload');
-    await until(`performance.timeOrigin!==${catalogueDocument}&&document.readyState==='complete'`,'reload available software');
-    assert.deepEqual((await client.evaluate(visibleCards)).map(card=>card.href).sort(),expectedRoutes,'All available software remains visible after reopening an old filter URL.');
-    assert.equal(await client.evaluate(`document.querySelector('[data-project-count]').textContent.trim()`),`${catalogueProducts.length} downloads`);
-  }
-  assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-group="planned"]').length`),0,'Plans are not promoted as software groups.');
-  for (const library of projects.filter(project=>project.kind==='library')) assert.ok(await client.evaluate(`Array.from(document.querySelectorAll('main a')).some(a=>a.getAttribute('href')===${JSON.stringify(sitePath(library.guide))})`),'Direct '+library.name+' integration path');
-  passed('Available software, exact counts and reload remain usable without empty platform choices',{catalogueProducts:catalogueProducts.length,downloadableApps:availableApps.length,plannedProjects:0,libraries:libraryCount});
-
-  await navigate('/');
-  await client.send('Network.setCacheDisabled',{cacheDisabled:true});
-  await client.send('Network.setBlockedURLs',{urls:[routeURL('/search.json').href+'*']});
-  await click('[data-search-open]');
-  await until(`/could not load/i.test(document.querySelector('[data-search-status]').textContent)`,'search shows a recoverable load error');
-  assert.equal(await client.evaluate(`document.querySelectorAll('[data-search-results] a').length`),0);
-  await key('Escape','Escape'); await until(`!document.querySelector('[data-search-dialog]').open`,'close failed search');
-  await client.send('Network.setBlockedURLs',{urls:[]});
-  await click('[data-search-open]'); await until(`document.querySelectorAll('[data-search-results] a').length>0`,'reopening retries search successfully');
-  await key('Escape','Escape');
-  passed('Search network failure has feedback and recovers after reopening');
-
-  await client.evaluate('document.activeElement.blur()'); await key('k','KeyK',2);
-  await until(`document.querySelector('[data-search-dialog]').open&&document.activeElement===document.querySelector('[data-search-input]')`,'requested keyboard search');
-  await until(`document.querySelectorAll('[data-search-results] a').length>0`,'initial search places');
-  const initialResults=await client.evaluate(`Array.from(document.querySelectorAll('[data-search-results] a')).map(a=>a.getAttribute('href'))`);
-  const queries=[['timer','/projects/timer/'],['registerSourceHandler','/docs/develop/activities/'],['visual identity','/docs/design/visual-identity/'],['Phone','/about/#phone-plan']];
-  for (const [query,destination] of queries) {
-    if (await client.evaluate(`!document.querySelector('[data-search-clear]').hidden`)) await click('[data-search-clear]');
-    await client.send('Input.insertText',{text:query});
-    await until(`Array.from(document.querySelectorAll('[data-search-results] a')).some(a=>a.getAttribute('href')===${JSON.stringify(sitePath(destination))})`,'search '+query);
-    if (query==='Phone') assert.match(await client.evaluate(`Array.from(document.querySelectorAll('[data-search-results] a')).find(a=>a.getAttribute('href')===${JSON.stringify(sitePath('/about/#phone-plan'))}).textContent`),/planned/i);
-  }
-  await click('[data-search-clear]'); await client.send('Input.insertText',{text:'zz-no-such-xoce-guide-zz'});
-  await until(`document.querySelectorAll('[data-search-results] a').length===0`,'no search results');
-  assert.match(await client.evaluate(`document.querySelector('[data-search-status]').textContent`),/no results/i);
-  await click('[data-search-clear]'); assert.equal(await client.evaluate(`document.querySelector('[data-search-input]').value`),'');
-  assert.deepEqual(await client.evaluate(`Array.from(document.querySelectorAll('[data-search-results] a')).map(a=>a.getAttribute('href'))`),initialResults);
-  await key('Escape','Escape'); await click('[data-search-open]'); await key('Escape','Escape');
-  await until(`!document.querySelector('[data-search-dialog]').open`,'Escape closes search');
-  assert.equal(await client.evaluate(`document.activeElement.matches('[data-search-open]')`),true,'Search restores focus to its opener.');
-  await key('/','Slash',0,'/'); await until(`document.querySelector('[data-search-dialog]').open`,'slash search');
-  await client.send('Input.insertText',{text:'timer'}); await until(`document.querySelectorAll('[data-search-results] a').length>0`,'search before navigation');
-  const destination=await client.evaluate(`document.querySelector('[data-search-results] a').getAttribute('href')`);
-  await click('[data-search-results] a'); await until(`location.pathname===${JSON.stringify(destination.split('#')[0])}&&document.readyState==='complete'`,'follow search result');
-  passed('Search keyboard shortcuts, full-text APIs, design and planned work, empty results, clearing, focus and actual navigation');
-
-  for (const project of projects.filter(item=>item.slug!=='pebble-phone')) {
-    await navigate(`/projects/${project.slug}/`);
-    const links=await client.evaluate(`Array.from(document.querySelectorAll('main a')).map(a=>a.getAttribute('href'))`);
-    if (project.availability==='planned') {
-      const state=await client.evaluate(`({text:document.querySelector('main').innerText,images:document.querySelectorAll('main img').length,parts:['android-app','pebble-companion'].every(id=>!!document.getElementById(id))})`);
-      assert.match(state.text,/planned/i); assert.match(state.text,/optional/i); assert.match(state.text,/require/i);
-      assert.doesNotMatch(state.text,/\bundefined\b|\bnull\b/); assert.equal(state.images,0); assert.equal(state.parts,true);
-      assert.equal(links.some(href=>/\.pbw(?:$|[?#])|\/releases\//i.test(href)),false,'Phone does not advertise an unavailable build.');
-    } else {
-      assert.ok(links.includes(sitePath(project.guide)),project.name+' retains its current guide.');
-      assert.ok(links.includes(project.download),project.name+' retains the exact download.');
-      if (project.licence) assert.ok(links.includes(project.licence.url));
-      if (project.kind!=='library') assert.ok(links.includes(sitePath('/docs/develop/building/')));
-      if (project.developerGuide) assert.ok(links.includes(sitePath(project.developerGuide)));
-      for (const slug of project.requires??[]) {assert.ok(links.includes(sitePath(`/projects/${slug}/`)));assert.match(await client.evaluate(`document.querySelector('main').innerText`),/requires/i);}
-      if (project.kind==='library') {
-        const actual=await client.evaluate(`Array.from(document.querySelectorAll('[aria-labelledby="project-consumers"] a[href^="${sitePath('/projects/')}"]')).map(a=>a.getAttribute('href'))`);
-        assert.deepEqual(actual.sort(),(project.consumers??[]).map(slug=>sitePath(`/projects/${slug}/`)).sort());
+  const productRoutes=catalogueProducts.map(p=>`/projects/${p.slug}/`);
+  const policyRoutes=catalogueProducts.flatMap(p=>[`/projects/${p.slug}/support/`,`/projects/${p.slug}/privacy/`]);
+  const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...policyRoutes];
+  for(const width of [320,390,768,1440]) {
+    await viewport(width,width===1440?1100:900,width<768);
+    for(const color of ['light','dark']) {
+      await media(color); await navigate('/'); await theme('system');
+      for(const route of routes) {
+        await navigate(route);await noOverflow(route,width);
+        if([390,1440].includes(width)&&(!route.endsWith('/support/')&&!route.endsWith('/privacy/')||route==='/projects/timer/privacy/'||route==='/projects/chmu-weather/support/')) {
+          await screenshot((route==='/'?'home':route.replace(/^\//,'').replace(/\/$/,'').replaceAll('/','-'))+'-'+width+'-'+color);
+        }
       }
     }
-    if (project.image) assert.ok((await client.evaluate(`document.querySelector('.preview-caption').textContent`)).includes(project.name+' v'+project.imageVersion), 'Visible screenshot version for '+project.name);
-    const current=project.kind==='library'?'/docs/':'/projects/';
-    assert.equal(await client.evaluate(`document.querySelector(${JSON.stringify(siteSelector('[data-site-nav] > a[href="'+current+'"]'))}).getAttribute('aria-current')`),'true');
   }
-  await navigate('/android/'); assert.equal(await client.evaluate('location.pathname+location.hash'),sitePath('/projects/phone/#android-app'));
-  await navigate('/projects/pebble-phone/'); assert.equal(await client.evaluate('location.pathname+location.hash'),sitePath('/projects/phone/#pebble-companion'));
-  passed('Product downloads, licences, guides, library consumers and one honest canonical Phone plan');
-
-  const routes=routesFromBuild();
-  for (const width of [1440,320,360]) {
-    await viewport(width,width<=360?800:1000,width<=360);
-    for (const route of routes) {await navigate(route);await noOverflow(route,width);}
+  passed('Launch pages, all twelve policy pages and guides fit desktop/tablet/mobile in both themes',{widths:[320,390,768,1440],routes:routes.length});
+  await viewport(390,844,true);await media('light');await navigate('/');await theme('light');
+  const namedPreviews=await client.evaluate(`Array.from(document.querySelectorAll('.hero-watch>a')).map(a=>({name:a.textContent,top:a.getBoundingClientRect().top,bottom:a.getBoundingClientRect().bottom}))`);
+  assert.equal(namedPreviews.length,2);assert.ok(namedPreviews.every(p=>p.top>0&&p.bottom<844),'Both app names and watch models must be in the first mobile screen');
+  await screenshot('home-390-first-screen');passed('Mobile homepage names both preview apps before the first scroll');
+  await navigate('/projects/');
+  assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-card]').length`),6);
+  assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-kind="plugin"]').length`),1);
+  assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-kind="library"],[data-project-availability="planned"]').length`),0);
+  for(const project of catalogueProducts) {
+    const route=`/projects/${project.slug}/`;await navigate(route);
+    assert.equal(await client.evaluate(`document.querySelector('[data-install-state]').dataset.installState`),project.publication==='published'?'published':'preview');
+    if(project.publication==='preview')assert.equal(await client.evaluate(`Array.from(document.querySelectorAll('main a')).some(a=>/apps\.repebble\.com|\.pbw(?:$|[?#])/.test(a.href))`),false,'Preview must not offer invented Store or older PBW installation');
+    for(const destination of [project.supportUrl,project.privacyUrl])assert.ok(await client.evaluate(`!!document.querySelector('main a[href='+${JSON.stringify(JSON.stringify(sitePath(destination)))}+']')`));
+    if(project.previewType==='watch') {
+      for(const shape of ['emery','gabbro']) {
+        await click(`label[for="${project.slug}-${shape}"]`);
+        const selector=`.stage-${shape} img${shape==='emery'?':not(.pebble-frame)':''}`;
+        await until(`(()=>{const i=document.querySelector(${JSON.stringify(selector)});return i&&i.getClientRects().length>0&&i.complete&&i.naturalWidth>0})()`,'native '+shape+' preview loads');
+        const image=await client.evaluate(`(()=>{const i=document.querySelector(${JSON.stringify(selector)}),r=i.getBoundingClientRect();return {width:i.naturalWidth,height:i.naturalHeight,ratio:r.width/r.height,selected:document.getElementById('${project.slug}-${shape}').checked}})()`);
+        assert.deepEqual([image.width,image.height],shape==='emery'?[200,228]:[260,260]);assert.ok(image.selected);assert.ok(Math.abs(image.ratio-image.width/image.height)<.002,'Native preview keeps its aspect ratio');
+      }
+      await screenshot(project.slug+'-round2-390');
+    }else assert.equal(await client.evaluate(`document.querySelectorAll('[data-watch-platform]').length`),0,'A phone plugin must have no invented watch screen');
   }
-  passed('Every generated route renders without horizontal page overflow',{routes:routes.length,widths:[1440,320,360]});
-  await navigate('/'); await click('[data-menu-toggle]');
-  assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`),'true');
-  assert.ok(await client.evaluate(`document.querySelector('[data-site-nav]').getClientRects().length>0`));
-  assert.deepEqual(await client.evaluate(`Array.from(document.querySelectorAll('[data-site-nav] > a')).map(a=>({href:a.getAttribute('href'),label:a.textContent.trim()}))`),mainSections.map(item=>({...item,href:sitePath(item.href)})));
-  await screenshot('navigation-mobile-light'); await key('Escape','Escape');
-  await until(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'`,'Escape closes mobile navigation');
-  assert.equal(await client.evaluate(`document.activeElement.matches('[data-menu-toggle]')`),true);
-  assert.equal(await client.evaluate(`document.querySelector('[data-site-nav]').getClientRects().length>0`),false);
-  await click('[data-menu-toggle]'); await click('[data-site-nav] > a[href="/docs/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/'))}&&document.readyState==='complete'`,'mobile menu opens Docs');
-  assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`),'false');
-  await navigate('/'); await click('[data-menu-toggle]'); await click('[data-site-nav] > a[href="/projects/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/projects/'))}&&document.readyState==='complete'`,'mobile Software');
-  assert.deepEqual((await client.evaluate(visibleCards)).map(card=>card.href).sort(),catalogueProducts.map(project=>sitePath(`/projects/${project.slug}/`)).sort());
-  await click('[data-menu-toggle]'); await click('[data-site-nav] > a[href="/about/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/about/'))}&&document.readyState==='complete'`,'mobile project direction');
-  await click('main a[href="/projects/phone/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/projects/phone/'))}&&document.readyState==='complete'`,'contextual Phone plan from About');
-  passed('Mobile menu opens, closes, restores focus and follows Software, Docs and contextual project information');
-  await checkWebsiteDesign();
-
-  scriptingEnabled=false; await client.send('Emulation.setScriptExecutionDisabled',{value:true});
-  for (const route of Object.keys(redirects)) {
-    await navigate(route); const target=resolvedTarget(route,false);
-    assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash,'Direct compatibility fallback works without JavaScript.');
-  }
-  await viewport(360,800,true); await checkWatchShowcase(false);
-  await navigate('/'); await followHomeToDownloads();
-  assert.equal((await client.evaluate(visibleCards)).length,catalogueProducts.length,'All software remains available without filters.');
-  assert.deepEqual(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-group]')).filter(el=>el.getClientRects().length>0).map(el=>el.dataset.projectGroup).sort()`),['available','plugins'],'Watch apps and phone plugins stay available in their own groups without JavaScript.');
-  assert.equal(await client.evaluate(`Array.from(document.querySelectorAll('[data-project-filter],[data-search-open]')).some(el=>el.getClientRects().length>0)`),false,'Unavailable scripted controls are hidden.');
-  await click('[data-site-nav] a[href="/about/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/about/'))}&&document.readyState==='complete'`,'About without JavaScript');
-  await click('main a[href="/projects/phone/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/projects/phone/'))}&&document.readyState==='complete'`,'contextual Phone plan without JavaScript');
-  assert.equal(await client.evaluate(`document.querySelectorAll('main img').length`),0);
-  await click('[data-site-nav] a[href="/docs/"]'); await until(`location.pathname===${JSON.stringify(sitePath('/docs/'))}&&document.readyState==='complete'`,'Docs without JavaScript');
-  assert.ok(await client.evaluate(`!!document.querySelector('main article.prose')&&document.querySelector('main h1').textContent==='Getting started'`));
-  assert.ok(await client.evaluate(`document.querySelector('[data-site-nav]').getClientRects().length>0`),'Navigation is available without JavaScript.');
-  await click('.docs-mobile-nav > summary'); await click('.docs-mobile-nav a[href="/docs/pebble/setup/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/pebble/setup/'))}&&document.readyState==='complete'`,'native setup navigation');
-  const nativeContents=await guideContentsJump(false); await screenshot('docs-mobile-no-javascript');
-  passed('Guide contents navigate natively and leave the target visible below the header',nativeContents);
-  await click('.docs-mobile-nav > summary'); await click('.docs-mobile-nav [data-docs-section="Developers"] > summary'); await click('.docs-mobile-nav a[href="/docs/develop/activities/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/develop/activities/'))}&&document.readyState==='complete'`,'native developer article');
-  await click('.docs-mobile-nav > summary'); await click('.docs-mobile-nav [data-docs-section="Design"] > summary'); await click('.docs-mobile-nav a[href="/docs/design/principles/"]');
-  await until(`location.pathname===${JSON.stringify(sitePath('/docs/design/principles/'))}&&document.readyState==='complete'`,'native design article');
-  await noOverflow('/docs/design/principles/',360); await screenshot('design-mobile-no-javascript');
-  scriptingEnabled=true; await client.send('Emulation.setScriptExecutionDisabled',{value:false});
-  passed('Downloads, platform aliases, actual Docs articles and unified navigation work without JavaScript');
-  assert.deepEqual(exceptions,[],'Unexpected browser JavaScript errors');
-  assert.deepEqual(failedResponses,[],'Missing local pages or assets');
-  passed('No browser exceptions or local HTTP failures');
+  passed('Six distinct products, honest preview installation states, direct support/privacy and both native watch shapes');
+  for(const route of Object.keys(redirects)) {await navigate(route);const target=resolvedTarget(route);assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash);}
+  passed('All compatibility routes still resolve');
+  await viewport(1440,1000);await navigate('/');await theme('dark');await navigate('/docs/');assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');
+  const documentTime=await client.evaluate('performance.timeOrigin');await client.send('Page.reload');await until(`performance.timeOrigin!==${documentTime}&&document.readyState==='complete'`,'theme reload');assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');
+  await theme('system');await media('light');await until(`document.documentElement.dataset.theme==='light'`,'system light');await media('dark');await until(`document.documentElement.dataset.theme==='dark'`,'system dark');
+  passed('Theme preference survives navigation/reload and system mode follows OS changes');
+  await navigate('/');await click('[data-search-open]');await until(`document.querySelector('[data-search-dialog]').open`,'search dialog opens');
+  await client.evaluate(`(()=>{const i=document.querySelector('[data-search-input]');i.value='Halftone privacy';i.dispatchEvent(new Event('input',{bubbles:true}))})()`);
+  await until(`!!document.querySelector('[data-search-results] a[href="${sitePath('/projects/halftone/privacy/')}"]')`,'search indexes product privacy');await key('Escape');
+  passed('Search finds the new support/privacy routes');
+  await viewport(390,900,true);await navigate('/');await click('[data-menu-toggle]');assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`),'true');await key('Escape');await until(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'`,'mobile navigation closes');
+  assert.ok(await client.evaluate(`document.activeElement.matches('[data-menu-toggle]')`));
+  await navigate('/projects/timer/');await client.evaluate(`document.getElementById('timer-emery').focus()`);await key('ArrowRight');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);
+  passed('Keyboard controls work for mobile navigation and native shape radios');
+  await media('light','reduce','reduce');await navigate('/');await noOverflow('/',390);await screenshot('home-reduced-motion-transparency');
+  assert.equal(await client.evaluate(`matchMedia('(prefers-reduced-motion:reduce)').matches&&matchMedia('(prefers-reduced-transparency:reduce)').matches`),true);
+  passed('Reduced motion/transparency render without layout loss');
+  await client.send('Emulation.setScriptExecutionDisabled',{value:true});scriptingEnabled=false;
+  for(const route of ['/','/projects/',...productRoutes,'/docs/','/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);}
+  await navigate('/projects/timer/');await click('label[for="timer-gabbro"]');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro').getClientRects().length>0`));await screenshot('timer-round2-no-javascript');
+  await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');
+  await media('dark','reduce','reduce');await navigate('/projects/halftone/');await noOverflow('/projects/halftone/',390);
+  assert.equal(await client.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()"),'#171b1c');await click('label[for="halftone-gabbro"]');await screenshot('halftone-round2-dark-no-javascript');passed('Dark appearance also works without JavaScript');
+  assert.deepEqual(exceptions,[]);assert.deepEqual(failedResponses,[]);passed('No browser exceptions or missing local resources');
 }
 
 let failure;

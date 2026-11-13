@@ -25,7 +25,7 @@ export const docs: DocLink[] = [
     href: '/docs/pebble/setup/',
     section: 'For users',
     platform: 'PebbleOS',
-    description: 'Install the development builds, configure activities and set Quick Launch shortcuts.',
+    description: 'Install from Pebble Store or a verified PBW, configure activities and set Quick Launch shortcuts.',
   },
   {
     title: 'Set up Halftone',

@@ -1,0 +1,31 @@
+---
+import type { Project } from '../data/projects';
+import { projects } from '../data/projects';
+import { sitePath } from '../lib/site';
+import ShapePreview from './ShapePreview.astro';
+import InstallActions from './InstallActions.astro';
+import ScreenshotGallery from './ScreenshotGallery.astro';
+import Icon from './Icon.astro';
+interface Props { project: Project }
+const { project } = Astro.props;
+const plugin=project.kind==='plugin';
+const benefits:Record<string,string>={dynamic:'Time first. Activities close by.',halftone:'Your clock, with a different texture.',timer:'Keep your timers ready.',dashboard:'One overview. Your own shortcuts.','open-activity':'A shortcut to the activity you can see.','chmu-weather':'Czech weather, where you need it.'};
+const setup=plugin||project.slug==='halftone'?project.setupGuide:`/docs/pebble/setup/#${project.slug}`;
+const related=projects.filter(p=>(project.optionalConnections??(project.slug==='timer'?['dynamic','halftone','dashboard']:project.kind==='watchface'?['timer','open-activity','chmu-weather']:[])).includes(p.slug));
+---
+<main id="main" class="wrap launch-product">
+  <nav class="product-breadcrumb" aria-label="Breadcrumb"><a href={sitePath('/projects/')}>Software</a><span aria-hidden="true">/</span><span aria-current="page">{project.name}</span></nav>
+  <section class="launch-product-hero" aria-labelledby="product-title">
+    <div class="launch-product-copy"><p class="eyebrow">{plugin?'Pebble phone plugin':project.kind==='watchface'?'Pebble watchface':'Pebble watch app'}</p><h1 id="product-title">{project.name}</h1><p class="product-purpose">{project.description}</p><p class="product-summary">{project.summary}</p>
+      <InstallActions project={project}/>
+      <dl class="launch-facts"><div><dt>Works with</dt><dd>{project.compatibility}</dd></div><div><dt>Version</dt><dd>{project.version} · {project.publication==='preview'?'launch preview':'published release'}</dd></div></dl>
+      {project.requirements && <ul class="product-requirements">{project.requirements.map(r=><li>{r}</li>)}</ul>}
+    </div>
+    <div class="launch-product-preview">{plugin?<figure class="plugin-portrait"><img src={sitePath(project.image)} alt={project.imageAlt} width="144" height="144"/><figcaption>ČHMÚ Weather v{project.imageVersion}<br/>Phone plugin · no watch screen</figcaption></figure>:<ShapePreview project={project}/>}</div>
+  </section>
+  <section class="product-benefits"><div><p class="eyebrow">{plugin?'Your weather source':'On your watch'}</p><h2>{benefits[project.slug]}</h2></div><ul>{project.features.map(f=><li><Icon name="check" size={18}/><span>{f}</span></li>)}</ul></section>
+  <ScreenshotGallery slug={project.slug} name={project.name}/>
+  <section class="product-next" aria-labelledby="use-title"><div><p class="eyebrow">Already installed?</p><h2 id="use-title">Make {project.name} yours.</h2><p>Find the setup steps and controls, or get help with something that isn’t working.</p></div><nav aria-label={`${project.name} guides`}><a href={sitePath(setup??project.guide)}>Set up {project.name}<Icon name="arrow" size={17}/></a>{project.controlsGuide&&<a href={sitePath(project.controlsGuide)}>Watch controls<Icon name="arrow" size={17}/></a>}<a href={sitePath(project.supportUrl)}>Support and troubleshooting<Icon name="arrow" size={17}/></a><a href={sitePath(project.privacyUrl)}>Privacy and permissions<Icon name="arrow" size={17}/></a></nav></section>
+  {related.length>0&&<section class="product-related"><h2>Works well with</h2><div>{related.map(p=><a href={sitePath(`/projects/${p.slug}/`)}><strong>{p.name}</strong><span>{p.description}</span><Icon name="arrow" size={17}/></a>)}</div></section>}
+  <div class="product-source"><a href={sitePath('/docs/develop/building/')}>Build from source</a>{project.developerGuide&&<a href={sitePath(project.developerGuide)}>Integration guide</a>}<a href={project.repo}>Source code<Icon name="external" size={14}/></a><a href={project.repo+'/releases'}>GitHub releases<Icon name="external" size={14}/></a>{project.licence&&<a href={project.licence.url}>{project.licence.name}</a>}</div>
+</main>

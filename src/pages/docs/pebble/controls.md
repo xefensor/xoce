@@ -60,7 +60,7 @@ The watch shows pending and result feedback for commands. A successful command a
 
 ## Open Activity
 
-Launch it through a configured Quick Launch shortcut to open Dynamic’s recent Primary or Secondary destination. The destination must still be valid and have an associated installed app.
+Choose Dynamic or Halftone in Open Activity settings, then launch it through a configured Quick Launch shortcut to open that watchface’s recent Primary or Secondary destination. The destination must still be valid and have an associated installed app.
 
 The helper opens the whole app. For example, a Timer activity opens Timer; it does not address a particular saved timer inside it.
 
@@ -74,7 +74,7 @@ Use Open Activity for the configured activity-opening shortcuts. Dynamic itself 
 
 ## Halftone
 
-Halftone is a watchface. Change its colours, Big text, dot border and notification privacy through its settings gear in the Pebble phone app. The published 1.9.0-rc.6 candidate has no custom button, touch or motion controls; use Pebble’s Music app for playback controls. [Set up Halftone](/docs/pebble/halftone/).
+Halftone is a watchface. Change its colours, Big text, dot border and notification privacy through its settings gear in the Pebble phone app. Use Open Activity for shortcuts to its primary or secondary activity. Playback controls remain in Pebble’s Music app. [Set up Halftone](/docs/pebble/halftone/).
 
 ## ČHMÚ Weather
 

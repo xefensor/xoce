@@ -18,9 +18,11 @@
     "check": "astro check",
     "check:links": "node scripts/check-site.mjs",
     "check:browser": "node scripts/browser-smoke.mjs",
-    "test": "npm run check && npm run build && npm run check:links && npm run check:docs",
+    "test": "npm run check && npm run build && npm run check:links && npm run check:docs && npm run test:launch",
     "check:docs": "python3 scripts/check-docs.py",
-    "check:setup": "python3 scripts/check-setup.py"
+    "check:setup": "python3 scripts/check-setup.py",
+    "test:launch": "node tests/launch-readiness.test.mjs",
+    "check:launch": "node scripts/check-launch.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.7",

@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Visual identity
-description: The website’s typography, glass materials, device previews and content hierarchy.
+description: The website’s typography, quiet surfaces, native device previews and content hierarchy.
 section: Design
 order: 2
 ---
@@ -48,7 +48,7 @@ Font inputs are recorded in `src/styles/fonts.css`. The [Inter licence](/fonts/i
 
 ## Surfaces, spacing and controls
 
-Glass groups content where it helps. Open page sections, a software showcase and a reading surface can have different compositions.
+The Store-launch design uses open sections, quiet solid preview surfaces and fine dividers. Layered reading surfaces remain useful for documentation; browsing pages do not need a glass panel around every block.
 
 | Surface | CSS role | Purpose |
 | --- | --- | --- |
@@ -61,7 +61,7 @@ Corners use `--radius-pane` (10px), `--radius-control` (6px) and `--radius-small
 
 The website’s panels have no plastic rims or recessed reading wells. The official Pebble device frame provides physical context for a watch preview; it is separate from the styling of website controls.
 
-Home introduces the ecosystem goal, then presents current Pebble work and the intended cross-device experience. Current software and future goals need visibly distinct context. The current collection can use one watch with manually selected app previews; it does not automatically cycle.
+Home leads with Pebble products, names both featured watchfaces within the first mobile screen and shows Time 2 and Round 2 together. About owns the wider Android/KDE direction. Product pages let a reader choose either watch shape with native radio controls; nothing automatically cycles.
 
 Software opens the catalogue directly. Product pages explain a product and put compatibility beside the download. About owns the project’s scope and stages. Docs opens the actual Getting started article, with Guides, Developers and Design in its reading navigation. There is no extra documentation portal or Lab.
 
@@ -71,7 +71,7 @@ On smaller screens, documentation navigation and contents use native collapsible
 
 System, Light and Dark are available. An explicit choice is saved in the browser; System follows the operating system.
 
-The background artwork stays static. There is no idle animation, pointer-following effect or automatically advancing showcase. A person chooses which app preview to see. Motion stays brief and optional, and the website respects reduced motion.
+Decorative background planes are not shown on the launch pages. There is no idle animation, pointer-following effect or automatically advancing showcase. A person chooses which app preview to see. Motion stays brief and optional, and the website respects reduced motion.
 
 Opaque fallbacks keep content readable when backdrop filtering is unavailable or reduced transparency is requested. Important information and actions remain visible in either theme.
 

@@ -19,3 +19,5 @@ Original QA, research and screenshot provenance keeps its original scope.
 - [src/pages/docs/project/licensing.md](site-guides-before-maintenance/src--pages--docs--project--licensing.md)
 
 - [Earlier publication policy](release-policy-before-maintenance.md)
+
+- [Website contracts before the Store launch redesign](website-before-store-launch.md) — superseded catalogue, homepage and preview presentation rules.

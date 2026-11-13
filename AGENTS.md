@@ -10,7 +10,7 @@ History is not a second active specification.
 
 ## Important boundaries
 
-Use local development/preview for validation. Preserve the established GitHub Pages deployment policy in docs/RELEASING.md. Public releases and merged-but-unpublished app implementations are distinct; catalogue/download metadata stays pinned to actual public releases. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
+Use local development/preview for validation. Preserve the established GitHub Pages deployment policy in docs/RELEASING.md. Public releases and unpublished implementations are distinct. Xef approved this branch as a local Store launch preview; candidate records must be labelled `preview` and have no active installation links. Published download metadata stays pinned to verified releases, and `check:launch` gates main deployment. Preserve routes, keyboard/no-JavaScript navigation and native screenshot bytes/provenance. Do not invent products, platforms, a team, licences or completed Android features. Current Pebble releases retain PolyForm Noncommercial notices. No backend/account system or automatic app-theme service is implied.
 
 ## Read only what the task needs
 

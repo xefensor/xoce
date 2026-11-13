@@ -1,5 +1,7 @@
 # Publishing the XOCE website
 
+The Store redesign remains local until the six Store releases and matching GitHub artifacts pass `npm run check:launch`. The workflow runs this read-only gate before configuring/uploading Pages on main. Branch/PR checks do not require unpublished Store links. See the [launch checklist](launch-checklist.md).
+
 The site is published at **https://xefensor.github.io/xoce/** from `main` in
 [xefensor/xoce](https://github.com/xefensor/xoce). Xef explicitly requested GitHub
 Pages hosting and retention of the existing Pebble frame on 2026-11-07.

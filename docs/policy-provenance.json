@@ -1,0 +1,128 @@
+[
+  {
+    "project": "timer",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/pebble-app-timer",
+    "source_commit": "76d5d99bcd1ac84b8356164392bdf62956dd8a9e",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "784a2e1c41b56a4ac6a23557350f8cd8ecec927d413d93dc8aeea584530e3129",
+    "site_path": "/projects/timer/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "67cdde43a8cc686a6fd68e19f9b13ff567e66dbb28b0d16f208f90d59a3298ba"
+  },
+  {
+    "project": "timer",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/pebble-app-timer",
+    "source_commit": "76d5d99bcd1ac84b8356164392bdf62956dd8a9e",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "016d2415489cb6794eab9e0f9915c1e26475114673831c8b42df50790c609360",
+    "site_path": "/projects/timer/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  },
+  {
+    "project": "dashboard",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/pebble-app-dashboard",
+    "source_commit": "6ce4397c0d3469b8c1d4a435db87d0ff03549458",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "2c11145a1ff4671e5fc5b5e0d6ee6f61ebfed7b8c7c51def8c077623423aa998",
+    "site_path": "/projects/dashboard/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "de013415652f7ef90b65a5f2c0b5ac70407d20537c9b231e3538baaef947135c"
+  },
+  {
+    "project": "dashboard",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/pebble-app-dashboard",
+    "source_commit": "6ce4397c0d3469b8c1d4a435db87d0ff03549458",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "adcaf83035c4c7ace85379029aeef6372d1d677a80601097fe18d4555e785f81",
+    "site_path": "/projects/dashboard/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  },
+  {
+    "project": "open-activity",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/pebble-app-open-activity",
+    "source_commit": "483adca2af6a2d062277c6481379df3813853f63",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "2eacaf6534a24ef1a5bf0b844a0a7d1d5603336f50defe08ec2c41b46d8f378d",
+    "site_path": "/projects/open-activity/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "45599b70e2c1204afc1f3c6e179b1f57a8e7216566496646fbf3c4defba05453"
+  },
+  {
+    "project": "open-activity",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/pebble-app-open-activity",
+    "source_commit": "483adca2af6a2d062277c6481379df3813853f63",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "5709cf16a3dfd00c15917fe394d929e7c6e01b722be888cccf962f1b8ecd884f",
+    "site_path": "/projects/open-activity/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  },
+  {
+    "project": "dynamic",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/pebble-watchface-dynamic",
+    "source_commit": "fe378f2e0b5b6b87086d2afd7846cb5cb0516a59",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "4769f16802c94d9ab9262ec694a1a0d7229b6aed45846c0f2b85fa2d54569e23",
+    "site_path": "/projects/dynamic/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "fdbaf7354c10f311ba920c5ad069fb6f8d81998f81efa1c693e3f908a4624fe2"
+  },
+  {
+    "project": "dynamic",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/pebble-watchface-dynamic",
+    "source_commit": "fe378f2e0b5b6b87086d2afd7846cb5cb0516a59",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "68221f87939d79956638341836a1f11448d921c99f1ad5e468ae7726726adf60",
+    "site_path": "/projects/dynamic/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  },
+  {
+    "project": "halftone",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/halftone-watchface",
+    "source_commit": "fd96117d93c0e6a2cafba15fa0d2f79b1562575f",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "a1a335af597484cb4f7c88801aeccec7f17a59ae074c140b68428174cf484753",
+    "site_path": "/projects/halftone/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "ad6541cfc100343b035425ebe9437f2b9b1a2b5553fb1eb6f44c020d807b1991"
+  },
+  {
+    "project": "halftone",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/halftone-watchface",
+    "source_commit": "fd96117d93c0e6a2cafba15fa0d2f79b1562575f",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "37e4a3abd01a4a4c43173ddac6e7081223d53e3a004754a1ae0dc25cb425bead",
+    "site_path": "/projects/halftone/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  },
+  {
+    "project": "chmu-weather",
+    "kind": "privacy",
+    "source_repository": "https://github.com/xefensor/pebble-chmu-weather",
+    "source_commit": "697857a12a4cc924e2922d2ca15cfc9ef96a7278",
+    "source_path": "PRIVACY.md",
+    "source_sha256": "f072c4fab3e93a30d8749941498c5b71551370c3306f7d3eb121dd9fdaeeb81d",
+    "site_path": "/projects/chmu-weather/privacy/",
+    "adaptation": "First heading moved to page title; privacy body unchanged.",
+    "source_body_sha256": "0f88f891eb2369b546185d6edab1b3b6d0db4a3e531d89acd39af4ee77995fca"
+  },
+  {
+    "project": "chmu-weather",
+    "kind": "support",
+    "source_repository": "https://github.com/xefensor/pebble-chmu-weather",
+    "source_commit": "697857a12a4cc924e2922d2ca15cfc9ef96a7278",
+    "source_path": "SUPPORT.md",
+    "source_sha256": "18ce7f038b2aa63f0b74b69ca790c5ca193428f882445e5bddc9bff4af259fb3",
+    "site_path": "/projects/chmu-weather/support/",
+    "adaptation": "Support steps adapted for Store launch preview; GitHub Issues retained."
+  }
+]

@@ -1,0 +1,302 @@
+{
+  "dynamic": [
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-emery-clock-and-readings.png",
+      "title": "Clock and readings",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Time 2: clock and readings.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-emery-music-activity.png",
+      "title": "Music activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Time 2: music activity.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-emery-timer-activity.png",
+      "title": "Timer activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Time 2: timer activity.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-gabbro-clock-and-readings.png",
+      "title": "Clock and readings",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Round 2: clock and readings.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-gabbro-music-activity.png",
+      "title": "Music activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Round 2: music activity.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/dynamic-0.19.0-gabbro-timer-activity.png",
+      "title": "Timer activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dynamic 0.19.0, Round 2: timer activity.",
+      "kind": "watch",
+      "version": "0.19.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    }
+  ],
+  "dashboard": [
+    {
+      "image": "/images/screenshots/dashboard-0.7.0-gabbro-overview.png",
+      "title": "Overview",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dashboard 0.7.0, Round 2: overview.",
+      "kind": "watch",
+      "version": "0.7.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/dashboard-0.7.0-emery-overview.png",
+      "title": "Overview",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dashboard 0.7.0, Time 2: overview.",
+      "kind": "watch",
+      "version": "0.7.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/dashboard-0.7.0-gabbro-actions.png",
+      "title": "Actions",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Dashboard 0.7.0, Round 2: actions.",
+      "kind": "watch",
+      "version": "0.7.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    }
+  ],
+  "timer": [
+    {
+      "image": "/images/screenshots/timer-0.15.0-gabbro-saved-timers.png",
+      "title": "Saved timers",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Timer 0.15.0, Round 2: saved timers.",
+      "kind": "watch",
+      "version": "0.15.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/timer-0.15.0-gabbro-edit-a-duration.png",
+      "title": "Edit a duration",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Timer 0.15.0, Round 2: edit a duration.",
+      "kind": "watch",
+      "version": "0.15.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/timer-0.15.0-gabbro-countdown.png",
+      "title": "Countdown",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Timer 0.15.0, Round 2: countdown.",
+      "kind": "watch",
+      "version": "0.15.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/timer-0.15.0-emery-saved-timers.png",
+      "title": "Your first timer",
+      "caption": "The empty timer list before creating a countdown.",
+      "alt": "Timer 0.15.0 on Time 2 before any timers have been saved.",
+      "kind": "watch",
+      "version": "0.15.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/timer-0.15.0-emery-edit-a-duration.png",
+      "title": "Edit a duration",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Timer 0.15.0, Time 2: edit a duration.",
+      "kind": "watch",
+      "version": "0.15.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    }
+  ],
+  "open-activity": [
+    {
+      "image": "/images/screenshots/open-activity-0.4.0-gabbro-shortcut-setup.png",
+      "title": "Shortcut setup",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Open Activity 0.4.0, Round 2: shortcut setup.",
+      "kind": "watch",
+      "version": "0.4.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/open-activity-0.4.0-emery-shortcut-setup.png",
+      "title": "Shortcut setup",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Open Activity 0.4.0, Time 2: shortcut setup.",
+      "kind": "watch",
+      "version": "0.4.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    }
+  ],
+  "halftone": [
+    {
+      "image": "/images/screenshots/halftone-1.10.0-emery-clock-and-readings.png",
+      "title": "Clock and readings",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Time 2: clock and readings.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-emery-music-activity.png",
+      "title": "Music activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Time 2: music activity.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-emery-timer-activity.png",
+      "title": "Timer activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Time 2: timer activity.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-gabbro-clock-and-readings.png",
+      "title": "Clock and readings",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Round 2: clock and readings.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-gabbro-music-activity.png",
+      "title": "Music activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Round 2: music activity.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-gabbro-timer-activity.png",
+      "title": "Timer activity",
+      "caption": "Native emulator capture with example data.",
+      "alt": "Halftone 1.10.0, Round 2: timer activity.",
+      "kind": "watch",
+      "version": "1.10.0",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.0-phone-phone-settings.png",
+      "title": "Phone settings",
+      "caption": "Packaged settings page with a simulated phone bridge and example values.",
+      "alt": "Halftone 1.10.0, phone settings: phone settings.",
+      "kind": "phone",
+      "version": "1.10.0",
+      "width": 440,
+      "height": 900,
+      "source": "/preview-provenance.json",
+      "platform": "phone"
+    }
+  ],
+  "chmu-weather": [
+    {
+      "image": "/images/screenshots/chmu-weather-1.0.2-phone-settings.png",
+      "title": "Choose your weather sources",
+      "caption": "Packaged public plugin settings with simulated phone storage and sample Czech weather.",
+      "alt": "ČHMÚ Weather 1.0.2 settings, with an example Prague reading and optional forecast completion.",
+      "kind": "phone",
+      "version": "1.0.2",
+      "width": 440,
+      "height": 900,
+      "source": "/preview-provenance.json",
+      "platform": "phone"
+    }
+  ]
+}

@@ -1,42 +1,41 @@
 # XOCE
 
-The static website and documentation for **XOCE — Xef’s Open Computing Ecosystem**,
-covering PebbleOS projects and the planned Android/KDE direction.
+A static Astro website for **XOCE — Xef’s Open Computing Ecosystem**. The current branch prepares a Pebble Store launch: two watchfaces, three watch apps and the ČHMÚ Weather phone plugin. The wider Android/KDE direction stays in About.
 
-The catalogue links to published GitHub releases, including development builds and
-Halftone’s release candidate. Cross-device synchronization and Phone remain plans.
+This is a **local launch preview**, not a published release announcement. All six Store links remain unset until the real listings and matching GitHub PBWs are verified. Existing public releases, historical screenshots and app repositories remain unchanged.
 
-The website includes app comparisons, watch-button labels, a Timer + Dynamic
-walkthrough and 24 release-sourced screenshots across six consumer products.
+## Preview and verify
 
-**[Visit XOCE](https://xefensor.github.io/xoce/)** · [Source](https://github.com/xefensor/xoce) · [Actions](https://github.com/xefensor/xoce/actions/workflows/checks.yml)
-
-GitHub Pages deploys `main` after type, build, link, documentation and desktop/mobile
-browser checks pass. Pull requests run the same checks without deployment.
-
-## Run locally
-
-Use Node 22.23.4 or newer. Astro 7.4.7 and TypeScript 6.0.3 remain pinned in package-lock.json.
+Use Node 22.23.4 and Python 3.12.15. Dependencies remain pinned to Astro 7.4.7 and TypeScript 6.0.3.
 
 ```sh
-npm ci
+npm ci --ignore-scripts
 npm test
-npm run dev
+npm run preview
 ```
 
-Open the local URL printed by Astro, normally http://127.0.0.1:4321/xoce/. `npm run build` writes
-`dist/`; `npm run preview` serves it at http://127.0.0.1:4322/xoce/. Navigation and articles support keyboard
-and no-JavaScript use. No backend or Pebble SDK is required.
+Open **http://127.0.0.1:4322/xoce/**. Development uses `npm run dev` at port 4321. To run the actual browser checks against the built site:
 
-## Content and compatibility
+```sh
+XOCE_SITE_URL=http://127.0.0.1:4322/xoce/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
+```
 
-[Project metadata](src/data/projects.ts) owns exact versions, download and licence links. The catalogue entries are Dynamic 0.18.3, Dashboard 0.6.3, Timer 0.14.5, Open Activity 0.3.3, Halftone 1.9.0-rc.6, ČHMÚ Weather 1.0.1, Activities 0.4.4 and Core 0.5.2. Watch downloads target Pebble Time 2 / Emery; ČHMÚ Weather runs in the Pebble phone app. Requirements are shown per project. Existing native screenshots keep their original provenance and version.
+`npm test` checks types, builds all routes, audits internal links and image provenance, checks documentation links and tests release verification. Chromium checks cover responsive layouts, both themes, keyboard controls, search, shape selection and JavaScript-disabled browsing. Disposable evidence belongs in ignored `build/qa/`.
 
-[Contributor guide](CONTRIBUTING.md) explains type/build/link checks and Chromium inspection. [Maintenance contracts](docs/MAINTENANCE.md), [publication boundary](docs/RELEASING.md) and the [history index](docs/history/index.md) separate active source, generated output and original QA evidence.
+## Launch content
 
-## Licences and credits
+The preview covers Dynamic 0.19.0, Halftone 1.10.0, Dashboard 0.7.0, Timer 0.15.0, Open Activity 0.4.0 and ČHMÚ Weather 1.0.2. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch screen. Duo and Personal Weather are excluded.
 
-This website package is UNLICENSED. Project downloads retain their own licences, including
-PolyForm Noncommercial for the Pebble repositories. Font licences and native screenshot
-attribution remain recorded in [asset provenance](docs/asset-provenance.json) and the [original
-credits](docs/history/readme-before-maintenance.md#licences-and-credits).
+[Project metadata](src/data/projects.ts) owns publication status, Store links, exact GitHub downloads, UUIDs, checked PBW hashes and per-shape previews. [Screenshot metadata](src/data/launch-screenshots.json), [asset provenance](docs/asset-provenance.json) and [policy provenance](docs/policy-provenance.json) distinguish native emulator images, packaged settings previews and app-owned privacy documents. Historical images keep their original bytes and records.
+
+Store is the primary installation action for a verified published product; a matching GitHub PBW is secondary. A preview has no active installation link. Support and privacy are available beneath each `/projects/{slug}/` route. All previous routes and documentation anchors remain compatible.
+
+## Publication
+
+See the [launch checklist](docs/launch-checklist.md). `npm run check:launch` is expected to fail while these releases are previews. It verifies public Store UUID/version/platform metadata, GitHub release assets and exact matching PBW bytes before the existing main-only Pages workflow can deploy.
+
+No login, upload or publication command runs during checks. A push to `main` can deploy only after all checks and the launch gate pass. Keep this work on its branch until separately authorized to publish. The existing public site is [xefensor.github.io/xoce](https://xefensor.github.io/xoce/).
+
+## Development and credits
+
+[CONTRIBUTING](CONTRIBUTING.md), [maintenance contracts](docs/MAINTENANCE.md) and [publication policy](docs/RELEASING.md) describe the repository boundaries. This website package remains UNLICENSED; app downloads retain their own licences, including PolyForm Noncommercial. Original font, screenshot and official Time 2 frame credits remain in the provenance records. No backend, accounts or hosting migration is introduced.

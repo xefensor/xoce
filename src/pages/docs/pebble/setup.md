@@ -10,11 +10,11 @@ New to the collection? [Choose your apps first](/docs/#choose-what-you-need). **
 
 ## Before installing
 
-1. **Check your watch:** the current watchface and watch-app downloads support **Pebble Time 2 only**. The ČHMÚ Weather plugin runs on the phone. They are development builds.
+1. **Check your watch:** the launch watchfaces and watch apps target **Pebble Time 2 and Round 2**. The ČHMÚ Weather plugin runs on the phone. Check the product page for release status.
 2. **Set up the official phone app:** [get Pebble for Android or iPhone](https://repebble.com/app), open it and pair your watch. Follow Pebble’s [installation guide](https://help.repebble.com/en/articles/14489632-installing-the-pebble-app) if needed. The planned XOCE Phone app is not required.
 3. **Enable shared information:** in the latest Pebble phone app, open **Settings → Plugins → Plugins/permissions preview** and turn it on. Plugins supply information such as weather, music or a countdown. Allow the permissions needed by the information you choose.
-4. **Download an app:** choose **Download .pbw** on its [app page](/projects/). A `.pbw` is a Pebble installation file; it does not install simply by downloading it.
-5. **Open the file with Pebble:** follow the Android or iPhone instructions below, then confirm the installation in the phone app.
+4. **Install from Pebble Store:** once the launch release is published, choose **View in Pebble Store** on its [product page](/projects/), then install through the official phone app.
+5. **Manual installation is optional:** a verified **Download .pbw** link will be offered for the same version. A `.pbw` is a Pebble installation file; follow the Android or iPhone instructions below to open it with Pebble.
 
 Timer can manage countdowns and its successfully scheduled alarms on the watch without sharing them. Displaying that countdown in another app needs plugin preview and a phone connection.
 
@@ -28,13 +28,13 @@ Save the `.pbw` to Files if necessary, open its share sheet and look for **Pebbl
 
 Music and notification previews in these Dynamic, Halftone and Dashboard releases are **Android-only**. Other plugin features depend on the sources and permissions available on your phone. [Compare the requirements](/docs/#current-pebble-builds).
 
-The downloads on this site are the pinned development `.pbw` builds. GitHub release pages also contain source and debugging files; you do not need those to install the watch apps.
+A launch-preview label means that version is still being prepared. Store links and matching manual downloads appear only after verification. Older GitHub releases are separate from the versions described here. You do not need source or debugging ZIP files to install an app.
 
 ## Timer
 
 **First time here? Complete [Before installing](#before-installing) before continuing.**
 
-1. Download and install [Timer 0.14.5](/projects/timer/).
+1. Once published, install [Timer 0.15.0](/projects/timer/).
 2. On the watch, press **Select** (middle right) to open the app list and choose Timer.
 3. Choose **New timer**. Use Up and Down to change each value, and Select to move to the next field. Set hours, minutes and seconds, then start the countdown.
 4. To pause or resume, open the timer and press Select. Your saved timers stay available for reuse.
@@ -47,7 +47,7 @@ Timer’s phone settings change its Light/Dark appearance. Creating or editing c
 
 **First time here? Complete [Before installing](#before-installing), including plugin preview.**
 
-1. Download and install [Dynamic 0.18.3](/projects/dynamic/), then choose it as your watchface in the Pebble phone app.
+1. Once published, install [Dynamic 0.19.0](/projects/dynamic/), then choose it as your watchface in the Pebble phone app.
 2. Open Dynamic’s settings using its settings gear in the phone app.
 3. Under **Content & priority → Activity priority**, enable Timer. You can enable other available activities later.
 4. Choose **Save settings** and wait for **✓ Saved**.
@@ -67,15 +67,15 @@ These previews need Android. Enable Music or Notifications in Dynamic’s activi
 
 ## Open Activity
 
-**Optional. Requires [Dynamic](/projects/dynamic/) and the [shared setup](#before-installing).** You can always open Timer from the app list without this helper.
+**Optional. Choose [Dynamic](/projects/dynamic/) or [Halftone](/projects/halftone/) and complete the [shared setup](#before-installing).** You can always open Timer from the app list without this helper.
 
-Quick Launch is a Pebble button shortcut. Open Activity lets that shortcut open the app associated with what Dynamic is displaying.
+Quick Launch is a Pebble button shortcut. Open Activity lets that shortcut open the app associated with what your chosen watchface is displaying.
 
-1. Download and install [Open Activity 0.3.3](/projects/open-activity/).
+1. Once published, install [Open Activity 0.4.0](/projects/open-activity/).
 2. Open Open Activity from the watch’s app list. Leave its setup screen open while you configure it on your phone.
-3. Open its phone settings. Choose a shortcut for **Primary activity**. Optionally choose a different one for **Secondary activity**. Save.
+3. Open its phone settings. Choose Dynamic or Halftone, then a shortcut for **Primary activity**. Optionally choose a different one for **Secondary activity**. Save.
 4. In the Pebble phone app’s **Quick Launch** settings, assign **Open Activity** to the same shortcut or shortcuts. Available choices depend on your phone app and firmware.
-5. Press Back on the watch and return to Dynamic. With a countdown visible, try your Primary shortcut: it should open Timer.
+5. Press Back on the watch and return to your chosen watchface. With a countdown visible, try your Primary shortcut: it should open Timer.
 
 For example, you could use Hold Down for Primary and Hold Up for Secondary where supported. Use one connected watch for this setup.
 
@@ -85,7 +85,7 @@ The helper opens the associated app, not a particular timer inside it. A missing
 
 **Optional. Complete [Before installing](#before-installing) before continuing.** Dashboard is an overview you open as a watch app; it does not replace your clock screen.
 
-1. Download and install [Dashboard 0.6.3](/projects/dashboard/). Open it once on the watch while your phone is connected.
+1. Once published, install [Dashboard 0.7.0](/projects/dashboard/). Open it once on the watch while your phone is connected.
 2. Open Dashboard’s settings in the Pebble phone app.
 3. Choose which activities to show and their order. These settings are separate from Dynamic’s.
 4. Add a **Pinned item** if you want one. Choose an available reading, an action for a short press of Select, or an app to open by holding Select.

@@ -1,0 +1,74 @@
+{
+  "scope": "Actual checked package manifests and bytes; not Store publication or hardware verification.",
+  "artifacts": [
+    {
+      "product": "Timer",
+      "version": "0.15.0",
+      "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "ec36ca616f20ebafce4d8c5ebf468f841b5d4d7b9f1173fdabf13d96a353955c",
+      "sourceCommit": "76d5d99bcd1ac84b8356164392bdf62956dd8a9e",
+      "sourceFile": "Timer-0.15.0-round2-dev-r2.pbw"
+    },
+    {
+      "product": "Dashboard",
+      "version": "0.7.0",
+      "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "37684a12269fde1dfa964c2fc119639e1fc220808ed893c8ef93113b2c10172a",
+      "sourceCommit": "6ce4397c0d3469b8c1d4a435db87d0ff03549458",
+      "sourceFile": "Dashboard-0.7.0-round2-dev-r2.pbw"
+    },
+    {
+      "product": "Open Activity",
+      "version": "0.4.0",
+      "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "f7be97b05edc0ee79738a8c03f38bb626b888af877c020d6e386590948bb69b7",
+      "sourceCommit": "483adca2af6a2d062277c6481379df3813853f63",
+      "sourceFile": "Open-Activity-0.4.0-round2-dev-r2.pbw"
+    },
+    {
+      "product": "Dynamic",
+      "version": "0.19.0",
+      "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "596e0de5e0f2394e38e3e1489e1a954afb491bf1d8939a46878c11a1d39db53b",
+      "sourceCommit": "fe378f2e0b5b6b87086d2afd7846cb5cb0516a59",
+      "sourceFile": "Dynamic-0.19.0-round2-dev-r2.pbw"
+    },
+    {
+      "product": "Halftone",
+      "version": "1.10.0",
+      "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "49d92e9cf5a434095c75bde06e0ec4386ce7112bdf010b7cdd5f2e48462c74ef",
+      "sourceCommit": "fd96117d93c0e6a2cafba15fa0d2f79b1562575f",
+      "sourceFile": "Halftone-1.10.0-round2-dev-r2.pbw"
+    },
+    {
+      "product": "ČHMÚ Weather",
+      "version": "1.0.2",
+      "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+      "watchPlatforms": [],
+      "sha256": "09a9bc6e11368a9bf536eebc4bbe644b15945cd71f27c0c02e255be9c3153039",
+      "sourceCommit": null,
+      "sourceFile": "CHMU-Weather-1.0.2.pbw"
+    }
+  ]
+}

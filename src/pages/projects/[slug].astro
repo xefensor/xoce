@@ -1,6 +1,7 @@
 ---
 import { sitePath } from '../../lib/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ConsumerProduct from '../../components/ConsumerProduct.astro';
 import ProjectPreview from '../../components/ProjectPreview.astro';
 import ScreenshotGallery from '../../components/ScreenshotGallery.astro';
 import { screenshotGalleries } from '../../data/screenshots';
@@ -31,9 +32,9 @@ const newcomerNotes: Record<string, string> = {
   'open-activity': 'This is an optional helper for Dynamic. You can open Timer from your app list without it. Quick Launch means assigning an app to a watch-button shortcut.',
 };
 ---
-<BaseLayout title={project.name} description={project.description}>
-  {companionRedirect && <Fragment slot="head"><meta name="robots" content="noindex,follow"/><link rel="canonical" href={sitePath('/projects/phone/')}/><meta http-equiv="refresh" content={`0;url=${sitePath('/projects/phone/#pebble-companion')}`}/><script is:inline>location.replace(document.querySelector('meta[http-equiv="refresh"]').content.replace(/^0;url=/, ''));</script></Fragment>}
-  <main id="main" class:list={['wrap', 'product-page', `project-${project.slug}`, { 'library-page': library, 'planned-page': planned }]}>
+<BaseLayout title={project.name} description={project.description} canonical={companionRedirect?'/projects/phone/':undefined}>
+  {companionRedirect && <Fragment slot="head"><meta name="robots" content="noindex,follow"/><meta http-equiv="refresh" content={`0;url=${sitePath('/projects/phone/#pebble-companion')}`}/><script is:inline>location.replace(document.querySelector('meta[http-equiv="refresh"]').content.replace(/^0;url=/, ''));</script></Fragment>}
+  {!library && !planned ? <ConsumerProduct project={project}/> : <main id="main" class:list={['wrap', 'product-page', `project-${project.slug}`, { 'library-page': library, 'planned-page': planned }]}>
     {companionRedirect ? <div class="redirect-copy"><p class="eyebrow">Phone · planned</p><h1>Phone for Pebble</h1><p>The Android app and its optional watch companion now share one project plan.</p><a class="text-link" href={sitePath('/projects/phone/#pebble-companion')}>Open the Phone plan<Icon name="arrow" size={18}/></a></div> : <>
       <nav class="product-breadcrumb" aria-label="Breadcrumb"><a href={sitePath(library ? '/docs/' : '/projects/')}>{library ? 'Docs' : 'Software'}</a><Icon name="chevron" size={12}/>{library ? <a href={sitePath('/docs/develop/building/')}>Developers</a> : planned ? <span>Planned</span> : <a href={sitePath('/pebble/')}>PebbleOS</a>}<Icon name="chevron" size={12}/><span aria-current="page">{project.name}</span></nav>
       {planned ? <>
@@ -71,7 +72,7 @@ const newcomerNotes: Record<string, string> = {
         </div>
       </>}
     </>}
-  </main>
+  </main>}
 </BaseLayout>
 <style>
   .screenshot-jump { margin-bottom:12px; min-height:44px; font-size:.9rem; }
