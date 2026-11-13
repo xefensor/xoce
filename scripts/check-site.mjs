@@ -276,7 +276,7 @@ for (const project of catalogueProducts) {
   if (!artifact || artifact.version!==project.version || artifact.uuid.toLowerCase()!==project.uuid?.toLowerCase() || artifact.sha256!==project.artifactSha256 || JSON.stringify(artifact.watchPlatforms)!==JSON.stringify([...(project.watchPlatforms??[])].sort())) problems.push(project.name+': website differs from the inspected PBW');
 }
 const provenance = JSON.parse(fs.readFileSync(path.join(root, 'docs/asset-provenance.json'), 'utf8'));
-for (const entry of [provenance.device_presentation, ...provenance.images]) {
+for (const entry of [provenance.device_presentation, ...(provenance.additional_device_presentations ?? []), ...provenance.images]) {
   const filename = path.join(root, 'public', entry.site_path);
   if (!fs.existsSync(filename)) { problems.push('Missing native capture ' + entry.site_path); continue; }
   const bytes = fs.readFileSync(filename);

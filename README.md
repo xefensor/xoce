@@ -38,4 +38,4 @@ No login, upload or publication command runs during checks. A push to `main` can
 
 ## Development and credits
 
-[CONTRIBUTING](CONTRIBUTING.md), [maintenance contracts](docs/MAINTENANCE.md) and [publication policy](docs/RELEASING.md) describe the repository boundaries. This website package remains UNLICENSED; app downloads retain their own licences, including PolyForm Noncommercial. Original font, screenshot and official Time 2 frame credits remain in the provenance records. No backend, accounts or hosting migration is introduced.
+[CONTRIBUTING](CONTRIBUTING.md), [maintenance contracts](docs/MAINTENANCE.md) and [publication policy](docs/RELEASING.md) describe the repository boundaries. This website package remains UNLICENSED; app downloads retain their own licences, including PolyForm Noncommercial. Original font, screenshot and official Time 2 and Round 2 frame credits remain in the provenance records. No backend, accounts or hosting migration is introduced.

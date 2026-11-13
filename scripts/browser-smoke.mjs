@@ -12,8 +12,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projects.ts')).href);
 const products = projects.filter(project => project.kind !== 'library');
 const catalogueProducts = products.filter(project => project.availability !== 'planned');
-const availableApps = products.filter(project => project.download);
-const previewApps = availableApps.filter(project => project.previewType === 'watch');
+const previewApps = catalogueProducts.filter(project => project.previewType === 'watch');
 const libraryCount = projects.length - products.length;
 const mainSections = [
   { href:'/projects/', label:'Software' },
@@ -270,16 +269,29 @@ async function noOverflow(route, width) {
   const previews = await client.evaluate(`Array.from(document.querySelectorAll('[data-watch-device]')).filter(el=>el.getClientRects().length>0).map(el=>{
     const image=el.querySelector('.pebble-display img'),frame=el.querySelector('.pebble-frame');
     const device=el.getBoundingClientRect(),screen=image.getBoundingClientRect();
-    return {loaded:image.complete&&frame.complete,nativeWidth:image.naturalWidth,nativeHeight:image.naturalHeight,
+    const aperture=el.querySelector('.pebble-display'),bounds=aperture.getBoundingClientRect();
+    return {platform:el.dataset.watchDevice,loaded:image.complete&&frame.complete,nativeWidth:image.naturalWidth,nativeHeight:image.naturalHeight,
+      frameWidth:frame.naturalWidth,frameHeight:frame.naturalHeight,frameSource:frame.getAttribute('src'),
       ratio:screen.width/screen.height,frameRatio:device.width/device.height,
+      aperture:{left:(bounds.left-device.left)/device.width,top:(bounds.top-device.top)/device.height,
+        width:bounds.width/device.width,height:bounds.height/device.height,radius:getComputedStyle(aperture).borderRadius},
       contained:screen.left>=device.left&&screen.right<=device.right&&screen.top>=device.top&&screen.bottom<=device.bottom,
       decorative:frame.getAttribute('aria-hidden')==='true'&&frame.getAttribute('alt')===''};
   })`);
   for (const preview of previews) {
+    assert.ok(['emery','gabbro'].includes(preview.platform),'Frame identifies its watch model at '+route);
+    const round=preview.platform==='gabbro';
+    const native=round?[260,260]:[200,228],frame=round?[502,700]:[488,700];
     assert.equal(preview.loaded,true,'Both frame and native screen load at '+route);
-    assert.equal(preview.nativeWidth,200); assert.equal(preview.nativeHeight,228);
-    assert.ok(Math.abs(preview.ratio-200/228)<.002,'Native screen keeps its aspect ratio at '+route);
-    assert.ok(Math.abs(preview.frameRatio-488/700)<.002,'Frame keeps its aspect ratio at '+route);
+    assert.deepEqual([preview.nativeWidth,preview.nativeHeight],native);
+    assert.deepEqual([preview.frameWidth,preview.frameHeight],frame);
+    assert.equal(preview.frameSource,sitePath('/images/devices/pebble-'+(round?'round':'time')+'-2.png'));
+    assert.ok(Math.abs(preview.ratio-native[0]/native[1])<.002,'Native screen keeps its aspect ratio at '+route);
+    assert.ok(Math.abs(preview.frameRatio-frame[0]/frame[1])<.002,'Frame keeps its aspect ratio at '+route);
+    const aperture=round?[83/502,182/700,337/502,337/700]:[.20287,.26857,.57582,.48286];
+    for(const [index,key] of ['left','top','width','height'].entries())
+      assert.ok(Math.abs(preview.aperture[key]-aperture[index])<.002,'Native screen aligns with the official '+preview.platform+' aperture at '+route);
+    if(round) assert.equal(preview.aperture.radius,'50%','Round 2 screen stays circular at '+route);
     assert.ok(preview.contained&&preview.decorative,'Screen stays within the decorative frame at '+route);
   }
 }
@@ -346,10 +358,20 @@ async function runChecks() {
         if([390,1440].includes(width)&&(!route.endsWith('/support/')&&!route.endsWith('/privacy/')||route==='/projects/timer/privacy/'||route==='/projects/chmu-weather/support/')) {
           await screenshot((route==='/'?'home':route.replace(/^\//,'').replace(/\/$/,'').replaceAll('/','-'))+'-'+width+'-'+color);
         }
+        const watch=previewApps.find(project=>route===`/projects/${project.slug}/`);
+        if(watch) {
+          await click(`label[for="${watch.slug}-gabbro"]`);
+          assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro [data-watch-device="gabbro"]')?.getClientRects().length>0`),'Round 2 uses its official device frame');
+          await noOverflow(route,width);
+          if([390,1440].includes(width)) {
+            await client.evaluate(`document.querySelector('.stage-gabbro').scrollIntoView({block:'center',behavior:'instant'})`);
+            await screenshot(watch.slug+'-round2-'+width+'-'+color);
+          }
+        }
       }
     }
   }
-  passed('Launch pages, all twelve policy pages and guides fit desktop/tablet/mobile in both themes',{widths:[320,390,768,1440],routes:routes.length});
+  passed('Launch pages, both official watch frames, all twelve policy pages and guides fit desktop/tablet/mobile in both themes',{widths:[320,390,768,1440],routes:routes.length});
   await viewport(390,844,true);await media('light');await navigate('/');await theme('light');
   const namedPreviews=await client.evaluate(`Array.from(document.querySelectorAll('.hero-watch>a')).map(a=>({name:a.textContent,top:a.getBoundingClientRect().top,bottom:a.getBoundingClientRect().bottom}))`);
   assert.equal(namedPreviews.length,2);assert.ok(namedPreviews.every(p=>p.top>0&&p.bottom<844),'Both app names and watch models must be in the first mobile screen');
@@ -366,10 +388,11 @@ async function runChecks() {
     if(project.previewType==='watch') {
       for(const shape of ['emery','gabbro']) {
         await click(`label[for="${project.slug}-${shape}"]`);
-        const selector=`.stage-${shape} img${shape==='emery'?':not(.pebble-frame)':''}`;
+        const selector=`.stage-${shape} .pebble-display img`;
         await until(`(()=>{const i=document.querySelector(${JSON.stringify(selector)});return i&&i.getClientRects().length>0&&i.complete&&i.naturalWidth>0})()`,'native '+shape+' preview loads');
         const image=await client.evaluate(`(()=>{const i=document.querySelector(${JSON.stringify(selector)}),r=i.getBoundingClientRect();return {width:i.naturalWidth,height:i.naturalHeight,ratio:r.width/r.height,selected:document.getElementById('${project.slug}-${shape}').checked}})()`);
         assert.deepEqual([image.width,image.height],shape==='emery'?[200,228]:[260,260]);assert.ok(image.selected);assert.ok(Math.abs(image.ratio-image.width/image.height)<.002,'Native preview keeps its aspect ratio');
+        await noOverflow(route,390);
       }
       await screenshot(project.slug+'-round2-390');
     }else assert.equal(await client.evaluate(`document.querySelectorAll('[data-watch-platform]').length`),0,'A phone plugin must have no invented watch screen');

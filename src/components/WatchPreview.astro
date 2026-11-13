@@ -4,11 +4,14 @@ import type { WatchPlatform } from '../data/projects';
 interface Props { image: string; alt: string; caption?: string; compact?: boolean; eager?: boolean; class?: string; platform?: WatchPlatform; framed?: boolean }
 const { image, alt, caption, compact = false, eager = false, class: className = '', platform = 'emery', framed = !compact } = Astro.props;
 const round = platform === 'gabbro';
+const frame = round
+  ? { image: '/images/devices/pebble-round-2.png', width: 502, height: 700 }
+  : { image: '/images/devices/pebble-time-2.png', width: 488, height: 700 };
 ---
-<figure class:list={['watch-preview', { 'watch-preview-compact': compact, 'round-preview': round, 'raw-preview': !framed || round }, className]} data-watch-platform={platform}>
-  {framed && !round ? <div class="pebble-device" data-watch-device>
-    <div class="pebble-display"><img src={sitePath(image)} alt={alt} width="200" height="228" loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
-    <img class="pebble-frame" src={sitePath('/images/devices/pebble-time-2.png')} alt="" aria-hidden="true" width="488" height="700" loading={eager ? 'eager' : 'lazy'} decoding="async" />
+<figure class:list={['watch-preview', { 'watch-preview-compact': compact, 'round-preview': round, 'raw-preview': !framed }, className]} data-watch-platform={platform}>
+  {framed ? <div class="pebble-device" data-watch-device={platform}>
+    <div class="pebble-display"><img src={sitePath(image)} alt={alt} width={round ? 260 : 200} height={round ? 260 : 228} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
+    <img class="pebble-frame" src={sitePath(frame.image)} alt="" aria-hidden="true" width={frame.width} height={frame.height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
   </div> : <img class="native-screen" src={sitePath(image)} alt={alt} width={round ? 260 : 200} height={round ? 260 : 228} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
   {caption && <figcaption>{caption}</figcaption>}
 </figure>

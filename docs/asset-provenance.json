@@ -11,7 +11,8 @@
     "No new licence is granted by this provenance record; source-project licences and third-party notices remain authoritative.",
     "Halftone 1.9.0-rc.6 native fixture screenshot and ČHMÚ Weather 1.0.1 original icon were added unchanged on 2026-11-12; the plugin icon is not a watch screenshot.",
     "2026-11-12: Added 24 unchanged release-sourced gallery images. Current heroes use release-matched captures. Earlier image files and their historical records remain unchanged. Phone settings previews are classified separately from native watch captures.",
-    "2026-11-13: Launch-preview captures for the six Store releases. Native PNG bytes are unchanged; candidates are not presented as published releases. Historical records remain intact."
+    "2026-11-13: Launch-preview captures for the six Store releases. Native PNG bytes are unchanged; candidates are not presented as published releases. Historical records remain intact.",
+    "2026-11-13: Added the unchanged official Pebble Appstore Round 2 device frame at Xef's request, matching the existing Time 2 presentation. Native captures and the original frame record remain unchanged."
   ],
   "device_presentation": {
     "kind": "official-pebble-appstore-frame",
@@ -42,6 +43,43 @@
       "scope": "Retain the existing source-provided frame in the GitHub Pages website; improve presentation without changing the frame or native capture pixels."
     }
   },
+  "additional_device_presentations": [
+    {
+      "kind": "official-pebble-appstore-frame",
+      "component": "src/components/WatchPreview.astro",
+      "hardware_reference": "Pebble Round 2 / Gabbro",
+      "source_url": "https://apps.repebble.com/images/screenshot_slider_background_gabbro.png",
+      "source_page": "https://apps.repebble.com/",
+      "site_path": "/images/devices/pebble-round-2.png",
+      "copyright": "Core Devices",
+      "attribution": "Source-provided Pebble Appstore watch frame from Core Devices.",
+      "retrieved_on": "2026-11-13",
+      "bytes": 100547,
+      "width": 502,
+      "height": 700,
+      "sha256": "d71fd23c4abfccff64415bb3fd5c22a9920c44f0a479544fab1529b79300ce50",
+      "pixel_changes": "none",
+      "third_party_photo_or_artwork_copied": true,
+      "native_capture_pixel_changes": "none",
+      "native_capture_aspect_ratio": "260:260, fitted without stretching inside the circular display aperture.",
+      "aperture_bounds": {
+        "x": 83,
+        "y": 182,
+        "width": 337,
+        "height": 337,
+        "measurement": "Bounding rectangle of the central transparent alpha component in the original PNG; circular CSS clipping preserves the native display shape."
+      },
+      "physical_watch_test_evidence": false,
+      "licence_status": "No asset-specific permissive licence has been independently verified; this provenance record grants no additional licence.",
+      "distribution_scope": "public-website-at-owner-request",
+      "note": "The official transparent PNG is used unchanged around separately rendered native emulator captures. The public Appstore CSS identifies this image as its Gabbro frame. Neither the composited preview nor the source frame establishes physical-watch verification.",
+      "publication_decision": {
+        "date": "2026-11-13",
+        "requested_by": "Xef",
+        "scope": "Add the matching official Round 2 watch illustration to Home and product previews, alongside the existing official Time 2 frame. This does not authorize a website deployment."
+      }
+    }
+  ],
   "images": [
     {
       "id": "dynamic",

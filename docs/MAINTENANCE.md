@@ -28,9 +28,9 @@ Support/privacy routes are product-local. Privacy text comes from app-owned docu
 
 Native screenshots are unchanged PNG bytes. Append new versioned assets and provenance; preserve historical images and records. Captions distinguish native emulator renders, browser settings previews and original plugin icons. Synthetic data is labelled and no screenshot establishes physical-device testing.
 
-Retain the official Core Devices Time 2 frame, its original bytes and its provenance/licence distinction. Fit 200×228 native captures into its aperture without stretching. Round 2 uses an unframed circular 260×260 capture, never a fabricated case or the Time 2 frame. No additional third-party licence is granted by this website.
+Retain the official Core Devices Time 2 and Round 2 frames, their original bytes and their provenance/licence distinction. Xef requested the matching official Round 2 illustration on 2026-11-13. Fit 200×228 Time 2 and circular 260×260 Round 2 captures into their respective apertures without stretching. Home and product previews use the appropriate device frame; compact catalogue and gallery views show the native captures directly. No additional third-party licence is granted by this website.
 
-The original font, frame and screenshot records remain in `docs/asset-provenance.json`; current preview records are also exposed in `public/preview-provenance.json`. Website materials remain separate from native app UI standards.
+The original font, frame and screenshot records remain in `docs/asset-provenance.json`, with the Round 2 frame appended under `additional_device_presentations`; current preview records are also exposed in `public/preview-provenance.json`. Website materials remain separate from native app UI standards.
 
 ## Verification and publication
 

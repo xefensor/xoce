@@ -77,9 +77,9 @@ Opaque fallbacks keep content readable when backdrop filtering is unavailable or
 
 ## Screenshots and assets
 
-Use actual project captures with useful alt text. Keep the native screenshot files unchanged and preserve their 200 × 228 screen ratio.
+Use actual project captures with useful alt text. Keep the native screenshot files unchanged and preserve their 200 × 228 Time 2 or circular 260 × 260 Round 2 screen proportions.
 
-The Pebble Time 2 presentation on Home and product pages uses the [official Pebble Appstore frame](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png), credited to Core Devices. The transparent frame image is unchanged. Native captures fit inside it without stretching; matte black fills the unused part of the taller aperture. A caption identifies the composite as an emulator preview in a device frame. It does not imply a photograph of the running app or physical-watch verification.
+Home and product pages use the official Pebble Appstore frames for [Time 2](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png) and [Round 2](https://apps.repebble.com/images/screenshot_slider_background_gabbro.png), credited to Core Devices. Both transparent frame images are unchanged. Native captures fit inside the matching aperture without stretching; matte black fills the unused part of the taller Time 2 aperture. A caption identifies the composite as an emulator preview. It does not imply a photograph of the running app or physical-watch verification.
 
 Direct screen views remain useful for close reading in documentation and compact catalogue previews. No fake phone or desktop app interface is needed to illustrate planned work.
 
