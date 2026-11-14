@@ -202,5 +202,5 @@
     "additionalCaptureProof": "Earlier frozen release native renderer/resources match both targets exactly under the same SDK metadata audit; Weather packaged config.html is byte-identical. Original source hashes remain unchanged."
   },
   "compatibilityMethod": "exact-native-body-and-non-icon-resources",
-  "sourceCommit": "9158a869aca33959e7b89d080fff410ca86c132f"
+  "sourceCommit": "22f4193c07fd28d4cffacce68bb89e425dcc3610"
 }

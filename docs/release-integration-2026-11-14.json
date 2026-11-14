@@ -40,8 +40,10 @@
       "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
       "baselineVersion": "1.10.2",
       "implementationCommit": "3333f45ef4e12595a946bf1a44a86c194aae00db",
-      "commit": "9158a869aca33959e7b89d080fff410ca86c132f",
-      "frozenArtifactCommit": "145f4465e8a92b4052c6f81379791848840f8468"
+      "commit": "22f4193c07fd28d4cffacce68bb89e425dcc3610",
+      "frozenArtifactCommit": "145f4465e8a92b4052c6f81379791848840f8468",
+      "ciSetupCommit": "9158a869aca33959e7b89d080fff410ca86c132f",
+      "preparedDirectory": "prepared-publish-fix/halftone"
     },
     {
       "slug": "timer",
