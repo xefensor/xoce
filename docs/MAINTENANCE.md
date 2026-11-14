@@ -4,16 +4,18 @@
 
 Xef approved the Pebble-first redesign and requested its public deployment on 2026-11-14. It describes Dynamic 1.0.2, Halftone 1.10.3, Dashboard 1.0.2, Timer 1.0.3, Open Activity 1.0.2 and ČHMÚ Weather 1.0.4. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch interface. Duo and Personal Weather are excluded.
 
-A launch candidate is not a published app release. `publication: 'preview'` records have no active Store or PBW links; a site-wide preview notice and `noindex` identify preparation pages even after their authorized website deployment. `check:deployment` allows that state and retains complete public Store/GitHub verification for published records. `check:launch` remains the all-app activation check. Existing app releases remain unchanged. [Launch checklist](launch-checklist.md) records the activation process.
+All six current products are published in Pebble Store, with matching GitHub PBWs verified on 2026-11-14. A future launch candidate is not a published app release: `publication: 'preview'` records have no active Store or PBW links, and the preview notice and `noindex` identify preparation pages. `check:deployment` allows that state and retains complete public Store/GitHub verification for published records. `check:launch` remains the all-app activation check. [Launch checklist](launch-checklist.md) records the activation process.
 
 ## Page jobs and interaction
 
 - Home leads with Pebble products, names both featured watchfaces within the first mobile screen and shows both watch shapes. The wider Android/KDE direction belongs mainly in About.
 - Keep Software/Docs/About navigation, the outlined XOCE wordmark, self-hosted Fira Sans/Condensed, cool silver/graphite surfaces and blue interaction colour. Use restrained material depth and clear product presentations. Documentation keeps a quiet reading surface.
-- Group the catalogue into two watchfaces, three watch apps and one phone plugin. Libraries and planned products do not appear as consumer app cards. Activities 0.4.4 and Core 0.5.2 remain the pinned public library packages; consuming app repositories own their newer vendored versions.
+- Group the catalogue into two watchfaces, three watch apps and one phone plugin. Libraries and planned products do not appear as consumer app cards. Activities 0.4.4 (prerelease), Core 0.5.2 and XOCE UI 0.1.1 are the pinned public standalone library packages; consuming app repositories own their newer vendored versions.
 - Product pages lead with purpose, native previews, compatibility and installation. Store is the primary action for verified published versions; the matching GitHub PBW is secondary. Configuration help, support and privacy remain directly reachable for people who already installed from the Store.
 - The device-led presentation is for people new to XOCE. Home and Software group paired watchfaces, compact watch-app rows and a distinct phone-plugin section. Product pages follow purpose/device preview, illustrated features, relevant connections, full gallery and setup/support. Home illustrates the Timer-to-watchface example after product browsing; detailed setup stays in the guides.
 - Preserve all routes, legacy fragments and no-JavaScript reading/navigation. `/docs/` opens Getting started directly. Keep the existing Phone plan and its canonical redirects, without promoting it as installable software.
+- Developer and Design task overviews live at `/docs/develop/` and `/docs/design/`. Current guides describe the released implementations; archived studies under `/docs/history/` preserve their original evidence, display a current-reference link and remain separate from current-guide pagination.
+- Design references show live website specimens and native captures with their actual capture/reuse labels. Website materials, watch interfaces and phone settings retain separate roles. Search ranks relevant titles ahead of incidental body matches, reports all matches and lets readers reveal further results.
 - Shape selection uses native radio controls and defaults to Time 2. Do not infer a visitor’s connected watch from their browser or automatically cycle previews.
 - Keep keyboard access, reduced motion/transparency, browser theme preference and clear focus. Explicit Search may focus its input; ordinary visits must not move focus unexpectedly.
 
@@ -21,7 +23,7 @@ A launch candidate is not a published app release. `publication: 'preview'` reco
 
 Astro 7.4.7 produces static HTML beneath `/xoce/`; preserve existing dependency pins and lockfile. There is no backend, account system or automatic theme service. `src/lib/site.ts` owns the origin/base; templates, Markdown, search and redirects must use its path conventions.
 
-`src/data/projects.ts` owns product identity, publication state, exact links, checked UUID/PBW hashes, summaries, features, requirements, shape previews and the optional illustrated showcase. Showcase images reference existing entries in `src/data/launch-screenshots.json`; that file owns capture metadata. `src/data/docs.ts` owns navigation, with article content under `src/pages/docs`.
+`src/data/projects.ts` owns product identity, publication state, exact links, checked UUID/PBW hashes, summaries, features, requirements, shape previews and the optional illustrated showcase. Showcase images reference existing entries in `src/data/launch-screenshots.json`; that file owns capture metadata. `src/data/docs.ts` owns navigation and current/history status, with article content under `src/pages/docs`. `src/data/development.ts` records public library packages separately from reviewed app-tag dependency snapshots. An app-tag change requires a fresh dependency review; do not infer standalone library releases from bundled versions.
 
 The shared product collection owns category order. Each product's connections explain its actual role rather than repeating a generic Activities tutorial. Timer owns countdowns and alarms, Dashboard cannot pause/resume Timer, Open Activity opens an associated app rather than a specific item, and weather readings use separate settings. Shared updates require phone plugin support, source permissions and connectivity. Music/notification integration requires Android.
 
@@ -37,7 +39,7 @@ The original font, frame and screenshot records remain in `docs/asset-provenance
 
 ## Verification and publication
 
-Use Node 22.23.4 and Python 3.12.15. `npm test` runs type/build/link/doc checks and offline release-verification regressions. Native image dimensions, hashes and release versions must agree. Browser checks exercise the built site separately and write disposable evidence under ignored `build/qa/`. Existing `docs/qa/` remains historical.
+Use Node 22.23.4 and Python 3.12.15. `npm test` runs type/build/link/doc checks and offline release-verification and search regressions. Native image dimensions, hashes and release versions must agree. Runnable provider and Core integration examples have separate host-side checks documented with their source; they do not establish physical-device behaviour. Browser checks exercise the built site separately and write disposable evidence under ignored `build/qa/`. Existing `docs/qa/` remains historical.
 
 `npm run check:launch` is read-only: it checks public Store UUID/version/platform metadata and exact matching Store/GitHub PBW bytes. Missing or inconsistent data fails. All six current consumer releases passed this check after their Store submission on 2026-11-14. The [publication audit](qa/store-publication-2026-11-14/verification.json) records fresh public metadata and exact downloaded Store/GitHub bytes, including separately identified stale cached observations. Re-run the gate for later publication changes.
 
@@ -48,6 +50,8 @@ Project downloads retain their licences, including PolyForm Noncommercial. Do no
 ## History
 
 [Contracts before the Store redesign](history/website-before-store-launch.md) and the [history index](history/index.md) retain earlier decisions. They do not override the current contracts above.
+
+The dated implementation notes below preserve the sequence of the 2026-11-14 artwork and Store preparation. Version numbers in those notes describe that stage; current publication identities belong to `src/data/projects.ts` and the current scope above.
 
 ## Store update — 2026-11-14
 
@@ -61,9 +65,9 @@ Xef approved the single homepage concept before implementation. The real site us
 
 `src/styles/theme.css` owns the material/colour roles; `src/styles/identity.css` owns the approved website presentation. Fira sources are pinned and hashed in `public/fonts/xoce/provenance.json`; local Latin WOFF exports include Czech characters and the OFL. Existing Inter/Space Grotesk and historic image files remain available. The new artwork review is `Watch/XOCE-Identity-2026-11-14/`; older review ZIPs are unchanged. App runtime code, PBWs, publication state and launch gates remain separate.
 
-## Newly numbered Store packages — 2026-11-14
+## Historical Store package numbering — 2026-11-14
 
-Xef requested uploadable new versions after the public Store numbers were found to be in use. Dynamic, Dashboard and Open Activity are now 1.0.1; Timer is 1.0.2, Halftone is 1.10.2 and ČHMÚ Weather is 1.0.3. `docs/reviewed-artifacts.json` records the rebuilt/frozen PBW hashes and committed source identities. The combined `store-updates/2026-11-14/` folder and ZIP contain these new binaries and the current artwork/copy. Earlier release archives remain unchanged.
+Xef requested uploadable new versions after the public Store numbers were found to be in use. At this preparation stage, Dynamic, Dashboard and Open Activity were numbered 1.0.1; Timer 1.0.2, Halftone 1.10.2 and ČHMÚ Weather 1.0.3. `docs/reviewed-artifacts.json` records the rebuilt/frozen PBW hashes and committed source identities. The combined `store-updates/2026-11-14/` folder and ZIP captured those binaries and their artwork/copy. Later publication used the versions recorded in the current scope. Earlier release archives remain unchanged.
 
 Historical captures and provenance stay intact. New versioned website assets retain the original `capture_version` and source PBW hash, alongside the represented release and a public `release_reuse_proof` where strict renderer/resource equality was checked. The asset validator accepts reuse only with the matching target PBW and verified original source. Weather has a fresh Chromium capture of its new packaged settings with a simulated Pebble bridge. The obsolete Dashboard action example is replaced by its current verified overview. Publication/installation gates still apply.
 

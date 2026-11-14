@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Activity Summary Demo</title>
+  <style>
+    :root{color-scheme:light dark;font:16px/1.5 system-ui,sans-serif}
+    body{max-width:36rem;margin:auto;padding:1rem}h1{font-size:1.6rem}
+    label{display:block;font-weight:600}input,button{font:inherit;min-height:44px}
+    input{box-sizing:border-box;width:100%;padding:.5rem;margin:.5rem 0}
+    button{padding:.5rem .8rem;margin:.3rem .3rem .3rem 0}button:focus-visible,input:focus-visible{outline:3px solid #3783d6;outline-offset:3px}
+    #status{min-height:3rem}#status[data-error=true]{color:light-dark(#9d1d17,#ffb4ab)}
+    pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:.75rem;border:1px solid currentColor}
+  </style>
+</head>
+<body>
+  <h1>Activity Summary Demo</h1>
+  <p>Manual teaching data, stored on this phone. This plugin has no watch app, external data source or alarm.</p>
+  <p>Enable this source in Dynamic or Halftone, then return to that watchface. It reads changes on its next source request; saving here does not confirm display on the watch.</p>
+  <form id="message-form">
+    <label for="message">Message for the same activity</label>
+    <input id="message" maxlength="96" value="Parcel at depot" required disabled>
+    <button type="submit" disabled>Show or update message</button>
+  </form>
+  <div aria-label="Other demo states">
+    <button type="button" data-action="countdown" disabled>Start 120-second countdown</button>
+    <button type="button" data-action="pause" disabled>Pause countdown</button>
+    <button type="button" data-action="hide" disabled>Withdraw item</button>
+    <button type="button" data-action="expire" disabled>Show item for 15 seconds</button>
+  </div>
+  <button id="reload" type="button">Read saved demo state</button>
+  <p id="status" role="status" aria-live="polite">Loading the saved demo state…</p>
+  <h2>Saved owner state</h2>
+  <pre id="saved">Not loaded</pre>
+  <p>The countdown deadline is created only when you press Start. Pause stores fixed remaining seconds. The expiring item's deadline is also created once; source refreshes do not renew it.</p>
+  <script>
+    (function () {
+      'use strict';
+      var input=document.getElementById('message'),status=document.getElementById('status');
+      var controls=Array.prototype.slice.call(document.querySelectorAll('button,input'));
+      var busy=false,loaded=false,request=0;
+      function announce(text,error){if(status.textContent!==text)status.textContent=text;status.setAttribute('data-error',error?'true':'false');}
+      function send(message){
+        if(busy)return;
+        busy=true;controls.forEach(function(control){control.disabled=true;});
+        var current=++request,timer=setTimeout(function(){finish(null);},6000);
+        function finish(response){
+          if(current!==request)return;
+          ++request;clearTimeout(timer);busy=false;
+          controls.forEach(function(control){control.disabled=!loaded;});
+          document.getElementById('reload').disabled=false;
+          if(!response||!response.ok||!response.state){announce('Could not confirm the demo state. Your message stays here; read saved state or try again.',true);return;}
+          loaded=true;controls.forEach(function(control){control.disabled=false;});
+          document.querySelector('[data-action="pause"]').disabled=response.state.mode!=='countdown';
+          document.getElementById('saved').textContent=JSON.stringify(response.state,null,2);
+          if(message.type==='getDemo')input.value=response.state.text;
+          announce(message.type==='getDemo'?'Saved demo state loaded.':'Saved on phone. Check the watchface after its next source read.',false);
+        }
+        announce(message.type==='getDemo'?'Loading the saved demo state…':'Saving the demo state…',false);
+        try{Pebble.sendMessage('plugin',message).then(finish,function(){finish(null);});}catch(error){finish(null);}
+      }
+      document.getElementById('message-form').onsubmit=function(event){event.preventDefault();send({type:'setDemo',action:'message',text:input.value});};
+      Array.prototype.forEach.call(document.querySelectorAll('[data-action]'),function(button){button.onclick=function(){send({type:'setDemo',action:button.getAttribute('data-action')});};});
+      document.getElementById('reload').onclick=function(){send({type:'getDemo'});};
+      if(typeof Pebble!=='undefined'&&typeof Pebble.addEventListener==='function'){
+        Pebble.addEventListener('ready',function(event){if(!event||!event.target||event.target==='plugin')send({type:'getDemo'});});
+      }else announce('Open this page from the plugin settings in a Pebble phone app with Plugins support.',true);
+    }());
+  </script>
+</body>
+</html>

@@ -1,59 +1,77 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: Visual identity
-description: XOCE’s tactile website identity, materials, typography and native device presentation.
+title: Website visual identity
+description: Live colour, type and control specimens, with rules for XOCE product identities and assets.
 section: Design
 order: 2
+designReference: website
 ---
 
-XOCE’s website uses cool silver and graphite, blue controls, strong condensed headings and restrained physical depth. Xef approved the homepage concept before it was extended across the site and Store artwork. The identity draws on the actual Pebble apps and Xef’s desktop and Android material experiments.
+The specimens above use this website’s real CSS and product marks. The website family is **cool silver and graphite, blue actions, Fira typography and restrained physical depth**. Product accents distinguish the apps; they do not replace the interaction colour.
 
-The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) owns native watch and phone-settings design. These website materials do not replace the apps’ interfaces.
+These are web and marketing rules. [Phone settings and native watch interfaces](/docs/design/pebble-ui-system/) have their own typography, controls and palette constraints.
 
 ## Colour and material
 
-Use semantic roles from `src/styles/theme.css`. Light mode has cool silver backgrounds and near-white working surfaces; dark mode uses graphite. Blue identifies actions, links and focus. Colour is accompanied by labels, shapes or visible state.
+Use semantic roles from [theme.css](https://github.com/xefensor/xoce/blob/main/src/styles/theme.css), not a convenient product accent. `--ink` and `--muted` distinguish text roles; `--accent-text` is for links, `--accent` with `--accent-ink` for prominent actions, and `--focus` for a visible keyboard boundary.
 
-The page, working surfaces and controls have distinct roles. Fine edge highlights and contact shadows show the grouping of a header, control or product presentation. Reading areas remain opaque and calm. Text stays sharp and flat, with readable supporting text in both themes.
+Page, reading, control and product-stage surfaces have different jobs. Reading areas are opaque and quiet. Fine highlights and contact shadows group a control or stage; do not add a floating panel around every sentence. Supporting text still needs readable contrast in both themes.
 
-Product stages use a shared graphite surface, keeping the actual native screen the focus. Each product adds a restrained accent and a meaningful background rhythm: Dynamic uses adapting bands, Halftone uses dots, Timer uses time arcs, Dashboard uses a panel grid, Open Activity uses a directional path, and ČHMÚ Weather uses atmospheric contours. Product colours decorate identity; the website's blue continues to identify actions. Smaller controls belong to their parent surface. Avoid adding a separate floating panel around every line of text.
+```css
+/* Reuse the existing roles in a website component. */
+.example-reading { color: var(--ink); background: var(--paper); }
+.example-link { color: var(--accent-text); }
+.example-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+```
+
+The website’s theme control offers System, Light and Dark. Explicit choices persist across navigation. Forced colours, reduced transparency and reduced motion need usable fallbacks; colour must not be the only indication of selection, failure or focus.
 
 ## Typography and the name
 
-**Fira Sans** is the reading and control face. **Fira Sans Condensed Bold/ExtraBold** supplies headings. Body text remains comfortable at mobile sizes; documentation has one bounded reading column.
+Use **Fira Sans** for reading and controls, and **Fira Sans Condensed** for headings. Ordinary headings use weight 700; prominent home/product headings can use 800. The existing documentation body is 1.0625rem with line-height1.8 on larger screens, and 1rem/1.75 on narrow screens. Its reading width is bounded rather than filling a large monitor.
 
-The **XOCE** wordmark uses outlined Fira Sans Condensed ExtraBold letters. It follows the foreground colour and remains readable in monochrome. The X favicon uses the same letter shape on blue. The name expands to **Xef’s Open Computing Ecosystem**.
+The outlined **XOCE** wordmark uses Fira Sans Condensed ExtraBold and follows the foreground colour. The X favicon uses the same letter on blue. The name means **Xef’s Open Computing Ecosystem**. Keep the supplied vector’s proportions and clear space; do not reconstruct it with live text or add a background tile.
 
-Fonts are self-hosted Latin/Latin Extended WOFF exports, including Czech characters, with `font-display: swap`. The [font provenance](/fonts/xoce/provenance.json) records pinned upstream sources and hashes; the [SIL OFL licence](/fonts/xoce/OFL.txt) accompanies them. Previous Inter and Space Grotesk files and licences remain available as historical assets.
+Fonts are self-hosted Latin/Latin Extended WOFF exports, including Czech. [Font provenance](/fonts/xoce/provenance.json) pins their sources and hashes, and the [OFL](/fonts/xoce/OFL.txt) accompanies them. Historical Inter and Space Grotesk assets retain their original credits.
+
+## Spacing and shape
+
+Reuse the existing component before inventing a new measurement. Current shape roles are 4px for small corners, 7px for controls and 14px for panes. Common local gaps include 8, 12, 16 and 24px; the desktop article gutter is 36px and narrows with the viewport. These are existing applications, not a requirement to snap every composition to one grid.
+
+Keep related labels, values and help close together; leave more space between tasks. Ordinary touch controls need a comfortable target, with 44px as the starting target used by the site. Test the real narrow layout and enlarged text rather than relying on nominal dimensions.
 
 ## Pages and controls
 
-Home introduces the actual Pebble apps with a shared watch stage and direct app/setup actions. Dynamic’s four-reading split layout and Halftone’s two-location layout show their different character. Watchface tiles, watch-app rows and a separate phone weather plugin make browsing clear.
+Blue identifies links and actions across all product pages. The primary action should name its destination or result. A quieter action stays on the parent surface. Hover, press and keyboard focus are distinct; a focus ring must remain visible over both silver and graphite.
 
-Product pages retain compatibility and installation state beside the preview. About explains the wider KDE Plasma and Android direction accurately. Docs opens the Getting started article and keeps support, setup and developer guidance directly reachable.
+Desktop pointer controls may depress slightly while pressed. Touch controls stay stationary and respond through colour and light. A disabled action uses an actual disabled control and an understandable reason; appearance alone cannot disable a link. The disabled specimen is a native button, while the other specimens are working documentation links.
 
-Desktop controls can depress slightly while pressed. Touch controls stay stationary and respond through colour and light. Feedback is immediate and brief. Ordinary visits do not move keyboard focus; opening Search explicitly focuses its field.
-
-System, Light and Dark remain available. An explicit appearance choice persists across navigation. Reduced motion, reduced transparency and forced colours receive usable fallbacks. Navigation, documentation and watch-shape selection work without JavaScript.
+Home and Software group two watchfaces, three watch apps and a separate phone plugin. Product pages put purpose, a genuine demonstration and installation/compatibility information together. On mobile the introduction is followed by the demonstration, then the longer detail. The docs remain a calm reading surface with explicit navigation.
 
 ## Product artwork and images
 
-Product symbols remain recognizable: Timer’s hourglass, Dashboard’s panels, Open Activity’s opening arrow and Weather’s sun/cloud/rain. They use crisp monochrome glyphs with a transparent background. Website marks follow the page’s light/dark appearance; the graphite product stage uses white glyphs. Watchface marks are website artwork rather than Store icon fields.
+Use the six symbols and motifs above as a family. Keep the monochrome silhouette clear at small sizes. Device treatment, title typography, spacing and the small XOCE endorsement tie banners together; composition and meaningful geometry belong to each product. Halftone keeps orange dots rather than donating its separator to every other app.
 
-Xef selected the original orange Halftone banner as the Store reference: bold colour, a meaningful pattern, a large readable title and a real app screen. The refreshed family keeps those qualities, a small XOCE endorsement and consistent graphite/silver device treatment. Composition belongs to each product: do not repeat Halftone's curved separator or tile each product's menu glyph as wallpaper. Halftone keeps orange dots; Dynamic demonstrates changing space; Timer uses arcs; Dashboard uses panels; Open Activity explains a shortcut. The Store’s app icons use one-colour transparent glyphs marked `icon_tintable`; no background tile or shadow is baked into those files. Standalone Store screenshots remain raw and unframed.
+| Product | Website identity | Pebble Store artwork | Native launcher |
+| --- | --- | --- | --- |
+| Dynamic | Clock/readings mark, adapting bands, idle and activity examples | Per-platform banner and raw native gallery; no Store icon fields | Transparent25px glyph |
+| Halftone | Dithered clock mark, orange dots, original orange hero | Per-platform banner and raw native gallery; no Store icon fields | Transparent25px glyph |
+| Timer | Hourglass and time arcs | Tintable 80/144px icons, banner and raw native gallery | Transparent25px glyph |
+| Dashboard | Panels and grid | Tintable 80/144px icons, banner and raw native gallery | Transparent25px glyph |
+| Open Activity | Opening arrow and directional path | Tintable 80/144px icons; labelled cross-app banner; its own native setup screen in the gallery | Transparent25px glyph |
+| ČHMÚ Weather | Sun/cloud/rain and atmospheric contours; genuine phone settings | Tintable 80/144px plugin icons; no plugin screenshot/banner slots | None: phone-only plugin |
 
-The website uses the same deliberate hero configurations as the Store artwork: orange Halftone, split four-reading Dynamic, running Timer and Dashboard's overview. Product identity must survive without its name, while typography, spacing, device treatment and the XOCE endorsement make the collection recognisable together. Other genuine configurations belong in the gallery.
+Website marks follow the page theme; marks on graphite stages are white. Store icons are one-colour black glyphs on a transparent background with binary alpha, marked `icon_tintable`; tiles, shadows and device frames are not baked into them. The current native launcher exports are black on transparent, chosen for actual firmware rows; they are separate files from the Store and website marks.
 
-Dynamic's hero includes separate native idle and activity states side by side. Open Activity's hero labels its supporting apps explicitly: a countdown on Dynamic and the destination Timer app. These are separate example captures, not a recording of one countdown or invented Open Activity UI. Watch-shape selection and both demonstrations work without JavaScript or animation.
+Banners are 720×320 marketing compositions. Standalone Store screenshots are raw, unframed native PNGs: 200×228 for Emery and 260×260 for Gabbro. Website device previews use the credited official frame files without changing their proportions or source pixels.
 
-ČHMÚ Weather is a phone plugin. Its website hero shows a CSS crop of the actual settings capture, linked to the unmodified full image; it does not invent a watch interface. On small screens each product's introduction is followed by its demonstration, then the longer description and compatibility details. Global launch status and install status stay visible; native/browser provenance is explained in the gallery rather than repeated on every surface.
-
-Native screenshot files and the website’s official Time 2/Round 2 frame files retain their exact bytes and proportions. Those website frames are credited to Core Devices. The new Store illustrations adapt Xef’s original Halftone SVG instead. Neither composition is a physical-watch photograph or a hardware test. Current orange Halftone captures have native emulator evidence.
-
-New artwork uses new website filenames and provenance records. Historical images and the earlier review bundles stay unchanged. The original generated homepage concept is a design reference; the implemented site is responsive HTML/CSS using actual project assets.
+Dynamic’s side-by-side states and Open Activity’s labelled Dynamic→Timer example are separate real captures, not a synchronized recording or invented helper interface. ČHMÚ has no watch screen: its hero presents actual browser settings and links to the full image. The [image provenance](/preview-provenance.json) distinguishes artwork, emulator rendering and simulated phone previews.
 
 ## Maintaining the identity
 
-`src/styles/theme.css` owns colours and material roles; `src/styles/identity.css` owns the approved presentation. Shared components provide navigation, the outlined wordmark and native previews. Documentation’s reading layout remains in `src/styles/guide.css`.
+[theme.css](https://github.com/xefensor/xoce/blob/main/src/styles/theme.css) owns colours/material roles; [identity.css](https://github.com/xefensor/xoce/blob/main/src/styles/identity.css) owns the approved presentation; [guide.css](https://github.com/xefensor/xoce/blob/main/src/styles/guide.css) owns reading geometry. The specimens read the production theme declarations at build time. Keep shared navigation, wordmark and preview components in use.
 
-Existing app licences and third-party credits remain authoritative. The earlier Spatial Desktop material ancestry and retained artwork are documented separately; this identity does not grant a new licence to app screenshots or official device frames.
+Append new versioned artwork and provenance when assets change. Historical images, official device frames, app screenshots, licences and earlier review bundles retain their bytes and credits. Validate desktop/mobile, both themes, keyboard focus and reduced-motion/forced-colour behaviour on the rendered page.

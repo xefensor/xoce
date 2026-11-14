@@ -1,0 +1,38 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+import DocTopics from '../../../components/DocTopics.astro';
+import { sitePath } from '../../../lib/site';
+const frontmatter = {
+  title: 'Design overview', section: 'Design',
+  description: 'One XOCE family, with room for each app’s own character. Use the current rules and examples for the surface you are designing.',
+};
+const headings = [
+  { depth: 2, slug: 'choose-a-surface', text: 'Choose a surface' },
+  { depth: 2, slug: 'shared-family-individual-character', text: 'Shared family, individual character' },
+  { depth: 2, slug: 'current-and-historical', text: 'Current and historical guidance' },
+];
+const topics = [
+  { title: 'Website', description: 'Silver and graphite materials, Fira typography, readable surfaces and product artwork.', href: '/docs/design/visual-identity/', label: 'See visual specimens', icon: 'code' },
+  { title: 'Pebble screens', description: 'Native type roles, both watch shapes, safe content areas and real versioned screen examples.', href: '/docs/design/pebble-ui-system/', label: 'Use the Pebble reference', icon: 'watch' },
+  { title: 'Phone settings', description: 'Sections, editing, previews and Save states for settings hosted by the Pebble phone app.', href: '/docs/design/ui-patterns/', label: 'See interface patterns', icon: 'phone' },
+  { title: 'Interaction and state', description: 'Button actions, empty and stale content, permissions and honest feedback.', href: '/docs/design/interaction/', label: 'Follow the state rules', icon: 'spark' },
+];
+---
+<DocLayout frontmatter={frontmatter} headings={headings}>
+  <h2 id="choose-a-surface">Choose a surface</h2>
+  <DocTopics topics={topics} label="Design references"/>
+  <h2 id="shared-family-individual-character">Shared family, individual character</h2>
+  <p>The family comes from clear hierarchy, readable content, consistent icon craft and truthful states. Dynamic’s soft clock, Halftone’s dot border and Timer’s countdown each keep their purpose and character.</p>
+  <p>Start with the <a href={sitePath('/docs/design/principles/')}>design principles</a>, then use the <a href={sitePath('/docs/design/visual-identity/#product-identities')}>product identity and artwork reference</a> for marks, banners and screenshots. The website’s materials belong to the website; watch and phone interfaces use the rules of their own surface.</p>
+  <p>Implementation details live in the <a href={sitePath('/docs/develop/ui/')}>XOCE UI integration guide</a>. The shared package provides drawing and styles. Your app still owns its behaviour and product identity.</p>
+  <h2 id="current-and-historical">Current and historical guidance</h2>
+  <p>Current pages describe the released implementations and identify any proposed work. Screenshot captions retain the actual captured version, watch shape and source, including reused evidence.</p>
+  <details class="doc-history-list"><summary>Earlier studies and their evidence</summary>
+    <p>These preserve earlier decisions and captures. Use the current references above for new work.</p>
+    <ul>
+      <li><a href={sitePath('/docs/history/pebble-ui-system/')}>Historical Pebble UI study</a></li>
+      <li><a href={sitePath('/docs/history/ui-patterns/')}>Historical UI patterns</a></li>
+      <li><a href={sitePath('/docs/history/interaction/')}>Historical interaction study</a></li>
+    </ul>
+  </details>
+</DocLayout>

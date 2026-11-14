@@ -1,0 +1,54 @@
+---
+import { projects } from '../data/projects';
+import { developmentLibraries, bundledReleases } from '../data/development';
+import { sitePath } from '../lib/site';
+const appSlugs = ['dynamic', 'halftone', 'timer', 'dashboard', 'open-activity', 'chmu-weather'];
+const apps = appSlugs.map(slug => {
+  const project = projects.find(item => item.slug === slug);
+  if (!project?.repo || !project.version || !project.tag) throw Error(`Missing released build reference: ${slug}`);
+  return project;
+});
+const bundles = bundledReleases.map(bundle => {
+  const project = apps.find(item => item.slug === bundle.slug)!;
+  if (project.tag !== bundle.ref) throw Error(`Verify bundled dependencies for ${project.slug} ${project.tag} before updating developer references`);
+  return { ...bundle, project };
+});
+---
+<section aria-labelledby="released-apps">
+  <h2 id="released-apps">Released app build guides</h2>
+  <p>Reproduce a published app from its exact tag. For a new change, use the owning repository’s current contributor guide and record the revision you tested. These app versions come from the same catalogue as the download pages.</p>
+  <table>
+    <thead><tr><th scope="col">Project</th><th scope="col">Released source</th><th scope="col">Build instructions</th></tr></thead>
+    <tbody>{apps.map(project => <tr>
+      <th scope="row"><a href={sitePath(`/projects/${project.slug}/`)}>{project.name}</a></th>
+      <td><a href={`${project.repo}/tree/${project.tag}`}>{project.tag}</a></td>
+      <td><a href={`${project.repo}/blob/${project.tag}/CONTRIBUTING.md`}>Environment and checks</a></td>
+    </tr>)}</tbody>
+  </table>
+</section>
+<section aria-labelledby="library-versions">
+  <h2 id="library-versions">Public library packages</h2>
+  <p>These are independently downloadable library releases. They are embedded dependencies, not apps to install on a watch. Download the package and its upstream checksums, preserve its licence and pin the archive in your lockfile.</p>
+  <table>
+    <thead><tr><th scope="col">Library</th><th scope="col">Public release</th><th scope="col">Integration</th></tr></thead>
+    <tbody>{developmentLibraries.map(library => <tr>
+      <th scope="row"><a href={sitePath(`/projects/${library.slug}/`)}>{library.name}</a><br/><code>{library.packageName}</code></th>
+      <td><a href={`${library.repo}/releases/tag/v${library.version}`}>v{library.version}</a><br/>{library.status}</td>
+      <td><a href={sitePath(library.guide)}>{library.purpose}</a></td>
+    </tr>)}</tbody>
+  </table>
+  <p>The public Core and UI releases document Emery/Time 2 with SDK 4.33.1. Current app builds use SDK 4.44 and their own checked packages for Emery and Gabbro. Follow the version and platform contract of the package you actually choose.</p>
+</section>
+<section aria-labelledby="bundled-packages">
+  <h2 id="bundled-packages">Packages bundled in the apps</h2>
+  <p>The published apps include newer vendored snapshots. A package number in this table does not imply a standalone library release or download with that number. Each link points to the app tag’s exact dependency manifest; its <code>vendor/CORE.json</code>, <code>vendor/ACTIVITIES.json</code> and <code>vendor/UI.json</code> record the relevant archive hashes and source provenance.</p>
+  <table>
+    <thead><tr><th scope="col">App release</th><th scope="col">Core</th><th scope="col">Activities</th><th scope="col">UI</th></tr></thead>
+    <tbody>{bundles.map(bundle => <tr>
+      <th scope="row"><a href={`${bundle.project.repo}/blob/${bundle.ref}/package.json`}>{bundle.project.name} {bundle.ref}</a></th>
+      <td>{bundle.core ?? '—'}</td><td>{bundle.activities ?? '—'}</td><td>{bundle.ui ?? '—'}</td>
+    </tr>)}</tbody>
+  </table>
+  <p>Open Activity reads the selected watchface’s presented app destination directly; it does not bundle Activities. Dashboard uses Activities and UI, without Core. ČHMÚ Weather is an independent phone-only provider and bundles none of these three packages.</p>
+  <p>When extending an existing app, keep its checked archive and provenance unless the change intentionally upgrades that dependency. Rebuild and release the consumer separately after an upgrade. If a recorded source revision is unavailable upstream, use the exact vendored archive to reproduce the app and resolve that provenance before presenting it as a new public library release.</p>
+</section>

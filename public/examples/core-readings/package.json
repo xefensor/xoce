@@ -1,0 +1,52 @@
+{
+  "name": "xoce-core-readings-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal Core readings host and portable JS/C integration checks.",
+  "scripts": {
+    "fetch:library": "node scripts/fetch-library.mjs",
+    "test": "node --test test/*.test.cjs",
+    "build": "node scripts/build.mjs",
+    "build:watch": "node scripts/build-watch.mjs"
+  },
+  "dependencies": {
+    "pebble-watchface-core": "file:vendor/pebble-watchface-core-0.5.2.tgz"
+  },
+  "pebble": {
+    "displayName": "Core Readings Demo",
+    "uuid": "75151430-d049-4ec4-b355-628a8132d272",
+    "sdkVersion": "3",
+    "projectType": "native",
+    "targetPlatforms": [
+      "emery"
+    ],
+    "watchapp": {
+      "watchface": false
+    },
+    "resources": {
+      "media": []
+    },
+    "messageKeys": {
+      "REQUEST_READINGS": 9000,
+      "COMPLICATION_DATA": 9001
+    },
+    "usesPermissions": [
+      {
+        "name": "ReadWatchSettings",
+        "reason": "To read the two selected global readings",
+        "required": false
+      },
+      {
+        "name": "Location",
+        "reason": "To use weather readings when the chosen source needs location",
+        "required": false
+      }
+    ],
+    "enableMultiJS": true
+  },
+  "author": "Xef",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.23.4"
+  }
+}

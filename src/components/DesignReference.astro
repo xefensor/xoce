@@ -1,0 +1,99 @@
+---
+import { projects } from '../data/projects';
+import captures from '../data/launch-screenshots.json';
+import { designReferenceHeadings, type DesignReferenceVariant } from '../data/design-reference';
+import { sitePath } from '../lib/site';
+import themeSource from '../styles/theme.css?raw';
+import identitySource from '../styles/identity.css?raw';
+import '../styles/design-guide.css';
+
+interface Props { variant: DesignReferenceVariant }
+const { variant } = Astro.props;
+const heading = designReferenceHeadings[variant][0];
+// Read the production declarations rather than maintain another colour palette.
+const light = themeSource.match(/html\[data-ui='material'\]\s*\{([^}]+)\}/)?.[1] ?? '';
+const dark = themeSource.match(/html\[data-ui='material'\]\[data-theme='dark'\]\s*\{([^}]+)\}/)?.[1] ?? '';
+const roleValue = (source: string, role: string) => [...source.matchAll(new RegExp(`--${role}:\\s*([^;]+);`, 'g'))].at(-1)?.[1]?.trim() ?? '';
+const roles = [
+  { name: 'Page', token: 'bg' }, { name: 'Reading surface', token: 'paper' },
+  { name: 'Text', token: 'ink' }, { name: 'Supporting text', token: 'muted' },
+  { name: 'Action', token: 'accent' }, { name: 'Link', token: 'accent-text' },
+  { name: 'Focus', token: 'focus' }, { name: 'Border', token: 'line' },
+];
+const identities = [
+  { slug: 'dynamic', motif: 'Adapting bands', symbol: 'Clock + changing readings' },
+  { slug: 'halftone', motif: 'Orange dots', symbol: 'Clock + dithered bezel' },
+  { slug: 'timer', motif: 'Time arcs', symbol: 'Hourglass' },
+  { slug: 'dashboard', motif: 'Panel grid', symbol: 'Distinct panels' },
+  { slug: 'open-activity', motif: 'Directional path', symbol: 'Arrow entering a pane' },
+  { slug: 'chmu-weather', motif: 'Atmospheric contours', symbol: 'Sun, cloud and rain' },
+].map(identity => {
+  const product = projects.find(project => project.slug === identity.slug)!;
+  const rule = identitySource.match(new RegExp(`\\[data-product='${identity.slug}'\\]\\{([^}]+)\\}`))?.[1] ?? '';
+  return { ...identity, product, accent: roleValue(rule, 'product-accent') };
+});
+type Capture = (typeof captures.dynamic)[number] | (typeof captures['open-activity'])[number];
+const findCapture = (slug: keyof typeof captures, platform: string, suffix?: string): Capture => {
+  const found = captures[slug].find(capture => capture.platform === platform && (!suffix || capture.image.includes(suffix)));
+  if (!found) throw new Error(`Missing documented capture: ${slug}/${platform}/${suffix}`);
+  return found as Capture;
+};
+const examples = variant === 'patterns' ? [
+  { slug: 'dynamic', capture: findCapture('dynamic', 'emery', 'timer-music') },
+  { slug: 'chmu-weather', capture: findCapture('chmu-weather', 'phone') },
+] : [
+  { slug: 'dynamic', capture: findCapture('dynamic', 'emery', 'four-split') },
+  { slug: 'halftone', capture: findCapture('halftone', 'gabbro', 'orange') },
+  { slug: 'timer', capture: findCapture('timer', 'emery', 'running') },
+  { slug: 'dashboard', capture: findCapture('dashboard', 'gabbro', 'overview') },
+];
+---
+<section class="design-reference" aria-labelledby={heading.slug} data-design-reference={variant}>
+  <h2 id={heading.slug}>{heading.text}</h2>
+  {variant === 'website' ? <>
+    <p class="design-reference-intro">Real website roles and controls. Both themes use the declarations in <code>theme.css</code>; these samples remain available without JavaScript.</p>
+    <div class="design-theme-pair">
+      {[{ name: 'Light', declarations: light }, { name: 'Dark', declarations: light + dark }].map(theme => <section class="design-theme" style={theme.declarations} aria-label={`${theme.name} website specimen`}>
+        <p class="design-specimen-label">{theme.name} · website</p>
+        <div class="design-type-sample">
+          <p class="design-display">A clear place to start.</p>
+          <p class="design-body">Fira Sans for reading and controls. <strong>Readable emphasis</strong>, Czech characters: Příští déšť.</p>
+          <p class="design-support">Supporting text still carries useful contrast.</p>
+        </div>
+        <div class="design-control-samples">
+          <a class="button button-primary" href={sitePath('/docs/pebble/setup/')}>Set up your Pebble</a>
+          <a class="button" href={sitePath('/docs/design/principles/')}>Design principles</a>
+          <a class="button design-focus-example" href={sitePath('/docs/design/interaction/')}>Focus example</a>
+          <button class="button" type="button" disabled>No changes to save</button>
+        </div>
+        <p class="design-support">Links open real guides. Tab shows keyboard focus; the final button is genuinely disabled.</p>
+        <dl class="design-role-list">{roles.map(role => <div>
+          <dt><span class="design-swatch" style={`background:var(--${role.token})`} aria-hidden="true"></span>{role.name}</dt>
+          <dd><code>--{role.token}</code><span>{roleValue(theme.declarations, role.token)}</span></dd>
+        </div>)}</dl>
+      </section>)}
+    </div>
+    <div class="design-measurements">
+      <section aria-label="Spacing examples"><h3>Spacing in use</h3><div class="design-spacing">{[8, 12, 16, 24, 36].map(size => <div><span style={`width:${size}px`} aria-hidden="true"></span><code>{size}px</code></div>)}</div><p>Common existing gaps and article padding, not a new global token scale.</p></section>
+      <section aria-label="Corner examples"><h3>Shape roles</h3><div class="design-radii">{['small', 'control', 'pane'].map(role => <div><span style={`border-radius:var(--radius-${role})`} aria-hidden="true"></span><code>{role} · {roleValue(light, `radius-${role}`)}</code></div>)}</div></section>
+    </div>
+    <h3 id="product-identities">Six identities, one family</h3>
+    <p>These product accents identify the presentation. Blue remains the website action colour.</p>
+    <div class="design-identity-grid">{identities.map(identity => <a class="design-identity" data-product={identity.slug} href={sitePath(`/projects/${identity.slug}/`)}>
+      <span class="design-identity-top"><img class="product-family-mark" src={sitePath(identity.product.storeArtwork!.mark)} width="36" height="36" alt="" loading="lazy"/><strong>{identity.product.name}</strong></span>
+      <span class="design-pattern" aria-hidden="true"></span><span>{identity.symbol}</span><span class="design-support">{identity.motif} · <code>{identity.accent}</code></span>
+    </a>)}</div>
+  </> : <>
+    <p class="design-reference-intro">{variant === 'patterns' ? 'A watchface presents shared activity data; a phone page configures its own app. Their layouts and controls fit different jobs.' : 'Actual Time 2 and Round 2 rendering. Shared hierarchy does not require one font or one rectangular layout across all apps.'}</p>
+    <div class:list={['design-capture-grid', { 'design-capture-mixed': variant === 'patterns' }]}>{examples.map(example => {
+      const product = projects.find(project => project.slug === example.slug)!;
+      const image = example.capture;
+      const represented = 'representedReleaseVersion' in image ? image.representedReleaseVersion : undefined;
+      return <figure class="design-capture">
+        <a class="design-capture-image" href={sitePath(image.image)} aria-label={`Open full ${product.name} capture`}><img src={sitePath(image.image)} width={image.width} height={image.height} alt={image.alt} loading="lazy" decoding="async"/></a>
+        <figcaption><a href={sitePath(`/projects/${example.slug}/`)}><strong>{product.name}</strong></a><span>{image.title} · {image.platform === 'gabbro' ? 'Round 2' : image.platform === 'emery' ? 'Time 2' : 'Phone settings'}</span><span>{image.kind === 'phone' ? `Browser preview of v${image.version}, simulated Pebble bridge.` : `Native emulator capture v${image.version}${represented ? `; reused for v${represented}` : ''}.`}</span></figcaption>
+      </figure>;
+    })}</div>
+    <p class="design-evidence-note">Example data; unchanged image files. Native captures establish rendering, and phone previews show bundled settings with simulated replies. Neither establishes physical-watch or live-phone behaviour. <a href={sitePath('/preview-provenance.json')}>Image provenance</a>.</p>
+  </>}
+</section>

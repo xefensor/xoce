@@ -29,7 +29,11 @@ const links = [
   const menu = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
   const nav = document.querySelector<HTMLElement>('[data-site-nav]');
   const setMenu = (open: boolean) => { menu?.setAttribute('aria-expanded', String(open)); menu?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); nav?.toggleAttribute('data-open', open); };
-  menu?.addEventListener('click', () => setMenu(menu.getAttribute('aria-expanded') !== 'true'));
+  menu?.addEventListener('click', () => {
+    const open = menu.getAttribute('aria-expanded') !== 'true';
+    setMenu(open);
+    if (open) nav?.querySelector<HTMLAnchorElement>('a')?.focus({ preventScroll: true });
+  });
   nav?.addEventListener('click', event => { if ((event.target as HTMLElement).closest('a')) setMenu(false); });
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && !document.querySelector('[data-search-dialog][open]') && menu?.getAttribute('aria-expanded') === 'true') {

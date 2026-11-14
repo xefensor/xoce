@@ -1,0 +1,31 @@
+---
+import DocLayout from '../../../layouts/DocLayout.astro';
+import DocTopics from '../../../components/DocTopics.astro';
+import { sitePath } from '../../../lib/site';
+const frontmatter = {
+  title: 'Developer overview', section: 'For developers',
+  description: 'Build an existing app, publish an activity or use the shared Pebble libraries. Start with the workflow that matches your project.',
+};
+const headings = [
+  { depth: 2, slug: 'choose-your-work', text: 'Choose your work' },
+  { depth: 2, slug: 'versions-and-ownership', text: 'Versions and ownership' },
+  { depth: 2, slug: 'design-and-validation', text: 'Design and validation' },
+];
+const topics = [
+  { title: 'Change an existing app', description: 'Find the owning repository, released source tag, toolchain and required checks.', href: '/docs/develop/building/', label: 'Build and contribute', icon: 'code' },
+  { title: 'Publish an activity', description: 'Create a typed provider, run a complete example and handle expiry and app destinations.', href: '/docs/develop/activities/', label: 'Build a provider', icon: 'spark' },
+  { title: 'Add shared readings', description: 'Connect Core to your host’s message queue, native cache and lifecycle.', href: '/docs/develop/core/', label: 'Integrate Core', icon: 'watch' },
+  { title: 'Reuse the UI helpers', description: 'Use native drawing roles and phone-settings styles while keeping your product’s own identity.', href: '/docs/develop/ui/', label: 'Use XOCE UI', icon: 'grid' },
+];
+---
+<DocLayout frontmatter={frontmatter} headings={headings}>
+  <h2 id="choose-your-work">Choose your work</h2>
+  <DocTopics topics={topics} label="Developer workflows"/>
+  <h2 id="versions-and-ownership">Versions and ownership</h2>
+  <p>Each app and library has a separate repository and release. The app owns its interface, permissions, storage and lifecycle; a library supplies only the contract described by its integration guide.</p>
+  <p>The <a href={sitePath('/docs/develop/building/#library-versions')}>public library packages</a> and the <a href={sitePath('/docs/develop/building/#bundled-packages')}>snapshots bundled in published apps</a> have different version numbers. Choose the public package for a new integration, or reproduce an existing app with its exact checked dependency archives.</p>
+  <p>Examples pin a specific public package and its checksum. Their local checks establish the integration behaviour they exercise. Validate your app in the target emulator and on the hardware you support before claiming device coverage.</p>
+  <h2 id="design-and-validation">Design and validation</h2>
+  <p>Use the <a href={sitePath('/docs/design/')}>current design references</a> for layout, state, typography and the relationship between individual apps and the XOCE family. Start with both Time 2 and Round 2 when changing a current native app.</p>
+  <p>Android Phone and its optional Pebble companion remain <a href={sitePath('/projects/phone/')}>planned work</a>. Build instructions and compatibility claims will accompany an actual test build.</p>
+</DocLayout>

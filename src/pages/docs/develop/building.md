@@ -4,32 +4,41 @@ title: Building and contributing
 description: Find the right source version, run its checks and contribute changes in the owning project.
 section: For developers
 order: 3
+developerReference: true
 ---
 
-Choose the project you want to change, then use its versioned README for SDK requirements, build commands and validation. The references below match the public versions listed on this website. Development candidates do not replace those releases or their instructions.
+Choose a task in the [developer overview](/docs/develop/). The references above distinguish published app tags, downloadable library releases and the different packages bundled in those apps.
 
 ## Current development workflow
 
-For current main, start with each repository’s CONTRIBUTING.md. Main includes maintenance beyond the release tags; the downloads below stay pinned to their released source. Ordinary Pebble app builds produce a permission-packaged candidate under build/candidate, and QA uses build/qa. They do not overwrite frozen release files. Library builds similarly preserve the root dist.zip and do not repin consumers.
+For a new change, clone the owning repository and start with its current `CONTRIBUTING.md`. To reproduce an installed release, check out the tag in the build table first. Keep a clean branch for your work and record the commit you tested.
 
-Run relevant source checks and inspect the affected workflow. Version bumps, source/debug release archives and publication are separate explicit milestones. Keep new native/browser evidence distinct from historical records. The site itself remains local and has no publication side effect from a build.
+The native apps select Node 22.23.4, Python 3.12.15 and SDK 4.44 through version files and locked build tooling. Follow the selected revision’s setup instructions rather than replacing its vendored packages with the newest download. Library releases can have a different SDK/platform contract.
 
 ## Build and test
 
-Open the relevant build instructions before setting up your environment:
+For the native apps, the usual sequence after selecting the required tools is:
 
-| Project | Version | Build instructions |
-| --- | --- | --- |
-| Activities | 0.4.4 | [Build and check](https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/README.md#build-and-check) |
-| Core | 0.5.2 | [Build and test](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/CONTRIBUTING.md) |
-| Dynamic | 0.18.3 | [Build and install](https://github.com/xefensor/pebble-watchface-dynamic/blob/v0.18.3/CONTRIBUTING.md) |
-| Dashboard | 0.6.3 | [Build and validate](https://github.com/xefensor/pebble-app-dashboard/blob/v0.6.3/CONTRIBUTING.md) |
-| Timer | 0.14.5 | [Build and check](https://github.com/xefensor/pebble-app-timer/blob/v0.14.5/CONTRIBUTING.md) |
-| Halftone | 1.9.0-rc.6 | [Build and install](https://github.com/xefensor/halftone-watchface/blob/v1.9.0-rc.6/README.md#build-and-install) |
-| ČHMÚ Weather | 1.0.1 | [Build and check](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/README.md#build-and-check) |
-| Open Activity | 0.3.3 | [Development and validation](https://github.com/xefensor/pebble-app-open-activity/blob/v0.3.3/CONTRIBUTING.md) |
+```sh
+npm ci --ignore-scripts
+npm run check:setup -- --sdk
+npm test
+npm run build
+npm run check:artifact
+```
 
-Work from the source version relevant to your change. When reproducing a reported bug, record the installed release and use its matching tag. When working on newer source, follow that revision’s README and say which revision you tested.
+Portable source tests need Node, Python and a C compiler; the native build and artifact checks also need the pinned SDK. The owning guide explains the verified SDK bootstrap. Ordinary builds write `build/candidate/`; disposable evidence belongs in `build/qa/`. Preserve frozen `dist/`, `releases/` and historical captures.
+
+ČHMÚ Weather has no watch binary and uses its public-plugin build instead:
+
+```sh
+npm ci --ignore-scripts
+npm test
+CHMU_VERSION=$(node -p "require('./package.json').version")
+python3 scripts/build.py --variant public --output "build/candidate/CHMU-Weather-${CHMU_VERSION}.pbw"
+```
+
+Use the version from the checked-out package when choosing that output filename. Personal Weather is a separate build and must not enter the public plugin’s release.
 
 Run the checks required by the owning repository and build the affected app or library. Check the resulting workflow as well as the build: saving settings, closing and reopening, restarting, missing permissions and app handoff can expose problems that compilation does not.
 
@@ -37,16 +46,17 @@ Record automated checks, packaged browser execution, native emulator results and
 
 ## Libraries and consumers
 
-Activities and Core are dependencies bundled into their consuming apps. Users do not install a separate library service.
+Choose the smallest integration that fits your task:
 
 | Library | Documented consumers | Integration guide |
 | --- | --- | --- |
-| [Activities](/projects/activities/) | [Dynamic](/projects/dynamic/), [Dashboard](/projects/dashboard/), [Timer](/projects/timer/) and [Open Activity](/projects/open-activity/) | [Build an activity provider](/docs/develop/activities/) |
-| [Core](/projects/core/) | [Dynamic](/projects/dynamic/) and [Dashboard](/projects/dashboard/) | [Integrate Core](/docs/develop/core/) |
+| [Activities](/projects/activities/) | Dynamic, Halftone, Dashboard and Timer | [Publish a summary from a plugin](/docs/develop/activities/) |
+| [Core](/projects/core/) | Dynamic and Halftone | [Read the selected global readings in a host](/docs/develop/core/) |
+| [XOCE UI](/docs/develop/ui/) | All five native watch products | [Use native drawing helpers or phone settings styles](/docs/develop/ui/) |
 
 Providers supply activity content and capabilities; hosts choose presentation and controls. Dynamic displays compatible activities and app destinations. Dashboard can execute actions supported by its bound source, but Timer Pause/Resume from Dashboard remains unimplemented. See the [app-opening and action boundaries](/docs/develop/activities/#app-opening-and-actions).
 
-The versioned library specifications own exact API fields, limits and wire formats. The integration guides link to those authoritative references. A library update does not change the copy already embedded in an installed app: update the consumer’s dependency, rebuild it, validate the affected behaviour and release that consumer separately.
+The versioned library specifications own exact API fields, limits and wire formats. The guides include small runnable examples. A library update does not change an installed app: update its pin and lockfile, rebuild it, validate the affected behaviour and release that consumer separately.
 
 ## Android scope
 
@@ -56,6 +66,8 @@ The [Phone plan](/projects/phone/) describes the intended Android app and option
 
 Report bugs and propose changes in the affected project’s maintained repository, linked from its app or library page. Include the version, reproduction steps, expected behaviour and observed result. For a code change, explain the resulting behaviour and the checks you actually completed.
 
-For interface work, follow the [design principles](/docs/design/principles/) and the [Pebble UI and UX standard](/docs/design/pebble-ui-system/). The shared Pebble standard is implemented and validated in local candidates; those candidates have not replaced the public releases or their user guides. Real-device verification remains separate.
+For interface work, follow the [design principles](/docs/design/principles/), the [Pebble UI and UX standard](/docs/design/pebble-ui-system/) and the owning app’s current UI contract. Shared rules are implemented in the published apps; examples and screenshots keep their actual version and test scope.
+
+Builds and tests create local candidates. Freezing source/debug/Store archives, publishing an app or library, and deploying the website are separate steps. Follow the owning release workflow when that work is authorized; a successful build alone is not publication.
 
 Check the [project licences and source links](/docs/project/licensing/) before reusing code. The current Pebble projects use PolyForm Noncommercial 1.0.0. Each project retains its own terms; a planned Android product does not inherit a licence from the XOCE name.

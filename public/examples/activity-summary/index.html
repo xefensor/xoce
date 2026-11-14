@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Activity Summary example sources</title></head>
+<body>
+  <h1>Activity Summary example sources</h1>
+  <p>A manual, phone-only teaching plugin using public Activities 0.4.4. These are text sources, not an installable release. Read the setup and licence notes before building.</p>
+  <p><a href="README.md">Setup, commands and verification scope</a> · <a href="../../docs/develop/activities/">Provider guide</a></p>
+  <p>To get the folder with its paths intact, copy it into a standalone working folder before following the setup commands:</p>
+  <pre>git clone https://github.com/xefensor/xoce.git xoce
+cp -R xoce/public/examples/activity-summary ./activity-summary
+cd activity-summary</pre>
+  <p>If you already have the website checkout, start at its root:</p>
+  <pre>cp -R public/examples/activity-summary ../activity-summary
+cd ../activity-summary</pre>
+  <p>Or download the files below and keep the displayed subdirectories. The dependency is fetched separately with a verified checksum; no library archive, installed modules or PBW is included here.</p>
+  <ul>
+    <li><a href="package.json" download>package.json</a></li>
+    <li><a href="package-lock.json" download>package-lock.json</a></li>
+    <li><a href="upstream.json" download>upstream.json</a></li>
+    <li><a href="THIRD_PARTY.md" download>THIRD_PARTY.md</a></li>
+    <li><a href="config.html" download>config.html</a></li>
+    <li><a href="src/provider.cjs" download>src/provider.cjs</a></li>
+    <li><a href="src/plugin.cjs" download>src/plugin.cjs</a></li>
+    <li><a href="scripts/fetch-library.mjs" download>scripts/fetch-library.mjs</a></li>
+    <li><a href="scripts/manifest.cjs" download>scripts/manifest.cjs</a></li>
+    <li><a href="scripts/bundle.mjs" download>scripts/bundle.mjs</a></li>
+    <li><a href="scripts/build.py" download>scripts/build.py</a></li>
+    <li><a href="test/provider.test.cjs" download>test/provider.test.cjs</a></li>
+    <li><a href="test/package.test.cjs" download>test/package.test.cjs</a></li>
+  </ul>
+</body>
+</html>

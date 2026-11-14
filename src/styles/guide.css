@@ -113,6 +113,60 @@ html[data-ui='material'] .guide-shell {
 .guide-shell .document-bar > svg:first-child { color: var(--accent-text); }
 .guide-shell .document-bar a { text-decoration: none; }
 .guide-shell .document-bar a:hover { text-decoration: underline; }
+.guide-shell .docs-audience-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 14px var(--guide-gutter) 0;
+}
+.guide-shell .docs-audience-switch a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-control);
+  color: var(--muted);
+  font-size: .8125rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+.guide-shell .docs-audience-switch a:hover { color: var(--ink); background: var(--glass-hover); }
+.guide-shell .docs-audience-switch a[aria-current] { color: var(--ink); border-color: var(--line); background: color-mix(in srgb, var(--accent) 9%, transparent); }
+.guide-shell .doc-history-note {
+  margin: 0 var(--guide-gutter) 28px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-small);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  font-size: .875rem;
+  line-height: 1.65;
+}
+.guide-shell .doc-history-note p { margin-top: 6px; color: var(--muted); }
+.guide-shell .doc-history-note a { color: var(--accent-text); }
+.guide-shell .prose .doc-topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-block: 22px 30px; }
+.guide-shell .prose .doc-topic {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--glass-edge);
+  border-radius: var(--radius-control);
+  color: var(--ink);
+  background: var(--glass-feature-surface);
+  text-decoration: none;
+}
+.guide-shell .prose .doc-topic:hover { background: var(--glass-hover); border-color: var(--accent-text); }
+.guide-shell .prose .doc-topic > svg { color: var(--accent-text); }
+.guide-shell .prose .doc-topic h3 { margin: 0; font-size: 1.125rem; }
+.guide-shell .prose .doc-topic p { margin: 0; color: var(--muted); font-size: .875rem; line-height: 1.65; }
+.guide-shell .prose .doc-topic span { display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 4px; color: var(--accent-text); font-size: .8125rem; line-height: 1.6; }
+.guide-shell .doc-history-list { margin-block: 24px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius-control); }
+.guide-shell .doc-history-list summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; font-size: .9375rem; font-weight: 550; }
 .guide-shell :is(.doc-heading, .prose, .doc-pagination, .guide-contents) {
   width: min(calc(100% - var(--guide-gutter) - var(--guide-gutter)), var(--guide-reading-width));
   max-width: var(--guide-reading-width);
@@ -219,6 +273,9 @@ html[data-ui='material'] .guide-shell {
   .guide-shell .doc-pagination { margin-top: 30px; padding-bottom: 20px; }
 }
 @media (max-width: 480px) {
+  .guide-shell .docs-audience-switch a { padding-inline: 7px; gap: 5px; }
+  .guide-shell .prose .doc-topics { grid-template-columns: minmax(0, 1fr); }
+  .guide-shell .prose .doc-topic { padding: 20px; }
   .guide-shell .doc-pagination { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .guide-shell .doc-pagination > span:empty { display: none; }
   .guide-shell .doc-pagination a:last-child { text-align: left; }

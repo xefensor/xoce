@@ -1,0 +1,9 @@
+{
+  "package": "pebble-watchface-core",
+  "version": "0.5.2",
+  "archive": "pebble-watchface-core-0.5.2.tgz",
+  "url": "https://github.com/xefensor/pebble-lib-core/releases/download/v0.5.2/pebble-watchface-core-0.5.2.tgz",
+  "checksums": "https://github.com/xefensor/pebble-lib-core/releases/download/v0.5.2/SHA256SUMS.txt",
+  "sha256": "0d01d6daa50bed274f613c0bc4c476ab841e4a48b5d90b6b7b246867d7ca4d82",
+  "licence": "https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/LICENSE"
+}

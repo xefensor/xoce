@@ -2,6 +2,7 @@
 // Audit the generated site, including links that only exist on secondary pages.
 import assert from 'node:assert/strict';
 import { basePath, sitePath, routePath } from '../src/lib/site.ts';
+import { rankSearchEntries } from '../src/lib/search.mjs';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -54,18 +55,67 @@ const problems = [];
 let checkedReferences = 0;
 let checkedAnchors = 0;
 const checkedAssets = new Set();
+// Downloadable plugin sources are audited as examples, not dressed as website pages.
+// Keep this explicit: other HTML still needs the complete website contract.
+const sourceExampleHtml = new Map([
+  ['/examples/activity-summary/', 'examples/activity-summary/index.html'],
+  ['/examples/activity-summary/config.html', 'examples/activity-summary/config.html'],
+  ['/examples/core-readings/', 'examples/core-readings/index.html'],
+]);
+const generatedExampleFiles = files.map(filename => path.relative(dist, filename).split(path.sep).join('/')).filter(relative => {
+  if (!/^examples\/(?:activity-summary|core-readings)\//.test(relative)) return false;
+  const directories = relative.split('/').slice(2, -1);
+  return directories.some(directory => ['node_modules', 'vendor', 'build'].includes(directory)) || /\.(?:tgz|pbw|o)$/i.test(relative);
+});
+if (generatedExampleFiles.length) problems.push(`Downloadable source examples contain ${generatedExampleFiles.length} generated dependency/build file(s): ${generatedExampleFiles.slice(0, 5).join(', ')}${generatedExampleFiles.length > 5 ? ', …' : ''}`);
 
 for (const filename of files.filter((file) => file.endsWith('.html'))) {
   const html = fs.readFileSync(filename, 'utf8');
   const route = pageRoute(filename);
+  const sourceExample = sourceExampleHtml.has(route);
   const ids = [...html.matchAll(/\sid\s*=\s*(["'])(.*?)\1/g)].map((match) => decode(match[2]));
   const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
   if (duplicateIds.length) problems.push(`${route}: duplicate IDs: ${[...new Set(duplicateIds)].join(', ')}`);
   if ((html.match(/<h1(?:\s|>)/g) || []).length !== 1) problems.push(`${route}: expected one main heading`);
-  if (!/<title>[^<]*XOCE[^<]*<\/title>/i.test(html)) problems.push(`${route}: missing meaningful XOCE title`);
-  if (!/<main(?:\s|>)/i.test(html)) problems.push(`${route}: missing main landmark`);
-  if ((html.match(/<link\b[^>]*rel="canonical"/g) || []).length !== 1) problems.push(`${route}: expected one canonical URL`);
-  pages.set(route, { filename, html, ids: new Set(ids), references: references(html) });
+  if (sourceExample) {
+    if (!/<title>[^<]*\S[^<]*<\/title>/i.test(html)) problems.push(`${route}: source example needs a meaningful title`);
+  } else {
+    if (!/<title>[^<]*XOCE[^<]*<\/title>/i.test(html)) problems.push(`${route}: missing meaningful XOCE title`);
+    if (!/<main(?:\s|>)/i.test(html)) problems.push(`${route}: missing main landmark`);
+    if ((html.match(/<link\b[^>]*rel="canonical"/g) || []).length !== 1) problems.push(`${route}: expected one canonical URL`);
+  }
+  pages.set(route, { filename, html, ids: new Set(ids), references: references(html), sourceExample });
+}
+for (const [route, relative] of sourceExampleHtml) {
+  const original = path.join(root, 'public', relative);
+  const built = path.join(dist, relative);
+  if (!pages.has(route) || !fs.existsSync(original)) problems.push(`Missing downloadable example HTML: ${route}`);
+  else if (!fs.readFileSync(original).equals(fs.readFileSync(built))) problems.push(`${route}: downloadable source HTML must remain unchanged in the built site`);
+}
+const exampleManifest = path.join(dist, 'examples/activity-summary/package.json');
+if (!fs.existsSync(exampleManifest)) problems.push('Missing activity-summary example package manifest');
+else {
+  try {
+    const example = JSON.parse(fs.readFileSync(exampleManifest, 'utf8'));
+    if (example.pebble?.projectType !== 'plugin' || example.pebble.configPage !== 'config.html' || example.pebble.plugin?.script !== 'plugin.js' || example.pebble.watchapp || example.pebble.targetPlatforms) {
+      problems.push('Activity-summary example must remain a phone plugin with its packaged config page and no watch app');
+    }
+    if (!example.pebble?.plugin?.sources?.some(source => source.category === 'activity' && source.items?.includes('summary'))) problems.push('Activity-summary example must declare its activity/summary source');
+    if (!/^file:vendor\//.test(example.dependencies?.['pebble-activities'] ?? '')) problems.push('Activity-summary example must use its checked local library archive');
+    for (const script of ['fetch:library', 'manifest:check', 'test', 'build']) if (typeof example.scripts?.[script] !== 'string') problems.push(`Activity-summary example is missing its ${script} command`);
+  } catch (error) { problems.push('Invalid activity-summary example package manifest: ' + error.message); }
+}
+const coreExampleManifest = path.join(dist, 'examples/core-readings/package.json');
+if (!fs.existsSync(coreExampleManifest)) problems.push('Missing core-readings example package manifest');
+else {
+  try {
+    const example = JSON.parse(fs.readFileSync(coreExampleManifest, 'utf8'));
+    if (example.pebble?.projectType !== 'native' || example.pebble.watchapp?.watchface !== false || JSON.stringify(example.pebble.targetPlatforms) !== JSON.stringify(['emery'])) {
+      problems.push('Core-readings example must retain its declared native Emery host contract');
+    }
+    if (!/^file:vendor\//.test(example.dependencies?.['pebble-watchface-core'] ?? '')) problems.push('Core-readings example must use its checked local library archive');
+    for (const script of ['fetch:library', 'test', 'build', 'build:watch']) if (typeof example.scripts?.[script] !== 'string') problems.push(`Core-readings example is missing its ${script} command`);
+  } catch (error) { problems.push('Invalid core-readings example package manifest: ' + error.message); }
 }
 
 const mainRoutes = ['/android/', '/pebble/', '/projects/', '/docs/', '/about/'];
@@ -73,9 +123,11 @@ const retiredPortals = ['/users/', '/developers/', '/design/'];
 const legacyRoutes = ['/docs/getting-started/', '/docs/pebble/setup/', '/docs/pebble/controls/',
   '/docs/pebble/troubleshooting/', '/docs/project/licensing/', '/docs/develop/activities/', '/docs/develop/core/'];
 const platformGuides = ['/docs/android/phone/', '/docs/pebble/phone-connection/'];
-const designRoutes = ['/docs/design/principles/', '/docs/design/visual-identity/',
-  '/docs/design/ui-patterns/', '/docs/design/interaction/'];
-for (const route of ['/', ...mainRoutes, ...retiredPortals, ...legacyRoutes, ...platformGuides, ...designRoutes]) {
+const developerRoutes = ['/docs/develop/', '/docs/develop/building/', '/docs/develop/ui/'];
+const designRoutes = ['/docs/design/', '/docs/design/principles/', '/docs/design/visual-identity/',
+  '/docs/design/pebble-ui-system/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+const historicalRoutes = ['/docs/history/pebble-ui-system/', '/docs/history/ui-patterns/', '/docs/history/interaction/'];
+for (const route of ['/', ...mainRoutes, ...retiredPortals, ...legacyRoutes, ...platformGuides, ...developerRoutes, ...designRoutes, ...historicalRoutes]) {
   if (!pages.has(route)) problems.push(`Required page is missing: ${route}`);
 }
 for (const [route, page] of pages) {
@@ -84,14 +136,15 @@ for (const [route, page] of pages) {
     problems.push(`${route}: still links to the removed Lab`);
   }
   if (/\bdata-workspace(?:[-\s=>])/.test(page.html)) problems.push(`${route}: still includes the removed workspace demo`);
+  if (page.sourceExample) continue;
   const navigation = page.html.match(/<nav\b(?=[^>]*\bdata-site-nav\b)[^>]*>([\s\S]*?)<\/nav>/i)?.[1];
   if (navigation && references(navigation).some(href => retiredPortals.includes(href))) problems.push(route + ': retired documentation portals must not remain in main navigation');
   if (!navigation || JSON.stringify(references(navigation)) !== JSON.stringify(['/projects/', '/docs/', '/about/'])) {
     problems.push(`${route}: global navigation must link directly to Software, Docs and About`);
   }
   const footer = page.html.match(/<footer\b[^>]*>([\s\S]*?)<\/footer>/i)?.[1] ?? '';
-  if (['/projects/', '/pebble/'].some(destination => !references(footer).includes(destination))) {
-    problems.push(`${route}: footer must retain direct Software and PebbleOS routes`);
+  if (['/projects/', '/pebble/', '/docs/develop/', '/docs/design/'].some(destination => !references(footer).includes(destination))) {
+    problems.push(`${route}: footer must retain direct software, developer and design destinations`);
   }
 }
 
@@ -144,8 +197,8 @@ for (const [route, page] of pages) {
 }
 const redirects = {
   '/users/': '/docs/',
-  '/developers/': '/docs/develop/activities/',
-  '/design/': '/docs/design/principles/',
+  '/developers/': '/docs/develop/',
+  '/design/': '/docs/design/',
   '/android/': '/projects/phone/#android-app',
   '/projects/pebble-phone/': '/projects/phone/#pebble-companion',
   '/docs/android/phone/': '/projects/phone/',
@@ -190,6 +243,30 @@ for (const guide of docs) {
   const page = pages.get(guide.href);
   if (!page || !/<article\b[^>]*class="[^"]*prose/.test(page.html)) problems.push(`${guide.href}: documented guide must be a real article`);
   if (!pages.get('/docs/')?.references.includes(guide.href)) problems.push('/docs/ sidebar is missing ' + guide.href);
+  if (!page) continue;
+  const historyNote = page.html.match(/<aside\b(?=[^>]*\bdata-doc-status="historical")[^>]*>([\s\S]*?)<\/aside>/i)?.[1];
+  if (guide.status === 'historical') {
+    const current = docs.find(doc => doc.href === guide.currentGuide);
+    if (!current || current.status === 'historical') problems.push(`${guide.href}: historical guide must identify a maintained current reference`);
+    if (!historyNote || !/historical|archiv/i.test(visibleText(historyNote)) || !references(historyNote).includes(guide.currentGuide)) {
+      problems.push(`${guide.href}: historical article must visibly link to its current reference in a separate notice`);
+    }
+  } else {
+    if (historyNote) problems.push(`${guide.href}: current guide must not display the historical notice`);
+    const pagination = page.html.match(/<nav\b(?=[^>]*\baria-label="Previous and next guides")[^>]*>([\s\S]*?)<\/nav>/i)?.[1];
+    if (!pagination) problems.push(`${guide.href}: missing guide navigation`);
+    if (references(pagination ?? '').some(href => docs.some(doc => doc.href === href && doc.status === 'historical'))) {
+      problems.push(`${guide.href}: current guide pagination must not lead into historical studies`);
+    }
+  }
+}
+const overviewTasks = {
+  '/docs/develop/': ['/docs/develop/building/', '/docs/develop/activities/', '/docs/develop/core/', '/docs/develop/ui/'],
+  '/docs/design/': ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/pebble-ui-system/', '/docs/design/ui-patterns/', '/docs/design/interaction/'],
+};
+for (const [route, destinations] of Object.entries(overviewTasks)) {
+  const article = mainMarkup(route).match(/<article\b[^>]*>([\s\S]*?)<\/article>/i)?.[1] ?? '';
+  for (const destination of destinations) if (!references(article).includes(destination)) problems.push(`${route}: overview article must offer the task link ${destination}`);
 }
 for (const route of ['/docs/android/phone/', '/docs/pebble/phone-connection/']) {
   if (docs.some(doc => doc.href === route)) problems.push(`${route}: moved plans must not remain duplicate documentation articles`);
@@ -347,6 +424,17 @@ else {
     if (!phoneDirection || !/planned/i.test([phoneDirection.description, phoneDirection.text, phoneDirection.section].join(' '))) problems.push('Search must identify the contextual Android/Phone direction as planned');
     const expected = ['/projects/', '/pebble/', '/docs/', '/about/', '/about/#phone-plan', ...docs.map(doc => doc.href === '/docs/getting-started/' ? '/docs/' : doc.href), ...projects.filter(project => project.availability !== 'planned').map(project => `/projects/${project.slug}/`)];
     for (const route of expected) if (!destinations.includes(route)) problems.push('Search is missing ' + route);
+    for (const guide of docs.filter(doc => doc.status === 'historical')) {
+      const entry = entries.find(item => routePath(item.href) === guide.href);
+      if (!entry || entry.status !== 'historical' || !/history|historical|archiv/i.test(entry.section) || !/historical|archiv/i.test(entry.title)) {
+        problems.push(`Search must distinguish the historical guide ${guide.href}`);
+      }
+    }
+    if (!rankSearchEntries(entries, 'UI').slice(0, 3).some(entry => routePath(entry.href) === '/docs/develop/ui/')) {
+      problems.push('Search must surface the current UI integration guide ahead of incidental article matches');
+    }
+    const buildEntry = entries.find(entry => routePath(entry.href) === '/docs/develop/building/');
+    for (const project of catalogueProducts) if (!buildEntry?.text?.includes(`${project.name} ${project.version}`)) problems.push(`Build-guide search text is missing the current ${project.name} version`);
   }
 }
 if (problems.length) {

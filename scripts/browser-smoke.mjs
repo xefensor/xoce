@@ -10,6 +10,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { projects } = await import(pathToFileURL(path.join(root, 'src/data/projects.ts')).href);
+const { docs } = await import(pathToFileURL(path.join(root, 'src/data/docs.ts')).href);
 const products = projects.filter(project => project.kind !== 'library');
 const catalogueProducts = products.filter(project => project.availability !== 'planned');
 const previewApps = catalogueProducts.filter(project => project.previewType === 'watch');
@@ -22,9 +23,10 @@ const mainSections = [
 const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
 const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
   '/projects/open-activity/', '/projects/halftone/', '/projects/chmu-weather/', '/docs/pebble/halftone/', '/docs/pebble/chmu-weather/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
-  '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/pebble/activities/', '/docs/design/visual-identity/'];
+  '/docs/develop/', '/docs/develop/ui/', '/docs/design/', '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/pebble/activities/', '/docs/design/visual-identity/',
+  '/docs/history/pebble-ui-system/', '/docs/history/ui-patterns/', '/docs/history/interaction/'];
 const redirects = {
-  '/users/':'/docs/', '/developers/':'/docs/develop/activities/', '/design/':'/docs/design/principles/',
+  '/users/':'/docs/', '/developers/':'/docs/develop/', '/design/':'/docs/design/',
   '/android/':'/projects/phone/#android-app', '/projects/pebble-phone/':'/projects/phone/#pebble-companion',
   '/docs/android/phone/':'/projects/phone/', '/docs/pebble/phone-connection/':'/projects/phone/#pebble-companion',
 };
@@ -37,7 +39,13 @@ const legacyFragments = {
 };
 const isArticle = route => route.startsWith('/docs/') && !Object.hasOwn(redirects, route);
 const guideContents = 'details[data-guide-contents]';
-const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+const designGuides = ['/docs/design/', '/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/pebble-ui-system/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+const referenceRoutes = ['/docs/develop/', '/docs/develop/building/', '/docs/develop/activities/', '/docs/develop/core/', '/docs/develop/ui/',
+  ...designGuides, ...docs.filter(doc => doc.status === 'historical').map(doc => doc.href)];
+const overviewTasks = {
+  '/docs/develop/': ['/docs/develop/building/', '/docs/develop/activities/', '/docs/develop/core/', '/docs/develop/ui/'],
+  '/docs/design/': ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/pebble-ui-system/', '/docs/design/ui-patterns/', '/docs/design/interaction/'],
+};
 let scriptingEnabled = true;
 const base = new URL(process.env.XOCE_SITE_URL || 'http://127.0.0.1:4321' + basePath);
 assert.ok(['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname), 'Browser checks are restricted to a local preview.');
@@ -353,7 +361,7 @@ async function runChecks() {
   passed('Preview banner and noindex follow the actual product publication states');
   const productRoutes=catalogueProducts.map(p=>`/projects/${p.slug}/`);
   const policyRoutes=catalogueProducts.flatMap(p=>[`/projects/${p.slug}/support/`,`/projects/${p.slug}/privacy/`]);
-  const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/activities/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...policyRoutes];
+  const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/activities/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...referenceRoutes,...policyRoutes];
   for(const width of [320,390,768,1440]) {
     await viewport(width,width===1440?1100:900,width<768);
     for(const color of ['light','dark']) {
@@ -428,7 +436,28 @@ async function runChecks() {
   await screenshot('weather-glyph-dark');await theme('light');
   passed('Monochrome product marks adapt to both page themes; phone settings keep original colours');
   for(const route of Object.keys(redirects)) {await navigate(route);const target=resolvedTarget(route);assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash);}
-  passed('All compatibility routes still resolve');
+  for(const [route,fragments] of Object.entries(legacyFragments)) for(const fragment of Object.keys(fragments)) {
+    await navigate(route+'#'+fragment);const target=resolvedTarget(route+'#'+fragment);
+    assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash,'Legacy fragment still reaches its original guide: '+route+'#'+fragment);
+  }
+  passed('Compatibility routes and legacy fragments still resolve to real destinations');
+  for(const [route,destinations] of Object.entries(overviewTasks)) {
+    await navigate(route);
+    const links=await client.evaluate(`Array.from(document.querySelectorAll('article a')).map(a=>a.getAttribute('href'))`);
+    for(const destination of destinations)assert.ok(links.includes(sitePath(destination)),'Overview offers its task in the article: '+destination);
+  }
+  for(const guide of docs) {
+    await navigate(guide.href);
+    const state=await client.evaluate(`(()=>{const note=document.querySelector('[data-doc-status="historical"]');return{history:note?{visible:note.getClientRects().length>0,text:note.textContent,links:Array.from(note.querySelectorAll('a')).map(a=>a.getAttribute('href'))}:null,pagination:Array.from(document.querySelectorAll('nav[aria-label="Previous and next guides"] a')).map(a=>a.getAttribute('href'))};})()`);
+    if(guide.status==='historical') {
+      assert.ok(state.history?.visible&&/historical|archiv/i.test(state.history.text),'Archived article has a visible historical notice: '+guide.href);
+      assert.ok(state.history.links.includes(sitePath(guide.currentGuide)),'Historical notice opens its current reference: '+guide.href);
+    }else{
+      assert.equal(state.history,null,'Current guide is not labelled historical: '+guide.href);
+      assert.ok(state.pagination.every(href=>!docs.some(doc=>doc.status==='historical'&&href===sitePath(doc.href))),'Current previous/next navigation stays out of history: '+guide.href);
+    }
+  }
+  passed('Developer/design overviews offer their tasks and historical guides stay distinct from current navigation');
   await viewport(1440,1000);await navigate('/');await theme('dark');await navigate('/docs/');assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');
   const documentTime=await client.evaluate('performance.timeOrigin');await client.send('Page.reload');await until(`performance.timeOrigin!==${documentTime}&&document.readyState==='complete'`,'theme reload');assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');
   await theme('system');await media('light');await until(`document.documentElement.dataset.theme==='light'`,'system light');await media('dark');await until(`document.documentElement.dataset.theme==='dark'`,'system dark');
@@ -436,8 +465,23 @@ async function runChecks() {
   await navigate('/');await click('[data-search-open]');await until(`document.querySelector('[data-search-dialog]').open`,'search dialog opens');
   await client.evaluate(`(()=>{const i=document.querySelector('[data-search-input]');i.value='Halftone privacy';i.dispatchEvent(new Event('input',{bubbles:true}))})()`);
   await until(`!!document.querySelector('[data-search-results] a[href="${sitePath('/projects/halftone/privacy/')}"]')`,'search indexes product privacy');await key('Escape');
-  passed('Search finds the new support/privacy routes');
-  await viewport(390,900,true);await navigate('/');await click('[data-menu-toggle]');assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`),'true');await key('Escape');await until(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'`,'mobile navigation closes');
+  await click('[data-search-open]');
+  await client.evaluate(`(()=>{const i=document.querySelector('[data-search-input]');i.value='UI';i.dispatchEvent(new Event('input',{bubbles:true}))})()`);
+  await until(`Array.from(document.querySelectorAll('[data-search-results] a')).slice(0,3).some(a=>a.getAttribute('href')==='${sitePath('/docs/develop/ui/')}')`,'search prioritizes the current UI guide');
+  await client.evaluate(`(()=>{const i=document.querySelector('[data-search-input]');i.value='settings';i.dispatchEvent(new Event('input',{bubbles:true}))})()`);
+  const firstPage=await client.evaluate(`({count:document.querySelectorAll('[data-search-results] a').length,status:document.querySelector('[data-search-status]').textContent})`);
+  const total=Number(firstPage.status.match(/^Showing 9 of (\d+) results/)?.[1]);
+  assert.equal(firstPage.count,9);assert.ok(total>9,'Search reports the full matching count beyond the first page');
+  await click('[data-search-more]');
+  assert.equal(await client.evaluate(`document.querySelector('[data-search-input]').value`),'settings','Show more retains the query');
+  assert.equal(await client.evaluate(`document.querySelectorAll('[data-search-results] a').length`),Math.min(18,total));
+  assert.ok(await client.evaluate(`document.activeElement===document.querySelectorAll('[data-search-results] a')[9]`),'Show more continues keyboard reading at the first new result');
+  await click('[data-search-clear]');assert.equal(await client.evaluate(`document.querySelector('[data-search-input]').value`),'');
+  assert.ok(await client.evaluate(`document.activeElement.matches('[data-search-input]')`),'Clear returns to the search field');await key('Escape');
+  passed('Search finds privacy/current UI guides and exposes all matches without losing query or focus');
+  await viewport(390,900,true);await navigate('/');await click('[data-menu-toggle]');assert.equal(await client.evaluate(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')`),'true');
+  assert.ok(await client.evaluate(`document.activeElement===document.querySelector('[data-site-nav] a')`),'Opening mobile navigation focuses its first revealed link');
+  await key('Escape');await until(`document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded')==='false'`,'mobile navigation closes');
   assert.ok(await client.evaluate(`document.activeElement.matches('[data-menu-toggle]')`));
   await navigate('/projects/timer/');await client.evaluate(`document.getElementById('timer-emery').focus()`);await key('ArrowRight');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);
   passed('Keyboard controls work for mobile navigation and native shape radios');
@@ -445,7 +489,7 @@ async function runChecks() {
   assert.equal(await client.evaluate(`matchMedia('(prefers-reduced-motion:reduce)').matches&&matchMedia('(prefers-reduced-transparency:reduce)').matches`),true);
   passed('Reduced motion/transparency render without layout loss');
   await client.send('Emulation.setScriptExecutionDisabled',{value:true});scriptingEnabled=false;
-  for(const route of ['/','/projects/',...productRoutes,'/docs/','/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);}
+  for(const route of ['/','/projects/',...productRoutes,'/docs/',...referenceRoutes,'/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);}
   await navigate('/projects/timer/');await click('label[for="timer-gabbro"]');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro').getClientRects().length>0`));await screenshot('timer-round2-no-javascript');
   await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');
   await media('dark','reduce','reduce');await navigate('/projects/halftone/');await noOverflow('/projects/halftone/',390);

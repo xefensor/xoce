@@ -1,0 +1,12 @@
+{
+  "package": "pebble-activities",
+  "version": "0.4.4",
+  "archive": "pebble-activities-0.4.4.tgz",
+  "url": "https://github.com/xefensor/pebble-lib-activities/releases/download/v0.4.4/pebble-activities-0.4.4.tgz",
+  "sha256": "dffec3e05041515fbf9385a641adf6b40aedda7e8460c0d11ecb4ed019cd5abe",
+  "bytes": 459273,
+  "checksumsUrl": "https://github.com/xefensor/pebble-lib-activities/releases/download/v0.4.4/SHA256SUMS.txt",
+  "sourceUrl": "https://github.com/xefensor/pebble-lib-activities/tree/v0.4.4",
+  "licenseUrl": "https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/LICENSE",
+  "releaseStatus": "Published development prerelease"
+}

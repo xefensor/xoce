@@ -314,7 +314,7 @@ export const projects: Project[] = [
     "compatibility": "Pebble Time 2 and Round 2",
     "previewType": "watch",
     "developerGuide": "/docs/develop/activities/#app-opening-and-actions",
-    "developerNote": "Uses Dynamic’s recent displayed destinations. Opens the associated app without selecting a particular item inside it.",
+    "developerNote": "Uses the selected Dynamic or Halftone watchface’s recent displayed destinations. Opens the associated app without selecting a particular item inside it.",
     "requires": [],
     "name": "Open Activity",
     "kind": "app",
@@ -519,8 +519,7 @@ export const projects: Project[] = [
       "dynamic",
       "halftone",
       "dashboard",
-      "timer",
-      "open-activity"
+      "timer"
     ],
     "name": "Activities",
     "kind": "library",
@@ -548,8 +547,7 @@ export const projects: Project[] = [
     "availability": "available",
     "consumers": [
       "dynamic",
-      "halftone",
-      "dashboard"
+      "halftone"
     ],
     "name": "Core",
     "kind": "library",
@@ -568,6 +566,31 @@ export const projects: Project[] = [
       "Integration with the first two global reading choices",
       "A shared message queue and bounded native packet decoding",
       "Readings-only integration alongside compatible legacy APIs"
+    ],
+    "platform": "PebbleOS",
+    "status": "Published library"
+  },
+  {
+    "slug": "ui",
+    "availability": "available",
+    "consumers": ["dynamic", "halftone", "dashboard", "timer", "open-activity"],
+    "name": "XOCE UI",
+    "kind": "library",
+    "description": "Shared drawing helpers for Pebble and styles for phone settings.",
+    "version": "0.1.1",
+    "repo": "https://github.com/xefensor/pebble-lib-ui",
+    "tag": "v0.1.1",
+    "licence": {
+      "name": "PolyForm Noncommercial 1.0.0",
+      "url": "https://github.com/xefensor/pebble-lib-ui/blob/v0.1.1/LICENSE"
+    },
+    "download": "https://github.com/xefensor/pebble-lib-ui/releases/download/v0.1.1/pebble-xoce-ui-0.1.1.tgz",
+    "guide": "/docs/develop/ui/",
+    "summary": "Native typography roles, cards, icons and drawing helpers, with a shared phone-settings stylesheet. Each host keeps its own controls, state, lifecycle and storage. Public library versions and the newer snapshots bundled by released apps are documented separately.",
+    "features": [
+      "Native drawing and font roles for consistent hierarchy",
+      "Shared icons and phone-settings styles",
+      "Host-owned product identity and interaction"
     ],
     "platform": "PebbleOS",
     "status": "Published library"

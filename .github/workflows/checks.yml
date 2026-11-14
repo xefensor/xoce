@@ -24,6 +24,8 @@ jobs:
       - run: npm run check:setup
       - run: npm ci --ignore-scripts
       - run: npm test
+      - name: Verify pinned developer examples
+        run: npm run test:developer-examples
       - name: Inspect desktop and mobile pages in Chrome
         run: |
           mkdir -p build/qa/browser

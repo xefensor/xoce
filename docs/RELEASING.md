@@ -1,6 +1,6 @@
 # Publishing the XOCE website
 
-Xef authorized public deployment of the approved website on 2026-11-14, including clearly labelled app preparation pages. App publication remains separate. The main workflow runs `npm run check:deployment` before uploading Pages: preview records must not advertise installation links, and each published record must pass complete public Store/GitHub artifact verification. Normal build/reference/browser checks enforce the preparation UI too. `npm run check:launch` still requires all six app releases to be published with matching exact bytes before full installation-link activation. See the [launch checklist](launch-checklist.md).
+Xef authorized public deployment of the approved website on 2026-11-14. All six current consumer products are now published, with matching Store/GitHub PBW bytes verified that day. App publication remains separate from website deployment. The main workflow runs `npm run check:deployment` before uploading Pages: each published record must pass complete public Store/GitHub artifact verification, while any future preview record must not advertise installation links. Normal build/reference/browser checks enforce that distinction too. `npm run check:launch` requires all six app releases to be published with matching exact bytes. See the [launch checklist](launch-checklist.md).
 
 The site is published at **https://xefensor.github.io/xoce/** from `main` in
 [xefensor/xoce](https://github.com/xefensor/xoce). Xef explicitly requested GitHub

@@ -1,8 +1,8 @@
 # XOCE
 
-A static Astro website for **XOCE — Xef’s Open Computing Ecosystem**. The current branch prepares a Pebble Store launch: two watchfaces, three watch apps and the ČHMÚ Weather phone plugin. The wider Android/KDE direction stays in About.
+A static Astro website for **XOCE — Xef’s Open Computing Ecosystem**. It presents six published Pebble products: two watchfaces, three watch apps and the ČHMÚ Weather phone plugin. The wider Android/KDE direction stays in About.
 
-This is a **local launch preview**, not a published release announcement. All six Store links remain unset until the real listings and matching GitHub PBWs are verified. Existing public releases, historical screenshots and app repositories remain unchanged.
+The live site is [xefensor.github.io/xoce](https://xefensor.github.io/xoce/). [Project metadata](src/data/projects.ts) is the source of truth for current versions, verified Store links, exact GitHub downloads and checked PBW hashes.
 
 ## Preview and verify
 
@@ -20,21 +20,25 @@ Open **http://127.0.0.1:4322/xoce/**. Development uses `npm run dev` at port 432
 XOCE_SITE_URL=http://127.0.0.1:4322/xoce/ XOCE_QA_OUTPUT=build/qa/browser npm run check:browser
 ```
 
-`npm test` checks types, builds all routes, audits internal links and image provenance, checks documentation links and tests release verification. Chromium checks cover responsive layouts, both themes, keyboard controls, search, shape selection and JavaScript-disabled browsing. Disposable evidence belongs in ignored `build/qa/`.
+`npm test` checks types, builds all routes, audits internal links and image provenance, checks documentation links and runs release-verification and search regressions. Chromium checks cover responsive layouts, both themes, keyboard controls, search, shape selection and JavaScript-disabled browsing. Disposable evidence belongs in ignored `build/qa/`.
 
-## Launch content
+## Product content and documentation
 
-The preview covers Dynamic 1.0.0, Halftone 1.10.1, Dashboard 1.0.0, Timer 1.0.0, Open Activity 1.0.0 and ČHMÚ Weather 1.0.2. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch screen. Duo and Personal Weather are excluded.
+Dynamic, Halftone, Dashboard, Timer, Open Activity and ČHMÚ Weather are published in Pebble Store. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch screen. Duo and Personal Weather are excluded.
 
-[Project metadata](src/data/projects.ts) owns publication status, Store links, exact GitHub downloads, UUIDs, checked PBW hashes and per-shape previews. [Screenshot metadata](src/data/launch-screenshots.json), [asset provenance](docs/asset-provenance.json) and [policy provenance](docs/policy-provenance.json) distinguish native emulator images, packaged settings previews and app-owned privacy documents. Historical images keep their original bytes and records.
+[Screenshot metadata](src/data/launch-screenshots.json), [asset provenance](docs/asset-provenance.json) and [policy provenance](docs/policy-provenance.json) distinguish native emulator images, packaged settings previews and app-owned privacy documents. Historical images keep their original bytes and records.
 
 Store is the primary installation action for a verified published product; a matching GitHub PBW is secondary. A preview has no active installation link. Support and privacy are available beneath each `/projects/{slug}/` route. All previous routes and documentation anchors remain compatible.
 
+Documentation starts with [user guides](https://xefensor.github.io/xoce/docs/), [Developers](https://xefensor.github.io/xoce/docs/develop/) and [Design](https://xefensor.github.io/xoce/docs/design/). Current design references include rendered specimens and version-labelled native examples. Earlier studies remain separately labelled under Design history rather than defining current behaviour.
+
+Public standalone library packages are Activities 0.4.4 (prerelease), Core 0.5.2 and XOCE UI 0.1.1. The newer package snapshots bundled in released apps are a separate record, not additional standalone release claims. [Development metadata](src/data/development.ts) and the [build guide](https://xefensor.github.io/xoce/docs/develop/building/) document the distinction. Runnable examples in [public/examples](public/examples/) accompany the provider and Core guides; their host-side checks do not establish physical-device testing.
+
 ## Publication
 
-See the [launch checklist](docs/launch-checklist.md). `npm run check:launch` is expected to fail while these releases are previews. It verifies public Store UUID/version/platform metadata, GitHub release assets and exact matching PBW bytes before the existing main-only Pages workflow can deploy.
+See the [launch checklist](docs/launch-checklist.md). All six current releases passed activation verification on 2026-11-14. `npm run check:launch` verifies public Store UUID/version/platform metadata, GitHub release assets and exact matching PBW bytes; rerun it when publication metadata changes. The main-only Pages workflow uses `npm run check:deployment`, which verifies published records and also permits honestly labelled preview records.
 
-No login, upload or publication command runs during checks. A push to `main` can deploy only after all checks and the launch gate pass. Keep this work on its branch until separately authorized to publish. The existing public site is [xefensor.github.io/xoce](https://xefensor.github.io/xoce/).
+Checks do not upload or publish apps. An authorized push to `main` deploys the website only after the build, reference, browser and deployment checks pass. App releases and their immutable artifacts are maintained in their own repositories.
 
 ## Development and credits
 

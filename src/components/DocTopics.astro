@@ -1,0 +1,14 @@
+---
+import Icon from './Icon.astro';
+import { sitePath } from '../lib/site';
+interface Props { topics: { title: string; description: string; href: string; label: string; icon: string }[]; label: string }
+const { topics, label } = Astro.props;
+---
+<nav class="doc-topics" aria-label={label}>
+  {topics.map(topic => <a class="doc-topic" href={sitePath(topic.href)}>
+    <Icon name={topic.icon} size={22}/>
+    <h3>{topic.title}</h3>
+    <p>{topic.description}</p>
+    <span>{topic.label}<Icon name="arrow" size={16}/></span>
+  </a>)}
+</nav>

@@ -1,0 +1,98 @@
+{
+  "name": "xoce-activity-summary-example",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A manual, phone-only activity/summary teaching example; not a released XOCE product.",
+  "author": "Xef",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "fetch:library": "node scripts/fetch-library.mjs",
+    "manifest": "node scripts/manifest.cjs",
+    "manifest:check": "node scripts/manifest.cjs --check",
+    "test": "node --test test/*.test.cjs",
+    "build": "python3 scripts/build.py"
+  },
+  "dependencies": {
+    "pebble-activities": "file:vendor/pebble-activities-0.4.4.tgz"
+  },
+  "pebble": {
+    "projectType": "plugin",
+    "sdkVersion": "3",
+    "displayName": "Activity Summary Demo",
+    "uuid": "b8d3a905-5235-4e32-8d9b-b46e0559b0df",
+    "configPage": "config.html",
+    "usesPermissions": [],
+    "plugin": {
+      "description": "Manually authored sample summaries for learning; no external data or watch app.",
+      "script": "plugin.js",
+      "sources": [
+        {
+          "category": "activity",
+          "items": [
+            "summary"
+          ],
+          "properties": {
+            "schema_version": [
+              "numericValue"
+            ],
+            "publisher_incarnation": [
+              "longText"
+            ],
+            "publisher_mode": [
+              "shortText"
+            ],
+            "snapshot_sequence": [
+              "numericValue"
+            ],
+            "activity_count": [
+              "numericValue"
+            ],
+            "revision": [
+              "numericValue"
+            ],
+            "observed_at": [
+              "timestamp"
+            ],
+            "valid_until": [
+              "timestamp"
+            ],
+            "private": [
+              "boolean"
+            ],
+            "unconfirmed": [
+              "boolean"
+            ],
+            "content": [
+              "longText"
+            ],
+            "app_name": [
+              "longText"
+            ],
+            "icon": [
+              "image",
+              "icon"
+            ],
+            "artwork": [
+              "image",
+              "icon"
+            ],
+            "entity_ref": [
+              "longText"
+            ],
+            "actions": [
+              "longText"
+            ],
+            "open_app": [
+              "longText"
+            ]
+          },
+          "supportsMultiple": true,
+          "suggestedRefreshIntervalSec": 5
+        }
+      ]
+    }
+  }
+}

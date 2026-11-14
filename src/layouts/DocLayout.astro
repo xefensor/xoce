@@ -4,15 +4,25 @@ import BaseLayout from './BaseLayout.astro';
 import '../styles/guide.css';
 import Icon from '../components/Icon.astro';
 import SetupAvailability from '../components/SetupAvailability.astro';
+import DesignReference from '../components/DesignReference.astro';
+import DeveloperBuildTable from '../components/DeveloperBuildTable.astro';
+import { designReferenceHeadings } from '../data/design-reference';
+import { developerReferenceHeadings } from '../data/development';
 import { docs, docSections } from '../data/docs';
-interface Props { frontmatter: { title: string; description: string; section: string; order?: number; setupProducts?: string[] }; headings?: { depth: number; slug: string; text: string }[] }
+interface Props { frontmatter: { title: string; description: string; section: string; order?: number; setupProducts?: string[]; status?: 'current' | 'historical'; currentGuide?: string; designReference?: 'website' | 'patterns' | 'pebble'; developerReference?: boolean }; headings?: { depth: number; slug: string; text: string }[] }
 const { frontmatter, headings = [] } = Astro.props;
 const requestPath = routePath(Astro.url.pathname);
 const path = requestPath === '/docs/' ? '/docs/getting-started/' : requestPath;
-const sectionHeadings = headings.filter(heading => heading.depth === 2);
+const referenceHeadings = [
+  ...(frontmatter.designReference ? designReferenceHeadings[frontmatter.designReference] : []),
+  ...(frontmatter.developerReference ? developerReferenceHeadings : []),
+];
+const sectionHeadings = [...referenceHeadings, ...headings].filter((heading, index, items) => heading.depth === 2 && items.findIndex(item => item.slug === heading.slug) === index);
 const current = docs.find(doc => doc.href === path);
+const historical = current?.status === 'historical' || frontmatter.status === 'historical';
+const currentGuide = current?.currentGuide ?? frontmatter.currentGuide;
 const section = docSections.find(section => section.title === (current?.section ?? frontmatter.section)) ?? docSections[0];
-const guides = docs.filter(doc => doc.section === section.title);
+const guides = docs.filter(doc => doc.section === section.title && (doc.status === 'historical') === historical);
 const userSection = section.title === 'For users';
 const sectionLabel = userSection ? 'Guides' : section.title === 'For developers' ? 'Developers' : section.title;
 const navigation = docSections.map(item => {
@@ -24,7 +34,10 @@ const navigation = docSections.map(item => {
       { title: '', guides: items.filter(doc => doc.href === '/docs/getting-started/') },
       { title: 'PebbleOS', guides: items.filter(doc => doc.platform === 'PebbleOS' && !doc.project) },
       { title: 'Project', guides: items.filter(doc => !doc.platform && doc.href !== '/docs/getting-started/') },
-    ].filter(group => group.guides.length) : [{ title: '', guides: items }],
+    ].filter(group => group.guides.length) : [
+      { title: '', guides: items.filter(doc => doc.status !== 'historical') },
+      { title: 'History', guides: items.filter(doc => doc.status === 'historical') },
+    ].filter(group => group.guides.length),
   };
 });
 // Planned products live with their canonical plan. This reader contains the
@@ -59,11 +72,13 @@ const returnTo = userSection
       </details>)}</nav>
     </aside>
     <main id="main" class="doc-main reading-surface" tabindex="-1">
-      <div class="breadcrumb document-bar"><Icon name="book" size={16} /><a href={sitePath('/docs/')}>Docs</a><Icon name="chevron" size={12}/><span>{sectionLabel}</span>{current?.platform && <><Icon name="chevron" size={12}/><span>{current.platform}</span></>}</div>
+      <nav class="breadcrumb document-bar" aria-label="Breadcrumb"><Icon name="book" size={16} /><a href={sitePath('/docs/')}>Docs</a><Icon name="chevron" size={12}/>{path === section.href ? <span aria-current="page">{sectionLabel}</span> : <><a href={sitePath(section.href)}>{sectionLabel}</a>{historical && <><Icon name="chevron" size={12}/><span>History</span></>}<Icon name="chevron" size={12}/><span aria-current="page">{frontmatter.title}</span></>}</nav>
+      <nav class="docs-audience-switch" aria-label="Documentation audience">{docSections.map(item => <a href={sitePath(item.href)} aria-current={section.title === item.title ? 'true' : undefined}><Icon name={item.icon} size={15}/>{item.title === 'For users' ? 'Guides' : item.title === 'For developers' ? 'Developers' : item.title}</a>)}</nav>
       <header class="doc-heading"><h1>{frontmatter.title}</h1><p class="lead">{frontmatter.description}</p></header>
+      {historical && <aside class="doc-history-note" data-doc-status="historical" aria-label="Historical documentation"><strong>Historical study</strong><p>This preserves an earlier implementation and its original versioned evidence. {currentGuide && <a href={sitePath(currentGuide)}>Read the current reference.</a>}</p></aside>}
       {frontmatter.setupProducts && <SetupAvailability slugs={frontmatter.setupProducts}/>}
       {sectionHeadings.length > 0 && <details class="guide-contents" data-guide-contents><summary>On this page</summary><nav aria-label="On this page">{sectionHeadings.map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</nav></details>}
-      <article class="prose"><slot /></article>
+      <article class="prose">{frontmatter.designReference && <DesignReference variant={frontmatter.designReference}/>} {frontmatter.developerReference && <DeveloperBuildTable/>}<slot /></article>
       <nav class="doc-pagination" aria-label="Previous and next guides">{previous ? <a href={sitePath(previous.href)}><span>Previous guide</span><strong>{previous.title}</strong></a> : <span />}{next ? <a href={sitePath(next.href)}><span>Next guide <Icon name="arrow" size={14} /></span><strong>{next.title}</strong></a> : <a href={sitePath(returnTo.href)}><span>Back to</span><strong>{returnTo.title}</strong></a>}</nav>
     </main>
     {sectionHeadings.length > 0 && <aside class:list={['docs-toc', { 'long-contents': sectionHeadings.length > 12 }]}><span class="eyebrow">On this page</span><nav aria-label="On this page">{sectionHeadings.map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</nav></aside>}

@@ -10,22 +10,23 @@ Licensing is stated per project. The current Pebble repositories declare **PolyF
 
 ## Maintained repositories
 
-| Project | Source | Licence at the listed release |
+| Project | Source | Licence reference |
 | --- | --- | --- |
-| Dynamic 0.19.0 | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/main/LICENSE) |
-| Dashboard 0.7.0 | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/main/LICENSE) |
-| Timer 0.15.0 | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/main/LICENSE) |
-| Open Activity 0.4.0 | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/main/LICENSE) |
-| Halftone 1.10.0 | [halftone-watchface](https://github.com/xefensor/halftone-watchface) | [LICENSE](https://github.com/xefensor/halftone-watchface/blob/main/LICENSE) |
-| ČHMÚ Weather 1.0.2 | [pebble-chmu-weather](https://github.com/xefensor/pebble-chmu-weather) | [LICENSE](https://github.com/xefensor/pebble-chmu-weather/blob/main/LICENSE) |
+| [Dynamic](/projects/dynamic/) | [pebble-watchface-dynamic](https://github.com/xefensor/pebble-watchface-dynamic) | [LICENSE](https://github.com/xefensor/pebble-watchface-dynamic/blob/main/LICENSE) |
+| [Dashboard](/projects/dashboard/) | [pebble-app-dashboard](https://github.com/xefensor/pebble-app-dashboard) | [LICENSE](https://github.com/xefensor/pebble-app-dashboard/blob/main/LICENSE) |
+| [Timer](/projects/timer/) | [pebble-app-timer](https://github.com/xefensor/pebble-app-timer) | [LICENSE](https://github.com/xefensor/pebble-app-timer/blob/main/LICENSE) |
+| [Open Activity](/projects/open-activity/) | [pebble-app-open-activity](https://github.com/xefensor/pebble-app-open-activity) | [LICENSE](https://github.com/xefensor/pebble-app-open-activity/blob/main/LICENSE) |
+| [Halftone](/projects/halftone/) | [halftone-watchface](https://github.com/xefensor/halftone-watchface) | [LICENSE](https://github.com/xefensor/halftone-watchface/blob/main/LICENSE) |
+| [ČHMÚ Weather](/projects/chmu-weather/) | [pebble-chmu-weather](https://github.com/xefensor/pebble-chmu-weather) | [LICENSE](https://github.com/xefensor/pebble-chmu-weather/blob/main/LICENSE) |
 | Activities 0.4.4 | [pebble-lib-activities](https://github.com/xefensor/pebble-lib-activities) | [LICENSE](https://github.com/xefensor/pebble-lib-activities/blob/v0.4.4/LICENSE) |
 | Core 0.5.2 | [pebble-lib-core](https://github.com/xefensor/pebble-lib-core) | [LICENSE](https://github.com/xefensor/pebble-lib-core/blob/v0.5.2/LICENSE) |
+| XOCE UI 0.1.1 | [pebble-lib-ui](https://github.com/xefensor/pebble-lib-ui) | [LICENSE](https://github.com/xefensor/pebble-lib-ui/blob/v0.1.1/LICENSE) |
 
 Each repository’s licence and required notices are authoritative for its code. Font and other third-party notices accompany the relevant project and release files.
 
 ## Source and release identity
 
-Project pages link to versioned GitHub releases. A release can include an installable PBW, a buildable source archive, debugging files and checksums, depending on the project.
+Project pages identify the current published versions and link to their exact GitHub releases. A release can include an installable PBW, a buildable source archive, debugging files and checksums, depending on the project. The [developer build reference](/docs/develop/building/#library-versions) distinguishes public library releases from newer snapshots bundled in apps.
 
 Published tags and archives keep their original source and bytes. Later documentation updates on a repository’s default branch do not replace that tested release snapshot. The source archive or release notes identify the relevant source commit.
 
@@ -41,11 +42,11 @@ Three repositories moved to the consistent `pebble-<type>-<name>` naming scheme:
 
 The old repositories are archived with moved notices. Existing historical links and releases remain available there. Current development and new issue reports belong in the maintained repositories.
 
-Repository names and package identities are separate. The libraries still use `pebble-activities` and `pebble-watchface-core` as their import and package names.
+Repository names and package identities are separate. The libraries use `pebble-activities`, `pebble-watchface-core` and `pebble-xoce-ui` as their package names.
 
 ## Website credits
 
-Product previews use native emulator captures with example data. Some appear inside the [official Pebble Appstore Time 2 frame](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png), credited to Core Devices. The frame and native screen files remain unchanged; their sources and hashes are recorded in `docs/asset-provenance.json`. The composite does not establish physical-watch verification.
+Product previews use native emulator captures with example data. Some appear inside the official Pebble Appstore [Time 2](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png) and [Round 2](https://apps.repebble.com/images/screenshot_slider_background_gabbro.png) frames, credited to Core Devices. The frame and native screen files remain unchanged; their sources and hashes are recorded in `docs/asset-provenance.json`. The composite does not establish physical-watch verification.
 
 ČHMÚ Weather is independent of ČHMÚ, Open-Meteo and Core Devices. Weather data is attributed to **Český hydrometeorologický ústav (ČHMÚ)** and, when enabled, **Open-Meteo** under their applicable CC BY 4.0 terms. Its icon is original generic weather artwork, not the ČHMÚ logo. [Weather data and third-party notices](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/THIRD_PARTY.md) remain authoritative.
 

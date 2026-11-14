@@ -5,12 +5,14 @@ export interface DocLink {
   description: string;
   platform?: 'Android' | 'PebbleOS';
   project?: string;
+  status?: 'current' | 'historical';
+  currentGuide?: string;
 }
 
 export const docSections = [
   { title: 'For users', href: '/docs/getting-started/', description: 'Install and use the available Pebble apps, with help when something goes wrong.', icon: 'book' },
-  { title: 'For developers', href: '/docs/develop/building/', description: 'Use the current Pebble libraries, build from source and understand each platform’s scope.', icon: 'code' },
-  { title: 'Design', href: '/docs/design/principles/', description: 'Design decisions, website identity and the native Pebble interface standard.', icon: 'spark' },
+  { title: 'For developers', href: '/docs/develop/', description: 'Build an app, publish a provider or use the shared libraries.', icon: 'code' },
+  { title: 'Design', href: '/docs/design/', description: 'Use the current visual system, components and device-specific interaction rules.', icon: 'spark' },
 ] as const;
 
 export const docs: DocLink[] = [
@@ -69,7 +71,13 @@ export const docs: DocLink[] = [
     description: 'Find each current project’s source, licence, release files and historical repositories.',
   },
   {
-    title: 'Building and contributing',
+    title: 'Developer overview',
+    href: '/docs/develop/',
+    section: 'For developers',
+    description: 'Choose an existing app, a provider or a shared library and follow a complete first workflow.',
+  },
+  {
+    title: 'Build and contribute',
     href: '/docs/develop/building/',
     section: 'For developers',
     description: 'Build the current sources, find each project’s checks and contribute in its maintained repository.',
@@ -91,11 +99,18 @@ export const docs: DocLink[] = [
     description: 'Understand the shared Pebble readings library and what its consuming host owns.',
   },
   {
-    title: 'Pebble UI and UX standard',
-    href: '/docs/design/pebble-ui-system/',
-    section: 'Design',
+    title: 'Use XOCE UI',
+    href: '/docs/develop/ui/',
+    section: 'For developers',
     platform: 'PebbleOS',
-    description: 'Shared watch and phone settings design, implemented and validated in local candidates; not published.',
+    project: 'ui',
+    description: 'Use shared native drawing and phone-settings styles while keeping the host in control.',
+  },
+  {
+    title: 'Design overview',
+    href: '/docs/design/',
+    section: 'Design',
+    description: 'Choose current website, watch or phone guidance; find visual examples and historical studies.',
   },
   {
     title: 'Design principles',
@@ -104,21 +119,52 @@ export const docs: DocLink[] = [
     description: 'Common principles for readable content, clear state and interfaces that fit their device.',
   },
   {
-    title: 'Visual identity',
+    title: 'Website visual identity',
     href: '/docs/design/visual-identity/',
     section: 'Design',
     description: 'The website’s tactile materials, outlined name, typography and product artwork.',
   },
   {
-    title: 'UI patterns',
+    title: 'Pebble interface reference',
+    href: '/docs/design/pebble-ui-system/',
+    section: 'Design',
+    platform: 'PebbleOS',
+    description: 'Current watch and phone interface roles, both watch shapes and the implemented shared UI package.',
+  },
+  {
+    title: 'Interface patterns',
     href: '/docs/design/ui-patterns/',
     section: 'Design',
     description: 'Shared ideas demonstrated by current Pebble layouts and phone settings.',
   },
   {
-    title: 'UX and interaction',
+    title: 'Interaction and state',
     href: '/docs/design/interaction/',
     section: 'Design',
     description: 'Common interaction rules and their concrete implementations in the Pebble apps.',
+  },
+  {
+    title: 'Historical Pebble UI study',
+    href: '/docs/history/pebble-ui-system/',
+    section: 'Design',
+    status: 'historical',
+    currentGuide: '/docs/design/pebble-ui-system/',
+    description: 'Archived pre-release native UI study; retained for its original decisions and evidence.',
+  },
+  {
+    title: 'Historical UI patterns',
+    href: '/docs/history/ui-patterns/',
+    section: 'Design',
+    status: 'historical',
+    currentGuide: '/docs/design/ui-patterns/',
+    description: 'Earlier versioned pattern examples, with their original native capture labels.',
+  },
+  {
+    title: 'Historical interaction study',
+    href: '/docs/history/interaction/',
+    section: 'Design',
+    status: 'historical',
+    currentGuide: '/docs/design/interaction/',
+    description: 'Archived pre-release workflow notes; use the current guide for released behaviour.',
   },
 ];

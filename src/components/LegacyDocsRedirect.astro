@@ -3,7 +3,7 @@ import { sitePath } from '../lib/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 interface Props { section: 'guides' | 'developers' | 'design'; label: string; fragments?: Record<string, string> }
 const { section, label, fragments = {} } = Astro.props;
-const destination = { guides: '/docs/', developers: '/docs/develop/activities/', design: '/docs/design/principles/' }[section];
+const destination = { guides: '/docs/', developers: '/docs/develop/', design: '/docs/design/' }[section];
 ---
 <BaseLayout title={`${label} — Docs`} canonical={destination}>
   <Fragment slot="head">

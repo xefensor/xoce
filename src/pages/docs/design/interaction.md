@@ -1,112 +1,91 @@
 ---
 layout: ../../../layouts/DocLayout.astro
-title: UX & interaction
-description: How current navigation, actions, saving, loading, empty states and app handoffs preserve the user’s intent.
+title: Interaction and state
+description: Preserve the selected target, distinguish confirmed results and keep recovery predictable.
 section: Design
 order: 4
 ---
 
-This article preserves the design study and native captures from before the current releases. Versioned examples and local-candidate descriptions below retain their original scope. For current launch-preview capabilities and settings, use [watch setup](/docs/pebble/setup/) and the [product pages](/projects/). The older captures below remain historical examples.
-
-
-Interaction design explains what happens before and after a press, not only how a screen looks. Common rules apply across XOCE: preserve the person’s context, bind actions to the intended target, and distinguish a draft from a confirmed result. The concrete workflows below are implemented Pebble examples; they do not establish an Android interaction API or finished Phone design. For everyday button instructions, use [watch controls](/docs/pebble/controls/).
-
-The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) records the implemented shared design and passed local automated, packaged browser and native emulator checks. The candidates are not published releases, and real-device verification remains separate. The published baselines and older evidence keep their original version context.
+These rules describe the current released Pebble interfaces and the website. For everyday instructions, use [watch controls](/docs/pebble/controls/) and [setup](/docs/pebble/setup/). The [older interaction study](/docs/history/interaction/) preserves earlier version-specific behaviour and evidence.
 
 ## Navigation preserves context
 
-Dashboard’s Up and Down buttons move between items. Holding Up from Snapshot opens Activities; holding Down opens Pinned. Collection navigation and Back retain the originating selection and viewport.
+Dashboard’s Up/Down navigation keeps selection and viewport. Holding Up from the overview opens Activities; holding Down opens Pinned. Back returns through the existing context, rather than resetting it unnecessarily.
 
-Select performs an available useful action. Music can toggle playback directly; a generic activity can open its declared controls; Notifications opens the native app; a pin can run its configured action. A summary without an action stays read-only rather than opening an enlarged copy of the same text.
+Select performs an available action. Holding Select can open the selected item’s associated app, with a preview of the exact destination during the deliberate hold. Releasing before completion cancels that hold without also triggering its tap action. There is no shared custom hold-Back gesture.
 
-Holding Select opens the selected item’s associated app when one exists. A deliberate hold first previews the exact destination. Releasing after that preview but before the hold completes cancels the gesture without also firing its tap action.
-
-Back keeps its ordinary navigation role. The current apps do not add a shared custom hold-Back shortcut to exit to the watchface.
+On the website, links navigate and buttons perform their labelled operation. Search is explicit; opening it may focus its field. Ordinary navigation, visiting settings or choosing an item must not unexpectedly open the keyboard.
 
 ## Updates do not redirect a press
 
-Live content may arrive, expire or change order during interaction. Dashboard preserves selection by identity. If the selected activity disappears, Select and hold remain inert until the user deliberately navigates to a current item.
+An action remains bound to the identity and capability displayed when the person selected it. If a live item disappears or changes identity, an old press must not act on its replacement. Reconnection is not a fresh selection.
 
-An old action binding must not become a command for a replacement item. Reconnection alone does not count as selecting that replacement. Command results and app destinations stay tied to the displayed item and request.
+Retain this rule through confirmation, delayed replies, app handoff and collection changes. Navigation can select a new current item; background updates cannot silently make that choice for the person.
 
 ## Save, close and reopen
 
-The complete settings workflow includes reopening the app and reading the confirmed choices. The page needs to distinguish an unsaved draft from a confirmed save or an uncertain result.
+Modern bundled settings stay open after Save. Their small inline status distinguishes a draft from confirmed phone persistence. Legacy return-URL submission remains a separate close-to-submit compatibility path; it cannot supply the same in-page confirmation.
 
-The modern bundled pages in the local candidates implement [Save stays open](/docs/design/pebble-ui-system/#save-stays-open): Saving…, persistent ✓ Saved, Unsaved changes and relevant failure feedback. Dynamic 0.17.0 retains Clay rendering and adds SDK configuration messages for verified phone persistence. Its published 0.16.2 flow still submits and closes and shows prior watch-delivery status on reopening. The legacy return-URL fallbacks still close to deliver their result; they do not provide modern in-page confirmation.
+| State | Feedback and recovery |
+| --- | --- |
+| Confirmed load, no edits | No changes to save; Save disabled. |
+| Edited valid draft | Unsaved changes; Save available. |
+| Write in progress | Saving…; prevent duplicate writes and retain the draft. |
+| Intended phone choices confirmed | ✓ Saved; stay open and keep the confirmation until another edit. |
+| Confirmed failure | Relevant failure and retry; retain edits. |
+| Result uncertain | Save not confirmed; offer explicit retry or Reload saved. Do not claim rollback. |
+| Saved choices cannot be loaded | Explain the failure and offer Retry rather than presenting editable replacement defaults as saved. |
 
-Dashboard gathers an open pinned-item editor when global Save is pressed. It validates the fields and closes the editor only after saving is confirmed. Validation or transport errors keep the form intact.
+A transport ACK is not a persistence receipt. For settings that also update the watch, show **Saved on phone · Pending on watch**, **Applied on watch**, or the relevant delivery failure separately. An offline watch must not turn confirmed phone storage into a failed Save. Retry delivery only for a saved, relevant pending state.
 
-Open Activity saves its preferences through the active phone runtime while the helper is running, or its configuration plugin when closed. The UI confirms the exact returned choices. An uncertain result retains the draft and offers Reload saved or an explicit retry. Discarding a local draft cannot promise to undo a save already sent.
+Global Save gathers the whole draft, including an open Dashboard pin editor. A confirmed Save may close that nested editor; validation or transport failure preserves it. Discard restores the confirmed local snapshot without writing. It cannot undo a request already sent.
 
-Discard retains the visible page context using normal browser scroll anchoring when restored controls change height. This does not promise a pixel-fixed scroll offset; it avoids forcing the page to the top or opening the keyboard.
-
-Opening an editor, selecting a store result or visiting settings does not automatically focus a text field. Explicit Search is an intentional exception: opening the website’s search dialog focuses the search field so it can be used immediately.
+Late callbacks and polling must not replace a newer edited draft or let one result confirm another version. Keep status nodes stable and announce actual transitions once, rather than repeating unchanged live announcements on every poll.
 
 ## Appearance belongs in phone settings
 
-In the local candidates, Timer has a minimal phone Light/Dark appearance page with help, and Open Activity has a separate Watch appearance selector beside its two role choices. The phone page follows the phone’s theme independently. Appearance preferences remain app-local. Timer’s native duration editor, Reset, pause/resume and alarm ownership stay on the watch; the appearance page does not issue those operations.
+Watch appearance is app-local. Phone pages follow the phone theme independently. Timer’s page configures appearance, text size and its Time 2 sound preference, while duration editing, Reset, pause/resume and alarm ownership stay on the watch.
+
+Dynamic’s palette editor does not itself select the active day/night appearance. Preserve the distinction between changing saved palette values, confirming phone storage and applying the chosen display preferences on the watch.
 
 ## Loading, empty and unavailable
 
-Use the state the source actually establishes:
-
-| State | Existing response |
+| Meaning | Response |
 | --- | --- |
-| Dashboard starting | Show the last confirmed watch theme immediately while requesting fresh content. Private activity content is not cached on the watch. |
-| No current activity | Show a neutral placeholder instead of a fabricated activity. |
-| Confirmed empty notification source | Keep a selectable No notifications row that opens Notifications. |
-| Notification preview unavailable | Keep the Notifications destination, with Open notifications rather than invented preview text. |
-| Reading/action failure | Show relevant status while preserving navigation and the selected target. |
-| Expired activity data | Remove expired content and its action/app bindings instead of presenting them as fresh. |
+| Loading | Preserve relevant confirmed context while requesting the new state. |
+| Confirmed empty | Show an honest empty state, retaining a useful destination where one exists. |
+| Unavailable preview | Preserve the known action without fabricated content. |
+| Expired activity | Remove expired content and bindings rather than renewing it with receipt time. |
+| Failed action | Keep the target/navigation and offer the recovery that the source supports. |
 
-Dashboard’s command progress and success use the action bar; failures and relevant unavailable-state messages use the header. Feedback should not cover a pinned reading’s value. Timed-out requests stop waiting rather than leaving an indefinite loading state.
-
-The watch uses its last confirmed theme until a new accepted phone update arrives. A phone-side appearance change made while Dashboard is closed cannot change the already saved startup colour before that update.
+Dashboard’s empty notification row remains a Notifications shortcut. A missing Secondary activity does not become Primary. A provider’s observation age stays distinct from when the phone or watch received it.
 
 ## Timer actions remain explicit
 
-Timer’s Reset stops that countdown, restores its saved repeat duration and leaves it Ready. Starting again requires Select. Ready persists through closing and reopening, and other saved timers continue normally.
+Reset stops the selected countdown, restores its saved repeat duration and leaves it Ready. Starting again requires Select. The native owner persists its state before changing its alarm/activity state; failure leaves the previous owner state authoritative.
 
-The native owner persists state before changing alarm and activity state. If saving fails, the previous countdown and alarm remain authoritative; the interface must not present a reset as completed.
+Timer owns its controls, scheduled alarms, acknowledgement and snooze. Watchfaces and Dashboard can display the countdown or open Timer, but Dashboard does not provide Timer Pause/Resume. A paused timer can stop appearing in shared activities while remaining saved in Timer.
 
-An acknowledged completed timer disappears from activity summaries. A timer paused for five minutes stops appearing there while remaining saved in Timer. Its absence from a watchface does not delete it.
-
-When Timer is open with a pending alarm, vibration repeats every three seconds, subject to Quiet Time. Done or Snooze clears that alarm’s feedback; another pending alarm can keep alerting. This describes implemented open-app behaviour; it does not establish closed-app vibration or physical-device verification.
-
-Dashboard currently displays Timer and can open its app. Pause/Resume from Dashboard is deferred; the interface should not advertise it as available.
+Open-app vibration/sound and a scheduled closed-app wakeup are distinct paths. Their existence does not establish physical timing, sound or battery results; those require device evidence.
 
 ## Quick Launch hands off to an app
 
-Open Activity has two entry paths:
+Open Activity’s settings select **Dynamic or Halftone** and a shortcut for each Primary/Secondary role. Pebble’s system Quick Launch settings must also assign Open Activity to the chosen shortcuts. When changing watchface, update the source explicitly; it does not detect the preceding face automatically.
 
-1. An ordinary app-list launch stays on the setup screen. This allows the phone settings flow to work when the app must be open.
-2. A configured Quick Launch gesture resolves Dynamic’s recently displayed Primary or Secondary destination, then opens that associated app automatically.
+An ordinary app-list launch stays on passive setup. A configured Quick Launch resolves the chosen face’s recent confirmed destination and opens the associated installed app. A missing Secondary never falls back to Primary; failure, expiry or denied permission ends the bounded attempt. Back remains available and the original four-second startup budget is retained.
 
-The helper’s settings choose one shortcut per role. Pebble’s system Quick Launch settings must also assign Open Activity to those shortcuts. Other apps keep their independent assignments.
-
-A missing Secondary never falls back to Primary. Missing or expired data, disconnection, denied permission or resolution failure closes the transition attempt. Back stays available, and the initial transition UI has a four-second limit including phone startup time.
-
-The destination is the whole app. Timer opens Timer; media can open Music. The helper does not select a particular timer, notification or song, and it does not issue a playback or timer command.
-
-The handoff uses Dynamic’s recent confirmed selection. Stock SDK support cannot verify which watchface immediately preceded the helper. The implementation is intended for one connected watch; the current launch action has no per-watch selector. These are meaningful platform/implementation boundaries, not additional user settings.
+The destination is the whole app, not a saved timer, song or notification. Opening it is separate from issuing one of its commands. The current routing is intended for one connected watch.
 
 ## Motion has a reason and an end
 
-Dynamic uses short incoming transitions for activity replacements or media-item changes. Ticks, refreshes and late artist/artwork metadata repaint without another entrance. Its Animations setting disables its local transitions.
+Dynamic can animate an actual layout, activity or track change. Ticks and late metadata repaint without another entrance; its Animations choice controls its local transitions. Timer’s hourglass can explain a state change while the value remains stable.
 
-Timer rotates its hourglass for a state transition and settles within 300ms. Ready and paused presentations remain still; ordinary reopening does not replay the flip. Visible falling sand reuses the running second tick.
-
-Neither Dynamic nor Dashboard scrolls text automatically. The watch shows the beginning that fits. The website respects reduced motion and keeps primary navigation and guide content available without JavaScript.
+Watch text remains static and shows the beginning that fits. Navigation and resting states do not justify an endless decorative timer. Website controls respect reduced motion, and essential reading/navigation remains usable without JavaScript.
 
 ## Android interaction scope
 
-Phone is planned as a standalone Android app, with an optional Pebble companion. Android interaction guidance will follow its actual interface as it develops. The companion will have its own watch controls.
-
-The common rules in this guide remain useful goals. The watch’s tap/hold mappings, Quick Launch handoff and activity bindings belong to the Pebble implementations described above. Android interaction guidance needs to follow the actual Android product rather than inheriting those mappings.
+Phone and its optional Pebble companion are planned. Their Android interaction rules must follow the eventual product. These existing watch gestures, data bindings and WebView persistence controllers are not a universal Android framework.
 
 ## References and verification
 
-These behaviours are documented in [Dashboard’s current implementation](https://github.com/xefensor/pebble-app-dashboard/blob/61e4babc91bef0409c14f8c8699053d047baa2be/docs/IMPLEMENTATION.md), [Timer 0.12.0](https://github.com/xefensor/pebble-app-timer/blob/v0.12.0/README.md), [Open Activity 0.1.6](https://github.com/xefensor/pebble-app-open-activity/blob/v0.1.6/README.md) and [Dynamic’s native style](https://github.com/xefensor/pebble-watchface-dynamic/blob/7b5daced6a8c7974425e1b3fb927071d1501df3d/docs/NATIVE-STYLE.md).
-
-Automated browser checks, packaged-runtime tests and native emulator captures establish different things. Keep their evidence labels intact. Real-phone permission handling, watch-to-phone latency, physical comfort and battery life need their own device checks.
+The [Pebble reference](/docs/design/pebble-ui-system/#release-basis-and-evidence) identifies the current release basis and source owners. Keep portable tests, packaged execution, simulated browser rendering, native emulator capture and real-device checks separately labelled. Historical screenshots and test reports retain the versions they actually exercised.
