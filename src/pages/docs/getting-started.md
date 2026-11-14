@@ -12,7 +12,7 @@ XOCE is Xef’s collection of small apps. The watchfaces and watch apps here sup
 ## New to Pebble?
 
 1. [Get the official Pebble phone app](https://repebble.com/app) for Android or iPhone, open it and pair your watch. Pebble’s [installation guide](https://help.repebble.com/en/articles/14489632-installing-the-pebble-app) covers the phone app.
-2. Check the release status on the [product page](/projects/). A prepared preview may have different settings from an older download. Verified installation links appear there when the release is available.
+2. Choose an app from the [Software catalogue](/projects/), open its product page, then select **View in Pebble Store**. Install the version listed on that page so its settings match these guides.
 3. After installing a watch app, open it from the watch’s app list with **Select**, the middle-right button. A watchface becomes your everyday clock screen. [See all four buttons](/pebble/#watch-buttons).
 
 The official Pebble app handles installation, pairing and settings. There is no separate XOCE app or Activities library to install.

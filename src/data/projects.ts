@@ -123,13 +123,13 @@ export const projects: Project[] = [
     "imageVersion": "1.0.1",
     "imageAlt": "Dynamic, Time 2: split clock and four readings while idle.",
     "platform": "PebbleOS",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "previousRelease": {
       "version": "0.18.3",
       "tag": "v0.18.3",
       "download": "https://github.com/xefensor/pebble-watchface-dynamic/releases/download/v0.18.3/Dynamic-0.18.3.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/dynamic/support/",
     "privacyUrl": "/projects/dynamic/privacy/",
     "watchPlatforms": [
@@ -151,7 +151,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/dynamic-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/dynamic-xoce-screenshots-20261114-banner-emery.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+    "tag": "v1.0.2",
+    "download": "https://github.com/xefensor/pebble-watchface-dynamic/releases/download/v1.0.2/Dynamic-1.0.2.pbw"
   },
   {
     "slug": "dashboard",
@@ -192,13 +195,13 @@ export const projects: Project[] = [
     "imageVersion": "1.0.1",
     "imageAlt": "Dashboard, Time 2: overview.",
     "platform": "PebbleOS",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "previousRelease": {
       "version": "0.6.3",
       "tag": "v0.6.3",
       "download": "https://github.com/xefensor/pebble-app-dashboard/releases/download/v0.6.3/Dashboard-0.6.3.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/dashboard/support/",
     "privacyUrl": "/projects/dashboard/privacy/",
     "watchPlatforms": [
@@ -220,7 +223,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/dashboard-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/dashboard-xoce-screenshots-20261114-banner-emery.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/603d814e961c40308c98ce63",
+    "tag": "v1.0.2",
+    "download": "https://github.com/xefensor/pebble-app-dashboard/releases/download/v1.0.2/Dashboard-1.0.2.pbw"
   },
   {
     "slug": "timer",
@@ -261,13 +267,13 @@ export const projects: Project[] = [
     "imageVersion": "1.0.2",
     "imageAlt": "Timer, Time 2: running countdown.",
     "platform": "PebbleOS",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "previousRelease": {
       "version": "0.14.5",
       "tag": "v0.14.5",
       "download": "https://github.com/xefensor/pebble-app-timer/releases/download/v0.14.5/Timer-0.14.5.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/timer/support/",
     "privacyUrl": "/projects/timer/privacy/",
     "watchPlatforms": [
@@ -289,7 +295,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/timer-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/timer-xoce-screenshots-20261114-banner-emery.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+    "tag": "v1.0.3",
+    "download": "https://github.com/xefensor/pebble-app-timer/releases/download/v1.0.3/Timer-1.0.3.pbw"
   },
   {
     "slug": "open-activity",
@@ -332,13 +341,13 @@ export const projects: Project[] = [
     "imageVersion": "1.0.0",
     "imageAlt": "Open Activity, Time 2: activities and shortcut setup.",
     "platform": "PebbleOS",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "previousRelease": {
       "version": "0.3.3",
       "tag": "v0.3.3",
       "download": "https://github.com/xefensor/pebble-app-open-activity/releases/download/v0.3.3/Open-Activity-0.3.3.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/open-activity/support/",
     "privacyUrl": "/projects/open-activity/privacy/",
     "watchPlatforms": [
@@ -364,7 +373,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/open-activity-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/open-activity-xoce-screenshots-20261114-banner-emery.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe",
+    "tag": "v1.0.2",
+    "download": "https://github.com/xefensor/pebble-app-open-activity/releases/download/v1.0.2/Open-Activity-1.0.2.pbw"
   },
   {
     "slug": "halftone",
@@ -373,7 +385,7 @@ export const projects: Project[] = [
     "availability": "available",
     "platform": "PebbleOS",
     "compatibility": "Pebble Time 2 and Round 2",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "version": "1.10.3",
     "repo": "https://github.com/xefensor/halftone-watchface",
     "licence": {
@@ -415,7 +427,7 @@ export const projects: Project[] = [
       "tag": "v1.9.0-rc.6",
       "download": "https://github.com/xefensor/halftone-watchface/releases/download/v1.9.0-rc.6/Halftone-1.9.0-rc.6.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/halftone/support/",
     "privacyUrl": "/projects/halftone/privacy/",
     "watchPlatforms": [
@@ -437,7 +449,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/halftone-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/halftone-xoce-screenshots-20261114-banner-emery.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
+    "tag": "v1.10.3",
+    "download": "https://github.com/xefensor/halftone-watchface/releases/download/v1.10.3/Halftone-1.10.3.pbw"
   },
   {
     "slug": "chmu-weather",
@@ -446,7 +461,7 @@ export const projects: Project[] = [
     "availability": "available",
     "platform": "PebbleOS",
     "compatibility": "Pebble phone app with plugins · Czech weather locations",
-    "status": "Store release in preparation",
+    "status": "Published in Pebble Store",
     "version": "1.0.4",
     "repo": "https://github.com/xefensor/pebble-chmu-weather",
     "licence": {
@@ -483,7 +498,7 @@ export const projects: Project[] = [
       "tag": "v1.0.1",
       "download": "https://github.com/xefensor/pebble-chmu-weather/releases/download/v1.0.1/CHMU-Weather-1.0.1.pbw"
     },
-    "publication": "preview",
+    "publication": "published",
     "supportUrl": "/projects/chmu-weather/support/",
     "privacyUrl": "/projects/chmu-weather/privacy/",
     "watchPlatforms": [],
@@ -492,7 +507,10 @@ export const projects: Project[] = [
     "storeArtwork": {
       "mark": "/images/store/chmu-weather-xoce-icons-20261114-mark.svg",
       "shareImage": "/images/store/chmu-weather-xoce-screenshots-20261114-banner-phone.png"
-    }
+    },
+    "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+    "tag": "v1.0.4",
+    "download": "https://github.com/xefensor/pebble-chmu-weather/releases/download/v1.0.4/CHMU-Weather-1.0.4.pbw"
   },
   {
     "slug": "activities",

@@ -39,9 +39,9 @@ The original font, frame and screenshot records remain in `docs/asset-provenance
 
 Use Node 22.23.4 and Python 3.12.15. `npm test` runs type/build/link/doc checks and offline release-verification regressions. Native image dimensions, hashes and release versions must agree. Browser checks exercise the built site separately and write disposable evidence under ignored `build/qa/`. Existing `docs/qa/` remains historical.
 
-`npm run check:launch` is read-only: it checks public Store UUID/version/platform metadata and exact matching Store/GitHub PBW bytes. Missing or inconsistent data fails. The current preview is expected to fail this command until real publication metadata is provided.
+`npm run check:launch` is read-only: it checks public Store UUID/version/platform metadata and exact matching Store/GitHub PBW bytes. Missing or inconsistent data fails. All six current consumer releases passed this check after their Store submission on 2026-11-14. The [publication audit](qa/store-publication-2026-11-14/verification.json) records fresh public metadata and exact downloaded Store/GitHub bytes, including separately identified stale cached observations. Re-run the gate for later publication changes.
 
-GitHub Pages hosting remains at https://xefensor.github.io/xoce/. Only successful, authorized main pushes/manual runs may deploy. The workflow runs the launch gate before uploading Pages artifacts; PRs and branches validate locally without requiring unpublished listings. Do not push, publish apps or change hosting implicitly.
+GitHub Pages hosting remains at https://xefensor.github.io/xoce/. Only successful, authorized main pushes/manual runs may deploy. The workflow runs the deployment gate before uploading Pages artifacts; PRs and branches validate locally without requiring unpublished listings. Do not push, publish apps or change hosting implicitly.
 
 Project downloads retain their licences, including PolyForm Noncommercial. Do not describe them as unrestricted open-source releases. The website package remains UNLICENSED. Existing attributions, identifiers and release artifacts are unchanged.
 

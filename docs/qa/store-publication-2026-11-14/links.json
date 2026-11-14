@@ -1,0 +1,155 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dynamic/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dynamic/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dynamic/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dynamic/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dynamic/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dynamic/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/pebble-watchface-dynamic",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/pebble-watchface-dynamic"
+    },
+    {
+      "url": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/halftone/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/halftone/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/halftone/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/halftone/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/halftone/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/halftone/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/halftone-watchface",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/halftone-watchface"
+    },
+    {
+      "url": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/timer/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/timer/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/timer/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/timer/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/timer/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/timer/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/pebble-app-timer",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/pebble-app-timer"
+    },
+    {
+      "url": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dashboard/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dashboard/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dashboard/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dashboard/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/dashboard/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/dashboard/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/pebble-app-dashboard",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/pebble-app-dashboard"
+    },
+    {
+      "url": "https://apps.repebble.com/603d814e961c40308c98ce63",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/603d814e961c40308c98ce63"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/open-activity/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/open-activity/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/open-activity/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/open-activity/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/open-activity/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/open-activity/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/pebble-app-open-activity",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/pebble-app-open-activity"
+    },
+    {
+      "url": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/chmu-weather/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/chmu-weather/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/chmu-weather/support/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/chmu-weather/support/"
+    },
+    {
+      "url": "https://xefensor.github.io/xoce/projects/chmu-weather/privacy/",
+      "status": 200,
+      "finalUrl": "https://xefensor.github.io/xoce/projects/chmu-weather/privacy/"
+    },
+    {
+      "url": "https://github.com/xefensor/pebble-chmu-weather",
+      "status": 200,
+      "finalUrl": "https://github.com/xefensor/pebble-chmu-weather"
+    },
+    {
+      "url": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+      "status": 200,
+      "finalUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed"
+    }
+  ]
+}

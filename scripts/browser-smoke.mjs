@@ -346,6 +346,11 @@ async function guideContentsJump(scripting = true) {
 
 async function runChecks() {
   await launch();
+  await navigate('/');
+  const hasPendingRelease=catalogueProducts.some(project=>project.publication!=='published');
+  assert.equal(await client.evaluate(`!!document.querySelector('.launch-banner')`),hasPendingRelease);
+  assert.equal(await client.evaluate(`document.querySelector('meta[name="robots"]')?.content.includes('noindex')??false`),hasPendingRelease);
+  passed('Preview banner and noindex follow the actual product publication states');
   const productRoutes=catalogueProducts.map(p=>`/projects/${p.slug}/`);
   const policyRoutes=catalogueProducts.flatMap(p=>[`/projects/${p.slug}/support/`,`/projects/${p.slug}/privacy/`]);
   const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/activities/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...policyRoutes];
@@ -394,6 +399,12 @@ async function runChecks() {
     const route=`/projects/${project.slug}/`;await navigate(route);
     assert.equal(await client.evaluate(`document.querySelector('[data-install-state]').dataset.installState`),project.publication==='published'?'published':'preview');
     if(project.publication==='preview')assert.equal(await client.evaluate(`Array.from(document.querySelectorAll('main a')).some(a=>/apps\.repebble\.com|\.pbw(?:$|[?#])/.test(a.href))`),false,'Preview must not offer invented Store or older PBW installation');
+    if(project.publication==='published') {
+      const actions=await client.evaluate(`Array.from(document.querySelectorAll('[data-install-state] a')).map(a=>({href:a.href,visible:a.getClientRects().length>0}))`);
+      for(const destination of [project.storeUrl,project.download])assert.ok(actions.some(action=>action.href===destination&&action.visible),'Published Store and exact PBW actions must be visible: '+project.slug);
+      assert.equal(await client.evaluate(`document.querySelector('.manual-download').textContent.includes(${JSON.stringify('v'+project.version)})`),true,'Download identifies the verified version');
+      assert.ok(await client.evaluate(`Array.from(document.querySelectorAll('main a')).some(a=>a.href===${JSON.stringify(project.repo)})`),'Source link matches the product repository');
+    }
     for(const destination of [project.supportUrl,project.privacyUrl])assert.ok(await client.evaluate(`!!document.querySelector('main a[href='+${JSON.stringify(JSON.stringify(sitePath(destination)))}+']')`));
     if(project.previewType==='watch') {
       for(const shape of ['emery','gabbro']) {
@@ -407,7 +418,7 @@ async function runChecks() {
       await screenshot(project.slug+'-round2-390');
     }else assert.equal(await client.evaluate(`document.querySelectorAll('[data-watch-platform]').length`),0,'A phone plugin must have no invented watch screen');
   }
-  passed('Six distinct products, honest preview installation states, direct support/privacy and both native watch shapes');
+  passed('Six distinct products, verified installation states, direct source/support/privacy and both native watch shapes');
   await navigate('/projects/chmu-weather/');await theme('light');
   assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.product-family-label img')).filter`),'none');
   assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.weather-settings-window img')).filter`),'none','Phone settings retain their original colours');
@@ -444,6 +455,14 @@ async function runChecks() {
   assert.ok(await client.evaluate("document.querySelector('article').innerText.includes('Timer still runs the countdown and handles the alarm.')"));
   await noOverflow('/docs/pebble/activities/',390);
   await screenshot('activities-guide-no-javascript');passed('Activities guide explains Timer ownership and stays readable without JavaScript');
+  for(const project of catalogueProducts.filter(project=>project.publication==='published')) {
+    await navigate(`/projects/${project.slug}/`);
+    const links=await client.evaluate(`Array.from(document.querySelectorAll('main a')).map(a=>a.href)`);
+    for(const destination of [project.storeUrl,project.download,project.repo])assert.ok(links.includes(destination),'Verified installation/source links work without JavaScript: '+project.slug);
+  }
+  await navigate('/docs/');
+  assert.equal(await client.evaluate(`document.querySelector('[data-setup-availability]').dataset.setupAvailability`),catalogueProducts.every(project=>project.publication==='published')?'published':'preparation');
+  passed('Published Store/PBW/source links and beginner guide availability work without JavaScript');
   assert.deepEqual(exceptions,[]);assert.deepEqual(failedResponses,[]);passed('No browser exceptions or missing local resources');
 }
 

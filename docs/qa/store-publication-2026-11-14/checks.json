@@ -1,0 +1,95 @@
+{
+  "result": "PASS",
+  "sourceTests": "npm test",
+  "publicGates": [
+    "npm run check:deployment",
+    "npm run check:launch"
+  ],
+  "browserChecks": [
+    {
+      "name": "Preview banner and noindex follow the actual product publication states",
+      "passed": true
+    },
+    {
+      "name": "Launch pages, both official watch frames, all twelve policy pages and guides fit desktop/tablet/mobile in both themes",
+      "passed": true,
+      "widths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "routes": 26
+    },
+    {
+      "name": "Mobile homepage names both preview apps before the first scroll",
+      "passed": true
+    },
+    {
+      "name": "Self-hosted Fira typography and outlined identity load correctly",
+      "passed": true
+    },
+    {
+      "name": "Six distinct products, verified installation states, direct source/support/privacy and both native watch shapes",
+      "passed": true
+    },
+    {
+      "name": "Monochrome product marks adapt to both page themes; phone settings keep original colours",
+      "passed": true
+    },
+    {
+      "name": "All compatibility routes still resolve",
+      "passed": true
+    },
+    {
+      "name": "Theme preference survives navigation/reload and system mode follows OS changes",
+      "passed": true
+    },
+    {
+      "name": "Search finds the new support/privacy routes",
+      "passed": true
+    },
+    {
+      "name": "Keyboard controls work for mobile navigation and native shape radios",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion/transparency render without layout loss",
+      "passed": true
+    },
+    {
+      "name": "Navigation, reading and shape selection work without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "Dark appearance also works without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "Activities guide explains Timer ownership and stays readable without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "Published Store/PBW/source links and beginner guide availability work without JavaScript",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions or missing local resources",
+      "passed": true
+    }
+  ],
+  "browserScreenshotCount": 160,
+  "browserVersions": [
+    {
+      "protocolVersion": "1.3",
+      "product": "Chrome/157.0.8103.50",
+      "revision": "@049750111b1e5c11565c792b2aeed5541f332bad",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+      "jsVersion": "15.7.112.23"
+    }
+  ],
+  "historicalImagesAndCaptureMetadataUnchanged": true,
+  "appArtifactsRebuilt": false,
+  "appArtifactsReplaced": false,
+  "physicalDeviceTesting": false
+}

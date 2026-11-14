@@ -1,0 +1,3437 @@
+{
+  "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+  "result": "PASS",
+  "scope": "Fresh public UUID and ID lookups, actual downloaded Store/GitHub PBW bytes, binary identities and platform inventories; no rebuilding or Store mutation. Native captures and reuse proofs are unchanged; this verification adds no phone/watch or live-provider test claim.",
+  "products": [
+    {
+      "slug": "dynamic",
+      "name": "Dynamic",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.0.2",
+      "expectedUuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+      "expectedSha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "expectedPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:29 GMT"
+          },
+          "sha256": "2f0207fa4020677d167535500ba2aa1514e71896bac7ca500908fdb1b34acee0",
+          "bytes": 10846,
+          "lookup": "uuid-default",
+          "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+          "id": "5db601a9303a4eb7baa90331",
+          "version": "1.0.2",
+          "publishedDate": "2026-11-14T22:22:59.522",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchface",
+          "category": "Faces",
+          "plugin": {
+            "description": "Recent activity app destinations and Dynamic settings; no activity content is retained.",
+            "sources": [
+              {
+                "category": "navigation",
+                "items": [
+                  "presented_activities"
+                ],
+                "properties": {
+                  "hint": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": false
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "presented_activities"
+                  ],
+                  "category": "navigation",
+                  "properties": {
+                    "hint": [
+                      "longText"
+                    ]
+                  },
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Recent activity app destinations and Dynamic settings; no activity content is retained."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/5db601a9303a4eb7baa90331?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/5db601a9303a4eb7baa90331?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "154",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:28:55 GMT"
+          },
+          "sha256": "2f0207fa4020677d167535500ba2aa1514e71896bac7ca500908fdb1b34acee0",
+          "bytes": 10846,
+          "lookup": "id-emery",
+          "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+          "id": "5db601a9303a4eb7baa90331",
+          "version": "1.0.2",
+          "publishedDate": "2026-11-14T22:22:59.522",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchface",
+          "category": "Faces",
+          "plugin": {
+            "description": "Recent activity app destinations and Dynamic settings; no activity content is retained.",
+            "sources": [
+              {
+                "category": "navigation",
+                "items": [
+                  "presented_activities"
+                ],
+                "properties": {
+                  "hint": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": false
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "presented_activities"
+                  ],
+                  "category": "navigation",
+                  "properties": {
+                    "hint": [
+                      "longText"
+                    ]
+                  },
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Recent activity app destinations and Dynamic settings; no activity content is retained."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.0.2",
+      "storePlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/5db601a9303a4eb7baa90331/1.0.2/daebe7a9-c127-479c-b349-328105236a07.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/5db601a9303a4eb7baa90331/1.0.2/daebe7a9-c127-479c-b349-328105236a07.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T222957Z&X-Amz-Expires=7200&X-Amz-Signature=e77490ac530cf569f5e828f6fbcb5d381ff96f10aa8cb6b9e7a0f1ea0a73bcdf&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"5a458e42d90fbe75b07452ae7f088c10\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:22:59 GMT"
+        },
+        "sha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+        "bytes": 1187722
+      },
+      "storePbwSha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "githubReleaseUrl": "https://github.com/xefensor/pebble-watchface-dynamic/releases/tag/v1.0.2",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/pebble-watchface-dynamic/releases/download/v1.0.2/Dynamic-1.0.2.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1448248064/6893ef23-f256-4401-8750-6d8177edc225?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A07%3A38Z&rscd=attachment%3B+filename%3DDynamic-1.0.2.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A07%3A00Z&ske=2026-11-14T23%3A07%3A38Z&sks=b&skv=2018-11-09&sig=D63%2BWymK8gGqrndjBp6YVIYceuZfKN83ujLZScFV75Y%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc5MCwibmJmIjoxNzk0Njk1NDkwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5OkadVZFahZG-ailEu4c4ayoVexcIbX09kq9qEgxIwY&response-content-disposition=attachment%3B%20filename%3DDynamic-1.0.2.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:07:33 GMT",
+          "ETag": "\"0x8DF429BAEEC5395\"",
+          "Age": "1424",
+          "Date": "Sat, 14 Nov 2026 22:31:30 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+        "bytes": 1187722
+      },
+      "githubPbwSha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "storeBinary": {
+        "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Recent activity app destinations and Dynamic settings; no activity content is retained.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "navigation",
+              "items": [
+                "presented_activities"
+              ],
+              "properties": {
+                "hint": [
+                  "longText"
+                ]
+              },
+              "suggestedRefreshIntervalSec": 30
+            }
+          ]
+        }
+      },
+      "githubBinary": {
+        "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Recent activity app destinations and Dynamic settings; no activity content is retained.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "navigation",
+              "items": [
+                "presented_activities"
+              ],
+              "properties": {
+                "hint": [
+                  "longText"
+                ]
+              },
+              "suggestedRefreshIntervalSec": 30
+            }
+          ]
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.868735+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/5db601a9303a4eb7baa90331?hardware=emery",
+        "status": 200,
+        "version": "1.0.2",
+        "age": "206",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    },
+    {
+      "slug": "halftone",
+      "name": "Halftone",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.10.3",
+      "expectedUuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+      "expectedSha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "expectedPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/d4dd5046-53be-4624-99e8-46e0b377fe66",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/d4dd5046-53be-4624-99e8-46e0b377fe66",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:28 GMT"
+          },
+          "sha256": "72c687c814aca04c1e52279baf7bee42f86f9d957af059e145e99b9bd33195fc",
+          "bytes": 10575,
+          "lookup": "uuid-default",
+          "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+          "id": "48d7f4eab704414c8bc1fa7e",
+          "version": "1.10.3",
+          "publishedDate": "2026-11-14T22:20:36.278",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchface",
+          "category": "Faces",
+          "plugin": {
+            "description": "Recent activity app destinations and Halftone settings; no activity content is retained.",
+            "sources": [
+              {
+                "category": "navigation",
+                "items": [
+                  "presented_activities"
+                ],
+                "properties": {
+                  "hint": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": false
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "presented_activities"
+                  ],
+                  "category": "navigation",
+                  "properties": {
+                    "hint": [
+                      "longText"
+                    ]
+                  },
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Recent activity app destinations and Halftone settings; no activity content is retained."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/48d7f4eab704414c8bc1fa7e?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/48d7f4eab704414c8bc1fa7e?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:28 GMT"
+          },
+          "sha256": "8ddefdb70efbdd22e2364d2e103c9df09cd35e153b6b9138e5c18ca46d588d36",
+          "bytes": 10567,
+          "lookup": "id-emery",
+          "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+          "id": "48d7f4eab704414c8bc1fa7e",
+          "version": "1.10.3",
+          "publishedDate": "2026-11-14T22:20:36.278",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchface",
+          "category": "Faces",
+          "plugin": {
+            "description": "Recent activity app destinations and Halftone settings; no activity content is retained.",
+            "sources": [
+              {
+                "category": "navigation",
+                "items": [
+                  "presented_activities"
+                ],
+                "properties": {
+                  "hint": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": false
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "presented_activities"
+                  ],
+                  "category": "navigation",
+                  "properties": {
+                    "hint": [
+                      "longText"
+                    ]
+                  },
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Recent activity app destinations and Halftone settings; no activity content is retained."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.10.3",
+      "storePlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/48d7f4eab704414c8bc1fa7e/1.10.3/98c6b52a-f69f-45c3-9e40-cfd3dd56b647.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/48d7f4eab704414c8bc1fa7e/1.10.3/98c6b52a-f69f-45c3-9e40-cfd3dd56b647.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T223128Z&X-Amz-Expires=7200&X-Amz-Signature=d3d07151a8c3c9340ab614b4181cf0c9ce1c16f0166a2f1e8f9c8a9ff0a1f265&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"511fdac6244d0763a6694ea2635629f9\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:20:36 GMT"
+        },
+        "sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+        "bytes": 1277413
+      },
+      "storePbwSha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "githubReleaseUrl": "https://github.com/xefensor/halftone-watchface/releases/tag/v1.10.3",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/halftone-watchface/releases/download/v1.10.3/Halftone-1.10.3.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1404435102/70db9079-9e3a-4de3-ba2c-1e78576d2a86?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A19%3A24Z&rscd=attachment%3B+filename%3DHalftone-1.10.3.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A19%3A00Z&ske=2026-11-14T23%3A19%3A24Z&sks=b&skv=2018-11-09&sig=f%2FvIJjesJ8sbNWYJJFJr6Tgq%2BXwsNNnw6UKtHfJY7EE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc4OSwibmJmIjoxNzk0Njk1NDg5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.GhSznUkpR8nNyLd4FWJ_TKGxZLKTW56_EHevrHDfCTk&response-content-disposition=attachment%3B%20filename%3DHalftone-1.10.3.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:11:05 GMT",
+          "ETag": "\"0x8DF429C2D78DC5B\"",
+          "Age": "1148",
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+        "bytes": 1277413
+      },
+      "githubPbwSha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "storeBinary": {
+        "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+        "version": "1.10.3",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Recent activity app destinations and Halftone settings; no activity content is retained.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "navigation",
+              "items": [
+                "presented_activities"
+              ],
+              "properties": {
+                "hint": [
+                  "longText"
+                ]
+              },
+              "suggestedRefreshIntervalSec": 30
+            }
+          ]
+        }
+      },
+      "githubBinary": {
+        "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+        "version": "1.10.3",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Recent activity app destinations and Halftone settings; no activity content is retained.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "navigation",
+              "items": [
+                "presented_activities"
+              ],
+              "properties": {
+                "hint": [
+                  "longText"
+                ]
+              },
+              "suggestedRefreshIntervalSec": 30
+            }
+          ]
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.851098+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/48d7f4eab704414c8bc1fa7e?hardware=emery",
+        "status": 200,
+        "version": "1.10.3",
+        "age": "53",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    },
+    {
+      "slug": "timer",
+      "name": "Timer",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.0.3",
+      "expectedUuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "expectedSha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+      "expectedPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:28 GMT"
+          },
+          "sha256": "9bcac160377396a9aefb876385d22bf19fb1868fb980aa7bbf9dae98bb32cde7",
+          "bytes": 13449,
+          "lookup": "uuid-default",
+          "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+          "id": "2f8f8cfd4e7e442fb724dac7",
+          "version": "1.0.3",
+          "publishedDate": "2026-11-14T22:26:23.943",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state.",
+            "sources": [
+              {
+                "category": "activity",
+                "items": [
+                  "summary",
+                  "live",
+                  "session",
+                  "card"
+                ],
+                "properties": {
+                  "icon": [
+                    "image",
+                    "icon"
+                  ],
+                  "kind": [
+                    "shortText"
+                  ],
+                  "main": [
+                    "longText"
+                  ],
+                  "name": [
+                    "longText"
+                  ],
+                  "clock": [
+                    "shortText"
+                  ],
+                  "state": [
+                    "shortText"
+                  ],
+                  "detail": [
+                    "longText"
+                  ],
+                  "footer": [
+                    "longText"
+                  ],
+                  "actions": [
+                    "longText"
+                  ],
+                  "artwork": [
+                    "image",
+                    "icon"
+                  ],
+                  "caption": [
+                    "longText"
+                  ],
+                  "content": [
+                    "longText"
+                  ],
+                  "private": [
+                    "boolean"
+                  ],
+                  "app_name": [
+                    "longText"
+                  ],
+                  "clock_at": [
+                    "timestamp"
+                  ],
+                  "deadline": [
+                    "timestamp"
+                  ],
+                  "duration": [
+                    "numericValue"
+                  ],
+                  "open_app": [
+                    "longText"
+                  ],
+                  "revision": [
+                    "numericValue"
+                  ],
+                  "main_base": [
+                    "numericValue"
+                  ],
+                  "main_text": [
+                    "longText"
+                  ],
+                  "main_type": [
+                    "shortText"
+                  ],
+                  "meter_max": [
+                    "numericValue"
+                  ],
+                  "meter_min": [
+                    "numericValue"
+                  ],
+                  "entity_ref": [
+                    "longText"
+                  ],
+                  "main_clock": [
+                    "shortText"
+                  ],
+                  "main_label": [
+                    "longText"
+                  ],
+                  "main_value": [
+                    "numericValue"
+                  ],
+                  "meter_kind": [
+                    "shortText"
+                  ],
+                  "main_anchor": [
+                    "timestamp"
+                  ],
+                  "main_retain": [
+                    "boolean"
+                  ],
+                  "observed_at": [
+                    "timestamp"
+                  ],
+                  "unconfirmed": [
+                    "boolean"
+                  ],
+                  "valid_until": [
+                    "timestamp"
+                  ],
+                  "main_running": [
+                    "boolean"
+                  ],
+                  "meter_source": [
+                    "shortText"
+                  ],
+                  "support_base": [
+                    "numericValue"
+                  ],
+                  "support_text": [
+                    "longText"
+                  ],
+                  "support_type": [
+                    "shortText"
+                  ],
+                  "show_terminal": [
+                    "boolean"
+                  ],
+                  "support_clock": [
+                    "shortText"
+                  ],
+                  "support_label": [
+                    "longText"
+                  ],
+                  "support_value": [
+                    "numericValue"
+                  ],
+                  "activity_count": [
+                    "numericValue"
+                  ],
+                  "main_estimated": [
+                    "boolean"
+                  ],
+                  "publisher_mode": [
+                    "shortText"
+                  ],
+                  "schema_version": [
+                    "numericValue"
+                  ],
+                  "support_anchor": [
+                    "timestamp"
+                  ],
+                  "support_retain": [
+                    "boolean"
+                  ],
+                  "support_running": [
+                    "boolean"
+                  ],
+                  "main_observed_at": [
+                    "timestamp"
+                  ],
+                  "main_valid_until": [
+                    "timestamp"
+                  ],
+                  "snapshot_sequence": [
+                    "numericValue"
+                  ],
+                  "support_estimated": [
+                    "boolean"
+                  ],
+                  "support_observed_at": [
+                    "timestamp"
+                  ],
+                  "support_valid_until": [
+                    "timestamp"
+                  ],
+                  "publisher_incarnation": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": true
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "summary",
+                    "live",
+                    "session",
+                    "card"
+                  ],
+                  "category": "activity",
+                  "properties": {
+                    "icon": [
+                      "image",
+                      "icon"
+                    ],
+                    "kind": [
+                      "shortText"
+                    ],
+                    "main": [
+                      "longText"
+                    ],
+                    "name": [
+                      "longText"
+                    ],
+                    "clock": [
+                      "shortText"
+                    ],
+                    "state": [
+                      "shortText"
+                    ],
+                    "detail": [
+                      "longText"
+                    ],
+                    "footer": [
+                      "longText"
+                    ],
+                    "actions": [
+                      "longText"
+                    ],
+                    "artwork": [
+                      "image",
+                      "icon"
+                    ],
+                    "caption": [
+                      "longText"
+                    ],
+                    "content": [
+                      "longText"
+                    ],
+                    "private": [
+                      "boolean"
+                    ],
+                    "app_name": [
+                      "longText"
+                    ],
+                    "clock_at": [
+                      "timestamp"
+                    ],
+                    "deadline": [
+                      "timestamp"
+                    ],
+                    "duration": [
+                      "numericValue"
+                    ],
+                    "open_app": [
+                      "longText"
+                    ],
+                    "revision": [
+                      "numericValue"
+                    ],
+                    "main_base": [
+                      "numericValue"
+                    ],
+                    "main_text": [
+                      "longText"
+                    ],
+                    "main_type": [
+                      "shortText"
+                    ],
+                    "meter_max": [
+                      "numericValue"
+                    ],
+                    "meter_min": [
+                      "numericValue"
+                    ],
+                    "entity_ref": [
+                      "longText"
+                    ],
+                    "main_clock": [
+                      "shortText"
+                    ],
+                    "main_label": [
+                      "longText"
+                    ],
+                    "main_value": [
+                      "numericValue"
+                    ],
+                    "meter_kind": [
+                      "shortText"
+                    ],
+                    "main_anchor": [
+                      "timestamp"
+                    ],
+                    "main_retain": [
+                      "boolean"
+                    ],
+                    "observed_at": [
+                      "timestamp"
+                    ],
+                    "unconfirmed": [
+                      "boolean"
+                    ],
+                    "valid_until": [
+                      "timestamp"
+                    ],
+                    "main_running": [
+                      "boolean"
+                    ],
+                    "meter_source": [
+                      "shortText"
+                    ],
+                    "support_base": [
+                      "numericValue"
+                    ],
+                    "support_text": [
+                      "longText"
+                    ],
+                    "support_type": [
+                      "shortText"
+                    ],
+                    "show_terminal": [
+                      "boolean"
+                    ],
+                    "support_clock": [
+                      "shortText"
+                    ],
+                    "support_label": [
+                      "longText"
+                    ],
+                    "support_value": [
+                      "numericValue"
+                    ],
+                    "activity_count": [
+                      "numericValue"
+                    ],
+                    "main_estimated": [
+                      "boolean"
+                    ],
+                    "publisher_mode": [
+                      "shortText"
+                    ],
+                    "schema_version": [
+                      "numericValue"
+                    ],
+                    "support_anchor": [
+                      "timestamp"
+                    ],
+                    "support_retain": [
+                      "boolean"
+                    ],
+                    "support_running": [
+                      "boolean"
+                    ],
+                    "main_observed_at": [
+                      "timestamp"
+                    ],
+                    "main_valid_until": [
+                      "timestamp"
+                    ],
+                    "snapshot_sequence": [
+                      "numericValue"
+                    ],
+                    "support_estimated": [
+                      "boolean"
+                    ],
+                    "support_observed_at": [
+                      "timestamp"
+                    ],
+                    "support_valid_until": [
+                      "timestamp"
+                    ],
+                    "publisher_incarnation": [
+                      "longText"
+                    ]
+                  },
+                  "supportsMultiple": true,
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/2f8f8cfd4e7e442fb724dac7?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/2f8f8cfd4e7e442fb724dac7?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "320",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:26:08 GMT"
+          },
+          "sha256": "d437902483abca773c59b6fc54f297b5da22fa6c54af7dfb03aa9515f8c5af6c",
+          "bytes": 11644,
+          "lookup": "id-emery",
+          "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+          "id": "2f8f8cfd4e7e442fb724dac7",
+          "version": "1.0.0",
+          "publishedDate": "2026-11-13T02:12:15.851",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state.",
+            "sources": [
+              {
+                "category": "activity",
+                "items": [
+                  "summary",
+                  "live",
+                  "session",
+                  "card"
+                ],
+                "properties": {
+                  "icon": [
+                    "image",
+                    "icon"
+                  ],
+                  "kind": [
+                    "shortText"
+                  ],
+                  "main": [
+                    "longText"
+                  ],
+                  "name": [
+                    "longText"
+                  ],
+                  "clock": [
+                    "shortText"
+                  ],
+                  "state": [
+                    "shortText"
+                  ],
+                  "detail": [
+                    "longText"
+                  ],
+                  "footer": [
+                    "longText"
+                  ],
+                  "actions": [
+                    "longText"
+                  ],
+                  "artwork": [
+                    "image",
+                    "icon"
+                  ],
+                  "caption": [
+                    "longText"
+                  ],
+                  "content": [
+                    "longText"
+                  ],
+                  "private": [
+                    "boolean"
+                  ],
+                  "app_name": [
+                    "longText"
+                  ],
+                  "clock_at": [
+                    "timestamp"
+                  ],
+                  "deadline": [
+                    "timestamp"
+                  ],
+                  "duration": [
+                    "numericValue"
+                  ],
+                  "open_app": [
+                    "longText"
+                  ],
+                  "revision": [
+                    "numericValue"
+                  ],
+                  "main_base": [
+                    "numericValue"
+                  ],
+                  "main_text": [
+                    "longText"
+                  ],
+                  "main_type": [
+                    "shortText"
+                  ],
+                  "meter_max": [
+                    "numericValue"
+                  ],
+                  "meter_min": [
+                    "numericValue"
+                  ],
+                  "entity_ref": [
+                    "longText"
+                  ],
+                  "main_clock": [
+                    "shortText"
+                  ],
+                  "main_label": [
+                    "longText"
+                  ],
+                  "main_value": [
+                    "numericValue"
+                  ],
+                  "meter_kind": [
+                    "shortText"
+                  ],
+                  "main_anchor": [
+                    "timestamp"
+                  ],
+                  "main_retain": [
+                    "boolean"
+                  ],
+                  "observed_at": [
+                    "timestamp"
+                  ],
+                  "unconfirmed": [
+                    "boolean"
+                  ],
+                  "valid_until": [
+                    "timestamp"
+                  ],
+                  "main_running": [
+                    "boolean"
+                  ],
+                  "meter_source": [
+                    "shortText"
+                  ],
+                  "support_base": [
+                    "numericValue"
+                  ],
+                  "support_text": [
+                    "longText"
+                  ],
+                  "support_type": [
+                    "shortText"
+                  ],
+                  "show_terminal": [
+                    "boolean"
+                  ],
+                  "support_clock": [
+                    "shortText"
+                  ],
+                  "support_label": [
+                    "longText"
+                  ],
+                  "support_value": [
+                    "numericValue"
+                  ],
+                  "activity_count": [
+                    "numericValue"
+                  ],
+                  "main_estimated": [
+                    "boolean"
+                  ],
+                  "publisher_mode": [
+                    "shortText"
+                  ],
+                  "schema_version": [
+                    "numericValue"
+                  ],
+                  "support_anchor": [
+                    "timestamp"
+                  ],
+                  "support_retain": [
+                    "boolean"
+                  ],
+                  "support_running": [
+                    "boolean"
+                  ],
+                  "main_observed_at": [
+                    "timestamp"
+                  ],
+                  "main_valid_until": [
+                    "timestamp"
+                  ],
+                  "snapshot_sequence": [
+                    "numericValue"
+                  ],
+                  "support_estimated": [
+                    "boolean"
+                  ],
+                  "support_observed_at": [
+                    "timestamp"
+                  ],
+                  "support_valid_until": [
+                    "timestamp"
+                  ],
+                  "publisher_incarnation": [
+                    "longText"
+                  ]
+                },
+                "supports_multiple": true
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "summary",
+                    "live",
+                    "session",
+                    "card"
+                  ],
+                  "category": "activity",
+                  "properties": {
+                    "icon": [
+                      "image",
+                      "icon"
+                    ],
+                    "kind": [
+                      "shortText"
+                    ],
+                    "main": [
+                      "longText"
+                    ],
+                    "name": [
+                      "longText"
+                    ],
+                    "clock": [
+                      "shortText"
+                    ],
+                    "state": [
+                      "shortText"
+                    ],
+                    "detail": [
+                      "longText"
+                    ],
+                    "footer": [
+                      "longText"
+                    ],
+                    "actions": [
+                      "longText"
+                    ],
+                    "artwork": [
+                      "image",
+                      "icon"
+                    ],
+                    "caption": [
+                      "longText"
+                    ],
+                    "content": [
+                      "longText"
+                    ],
+                    "private": [
+                      "boolean"
+                    ],
+                    "app_name": [
+                      "longText"
+                    ],
+                    "clock_at": [
+                      "timestamp"
+                    ],
+                    "deadline": [
+                      "timestamp"
+                    ],
+                    "duration": [
+                      "numericValue"
+                    ],
+                    "open_app": [
+                      "longText"
+                    ],
+                    "revision": [
+                      "numericValue"
+                    ],
+                    "main_base": [
+                      "numericValue"
+                    ],
+                    "main_text": [
+                      "longText"
+                    ],
+                    "main_type": [
+                      "shortText"
+                    ],
+                    "meter_max": [
+                      "numericValue"
+                    ],
+                    "meter_min": [
+                      "numericValue"
+                    ],
+                    "entity_ref": [
+                      "longText"
+                    ],
+                    "main_clock": [
+                      "shortText"
+                    ],
+                    "main_label": [
+                      "longText"
+                    ],
+                    "main_value": [
+                      "numericValue"
+                    ],
+                    "meter_kind": [
+                      "shortText"
+                    ],
+                    "main_anchor": [
+                      "timestamp"
+                    ],
+                    "main_retain": [
+                      "boolean"
+                    ],
+                    "observed_at": [
+                      "timestamp"
+                    ],
+                    "unconfirmed": [
+                      "boolean"
+                    ],
+                    "valid_until": [
+                      "timestamp"
+                    ],
+                    "main_running": [
+                      "boolean"
+                    ],
+                    "meter_source": [
+                      "shortText"
+                    ],
+                    "support_base": [
+                      "numericValue"
+                    ],
+                    "support_text": [
+                      "longText"
+                    ],
+                    "support_type": [
+                      "shortText"
+                    ],
+                    "show_terminal": [
+                      "boolean"
+                    ],
+                    "support_clock": [
+                      "shortText"
+                    ],
+                    "support_label": [
+                      "longText"
+                    ],
+                    "support_value": [
+                      "numericValue"
+                    ],
+                    "activity_count": [
+                      "numericValue"
+                    ],
+                    "main_estimated": [
+                      "boolean"
+                    ],
+                    "publisher_mode": [
+                      "shortText"
+                    ],
+                    "schema_version": [
+                      "numericValue"
+                    ],
+                    "support_anchor": [
+                      "timestamp"
+                    ],
+                    "support_retain": [
+                      "boolean"
+                    ],
+                    "support_running": [
+                      "boolean"
+                    ],
+                    "main_observed_at": [
+                      "timestamp"
+                    ],
+                    "main_valid_until": [
+                      "timestamp"
+                    ],
+                    "snapshot_sequence": [
+                      "numericValue"
+                    ],
+                    "support_estimated": [
+                      "boolean"
+                    ],
+                    "support_observed_at": [
+                      "timestamp"
+                    ],
+                    "support_valid_until": [
+                      "timestamp"
+                    ],
+                    "publisher_incarnation": [
+                      "longText"
+                    ]
+                  },
+                  "supportsMultiple": true,
+                  "suggestedRefreshIntervalSec": 30
+                }
+              ],
+              "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state."
+            }
+          },
+          "classification": "stale-cached-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.0.3",
+      "storePlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/2f8f8cfd4e7e442fb724dac7/1.0.3/2fb1fbc2-4a2e-445a-aeb5-573ee84f8c0f.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/2f8f8cfd4e7e442fb724dac7/1.0.3/2fb1fbc2-4a2e-445a-aeb5-573ee84f8c0f.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T223128Z&X-Amz-Expires=7200&X-Amz-Signature=5918bceabcfd973b82d5bc7a5a8a08d7d3fb3f9eb303667427d48ae24b7b02ec&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"fee199b68013b51b5e3c9180ca9df853\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:26:23 GMT"
+        },
+        "sha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+        "bytes": 151490
+      },
+      "storePbwSha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+      "githubReleaseUrl": "https://github.com/xefensor/pebble-app-timer/releases/tag/v1.0.3",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/pebble-app-timer/releases/download/v1.0.3/Timer-1.0.3.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1443065342/987233bf-2335-4cfa-bdb3-4bf021189776?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A27%3A36Z&rscd=attachment%3B+filename%3DTimer-1.0.3.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A27%3A09Z&ske=2026-11-14T23%3A27%3A36Z&sks=b&skv=2018-11-09&sig=VL1JvoQQWZKPzBwR8NJ3d1dtRn%2BYp%2B9h8zNEjG5qWO4%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc4OSwibmJmIjoxNzk0Njk1NDg5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.GhSznUkpR8nNyLd4FWJ_TKGxZLKTW56_EHevrHDfCTk&response-content-disposition=attachment%3B%20filename%3DTimer-1.0.3.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:06:07 GMT",
+          "ETag": "\"0x8DF429B7B982310\"",
+          "Age": "1423",
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+        "bytes": 151490
+      },
+      "githubPbwSha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+      "storeBinary": {
+        "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+        "version": "1.0.3",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "activity",
+              "supportsMultiple": true,
+              "suggestedRefreshIntervalSec": 30,
+              "items": [
+                "summary",
+                "live",
+                "session",
+                "card"
+              ],
+              "properties": {
+                "schema_version": [
+                  "numericValue"
+                ],
+                "kind": [
+                  "shortText"
+                ],
+                "state": [
+                  "shortText"
+                ],
+                "clock": [
+                  "shortText"
+                ],
+                "revision": [
+                  "numericValue"
+                ],
+                "name": [
+                  "longText"
+                ],
+                "main": [
+                  "longText"
+                ],
+                "footer": [
+                  "longText"
+                ],
+                "observed_at": [
+                  "timestamp"
+                ],
+                "valid_until": [
+                  "timestamp"
+                ],
+                "deadline": [
+                  "timestamp"
+                ],
+                "duration": [
+                  "numericValue"
+                ],
+                "clock_at": [
+                  "timestamp"
+                ],
+                "private": [
+                  "boolean"
+                ],
+                "unconfirmed": [
+                  "boolean"
+                ],
+                "caption": [
+                  "longText"
+                ],
+                "show_terminal": [
+                  "boolean"
+                ],
+                "artwork": [
+                  "image",
+                  "icon"
+                ],
+                "main_type": [
+                  "shortText"
+                ],
+                "main_label": [
+                  "longText"
+                ],
+                "main_text": [
+                  "longText"
+                ],
+                "main_value": [
+                  "numericValue"
+                ],
+                "main_observed_at": [
+                  "timestamp"
+                ],
+                "main_valid_until": [
+                  "timestamp"
+                ],
+                "main_retain": [
+                  "boolean"
+                ],
+                "main_estimated": [
+                  "boolean"
+                ],
+                "main_clock": [
+                  "shortText"
+                ],
+                "main_base": [
+                  "numericValue"
+                ],
+                "main_anchor": [
+                  "timestamp"
+                ],
+                "main_running": [
+                  "boolean"
+                ],
+                "support_type": [
+                  "shortText"
+                ],
+                "support_label": [
+                  "longText"
+                ],
+                "support_text": [
+                  "longText"
+                ],
+                "support_value": [
+                  "numericValue"
+                ],
+                "support_observed_at": [
+                  "timestamp"
+                ],
+                "support_valid_until": [
+                  "timestamp"
+                ],
+                "support_retain": [
+                  "boolean"
+                ],
+                "support_estimated": [
+                  "boolean"
+                ],
+                "support_clock": [
+                  "shortText"
+                ],
+                "support_base": [
+                  "numericValue"
+                ],
+                "support_anchor": [
+                  "timestamp"
+                ],
+                "support_running": [
+                  "boolean"
+                ],
+                "meter_kind": [
+                  "shortText"
+                ],
+                "meter_source": [
+                  "shortText"
+                ],
+                "meter_min": [
+                  "numericValue"
+                ],
+                "meter_max": [
+                  "numericValue"
+                ],
+                "app_name": [
+                  "longText"
+                ],
+                "content": [
+                  "longText"
+                ],
+                "detail": [
+                  "longText"
+                ],
+                "publisher_incarnation": [
+                  "longText"
+                ],
+                "snapshot_sequence": [
+                  "numericValue"
+                ],
+                "activity_count": [
+                  "numericValue"
+                ],
+                "icon": [
+                  "image",
+                  "icon"
+                ],
+                "entity_ref": [
+                  "longText"
+                ],
+                "actions": [
+                  "longText"
+                ],
+                "open_app": [
+                  "longText"
+                ],
+                "publisher_mode": [
+                  "shortText"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "githubBinary": {
+        "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+        "version": "1.0.3",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Native Timer snapshots as activity/summary with an app destination and legacy compatibility sources. Native timers own their alarms; this plugin shares their original state.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "activity",
+              "supportsMultiple": true,
+              "suggestedRefreshIntervalSec": 30,
+              "items": [
+                "summary",
+                "live",
+                "session",
+                "card"
+              ],
+              "properties": {
+                "schema_version": [
+                  "numericValue"
+                ],
+                "kind": [
+                  "shortText"
+                ],
+                "state": [
+                  "shortText"
+                ],
+                "clock": [
+                  "shortText"
+                ],
+                "revision": [
+                  "numericValue"
+                ],
+                "name": [
+                  "longText"
+                ],
+                "main": [
+                  "longText"
+                ],
+                "footer": [
+                  "longText"
+                ],
+                "observed_at": [
+                  "timestamp"
+                ],
+                "valid_until": [
+                  "timestamp"
+                ],
+                "deadline": [
+                  "timestamp"
+                ],
+                "duration": [
+                  "numericValue"
+                ],
+                "clock_at": [
+                  "timestamp"
+                ],
+                "private": [
+                  "boolean"
+                ],
+                "unconfirmed": [
+                  "boolean"
+                ],
+                "caption": [
+                  "longText"
+                ],
+                "show_terminal": [
+                  "boolean"
+                ],
+                "artwork": [
+                  "image",
+                  "icon"
+                ],
+                "main_type": [
+                  "shortText"
+                ],
+                "main_label": [
+                  "longText"
+                ],
+                "main_text": [
+                  "longText"
+                ],
+                "main_value": [
+                  "numericValue"
+                ],
+                "main_observed_at": [
+                  "timestamp"
+                ],
+                "main_valid_until": [
+                  "timestamp"
+                ],
+                "main_retain": [
+                  "boolean"
+                ],
+                "main_estimated": [
+                  "boolean"
+                ],
+                "main_clock": [
+                  "shortText"
+                ],
+                "main_base": [
+                  "numericValue"
+                ],
+                "main_anchor": [
+                  "timestamp"
+                ],
+                "main_running": [
+                  "boolean"
+                ],
+                "support_type": [
+                  "shortText"
+                ],
+                "support_label": [
+                  "longText"
+                ],
+                "support_text": [
+                  "longText"
+                ],
+                "support_value": [
+                  "numericValue"
+                ],
+                "support_observed_at": [
+                  "timestamp"
+                ],
+                "support_valid_until": [
+                  "timestamp"
+                ],
+                "support_retain": [
+                  "boolean"
+                ],
+                "support_estimated": [
+                  "boolean"
+                ],
+                "support_clock": [
+                  "shortText"
+                ],
+                "support_base": [
+                  "numericValue"
+                ],
+                "support_anchor": [
+                  "timestamp"
+                ],
+                "support_running": [
+                  "boolean"
+                ],
+                "meter_kind": [
+                  "shortText"
+                ],
+                "meter_source": [
+                  "shortText"
+                ],
+                "meter_min": [
+                  "numericValue"
+                ],
+                "meter_max": [
+                  "numericValue"
+                ],
+                "app_name": [
+                  "longText"
+                ],
+                "content": [
+                  "longText"
+                ],
+                "detail": [
+                  "longText"
+                ],
+                "publisher_incarnation": [
+                  "longText"
+                ],
+                "snapshot_sequence": [
+                  "numericValue"
+                ],
+                "activity_count": [
+                  "numericValue"
+                ],
+                "icon": [
+                  "image",
+                  "icon"
+                ],
+                "entity_ref": [
+                  "longText"
+                ],
+                "actions": [
+                  "longText"
+                ],
+                "open_app": [
+                  "longText"
+                ],
+                "publisher_mode": [
+                  "shortText"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.848398+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/2f8f8cfd4e7e442fb724dac7?hardware=emery",
+        "status": 200,
+        "version": "1.0.3",
+        "age": "53",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    },
+    {
+      "slug": "dashboard",
+      "name": "Dashboard",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.0.2",
+      "expectedUuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+      "expectedSha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+      "expectedPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeUrl": "https://apps.repebble.com/603d814e961c40308c98ce63",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:28 GMT"
+          },
+          "sha256": "5d051d24c36469f5945b630d6fbb05ae3369f9bbb17057a8251c855af3dfe1e1",
+          "bytes": 10992,
+          "lookup": "uuid-default",
+          "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+          "id": "603d814e961c40308c98ce63",
+          "version": "1.0.2",
+          "publishedDate": "2026-11-14T22:24:52.459",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy.",
+            "sources": [],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "actions": [],
+              "sources": [],
+              "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/603d814e961c40308c98ce63?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/603d814e961c40308c98ce63?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "418",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:24:30 GMT"
+          },
+          "sha256": "c408f0d02540ba7796feb122a52c1b75380a227c53c6f5833c6b97bfdb464c34",
+          "bytes": 9182,
+          "lookup": "id-emery",
+          "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+          "id": "603d814e961c40308c98ce63",
+          "version": "1.0.0",
+          "publishedDate": "2026-11-13T02:18:50.877",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy.",
+            "sources": [],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "actions": [],
+              "sources": [],
+              "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy."
+            }
+          },
+          "classification": "stale-cached-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.0.2",
+      "storePlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/603d814e961c40308c98ce63/1.0.2/d1727901-30a5-4f74-86e6-1f32e8017865.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/603d814e961c40308c98ce63/1.0.2/d1727901-30a5-4f74-86e6-1f32e8017865.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T222956Z&X-Amz-Expires=7200&X-Amz-Signature=a031540a6cdf3b49e8082756b03294a9ce0936513cb1e9fc79b87f06e86f04d3&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:28 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"f27fe3471432af1c156ea8c305f6a9b1\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:24:52 GMT"
+        },
+        "sha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+        "bytes": 360273
+      },
+      "storePbwSha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+      "githubReleaseUrl": "https://github.com/xefensor/pebble-app-dashboard/releases/tag/v1.0.2",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/pebble-app-dashboard/releases/download/v1.0.2/Dashboard-1.0.2.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1445827621/560c7651-9525-4a41-ac4a-e46687c4cd10?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A24%3A12Z&rscd=attachment%3B+filename%3DDashboard-1.0.2.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A23%3A17Z&ske=2026-11-14T23%3A24%3A12Z&sks=b&skv=2018-11-09&sig=W4BHNcie%2BQ81LqB4n91Jfky%2FDTxfyjHXdw%2BIFPHjaPI%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc4OSwibmJmIjoxNzk0Njk1NDg5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.GhSznUkpR8nNyLd4FWJ_TKGxZLKTW56_EHevrHDfCTk&response-content-disposition=attachment%3B%20filename%3DDashboard-1.0.2.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:05:57 GMT",
+          "ETag": "\"0x8DF429B7628922B\"",
+          "Age": "1423",
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+        "bytes": 360273
+      },
+      "githubPbwSha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+      "storeBinary": {
+        "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy.",
+          "script": "plugin.js",
+          "sources": [],
+          "actions": []
+        }
+      },
+      "githubBinary": {
+        "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Dashboard preferences and plugin catalogue settings. No activity source or action proxy.",
+          "script": "plugin.js",
+          "sources": [],
+          "actions": []
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.846732+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/603d814e961c40308c98ce63?hardware=emery",
+        "status": 200,
+        "version": "1.0.2",
+        "age": "53",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    },
+    {
+      "slug": "open-activity",
+      "name": "Open Activity",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.0.2",
+      "expectedUuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+      "expectedSha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+      "expectedPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeUrl": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:28 GMT"
+          },
+          "sha256": "8ad852c14d688e5c52f26314ff6c4b6510f95a16f00fd5efba8cedea586d1c5d",
+          "bytes": 8807,
+          "lookup": "uuid-default",
+          "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+          "id": "59af0a59f7a34cb09a79bcbe",
+          "version": "1.0.2",
+          "publishedDate": "2026-11-14T22:28:01.677",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Open Activity shortcut settings. No activity sources or action proxy.",
+            "sources": [],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "actions": [],
+              "sources": [],
+              "description": "Open Activity shortcut settings. No activity sources or action proxy."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/59af0a59f7a34cb09a79bcbe?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/59af0a59f7a34cb09a79bcbe?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "226",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:27:42 GMT"
+          },
+          "sha256": "2e657ccfa3d3754c72a6c1b2a51d2e36e7188a56f09192f70c1d58c039e79a8c",
+          "bytes": 6592,
+          "lookup": "id-emery",
+          "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+          "id": "59af0a59f7a34cb09a79bcbe",
+          "version": "1.0.0",
+          "publishedDate": "2026-11-13T02:16:47.049",
+          "hardwarePlatforms": [
+            "emery",
+            "gabbro"
+          ],
+          "visible": true,
+          "type": "watchapp",
+          "category": "Tools & Utilities",
+          "plugin": {
+            "description": "Open Activity shortcut settings. No activity sources or action proxy.",
+            "sources": [],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "actions": [],
+              "sources": [],
+              "description": "Open Activity shortcut settings. No activity sources or action proxy."
+            }
+          },
+          "classification": "stale-cached-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.0.2",
+      "storePlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/59af0a59f7a34cb09a79bcbe/1.0.2/c572f858-541d-45bb-afd8-bbaf18580743.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/59af0a59f7a34cb09a79bcbe/1.0.2/c572f858-541d-45bb-afd8-bbaf18580743.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T222955Z&X-Amz-Expires=7200&X-Amz-Signature=fe04ab1d1988d5368a1b002148465a24fcec183a5d66ed9186ca157d34b2f000&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:28 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"940913649e97848558c65d6aa5fed70e\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:28:01 GMT"
+        },
+        "sha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+        "bytes": 108280
+      },
+      "storePbwSha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+      "githubReleaseUrl": "https://github.com/xefensor/pebble-app-open-activity/releases/tag/v1.0.2",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/pebble-app-open-activity/releases/download/v1.0.2/Open-Activity-1.0.2.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1444655986/e42cd360-29e1-4926-b8d4-a7b59de21311?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A07%3A40Z&rscd=attachment%3B+filename%3DOpen-Activity-1.0.2.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A07%3A15Z&ske=2026-11-14T23%3A07%3A40Z&sks=b&skv=2018-11-09&sig=bmLyHLOzuYRlL1qC3MuSRFv8U5hQT%2BlD5hDx4l30zPU%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc4OSwibmJmIjoxNzk0Njk1NDg5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.GhSznUkpR8nNyLd4FWJ_TKGxZLKTW56_EHevrHDfCTk&response-content-disposition=attachment%3B%20filename%3DOpen-Activity-1.0.2.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:05:57 GMT",
+          "ETag": "\"0x8DF429B75B7B244\"",
+          "Age": "1423",
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+        "bytes": 108280
+      },
+      "githubPbwSha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+      "storeBinary": {
+        "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Open Activity shortcut settings. No activity sources or action proxy.",
+          "script": "plugin.js",
+          "sources": [],
+          "actions": []
+        }
+      },
+      "githubBinary": {
+        "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+        "version": "1.0.2",
+        "nativePlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "targetPlatforms": [
+          "emery",
+          "gabbro"
+        ],
+        "plugin": {
+          "description": "Open Activity shortcut settings. No activity sources or action proxy.",
+          "script": "plugin.js",
+          "sources": [],
+          "actions": []
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.876663+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/59af0a59f7a34cb09a79bcbe?hardware=emery",
+        "status": 200,
+        "version": "1.0.0",
+        "age": "279",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    },
+    {
+      "slug": "chmu-weather",
+      "name": "ČHMÚ Weather",
+      "checkedAtUtc": "2026-11-14T22:31:27.962177+00:00",
+      "expectedVersion": "1.0.4",
+      "expectedUuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+      "expectedSha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+      "expectedPlatforms": [],
+      "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+      "observations": [
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/uuid/00866104-6ce5-4ae3-952f-9800f437442c",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/00866104-6ce5-4ae3-952f-9800f437442c",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, max-age=0, must-revalidate",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:29 GMT"
+          },
+          "sha256": "9052014496affab4aa15a9c9cc9f7580791dc281e8a758932d8c700cf780770a",
+          "bytes": 11619,
+          "lookup": "uuid-default",
+          "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+          "id": "ef7111ffaeaf4593aaaa85ed",
+          "version": "1.0.4",
+          "publishedDate": "2026-11-14T22:18:17.831",
+          "hardwarePlatforms": [],
+          "visible": true,
+          "type": "plugin",
+          "category": "Weather",
+          "plugin": {
+            "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage.",
+            "sources": [
+              {
+                "category": "weather",
+                "items": [
+                  "location"
+                ],
+                "properties": {
+                  "low": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "high": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "name": [
+                    "shortText"
+                  ],
+                  "source": [
+                    "shortText",
+                    "longText"
+                  ],
+                  "sunset": [
+                    "timestamp"
+                  ],
+                  "station": [
+                    "shortText",
+                    "longText"
+                  ],
+                  "sunrise": [
+                    "timestamp"
+                  ],
+                  "humidity": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "uv_index": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "condition": [
+                    "shortText",
+                    "longText",
+                    "icon",
+                    "image"
+                  ],
+                  "daily_low": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "uv_source": [
+                    "longText"
+                  ],
+                  "daily_high": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "feels_like": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "utc_offset": [
+                    "numericValue"
+                  ],
+                  "wind_speed": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "is_forecast": [
+                    "boolean"
+                  ],
+                  "observed_at": [
+                    "timestamp"
+                  ],
+                  "temperature": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "wind_source": [
+                    "longText"
+                  ],
+                  "daily_source": [
+                    "series.longText"
+                  ],
+                  "daily_sunset": [
+                    "series.timestamp"
+                  ],
+                  "daily_sunrise": [
+                    "series.timestamp"
+                  ],
+                  "hourly_source": [
+                    "series.longText"
+                  ],
+                  "precipitation": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "uv_updated_at": [
+                    "timestamp"
+                  ],
+                  "condition_code": [
+                    "longText"
+                  ],
+                  "daily_coverage": [
+                    "series.longText"
+                  ],
+                  "wind_direction": [
+                    "numericValue"
+                  ],
+                  "daily_condition": [
+                    "series.shortText",
+                    "series.longText",
+                    "series.icon",
+                    "series.image"
+                  ],
+                  "humidity_source": [
+                    "longText"
+                  ],
+                  "observation_age": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "hourly_condition": [
+                    "series.shortText",
+                    "series.icon",
+                    "series.image"
+                  ],
+                  "wind_observed_at": [
+                    "timestamp"
+                  ],
+                  "feels_like_source": [
+                    "longText"
+                  ],
+                  "hourly_temperature": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "app_data_fetched_at": [
+                    "timestamp"
+                  ],
+                  "daily_precipitation": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "forecast_updated_at": [
+                    "timestamp"
+                  ],
+                  "supplemental_source": [
+                    "longText"
+                  ],
+                  "daily_condition_code": [
+                    "series.longText"
+                  ],
+                  "hourly_precipitation": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "humidity_observed_at": [
+                    "timestamp"
+                  ],
+                  "today_range_complete": [
+                    "boolean"
+                  ],
+                  "hourly_condition_code": [
+                    "series.longText"
+                  ],
+                  "forecast_history_hours": [
+                    "numericValue"
+                  ],
+                  "app_forecast_updated_at": [
+                    "timestamp"
+                  ],
+                  "supplemental_updated_at": [
+                    "timestamp"
+                  ],
+                  "forecast_history_oldest_download": [
+                    "timestamp"
+                  ]
+                },
+                "supports_multiple": true
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "location"
+                  ],
+                  "category": "weather",
+                  "properties": {
+                    "low": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "high": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "name": [
+                      "shortText"
+                    ],
+                    "source": [
+                      "shortText",
+                      "longText"
+                    ],
+                    "sunset": [
+                      "timestamp"
+                    ],
+                    "station": [
+                      "shortText",
+                      "longText"
+                    ],
+                    "sunrise": [
+                      "timestamp"
+                    ],
+                    "humidity": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "uv_index": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "condition": [
+                      "shortText",
+                      "longText",
+                      "icon",
+                      "image"
+                    ],
+                    "daily_low": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "uv_source": [
+                      "longText"
+                    ],
+                    "daily_high": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "feels_like": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "utc_offset": [
+                      "numericValue"
+                    ],
+                    "wind_speed": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "is_forecast": [
+                      "boolean"
+                    ],
+                    "observed_at": [
+                      "timestamp"
+                    ],
+                    "temperature": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "wind_source": [
+                      "longText"
+                    ],
+                    "daily_source": [
+                      "series.longText"
+                    ],
+                    "daily_sunset": [
+                      "series.timestamp"
+                    ],
+                    "daily_sunrise": [
+                      "series.timestamp"
+                    ],
+                    "hourly_source": [
+                      "series.longText"
+                    ],
+                    "precipitation": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "uv_updated_at": [
+                      "timestamp"
+                    ],
+                    "condition_code": [
+                      "longText"
+                    ],
+                    "daily_coverage": [
+                      "series.longText"
+                    ],
+                    "wind_direction": [
+                      "numericValue"
+                    ],
+                    "daily_condition": [
+                      "series.shortText",
+                      "series.longText",
+                      "series.icon",
+                      "series.image"
+                    ],
+                    "humidity_source": [
+                      "longText"
+                    ],
+                    "observation_age": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "hourly_condition": [
+                      "series.shortText",
+                      "series.icon",
+                      "series.image"
+                    ],
+                    "wind_observed_at": [
+                      "timestamp"
+                    ],
+                    "feels_like_source": [
+                      "longText"
+                    ],
+                    "hourly_temperature": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "app_data_fetched_at": [
+                      "timestamp"
+                    ],
+                    "daily_precipitation": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "forecast_updated_at": [
+                      "timestamp"
+                    ],
+                    "supplemental_source": [
+                      "longText"
+                    ],
+                    "daily_condition_code": [
+                      "series.longText"
+                    ],
+                    "hourly_precipitation": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "humidity_observed_at": [
+                      "timestamp"
+                    ],
+                    "today_range_complete": [
+                      "boolean"
+                    ],
+                    "hourly_condition_code": [
+                      "series.longText"
+                    ],
+                    "forecast_history_hours": [
+                      "numericValue"
+                    ],
+                    "app_forecast_updated_at": [
+                      "timestamp"
+                    ],
+                    "supplemental_updated_at": [
+                      "timestamp"
+                    ],
+                    "forecast_history_oldest_download": [
+                      "timestamp"
+                    ]
+                  },
+                  "supportsMultiple": true,
+                  "callerPermissions": [
+                    "Location"
+                  ],
+                  "suggestedRefreshIntervalSec": 1800
+                }
+              ],
+              "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        },
+        {
+          "url": "https://appstore-api.repebble.com/api/v1/apps/id/ef7111ffaeaf4593aaaa85ed?hardware=emery",
+          "finalUrl": "https://appstore-api.repebble.com/api/v1/apps/id/ef7111ffaeaf4593aaaa85ed?hardware=emery",
+          "status": 200,
+          "headers": {
+            "Age": "0",
+            "Cache-Control": "public, s-maxage=300, stale-while-revalidate=300",
+            "Content-Type": "application/json",
+            "Date": "Sat, 14 Nov 2026 22:31:29 GMT"
+          },
+          "sha256": "9052014496affab4aa15a9c9cc9f7580791dc281e8a758932d8c700cf780770a",
+          "bytes": 11619,
+          "lookup": "id-emery",
+          "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+          "id": "ef7111ffaeaf4593aaaa85ed",
+          "version": "1.0.4",
+          "publishedDate": "2026-11-14T22:18:17.831",
+          "hardwarePlatforms": [],
+          "visible": true,
+          "type": "plugin",
+          "category": "Weather",
+          "plugin": {
+            "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage.",
+            "sources": [
+              {
+                "category": "weather",
+                "items": [
+                  "location"
+                ],
+                "properties": {
+                  "low": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "high": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "name": [
+                    "shortText"
+                  ],
+                  "source": [
+                    "shortText",
+                    "longText"
+                  ],
+                  "sunset": [
+                    "timestamp"
+                  ],
+                  "station": [
+                    "shortText",
+                    "longText"
+                  ],
+                  "sunrise": [
+                    "timestamp"
+                  ],
+                  "humidity": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "uv_index": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "condition": [
+                    "shortText",
+                    "longText",
+                    "icon",
+                    "image"
+                  ],
+                  "daily_low": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "uv_source": [
+                    "longText"
+                  ],
+                  "daily_high": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "feels_like": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "utc_offset": [
+                    "numericValue"
+                  ],
+                  "wind_speed": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "is_forecast": [
+                    "boolean"
+                  ],
+                  "observed_at": [
+                    "timestamp"
+                  ],
+                  "temperature": [
+                    "shortText",
+                    "longText",
+                    "numericValue"
+                  ],
+                  "wind_source": [
+                    "longText"
+                  ],
+                  "daily_source": [
+                    "series.longText"
+                  ],
+                  "daily_sunset": [
+                    "series.timestamp"
+                  ],
+                  "daily_sunrise": [
+                    "series.timestamp"
+                  ],
+                  "hourly_source": [
+                    "series.longText"
+                  ],
+                  "precipitation": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "uv_updated_at": [
+                    "timestamp"
+                  ],
+                  "condition_code": [
+                    "longText"
+                  ],
+                  "daily_coverage": [
+                    "series.longText"
+                  ],
+                  "wind_direction": [
+                    "numericValue"
+                  ],
+                  "daily_condition": [
+                    "series.shortText",
+                    "series.longText",
+                    "series.icon",
+                    "series.image"
+                  ],
+                  "humidity_source": [
+                    "longText"
+                  ],
+                  "observation_age": [
+                    "numericValue",
+                    "shortText"
+                  ],
+                  "hourly_condition": [
+                    "series.shortText",
+                    "series.icon",
+                    "series.image"
+                  ],
+                  "wind_observed_at": [
+                    "timestamp"
+                  ],
+                  "feels_like_source": [
+                    "longText"
+                  ],
+                  "hourly_temperature": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "app_data_fetched_at": [
+                    "timestamp"
+                  ],
+                  "daily_precipitation": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "forecast_updated_at": [
+                    "timestamp"
+                  ],
+                  "supplemental_source": [
+                    "longText"
+                  ],
+                  "daily_condition_code": [
+                    "series.longText"
+                  ],
+                  "hourly_precipitation": [
+                    "series.numericValue",
+                    "series.shortText"
+                  ],
+                  "humidity_observed_at": [
+                    "timestamp"
+                  ],
+                  "today_range_complete": [
+                    "boolean"
+                  ],
+                  "hourly_condition_code": [
+                    "series.longText"
+                  ],
+                  "forecast_history_hours": [
+                    "numericValue"
+                  ],
+                  "app_forecast_updated_at": [
+                    "timestamp"
+                  ],
+                  "supplemental_updated_at": [
+                    "timestamp"
+                  ],
+                  "forecast_history_oldest_download": [
+                    "timestamp"
+                  ]
+                },
+                "supports_multiple": true
+              }
+            ],
+            "actions": [],
+            "oauth_connectors": [],
+            "config_page": "config.html",
+            "manifest": {
+              "script": "plugin.js",
+              "sources": [
+                {
+                  "items": [
+                    "location"
+                  ],
+                  "category": "weather",
+                  "properties": {
+                    "low": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "high": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "name": [
+                      "shortText"
+                    ],
+                    "source": [
+                      "shortText",
+                      "longText"
+                    ],
+                    "sunset": [
+                      "timestamp"
+                    ],
+                    "station": [
+                      "shortText",
+                      "longText"
+                    ],
+                    "sunrise": [
+                      "timestamp"
+                    ],
+                    "humidity": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "uv_index": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "condition": [
+                      "shortText",
+                      "longText",
+                      "icon",
+                      "image"
+                    ],
+                    "daily_low": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "uv_source": [
+                      "longText"
+                    ],
+                    "daily_high": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "feels_like": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "utc_offset": [
+                      "numericValue"
+                    ],
+                    "wind_speed": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "is_forecast": [
+                      "boolean"
+                    ],
+                    "observed_at": [
+                      "timestamp"
+                    ],
+                    "temperature": [
+                      "shortText",
+                      "longText",
+                      "numericValue"
+                    ],
+                    "wind_source": [
+                      "longText"
+                    ],
+                    "daily_source": [
+                      "series.longText"
+                    ],
+                    "daily_sunset": [
+                      "series.timestamp"
+                    ],
+                    "daily_sunrise": [
+                      "series.timestamp"
+                    ],
+                    "hourly_source": [
+                      "series.longText"
+                    ],
+                    "precipitation": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "uv_updated_at": [
+                      "timestamp"
+                    ],
+                    "condition_code": [
+                      "longText"
+                    ],
+                    "daily_coverage": [
+                      "series.longText"
+                    ],
+                    "wind_direction": [
+                      "numericValue"
+                    ],
+                    "daily_condition": [
+                      "series.shortText",
+                      "series.longText",
+                      "series.icon",
+                      "series.image"
+                    ],
+                    "humidity_source": [
+                      "longText"
+                    ],
+                    "observation_age": [
+                      "numericValue",
+                      "shortText"
+                    ],
+                    "hourly_condition": [
+                      "series.shortText",
+                      "series.icon",
+                      "series.image"
+                    ],
+                    "wind_observed_at": [
+                      "timestamp"
+                    ],
+                    "feels_like_source": [
+                      "longText"
+                    ],
+                    "hourly_temperature": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "app_data_fetched_at": [
+                      "timestamp"
+                    ],
+                    "daily_precipitation": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "forecast_updated_at": [
+                      "timestamp"
+                    ],
+                    "supplemental_source": [
+                      "longText"
+                    ],
+                    "daily_condition_code": [
+                      "series.longText"
+                    ],
+                    "hourly_precipitation": [
+                      "series.numericValue",
+                      "series.shortText"
+                    ],
+                    "humidity_observed_at": [
+                      "timestamp"
+                    ],
+                    "today_range_complete": [
+                      "boolean"
+                    ],
+                    "hourly_condition_code": [
+                      "series.longText"
+                    ],
+                    "forecast_history_hours": [
+                      "numericValue"
+                    ],
+                    "app_forecast_updated_at": [
+                      "timestamp"
+                    ],
+                    "supplemental_updated_at": [
+                      "timestamp"
+                    ],
+                    "forecast_history_oldest_download": [
+                      "timestamp"
+                    ]
+                  },
+                  "supportsMultiple": true,
+                  "callerPermissions": [
+                    "Location"
+                  ],
+                  "suggestedRefreshIntervalSec": 1800
+                }
+              ],
+              "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage."
+            }
+          },
+          "classification": "exact-current-public-metadata"
+        }
+      ],
+      "problems": [],
+      "storeVersion": "1.0.4",
+      "storePlatforms": [],
+      "storeDownload": {
+        "url": "https://appstore-api.repebble.com/api/assets/pbw/ef7111ffaeaf4593aaaa85ed/1.0.4/3eafdc6b-5b1f-4e64-9adc-807059f8380e.pbw",
+        "finalUrl": "https://pebble-appstore-backend.497e529f13ec4afbfce4dfe3cfd3634d.r2.cloudflarestorage.com/pbw/ef7111ffaeaf4593aaaa85ed/1.0.4/3eafdc6b-5b1f-4e64-9adc-807059f8380e.pbw?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=68f88fd7baa906ceb0fb2615c52e92ac%2F20261114%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20261114T222957Z&X-Amz-Expires=7200&X-Amz-Signature=23e246cec8b34504ce7fba0545c6eb99c96e093b2d137940dc9646e7f7835af9&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject",
+        "status": 200,
+        "headers": {
+          "Date": "Sat, 14 Nov 2026 22:31:29 GMT",
+          "Content-Type": "application/octet-stream",
+          "ETag": "\"9ada66b0761813c97abd75ea1cd49462\"",
+          "Last-Modified": "Sat, 14 Nov 2026 22:18:17 GMT"
+        },
+        "sha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+        "bytes": 66933
+      },
+      "storePbwSha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+      "githubReleaseUrl": "https://github.com/xefensor/pebble-chmu-weather/releases/tag/v1.0.4",
+      "githubStable": true,
+      "githubDownload": {
+        "url": "https://github.com/xefensor/pebble-chmu-weather/releases/download/v1.0.4/CHMU-Weather-1.0.4.pbw",
+        "finalUrl": "https://release-assets.githubusercontent.com/github-production-release-asset/1440640877/dfc45ccd-b344-4122-a885-8c26e8a9c3d1?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-11-14T23%3A24%3A51Z&rscd=attachment%3B+filename%3DCHMU-Weather-1.0.4.pbw&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-11-14T22%3A24%3A00Z&ske=2026-11-14T23%3A24%3A51Z&sks=b&skv=2018-11-09&sig=7Rrt3Dw0DkEtyboFZRoDUfdiKKLiloyJwhLSyF9wOtg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5NDY5NTc5MCwibmJmIjoxNzk0Njk1NDkwLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.5OkadVZFahZG-ailEu4c4ayoVexcIbX09kq9qEgxIwY&response-content-disposition=attachment%3B%20filename%3DCHMU-Weather-1.0.4.pbw&response-content-type=application%2Foctet-stream",
+        "status": 200,
+        "headers": {
+          "Last-Modified": "Sat, 14 Nov 2026 22:05:57 GMT",
+          "ETag": "\"0x8DF429B760AB470\"",
+          "Age": "1424",
+          "Date": "Sat, 14 Nov 2026 22:31:30 GMT",
+          "X-Cache": "MISS, HIT",
+          "Content-Type": "application/octet-stream"
+        },
+        "sha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+        "bytes": 66933
+      },
+      "githubPbwSha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+      "storeBinary": {
+        "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+        "version": "1.0.4",
+        "nativePlatforms": [],
+        "targetPlatforms": null,
+        "plugin": {
+          "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "weather",
+              "items": [
+                "location"
+              ],
+              "supportsMultiple": true,
+              "callerPermissions": [
+                "Location"
+              ],
+              "suggestedRefreshIntervalSec": 1800,
+              "properties": {
+                "name": [
+                  "shortText"
+                ],
+                "temperature": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "feels_like": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "high": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "low": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "condition": [
+                  "shortText",
+                  "longText",
+                  "icon",
+                  "image"
+                ],
+                "condition_code": [
+                  "longText"
+                ],
+                "humidity": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "uv_index": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "precipitation": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "wind_speed": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "wind_direction": [
+                  "numericValue"
+                ],
+                "utc_offset": [
+                  "numericValue"
+                ],
+                "sunrise": [
+                  "timestamp"
+                ],
+                "sunset": [
+                  "timestamp"
+                ],
+                "hourly_temperature": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "hourly_condition": [
+                  "series.shortText",
+                  "series.icon",
+                  "series.image"
+                ],
+                "hourly_condition_code": [
+                  "series.longText"
+                ],
+                "daily_high": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_low": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_condition": [
+                  "series.shortText",
+                  "series.longText",
+                  "series.icon",
+                  "series.image"
+                ],
+                "daily_condition_code": [
+                  "series.longText"
+                ],
+                "daily_precipitation": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "hourly_precipitation": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_source": [
+                  "series.longText"
+                ],
+                "daily_sunrise": [
+                  "series.timestamp"
+                ],
+                "daily_sunset": [
+                  "series.timestamp"
+                ],
+                "source": [
+                  "shortText",
+                  "longText"
+                ],
+                "station": [
+                  "shortText",
+                  "longText"
+                ],
+                "observed_at": [
+                  "timestamp"
+                ],
+                "forecast_updated_at": [
+                  "timestamp"
+                ],
+                "supplemental_updated_at": [
+                  "timestamp"
+                ],
+                "supplemental_source": [
+                  "longText"
+                ],
+                "feels_like_source": [
+                  "longText"
+                ],
+                "is_forecast": [
+                  "boolean"
+                ],
+                "observation_age": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "uv_source": [
+                  "longText"
+                ],
+                "uv_updated_at": [
+                  "timestamp"
+                ],
+                "app_forecast_updated_at": [
+                  "timestamp"
+                ],
+                "app_data_fetched_at": [
+                  "timestamp"
+                ],
+                "hourly_source": [
+                  "series.longText"
+                ],
+                "humidity_source": [
+                  "longText"
+                ],
+                "wind_source": [
+                  "longText"
+                ],
+                "humidity_observed_at": [
+                  "timestamp"
+                ],
+                "wind_observed_at": [
+                  "timestamp"
+                ],
+                "forecast_history_hours": [
+                  "numericValue"
+                ],
+                "forecast_history_oldest_download": [
+                  "timestamp"
+                ],
+                "today_range_complete": [
+                  "boolean"
+                ],
+                "daily_coverage": [
+                  "series.longText"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "githubBinary": {
+        "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+        "version": "1.0.4",
+        "nativePlatforms": [],
+        "targetPlatforms": null,
+        "plugin": {
+          "description": "Unofficial ČHMÚ weather: nearby station temperature, humidity and wind; public ALADIN forecasts. Optional Open-Meteo adds rain probabilities, forecast UV and up to seven local forecast days. Czech coverage.",
+          "script": "plugin.js",
+          "sources": [
+            {
+              "category": "weather",
+              "items": [
+                "location"
+              ],
+              "supportsMultiple": true,
+              "callerPermissions": [
+                "Location"
+              ],
+              "suggestedRefreshIntervalSec": 1800,
+              "properties": {
+                "name": [
+                  "shortText"
+                ],
+                "temperature": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "feels_like": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "high": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "low": [
+                  "shortText",
+                  "longText",
+                  "numericValue"
+                ],
+                "condition": [
+                  "shortText",
+                  "longText",
+                  "icon",
+                  "image"
+                ],
+                "condition_code": [
+                  "longText"
+                ],
+                "humidity": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "uv_index": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "precipitation": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "wind_speed": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "wind_direction": [
+                  "numericValue"
+                ],
+                "utc_offset": [
+                  "numericValue"
+                ],
+                "sunrise": [
+                  "timestamp"
+                ],
+                "sunset": [
+                  "timestamp"
+                ],
+                "hourly_temperature": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "hourly_condition": [
+                  "series.shortText",
+                  "series.icon",
+                  "series.image"
+                ],
+                "hourly_condition_code": [
+                  "series.longText"
+                ],
+                "daily_high": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_low": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_condition": [
+                  "series.shortText",
+                  "series.longText",
+                  "series.icon",
+                  "series.image"
+                ],
+                "daily_condition_code": [
+                  "series.longText"
+                ],
+                "daily_precipitation": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "hourly_precipitation": [
+                  "series.numericValue",
+                  "series.shortText"
+                ],
+                "daily_source": [
+                  "series.longText"
+                ],
+                "daily_sunrise": [
+                  "series.timestamp"
+                ],
+                "daily_sunset": [
+                  "series.timestamp"
+                ],
+                "source": [
+                  "shortText",
+                  "longText"
+                ],
+                "station": [
+                  "shortText",
+                  "longText"
+                ],
+                "observed_at": [
+                  "timestamp"
+                ],
+                "forecast_updated_at": [
+                  "timestamp"
+                ],
+                "supplemental_updated_at": [
+                  "timestamp"
+                ],
+                "supplemental_source": [
+                  "longText"
+                ],
+                "feels_like_source": [
+                  "longText"
+                ],
+                "is_forecast": [
+                  "boolean"
+                ],
+                "observation_age": [
+                  "numericValue",
+                  "shortText"
+                ],
+                "uv_source": [
+                  "longText"
+                ],
+                "uv_updated_at": [
+                  "timestamp"
+                ],
+                "app_forecast_updated_at": [
+                  "timestamp"
+                ],
+                "app_data_fetched_at": [
+                  "timestamp"
+                ],
+                "hourly_source": [
+                  "series.longText"
+                ],
+                "humidity_source": [
+                  "longText"
+                ],
+                "wind_source": [
+                  "longText"
+                ],
+                "humidity_observed_at": [
+                  "timestamp"
+                ],
+                "wind_observed_at": [
+                  "timestamp"
+                ],
+                "forecast_history_hours": [
+                  "numericValue"
+                ],
+                "forecast_history_oldest_download": [
+                  "timestamp"
+                ],
+                "today_range_complete": [
+                  "boolean"
+                ],
+                "daily_coverage": [
+                  "series.longText"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "exactBytesMatch": true,
+      "result": "PASS",
+      "cacheConclusion": "Fresh UUID metadata and downloaded Store/GitHub PBW bytes establish the exact published release; older cached ID responses are preserved separately.",
+      "idEndpointRecheck": {
+        "checkedAtUtc": "2026-11-14T22:32:21.860532+00:00",
+        "url": "https://appstore-api.repebble.com/api/v1/apps/id/ef7111ffaeaf4593aaaa85ed?hardware=emery",
+        "status": 200,
+        "version": "1.0.4",
+        "age": "52",
+        "cacheControl": "public, s-maxage=300, stale-while-revalidate=300"
+      }
+    }
+  ]
+}

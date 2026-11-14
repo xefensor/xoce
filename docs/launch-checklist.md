@@ -1,8 +1,8 @@
 # Pebble Store website launch
 
-Xef authorized publishing the approved website on 2026-11-14. Preparation pages keep their preview labels and disabled installation links. Website deployment is separate from Store submission and GitHub app release publication.
+Xef submitted all six releases and authorized final website publication on 2026-11-14. Each current Store listing and downloaded PBW now matches the stable GitHub release, checked UUID, version and platform inventory. [The publication audit](qa/store-publication-2026-11-14/verification.json) preserves both the successful exact checks and older cached observations. Published records activate their exact Store/GitHub installation links; any future unresolved product remains a preview. Website deployment remains separate from app publication.
 
-## Prepared versions and routes
+## Verified public versions and routes
 
 | Product | Version | Website | Support | Privacy |
 | --- | --- | --- | --- | --- |
