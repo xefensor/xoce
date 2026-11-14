@@ -105,7 +105,7 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/pebble-watchface-dynamic/blob/main/LICENSE"
     },
     "guide": "/docs/pebble/setup/#dynamic",
-    "summary": "A bold clock and two readings sit above your chosen activities. Music has its own presentation, while other activities can show a countdown, a value or a short update.",
+    "summary": "A bold clock and two readings sit above ongoing updates called Activities. Start a countdown in Timer, return to Dynamic and see the time remaining on your clock screen.",
     "features": [
       "Keep one main activity and one compact row in view",
       "Follow music with the song, artist and optional artwork",
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     "developerNote": "An interactive activity host. Controls depend on the bound source; Timer Pause/Resume is not implemented.",
     "name": "Dashboard",
     "kind": "app",
-    "description": "Your current activity, latest notification and pinned shortcuts in one place.",
+    "description": "A Timer countdown, your latest notification and pinned shortcuts in one overview.",
     "version": "1.0.0",
     "repo": "https://github.com/xefensor/pebble-app-dashboard",
     "licence": {
@@ -286,7 +286,7 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/pebble-app-open-activity/blob/main/LICENSE"
     },
     "guide": "/docs/pebble/setup/#open-activity",
-    "summary": "Choose Dynamic or Halftone, then assign a shortcut to its primary or secondary activity. Open Activity opens the associated app from that watchface\u2019s recent view.",
+    "summary": "See a Timer countdown on Dynamic or Halftone, then use a configured Quick Launch shortcut to open Timer. Choose the large Primary activity or smaller Secondary row. The shortcut opens its associated app.",
     "features": [
       "Choose Dynamic or Halftone as the source watchface",
       "Assign different shortcuts to primary and secondary activities",
@@ -341,7 +341,7 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/halftone-watchface/blob/main/LICENSE"
     },
     "description": "A bold clock, a dot border and room for what\u2019s happening now.",
-    "summary": "Two readings sit beneath a Fira clock. Timer, music and other compatible activities use the space below, with a compact secondary row and room for Timeline Peek.",
+    "summary": "Two readings sit beneath a Fira clock. Ongoing updates called Activities use the space below: start a countdown in Timer and see its remaining time on Halftone, with room for music and Timeline Peek.",
     "features": [
       "Choose colours, Bigger Text, shadow and the circular dot border",
       "Keep weather or other readings above your chosen activities",

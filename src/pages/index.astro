@@ -5,6 +5,7 @@ import { consumerProjects } from '../data/projects';
 import WatchPreview from '../components/WatchPreview.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Icon from '../components/Icon.astro';
+import ActivityExplainer from '../components/ActivityExplainer.astro';
 const homeProducts=['dynamic','halftone','timer','dashboard','open-activity','chmu-weather'].map(slug=>consumerProjects.find(p=>p.slug===slug)!);
 const dynamic=consumerProjects.find(p=>p.slug==='dynamic')!;
 const halftone=consumerProjects.find(p=>p.slug==='halftone')!;
@@ -19,8 +20,9 @@ const halftone=consumerProjects.find(p=>p.slug==='halftone')!;
       <p class="hero-evidence">Native emulator previews · example data</p>
     </div>
   </section>
+  <ActivityExplainer/>
   <section class="home-collection" aria-labelledby="collection-title"><header class="section-heading"><div><p class="eyebrow">Choose what helps you</p><h2 id="collection-title">A small collection.<br/>Room to make it yours.</h2></div><p>Start with a watchface or Timer, then add the connections you need. There’s no separate XOCE app to install.</p></header><div class="home-product-grid">{homeProducts.map(project=><ProjectCard project={project}/>)}</div></section>
-  <section class="home-workflow"><div><p class="eyebrow">Timer + your watchface</p><h2>Start it in Timer.<br/>Keep it in sight.</h2><p>Start a countdown on your watch, then return to Dynamic or Halftone. With plugin support and a connected phone, the countdown stays visible on your clock screen. Timer keeps ownership of the alarm.</p><a class="text-link" href={sitePath('/docs/#a-useful-first-setup')}>Try the first setup<Icon name="arrow" size={17}/></a></div><ol><li><span>01</span><div><strong>Choose your clock</strong><p>Dynamic or Halftone. One active watchface at a time.</p></div></li><li><span>02</span><div><strong>Add a timer</strong><p>Set a duration and start the countdown on your watch.</p></div></li><li><span>03</span><div><strong>Bring it together</strong><p>Enable Timer in your watchface’s activity choices.</p></div></li></ol></section>
+
   <section class="home-help"><div><p class="eyebrow">A watch, a phone app, then your apps</p><h2>Start with the basics.</h2><p>The official Pebble phone app pairs your watch and manages installation and settings. Shared readings and activities need its plugin support. Music and notification integration needs Android.</p><a class="text-link" href={sitePath('/pebble/')}>What you need for Pebble<Icon name="arrow" size={17}/></a></div><div><p class="eyebrow">Made by Xef</p><h2>Small apps. A wider idea.</h2><p>XOCE is Xef’s independent software project. These Pebble apps are the starting point; the longer-term direction includes Android and KDE Plasma.</p><a class="text-link" href={sitePath('/about/')}>About XOCE<Icon name="arrow" size={17}/></a></div></section>
 </main>
 </BaseLayout>

@@ -10,6 +10,8 @@ Check the version on the affected [app page](/projects/) first. The native launc
 
 ## An activity is missing
 
+An activity is an ongoing update, such as a Timer countdown shown on Dynamic or Halftone. [Set up the Timer example first](/docs/pebble/activities/#try-a-timer-on-your-watchface).
+
 1. Check that the watch and phone are connected and the Pebble phone app’s plugin preview is enabled.
 2. Open the source app. For Timer, start or resume a countdown on the watch.
 3. Check the source’s permissions in the Pebble phone app.

@@ -8,7 +8,7 @@ order: 3
 
 [Halftone](/projects/halftone/) is an alternative everyday clock to Dynamic. Its dot border, large clock and two readings have their own appearance. You can keep both watchfaces installed and choose which one is active.
 
-This guide describes **Halftone 1.10.0** for **Time 2 and Round 2**. Halftone can display Timer and other compatible activities, and works with Open Activity. Check its product page for release status.
+This guide describes **Halftone 1.10.1** for **Time 2 and Round 2**. Halftone can display Timer and other compatible activities, and works with Open Activity. Check its product page for release status.
 
 ## Install and choose the watchface
 
@@ -55,3 +55,7 @@ For shortcuts, choose **Halftone** as the watchface in [Open Activity settings](
 Clock and date continue without the phone. This candidate can retain its selected readings for up to two hours, subject to the source’s earlier expiry. Music and notification context disappears on disconnection.
 
 [Halftone download and source](/projects/halftone/) · [Watch controls](/docs/pebble/controls/#halftone)
+
+## Understand Activities
+
+An activity is an ongoing update, such as a countdown. Start a timer in Timer, return to Halftone, and see its remaining time while Timer continues to handle the countdown and alarm. In Halftone settings, turn on **Show activity plugins**, show Timer in **Activity priority**, and save. [Follow the complete Activities guide](/docs/pebble/activities/).

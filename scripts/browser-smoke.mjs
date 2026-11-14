@@ -22,7 +22,7 @@ const mainSections = [
 const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
 const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
   '/projects/open-activity/', '/projects/halftone/', '/projects/chmu-weather/', '/docs/pebble/halftone/', '/docs/pebble/chmu-weather/', '/projects/phone/', '/pebble/', '/docs/', '/docs/develop/building/',
-  '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/design/visual-identity/'];
+  '/docs/design/principles/', '/about/', '/docs/pebble/setup/', '/docs/pebble/activities/', '/docs/design/visual-identity/'];
 const redirects = {
   '/users/':'/docs/', '/developers/':'/docs/develop/activities/', '/design/':'/docs/design/principles/',
   '/android/':'/projects/phone/#android-app', '/projects/pebble-phone/':'/projects/phone/#pebble-companion',
@@ -348,7 +348,7 @@ async function runChecks() {
   await launch();
   const productRoutes=catalogueProducts.map(p=>`/projects/${p.slug}/`);
   const policyRoutes=catalogueProducts.flatMap(p=>[`/projects/${p.slug}/support/`,`/projects/${p.slug}/privacy/`]);
-  const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...policyRoutes];
+  const routes=['/','/projects/',...productRoutes,'/pebble/','/docs/','/docs/pebble/setup/','/docs/pebble/activities/','/docs/pebble/halftone/','/docs/pebble/chmu-weather/',...policyRoutes];
   for(const width of [320,390,768,1440]) {
     await viewport(width,width===1440?1100:900,width<768);
     for(const color of ['light','dark']) {
@@ -421,6 +421,11 @@ async function runChecks() {
   await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');
   await media('dark','reduce','reduce');await navigate('/projects/halftone/');await noOverflow('/projects/halftone/',390);
   assert.equal(await client.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()"),'#171b1c');await click('label[for="halftone-gabbro"]');await screenshot('halftone-round2-dark-no-javascript');passed('Dark appearance also works without JavaScript');
+  await navigate('/docs/pebble/activities/');
+  assert.equal(await client.evaluate("!!document.getElementById('try-a-timer-on-your-watchface')"),true);
+  assert.ok(await client.evaluate("document.querySelector('article').innerText.includes('Timer still runs the countdown and handles the alarm.')"));
+  await noOverflow('/docs/pebble/activities/',390);
+  await screenshot('activities-guide-no-javascript');passed('Activities guide explains Timer ownership and stays readable without JavaScript');
   assert.deepEqual(exceptions,[]);assert.deepEqual(failedResponses,[]);passed('No browser exceptions or missing local resources');
 }
 

@@ -1,0 +1,42 @@
+---
+import { sitePath } from '../lib/site';
+import Icon from './Icon.astro';
+interface Props { product?: string }
+const { product } = Astro.props;
+const roles: Record<string, string> = {
+  dynamic: 'Start a countdown in Timer and return to Dynamic to see the time remaining on your clock screen. Timer still runs the countdown and alarm.',
+  halftone: 'Start a countdown in Timer and return to Halftone to see the time remaining on your clock screen. Timer still runs the countdown and alarm.',
+  timer: 'Start a countdown here, then return to Dynamic or Halftone to keep the time remaining visible on your clock screen. Timer still runs the countdown and alarm.',
+  dashboard: 'Dashboard shows one activity in its overview. Hold Up to browse all activities. Open Timer to change its countdown; Dashboard does not pause or resume timers.',
+  'open-activity': 'When a Timer countdown is visible on Dynamic or Halftone, a configured Quick Launch shortcut can open Timer. Open Activity opens the whole app, not a particular saved timer.',
+  'chmu-weather': 'ČHMÚ Weather supplies small weather readings for Pebble Weather and compatible apps. Choose these separately from Activities, such as a Timer countdown on your watchface.',
+};
+---
+<section class="activity-explainer" aria-label={product === 'chmu-weather' ? 'Weather readings and Activities' : 'How Activities work'}>
+  <div>
+    <p class="eyebrow">{product === 'chmu-weather' ? 'Readings and Activities' : 'Timer + your watchface'}</p>
+    <h2>What is an activity?</h2>
+    <p>An activity is an update about something happening now, such as a countdown, a song or a new notification. Compatible XOCE apps and watchfaces can display it.</p>
+    <p>{product ? roles[product] : 'Start a countdown in Timer, then return to Dynamic or Halftone to see the time remaining. Timer still runs the countdown and handles the alarm.'}</p>
+    <a class="text-link" href={sitePath('/docs/pebble/activities/')}>How Activities work<Icon name="arrow" size={17}/></a>
+  </div>
+  <div>
+    {!product ? <ol>
+      <li><strong>Choose your clock</strong><p>Install Timer and either Dynamic or Halftone.</p></li>
+      <li><strong>Enable sharing</strong><p>Enable plugin support in Pebble, then show Timer in your watchface’s activity settings and save.</p></li>
+      <li><strong>Start, then return</strong><p>Start a countdown in Timer and return to the clock. Keep your phone connected for shared updates.</p></li>
+    </ol> : <>
+      <h3>{product === 'chmu-weather' ? 'Choose the weather reading' : 'Try it with Timer'}</h3>
+      <p>{product === 'chmu-weather' ? 'Select your weather provider in Pebble. Choose the watchfaces’ small readings under Complications, or add a reading as a Dashboard pin.' : 'Enable plugin support in the Pebble phone app. In Dynamic or Halftone settings, turn on activity plugins, show Timer in the activity list, and save. Keep your phone connected for shared updates.'}</p>
+      {product === 'chmu-weather' ? <a href={sitePath('/docs/pebble/chmu-weather/')}>Set up the weather source</a> : <>
+        <p>Open Timer to control the countdown. Open Activity is an optional shortcut back to its app.</p>
+        <a href={sitePath('/docs/pebble/activities/#try-a-timer-on-your-watchface')}>Follow the Timer example</a>
+      </>}
+    </>}
+  </div>
+</section>
+<style>
+  .activity-explainer{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,5vw,5rem);padding:clamp(2rem,5vw,4rem) 0;border-top:1px solid var(--line)}
+  h2{margin:.35rem 0 1rem}h3{margin:0 0 .7rem}p{max-width:62ch;line-height:1.65;margin:0 0 1rem}ol{margin:0;padding-left:1.4rem}li{padding-left:.4rem;margin-bottom:1.2rem}li p{margin:.25rem 0 0}
+  @media(max-width:700px){.activity-explainer{grid-template-columns:1fr;gap:1.5rem}}
+</style>

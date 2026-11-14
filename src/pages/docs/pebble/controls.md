@@ -10,6 +10,8 @@ New to the watch? [See the labelled button guide](/pebble/#watch-buttons). **Bac
 
 The apps use Pebble’s physical buttons. The instructions below describe the current development builds; a provider can add capabilities only where a consuming app supports them.
 
+New to Activities? [Learn how a Timer countdown reaches your watchface](/docs/pebble/activities/). An activity displays an update; use the source app to control it.
+
 ## Timer
 
 | Screen | Up | Select | Down | Back |

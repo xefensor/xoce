@@ -8,6 +8,10 @@ order: 2
 
 New to the collection? [Choose your apps first](/docs/#choose-what-you-need). **Timer + Dynamic** is the recommended first setup. Dashboard, Open Activity and ČHMÚ Weather are optional. Halftone is an alternative watchface.
 
+## What is an activity?
+
+An activity is an update about something happening now, such as a countdown. Compatible XOCE apps and watchfaces can share and display it. Start a timer, return to Dynamic or Halftone, and see its remaining time on your clock screen. Timer still runs the countdown and alarm. [Understand Activities](/docs/pebble/activities/).
+
 ## Before installing
 
 1. **Check your watch:** the launch watchfaces and watch apps target **Pebble Time 2 and Round 2**. The ČHMÚ Weather plugin runs on the phone. Check the product page for release status.
@@ -34,7 +38,7 @@ A launch-preview label means that version is still being prepared. Store links a
 
 **First time here? Complete [Before installing](#before-installing) before continuing.**
 
-1. Once published, install [Timer 0.15.0](/projects/timer/).
+1. Once published, install [Timer](/projects/timer/).
 2. On the watch, press **Select** (middle right) to open the app list and choose Timer.
 3. Choose **New timer**. Use Up and Down to change each value, and Select to move to the next field. Set hours, minutes and seconds, then start the countdown.
 4. To pause or resume, open the timer and press Select. Your saved timers stay available for reuse.
@@ -47,9 +51,9 @@ Timer’s phone settings change its Light/Dark appearance. Creating or editing c
 
 **First time here? Complete [Before installing](#before-installing), including plugin preview.**
 
-1. Once published, install [Dynamic 0.19.0](/projects/dynamic/), then choose it as your watchface in the Pebble phone app.
+1. Once published, install [Dynamic](/projects/dynamic/), then choose it as your watchface in the Pebble phone app.
 2. Open Dynamic’s settings using its settings gear in the phone app.
-3. Under **Content & priority → Activity priority**, enable Timer. You can enable other available activities later.
+3. Under **Content & priority**, turn on **Show activity plugins**. In **Activity priority**, show Timer. Move it above other activities if you want its countdown in the large area. You can enable other available activities later.
 4. Choose **Save settings** and wait for **✓ Saved**.
 5. Start a countdown in Timer on the watch, then return to Dynamic. With your phone connected, the countdown should appear on the watchface.
 
@@ -71,7 +75,7 @@ These previews need Android. Enable Music or Notifications in Dynamic’s activi
 
 Quick Launch is a Pebble button shortcut. Open Activity lets that shortcut open the app associated with what your chosen watchface is displaying.
 
-1. Once published, install [Open Activity 0.4.0](/projects/open-activity/).
+1. Once published, install [Open Activity](/projects/open-activity/).
 2. Open Open Activity from the watch’s app list. Leave its setup screen open while you configure it on your phone.
 3. Open its phone settings. Choose Dynamic or Halftone, then a shortcut for **Primary activity**. Optionally choose a different one for **Secondary activity**. Save.
 4. In the Pebble phone app’s **Quick Launch** settings, assign **Open Activity** to the same shortcut or shortcuts. Available choices depend on your phone app and firmware.
@@ -85,9 +89,9 @@ The helper opens the associated app, not a particular timer inside it. A missing
 
 **Optional. Complete [Before installing](#before-installing) before continuing.** Dashboard is an overview you open as a watch app; it does not replace your clock screen.
 
-1. Once published, install [Dashboard 0.7.0](/projects/dashboard/). Open it once on the watch while your phone is connected.
+1. Once published, install [Dashboard](/projects/dashboard/). Open it once on the watch while your phone is connected.
 2. Open Dashboard’s settings in the Pebble phone app.
-3. Choose which activities to show and their order. These settings are separate from Dynamic’s.
+3. Choose which activities to show and their order. These settings are separate from both watchfaces. An activity is an ongoing update, such as a Timer countdown; it is separate from a pinned reading.
 4. Add a **Pinned item** if you want one. Choose an available reading, an action for a short press of Select, or an app to open by holding Select.
 5. Save and wait for the saved confirmation. Return to Dashboard on the watch.
 
@@ -99,7 +103,7 @@ Dashboard currently shows a timer’s information but does not offer Timer Pause
 
 ## Halftone
 
-Want a dotted-border clock instead? Follow [Halftone’s setup guide](/docs/pebble/halftone/). It uses the first two shared Complications choices. The released rc.6 candidate does not show Timer activities or use Open Activity.
+Want a dotted-border clock instead? Follow [Halftone’s setup guide](/docs/pebble/halftone/). It uses the first two shared Complications choices. Like Dynamic, the Halftone launch build can show Timer activities and use the optional Open Activity shortcut. Enable activity plugins and Timer in its activity list, then save.
 
 ## ČHMÚ Weather
 

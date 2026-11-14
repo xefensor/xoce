@@ -6,6 +6,7 @@ import ShapePreview from './ShapePreview.astro';
 import InstallActions from './InstallActions.astro';
 import ScreenshotGallery from './ScreenshotGallery.astro';
 import Icon from './Icon.astro';
+import ActivityExplainer from './ActivityExplainer.astro';
 interface Props { project: Project }
 const { project } = Astro.props;
 const plugin=project.kind==='plugin';
@@ -24,6 +25,7 @@ const related=projects.filter(p=>(project.optionalConnections??(project.slug==='
     <div class="launch-product-preview">{plugin?<figure class="plugin-portrait"><img src={sitePath(project.image)} alt={project.imageAlt} width="144" height="144"/><figcaption>ČHMÚ Weather v{project.imageVersion}<br/>Phone plugin · no watch screen</figcaption></figure>:<ShapePreview project={project}/>}</div>
   </section>
   <section class="product-benefits"><div><p class="eyebrow">{plugin?'Your weather source':'On your watch'}</p><h2>{benefits[project.slug]}</h2></div><ul>{project.features.map(f=><li><Icon name="check" size={18}/><span>{f}</span></li>)}</ul></section>
+  <ActivityExplainer product={project.slug}/>
   <ScreenshotGallery slug={project.slug} name={project.name}/>
   <section class="product-next" aria-labelledby="use-title"><div><p class="eyebrow">Already installed?</p><h2 id="use-title">Make {project.name} yours.</h2><p>Find the setup steps and controls, or get help with something that isn’t working.</p></div><nav aria-label={`${project.name} guides`}><a href={sitePath(setup??project.guide)}>Set up {project.name}<Icon name="arrow" size={17}/></a>{project.controlsGuide&&<a href={sitePath(project.controlsGuide)}>Watch controls<Icon name="arrow" size={17}/></a>}<a href={sitePath(project.supportUrl)}>Support and troubleshooting<Icon name="arrow" size={17}/></a><a href={sitePath(project.privacyUrl)}>Privacy and permissions<Icon name="arrow" size={17}/></a></nav></section>
   {related.length>0&&<section class="product-related"><h2>Works well with</h2><div>{related.map(p=><a href={sitePath(`/projects/${p.slug}/`)}><strong>{p.name}</strong><span>{p.description}</span><Icon name="arrow" size={17}/></a>)}</div></section>}

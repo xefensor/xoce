@@ -18,6 +18,12 @@ Pebble is the watch platform. The **official Pebble phone app** connects your wa
 
 A **watchface** is your everyday clock screen. A **watch app** is something you open from the watch’s app list. Dynamic and Halftone are watchfaces; Timer, Dashboard and Open Activity are watch apps. ČHMÚ Weather is a plugin running inside the Pebble phone app. [See the watch buttons and basic terms](/pebble/#watch-buttons).
 
+## What is an activity?
+
+An **activity** is an update about something happening now, such as a countdown. These compatible XOCE apps can show the same update in different places: start a countdown in Timer, then return to Dynamic or Halftone to see the time remaining on your clock screen. Timer still runs the countdown and alarm.
+
+Activities are a feature of compatible apps and watchfaces; installing Timer does not add countdowns to every Pebble watchface. Small weather or battery readings have separate settings. [How Activities work](/docs/pebble/activities/).
+
 ## Choose what you need
 
 | What would you like to do? | Install | Optional additions |
@@ -25,7 +31,7 @@ A **watchface** is your everyday clock screen. A **watch app** is something you 
 | Use a clock with weather and ongoing updates | [Dynamic](/projects/dynamic/) | Timer for countdowns |
 | Use a dotted-border clock with two large readings | [Halftone](/projects/halftone/) | ČHMÚ Weather or another compatible source |
 | Get Czech weather for Pebble and compatible readings | [ČHMÚ Weather](/projects/chmu-weather/) | Choose it as your weather provider or reading source |
-| Set and reuse countdowns | [Timer](/projects/timer/) | Dynamic to see the countdown on your watchface |
+| Set and reuse countdowns | [Timer](/projects/timer/) | Dynamic or Halftone to see the countdown on your watchface |
 | Open an overview with readings and shortcuts | [Dashboard](/projects/dashboard/) | Configure the pins you find useful |
 | Use a button shortcut to open the app behind an activity | [Open Activity](/projects/open-activity/) **and Dynamic or Halftone** | Configure a second shortcut for the smaller activity row |
 
@@ -51,7 +57,7 @@ Your goal: **start a one-minute countdown in Timer and see it on Dynamic**.
 2. Install [Timer](/projects/timer/) and [Dynamic](/projects/dynamic/). Use the Pebble Store link for a published version, or open its matching manual `.pbw` with the Pebble phone app. A launch-preview label means that version is still being prepared.
 3. On the watch, open Timer, choose **New timer**, set one minute and start it. Use the [button guide](/pebble/#watch-buttons) if you are unsure which button to press.
 4. In the Pebble phone app, choose Dynamic as your watchface. Open Dynamic’s settings using its settings gear.
-5. Under **Content & priority → Activity priority**, enable Timer. Choose **Save settings** and wait for **✓ Saved**.
+5. Under **Content & priority**, turn on **Show activity plugins**, then show Timer in **Activity priority**. Choose **Save settings** and wait for **✓ Saved**.
 6. Return to Dynamic on the watch. Keep your phone connected and check that the countdown appears.
 
 **Success looks like this:** Timer’s countdown also appears on your everyday clock screen. Timer still handles the alarm. If the countdown is missing, use [the activity checklist](/docs/pebble/troubleshooting/#an-activity-is-missing).
