@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "nativePixelsModified": false,
+  "scope": "Fresh native emulator captures from the exact PBW; supported settings and synthetic example data; no physical-device claim.",
+  "candidateSha256": "a0c90d9965278b68b786ad84933767513f38371ad1065ae86a6d1ca09aca9363",
+  "renderer": {
+    "emery": {
+      "nativeRendererSha256": "26af80086a7968378a798a7cdd00a23f368d1c57029b0bc96904cada82c5b459",
+      "resourceRendererSha256": "61af70510ee20669081cbaa0256a509c332b5f2bcb53287122ff270fb00dd615"
+    },
+    "gabbro": {
+      "nativeRendererSha256": "8379ac16fe65d44deca1334e5222ecd5eb098e8996674c80a11478d59f0e0193",
+      "resourceRendererSha256": "61af70510ee20669081cbaa0256a509c332b5f2bcb53287122ff270fb00dd615"
+    }
+  },
+  "screenshots": {
+    "emery-store-20261114-overview.png": {
+      "platform": "emery",
+      "sha256": "b9af77d2c8af35741df6972b155b38307455f186fe6d3cf0d34b946cd63ddd50",
+      "source": "Store-Update-2026-11-14/verification/native/dashboard/emery/overview.png",
+      "sourceReport": "Store-Update-2026-11-14/verification/native/dashboard/emery/report.json",
+      "rendererProof": "Raw native Screenshot-service PNG from this exact PBW; no pixel modifications.",
+      "settings": "Small text; synthetic countdown deadline aligned to the emulator UTC time."
+    },
+    "gabbro-store-20261114-overview.png": {
+      "platform": "gabbro",
+      "sha256": "791967ee1e1d7dcdb866955591d5231a7d220717928641af1d75624f60d9c931",
+      "source": "Store-Update-2026-11-14/verification/native/dashboard/gabbro/overview.png",
+      "sourceReport": "Store-Update-2026-11-14/verification/native/dashboard/gabbro/report.json",
+      "rendererProof": "Raw native Screenshot-service PNG from this exact PBW; no pixel modifications.",
+      "settings": "Small text; synthetic countdown deadline aligned to the emulator UTC time."
+    }
+  }
+}

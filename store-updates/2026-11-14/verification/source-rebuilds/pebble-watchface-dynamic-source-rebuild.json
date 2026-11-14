@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "product": "Dynamic",
+  "sourceFile": "developer/sources/Dynamic-1.0.0-source.zip",
+  "sourceSha256": "15225e1a5bfe89f4f16a2632930b56d02dd768ffe498ae225a64504db705a681",
+  "sourceCommit": "9f3089622d839e8c8c7f1165630b151a38278cb9",
+  "reviewedPbwSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
+  "rebuiltPbwSha256": "226487126d4ce113f43432b16813ec3847a139b00725fd2ec1bc2acf5b6ed82a",
+  "nativeRenderersMatch": true,
+  "packagedJavascriptMatches": true,
+  "scope": "Actual offline dependency installation and standalone SDK/public plugin rebuild; no physical device claim."
+}

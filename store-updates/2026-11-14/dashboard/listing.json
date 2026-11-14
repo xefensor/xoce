@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "name": "Dashboard",
+  "author": "Xef",
+  "version": "1.0.0",
+  "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+  "type": "watchapp",
+  "category": "Daily",
+  "price": "free",
+  "target_platforms": [
+    "emery",
+    "gabbro"
+  ],
+  "description_file": "description.txt",
+  "release_notes_file": "release-notes.txt",
+  "source_url": "https://github.com/xefensor/pebble-app-dashboard",
+  "support_url": "https://github.com/xefensor/pebble-app-dashboard/issues",
+  "privacy_url": "https://github.com/xefensor/pebble-app-dashboard/blob/main/PRIVACY.md",
+  "publication_status": "preparation",
+  "store_submission_allowed": false,
+  "publication_rule_url": "https://developer.repebble.com/guides/appstore-publishing/preparing-a-submission/",
+  "publication_rule_checked_on": "2026-11-12",
+  "icons": [
+    "icon-small-80.png",
+    "icon-large-144.png"
+  ],
+  "screenshots": {
+    "emery": [
+      "emery-store-20261114-overview.png"
+    ],
+    "gabbro": [
+      "gabbro-store-20261114-overview.png"
+    ]
+  },
+  "remaining_publication_gates": [
+    "Verify Developer Dashboard ownership, existing listing and unused numeric version",
+    "Verify live app-owned support/privacy URLs",
+    "Publish exact checked GitHub and Store artifacts, then activate website links"
+  ],
+  "review_acceptance": {
+    "date": "2026-11-13",
+    "reviewer": "Xef",
+    "decision": "Reviewed implementation accepted for stable public release preparation; no further physical-device review prerequisite.",
+    "test_coverage": "Physical watch/phone results are not claimed; see the current release review for actual evidence."
+  },
+  "banners": {
+    "emery": "emery-family-banner.png",
+    "gabbro": "gabbro-family-banner.png"
+  }
+}

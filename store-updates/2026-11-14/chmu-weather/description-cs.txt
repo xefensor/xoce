@@ -1,0 +1,18 @@
+Neoficiální české počasí pro Pebble: měření z blízkých stanic a místní předpovědi ALADIN od ČHMÚ.
+
+ČHMÚ Weather běží v mobilní aplikaci Pebble. Vyberte ho jako poskytovatele počasí pro systémové Počasí, časovou osu a podporované údaje v aplikacích Dynamic, Halftone nebo Dashboard. Používá místa a jednotky uložené v Pebble.
+
+- Nechte automaticky vybrat blízkou stanici, nebo zvolte pevnou českou stanici.
+- Zobrazte aktuální teplotu, vlhkost a vítr, pokud je stanice hlásí společně.
+- Sledujte hodinové a denní předpovědi ALADIN s původními časy a uvedením zdroje.
+- Volitelně doplňte pravděpodobnost srážek, chybějící údaje, předpověď UV a další dny pomocí Open-Meteo.
+- Využijte vypočítanou pocitovou teplotu a časy východu a západu slunce.
+- Nastavte plugin česky nebo anglicky, ve světlém či tmavém vzhledu a s přehlednou diagnostikou.
+
+Pokrytí je omezené na Česko. Blízká stanice neměří přímo ve vaší ulici. UV je předpověď a aktualizaci systémového Počasí řídí Pebble. Údaje v mezipaměti si zachovávají původní stáří.
+
+Vyžaduje internet a podporu pluginů v oficiální mobilní aplikaci Pebble. Údaje o počasí se nastavují odděleně od aktivit, například odpočtu Timer. Plugin nemá aplikaci, kterou byste otevírali v hodinkách.
+
+Zdarma. Bez osobního účtu, API klíče, reklam, analytiky a serveru vývojáře. Používá veřejná data ČHMÚ a volitelně Open-Meteo. Projekt není spojen s ČHMÚ, Open-Meteo ani Core Devices.
+
+Zdroj a soukromí: https://github.com/xefensor/pebble-chmu-weather

@@ -1,0 +1,116 @@
+
+> pebble-chmu-weather@1.0.2 test
+> node --test test/*.test.js && python3 -m unittest discover -s tests && npm run test:store
+
+TAP version 13
+# Subtest: test/app-client.test.js
+ok 1 - test/app-client.test.js
+  ---
+  duration_ms: 108.489328
+  type: 'test'
+  ...
+# Subtest: test/app-uv.test.js
+ok 2 - test/app-uv.test.js
+  ---
+  duration_ms: 67.400597
+  type: 'test'
+  ...
+# Subtest: test/app-weather.test.js
+ok 3 - test/app-weather.test.js
+  ---
+  duration_ms: 70.784142
+  type: 'test'
+  ...
+# Subtest: test/apparent.test.js
+ok 4 - test/apparent.test.js
+  ---
+  duration_ms: 56.359839
+  type: 'test'
+  ...
+# Subtest: test/build-policy.test.js
+ok 5 - test/build-policy.test.js
+  ---
+  duration_ms: 223.522614
+  type: 'test'
+  ...
+# Subtest: test/client.test.js
+ok 6 - test/client.test.js
+  ---
+  duration_ms: 306.142954
+  type: 'test'
+  ...
+# Subtest: test/envelope.test.js
+ok 7 - test/envelope.test.js
+  ---
+  duration_ms: 181.539998
+  type: 'test'
+  ...
+# Subtest: test/forecast-history.test.js
+ok 8 - test/forecast-history.test.js
+  ---
+  duration_ms: 149.573736
+  type: 'test'
+  ...
+# Subtest: test/http-cache.test.js
+ok 9 - test/http-cache.test.js
+  ---
+  duration_ms: 62.349832
+  type: 'test'
+  ...
+# Subtest: test/restricted-runtime.test.js
+ok 10 - test/restricted-runtime.test.js
+  ---
+  duration_ms: 235.66617
+  type: 'test'
+  ...
+# Subtest: test/station-observation.test.js
+ok 11 - test/station-observation.test.js
+  ---
+  duration_ms: 69.615826
+  type: 'test'
+  ...
+# Subtest: test/supplement.test.js
+ok 12 - test/supplement.test.js
+  ---
+  duration_ms: 77.661905
+  type: 'test'
+  ...
+# Subtest: test/weather.test.js
+ok 13 - test/weather.test.js
+  ---
+  duration_ms: 113.552252
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 324.056229
+...........................................
+----------------------------------------------------------------------
+Ran 43 tests in 0.610s
+
+OK
+{
+  "result": "PASS",
+  "version": "1.2.3",
+  "files": {
+    "Weather-1.2.3.pbw": "062ab6c81cbaa7faec3f4aadf367a31bc8ea63d514c3238ff3cc945e2d52340e",
+    "Weather-1.2.3-source.zip": "2fb59e9e87c602edb012fbf456117c82b879fc3c972c8dce4e621fd40f1219a2",
+    "Weather-1.2.3-store-package.zip": "6430cfcf540c329421ced89b5f2ad8c81ea0558c84542b65bd172ed47881d32d"
+  },
+  "published": false
+}
+
+> pebble-chmu-weather@1.0.2 test:store
+> python3 -m unittest discover -s tests -p test_store_kit.py
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.030s
+
+OK

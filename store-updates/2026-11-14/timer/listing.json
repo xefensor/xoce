@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "name": "Timer",
+  "author": "Xef",
+  "version": "1.0.0",
+  "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+  "type": "watchapp",
+  "category": "Tools & Utilities",
+  "price": "free",
+  "target_platforms": [
+    "emery",
+    "gabbro"
+  ],
+  "description_file": "description.txt",
+  "release_notes_file": "release-notes.txt",
+  "source_url": "https://github.com/xefensor/pebble-app-timer",
+  "support_url": "https://github.com/xefensor/pebble-app-timer/issues",
+  "privacy_url": "https://github.com/xefensor/pebble-app-timer/blob/main/PRIVACY.md",
+  "publication_status": "preparation",
+  "store_submission_allowed": false,
+  "publication_rule_url": "https://developer.repebble.com/guides/appstore-publishing/preparing-a-submission/",
+  "publication_rule_checked_on": "2026-11-12",
+  "icons": [
+    "icon-small-80.png",
+    "icon-large-144.png"
+  ],
+  "screenshots": {
+    "emery": [
+      "emery-store-20261114-running.png",
+      "emery-store-20261114-overview.png",
+      "emery-store-20261114-editor.png",
+      "emery-store-20261114-paused.png",
+      "emery-store-20261114-pending-alarm.png"
+    ],
+    "gabbro": [
+      "gabbro-store-20261114-running.png",
+      "gabbro-store-20261114-overview.png",
+      "gabbro-store-20261114-editor.png",
+      "gabbro-store-20261114-paused.png",
+      "gabbro-store-20261114-pending-alarm.png"
+    ]
+  },
+  "remaining_publication_gates": [
+    "Verify Developer Dashboard ownership, existing listing and unused numeric version",
+    "Verify live app-owned support/privacy URLs",
+    "Publish exact checked GitHub and Store artifacts, then activate website links"
+  ],
+  "review_acceptance": {
+    "date": "2026-11-13",
+    "reviewer": "Xef",
+    "decision": "Reviewed implementation accepted for stable public release preparation; no further physical-device review prerequisite.",
+    "test_coverage": "Physical watch/phone results are not claimed; see the current release review for actual evidence."
+  },
+  "banners": {
+    "emery": "emery-family-banner.png",
+    "gabbro": "gabbro-family-banner.png"
+  }
+}

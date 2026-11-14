@@ -1,0 +1,7 @@
+Halftone 1.10.1
+
+Pebble Time 2 and Round 2 support, with the Fira clock, halftone dot border, adjustable colours, depth, shadow and readable text choices.
+
+Keep two readings above music, optional notifications and compatible Activities. Start a countdown in Timer and return to Halftone to see its remaining time; Timer continues to own its controls and alarm.
+
+Round 2 uses a circular border and layouts fitted to its display. Native Timeline Peek and the Time 2 composition remain supported.

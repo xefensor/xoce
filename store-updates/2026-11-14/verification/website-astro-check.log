@@ -1,0 +1,93 @@
+
+> xoce@0.1.0 check
+> astro check
+
+18:04:11 [types] Generated 41ms
+18:04:11 [check] Getting diagnostics for Astro files in /home/xela/Projekty/xoce/XOCE-website-update...
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m318[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'guideContentsJump' is declared but its value is never read.
+
+[7m318[0m async function guideContentsJump(scripting = true) {
+[7m   [0m [93m               ~~~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m302[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'routesFromBuild' is declared but its value is never read.
+
+[7m302[0m function routesFromBuild() {
+[7m   [0m [93m         ~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m287[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'headerFits' is declared but its value is never read.
+
+[7m287[0m async function headerFits(width) {
+[7m   [0m [93m               ~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m41[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'designGuides' is declared but its value is never read.
+
+[7m41[0m const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m39[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'isArticle' is declared but its value is never read.
+
+[7m39[0m const isArticle = route => route.startsWith('/docs/') && !Object.hasOwn(redirects, route);
+[7m  [0m [93m      ~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m24[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'visualRoutes' is declared but its value is never read.
+
+[7m24[0m const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m23[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'platformLinks' is declared but its value is never read.
+
+[7m23[0m const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
+[7m  [0m [93m      ~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m18[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'mainSections' is declared but its value is never read.
+
+[7m18[0m const mainSections = [
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m17[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'libraryCount' is declared but its value is never read.
+
+[7m17[0m const libraryCount = projects.length - products.length;
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m16[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'previewApps' is declared but its value is never read.
+
+[7m16[0m const previewApps = availableApps.filter(project => project.previewType === 'watch');
+[7m  [0m [93m      ~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m14[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'catalogueProducts' is declared but its value is never read.
+
+[7m14[0m const catalogueProducts = products.filter(project => project.availability !== 'planned');
+[7m  [0m [93m      ~~~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m9[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'fileURLToPath' is declared but its value is never read.
+
+[7m9[0m import { fileURLToPath, pathToFileURL } from 'node:url';
+[7m [0m [93m         ~~~~~~~~~~~~~[0m
+
+[96mscripts/browser-smoke.mjs[0m:[93m314[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'routesFromBuild' is declared but its value is never read.
+
+[7m314[0m function routesFromBuild() {
+[7m   [0m [93m         ~~~~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m299[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'headerFits' is declared but its value is never read.
+
+[7m299[0m async function headerFits(width) {
+[7m   [0m [93m               ~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m40[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'designGuides' is declared but its value is never read.
+
+[7m40[0m const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m38[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'isArticle' is declared but its value is never read.
+
+[7m38[0m const isArticle = route => route.startsWith('/docs/') && !Object.hasOwn(redirects, route);
+[7m  [0m [93m      ~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m23[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'visualRoutes' is declared but its value is never read.
+
+[7m23[0m const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m22[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'platformLinks' is declared but its value is never read.
+
+[7m22[0m const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
+[7m  [0m [93m      ~~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m17[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'mainSections' is declared but its value is never read.
+
+[7m17[0m const mainSections = [
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m16[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'libraryCount' is declared but its value is never read.
+
+[7m16[0m const libraryCount = projects.length - products.length;
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+
+Result (49 files): 
+- 0 errors
+- 0 warnings
+- 20 hints
+

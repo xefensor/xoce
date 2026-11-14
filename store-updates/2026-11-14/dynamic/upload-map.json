@@ -1,0 +1,58 @@
+{
+  "product": "Dynamic",
+  "type": "watchface",
+  "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+  "pbw": "Dynamic-1.0.0.pbw",
+  "version": "1.0.0",
+  "pbwSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
+  "runtimeSourceCommit": "ff6eb9c30014f88d0ff99fb2075b84e88c8af928",
+  "currentSourceCommit": "f322eca6800befe3ca87c5247ab3e585548eb997",
+  "githubBranch": "https://github.com/xefensor/pebble-watchface-dynamic/tree/feat/native-pebble-ui",
+  "githubCommit": "https://github.com/xefensor/pebble-watchface-dynamic/commit/f322eca6800befe3ca87c5247ab3e585548eb997",
+  "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+  "publicStoreCheck": {
+    "product": "Dynamic",
+    "repo": "pebble-watchface-dynamic",
+    "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+    "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+    "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+    "liveVersion": "1.0.0",
+    "livePbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/5db601a9303a4eb7baa90331/1.0.0/97011d88-dd9d-466d-8687-1e4ca86a9884.pbw",
+    "livePbwSha256": "2c13fae81107fe793c0df3a23270eb1b1463dd1518dac2f68cdf0625f755f3f3",
+    "preparedVersion": "1.0.0",
+    "preparedPbwSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
+    "exactBytesMatch": false,
+    "numericVersionAlreadyPublished": true
+  },
+  "binaryUploadStatus": "Candidate only: this numeric version is already public; prepare a new version before a changed binary upload.",
+  "description": "description.txt",
+  "releaseNotes": "release-notes.txt",
+  "screenshotsInUploadOrder": {
+    "emery": [
+      "emery-store-20261114-columns.png",
+      "emery-store-20261114-four-split.png",
+      "emery-store-20261114-rows-dark.png",
+      "emery-store-20261114-activities.png",
+      "emery-store-20261114-peek.png"
+    ],
+    "gabbro": [
+      "gabbro-store-20261114-columns.png",
+      "gabbro-store-20261114-four-split.png",
+      "gabbro-store-20261114-rows-dark.png",
+      "gabbro-store-20261114-activities.png",
+      "gabbro-store-20261114-peek.png"
+    ]
+  },
+  "platformBanners": {
+    "emery": "emery-family-banner.png",
+    "gabbro": "gabbro-family-banner.png"
+  },
+  "storeIcons": [],
+  "editingOnly": [
+    "emery-family-banner.svg",
+    "gabbro-family-banner.svg",
+    "product-mark-144.png",
+    "product-mark.svg"
+  ],
+  "licences": "licences/"
+}
