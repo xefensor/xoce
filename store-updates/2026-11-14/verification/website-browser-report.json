@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "checkedAt": "2026-11-14T17:00:01.267Z",
+  "checkedAt": "2026-11-14T17:33:19.105Z",
   "url": "http://127.0.0.1:4322/xoce/",
   "evidence": "Automated Chromium desktop/mobile viewport checks; no physical-device testing.",
-  "browserProfile": "/tmp/xoce-browser-bF2fVc",
+  "browserProfile": "/tmp/xoce-browser-5y3RfT",
   "browserVersions": [
     {
       "protocolVersion": "1.3",

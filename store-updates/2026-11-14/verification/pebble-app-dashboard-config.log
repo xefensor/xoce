@@ -1,0 +1,5 @@
+
+> pebble-app-dashboard@1.0.1 check:config
+> node scripts/generate-config.cjs --check
+
+Dashboard configuration template: PASS

@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "kit": "/home/xela/Projekty/xoce/Watch/pebble-watchface-halftone/build/store/Halftone-1.10.1-store-package.zip",
-  "sha256": "397a207bc849103c84f288d3b2d03b4f93499a93325b469051b391175fd2e214",
+  "kit": "/home/xela/Projekty/xoce/Watch/pebble-watchface-halftone/build/store/Halftone-1.10.2-store-package.zip",
+  "sha256": "551e88b18583d91caa7e2922c9f48d2146868561fe72de961ee5c3cd17fad8ee",
   "files": 30,
   "publicationReady": false
 }

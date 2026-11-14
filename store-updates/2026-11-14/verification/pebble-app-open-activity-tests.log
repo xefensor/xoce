@@ -1,54 +1,54 @@
 
-> pebble-app-open-activity@1.0.0 test
+> pebble-app-open-activity@1.0.1 test
 > node --test tests/*.test.js && python3 scripts/test-native.py && npm run test:workflow && npm run check:docs && npm run test:release && python3 scripts/test-localization.py && npm run test:platforms && npm run test:store
 
 TAP version 13
 # Subtest: tests/launcher.test.js
 ok 1 - tests/launcher.test.js
   ---
-  duration_ms: 71.282716
+  duration_ms: 56.366798
   type: 'test'
   ...
 # Subtest: tests/localization.test.js
 ok 2 - tests/localization.test.js
   ---
-  duration_ms: 44.122719
+  duration_ms: 37.971899
   type: 'test'
   ...
 # Subtest: tests/navigation.test.js
 ok 3 - tests/navigation.test.js
   ---
-  duration_ms: 65.483295
+  duration_ms: 50.129352
   type: 'test'
   ...
 # Subtest: tests/optimization.test.js
 ok 4 - tests/optimization.test.js
   ---
-  duration_ms: 59.38828
+  duration_ms: 48.991277
   type: 'test'
   ...
 # Subtest: tests/package.test.js
 ok 5 - tests/package.test.js
   ---
-  duration_ms: 151.729304
+  duration_ms: 134.585257
   type: 'test'
   ...
 # Subtest: tests/settings-page.test.js
 ok 6 - tests/settings-page.test.js
   ---
-  duration_ms: 354.906895
+  duration_ms: 316.195044
   type: 'test'
   ...
 # Subtest: tests/settings-storage.test.js
 ok 7 - tests/settings-storage.test.js
   ---
-  duration_ms: 72.129937
+  duration_ms: 63.318221
   type: 'test'
   ...
 # Subtest: tests/ui-preferences.test.js
 ok 8 - tests/ui-preferences.test.js
   ---
-  duration_ms: 55.693954
+  duration_ms: 47.665369
   type: 'test'
   ...
 1..8
@@ -59,60 +59,60 @@ ok 8 - tests/ui-preferences.test.js
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 374.067643
+# duration_ms 332.637101
 native attempt: liveness, roles, duplicate prepare, closure, wrap and destinations passed
 native SDK adapter: three setup launch reasons online/offline, no attempt or native activity handshake, settings-only theme receive/cache/failed-write checks, ordinary Back after ten seconds, allocation cleanup, eight slots and gesture wire, unsupported reasons/gestures, handshake, malformed wire, timeout and disconnected closure passed
 Native/phone/package message keys and timeout agree
 
-> pebble-app-open-activity@1.0.0 test:workflow
+> pebble-app-open-activity@1.0.1 test:workflow
 > python3 -m unittest discover -s tests -p test_development_workflow.py
 
 ....ss...
 ----------------------------------------------------------------------
-Ran 9 tests in 0.007s
+Ran 9 tests in 0.006s
 
 OK (skipped=2)
 
-> pebble-app-open-activity@1.0.0 check:docs
+> pebble-app-open-activity@1.0.1 check:docs
 > python3 scripts/check-docs.py
 
 Active documentation links PASS: 35
 
-> pebble-app-open-activity@1.0.0 test:release
+> pebble-app-open-activity@1.0.1 test:release
 > python3 -m unittest discover -s tests -p "test_*release*.py"
 
 .......................s...
 ----------------------------------------------------------------------
-Ran 27 tests in 0.925s
+Ran 27 tests in 0.729s
 
 OK (skipped=1)
 {
   "result": "PASS",
   "version": "1.2.3",
   "files": {
-    "Weather-1.2.3.pbw": "ab460e7c7499b2fdce4c2d08433c13b31dfff9ef5913cb0ce62267bae3cc6d03",
+    "Weather-1.2.3.pbw": "ce3925702055c8b75b6c591571af1c5a0065a3ba51a3f42862b22083b87f5033",
     "Weather-1.2.3-source.zip": "2fb59e9e87c602edb012fbf456117c82b879fc3c972c8dce4e621fd40f1219a2",
-    "Weather-1.2.3-store-package.zip": "cae14676e43dd71d4df0746ae730449e90be8743a3f14761dd79a40ae00c0e1c"
+    "Weather-1.2.3-store-package.zip": "13c655de9749ac700f25b3145b00546f2ff2d1f4d801653c0c0f9221615d1fae"
   },
   "published": false
 }
 Native locale resource: 5370 bytes; selected-language buffer 398 bytes
 Native localization: 17 locales, bounded reads, aliases, cache and corrupt/truncated resource fallback PASS
 
-> pebble-app-open-activity@1.0.0 test:platforms
+> pebble-app-open-activity@1.0.1 test:platforms
 > python3 -m unittest discover -s tests -p test_platform_audit.py
 
 ....
 ----------------------------------------------------------------------
-Ran 4 tests in 1.455s
+Ran 4 tests in 1.387s
 
 OK
 
-> pebble-app-open-activity@1.0.0 test:store
+> pebble-app-open-activity@1.0.1 test:store
 > python3 -m unittest discover -s tests -p test_store_kit.py
 
 .....
 ----------------------------------------------------------------------
-Ran 5 tests in 0.030s
+Ran 5 tests in 0.027s
 
 OK

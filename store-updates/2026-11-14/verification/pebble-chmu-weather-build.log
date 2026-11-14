@@ -1,0 +1,10 @@
+
+> pebble-chmu-weather@1.0.3 build
+> python3 scripts/build.py --output /home/xela/Projekty/xoce/Watch/pebble-chmu-weather/dist/CHMU-Weather-1.0.3.pbw
+
+
+> pebble-chmu-weather@1.0.3 build:js
+> node scripts/build-js.js --variant public
+
+Packaged /home/xela/Projekty/xoce/Watch/pebble-chmu-weather/dist/CHMU-Weather-1.0.3.pbw
+SHA256 6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6

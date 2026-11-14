@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "kit": "/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/store/Open-Activity-1.0.0-store-package.zip",
-  "sha256": "f6c7f5080ab9e2c98e3599c0befe76515b89a32d805796a1df08728ef9098ab9",
+  "kit": "/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/store/Open-Activity-1.0.1-store-package.zip",
+  "sha256": "9929d73e17222b45741c336e73e5d82e0d11513de3c04e9ce57b3eea990487fd",
   "files": 26,
   "publicationReady": false
 }

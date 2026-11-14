@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "kit": "/home/xela/Projekty/xoce/Watch/pebble-chmu-weather/build/store/CHMU-Weather-1.0.2-store-package.zip",
-  "sha256": "5b254c302bc8dbd50adeeb4c26b354022bb9052735050aee7f5ca4089303ed47",
+  "kit": "/home/xela/Projekty/xoce/Watch/pebble-chmu-weather/build/store/CHMU-Weather-1.0.3-store-package.zip",
+  "sha256": "1a5c3c92372b6a71773db00a18d4d6e9c75b0fc0bc3787228c1cb6de7d62a5b7",
   "files": 19,
   "publicationReady": false
 }

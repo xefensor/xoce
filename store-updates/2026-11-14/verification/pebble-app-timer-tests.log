@@ -1,5 +1,5 @@
 
-> pebble-app-timer@1.0.0 test
+> pebble-app-timer@1.0.2 test
 > python3 scripts/test.py && node --test tests/localization*.test.js && npm run test:workflow && npm run check:docs && npm run test:release && python3 scripts/test-localization.py && npm run test:platforms && npm run test:store
 
 timer model: lifecycle, persistence, expiry and boundary checks passed
@@ -17,25 +17,25 @@ TAP version 13
 # Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/alarm-preferences.test.js
 ok 1 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/alarm-preferences.test.js
   ---
-  duration_ms: 70.965943
+  duration_ms: 40.950531
   type: 'test'
   ...
 # Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/handoff.test.js
 ok 2 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/handoff.test.js
   ---
-  duration_ms: 226.516066
+  duration_ms: 124.747984
   type: 'test'
   ...
 # Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/settings.test.js
 ok 3 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/settings.test.js
   ---
-  duration_ms: 79.31237
+  duration_ms: 47.902589
   type: 'test'
   ...
 # Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/ui-preferences.test.js
 ok 4 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/ui-preferences.test.js
   ---
-  duration_ms: 74.92321
+  duration_ms: 42.264397
   type: 'test'
   ...
 1..4
@@ -46,34 +46,34 @@ ok 4 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/ui-preferences.test
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 240.340285
+# duration_ms 137.18137
 timer UI state: native viewport clocks, selection identity, native completion and visible status invalidation passed
 .
 ----------------------------------------------------------------------
-Ran 1 test in 0.067s
+Ran 1 test in 0.031s
 
 OK
 .
 ----------------------------------------------------------------------
-Ran 1 test in 0.060s
+Ran 1 test in 0.037s
 
 OK
 .
 ----------------------------------------------------------------------
-Ran 1 test in 0.062s
+Ran 1 test in 0.042s
 
 OK
 TAP version 13
 # Subtest: tests/localization-page.test.js
 ok 1 - tests/localization-page.test.js
   ---
-  duration_ms: 220.985807
+  duration_ms: 126.960463
   type: 'test'
   ...
 # Subtest: tests/localization.test.js
 ok 2 - tests/localization.test.js
   ---
-  duration_ms: 67.450802
+  duration_ms: 41.288892
   type: 'test'
   ...
 1..2
@@ -84,60 +84,60 @@ ok 2 - tests/localization.test.js
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 232.250663
+# duration_ms 133.309035
 
-> pebble-app-timer@1.0.0 test:workflow
+> pebble-app-timer@1.0.2 test:workflow
 > python3 -m unittest discover -s tests -p test_development_workflow.py
 
 ....ss...
 ----------------------------------------------------------------------
-Ran 9 tests in 0.009s
+Ran 9 tests in 0.007s
 
 OK (skipped=2)
 
-> pebble-app-timer@1.0.0 check:docs
+> pebble-app-timer@1.0.2 check:docs
 > python3 scripts/check-docs.py
 
 Active documentation links PASS: 39
 
-> pebble-app-timer@1.0.0 test:release
+> pebble-app-timer@1.0.2 test:release
 > python3 -m unittest discover -s tests -p "test_*release*.py"
 
-......................s.....................
+......................s......................
 ----------------------------------------------------------------------
-Ran 44 tests in 2.331s
+Ran 45 tests in 2.114s
 
 OK (skipped=1)
 {
   "result": "PASS",
   "version": "1.2.3",
   "files": {
-    "Weather-1.2.3.pbw": "b30d62bf1c4d207ff98c6168a209ca03e29d792071fd617ac8e558b6176d6eaa",
+    "Weather-1.2.3.pbw": "a8939e55a0daaa1196472c4d0ac88e9cddfb0b3c1cb79041114be6ffe013b371",
     "Weather-1.2.3-source.zip": "2fb59e9e87c602edb012fbf456117c82b879fc3c972c8dce4e621fd40f1219a2",
-    "Weather-1.2.3-store-package.zip": "19915d76f2d9da482bd586831b82da843306986a3c653cd0e7ffd0014de5f9fc"
+    "Weather-1.2.3-store-package.zip": "7ed7f572f28fe7f347cc1162622666b136eb6d748565bdbcf65a9b01608a3978"
   },
   "published": false
 }
-Timer-1.2.3.pbw 4052 a0f876be07c6ed27d7ef58d7fdf037b67e06d2136c6bfc5e51049c2cef14be67
-Timer-1.2.3-source.zip 4902 fa78f7fdf9282752b48e78f8612ab3261c06222d0372a9c46b162111c147278d
-Timer-1.2.3-debug.zip 145 677090963fcd801519d0042be8b115817f3ca94a46cd785174a895935781812a
+Timer-1.2.3.pbw 4052 d8d8bc2eca15c7bf1809acafb07628112ddcde3328a33eb90e45fa94d1680e47
+Timer-1.2.3-source.zip 4904 4d00713ba7f1145dfc9ad4f2a654f100c5591c520b9b87f9d361c0052ebe770a
+Timer-1.2.3-debug.zip 145 0fc7d22a3261b108d361cd5810a1879e3b64e175be622cc5dc35c468f89161bb
 Native locale resource: 10730 bytes; selected-language buffer 723 bytes
 Native localization: 17 locales, bounded reads, aliases, cache and corrupt/truncated resource fallback PASS
 
-> pebble-app-timer@1.0.0 test:platforms
+> pebble-app-timer@1.0.2 test:platforms
 > python3 -m unittest discover -s tests -p test_platform_audit.py
 
 ....
 ----------------------------------------------------------------------
-Ran 4 tests in 1.396s
+Ran 4 tests in 1.417s
 
 OK
 
-> pebble-app-timer@1.0.0 test:store
+> pebble-app-timer@1.0.2 test:store
 > python3 -m unittest discover -s tests -p test_store_kit.py
 
 .....
 ----------------------------------------------------------------------
-Ran 5 tests in 0.029s
+Ran 5 tests in 0.030s
 
 OK

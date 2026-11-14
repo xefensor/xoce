@@ -1,0 +1,116 @@
+
+> pebble-app-open-activity@1.0.1 build
+> python3 scripts/build.py
+
+Native locale resource: 5370 bytes; selected-language buffer 398 bytes
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+'distclean' finished successfully (0.016s)
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+
+up to date in 166ms
+
+up to date in 159ms
+Setting top to                           : /home/xela/Projekty/xoce/Watch/pebble-app-open-activity 
+Setting out to                           : /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build 
+Checking for program 'webpack'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/node_modules/.bin/webpack 
+Found Pebble SDK for gabbro in:          : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/gabbro 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+Found Pebble SDK for emery in:           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/emery 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+'configure' finished successfully (0.038s)
+Waf: Entering directory `/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build'
+[1/3] Creating message_key_json:  -> build/js/message_keys.json
+[2/3] Creating message_key_definitions:  -> build/src/message_keys.auto.c
+[3/3] Creating message_key_header:  -> build/include/message_keys.auto.h
+[ 4/20] Compiling gabbro | reso: resources/localization.bin -> build/gabbro/resources/localization.bin.LOCALIZATION.reso
+[ 5/20] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/gabbro/appinfo.auto.c:  -> build/gabbro/appinfo.auto.c
+[ 6/20] Compiling gabbro | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/gabbro/pebble_app.ld.auto
+[ 7/20] Compiling gabbro | c: src/c/attempt.c -> build/src/c/attempt.c.16.o
+[ 8/20] Compiling gabbro | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.16.o
+[ 9/20] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/appinfo.json:  -> build/appinfo.json
+[10/20] Compiling gabbro | resource_ball: build/gabbro/resources/localization.bin.LOCALIZATION.reso -> build/gabbro/system_resources.resball
+[11/20] Compiling gabbro | generate_resource_id_definitions: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.c
+[12/20] Compiling gabbro | generate_pbpack: build/gabbro/system_resources.resball -> build/gabbro/app_resources.pbpack
+[13/20] Compiling gabbro | generate_resource_id_header: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.h
+[14/20] Compiling gabbro | c: build/gabbro/src/resource_ids.auto.c -> build/gabbro/src/resource_ids.auto.c.16.o
+[15/20] Compiling gabbro | c: src/c/main.c -> build/src/c/main.c.16.o
+[16/20] Compiling gabbro | c: src/c/oa_ui_preferences.c -> build/src/c/oa_ui_preferences.c.16.o
+[17/20] Compiling gabbro | c: src/c/localization.c -> build/src/c/localization.c.16.o
+[18/20] Compiling gabbro | c: build/gabbro/appinfo.auto.c -> build/gabbro/appinfo.auto.c.16.o
+[19/20] Linking gabbro | cprogram: build/src/c/attempt.c.16.o build/src/c/localization.c.16.o build/src/c/main.c.16.o build/src/c/oa_ui_preferences.c.16.o build/gabbro/appinfo.auto.c.16.o build/gabbro/src/resource_ids.auto.c.16.o build/src/message_keys.auto.c.16.o -> build/gabbro/pebble-app.elf
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/gabbro/pebble-app.elf has a LOAD segment with RWX permissions
+
+[20/20] Processing gabbro | memory_usage_report: build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack
+-------------------------------------------------------
+GABBRO APP MEMORY USAGE
+Total size of resources:        9478 bytes / 256.0KB
+Total footprint in RAM:         10438 bytes / 128.0KB
+Free RAM available (heap):      120634 bytes
+------------------------------------------------------- 
+[21/37] Compiling emery | reso: resources/localization.bin -> build/emery/resources/localization.bin.LOCALIZATION.reso
+[22/37] Creating emery | /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/emery/appinfo.auto.c:  -> build/emery/appinfo.auto.c
+[23/37] Compiling emery | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/emery/pebble_app.ld.auto
+[24/37] Compiling emery | c: src/c/attempt.c -> build/src/c/attempt.c.17.o
+[25/37] Compiling emery | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.17.o
+[27/37] Compiling emery | resource_ball: build/emery/resources/localization.bin.LOCALIZATION.reso -> build/emery/system_resources.resball
+[28/37] Compiling emery | generate_resource_id_definitions: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.c
+[29/37] Compiling emery | generate_pbpack: build/emery/system_resources.resball -> build/emery/app_resources.pbpack
+[30/37] Compiling emery | generate_resource_id_header: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.h
+[31/37] Compiling emery | c: build/emery/src/resource_ids.auto.c -> build/emery/src/resource_ids.auto.c.17.o
+[32/37] Compiling emery | c: src/c/main.c -> build/src/c/main.c.17.o
+[33/37] Compiling emery | c: src/c/localization.c -> build/src/c/localization.c.17.o
+[34/37] Compiling emery | c: src/c/oa_ui_preferences.c -> build/src/c/oa_ui_preferences.c.17.o
+[35/37] Compiling emery | c: build/emery/appinfo.auto.c -> build/emery/appinfo.auto.c.17.o
+[36/37] Linking emery | cprogram: build/src/c/attempt.c.17.o build/src/c/localization.c.17.o build/src/c/main.c.17.o build/src/c/oa_ui_preferences.c.17.o build/emery/appinfo.auto.c.17.o build/emery/src/resource_ids.auto.c.17.o build/src/message_keys.auto.c.17.o -> build/emery/pebble-app.elf
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/emery/pebble-app.elf has a LOAD segment with RWX permissions
+
+[37/37] Processing emery | memory_usage_report: build/emery/pebble-app.elf build/emery/app_resources.pbpack
+-------------------------------------------------------
+EMERY APP MEMORY USAGE
+Total size of resources:        9478 bytes / 256.0KB
+Total footprint in RAM:         9610 bytes / 128.0KB
+Free RAM available (heap):      121462 bytes
+------------------------------------------------------- 
+[38/43] Compiling gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/gabbro/pebble-app.raw.bin: build/gabbro/pebble-app.elf -> build/gabbro/pebble-app.raw.bin
+[39/43] Compiling emery | /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/emery/pebble-app.raw.bin: build/emery/pebble-app.elf -> build/emery/pebble-app.raw.bin
+[40/43] Processing merge_js: src/pkjs/index.js src/pkjs/launcher.js src/pkjs/navigation.js src/pkjs/protocol.js src/pkjs/queue.js src/pkjs/settings-i18n.js src/pkjs/settings-page.js src/pkjs/settings.js src/pkjs/ui-preferences.js src/pkjs/ui-settings.js -> build/pebble-js-app.js build/pebble-js-app.js.map
+[41/43] Processing gabbro | inject-metadata: build/gabbro/pebble-app.raw.bin build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack -> build/gabbro/pebble-app.bin
+[42/43] Processing emery | inject-metadata: build/emery/pebble-app.raw.bin build/emery/pebble-app.elf build/emery/app_resources.pbpack -> build/emery/pebble-app.bin
+[43/43] Compiling app_bundle: build/appinfo.json -> build/pebble-app-open-activity.pbw
+Waf: Leaving directory `/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build'
+'build' finished successfully (0.975s)
+Shared configuration template: PASS
+17 native locale resources verified; OS glyph rendering/fallback is checked separately in the emulator.
+{
+  "pbw": "/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/candidate/Open-Activity-1.0.1.pbw",
+  "sha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
+  "nativeFileBytes": 8144,
+  "nativeLoadedBytes": 7996,
+  "nativeVirtualBytes": 9612,
+  "phoneBundleBytes": 191904,
+  "debugArchiveBytes": 215378,
+  "minificationIdentity": "PASS",
+  "permissions": [
+    "LaunchApps"
+  ]
+}
+{'platforms': {'emery': {'binaryBytes': 8144, 'loadedBytes': 7996, 'staticBytes': 9612, 'runtimeMemoryBudgetBytes': 121460, 'resourceBytes': 9478, 'resources': 1, 'nativeSha256': '77a8b4f7b3854539b80ab8f9e49522044775d2d4139e25bdb70e61b4cf5f75a1', 'resourceSha256': 'f1392fa3842910e4d42e84577bf9457dcd4301f3804e10a8d3b3d0275e5e89bb'}, 'gabbro': {'binaryBytes': 8960, 'loadedBytes': 8812, 'staticBytes': 10440, 'runtimeMemoryBudgetBytes': 120632, 'resourceBytes': 9478, 'resources': 1, 'nativeSha256': 'e07c90f308eb458b4320d2d332ea571be855921b64068962a441c3b7fdadd2ae', 'resourceSha256': 'f1392fa3842910e4d42e84577bf9457dcd4301f3804e10a8d3b3d0275e5e89bb'}}, 'scope': 'Exact SDK/ELF/PBW identity and limits; runtime heap and physical behavior need separate checks'}
+TAP version 13
+# Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/tests/package.test.js
+ok 1 - /home/xela/Projekty/xoce/Watch/pebble-app-open-activity/tests/package.test.js
+  ---
+  duration_ms: 128.627067
+  type: 'test'
+  ...
+1..1
+# tests 1
+# suites 0
+# pass 1
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 134.891487
+/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/candidate/Open-Activity-1.0.1.pbw

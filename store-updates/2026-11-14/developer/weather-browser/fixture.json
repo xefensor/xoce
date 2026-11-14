@@ -1,0 +1,30 @@
+{
+  "version": "1.0.3",
+  "settings": {
+    "completeWeather": true,
+    "uvSource": "open-meteo",
+    "stations": {}
+  },
+  "locations": [
+    {
+      "id": "prague",
+      "name": "Praha",
+      "temperature": "5°C",
+      "humidity": "68%",
+      "wind": "12 km/h",
+      "feelsLike": "2°C",
+      "station": "Praha-Libuš",
+      "observedAt": 1794677016,
+      "temperatureSource": "ČHMÚ station observation",
+      "isForecast": false,
+      "eligibleStations": [
+        {
+          "id": "libus",
+          "name": "Praha-Libuš",
+          "distanceKm": 8,
+          "elevation": 302
+        }
+      ]
+    }
+  ]
+}

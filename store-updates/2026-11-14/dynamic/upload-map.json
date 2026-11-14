@@ -1,30 +1,14 @@
 {
   "product": "Dynamic",
-  "type": "watchface",
+  "version": "1.0.1",
   "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-  "pbw": "Dynamic-1.0.0.pbw",
-  "version": "1.0.0",
-  "pbwSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
-  "runtimeSourceCommit": "ff6eb9c30014f88d0ff99fb2075b84e88c8af928",
-  "currentSourceCommit": "f322eca6800befe3ca87c5247ab3e585548eb997",
-  "githubBranch": "https://github.com/xefensor/pebble-watchface-dynamic/tree/feat/native-pebble-ui",
-  "githubCommit": "https://github.com/xefensor/pebble-watchface-dynamic/commit/f322eca6800befe3ca87c5247ab3e585548eb997",
-  "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
-  "publicStoreCheck": {
-    "product": "Dynamic",
-    "repo": "pebble-watchface-dynamic",
-    "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-    "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
-    "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-    "liveVersion": "1.0.0",
-    "livePbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/5db601a9303a4eb7baa90331/1.0.0/97011d88-dd9d-466d-8687-1e4ca86a9884.pbw",
-    "livePbwSha256": "2c13fae81107fe793c0df3a23270eb1b1463dd1518dac2f68cdf0625f755f3f3",
-    "preparedVersion": "1.0.0",
-    "preparedPbwSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
-    "exactBytesMatch": false,
-    "numericVersionAlreadyPublished": true
-  },
-  "binaryUploadStatus": "Candidate only: this numeric version is already public; prepare a new version before a changed binary upload.",
+  "type": "watchface",
+  "pbw": "Dynamic-1.0.1.pbw",
+  "pbwSha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
+  "sourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c",
+  "previousStoreVersion": "1.0.0",
+  "newNumericVersion": true,
+  "publicVersionAndTagAvailabilityChecked": true,
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
@@ -48,11 +32,8 @@
     "gabbro": "gabbro-family-banner.png"
   },
   "storeIcons": [],
-  "editingOnly": [
-    "emery-family-banner.svg",
-    "gabbro-family-banner.svg",
-    "product-mark-144.png",
-    "product-mark.svg"
-  ],
-  "licences": "licences/"
+  "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+  "githubBranch": "https://github.com/xefensor/pebble-watchface-dynamic/tree/feat/native-pebble-ui",
+  "githubCommit": "https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c",
+  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
 }

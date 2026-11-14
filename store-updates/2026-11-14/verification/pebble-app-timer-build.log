@@ -1,0 +1,102 @@
+
+> pebble-app-timer@1.0.2 build
+> python3 scripts/build.py
+
+Native locale resource: 10730 bytes; selected-language buffer 723 bytes
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+'distclean' finished successfully (0.012s)
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+
+up to date in 173ms
+
+up to date in 175ms
+Setting top to                           : /home/xela/Projekty/xoce/Watch/pebble-app-timer 
+Setting out to                           : /home/xela/Projekty/xoce/Watch/pebble-app-timer/build 
+Checking for program 'webpack'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/node_modules/.bin/webpack 
+Found Pebble SDK for gabbro in:          : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/gabbro 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+Found Pebble SDK for emery in:           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/emery 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+'configure' finished successfully (0.039s)
+Waf: Entering directory `/home/xela/Projekty/xoce/Watch/pebble-app-timer/build'
+[1/3] Creating message_key_json:  -> build/js/message_keys.json
+[2/3] Creating message_key_definitions:  -> build/src/message_keys.auto.c
+[3/3] Creating message_key_header:  -> build/include/message_keys.auto.h
+[ 4/28] Compiling gabbro | reso: resources/localization.bin -> build/gabbro/resources/localization.bin.LOCALIZATION.reso
+[ 5/28] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/gabbro/appinfo.auto.c:  -> build/gabbro/appinfo.auto.c
+[ 6/28] Compiling gabbro | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/gabbro/pebble_app.ld.auto
+[ 7/28] Compiling gabbro | c: src/c/timer_model.c -> build/src/c/timer_model.c.16.o
+[ 8/28] Compiling gabbro | c: src/c/timer_ui_state.c -> build/src/c/timer_ui_state.c.16.o
+[ 9/28] Compiling gabbro | c: src/c/timer_collection.c -> build/src/c/timer_collection.c.16.o
+[10/28] Compiling gabbro | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.16.o
+[11/28] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/appinfo.json:  -> build/appinfo.json
+[12/28] Compiling gabbro | resource_ball: build/gabbro/resources/localization.bin.LOCALIZATION.reso -> build/gabbro/system_resources.resball
+[13/28] Compiling gabbro | generate_resource_id_definitions: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.c
+[14/28] Compiling gabbro | generate_pbpack: build/gabbro/system_resources.resball -> build/gabbro/app_resources.pbpack
+[15/28] Compiling gabbro | generate_resource_id_header: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.h
+[16/28] Compiling gabbro | c: build/gabbro/src/resource_ids.auto.c -> build/gabbro/src/resource_ids.auto.c.16.o
+[17/28] Compiling gabbro | c: src/c/timer_ui_preferences.c -> build/src/c/timer_ui_preferences.c.16.o
+[18/28] Compiling gabbro | c: src/c/main.c -> build/src/c/main.c.16.o
+[19/28] Compiling gabbro | c: src/c/localization.c -> build/src/c/localization.c.16.o
+[20/28] Compiling gabbro | c: src/c/timer_native_type.c -> build/src/c/timer_native_type.c.16.o
+[21/28] Compiling gabbro | c: src/c/timer_alarm_preferences.c -> build/src/c/timer_alarm_preferences.c.16.o
+[22/28] Compiling gabbro | c: src/c/timer_appearance.c -> build/src/c/timer_appearance.c.16.o
+[23/28] Compiling gabbro | c: src/c/timer_ui.c -> build/src/c/timer_ui.c.16.o
+[24/28] Compiling gabbro | c: src/c/timer_alarm_feedback.c -> build/src/c/timer_alarm_feedback.c.16.o
+[25/28] Compiling gabbro | c: src/c/timer_glance.c -> build/src/c/timer_glance.c.16.o
+[26/28] Compiling gabbro | c: build/gabbro/appinfo.auto.c -> build/gabbro/appinfo.auto.c.16.o
+[27/28] Linking gabbro | cprogram: build/src/c/localization.c.16.o build/src/c/main.c.16.o build/src/c/timer_alarm_feedback.c.16.o build/src/c/timer_alarm_preferences.c.16.o build/src/c/timer_appearance.c.16.o build/src/c/timer_collection.c.16.o build/src/c/timer_glance.c.16.o build/src/c/timer_model.c.16.o build/src/c/timer_native_type.c.16.o build/src/c/timer_ui.c.16.o build/src/c/timer_ui_preferences.c.16.o build/src/c/timer_ui_state.c.16.o build/gabbro/appinfo.auto.c.16.o build/gabbro/src/resource_ids.auto.c.16.o build/src/message_keys.auto.c.16.o -> build/gabbro/pebble-app.elf
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/gabbro/pebble-app.elf has a LOAD segment with RWX permissions
+
+[28/28] Processing gabbro | memory_usage_report: build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack
+-------------------------------------------------------
+GABBRO APP MEMORY USAGE
+Total size of resources:        14838 bytes / 256.0KB
+Total footprint in RAM:         46138 bytes / 128.0KB
+Free RAM available (heap):      84934 bytes
+------------------------------------------------------- 
+[29/53] Compiling emery | reso: resources/localization.bin -> build/emery/resources/localization.bin.LOCALIZATION.reso
+[30/53] Creating emery | /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/emery/appinfo.auto.c:  -> build/emery/appinfo.auto.c
+[31/53] Compiling emery | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/emery/pebble_app.ld.auto
+[32/53] Compiling emery | c: src/c/timer_model.c -> build/src/c/timer_model.c.17.o
+[33/53] Compiling emery | c: src/c/timer_ui_state.c -> build/src/c/timer_ui_state.c.17.o
+[34/53] Compiling emery | c: src/c/timer_collection.c -> build/src/c/timer_collection.c.17.o
+[35/53] Compiling emery | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.17.o
+[37/53] Compiling emery | resource_ball: build/emery/resources/localization.bin.LOCALIZATION.reso -> build/emery/system_resources.resball
+[38/53] Compiling emery | generate_resource_id_definitions: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.c
+[39/53] Compiling emery | generate_pbpack: build/emery/system_resources.resball -> build/emery/app_resources.pbpack
+[40/53] Compiling emery | generate_resource_id_header: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.h
+[41/53] Compiling emery | c: build/emery/src/resource_ids.auto.c -> build/emery/src/resource_ids.auto.c.17.o
+[42/53] Compiling emery | c: src/c/timer_ui_preferences.c -> build/src/c/timer_ui_preferences.c.17.o
+[43/53] Compiling emery | c: src/c/timer_appearance.c -> build/src/c/timer_appearance.c.17.o
+[44/53] Compiling emery | c: src/c/main.c -> build/src/c/main.c.17.o
+[45/53] Compiling emery | c: src/c/timer_ui.c -> build/src/c/timer_ui.c.17.o
+[46/53] Compiling emery | c: src/c/localization.c -> build/src/c/localization.c.17.o
+[47/53] Compiling emery | c: src/c/timer_alarm_preferences.c -> build/src/c/timer_alarm_preferences.c.17.o
+[48/53] Compiling emery | c: build/emery/appinfo.auto.c -> build/emery/appinfo.auto.c.17.o
+[49/53] Compiling emery | c: src/c/timer_alarm_feedback.c -> build/src/c/timer_alarm_feedback.c.17.o
+[50/53] Compiling emery | c: src/c/timer_glance.c -> build/src/c/timer_glance.c.17.o
+[51/53] Compiling emery | c: src/c/timer_native_type.c -> build/src/c/timer_native_type.c.17.o
+[52/53] Linking emery | cprogram: build/src/c/localization.c.17.o build/src/c/main.c.17.o build/src/c/timer_alarm_feedback.c.17.o build/src/c/timer_alarm_preferences.c.17.o build/src/c/timer_appearance.c.17.o build/src/c/timer_collection.c.17.o build/src/c/timer_glance.c.17.o build/src/c/timer_model.c.17.o build/src/c/timer_native_type.c.17.o build/src/c/timer_ui.c.17.o build/src/c/timer_ui_preferences.c.17.o build/src/c/timer_ui_state.c.17.o build/emery/appinfo.auto.c.17.o build/emery/src/resource_ids.auto.c.17.o build/src/message_keys.auto.c.17.o -> build/emery/pebble-app.elf
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/emery/pebble-app.elf has a LOAD segment with RWX permissions
+
+[53/53] Processing emery | memory_usage_report: build/emery/pebble-app.elf build/emery/app_resources.pbpack
+-------------------------------------------------------
+EMERY APP MEMORY USAGE
+Total size of resources:        14838 bytes / 256.0KB
+Total footprint in RAM:         41988 bytes / 128.0KB
+Free RAM available (heap):      89084 bytes
+------------------------------------------------------- 
+package.json declares no usesPermissions: on the phone, this app's JavaScript can't make network requests and has to ask for anything else it uses, such as location. Declare them, or set '"manifestVersion": 1' to keep the old behaviour.
+[54/59] Compiling gabbro | /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/gabbro/pebble-app.raw.bin: build/gabbro/pebble-app.elf -> build/gabbro/pebble-app.raw.bin
+[55/59] Compiling emery | /home/xela/Projekty/xoce/Watch/pebble-app-timer/build/emery/pebble-app.raw.bin: build/emery/pebble-app.elf -> build/emery/pebble-app.raw.bin
+[56/59] Processing merge_js: src/pkjs/alarm-preferences.js src/pkjs/index.js src/pkjs/settings-page.js src/pkjs/settings.js src/pkjs/ui-preferences.js -> build/pebble-js-app.js build/pebble-js-app.js.map
+[57/59] Processing emery | inject-metadata: build/emery/pebble-app.raw.bin build/emery/pebble-app.elf build/emery/app_resources.pbpack -> build/emery/pebble-app.bin
+[58/59] Processing gabbro | inject-metadata: build/gabbro/pebble-app.raw.bin build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack -> build/gabbro/pebble-app.bin
+[59/59] Compiling app_bundle: build/appinfo.json -> build/pebble-app-timer.pbw
+Waf: Leaving directory `/home/xela/Projekty/xoce/Watch/pebble-app-timer/build'
+'build' finished successfully (3.787s)
+/home/xela/Projekty/xoce/Watch/pebble-app-timer/build/candidate/Timer-1.0.2.pbw
+/home/xela/Projekty/xoce/Watch/pebble-app-timer/build/candidate/Timer-1.0.2-debug.zip

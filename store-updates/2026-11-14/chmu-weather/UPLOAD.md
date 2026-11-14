@@ -1,12 +1,10 @@
-# ČHMÚ Weather — upload files
+# ČHMÚ Weather 1.0.3 — Store upload
 
-[Existing Store listing](https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed) · [Source on GitHub](https://github.com/xefensor/pebble-chmu-weather/tree/feat/xoce-provider-integration)
+[Store listing](https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed) · [Exact source commit](https://github.com/xefensor/pebble-chmu-weather/commit/ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251)
 
-Reviewed candidate: `CHMU-Weather-1.0.2.pbw` · UUID `00866104-6ce5-4ae3-952f-9800f437442c`.
-
-The live Store already has version **1.0.2**. Its downloaded PBW differs from this candidate. Do not upload this as another release with the same numeric version. Prepare a new version for a changed binary, then use matching new-feature screenshots/copy. This folder preserves the reviewed bytes.
-
-Paste `description.txt` into the description field. `release-notes.txt` belongs to the matching binary update. `listing.json` preserves the source listing metadata; `upload-map.json` names the files in this folder.
+1. Upload **`CHMU-Weather-1.0.3.pbw`** as the new **1.0.3** version, replacing public 1.0.2.
+2. Paste `description.txt` into the description and `release-notes.txt` into the version notes.
+3. Use the platform banner PNGs and raw screenshot PNGs below. `upload-map.json` gives the exact field mapping.
 
 `description-cs.txt` is the Czech description.
 
@@ -15,6 +13,6 @@ Paste `description.txt` into the description field. `release-notes.txt` belongs 
 - `icon-small-80.png` — 80×80
 - `icon-large-144.png` — 144×144
 
-This is a phone plugin. It has no watch screenshot or Store banner. The Weather marketing banner in the design-source archive is website-only.
+Phone plugin: no native watch screenshots or Store banner.
 
-SVGs, product marks, provenance and licence files are editing/reference material. Native screenshot PNGs are unframed and unchanged. Product marks are website artwork, not extra Store icon fields.
+SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with this new patch was verified. No new physical-device test is claimed.

@@ -1,0 +1,32 @@
+
+> halftone@1.10.2 check:artifact
+> python3 scripts/check-candidate.py
+
+{
+  "bodyFonts": {
+    "sizes": [
+      14,
+      16,
+      20,
+      22,
+      24,
+      26,
+      28,
+      32
+    ],
+    "glyphsPerSize": 920,
+    "exactAscentDescentPairs": 7360,
+    "codepointRanges": 76,
+    "linkedExactTables": true
+  },
+  "pbw": "/home/xela/Projekty/xoce/Watch/pebble-watchface-halftone/build/candidate/Halftone-1.10.2.pbw",
+  "sha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
+  "nativeBytes": 67020,
+  "nativePayloadsUnchanged": true,
+  "firaGeometryMatches": true,
+  "nativePreviewCodeAndResourcesMatch": true,
+  "checks": "source fingerprints, package identity, keys, permissions, navigation, settings, native payloads, linked Fira tables"
+}
+{'platforms': {'emery': {'binaryBytes': 67020, 'loadedBytes': 64588, 'staticBytes': 64840, 'runtimeMemoryBudgetBytes': 66232, 'resourceBytes': 260444, 'resources': 8, 'nativeSha256': '3b07913ead16a57b20f1778e2e1c4136eba62285cc2cd7654e430166477f299a', 'resourceSha256': 'db9ae1bc039026afe77bb1f0a775319c0aa00b5a46de706a9d410deaa209d520'}, 'gabbro': {'binaryBytes': 67668, 'loadedBytes': 65236, 'staticBytes': 65496, 'runtimeMemoryBudgetBytes': 65576, 'resourceBytes': 260444, 'resources': 8, 'nativeSha256': 'ad61afd3f006514da2b66fe0a240f99b6ea9749685b2c84a5ffe5053aaca8148', 'resourceSha256': 'db9ae1bc039026afe77bb1f0a775319c0aa00b5a46de706a9d410deaa209d520'}}, 'scope': 'Exact SDK/ELF/PBW identity and limits; runtime heap and physical behavior need separate checks'}
+{'emery': {'fontsWithIdenticalPixelsAndMetrics': 8, 'sourceIdenticalRawAssets': 0}, 'gabbro': {'fontsWithIdenticalPixelsAndMetrics': 8, 'sourceIdenticalRawAssets': 0}}
+Round 2 preview renderer identity: PASS

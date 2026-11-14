@@ -1,0 +1,9 @@
+
+> pebble-app-timer@1.0.2 check:artifact
+> python3 scripts/check-artifact.py
+
+Packaged Timer settings: exact active-writer confirmation, Android teardown and independent appearance transport passed
+Packaged Timer PKJS, numeric keys, schema 4 owner snapshots/navigation, compatibility sources, multi-slot replacement, acknowledgement, Reset withdrawal/new-run Start and cold reload passed.
+17 native locale resources verified; glyph rendering/fallback uses OS fonts (emulator checks separately).
+Timer candidate: identity, current inputs, runtime, settings and exact fonts PASS
+{'platforms': {'emery': {'binaryBytes': 38360, 'loadedBytes': 37720, 'staticBytes': 41988, 'runtimeMemoryBudgetBytes': 89084, 'resourceBytes': 14838, 'resources': 1, 'nativeSha256': 'db2172dfacbd4017cdfe1c95a75396294baa06dfd3447e7ab670d61c538aea1a', 'resourceSha256': '42f9180a4dbc22c617346fb11a8609765ac8092709de5032e5d5a971af277e68'}, 'gabbro': {'binaryBytes': 41728, 'loadedBytes': 41088, 'staticBytes': 46140, 'runtimeMemoryBudgetBytes': 84932, 'resourceBytes': 14838, 'resources': 1, 'nativeSha256': '7c4d5be70dd081ab66ff5bcfc89862327ce45c56b2c690606a5175c7b6348b29', 'resourceSha256': '42f9180a4dbc22c617346fb11a8609765ac8092709de5032e5d5a971af277e68'}}, 'scope': 'Exact SDK/ELF/PBW identity and limits; runtime heap and physical behavior need separate checks'}

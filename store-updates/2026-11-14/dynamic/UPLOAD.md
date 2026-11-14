@@ -1,18 +1,16 @@
-# Dynamic — upload files
+# Dynamic 1.0.1 — Store upload
 
-[Existing Store listing](https://apps.repebble.com/5db601a9303a4eb7baa90331) · [Source on GitHub](https://github.com/xefensor/pebble-watchface-dynamic/tree/feat/native-pebble-ui)
+[Store listing](https://apps.repebble.com/5db601a9303a4eb7baa90331) · [Exact source commit](https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c)
 
-Reviewed candidate: `Dynamic-1.0.0.pbw` · UUID `cc1281f1-3b4d-45b5-b235-6881b1fd8fbd`.
-
-The live Store already has version **1.0.0**. Its downloaded PBW differs from this candidate. Do not upload this as another release with the same numeric version. Prepare a new version for a changed binary, then use matching new-feature screenshots/copy. This folder preserves the reviewed bytes.
-
-Paste `description.txt` into the description field. `release-notes.txt` belongs to the matching binary update. `listing.json` preserves the source listing metadata; `upload-map.json` names the files in this folder.
+1. Upload **`Dynamic-1.0.1.pbw`** as the new **1.0.1** version, replacing public 1.0.0.
+2. Paste `description.txt` into the description and `release-notes.txt` into the version notes.
+3. Use the platform banner PNGs and raw screenshot PNGs below. `upload-map.json` gives the exact field mapping.
 
 ## Time 2 / Emery
 
 Banner: `emery-family-banner.png` (720×320).
 
-Standalone screenshots, in order:
+Screenshots, in order:
 
 1. `emery-store-20261114-columns.png`
 2. `emery-store-20261114-four-split.png`
@@ -24,7 +22,7 @@ Standalone screenshots, in order:
 
 Banner: `gabbro-family-banner.png` (720×320).
 
-Standalone screenshots, in order:
+Screenshots, in order:
 
 1. `gabbro-store-20261114-columns.png`
 2. `gabbro-store-20261114-four-split.png`
@@ -32,4 +30,4 @@ Standalone screenshots, in order:
 4. `gabbro-store-20261114-activities.png`
 5. `gabbro-store-20261114-peek.png`
 
-SVGs, product marks, provenance and licence files are editing/reference material. Native screenshot PNGs are unframed and unchanged. Product marks are website artwork, not extra Store icon fields.
+SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with this new patch was verified. No new physical-device test is claimed.

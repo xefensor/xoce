@@ -1,0 +1,5 @@
+
+> pebble-app-timer@1.0.2 check:config
+> node scripts/generate-config.cjs --check
+
+Shared configuration template: PASS

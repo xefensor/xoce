@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-11-14T17:34:12.468548+00:00",
+  "products": [
+    {
+      "product": "Dynamic",
+      "preparedVersion": "1.0.1",
+      "liveVersion": "1.0.0",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+      "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
+      "sourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c"
+    },
+    {
+      "product": "Halftone",
+      "preparedVersion": "1.10.2",
+      "liveVersion": "1.10.1",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/d4dd5046-53be-4624-99e8-46e0b377fe66",
+      "storeUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
+      "sourceCommit": "899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49"
+    },
+    {
+      "product": "Timer",
+      "preparedVersion": "1.0.2",
+      "liveVersion": "1.0.0",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
+      "sourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c"
+    },
+    {
+      "product": "Dashboard",
+      "preparedVersion": "1.0.1",
+      "liveVersion": "1.0.0",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+      "storeUrl": "https://apps.repebble.com/603d814e961c40308c98ce63",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
+      "sourceCommit": "aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af"
+    },
+    {
+      "product": "Open Activity",
+      "preparedVersion": "1.0.1",
+      "liveVersion": "1.0.0",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+      "storeUrl": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
+      "sourceCommit": "4fd2e10791845ca148a6c231817ad5e379c8b47d"
+    },
+    {
+      "product": "ČHMÚ Weather",
+      "preparedVersion": "1.0.3",
+      "liveVersion": "1.0.2",
+      "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/00866104-6ce5-4ae3-952f-9800f437442c",
+      "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+      "preparedVersionAbsentFromPublicStoreHistory": true,
+      "githubTagAbsent": true,
+      "pbwSha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
+      "sourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251"
+    }
+  ],
+  "scope": "Public Store history and GitHub tags. Private Developer Dashboard drafts are not exposed by the public API."
+}

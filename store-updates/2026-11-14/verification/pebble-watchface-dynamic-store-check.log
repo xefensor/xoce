@@ -1,7 +1,7 @@
 {
   "result": "PASS",
-  "kit": "/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/store/Dynamic-1.0.0-store-package.zip",
-  "sha256": "255c489280e8ae2979b1be9cc7611750260449415ee8e840d8069d6e0ce03c5a",
+  "kit": "/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/store/Dynamic-1.0.1-store-package.zip",
+  "sha256": "34ac28a118c434a1574b1b467c805d47532a33b4d7446d679b37b8d65d9dabc2",
   "files": 30,
   "publicationReady": false
 }

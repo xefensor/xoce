@@ -1,0 +1,5 @@
+
+> dynamic-watchface@1.0.1 check:config
+> node scripts/generate-config.cjs --check
+
+Bundled stay-open Clay configuration: PASS

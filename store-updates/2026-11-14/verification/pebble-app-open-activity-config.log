@@ -1,0 +1,5 @@
+
+> pebble-app-open-activity@1.0.1 check:config
+> node scripts/generate-config.cjs --check
+
+Shared configuration template: PASS

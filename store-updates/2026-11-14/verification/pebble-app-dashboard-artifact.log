@@ -1,0 +1,8 @@
+
+> pebble-app-dashboard@1.0.1 check:artifact
+> python3 scripts/check-artifact.py
+
+17 native locale resources verified; OS glyph rendering/fallback is checked separately in the emulator.
+Dashboard packaged artifact: PASS
+6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8 Dashboard-1.0.1.pbw
+{'platforms': {'emery': {'binaryBytes': 36224, 'loadedBytes': 35448, 'staticBytes': 49392, 'runtimeMemoryBudgetBytes': 81680, 'resourceBytes': 24153, 'resources': 2, 'nativeSha256': '5fd32e8db01c5add0115b4f5176984eccb71aaaab66ff2cb047c1d9b167acbc4', 'resourceSha256': '61af70510ee20669081cbaa0256a509c332b5f2bcb53287122ff270fb00dd615'}, 'gabbro': {'binaryBytes': 39856, 'loadedBytes': 39080, 'staticBytes': 55120, 'runtimeMemoryBudgetBytes': 75952, 'resourceBytes': 24153, 'resources': 2, 'nativeSha256': '24a704615b460190ed2d5f6256f33abf989b8defe6feee52088a6a19f5a806ee', 'resourceSha256': '61af70510ee20669081cbaa0256a509c332b5f2bcb53287122ff270fb00dd615'}}, 'scope': 'Exact SDK/ELF/PBW identity and limits; runtime heap and physical behavior need separate checks'}

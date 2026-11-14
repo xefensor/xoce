@@ -1,74 +1,74 @@
 {
-  "scope": "Actual checked package manifests and bytes; not Store publication or hardware verification.",
+  "scope": "Freshly built, audited and frozen new numeric versions for the 2026-11-14 Store update. Original captures reused with renderer equivalence proof; not publication or physical-device verification.",
   "artifacts": [
     {
       "product": "Dynamic",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
-      "sourceCommit": "9f3089622d839e8c8c7f1165630b151a38278cb9",
-      "sourceFile": "Dynamic-1.0.0.pbw"
+      "sha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
+      "sourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c",
+      "sourceFile": "Dynamic-1.0.1.pbw"
     },
     {
       "product": "Halftone",
-      "version": "1.10.1",
+      "version": "1.10.2",
       "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "b568c2d6d559833863d3487d387d94cdd6e945ab674ba0b45949f1fa7aa2b8c3",
-      "sourceCommit": "74686ac3012fe8307f6747b75f433831cb8a8816",
-      "sourceFile": "Halftone-1.10.1.pbw"
+      "sha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
+      "sourceCommit": "899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
+      "sourceFile": "Halftone-1.10.2.pbw"
     },
     {
       "product": "Timer",
-      "version": "1.0.0",
+      "version": "1.0.2",
       "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
-      "sourceCommit": "6c0e5c7e6dc02371e9a2f82dd2b6c7d37b6f2dc7",
-      "sourceFile": "Timer-1.0.0.pbw"
+      "sha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
+      "sourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c",
+      "sourceFile": "Timer-1.0.2.pbw"
     },
     {
       "product": "Dashboard",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "a0c90d9965278b68b786ad84933767513f38371ad1065ae86a6d1ca09aca9363",
-      "sourceCommit": "0610cedeaacfd9559e1fb5795a72478965a73ffe",
-      "sourceFile": "Dashboard-1.0.0.pbw"
+      "sha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
+      "sourceCommit": "aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
+      "sourceFile": "Dashboard-1.0.1.pbw"
     },
     {
       "product": "Open Activity",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "8b3c43d0e6587918dc46f7f94ed0251679e591a19bb80a6b9cc9763a77c15982",
-      "sourceCommit": "da46b1ded18f578ee225f281e18247215a701824",
-      "sourceFile": "Open-Activity-1.0.0.pbw"
+      "sha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
+      "sourceCommit": "4fd2e10791845ca148a6c231817ad5e379c8b47d",
+      "sourceFile": "Open-Activity-1.0.1.pbw"
     },
     {
       "product": "ČHMÚ Weather",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
       "watchPlatforms": [],
-      "sha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
-      "sourceCommit": "acb145d0aa4ec5af30c6b83433337f3ebd57fe5d",
-      "sourceFile": "CHMU-Weather-1.0.2.pbw"
+      "sha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
+      "sourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
+      "sourceFile": "CHMU-Weather-1.0.3.pbw"
     }
   ]
 }

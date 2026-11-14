@@ -1,0 +1,20 @@
+
+> pebble-app-open-activity@1.0.1 check:artifact
+> python3 scripts/check-artifact.py
+
+Shared configuration template: PASS
+17 native locale resources verified; OS glyph rendering/fallback is checked separately in the emulator.
+{
+  "pbw": "/home/xela/Projekty/xoce/Watch/pebble-app-open-activity/build/candidate/Open-Activity-1.0.1.pbw",
+  "sha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
+  "nativeFileBytes": 8144,
+  "nativeLoadedBytes": 7996,
+  "nativeVirtualBytes": 9612,
+  "phoneBundleBytes": 191904,
+  "debugArchiveBytes": 215378,
+  "minificationIdentity": "PASS",
+  "permissions": [
+    "LaunchApps"
+  ]
+}
+{'platforms': {'emery': {'binaryBytes': 8144, 'loadedBytes': 7996, 'staticBytes': 9612, 'runtimeMemoryBudgetBytes': 121460, 'resourceBytes': 9478, 'resources': 1, 'nativeSha256': '77a8b4f7b3854539b80ab8f9e49522044775d2d4139e25bdb70e61b4cf5f75a1', 'resourceSha256': 'f1392fa3842910e4d42e84577bf9457dcd4301f3804e10a8d3b3d0275e5e89bb'}, 'gabbro': {'binaryBytes': 8960, 'loadedBytes': 8812, 'staticBytes': 10440, 'runtimeMemoryBudgetBytes': 120632, 'resourceBytes': 9478, 'resources': 1, 'nativeSha256': 'e07c90f308eb458b4320d2d332ea571be855921b64068962a441c3b7fdadd2ae', 'resourceSha256': 'f1392fa3842910e4d42e84577bf9457dcd4301f3804e10a8d3b3d0275e5e89bb'}}, 'scope': 'Exact SDK/ELF/PBW identity and limits; runtime heap and physical behavior need separate checks'}

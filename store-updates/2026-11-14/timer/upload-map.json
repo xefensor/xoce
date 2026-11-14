@@ -1,30 +1,14 @@
 {
   "product": "Timer",
-  "type": "watchapp",
+  "version": "1.0.2",
   "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-  "pbw": "Timer-1.0.0.pbw",
-  "version": "1.0.0",
-  "pbwSha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
-  "runtimeSourceCommit": "e86822fb61da68f041fa13566f079209d39b2d93",
-  "currentSourceCommit": "7a9656bf790596318d2b621a6895a72279137811",
-  "githubBranch": "https://github.com/xefensor/pebble-app-timer/tree/feat/native-timer-checkpoint",
-  "githubCommit": "https://github.com/xefensor/pebble-app-timer/commit/7a9656bf790596318d2b621a6895a72279137811",
-  "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
-  "publicStoreCheck": {
-    "product": "Timer",
-    "repo": "pebble-app-timer",
-    "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-    "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
-    "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-    "liveVersion": "1.0.0",
-    "livePbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/2f8f8cfd4e7e442fb724dac7/1.0.0/d1f29b1a-5491-4965-adc7-0c547667320e.pbw",
-    "livePbwSha256": "317f212f1d4739e9fd72dd9bbf1c86e290d8ae606fd9b05e20c584a0f29392bb",
-    "preparedVersion": "1.0.0",
-    "preparedPbwSha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
-    "exactBytesMatch": false,
-    "numericVersionAlreadyPublished": true
-  },
-  "binaryUploadStatus": "Candidate only: this numeric version is already public; prepare a new version before a changed binary upload.",
+  "type": "watchapp",
+  "pbw": "Timer-1.0.2.pbw",
+  "pbwSha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
+  "sourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c",
+  "previousStoreVersion": "1.0.0",
+  "newNumericVersion": true,
+  "publicVersionAndTagAvailabilityChecked": true,
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
@@ -51,12 +35,8 @@
     "icon-small-80.png",
     "icon-large-144.png"
   ],
-  "editingOnly": [
-    "emery-family-banner.svg",
-    "gabbro-family-banner.svg",
-    "icon-source.svg",
-    "product-mark-144.png",
-    "product-mark.svg"
-  ],
-  "licences": "licences/"
+  "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+  "githubBranch": "https://github.com/xefensor/pebble-app-timer/tree/feat/native-timer-checkpoint",
+  "githubCommit": "https://github.com/xefensor/pebble-app-timer/commit/575db8a52fd61a378db044fe01dd8bb378bdca2c",
+  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
 }

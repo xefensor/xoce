@@ -1,0 +1,5 @@
+
+> halftone@1.10.2 check:config
+> python3 scripts/generate-config.py --check
+
+Bundled stay-open Clay configuration: PASS

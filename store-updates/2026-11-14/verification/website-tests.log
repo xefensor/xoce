@@ -6,8 +6,8 @@
 > xoce@0.1.0 check
 > astro check
 
-18:00:56 [types] Generated 47ms
-18:00:56 [check] Getting diagnostics for Astro files in /home/xela/Projekty/xoce/XOCE-website-update...
+18:32:16 [types] Generated 45ms
+18:32:16 [check] Getting diagnostics for Astro files in /home/xela/Projekty/xoce/XOCE-website-update...
 [96mbuild/qa/final-focused-browser.mjs[0m:[93m318[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'guideContentsJump' is declared but its value is never read.
 
 [7m318[0m async function guideContentsJump(scripting = true) {
@@ -90,98 +90,93 @@
 [7m16[0m const libraryCount = projects.length - products.length;
 [7m  [0m [93m      ~~~~~~~~~~~~[0m
 
-[96msrc/pages/index.astro[0m:[93m9[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'dynamic' is declared but its value is never read.
-
-[7m9[0m const dynamic=consumerProjects.find(p=>p.slug==='dynamic')!;
-[7m [0m [93m      ~~~~~~~[0m
-
 Result (49 files): 
 - 0 errors
 - 0 warnings
-- 21 hints
+- 20 hints
 
 
 > xoce@0.1.0 build
 > astro build
 
-18:00:59 [types] Generated 33ms
-18:00:59 [build] output: "static"
-18:00:59 [build] mode: "static"
-18:00:59 [build] directory: /home/xela/Projekty/xoce/XOCE-website-update/dist/
-18:00:59 [build] Collecting build info...
-18:00:59 [build] ✓ Completed in 67ms.
-18:00:59 [build] Building static entrypoints...
-18:00:59 [WARN] [vite] 
+18:32:19 [types] Generated 34ms
+18:32:19 [build] output: "static"
+18:32:19 [build] mode: "static"
+18:32:19 [build] directory: /home/xela/Projekty/xoce/XOCE-website-update/dist/
+18:32:19 [build] Collecting build info...
+18:32:19 [build] ✓ Completed in 70ms.
+18:32:19 [build] Building static entrypoints...
+18:32:19 [WARN] [vite] 
 /xoce/fonts/xoce/FiraSans-Regular.woff referenced in /xoce/fonts/xoce/FiraSans-Regular.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
-18:00:59 [WARN] [vite] 
+18:32:19 [WARN] [vite] 
 /xoce/fonts/xoce/FiraSans-Medium.woff referenced in /xoce/fonts/xoce/FiraSans-Medium.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
-18:00:59 [WARN] [vite] 
+18:32:19 [WARN] [vite] 
 /xoce/fonts/xoce/FiraSans-SemiBold.woff referenced in /xoce/fonts/xoce/FiraSans-SemiBold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
-18:00:59 [WARN] [vite] 
+18:32:19 [WARN] [vite] 
 /xoce/fonts/xoce/FiraSansCondensed-Bold.woff referenced in /xoce/fonts/xoce/FiraSansCondensed-Bold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
-18:00:59 [WARN] [vite] 
+18:32:19 [WARN] [vite] 
 /xoce/fonts/xoce/FiraSansCondensed-ExtraBold.woff referenced in /xoce/fonts/xoce/FiraSansCondensed-ExtraBold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
-18:00:59 [vite] ✓ built in 413ms
-18:00:59 [vite] ✓ built in 25ms
-18:00:59 [build] Rearranging server assets...
+18:32:20 [vite] ✓ built in 473ms
+18:32:20 [vite] ✓ built in 26ms
+18:32:20 [build] Rearranging server assets...
 
  generating static routes 
-18:00:59   ├─ /404.html (+11ms) 
-18:00:59   ├─ /about/index.html (+4ms) 
-18:00:59   ├─ /android/index.html (+5ms) 
-18:00:59   ├─ /design/index.html (+3ms) 
-18:00:59   ├─ /developers/index.html (+3ms) 
-18:00:59   ├─ /docs/android/phone/index.html (+2ms) 
-18:00:59   ├─ /docs/design/interaction/index.html (+4ms) 
-18:00:59   ├─ /docs/design/pebble-ui-system/index.html (+3ms) 
-18:00:59   ├─ /docs/design/principles/index.html (+3ms) 
-18:00:59   ├─ /docs/design/ui-patterns/index.html (+3ms) 
-18:00:59   ├─ /docs/design/visual-identity/index.html (+2ms) 
-18:00:59   ├─ /docs/develop/activities/index.html (+3ms) 
-18:00:59   ├─ /docs/develop/building/index.html (+2ms) 
-18:00:59   ├─ /docs/develop/core/index.html (+2ms) 
-18:00:59   ├─ /docs/getting-started/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/activities/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/chmu-weather/index.html (+3ms) 
-18:00:59   ├─ /docs/pebble/controls/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/halftone/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/phone-connection/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/setup/index.html (+2ms) 
-18:00:59   ├─ /docs/pebble/troubleshooting/index.html (+2ms) 
-18:00:59   ├─ /docs/project/licensing/index.html (+3ms) 
-18:00:59   ├─ /docs/index.html (+2ms) 
-18:00:59   ├─ /pebble/index.html (+2ms) 
-18:00:59   ├─ /projects/chmu-weather/privacy/index.html (+2ms) 
-18:00:59   ├─ /projects/chmu-weather/support/index.html (+1ms) 
-18:00:59   ├─ /projects/dashboard/privacy/index.html (+1ms) 
-18:00:59   ├─ /projects/dashboard/support/index.html (+2ms) 
-18:00:59   ├─ /projects/dynamic/privacy/index.html (+2ms) 
-18:00:59   ├─ /projects/dynamic/support/index.html (+2ms) 
-18:00:59   ├─ /projects/halftone/privacy/index.html (+2ms) 
-18:00:59   ├─ /projects/halftone/support/index.html (+1ms) 
-18:00:59   ├─ /projects/open-activity/privacy/index.html (+2ms) 
-18:00:59   ├─ /projects/open-activity/support/index.html (+1ms) 
-18:00:59   ├─ /projects/timer/privacy/index.html (+1ms) 
-18:00:59   ├─ /projects/timer/support/index.html (+1ms) 
-18:00:59   ├─ /projects/phone/index.html (+2ms) 
-18:00:59   ├─ /projects/pebble-phone/index.html (+1ms) 
-18:00:59   ├─ /projects/dynamic/index.html (+2ms) 
-18:00:59   ├─ /projects/dashboard/index.html (+1ms) 
-18:00:59   ├─ /projects/timer/index.html (+1ms) 
-18:00:59   ├─ /projects/open-activity/index.html (+1ms) 
-18:00:59   ├─ /projects/halftone/index.html (+1ms) 
-18:00:59   ├─ /projects/chmu-weather/index.html (+1ms) 
-18:00:59   ├─ /projects/activities/index.html (+2ms) 
-18:00:59   ├─ /projects/core/index.html (+1ms) 
-18:00:59   ├─ /projects/index.html (+2ms) 
-18:00:59   ├─ /search.json (+6ms) 
-18:00:59   ├─ /users/index.html (+2ms) 
-18:00:59   ├─ /index.html (+2ms) 
-18:00:59 ✓ Completed in 139ms.
+18:32:20   ├─ /404.html (+10ms) 
+18:32:20   ├─ /about/index.html (+4ms) 
+18:32:20   ├─ /android/index.html (+4ms) 
+18:32:20   ├─ /design/index.html (+4ms) 
+18:32:20   ├─ /developers/index.html (+3ms) 
+18:32:20   ├─ /docs/android/phone/index.html (+2ms) 
+18:32:20   ├─ /docs/design/interaction/index.html (+5ms) 
+18:32:20   ├─ /docs/design/pebble-ui-system/index.html (+4ms) 
+18:32:20   ├─ /docs/design/principles/index.html (+4ms) 
+18:32:20   ├─ /docs/design/ui-patterns/index.html (+4ms) 
+18:32:20   ├─ /docs/design/visual-identity/index.html (+4ms) 
+18:32:20   ├─ /docs/develop/activities/index.html (+5ms) 
+18:32:20   ├─ /docs/develop/building/index.html (+4ms) 
+18:32:20   ├─ /docs/develop/core/index.html (+4ms) 
+18:32:20   ├─ /docs/getting-started/index.html (+6ms) 
+18:32:20   ├─ /docs/pebble/activities/index.html (+5ms) 
+18:32:20   ├─ /docs/pebble/chmu-weather/index.html (+7ms) 
+18:32:20   ├─ /docs/pebble/controls/index.html (+4ms) 
+18:32:20   ├─ /docs/pebble/halftone/index.html (+5ms) 
+18:32:20   ├─ /docs/pebble/phone-connection/index.html (+4ms) 
+18:32:20   ├─ /docs/pebble/setup/index.html (+4ms) 
+18:32:20   ├─ /docs/pebble/troubleshooting/index.html (+3ms) 
+18:32:20   ├─ /docs/project/licensing/index.html (+4ms) 
+18:32:20   ├─ /docs/index.html (+3ms) 
+18:32:20   ├─ /pebble/index.html (+4ms) 
+18:32:20   ├─ /projects/chmu-weather/privacy/index.html (+5ms) 
+18:32:20   ├─ /projects/chmu-weather/support/index.html (+3ms) 
+18:32:20   ├─ /projects/dashboard/privacy/index.html (+3ms) 
+18:32:20   ├─ /projects/dashboard/support/index.html (+3ms) 
+18:32:20   ├─ /projects/dynamic/privacy/index.html (+3ms) 
+18:32:20   ├─ /projects/dynamic/support/index.html (+3ms) 
+18:32:20   ├─ /projects/halftone/privacy/index.html (+4ms) 
+18:32:20   ├─ /projects/halftone/support/index.html (+4ms) 
+18:32:20   ├─ /projects/open-activity/privacy/index.html (+3ms) 
+18:32:20   ├─ /projects/open-activity/support/index.html (+2ms) 
+18:32:20   ├─ /projects/timer/privacy/index.html (+2ms) 
+18:32:20   ├─ /projects/timer/support/index.html (+2ms) 
+18:32:20   ├─ /projects/phone/index.html (+6ms) 
+18:32:20   ├─ /projects/pebble-phone/index.html (+2ms) 
+18:32:20   ├─ /projects/dynamic/index.html (+4ms) 
+18:32:20   ├─ /projects/dashboard/index.html (+2ms) 
+18:32:20   ├─ /projects/timer/index.html (+2ms) 
+18:32:20   ├─ /projects/open-activity/index.html (+2ms) 
+18:32:20   ├─ /projects/halftone/index.html (+2ms) 
+18:32:20   ├─ /projects/chmu-weather/index.html (+2ms) 
+18:32:20   ├─ /projects/activities/index.html (+3ms) 
+18:32:20   ├─ /projects/core/index.html (+2ms) 
+18:32:20   ├─ /projects/index.html (+3ms) 
+18:32:20   ├─ /search.json (+6ms) 
+18:32:20   ├─ /users/index.html (+2ms) 
+18:32:20   ├─ /index.html (+2ms) 
+18:32:20 ✓ Completed in 209ms.
 
-18:00:59 [build] ✓ Completed in 686ms.
-18:00:59 [build] 50 page(s) built in 761ms
-18:00:59 [build] Complete!
+18:32:20 [build] ✓ Completed in 909ms.
+18:32:20 [build] 50 page(s) built in 989ms
+18:32:20 [build] Complete!
 
 > xoce@0.1.0 check:links
 > node scripts/check-site.mjs
@@ -190,18 +185,18 @@ Result (49 files):
   "passed": true,
   "base": "/xoce/",
   "pages": 50,
-  "internalReferences": 2567,
+  "internalReferences": 2564,
   "anchors": 499,
-  "referencedAssets": 72,
+  "referencedAssets": 71,
   "catalogueProducts": 6,
   "downloadableApps": 0,
   "plannedProjects": 0,
   "libraries": 2,
   "guides": 16,
-  "preservedNativeCaptures": 141,
+  "preservedNativeCaptures": 196,
   "currentNativeCaptures": 25,
-  "galleryScreenshots": 44,
-  "phoneSettingsPreviews": 8,
+  "galleryScreenshots": 43,
+  "phoneSettingsPreviews": 11,
   "pluginIcons": 2
 }
 
@@ -217,43 +212,43 @@ TAP version 13
 # Subtest: a preview never reaches the network or advertises an invented release
 ok 1 - a preview never reaches the network or advertises an invented release
   ---
-  duration_ms: 0.797744
+  duration_ms: 1.571782
   type: 'test'
   ...
 # Subtest: only the exact checked public release passes
 ok 2 - only the exact checked public release passes
   ---
-  duration_ms: 1.059151
+  duration_ms: 1.762914
   type: 'test'
   ...
 # Subtest: wrong UUID, old Store version, hidden release and missing Round 2 fail
 ok 3 - wrong UUID, old Store version, hidden release and missing Round 2 fail
   ---
-  duration_ms: 0.130945
+  duration_ms: 0.233106
   type: 'test'
   ...
 # Subtest: a mismatched artifact fails even when both release pages exist
 ok 4 - a mismatched artifact fails even when both release pages exist
   ---
-  duration_ms: 0.284248
+  duration_ms: 0.396895
   type: 'test'
   ...
 # Subtest: a plugin has no invented watch platform
 ok 5 - a plugin has no invented watch platform
   ---
-  duration_ms: 0.203179
+  duration_ms: 0.248351
   type: 'test'
   ...
 # Subtest: wrong release URLs, unavailable assets and API failures stop publication
 ok 6 - wrong release URLs, unavailable assets and API failures stop publication
   ---
-  duration_ms: 0.423848
+  duration_ms: 0.468088
   type: 'test'
   ...
 # Subtest: a GitHub prerelease cannot activate the stable Store launch
 ok 7 - a GitHub prerelease cannot activate the stable Store launch
   ---
-  duration_ms: 0.2539
+  duration_ms: 0.267509
   type: 'test'
   ...
 1..7
@@ -264,4 +259,4 @@ ok 7 - a GitHub prerelease cannot activate the stable Store launch
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 11.037894
+# duration_ms 17.518876

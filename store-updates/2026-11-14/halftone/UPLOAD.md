@@ -1,18 +1,16 @@
-# Halftone — upload files
+# Halftone 1.10.2 — Store upload
 
-[Existing Store listing](https://apps.repebble.com/48d7f4eab704414c8bc1fa7e) · [Source on GitHub](https://github.com/xefensor/halftone-watchface/tree/feat/native-pebble-ui)
+[Store listing](https://apps.repebble.com/48d7f4eab704414c8bc1fa7e) · [Exact source commit](https://github.com/xefensor/halftone-watchface/commit/899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49)
 
-Reviewed candidate: `Halftone-1.10.1.pbw` · UUID `d4dd5046-53be-4624-99e8-46e0b377fe66`.
-
-The live Store already has version **1.10.1**. Its downloaded PBW differs from this candidate. Do not upload this as another release with the same numeric version. Prepare a new version for a changed binary, then use matching new-feature screenshots/copy. This folder preserves the reviewed bytes.
-
-Paste `description.txt` into the description field. `release-notes.txt` belongs to the matching binary update. `listing.json` preserves the source listing metadata; `upload-map.json` names the files in this folder.
+1. Upload **`Halftone-1.10.2.pbw`** as the new **1.10.2** version, replacing public 1.10.1.
+2. Paste `description.txt` into the description and `release-notes.txt` into the version notes.
+3. Use the platform banner PNGs and raw screenshot PNGs below. `upload-map.json` gives the exact field mapping.
 
 ## Time 2 / Emery
 
 Banner: `emery-family-banner.png` (720×320).
 
-Standalone screenshots, in order:
+Screenshots, in order:
 
 1. `emery-store-20261114-idle.png`
 2. `emery-store-20261114-music.png`
@@ -24,7 +22,7 @@ Standalone screenshots, in order:
 
 Banner: `gabbro-family-banner.png` (720×320).
 
-Standalone screenshots, in order:
+Screenshots, in order:
 
 1. `gabbro-store-20261114-idle.png`
 2. `gabbro-store-20261114-music.png`
@@ -32,4 +30,4 @@ Standalone screenshots, in order:
 4. `gabbro-store-20261114-dark.png`
 5. `gabbro-store-20261114-peek.png`
 
-SVGs, product marks, provenance and licence files are editing/reference material. Native screenshot PNGs are unframed and unchanged. Product marks are website artwork, not extra Store icon fields.
+SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with this new patch was verified. No new physical-device test is claimed.

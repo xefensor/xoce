@@ -1,0 +1,100 @@
+
+> dynamic-watchface@1.0.1 build
+> python3 scripts/build.py
+
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+'distclean' finished successfully (0.009s)
+WARNING:pebble_tool.sdk.manager:eng-dash list failed (eng-dash request to /api/sdk/list failed: HTTPSConnectionPool(host='dash.repebble.com', port=443): Max retries exceeded with url: /api/sdk/list (Caused by NameResolutionError("HTTPSConnection(host='dash.repebble.com', port=443): Failed to resolve 'dash.repebble.com' ([Errno -2] Name or service not known)"))); falling back to https://sdk.repebble.com
+
+up to date in 200ms
+
+up to date in 182ms
+Setting top to                           : /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic 
+Setting out to                           : /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build 
+Checking for program 'webpack'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/node_modules/.bin/webpack 
+Found Pebble SDK for gabbro in:          : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/gabbro 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+Found Pebble SDK for emery in:           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/emery 
+Checking for program 'gcc, cc'           : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-gcc 
+Checking for program 'ar'                : /home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/arm-none-eabi-ar 
+'configure' finished successfully (0.036s)
+Waf: Entering directory `/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build'
+[1/3] Creating message_key_json:  -> build/js/message_keys.json
+[2/3] Creating message_key_definitions:  -> build/src/message_keys.auto.c
+[3/3] Creating message_key_header:  -> build/include/message_keys.auto.h
+[ 4/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_22.reso
+[ 5/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_32.reso
+[ 6/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_14.reso
+[ 7/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_24.reso
+[ 8/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_26.reso
+[ 9/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_20.reso
+[10/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_28.reso
+[11/25] Compiling gabbro | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_16.reso
+[12/25] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/gabbro/appinfo.auto.c:  -> build/gabbro/appinfo.auto.c
+[13/25] Compiling gabbro | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/gabbro/pebble_app.ld.auto
+[14/25] Compiling gabbro | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.16.o
+[15/25] Creating gabbro | /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/appinfo.json:  -> build/appinfo.json
+[16/25] Processing gabbro | resource_ball: build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_14.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_16.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_20.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_22.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_24.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_26.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_28.reso build/gabbro/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_32.reso -> build/gabbro/system_resources.resball
+[17/25] Compiling gabbro | generate_resource_id_definitions: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.c
+[18/25] Compiling gabbro | generate_pbpack: build/gabbro/system_resources.resball -> build/gabbro/app_resources.pbpack
+[19/25] Compiling gabbro | generate_resource_id_header: build/gabbro/system_resources.resball -> build/gabbro/src/resource_ids.auto.h
+[20/25] Compiling gabbro | c: build/gabbro/src/resource_ids.auto.c -> build/gabbro/src/resource_ids.auto.c.16.o
+[21/25] Compiling gabbro | c: src/c/dynamic.c -> build/src/c/dynamic.c.16.o
+[22/25] Compiling gabbro | c: src/c/display_preferences.c -> build/src/c/display_preferences.c.16.o
+[23/25] Compiling gabbro | c: build/gabbro/appinfo.auto.c -> build/gabbro/appinfo.auto.c.16.o
+[24/25] Linking gabbro | cprogram: build/src/c/display_preferences.c.16.o build/src/c/dynamic.c.16.o build/gabbro/appinfo.auto.c.16.o build/gabbro/src/resource_ids.auto.c.16.o build/src/message_keys.auto.c.16.o -> build/gabbro/pebble-app.elf
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+lto-wrapper: note: see the '-flto' option documentation for more information
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/gabbro/pebble-app.elf has a LOAD segment with RWX permissions
+
+[25/25] Processing gabbro | memory_usage_report: build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack
+-------------------------------------------------------
+GABBRO APP MEMORY USAGE
+Total size of resources:        260444 bytes / 256.0KB
+Total footprint in RAM:         68251 bytes / 128.0KB
+Free RAM available (heap):      62821 bytes
+------------------------------------------------------- 
+[26/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_22.reso
+[27/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_32.reso
+[28/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_14.reso
+[29/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_24.reso
+[30/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_26.reso
+[31/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_20.reso
+[32/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_28.reso
+[33/47] Compiling emery | reso: resources/fonts/RobotoCondensed-Bold.ttf -> build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_16.reso
+[34/47] Creating emery | /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/emery/appinfo.auto.c:  -> build/emery/appinfo.auto.c
+[35/47] Compiling emery | subst: ../.release-tools/data/pebble-sdk/SDKs/current/sdk-core/pebble/common/pebble_app.ld.template -> build/emery/pebble_app.ld.auto
+[36/47] Compiling emery | c: build/src/message_keys.auto.c -> build/src/message_keys.auto.c.17.o
+[38/47] Processing emery | resource_ball: build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_14.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_16.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_20.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_22.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_24.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_26.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_28.reso build/emery/resources/fonts/RobotoCondensed-Bold.ttf.FONT_BODY_32.reso -> build/emery/system_resources.resball
+[39/47] Compiling emery | generate_resource_id_definitions: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.c
+[40/47] Compiling emery | generate_pbpack: build/emery/system_resources.resball -> build/emery/app_resources.pbpack
+[41/47] Compiling emery | generate_resource_id_header: build/emery/system_resources.resball -> build/emery/src/resource_ids.auto.h
+[42/47] Compiling emery | c: build/emery/src/resource_ids.auto.c -> build/emery/src/resource_ids.auto.c.17.o
+[43/47] Compiling emery | c: src/c/dynamic.c -> build/src/c/dynamic.c.17.o
+[44/47] Compiling emery | c: src/c/display_preferences.c -> build/src/c/display_preferences.c.17.o
+[45/47] Compiling emery | c: build/emery/appinfo.auto.c -> build/emery/appinfo.auto.c.17.o
+[46/47] Linking emery | cprogram: build/src/c/display_preferences.c.17.o build/src/c/dynamic.c.17.o build/emery/appinfo.auto.c.17.o build/emery/src/resource_ids.auto.c.17.o build/src/message_keys.auto.c.17.o -> build/emery/pebble-app.elf
+lto-wrapper: warning: using serial compilation of 2 LTRANS jobs
+lto-wrapper: note: see the '-flto' option documentation for more information
+/home/xela/Projekty/xoce/Watch/.release-tools/data/pebble-sdk/SDKs/4.44/toolchain/arm-none-eabi/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/bin/ld: warning: /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/emery/pebble-app.elf has a LOAD segment with RWX permissions
+
+[47/47] Processing emery | memory_usage_report: build/emery/pebble-app.elf build/emery/app_resources.pbpack
+-------------------------------------------------------
+EMERY APP MEMORY USAGE
+Total size of resources:        260444 bytes / 256.0KB
+Total footprint in RAM:         68283 bytes / 128.0KB
+Free RAM available (heap):      62789 bytes
+------------------------------------------------------- 
+[48/53] Compiling gabbro | /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/gabbro/pebble-app.raw.bin: build/gabbro/pebble-app.elf -> build/gabbro/pebble-app.raw.bin
+[49/53] Compiling emery | /home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/emery/pebble-app.raw.bin: build/emery/pebble-app.elf -> build/emery/pebble-app.raw.bin
+[50/53] Processing merge_js: src/common/activity-navigation.js src/common/display-state.js src/common/display-words.js src/common/settings-config.js src/common/settings-state.js src/pkjs/activity-presentation.js src/pkjs/config.js src/pkjs/display-controller.js src/pkjs/index.js src/pkjs/localization.js src/pkjs/reading-label.js src/pkjs/settings-bridge.js src/pkjs/settings-page.js src/pkjs/settings-preview-all.js src/pkjs/settings-preview-round.js src/pkjs/settings-preview.js -> build/pebble-js-app.js build/pebble-js-app.js.map
+[51/53] Processing gabbro | inject-metadata: build/gabbro/pebble-app.raw.bin build/gabbro/pebble-app.elf build/gabbro/app_resources.pbpack -> build/gabbro/pebble-app.bin
+[52/53] Processing emery | inject-metadata: build/emery/pebble-app.raw.bin build/emery/pebble-app.elf build/emery/app_resources.pbpack -> build/emery/pebble-app.bin
+[53/53] Compiling app_bundle: build/appinfo.json -> build/pebble-watchface-dynamic.pbw
+Waf: Leaving directory `/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build'
+'build' finished successfully (10.429s)
+/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/candidate/Dynamic-1.0.1.pbw
+94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41
+/home/xela/Projekty/xoce/Watch/pebble-watchface-dynamic/build/candidate/Dynamic-1.0.1-debug.zip
+f55690327ec367fbbebb6f2e1b89bd2a882a92dc33063cfd70058f6b8a1b5a4e

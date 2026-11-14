@@ -1,30 +1,14 @@
 {
   "product": "ČHMÚ Weather",
-  "type": "plugin",
+  "version": "1.0.3",
   "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
-  "pbw": "CHMU-Weather-1.0.2.pbw",
-  "version": "1.0.2",
-  "pbwSha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
-  "runtimeSourceCommit": "362d59ff780deb764f2d337406e14f398fb321db",
-  "currentSourceCommit": "c3b4109f5a828ffc893a014542d3b23b7adea514",
-  "githubBranch": "https://github.com/xefensor/pebble-chmu-weather/tree/feat/xoce-provider-integration",
-  "githubCommit": "https://github.com/xefensor/pebble-chmu-weather/commit/c3b4109f5a828ffc893a014542d3b23b7adea514",
-  "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
-  "publicStoreCheck": {
-    "product": "ČHMÚ Weather",
-    "repo": "pebble-chmu-weather",
-    "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
-    "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
-    "apiUrl": "https://appstore-api.repebble.com/api/v1/apps/uuid/00866104-6ce5-4ae3-952f-9800f437442c",
-    "liveVersion": "1.0.2",
-    "livePbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/ef7111ffaeaf4593aaaa85ed/1.0.2/6832fb7f-81d0-40d5-8723-d799ee240d45.pbw",
-    "livePbwSha256": "09a9bc6e11368a9bf536eebc4bbe644b15945cd71f27c0c02e255be9c3153039",
-    "preparedVersion": "1.0.2",
-    "preparedPbwSha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
-    "exactBytesMatch": false,
-    "numericVersionAlreadyPublished": true
-  },
-  "binaryUploadStatus": "Candidate only: this numeric version is already public; prepare a new version before a changed binary upload.",
+  "type": "plugin",
+  "pbw": "CHMU-Weather-1.0.3.pbw",
+  "pbwSha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
+  "sourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
+  "previousStoreVersion": "1.0.2",
+  "newNumericVersion": true,
+  "publicVersionAndTagAvailabilityChecked": true,
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {},
@@ -33,10 +17,8 @@
     "icon-small-80.png",
     "icon-large-144.png"
   ],
-  "editingOnly": [
-    "icon-source.svg",
-    "product-mark-144.png",
-    "product-mark.svg"
-  ],
-  "licences": "licences/"
+  "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+  "githubBranch": "https://github.com/xefensor/pebble-chmu-weather/tree/feat/xoce-provider-integration",
+  "githubCommit": "https://github.com/xefensor/pebble-chmu-weather/commit/ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
+  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
 }
