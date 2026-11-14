@@ -1,0 +1,17 @@
+---
+import type { Project } from '../data/projects';
+import { screenshotGalleries } from '../data/screenshots';
+import { sitePath } from '../lib/site';
+import Icon from './Icon.astro';
+interface Props { project: Project }
+const { project } = Astro.props;
+const story = project.showcase;
+const capture = screenshotGalleries[project.slug]?.find(s => s.image === story?.image);
+---
+{story && capture && <section class="product-story" aria-labelledby="story-title">
+  <figure class:list={['story-visual', { 'story-phone': capture.kind === 'phone', 'story-round': capture.platform === 'gabbro' }]}>
+    <a href={sitePath(capture.image)} aria-label={`Open full-size image: ${capture.title}`}><img src={sitePath(capture.image)} width={capture.width} height={capture.height} alt={capture.alt} loading="lazy" decoding="async"/></a>
+    <figcaption>{capture.title} · v{capture.version}<br/>{capture.kind === 'phone' ? 'Browser settings preview' : 'Native emulator'} · example data</figcaption>
+  </figure>
+  <div class="story-copy"><p class="eyebrow">{project.kind === 'plugin' ? 'In the Pebble phone app' : 'On your watch'}</p><h2 id="story-title">{story.title}</h2><p>{story.text}</p><ul>{project.features.map(feature => <li><Icon name="check" size={18}/><span>{feature}</span></li>)}</ul></div>
+</section>}

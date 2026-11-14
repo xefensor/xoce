@@ -45,7 +45,7 @@ A launch-preview label means that version is still being prepared. Store links a
 
 Timer handles the alarm on the watch. If it reports **Alarm not set; keep open**, keep Timer open and follow its message. [Alarm troubleshooting](/docs/pebble/troubleshooting/#timer-reports-alarm-not-set-keep-open).
 
-Timer’s phone settings change its Light/Dark appearance. Creating or editing countdowns happens on the watch. [See every Timer control](/docs/pebble/controls/#timer).
+Timer’s phone settings change its display appearance and the independent **Alarm sound** preference. Sound is available on Time 2 and respects system mute and Quiet Time. Round 2 uses vibration. Creating or editing countdowns happens on the watch. [See every Timer control](/docs/pebble/controls/#timer).
 
 ## Dynamic
 
@@ -53,15 +53,23 @@ Timer’s phone settings change its Light/Dark appearance. Creating or editing c
 
 1. Once published, install [Dynamic](/projects/dynamic/), then choose it as your watchface in the Pebble phone app.
 2. Open Dynamic’s settings using its settings gear in the phone app.
-3. Under **Content & priority**, turn on **Show activity plugins**. In **Activity priority**, show Timer. Move it above other activities if you want its countdown in the large area. You can enable other available activities later.
-4. Choose **Save settings** and wait for **✓ Saved**.
+3. Open **Activities**, turn on **Show activity plugins**. In **Activity priority**, show Timer. Move it above other activities if you want its countdown in the large area. You can enable other available activities later.
+4. Choose **Save** and wait for **✓ Saved**.
 5. Start a countdown in Timer on the watch, then return to Dynamic. With your phone connected, the countdown should appear on the watchface.
 
 The larger area is the **primary activity**; the smaller row is the **secondary activity**. The order you choose decides which eligible activity gets the larger area.
 
+### Choose a layout and colours
+
+Open **Layout & complications** to choose **Columns**, **Stacked rows**, or **Four when idle**. The grid shows four readings while idle and keeps the selected pair when an activity or Timeline Peek appears. Optional title hiding retains required qualifiers and units. Shake switching changes the selected pair without refreshing the sources.
+
+Open **Colours** to choose the appearance the watch uses, then select the day or night palette to edit. Editing a palette does not switch the active appearance. Detail colours appear when **Split clock and details** is enabled. The compact preview expands to show example states; it is not live data.
+
+The overview and four category screens share one draft and one **Save/Discard** bar. **✓ Saved** confirms phone storage; watch delivery has its own status and retry. **More & help** contains text size, clock format, display options and diagnostics.
+
 ### Add weather and other small readings
 
-In the Pebble phone app, open **Settings → Plugins → Complications** and choose readings for slots 1–2. A complication is a small piece of information, such as the temperature or phone battery level. These are shared choices that can affect other watchfaces too.
+In the Pebble phone app, open **Settings → Plugins → Complications** and choose readings for slots 1–2, or 1–4 for the optional four-reading grid. Shake switching can also use slot 5. A complication is a small piece of information, such as the temperature or phone battery level. These are shared choices that can affect other watchfaces too.
 
 Dynamic uses the available weather source rather than including a separate weather provider. Your location, provider and permissions need to be configured in the Pebble app.
 

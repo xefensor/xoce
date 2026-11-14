@@ -357,6 +357,13 @@ async function runChecks() {
         await navigate(route);await noOverflow(route,width);
         if([390,1440].includes(width)&&(!route.endsWith('/support/')&&!route.endsWith('/privacy/')||route==='/projects/timer/privacy/'||route==='/projects/chmu-weather/support/')) {
           await screenshot((route==='/'?'home':route.replace(/^\//,'').replace(/\/$/,'').replaceAll('/','-'))+'-'+width+'-'+color);
+          const sections = route === '/' ? ['#watchfaces', '#watch-apps', '#weather', '.activity-showcase']
+            : catalogueProducts.some(project => route === `/projects/${project.slug}/`) ? ['.product-story', '.activity-connection'] : [];
+          for (const [index, selector] of sections.entries()) {
+            assert.equal(await client.evaluate(`document.querySelectorAll(${JSON.stringify(selector)}).length`), 1, 'Product sections must be present exactly once');
+            await client.evaluate(`document.querySelector(${JSON.stringify(selector)}).scrollIntoView({block:'start',behavior:'instant'})`);
+            await screenshot((route === '/' ? 'home' : route.replace(/^\//, '').replace(/\/$/, '').replaceAll('/', '-')) + '-section-' + (index + 1) + '-' + width + '-' + color);
+          }
         }
         const watch=previewApps.find(project=>route===`/projects/${project.slug}/`);
         if(watch) {

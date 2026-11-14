@@ -9,8 +9,8 @@
         "emery",
         "gabbro"
       ],
-      "sha256": "2c13fae81107fe793c0df3a23270eb1b1463dd1518dac2f68cdf0625f755f3f3",
-      "sourceCommit": "417e5bc2e4813dd6b1e47670ff07c42a92581baa",
+      "sha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
+      "sourceCommit": "9f3089622d839e8c8c7f1165630b151a38278cb9",
       "sourceFile": "Dynamic-1.0.0.pbw"
     },
     {
@@ -21,21 +21,9 @@
         "emery",
         "gabbro"
       ],
-      "sha256": "029dccc901c0df0a071f4253fe911d45af1a2491def4e53b66957c5544e746ec",
-      "sourceCommit": "9163708444851082a0aba39af52b7d8b32caa9cf",
+      "sha256": "b568c2d6d559833863d3487d387d94cdd6e945ab674ba0b45949f1fa7aa2b8c3",
+      "sourceCommit": "74686ac3012fe8307f6747b75f433831cb8a8816",
       "sourceFile": "Halftone-1.10.1.pbw"
-    },
-    {
-      "product": "Dashboard",
-      "version": "1.0.0",
-      "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
-      "watchPlatforms": [
-        "emery",
-        "gabbro"
-      ],
-      "sha256": "96cd53f2ad6dfc477ee70f1d237fc8a9f5702cf83c02e208f91358a3285cf5a3",
-      "sourceCommit": "a5e77ee9728782ab1c0acb2b2aef10e28c1ebcf2",
-      "sourceFile": "Dashboard-1.0.0.pbw"
     },
     {
       "product": "Timer",
@@ -45,9 +33,21 @@
         "emery",
         "gabbro"
       ],
-      "sha256": "317f212f1d4739e9fd72dd9bbf1c86e290d8ae606fd9b05e20c584a0f29392bb",
-      "sourceCommit": "d6aa23f139e3343b5525bf7571b0938e579dafa8",
+      "sha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
+      "sourceCommit": "6c0e5c7e6dc02371e9a2f82dd2b6c7d37b6f2dc7",
       "sourceFile": "Timer-1.0.0.pbw"
+    },
+    {
+      "product": "Dashboard",
+      "version": "1.0.0",
+      "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+      "watchPlatforms": [
+        "emery",
+        "gabbro"
+      ],
+      "sha256": "a0c90d9965278b68b786ad84933767513f38371ad1065ae86a6d1ca09aca9363",
+      "sourceCommit": "0610cedeaacfd9559e1fb5795a72478965a73ffe",
+      "sourceFile": "Dashboard-1.0.0.pbw"
     },
     {
       "product": "Open Activity",
@@ -57,8 +57,8 @@
         "emery",
         "gabbro"
       ],
-      "sha256": "89626b480cfff05435536119215c54a15e9d206acd4034cdbdfe460326ce303c",
-      "sourceCommit": "fd58564ce4f75a6f51f38e7cdfe96e4d4ef128fc",
+      "sha256": "8b3c43d0e6587918dc46f7f94ed0251679e591a19bb80a6b9cc9763a77c15982",
+      "sourceCommit": "da46b1ded18f578ee225f281e18247215a701824",
       "sourceFile": "Open-Activity-1.0.0.pbw"
     },
     {
@@ -66,8 +66,8 @@
       "version": "1.0.2",
       "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
       "watchPlatforms": [],
-      "sha256": "09a9bc6e11368a9bf536eebc4bbe644b15945cd71f27c0c02e255be9c3153039",
-      "sourceCommit": "697857a12a4cc924e2922d2ca15cfc9ef96a7278",
+      "sha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
+      "sourceCommit": "acb145d0aa4ec5af30c6b83433337f3ebd57fe5d",
       "sourceFile": "CHMU-Weather-1.0.2.pbw"
     }
   ]

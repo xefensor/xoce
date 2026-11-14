@@ -12,6 +12,7 @@ A launch candidate is not a published release. `publication: 'preview'` records 
 - Keep Software/Docs/About navigation, the plain XOCE wordmark, teal, Inter and semantic light/dark colours. Use open sections, quiet preview surfaces and fine dividers. Documentation can retain a stronger reading surface.
 - Group the catalogue into two watchfaces, three watch apps and one phone plugin. Libraries and planned products do not appear as consumer app cards. Activities 0.4.4 and Core 0.5.2 remain the pinned public library packages; consuming app repositories own their newer vendored versions.
 - Product pages lead with purpose, native previews, compatibility and installation. Store is the primary action for verified published versions; the matching GitHub PBW is secondary. Configuration help, support and privacy remain directly reachable for people who already installed from the Store.
+- The device-led presentation is for people new to XOCE. Home and Software group paired watchfaces, compact watch-app rows and a distinct phone-plugin section. Product pages follow purpose/device preview, illustrated features, relevant connections, full gallery and setup/support. Home illustrates the Timer-to-watchface example after product browsing; detailed setup stays in the guides.
 - Preserve all routes, legacy fragments and no-JavaScript reading/navigation. `/docs/` opens Getting started directly. Keep the existing Phone plan and its canonical redirects, without promoting it as installable software.
 - Shape selection uses native radio controls and defaults to Time 2. Do not infer a visitor’s connected watch from their browser or automatically cycle previews.
 - Keep keyboard access, reduced motion/transparency, browser theme preference and clear focus. Explicit Search may focus its input; ordinary visits must not move focus unexpectedly.
@@ -20,7 +21,9 @@ A launch candidate is not a published release. `publication: 'preview'` records 
 
 Astro 7.4.7 produces static HTML beneath `/xoce/`; preserve existing dependency pins and lockfile. There is no backend, account system or automatic theme service. `src/lib/site.ts` owns the origin/base; templates, Markdown, search and redirects must use its path conventions.
 
-`src/data/projects.ts` owns product identity, publication state, exact links, checked UUID/PBW hashes, requirements and shape previews. `src/data/launch-screenshots.json` owns current gallery metadata. `src/data/docs.ts` owns navigation, with article content under `src/pages/docs`.
+`src/data/projects.ts` owns product identity, publication state, exact links, checked UUID/PBW hashes, summaries, features, requirements, shape previews and the optional illustrated showcase. Showcase images reference existing entries in `src/data/launch-screenshots.json`; that file owns capture metadata. `src/data/docs.ts` owns navigation, with article content under `src/pages/docs`.
+
+The shared product collection owns category order. Each product's connections explain its actual role rather than repeating a generic Activities tutorial. Timer owns countdowns and alarms, Dashboard cannot pause/resume Timer, Open Activity opens an associated app rather than a specific item, and weather readings use separate settings. Shared updates require phone plugin support, source permissions and connectivity. Music/notification integration requires Android.
 
 Support/privacy routes are product-local. Privacy text comes from app-owned documents, with source commits/hashes in `docs/policy-provenance.json`. Change the app’s commitments only through separately scoped app work; the website must describe their actual data handling. Support uses the existing GitHub issue trackers. No invented contact channel, team, analytics or completed Android feature is implied.
 
@@ -45,3 +48,9 @@ Project downloads retain their licences, including PolyForm Noncommercial. Do no
 ## History
 
 [Contracts before the Store redesign](history/website-before-store-launch.md) and the [history index](history/index.md) retain earlier decisions. They do not override the current contracts above.
+
+## Store update — 2026-11-14
+
+The six current PBWs are bound to the Store update manifest and reviewed-artifact hashes. Dynamic includes the adaptive reading layouts and category-based phone settings; Timer includes independent Time 2 alarm sound. Marketing uses the coordinated XOCE family: original product marks and per-platform 720×320 banners, with Inter outlines and unmodified native captures. This does not change native app UI or the plain XOCE wordmark. Product marks are visible in the catalogue and product headers; banners supply product social images. Weather remains a phone-only plugin.
+
+New versioned website assets are appended alongside historical images. Source/runtime commits and current PBW identities remain separate from any public release claim. Existing preview and deployment gates remain authoritative.

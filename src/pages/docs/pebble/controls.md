@@ -32,7 +32,7 @@ Changing the remaining time during a run preserves the elapsed portion. The save
 
 Choose **Done** to acknowledge a finished timer. Its activity is withdrawn when the owner’s update reaches the phone; the saved timer remains reusable.
 
-While the alarm screen is active, Timer repeats its feedback until acknowledgement and respects Quiet Time. Successfully scheduled native alarms remain owned by Timer when the app is closed or the phone disconnects. Any scheduling error stays visible on the watch.
+While the alarm screen is active, Timer repeats its feedback until acknowledgement and respects Quiet Time. Time 2 can add sound when **Alarm sound** is enabled in phone settings; it also respects system mute. Round 2 uses vibration. Successfully scheduled native alarms remain owned by Timer when the app is closed or the phone disconnects. Any scheduling error stays visible on the watch.
 
 ### Understand the hourglass
 
@@ -70,7 +70,7 @@ Open Activity launched normally from the app list stays on its setup screen. Pre
 
 ## Dynamic
 
-Dynamic is a watchface. Its activity order, visibility, appearance and notification privacy are configured on the phone. Text stays static; media changes can use a short incoming transition.
+Dynamic is a watchface. Its activity order, visibility, appearance and notification privacy are configured on the phone in four category screens. **Layout & complications** offers Columns, Stacked rows and Four when idle. Optional shake switching cycles the selected reading pair; Timeline Peek and activities keep that selected pair. Text stays static; media changes can use a short incoming transition.
 
 Use Open Activity for the configured activity-opening shortcuts. Dynamic itself displays activity data and app destinations; it does not invoke provider playback or other contextual actions.
 

@@ -3,26 +3,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { sitePath } from '../lib/site';
 import { consumerProjects } from '../data/projects';
 import WatchPreview from '../components/WatchPreview.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import ProductCollection from '../components/ProductCollection.astro';
 import Icon from '../components/Icon.astro';
 import ActivityExplainer from '../components/ActivityExplainer.astro';
-const homeProducts=['dynamic','halftone','timer','dashboard','open-activity','chmu-weather'].map(slug=>consumerProjects.find(p=>p.slug===slug)!);
 const dynamic=consumerProjects.find(p=>p.slug==='dynamic')!;
 const halftone=consumerProjects.find(p=>p.slug==='halftone')!;
 ---
 <BaseLayout description="Watchfaces, timers and useful shortcuts for Pebble Time 2 and Round 2. Explore XOCE’s apps, see both watch shapes and find setup help.">
 <main id="main" class="wrap launch-home">
   <section class="launch-hero" aria-labelledby="home-title">
-    <div class="hero-copy"><p class="eyebrow">For Pebble Time 2 + Round 2</p><h1 id="home-title">Useful apps.<br/><span>Right on your wrist.</span></h1><p class="hero-description">A timer you can reuse. A clock that keeps you informed. Shortcuts to what’s happening now.</p><div class="button-row"><a class="button button-primary" href={sitePath('/projects/')}>Explore the apps<Icon name="arrow" size={17}/></a><a class="text-link" href={sitePath('/docs/')}>New to Pebble? Start here</a></div></div>
+    <div class="hero-copy"><p class="eyebrow">For Pebble Time 2 + Round 2</p><h1 id="home-title">Your Pebble.<br/><span>A little more useful.</span></h1><p class="hero-description">A clock that feels like yours. Timers ready to use again. A shortcut to what’s happening now.</p><div class="button-row"><a class="button button-primary" href={sitePath('/projects/')}>Find your apps<Icon name="arrow" size={17}/></a><a class="text-link" href={sitePath('/docs/')}>Installation & setup</a></div></div>
     <div class="hero-pair" aria-label="Two watchfaces, two watch shapes">
       <div class="hero-watch"><a href={sitePath('/projects/dynamic/')}><strong>Dynamic</strong><span>Pebble Time 2</span></a><WatchPreview image={dynamic.previews!.emery!.image} alt={dynamic.previews!.emery!.alt} eager/></div>
       <div class="hero-watch hero-round"><a href={sitePath('/projects/halftone/')}><strong>Halftone</strong><span>Pebble Round 2</span></a><WatchPreview image={halftone.previews!.gabbro!.image} alt={halftone.previews!.gabbro!.alt} platform="gabbro" eager/></div>
       <p class="hero-evidence">Native emulator previews · example data</p>
     </div>
   </section>
+  <ProductCollection/>
   <ActivityExplainer/>
-  <section class="home-collection" aria-labelledby="collection-title"><header class="section-heading"><div><p class="eyebrow">Choose what helps you</p><h2 id="collection-title">A small collection.<br/>Room to make it yours.</h2></div><p>Start with a watchface or Timer, then add the connections you need. There’s no separate XOCE app to install.</p></header><div class="home-product-grid">{homeProducts.map(project=><ProjectCard project={project}/>)}</div></section>
 
-  <section class="home-help"><div><p class="eyebrow">A watch, a phone app, then your apps</p><h2>Start with the basics.</h2><p>The official Pebble phone app pairs your watch and manages installation and settings. Shared readings and activities need its plugin support. Music and notification integration needs Android.</p><a class="text-link" href={sitePath('/pebble/')}>What you need for Pebble<Icon name="arrow" size={17}/></a></div><div><p class="eyebrow">Made by Xef</p><h2>Small apps. A wider idea.</h2><p>XOCE is Xef’s independent software project. These Pebble apps are the starting point; the longer-term direction includes Android and KDE Plasma.</p><a class="text-link" href={sitePath('/about/')}>About XOCE<Icon name="arrow" size={17}/></a></div></section>
+  <section class="home-help"><div><p class="eyebrow">Start here</p><h2>Your watch, your phone,<br/>then your apps.</h2><p>The official Pebble phone app handles pairing, installation and settings. Start with Timer on its own or choose a watchface, then add the connections you want. There’s no separate XOCE app or library to install.</p><a class="text-link" href={sitePath('/pebble/')}>What you need for Pebble<Icon name="arrow" size={17}/></a></div><div><p class="eyebrow">Made by Xef</p><h2>Small apps.<br/>A wider idea.</h2><p>XOCE is Xef’s independent software project. These Pebble apps are the starting point; the longer-term direction includes Android and KDE Plasma.</p><a class="text-link" href={sitePath('/about/')}>About XOCE<Icon name="arrow" size={17}/></a></div></section>
 </main>
 </BaseLayout>

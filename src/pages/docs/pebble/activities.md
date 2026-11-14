@@ -6,16 +6,18 @@ section: For users
 order: 3
 ---
 
-An **activity** is an update about something happening now, such as a countdown, a song or a new notification. Compatible XOCE apps and watchfaces can display it. You can leave Timer and still see the time remaining on your everyday clock screen.
+Start a countdown in **Timer**, then return to **Dynamic or Halftone** to see the time remaining on your everyday clock screen. Timer continues to run the countdown and handle its alarm.
 
-Activities connect compatible apps; support depends on the app and watchface you choose. This does not add a countdown to every Pebble watchface, and there is no separate Activities app or library to install.
+That shared update is called an **activity**. It describes something happening now: a countdown, the song you are listening to or an optional notification. Compatible apps choose how to display it.
+
+Start with Timer and one of those watchfaces. You can add Dashboard for an overview or Open Activity for a shortcut later. Activities support depends on the apps you choose; there is no separate Activities app or library to install.
 
 ## Try a timer on your watchface
 
 You need **Timer and either Dynamic or Halftone**, the official Pebble phone app with plugin support enabled, the required permissions and a connected phone. [Complete the shared setup](/docs/pebble/setup/#before-installing), then:
 
 1. Choose Dynamic or Halftone as your active watchface in the Pebble phone app.
-2. Open that watchface’s settings. Under **Content & priority**, turn on **Show activity plugins**. Show Timer in **Activity priority**. Move Timer above other activities to give it priority for the large area, then save.
+2. Open that watchface’s settings. Under **Activities** in Dynamic, or **Content & priority** in Halftone, turn on **Show activity plugins**. Show Timer in **Activity priority**. Move Timer above other activities to give it priority for the large area, then save.
 3. On the watch, open Timer. Choose **New**, set one minute using Up, Down and Select, and start the countdown. [Timer controls](/docs/pebble/controls/#timer).
 4. Return to your watchface. Its activity area should show the time remaining while the countdown continues in Timer.
 

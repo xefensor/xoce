@@ -9,6 +9,10 @@ project: timer
 
 Start with the [setup guide](/docs/pebble/setup/#timer). For missing readings, permissions or connection problems, see [troubleshooting](/docs/pebble/troubleshooting/).
 
+## Alarm sound
+
+On Time 2, enable **Alarm sound** in Timer’s phone settings and check system mute and Quiet Time. Sound is independent of the display settings. Round 2 has no supported speaker in this build and uses vibration. Timer’s on-watch alarm and acknowledgement controls remain available.
+
 ## Report a problem
 
 [Open an issue](https://github.com/xefensor/pebble-app-timer/issues). Include the app version, your watch model and firmware, your phone and Pebble app versions, what happened, and the steps to reproduce it.

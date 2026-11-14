@@ -1,6 +1,6 @@
 {
   "scope": "Current local XOCE website visual identity, separate from native app UI standards.",
-  "status": "Hierarchy and material refinement implemented locally; current verification is recorded separately. No publication implied.",
+  "status": "Device-led product presentation implemented locally; verification is reported separately. Launch previews remain unpublished.",
   "name": {
     "display": "XOCE",
     "expanded": "Xef’s Open Computing Ecosystem",
@@ -26,7 +26,7 @@
       "supporting_text": "#b8c1bc",
       "accent": "#8ad9bd"
     },
-    "treatment": "Warm neutral light background and charcoal dark background, quieter static artwork, teal emphasis and distinct navigation/showcase/reading glass densities."
+    "treatment": "Warm neutral light and charcoal dark backgrounds, teal emphasis, open sections, fine dividers and quiet opaque preview surfaces. Documentation retains its reading surface."
   },
   "material_roles": [
     "glass-navigation-surface",
@@ -40,15 +40,15 @@
     "small": 4
   },
   "compositions": {
-    "home": "Short everyday-app introduction beside a compact glass showcase: official watch and app explanation side by side. Platform strip and current setup path, future shared-timer concept, three-column stages and contribution links; no standalone Phone promotion.",
-    "catalogue": "Compact introduction and open rows with larger native captures, direct downloads and setup for the four available Pebble products. No enclosing catalogue pane, planned-app card or single-platform filter bar.",
-    "product": "Recognizable watch/device presentation beside purpose and installation details.",
+    "home": "A short product introduction beside paired Dynamic/Time 2 and Halftone/Round 2 frames. Grouped browsing shows two watchfaces, three compact watch-app rows and one phone plugin, followed by an illustrated Timer-to-watchface example and setup/About paths.",
+    "catalogue": "Paired image-led watchface comparisons, compact watch-app rows beside their group introduction, and a separate Czech weather phone-plugin section. Six consumer products; libraries remain in the developer path.",
+    "product": "Purpose, official device or plugin icon, compatibility and installation lead. A product-specific native capture or phone-settings preview illustrates features, followed by relevant connections, the full gallery and setup/support.",
     "about": "Compact two-column opening, project rationale grounded in replaceable apps and interface exploration, platform row and readable stage progression, with one understated Phone-plan paragraph and plain link.",
     "docs": "A sole dense article surface with quiet sidebar and contents rails; native collapsed mobile disclosures."
   },
   "device_presentation": {
     "component": "src/components/WatchPreview.astro",
-    "kind": "Official Pebble Appstore Time 2 frame around native emulator captures",
+    "kind": "Official Pebble Appstore Time 2 and Round 2 frames around unmodified native emulator captures",
     "frame_asset": "public/images/devices/pebble-time-2.png",
     "reference": "https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png",
     "copyright": "Core Devices",
@@ -65,8 +65,9 @@
     "native_captures": "Unchanged bytes and 200:228 aspect ratio; matte black letterboxing avoids stretching in the taller aperture. Provenance remains in docs/asset-provenance.json.",
     "claims": "Native emulator screens composited with an official device frame; not a photograph of the running apps or physical-watch verification.",
     "compact_views": "Direct native screen captures remain useful for compact lists and documentation.",
-    "interaction": "Home uses native CSS radios for four static app previews, with no automatic cycling.",
-    "licence_status": "No permissive licence verified for the official frame; source-provided asset included for local review, with no additional licence granted."
+    "interaction": "Home names both watchfaces and models without cycling; product pages use native radio controls for Time 2/Round 2 selection. Compact feature and workflow illustrations use direct native captures.",
+    "licence_status": "No permissive licence verified for the official frame; source-provided asset included for local review, with no additional licence granted.",
+    "round_frame_asset": "public/images/devices/pebble-round-2.png"
   },
   "artwork": {
     "site_path": "public/images/materials/xoce-planes.svg",
@@ -117,5 +118,26 @@
     "Separate canonical Pebble UI standard",
     "Third-party notices and retained historical evidence"
   ],
-  "validation": "Final rebuild verification is recorded in docs/qa/VALIDATION.json after checks complete; retained historical reports describe their own source."
+  "validation": "Final rebuild verification is recorded in docs/qa/VALIDATION.json after checks complete; retained historical reports describe their own source.",
+  "store_family": {
+    "date": "2026-11-14",
+    "typography": "Inter, outlined in exported SVG artwork",
+    "surfaces": [
+      "#f5f3ee",
+      "#202d2b",
+      "#172723"
+    ],
+    "brandAccent": "#176b5b",
+    "productAccents": {
+      "Dynamic": "#55aaff",
+      "Halftone": "#ff8500",
+      "Timer": "#8ad9bd",
+      "Dashboard": "#79bce6",
+      "Open Activity": "#b6a2ed",
+      "ČHMÚ Weather": "#8bc6ef"
+    },
+    "nativeScreens": "Unmodified emulator captures; native apps and controls are unchanged.",
+    "wordmark": "Plain XOCE text; product symbols are not a new XOCE logo.",
+    "banners": "720×320 per native platform; Weather artwork is website-only."
+  }
 }

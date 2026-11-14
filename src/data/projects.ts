@@ -1,5 +1,6 @@
 export type WatchPlatform = 'emery' | 'gabbro';
 export type Project = {
+  storeArtwork?: { mark: string; shareImage: string };
   uuid?: string;
   artifactSha256?: string;
   publication?: 'preview' | 'published';
@@ -24,6 +25,7 @@ export type Project = {
   requirements?: string[];
   summary: string;
   features: string[];
+  showcase?: { title: string; text: string; image: string };
   image?: string;
   imageAlt?: string;
   imageVersion?: string;
@@ -49,7 +51,7 @@ export const projects: Project[] = [
     "kind": "app",
     "availability": "planned",
     "platform": "Android",
-    "status": "Planned \u00b7 working name",
+    "status": "Planned · working name",
     "description": "A planned standalone Android phone app, with an optional Pebble companion.",
     "guide": "/docs/android/phone/",
     "summary": "Phone is intended to work on Android on its own. An optional watch companion is planned for starting a call from a Pebble. Connection details and supported devices will be established with a test build.",
@@ -68,7 +70,7 @@ export const projects: Project[] = [
     "kind": "app",
     "availability": "planned",
     "platform": "PebbleOS",
-    "status": "Planned \u00b7 working name",
+    "status": "Planned · working name",
     "description": "A planned watch companion for the Android phone app.",
     "guide": "/docs/pebble/phone-connection/",
     "summary": "The companion is intended to let you start a call from your watch through Phone on Android. It would be installed separately on the watch and would require that Android app. The connection method and supported watches will be documented with a build.",
@@ -87,7 +89,7 @@ export const projects: Project[] = [
     "controlsGuide": "/docs/pebble/controls/#dynamic",
     "helpGuide": "/docs/pebble/troubleshooting/#an-activity-is-missing",
     "requirements": [
-      "Activity features need the Pebble phone app\u2019s plugin preview.",
+      "Shared readings and activities need the Pebble phone app’s plugin support and a connected phone.",
       "Built-in Music and Notifications activities need an Android phone."
     ],
     "availability": "available",
@@ -97,7 +99,7 @@ export const projects: Project[] = [
     "developerNote": "A watchface that displays compatible activities; providers supply content while Dynamic owns placement and priority.",
     "name": "Dynamic",
     "kind": "watchface",
-    "description": "The time, weather and updates from your apps, right on your watchface.",
+    "description": "An animated clock. Your readings. What’s happening now.",
     "version": "1.0.0",
     "repo": "https://github.com/xefensor/pebble-watchface-dynamic",
     "licence": {
@@ -105,13 +107,19 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/pebble-watchface-dynamic/blob/main/LICENSE"
     },
     "guide": "/docs/pebble/setup/#dynamic",
-    "summary": "A bold clock and two readings sit above ongoing updates called Activities. Start a countdown in Timer, return to Dynamic and see the time remaining on your clock screen.",
+    "summary": "Choose an everyday clock layout with two readings, stacked rows, or four when idle. Keep your selected pair when music, a countdown or Timeline Peek needs the space.",
+    "showcase": {
+      "title": "Choose the space your readings need.",
+      "text": "Four when idle adds a compact 2×2 grid. Activities and Timeline Peek keep the selected pair. Layout, colours and Activities have their own phone-settings screens, with an example preview and one Save action.",
+      "image": "/images/screenshots/dynamic-1.0.0-20261114-emery-four-split.png"
+    },
     "features": [
-      "Keep one main activity and one compact row in view",
-      "Follow music with the song, artist and optional artwork",
-      "Choose which activities appear and their order"
+      "Choose Columns, Stacked rows or Four when idle",
+      "Split clock and detail colours; hide optional titles or enable shake switching",
+      "Keep complete percentages and required qualifiers together",
+      "Arrange music, Timer and optional notifications in your preferred order"
     ],
-    "image": "/images/screenshots/dynamic-1.0.0-emery-clock-and-readings.png",
+    "image": "/images/screenshots/dynamic-1.0.0-20261114-emery-columns.png",
     "imageVersion": "1.0.0",
     "imageAlt": "Dynamic 1.0.0, Time 2: clock and readings.",
     "platform": "PebbleOS",
@@ -130,16 +138,20 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dynamic-1.0.0-emery-clock-and-readings.png",
+        "image": "/images/screenshots/dynamic-1.0.0-20261114-emery-columns.png",
         "alt": "Dynamic 1.0.0, Time 2: clock and readings."
       },
       "gabbro": {
-        "image": "/images/screenshots/dynamic-1.0.0-gabbro-clock-and-readings.png",
+        "image": "/images/screenshots/dynamic-1.0.0-20261114-gabbro-columns.png",
         "alt": "Dynamic 1.0.0, Round 2: clock and readings."
       }
     },
     "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-    "artifactSha256": "2c13fae81107fe793c0df3a23270eb1b1463dd1518dac2f68cdf0625f755f3f3"
+    "artifactSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
+    "storeArtwork": {
+      "mark": "/images/store/dynamic-1.0.0-20261114-mark.png",
+      "shareImage": "/images/store/dynamic-1.0.0-20261114-banner-emery.png"
+    }
   },
   {
     "slug": "dashboard",
@@ -147,7 +159,7 @@ export const projects: Project[] = [
     "controlsGuide": "/docs/pebble/controls/#dashboard",
     "helpGuide": "/docs/pebble/troubleshooting/#settings-seem-not-to-save",
     "requirements": [
-      "Activity features need the Pebble phone app\u2019s plugin preview.",
+      "Shared readings and activities need the Pebble phone app’s plugin support and a connected phone.",
       "Built-in Music and Notifications activities need an Android phone."
     ],
     "availability": "available",
@@ -157,7 +169,7 @@ export const projects: Project[] = [
     "developerNote": "An interactive activity host. Controls depend on the bound source; Timer Pause/Resume is not implemented.",
     "name": "Dashboard",
     "kind": "app",
-    "description": "A Timer countdown, your latest notification and pinned shortcuts in one overview.",
+    "description": "Your activity, notifications and pins. One overview.",
     "version": "1.0.0",
     "repo": "https://github.com/xefensor/pebble-app-dashboard",
     "licence": {
@@ -165,13 +177,18 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/pebble-app-dashboard/blob/main/LICENSE"
     },
     "guide": "/docs/pebble/setup/#dashboard",
-    "summary": "A single watch app brings together a current activity, the latest available notification and two pins. Choose what a pin displays, does on Select and opens on Hold Select.",
+    "summary": "Open Dashboard for a quick look at a current activity, the latest available notification and two pinned items. Add the readings and shortcuts you find useful, then browse the full collections when you need more.",
+    "showcase": {
+      "title": "Put useful things within reach.",
+      "text": "A pin can display a reading, perform an available action or open an app. Choose its behaviour in settings; the controls available depend on what its source provides.",
+      "image": "/images/screenshots/dashboard-1.0.0-gabbro-actions.png"
+    },
     "features": [
       "Keep an activity, a notification and two pins in one overview",
       "Open collections and use the controls a source provides",
       "Choose readings, actions and app shortcuts for your pins"
     ],
-    "image": "/images/screenshots/dashboard-1.0.0-emery-overview.png",
+    "image": "/images/screenshots/dashboard-1.0.0-20261114-emery-overview.png",
     "imageVersion": "1.0.0",
     "imageAlt": "Dashboard 1.0.0, Time 2: overview.",
     "platform": "PebbleOS",
@@ -190,16 +207,20 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dashboard-1.0.0-emery-overview.png",
+        "image": "/images/screenshots/dashboard-1.0.0-20261114-emery-overview.png",
         "alt": "Dashboard 1.0.0, Time 2: overview."
       },
       "gabbro": {
-        "image": "/images/screenshots/dashboard-1.0.0-gabbro-overview.png",
+        "image": "/images/screenshots/dashboard-1.0.0-20261114-gabbro-overview.png",
         "alt": "Dashboard 1.0.0, Round 2: overview."
       }
     },
     "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
-    "artifactSha256": "96cd53f2ad6dfc477ee70f1d237fc8a9f5702cf83c02e208f91358a3285cf5a3"
+    "artifactSha256": "a0c90d9965278b68b786ad84933767513f38371ad1065ae86a6d1ca09aca9363",
+    "storeArtwork": {
+      "mark": "/images/store/dashboard-1.0.0-20261114-mark.png",
+      "shareImage": "/images/store/dashboard-1.0.0-20261114-banner-emery.png"
+    }
   },
   {
     "slug": "timer",
@@ -207,7 +228,7 @@ export const projects: Project[] = [
     "controlsGuide": "/docs/pebble/controls/#timer",
     "helpGuide": "/docs/pebble/troubleshooting/#timer-reports-alarm-not-set-keep-open",
     "requirements": [
-      "Sharing the countdown needs the Pebble phone app\u2019s plugin support. The watch owns the alarm."
+      "Sharing needs the Pebble phone app’s plugin support and a connected phone. Timer’s successfully scheduled alarms work on the watch without the phone."
     ],
     "availability": "available",
     "compatibility": "Pebble Time 2 and Round 2",
@@ -225,14 +246,20 @@ export const projects: Project[] = [
     },
     "guide": "/docs/pebble/controls/#timer",
     "summary": "Manage up to eight timers with the watch buttons. Pause, resume or reuse a saved duration. The watch keeps the countdown and handles its alarm; sharing it with a watchface is optional.",
+    "showcase": {
+      "title": "Set it once. Use it again.",
+      "text": "Set hours, minutes and seconds with the watch buttons. Your timers stay ready for reuse. Finished countdowns can sound on Time 2 when enabled, alongside vibration; Round 2 uses vibration. Sound respects system mute and Quiet Time.",
+      "image": "/images/screenshots/timer-1.0.0-20261114-gabbro-running.png"
+    },
     "features": [
       "Keep up to eight timers, from five seconds to 24 hours",
-      "Pause, resume or reset a saved timer when you need it",
-      "See the countdown in Dynamic, Halftone or Dashboard with a connected phone"
+      "Pause, resume, reset or snooze on the watch",
+      "Use optional sound and vibration on Time 2; vibration on Round 2",
+      "Share the countdown with Dynamic, Halftone or Dashboard through your connected phone"
     ],
-    "image": "/images/screenshots/timer-1.0.0-emery-your-first-timer.png",
+    "image": "/images/screenshots/timer-1.0.0-20261114-emery-running.png",
     "imageVersion": "1.0.0",
-    "imageAlt": "Timer 1.0.0, Time 2: your first timer.",
+    "imageAlt": "Timer 1.0.0, Time 2: running countdown.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -249,16 +276,20 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/timer-1.0.0-emery-your-first-timer.png",
-        "alt": "Timer 1.0.0, Time 2: your first timer."
+        "image": "/images/screenshots/timer-1.0.0-20261114-emery-running.png",
+        "alt": "Timer 1.0.0, Time 2: running countdown."
       },
       "gabbro": {
-        "image": "/images/screenshots/timer-1.0.0-gabbro-saved-timers.png",
-        "alt": "Timer 1.0.0, Round 2: saved timers."
+        "image": "/images/screenshots/timer-1.0.0-20261114-gabbro-running.png",
+        "alt": "Timer 1.0.0, Round 2: running countdown."
       }
     },
     "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-    "artifactSha256": "317f212f1d4739e9fd72dd9bbf1c86e290d8ae606fd9b05e20c584a0f29392bb"
+    "artifactSha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
+    "storeArtwork": {
+      "mark": "/images/store/timer-1.0.0-20261114-mark.png",
+      "shareImage": "/images/store/timer-1.0.0-20261114-banner-emery.png"
+    }
   },
   {
     "slug": "open-activity",
@@ -267,18 +298,18 @@ export const projects: Project[] = [
     "helpGuide": "/docs/pebble/troubleshooting/#open-activity-immediately-closes",
     "requirements": [
       "Needs either Dynamic or Halftone as its source watchface.",
-      "Uses the Pebble phone app\u2019s plugin support.",
-      "Choose matching shortcuts in Open Activity and the phone\u2019s Quick Launch settings."
+      "Needs the Pebble phone app’s plugin support, a connected phone and Launch Apps permission.",
+      "Choose matching shortcuts in Open Activity and the phone’s Quick Launch settings."
     ],
     "availability": "available",
     "compatibility": "Pebble Time 2 and Round 2",
     "previewType": "watch",
     "developerGuide": "/docs/develop/activities/#app-opening-and-actions",
-    "developerNote": "Uses Dynamic\u2019s recent displayed destinations. Opens the associated app without selecting a particular item inside it.",
+    "developerNote": "Uses Dynamic’s recent displayed destinations. Opens the associated app without selecting a particular item inside it.",
     "requires": [],
     "name": "Open Activity",
     "kind": "app",
-    "description": "Use Quick Launch to open the app behind a timer or other activity.",
+    "description": "From the activity you see to the app behind it.",
     "version": "1.0.0",
     "repo": "https://github.com/xefensor/pebble-app-open-activity",
     "licence": {
@@ -286,15 +317,20 @@ export const projects: Project[] = [
       "url": "https://github.com/xefensor/pebble-app-open-activity/blob/main/LICENSE"
     },
     "guide": "/docs/pebble/setup/#open-activity",
-    "summary": "See a Timer countdown on Dynamic or Halftone, then use a configured Quick Launch shortcut to open Timer. Choose the large Primary activity or smaller Secondary row. The shortcut opens its associated app.",
+    "summary": "See a countdown on Dynamic or Halftone, then use a configured Quick Launch button shortcut to open Timer. Open Activity follows the activity displayed by your chosen watchface.",
+    "showcase": {
+      "title": "Choose what your shortcut follows.",
+      "text": "Pick Dynamic or Halftone, then its large Primary activity or smaller Secondary row. Match the shortcut in Pebble’s Quick Launch settings. Opening Open Activity from the app list brings you to setup.",
+      "image": "/images/screenshots/open-activity-1.0.0-emery-activities-setup.png"
+    },
     "features": [
       "Choose Dynamic or Halftone as the source watchface",
       "Assign different shortcuts to primary and secondary activities",
       "Open from the app list for setup; use Quick Launch to open an activity"
     ],
-    "image": "/images/screenshots/open-activity-1.0.0-emery-shortcut-setup.png",
+    "image": "/images/screenshots/open-activity-1.0.0-emery-activities-setup.png",
     "imageVersion": "1.0.0",
-    "imageAlt": "Open Activity 1.0.0, Time 2: shortcut setup.",
+    "imageAlt": "Open Activity 1.0.0, Time 2: activities and shortcut setup.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -311,12 +347,12 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/open-activity-1.0.0-emery-shortcut-setup.png",
-        "alt": "Open Activity 1.0.0, Time 2: shortcut setup."
+        "image": "/images/screenshots/open-activity-1.0.0-emery-activities-setup.png",
+        "alt": "Open Activity 1.0.0, Time 2: activities and shortcut setup."
       },
       "gabbro": {
-        "image": "/images/screenshots/open-activity-1.0.0-gabbro-shortcut-setup.png",
-        "alt": "Open Activity 1.0.0, Round 2: shortcut setup."
+        "image": "/images/screenshots/open-activity-1.0.0-gabbro-activities-setup.png",
+        "alt": "Open Activity 1.0.0, Round 2: activities and shortcut setup."
       }
     },
     "optionalConnections": [
@@ -324,7 +360,11 @@ export const projects: Project[] = [
       "halftone"
     ],
     "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
-    "artifactSha256": "89626b480cfff05435536119215c54a15e9d206acd4034cdbdfe460326ce303c"
+    "artifactSha256": "8b3c43d0e6587918dc46f7f94ed0251679e591a19bb80a6b9cc9763a77c15982",
+    "storeArtwork": {
+      "mark": "/images/store/open-activity-1.0.0-20261114-mark.png",
+      "shareImage": "/images/store/open-activity-1.0.0-20261114-banner-emery.png"
+    }
   },
   {
     "slug": "halftone",
@@ -340,15 +380,20 @@ export const projects: Project[] = [
       "name": "PolyForm Noncommercial 1.0.0",
       "url": "https://github.com/xefensor/halftone-watchface/blob/main/LICENSE"
     },
-    "description": "A bold clock, a dot border and room for what\u2019s happening now.",
-    "summary": "Two readings sit beneath a Fira clock. Ongoing updates called Activities use the space below: start a countdown in Timer and see its remaining time on Halftone, with room for music and Timeline Peek.",
+    "description": "A bold clock with a halftone finish.",
+    "summary": "A Fira clock, a distinctive dot border and two readings beneath the time. Make it yours with colour, Bigger Text, depth and shadow, with space below for ongoing updates.",
+    "showcase": {
+      "title": "A clock with its own character.",
+      "text": "Choose the colours and depth that suit you. Weather or other readings keep their place beneath the clock, above your chosen activities and Timeline Peek.",
+      "image": "/images/screenshots/halftone-1.10.1-20261114-gabbro-idle.png"
+    },
     "features": [
-      "Choose colours, Bigger Text, shadow and the circular dot border",
+      "Choose colours, Bigger Text, depth and shadow around the dot border",
       "Keep weather or other readings above your chosen activities",
       "Follow timers, music and optional notifications; use Open Activity for shortcuts"
     ],
     "requirements": [
-      "Readings and shared activities use the Pebble phone app\u2019s plugin preview.",
+      "Shared readings and activities need the Pebble phone app’s plugin support and a connected phone.",
       "Music and notification integration needs Android."
     ],
     "guide": "/docs/pebble/halftone/",
@@ -362,9 +407,9 @@ export const projects: Project[] = [
       "chmu-weather"
     ],
     "previewType": "watch",
-    "image": "/images/screenshots/halftone-1.10.1-emery-clock-and-readings.png",
+    "image": "/images/screenshots/halftone-1.10.1-20261114-emery-idle.png",
     "imageVersion": "1.10.1",
-    "imageAlt": "Halftone 1.10.1, Time 2: clock and readings.",
+    "imageAlt": "Halftone 1.10.1, Time 2: clock with two weather locations.",
     "previousRelease": {
       "version": "1.9.0-rc.6",
       "tag": "v1.9.0-rc.6",
@@ -379,24 +424,28 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/halftone-1.10.1-emery-clock-and-readings.png",
+        "image": "/images/screenshots/halftone-1.10.1-20261114-emery-idle.png",
         "alt": "Halftone 1.10.1, Time 2: clock and readings."
       },
       "gabbro": {
-        "image": "/images/screenshots/halftone-1.10.1-gabbro-clock-and-readings.png",
+        "image": "/images/screenshots/halftone-1.10.1-20261114-gabbro-idle.png",
         "alt": "Halftone 1.10.1, Round 2: clock and readings."
       }
     },
     "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
-    "artifactSha256": "029dccc901c0df0a071f4253fe911d45af1a2491def4e53b66957c5544e746ec"
+    "artifactSha256": "b568c2d6d559833863d3487d387d94cdd6e945ab674ba0b45949f1fa7aa2b8c3",
+    "storeArtwork": {
+      "mark": "/images/store/halftone-1.10.1-20261114-mark.png",
+      "shareImage": "/images/store/halftone-1.10.1-20261114-banner-emery.png"
+    }
   },
   {
     "slug": "chmu-weather",
-    "name": "\u010cHM\u00da Weather",
+    "name": "ČHMÚ Weather",
     "kind": "plugin",
     "availability": "available",
     "platform": "PebbleOS",
-    "compatibility": "Pebble phone app with plugins \u00b7 Czech weather locations",
+    "compatibility": "Pebble phone app with plugins · Czech weather locations",
     "status": "Store release in preparation",
     "version": "1.0.2",
     "repo": "https://github.com/xefensor/pebble-chmu-weather",
@@ -404,8 +453,13 @@ export const projects: Project[] = [
       "name": "PolyForm Noncommercial 1.0.0",
       "url": "https://github.com/xefensor/pebble-chmu-weather/blob/main/LICENSE"
     },
-    "description": "Nearby Czech weather observations and ALADIN forecasts, shared through Pebble\u2019s phone app.",
-    "summary": "An unofficial weather provider running inside the Pebble phone app. Choose it for Pebble Weather or compatible readings in Dynamic, Halftone and Dashboard. \u010cHM\u00da supplies station observations and ALADIN forecasts; optional Open-Meteo fills gaps.",
+    "description": "Czech observations. Local forecasts. On your Pebble.",
+    "summary": "An unofficial weather provider inside the Pebble phone app. Get nearby ČHMÚ station observations and ALADIN forecasts in Pebble Weather and compatible readings. Optional Open-Meteo adds missing fields and later forecast days.",
+    "showcase": {
+      "title": "Choose where your weather comes from.",
+      "text": "Let the plugin find a nearby station or choose a fixed Czech station. Follow the locations and units saved in Pebble, and decide whether to add Open-Meteo forecast information.",
+      "image": "/images/screenshots/chmu-weather-1.0.2-phone-settings.png"
+    },
     "features": [
       "Use automatic nearby station selection or choose a fixed Czech station",
       "Feed Pebble Weather and compatible watchface readings without an API key",
@@ -418,12 +472,12 @@ export const projects: Project[] = [
     "guide": "/docs/pebble/chmu-weather/",
     "setupGuide": "/docs/pebble/chmu-weather/",
     "helpGuide": "/docs/pebble/chmu-weather/#if-weather-is-missing",
-    "developerNote": "The public plugin uses public \u010cHM\u00da data and optional Open-Meteo fields. It has no watch binary. Personal builds are excluded.",
-    "image": "/images/projects/chmu-weather-1.0.2.png",
+    "developerNote": "The public plugin uses public ČHMÚ data and optional Open-Meteo fields. It has no watch binary. Personal builds are excluded.",
+    "image": "/images/store/chmu-weather-1.0.2-20261114-mark.png",
     "imageVersion": "1.0.2",
     "previewType": "icon",
-    "imageAlt": "\u010cHM\u00da Weather\u2019s original sun, cloud and rain icon.",
-    "imageCaption": "Original plugin icon \u00b7 no watch interface",
+    "imageAlt": "Original XOCE ČHMÚ Weather cloud-and-sun mark; unofficial phone plugin.",
+    "imageCaption": "Original plugin icon · no watch interface",
     "previousRelease": {
       "version": "1.0.1",
       "tag": "v1.0.1",
@@ -434,7 +488,11 @@ export const projects: Project[] = [
     "privacyUrl": "/projects/chmu-weather/privacy/",
     "watchPlatforms": [],
     "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
-    "artifactSha256": "09a9bc6e11368a9bf536eebc4bbe644b15945cd71f27c0c02e255be9c3153039"
+    "artifactSha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
+    "storeArtwork": {
+      "mark": "/images/store/chmu-weather-1.0.2-20261114-mark.png",
+      "shareImage": "/images/store/chmu-weather-1.0.2-20261114-banner-phone.png"
+    }
   },
   {
     "slug": "activities",

@@ -290,11 +290,18 @@ for (const project of products.filter(project => project.image)) {
   if (!capture || capture.capture_version !== project.imageVersion) problems.push(`${project.slug}: screenshot version/provenance differs`);
   if (!mainMarkup(`/projects/${project.slug}/`).includes(`${project.name} v${project.imageVersion}`)) problems.push(`${project.slug}: screenshot version caption is missing`);
 }
+for (const project of catalogueProducts) {
+  if (!project.storeArtwork || !provenance.images.some(entry=>entry.site_path===project.storeArtwork.mark&&entry.evidence_type==='original-xoce-product-mark') || !provenance.images.some(entry=>entry.site_path===project.storeArtwork.shareImage&&entry.width===720&&entry.height===320&&entry.original_artwork===true)) problems.push(project.name+': missing coordinated artwork provenance');
+  const markup=pages.get(`/projects/${project.slug}/`)?.html??'';
+  if (!markup.includes('property="og:image"') || !markup.includes(sitePath(project.storeArtwork?.shareImage??''))) problems.push(project.name+': missing family share image');
+}
 const { screenshotGalleries } = await import(pathToFileURL(path.join(root, 'src/data/screenshots.ts')).href);
 for (const [slug, screenshots] of Object.entries(screenshotGalleries)) {
   const project = projects.find(project => project.slug === slug);
   const markup = mainMarkup(`/projects/${slug}/`);
   if (!project || !markup.includes('id="screenshots"')) problems.push(`${slug}: gallery is missing`);
+  if (!project?.showcase || !screenshots.some(screenshot => screenshot.image === project.showcase.image)) problems.push(`${slug}: illustrated feature must use a capture from its verified gallery`);
+  if (!markup.includes('id="story-title"') || !markup.includes('id="connection-title"')) problems.push(`${slug}: illustrated features or product connections are missing`);
   for (const screenshot of screenshots) {
     const capture = provenance.images.find(entry => entry.site_path === screenshot.image);
     const expectedEvidence = screenshot.kind === 'watch' ? 'native-emulator-screenshot' : 'packaged-settings-browser-preview';
