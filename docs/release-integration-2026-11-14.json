@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-14",
+  "state": "Prepared Store preview; GitHub publication is separate",
+  "websiteTests": "PASS",
+  "browserChecks": 14,
+  "browserScreenshots": 160,
+  "settingsBrowserCaptures": 12,
+  "nativeGalleryPolicy": "Actual capture versions and original PNG bytes retained with strict final native compatibility proof",
+  "physicalDeviceTest": false,
+  "storeSubmitted": false,
+  "releases": [
+    {
+      "slug": "dynamic",
+      "name": "Dynamic",
+      "version": "1.0.2",
+      "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+      "pbw": "Dynamic-1.0.2.pbw",
+      "pbwSha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "platforms": [
+        "emery",
+        "gabbro"
+      ],
+      "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
+      "baselineVersion": "1.0.1",
+      "implementationCommit": "6abb86ed353479c042847a71e330c976922b9ba2",
+      "commit": "2254f08ac3a574df11ccb23ea6e3337e53bbe3b2",
+      "frozenArtifactCommit": "b649d9e926c223ff6da7dedbf42f78df602a967f"
+    },
+    {
+      "slug": "halftone",
+      "name": "Halftone",
+      "version": "1.10.3",
+      "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+      "pbw": "Halftone-1.10.3.pbw",
+      "pbwSha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "platforms": [
+        "emery",
+        "gabbro"
+      ],
+      "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
+      "baselineVersion": "1.10.2",
+      "implementationCommit": "3333f45ef4e12595a946bf1a44a86c194aae00db",
+      "commit": "9158a869aca33959e7b89d080fff410ca86c132f",
+      "frozenArtifactCommit": "145f4465e8a92b4052c6f81379791848840f8468"
+    },
+    {
+      "slug": "timer",
+      "name": "Timer",
+      "version": "1.0.3",
+      "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "pbw": "Timer-1.0.3.pbw",
+      "pbwSha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+      "platforms": [
+        "emery",
+        "gabbro"
+      ],
+      "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
+      "baselineVersion": "1.0.2",
+      "implementationCommit": "9c31c448fd50dd509ba2e1c40ccedf550d24888d",
+      "commit": "d777546af3c56d3d69c861a29cac093d4c5b260d"
+    },
+    {
+      "slug": "dashboard",
+      "name": "Dashboard",
+      "version": "1.0.2",
+      "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+      "pbw": "Dashboard-1.0.2.pbw",
+      "pbwSha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+      "platforms": [
+        "emery",
+        "gabbro"
+      ],
+      "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
+      "baselineVersion": "1.0.1",
+      "implementationCommit": "511b4175020d66efc012207613acac34716c06dc",
+      "commit": "415410e782b5aedbb9cfa03724aedc5dab785305"
+    },
+    {
+      "slug": "open-activity",
+      "name": "Open Activity",
+      "version": "1.0.2",
+      "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+      "pbw": "Open-Activity-1.0.2.pbw",
+      "pbwSha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+      "platforms": [
+        "emery",
+        "gabbro"
+      ],
+      "nativeGalleryReuseProof": "store/final-gallery-reuse.json",
+      "baselineVersion": "1.0.1",
+      "implementationCommit": "9b52c067bc2558b0cfce79e283e568ab6bb89901",
+      "commit": "3c4a5cc53cc0ba02a2e2a55665226d733466d463"
+    },
+    {
+      "slug": "chmu-weather",
+      "name": "ČHMÚ Weather",
+      "version": "1.0.4",
+      "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+      "pbw": "CHMU-Weather-1.0.4.pbw",
+      "pbwSha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+      "platforms": [],
+      "baselineVersion": "1.0.3",
+      "implementationCommit": "616f53b3749acd62ee08b5815bb780ab72b2b798",
+      "commit": "7a5ee8af666d7f87c7e802a8517909ae2b4e1a7a"
+    }
+  ]
+}

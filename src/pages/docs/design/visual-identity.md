@@ -16,7 +16,7 @@ Use semantic roles from `src/styles/theme.css`. Light mode has cool silver backg
 
 The page, working surfaces and controls have distinct roles. Fine edge highlights and contact shadows show the grouping of a header, control or product presentation. Reading areas remain opaque and calm. Text stays sharp and flat, with readable supporting text in both themes.
 
-Product stages use a shared graphite surface, keeping the actual native screen the focus. Smaller controls belong to their parent surface. Avoid adding a separate floating panel around every line of text.
+Product stages use a shared graphite surface, keeping the actual native screen the focus. Each product adds a restrained accent and a meaningful background rhythm: Dynamic uses adapting bands, Halftone uses dots, Timer uses time arcs, Dashboard uses a panel grid, Open Activity uses a directional path, and ČHMÚ Weather uses atmospheric contours. Product colours decorate identity; the website's blue continues to identify actions. Smaller controls belong to their parent surface. Avoid adding a separate floating panel around every line of text.
 
 ## Typography and the name
 
@@ -40,7 +40,13 @@ System, Light and Dark remain available. An explicit appearance choice persists 
 
 Product symbols remain recognizable: Timer’s hourglass, Dashboard’s panels, Open Activity’s opening arrow and Weather’s sun/cloud/rain. They use crisp monochrome glyphs with a transparent background. Website marks follow the page’s light/dark appearance; the graphite product stage uses white glyphs. Watchface marks are website artwork rather than Store icon fields.
 
-Xef selected the original orange Halftone banner as the Store reference: a bold colour field, curved patterned edge, large white title and illustrated watch. The family keeps that composition with each app’s colour and motif, and with real native screens for both watch shapes. The Store’s app icons use one-colour transparent glyphs marked `icon_tintable`; no background tile or shadow is baked into those files. Standalone Store screenshots remain raw and unframed.
+Xef selected the original orange Halftone banner as the Store reference: bold colour, a meaningful pattern, a large readable title and a real app screen. The refreshed family keeps those qualities, a small XOCE endorsement and consistent graphite/silver device treatment. Composition belongs to each product: do not repeat Halftone's curved separator or tile each product's menu glyph as wallpaper. Halftone keeps orange dots; Dynamic demonstrates changing space; Timer uses arcs; Dashboard uses panels; Open Activity explains a shortcut. The Store’s app icons use one-colour transparent glyphs marked `icon_tintable`; no background tile or shadow is baked into those files. Standalone Store screenshots remain raw and unframed.
+
+The website uses the same deliberate hero configurations as the Store artwork: orange Halftone, split four-reading Dynamic, running Timer and Dashboard's overview. Product identity must survive without its name, while typography, spacing, device treatment and the XOCE endorsement make the collection recognisable together. Other genuine configurations belong in the gallery.
+
+Dynamic's hero includes separate native idle and activity states side by side. Open Activity's hero labels its supporting apps explicitly: a countdown on Dynamic and the destination Timer app. These are separate example captures, not a recording of one countdown or invented Open Activity UI. Watch-shape selection and both demonstrations work without JavaScript or animation.
+
+ČHMÚ Weather is a phone plugin. Its website hero shows a CSS crop of the actual settings capture, linked to the unmodified full image; it does not invent a watch interface. On small screens each product's introduction is followed by its demonstration, then the longer description and compatibility details. Global launch status and install status stay visible; native/browser provenance is explained in the gallery rather than repeated on every surface.
 
 Native screenshot files and the website’s official Time 2/Round 2 frame files retain their exact bytes and proportions. Those website frames are credited to Core Devices. The new Store illustrations adapt Xef’s original Halftone SVG instead. Neither composition is a physical-watch photograph or a hardware test. Current orange Halftone captures have native emulator evidence.
 

@@ -1,0 +1,24 @@
+---
+import { projects } from '../data/projects';
+import { sitePath } from '../lib/site';
+interface Props { slugs: string[] }
+const selected = Astro.props.slugs.map(slug => projects.find(p => p.slug === slug)).filter(p => p !== undefined);
+const isPublished = (p: typeof selected[number]) => p.publication === 'published' && !!p.storeUrl;
+const pending = selected.filter(p => !isPublished(p));
+---
+{selected.length > 0 && <aside class="setup-availability" aria-label="Release availability" data-setup-availability={pending.length ? 'preparation' : 'published'}>
+  <p><strong>{pending.length ? 'Check availability before installing.' : 'Check the version you are using.'}</strong> {pending.length === selected.length ? 'These guides describe releases in preparation. Open a product page to check availability before following its installation steps.' : pending.length ? 'Some versions covered here are still in preparation. Check each product page for its installation choices.' : 'Use the release shown on each product page. Earlier versions may have different settings.'}</p>
+  <details><summary>Versions covered by this guide</summary><ul>{selected.map(p => <li><a href={sitePath(`/projects/${p.slug}/`)}>{p.name} · v{p.version}</a><span>{isPublished(p) ? 'Published' : 'In preparation'}</span></li>)}</ul></details>
+</aside>}
+<style>
+  .setup-availability{margin:22px var(--guide-gutter,36px) 26px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:var(--radius-small);background:color-mix(in srgb,var(--accent) 5%,transparent);font-size:.875rem;line-height:1.7}
+  .setup-availability p{margin:0;color:var(--muted)}
+  .setup-availability strong{color:var(--ink)}
+  .setup-availability details{margin-top:10px}
+  .setup-availability summary{cursor:pointer;color:var(--accent-text);min-height:32px;align-content:center}
+  .setup-availability ul{list-style:none;margin:10px 0 0;padding:0}
+  .setup-availability li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+  .setup-availability a{color:var(--accent-text);overflow-wrap:anywhere}
+  .setup-availability li span{flex-shrink:0;color:var(--muted);font-size:.75rem;align-self:center}
+  @media(max-width:600px){.setup-availability{padding:15px}.setup-availability li{flex-wrap:wrap;gap:3px 12px}}
+</style>

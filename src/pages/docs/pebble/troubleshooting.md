@@ -4,6 +4,7 @@ title: Troubleshooting
 description: Find help with missing activities, settings, permissions and Quick Launch handoff.
 section: For users
 order: 4
+setupProducts: [timer, dynamic, halftone, dashboard, open-activity]
 ---
 
 Check the version on the affected [app page](/projects/) first. The native launch products target **Time 2** (`emery`) and **Round 2** (`gabbro`). Activity sharing uses the official Pebble phone app’s plugin preview, not the planned XOCE Phone app.
@@ -14,11 +15,11 @@ An activity is an ongoing update, such as a Timer countdown shown on Dynamic or 
 
 1. Check that the watch and phone are connected and the Pebble phone app’s plugin preview is enabled.
 2. Open the source app. For Timer, start or resume a countdown on the watch.
-3. Check the source’s permissions in the Pebble phone app.
-4. In Dynamic or Dashboard, check that the activity is enabled and its priority is where you expect it.
+3. Check permissions for the app or watchface where the data should appear, and any permissions its chosen provider needs, in the Pebble phone app.
+4. In the app displaying the activity, check its own list: **Activities → Activity priority** in Dynamic, **Content & priority → Activity priority** in Halftone, or **Activity priority** in Dashboard. Enable Timer or the intended provider there. The watchfaces label that checkbox **Show**; Dashboard labels it with the provider’s name. Dynamic and Halftone also need **Show activity plugins** on for Timer.
 5. Return to the consuming app and allow the updated source state to arrive.
 
-Dynamic and Dashboard own separate priority lists. Enabling or reordering a provider in one does not change the other.
+Dynamic, Halftone and Dashboard each keep their own priority and visibility choices. Enabling or reordering a provider in one does not change the others. Save changes and return to the app or watchface where you want to see them.
 
 Music and notification previews are currently Android-only. If a source stops supplying valid data, its activity disappears rather than continuing to show an old value.
 
@@ -38,29 +39,39 @@ Do not reset app data as a first troubleshooting step; that would discard useful
 
 That is the expected result when the chosen activity has no valid app destination. Check that:
 
-- Dynamic has recently displayed an activity in the selected position.
+- **Watchface** in Open Activity settings matches the source you intend to use: Dynamic or Halftone. Change it manually when switching watchfaces.
+- That selected watchface has recently displayed an activity in the selected Primary or Secondary position.
 - The associated watch app is installed.
 - Open Activity has **Launch apps** permission.
+- The phone is connected and plugin support is enabled.
 - Your phone settings and Pebble’s Quick Launch assignment refer to the same shortcut.
 - Only one watch is connected for the supported launch setup.
 
-Return to Dynamic, wait for the intended activity and try the shortcut again. Open Activity uses a recent destination; launching it cannot refresh old activity data. An absent Secondary does not open Primary instead.
+Return to the selected Dynamic or Halftone watchface, wait for the intended activity and try the shortcut again. Open Activity uses that manually selected source’s recent destination; launching it cannot refresh old activity data or detect which watchface you were using. An absent Secondary does not open Primary instead.
 
 ## I cannot reach Open Activity’s settings
 
-Open **Open Activity from the watch’s app list**, then open its settings in the phone app. Version 0.4.0 keeps a normal launch open on a static setup screen. Use Back on the watch when you finish.
+Open **Open Activity from the watch’s app list**, leave its setup screen open, then open its settings in the phone app. Use Back on the watch when you finish.
 
 Use the configured Quick Launch shortcuts for activity handoff, rather than the normal app-list launch.
 
 ## Settings seem not to save
 
-- **Dynamic 0.19.0:** the modern page stays open while Saving… changes to **✓ Saved** after confirmed phone persistence. Legacy return-URL submission closes; reopen settings to check that fallback.
-- **Dashboard 0.7.0 and Open Activity 0.4.0:** settings stay open. Wait for the page’s saved confirmation, then close and reopen to check the result. If loading fails or saving is uncertain, preserve your draft and use the page’s retry or saved-state recovery controls.
-- **Timer 0.15.0:** the phone page selects Light/Dark watch appearance and keeps confirmed Save open. Timer creation, Reset and alarm controls remain on the watch.
+- **Dynamic and Halftone:** the modern page stays open while Saving… changes to **✓ Saved** after confirmed phone persistence. A legacy return-URL route can close instead; reopen settings to check that fallback.
+- **Dashboard and Open Activity:** wait for the page’s saved confirmation. If loading fails or saving is uncertain, keep your draft and use the page’s retry or saved-state recovery controls. Dashboard’s global Save includes the pin currently open in its editor.
+- **Timer:** watch-display and Alarm sound settings have separate Save controls. Timer creation, Reset and alarm controls remain on the watch.
 
-Dashboard 0.7.0 and Open Activity 0.4.0 include fixes for choices being overwritten when the Android phone runtime closes. Dashboard’s global Save also includes the pin currently open in its editor.
+The release versions covered by these instructions are shown in the version panel above. Check the affected product page if you installed an earlier release.
 
-The [shared Save-and-stay design](/docs/design/pebble-ui-system/#save-stays-open) is included in the versions described here. Phone persistence confirmation does not establish watch delivery or native alarm acceptance.
+**✓ Saved** confirms phone persistence. It does not establish that display settings reached the watch, or that a native alarm was scheduled. Check the separate watch-delivery status, open the affected app while connected and use **Retry watch delivery** where offered. [Save-and-stay behavior](/docs/design/pebble-ui-system/#save-stays-open).
+
+## Text size or appearance has not changed
+
+For text, choose **Follow Pebble**, **Small**, **Medium** or **Large**, save, then reopen the app or watchface while connected. Follow Pebble text uses the watch’s own text size. A phone-saved choice can remain pending until the native app confirms it.
+
+Automatic **Follow Pebble** appearance is unavailable in these builds: it keeps the last explicit Light/Dark choice. Choose **Light** or **Dark** in Timer, Dashboard or Open Activity. Dynamic and Halftone additionally offer **Follow Quiet Time** for their day/night palettes. Editing a palette or changing a settings-page preview does not itself change which palette is active on the watch.
+
+Open Activity applies display preferences during its normal app-list setup launch, not as part of a Quick Launch handoff. Keep that setup screen open and check the watch-delivery status before leaving it.
 
 ## Dashboard cannot find an app
 
@@ -76,4 +87,4 @@ Timer could not secure the background alarm. Keep the app open and follow the vi
 
 Use the issue link on the affected [project page](/projects/). Include the app version, watch model, phone platform, steps to reproduce, expected result and actual result. Remove private notification text, song metadata and other personal content from screenshots or logs before sharing them.
 
-The old repository names are retained as read-only historical archives. New issues belong in the maintained repositories linked from this site.
+Use the current source and issue links on the affected project page so the report reaches the repository maintained for that product.

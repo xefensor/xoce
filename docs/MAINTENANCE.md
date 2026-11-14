@@ -2,7 +2,7 @@
 
 ## Current scope
 
-Xef approved the Pebble-first redesign and requested its public deployment on 2026-11-14. It describes Dynamic 1.0.1, Halftone 1.10.2, Dashboard 1.0.1, Timer 1.0.2, Open Activity 1.0.1 and ČHMÚ Weather 1.0.3. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch interface. Duo and Personal Weather are excluded.
+Xef approved the Pebble-first redesign and requested its public deployment on 2026-11-14. It describes Dynamic 1.0.2, Halftone 1.10.3, Dashboard 1.0.2, Timer 1.0.3, Open Activity 1.0.2 and ČHMÚ Weather 1.0.4. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch interface. Duo and Personal Weather are excluded.
 
 A launch candidate is not a published app release. `publication: 'preview'` records have no active Store or PBW links; a site-wide preview notice and `noindex` identify preparation pages even after their authorized website deployment. `check:deployment` allows that state and retains complete public Store/GitHub verification for published records. `check:launch` remains the all-app activation check. Existing app releases remain unchanged. [Launch checklist](launch-checklist.md) records the activation process.
 

@@ -18,7 +18,7 @@ export const docs: DocLink[] = [
     title: 'Getting started',
     href: '/docs/getting-started/',
     section: 'For users',
-    description: 'Install the current Pebble apps, try a timer on your watchface and find help for your next task.',
+    description: 'Check release availability, try Timer on its own, then connect a watchface.',
   },
   {
     title: 'Set up your Pebble',

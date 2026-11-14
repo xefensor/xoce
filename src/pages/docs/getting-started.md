@@ -1,93 +1,91 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: Getting started
-description: Choose your apps, check your Pebble and get your first countdown onto your watchface.
+description: Start with a timer on your watch, then add a watchface and the connections you want.
 section: For users
 order: 1
+setupProducts: [timer, dynamic, halftone, dashboard, open-activity, chmu-weather]
 ---
 
-XOCE is Xef’s independent software project. The collection includes two watchfaces and three watch apps for **Pebble Time 2 and Round 2**, plus the optional **ČHMÚ Weather** phone plugin. You can use the pieces you need; there is no separate XOCE app or library service to install.
+XOCE is Xef’s collection of small apps. The watchfaces and watch apps here support **Pebble Time 2 and Round 2**. ČHMÚ Weather is a separate phone plugin. Each piece has its own job; start with one and add the others when useful.
 
 ## New to Pebble?
 
-Pebble is the watch platform. The **official Pebble phone app** connects your watch to Android or iPhone and manages its apps and settings.
+1. [Get the official Pebble phone app](https://repebble.com/app) for Android or iPhone, open it and pair your watch. Pebble’s [installation guide](https://help.repebble.com/en/articles/14489632-installing-the-pebble-app) covers the phone app.
+2. Check the release status on the [product page](/projects/). A prepared preview may have different settings from an older download. Verified installation links appear there when the release is available.
+3. After installing a watch app, open it from the watch’s app list with **Select**, the middle-right button. A watchface becomes your everyday clock screen. [See all four buttons](/pebble/#watch-buttons).
 
-1. [Get the official Pebble phone app](https://repebble.com/app).
-2. Open it and follow its setup to pair your watch. Pebble’s [phone-app installation guide](https://help.repebble.com/en/articles/14489632-installing-the-pebble-app) links to further setup help.
-3. Check your watch model. The XOCE watchface and watch-app downloads are for **Pebble Time 2 and Round 2**; other models are not included. Check each product page for release status. ČHMÚ Weather runs in the phone app and follows Pebble’s weather/plugin support.
-
-A **watchface** is your everyday clock screen. A **watch app** is something you open from the watch’s app list. Dynamic and Halftone are watchfaces; Timer, Dashboard and Open Activity are watch apps. ČHMÚ Weather is a plugin running inside the Pebble phone app. [See the watch buttons and basic terms](/pebble/#watch-buttons).
+The official Pebble app handles installation, pairing and settings. There is no separate XOCE app or Activities library to install.
 
 ## Choose what you need
 
-| What would you like to do? | Install | Optional additions |
+| Your goal | Start with | Add later |
 | --- | --- | --- |
-| Use an animated clock with readings and ongoing updates | [Dynamic](/projects/dynamic/) | Timer for countdowns |
-| Customize a halftone clock with two readings | [Halftone](/projects/halftone/) | ČHMÚ Weather or another compatible source |
-| Get Czech observations and local forecasts | [ČHMÚ Weather](/projects/chmu-weather/) | Choose it as your weather provider or reading source |
-| Set and reuse countdowns | [Timer](/projects/timer/) | Dynamic or Halftone to see the countdown on your watchface |
-| Open an overview with readings and shortcuts | [Dashboard](/projects/dashboard/) | Configure the pins you find useful |
-| Use a button shortcut to open the app behind an activity | [Open Activity](/projects/open-activity/) **and Dynamic or Halftone** | Configure a second shortcut for the smaller activity row |
+| Set and reuse countdowns | [Timer](/projects/timer/) | A watchface to keep the countdown in view |
+| A flexible clock with readings | [Dynamic](/projects/dynamic/) | Timer, music or other Activities |
+| A bold clock with a dotted border | [Halftone](/projects/halftone/) | Timer or another compatible data source |
+| Czech observations and forecasts | [ČHMÚ Weather](/projects/chmu-weather/) | Select it as a weather provider or reading source |
+| An overview of updates and readings | [Dashboard](/projects/dashboard/) | Your chosen pins and shortcuts |
+| A shortcut back to the app behind an activity | [Open Activity](/projects/open-activity/) with Dynamic or Halftone | A second shortcut for the smaller activity row |
 
-**Start with Timer + Dynamic** if you want to try how the apps work together. Dashboard, Open Activity and ČHMÚ Weather can wait until later. Halftone is an alternative watchface and can show the same Timer activity.
-
-## What is an activity?
-
-An **activity** is an update about something happening now, such as a countdown. These compatible XOCE apps can show the same update in different places: start a countdown in Timer, then return to Dynamic or Halftone to see the time remaining on your clock screen. Timer still runs the countdown and alarm.
-
-Activities are a feature of compatible apps and watchfaces; installing Timer does not add countdowns to every Pebble watchface. Small weather or battery readings have separate settings. [How Activities work](/docs/pebble/activities/).
-
-## Current Pebble builds
-
-The five native products target Time 2 and Round 2. ČHMÚ Weather is a separate phone plugin. Product pages identify a launch preview or a published release and provide the available installation choices. Use the latest official Pebble phone app.
-
-| Your phone or connection | What to expect |
-| --- | --- |
-| Android | Music and notification previews are available in Dynamic, Halftone and Dashboard, with the required permissions. |
-| iPhone / iOS | Music and notification previews are not supported in these XOCE releases. Other features depend on available plugins and permissions. |
-| Watch disconnected from phone | Timer keeps its successfully scheduled alarm on the watch. Sharing updates with Dynamic, Halftone or Dashboard needs the phone connection. |
-
-The planned XOCE Android Phone app is not required. Your watch and phone do not need a different operating system.
+**Timer is the simplest first check.** Its countdown and successfully scheduled alarm run on the watch. Add Dynamic or Halftone when you want to see that countdown on your clock screen.
 
 ## A useful first setup
 
-Your goal: **start a one-minute countdown in Timer and see it on Dynamic**.
+### 1. Try Timer on its own
 
-1. Follow [Before installing](/docs/pebble/setup/#before-installing). It covers the phone app, plugin preview and opening the downloaded files.
-2. Install [Timer](/projects/timer/) and [Dynamic](/projects/dynamic/). Use the Pebble Store link for a published version, or open its matching manual `.pbw` with the Pebble phone app. A launch-preview label means that version is still being prepared.
-3. On the watch, open Timer, choose **New timer**, set one minute and start it. Use the [button guide](/pebble/#watch-buttons) if you are unsure which button to press.
-4. In the Pebble phone app, choose Dynamic as your watchface. Open Dynamic’s settings using its settings gear.
-5. Open **Activities**, turn on **Show activity plugins**, then show Timer in **Activity priority**. Choose **Save** and wait for **✓ Saved**.
-6. Return to Dynamic on the watch. Keep your phone connected and check that the countdown appears.
+Follow [Timer’s setup steps](/docs/pebble/setup/#timer) to create a one-minute countdown. Try pausing and resuming it, then choose **Done** when it finishes.
 
-**Success looks like this:** Timer’s countdown also appears on your everyday clock screen. Timer still handles the alarm. If the countdown is missing, use [the activity checklist](/docs/pebble/troubleshooting/#an-activity-is-missing).
+**Check:** Timer shows the remaining time and keeps the saved duration for reuse. If it says **Alarm not set; keep open**, follow [the alarm help](/docs/pebble/troubleshooting/#timer-reports-alarm-not-set-keep-open) before leaving the app. No activity-sharing setup is needed for this check.
 
-You can stop here. To change a countdown, open Timer from the watch’s app list. [Open Activity](/docs/pebble/setup/#open-activity) is an optional shortcut for returning to it more quickly.
+### 2. Keep a countdown on your watchface
+
+1. Choose [Dynamic](/docs/pebble/setup/#dynamic) or [Halftone](/docs/pebble/halftone/), and finish its phone-settings setup first.
+2. Enable shared information, show Timer in the watchface’s **Activity priority**, and save. **✓ Saved** confirms phone storage; wait for watch delivery if the page reports it as pending.
+3. Now start a **12-minute** timer. From Timer’s detail screen, press Back to the list, then Back again to return to the watchface. Keep the phone connected.
+
+**Check:** the watchface shows the remaining time while Timer still owns the countdown and alarm. The longer example gives you time to try the connection. [If the countdown is missing](/docs/pebble/troubleshooting/#an-activity-is-missing).
+
+You can stop here. Open Timer from the app list to change a countdown. Open Activity is an optional shortcut; Dashboard and ČHMÚ Weather can be added independently.
+
+## What is an activity?
+
+An **activity** is an update about something happening now: a countdown, music or a notification preview. Compatible apps choose how to display it. Timer’s activity can appear in Dynamic, Halftone or Dashboard; the original Timer app still runs it and handles its controls.
+
+Small weather or battery **readings** use separate settings. Pebble calls these **Complications**. [Understand readings and Activities](/docs/pebble/activities/).
+
+## Current Pebble builds
+
+The version list above follows the product pages. Check it before using these instructions with an older build.
+
+| Your setup | What to expect |
+| --- | --- |
+| Android | Built-in music and notification sources are available with the relevant permissions. |
+| iPhone / iOS | These releases do not support built-in music and notification previews. Other sources depend on available plugins and permissions. |
+| Phone disconnected | Timer keeps its countdown and successfully scheduled alarm. Sharing updates with another app needs the connection. |
+
+Plugin support is needed for shared readings and Activities. Enable it when you reach that setup step, then allow the permissions for the sources you choose. [Enable shared information](/docs/pebble/setup/#enable-shared-information).
 
 ## Try Halftone or Czech weather
 
-[Halftone](/projects/halftone/) offers a different everyday clock with a halftone dot border, configurable colours and two readings. Choose one active watchface at a time. [Set up Halftone](/docs/pebble/halftone/).
+[Halftone](/docs/pebble/halftone/) is an alternative to Dynamic. You can install both and choose one active watchface. When switching between them, change Open Activity’s selected source if you use that helper.
 
-[ČHMÚ Weather](/projects/chmu-weather/) is an unofficial weather plugin for Czech locations. It works with Pebble Weather and compatible readings in Dynamic, Halftone and Dashboard. It is optional and needs no API key or separate Android app. [Set up the weather source](/docs/pebble/chmu-weather/).
+[ČHMÚ Weather](/docs/pebble/chmu-weather/) supplies Czech weather inside the phone app. It has no watch screen, API key or separate Android app. Configure it first, then select its weather source in Pebble.
 
 ## Add Dashboard when you want an overview
 
-[Dashboard](/projects/dashboard/) is a separate app you open on the watch. Its opening view has one current activity, a notification shortcut and two pinned items. A pin can show a reading, perform an available action or open an app.
-
-Readings, notifications and activities in the screenshots use example data. What you can choose depends on the plugins you have installed and configured. Dashboard keeps its own activity order, separate from both watchfaces.
-
-[Set up Dashboard](/docs/pebble/setup/#dashboard) when you are ready.
+[Dashboard](/docs/pebble/setup/#dashboard) opens as a watch app. It brings together an activity, a notification panel and two pinned items, with full collections behind them. Start with an available phone-battery or weather reading. Pins are Dashboard’s readings and shortcuts, separate from timeline pins.
 
 ## What to expect
 
 - A paused timer leaves the shared activity view after five minutes but stays saved in Timer.
-- Choose **Done** in Timer to dismiss a finished countdown.
-- Dashboard does not currently pause or resume timers. Open Timer to do that.
-- Dynamic’s two small readings are selected under **Settings → Plugins → Complications** in the Pebble phone app. Those choices can also affect other watchfaces.
+- Dashboard shows Timer’s information; pause and resume remain in Timer.
+- Dynamic and Halftone use shared Complications choices. Changing them can affect both watchfaces.
+- Screenshots and settings previews use example data. Available readings and actions depend on your configured sources.
 
 ## Choose your platform
 
-The native watch products target Time 2 and Round 2; ČHMÚ Weather is a phone plugin. Android and KDE Plasma are part of XOCE’s wider direction; cross-device timer synchronization is a future goal. [Read about the project](/about/).
+These guides cover the Pebble products above. The planned XOCE Android Phone app is separate, and Android/KDE Plasma work is part of the wider project. [About XOCE](/about/).
 
 ## Next steps
 

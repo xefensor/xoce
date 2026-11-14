@@ -1,0 +1,16 @@
+---
+import { sitePath } from '../lib/site';
+import type { Project } from '../data/projects';
+interface Props { project: Project }
+const { project } = Astro.props;
+const image='/images/screenshots/chmu-weather-1.0.3-phone-settings.png';
+---
+<figure class="weather-preview">
+  <div class="stage-heading"><span class="stage-dot" aria-hidden="true"></span><span>{project.name}</span><span class="stage-kind">Phone plugin</span></div>
+  <p class="weather-preview-title">A station near you.</p>
+  <a class="weather-settings-window" href={sitePath(image)} aria-label="Open full ČHMÚ Weather phone settings capture">
+    <img src={sitePath(image)} width="720" height="1440" alt="Detail of ČHMÚ Weather phone settings: Praha station observation, temperature, humidity, wind and automatic station selection." loading="eager" decoding="async"/>
+  </a>
+  <figcaption>{project.name} v{project.imageVersion} · phone settings detail</figcaption>
+  <p class="weather-preview-note">Runs inside the Pebble phone app. Compatible watchfaces display the weather.</p>
+</figure>

@@ -21,7 +21,7 @@
     "test": "npm run check && npm run build && npm run check:links && npm run check:docs && npm run test:launch",
     "check:docs": "python3 scripts/check-docs.py",
     "check:setup": "python3 scripts/check-setup.py",
-    "test:launch": "node tests/launch-readiness.test.mjs",
+    "test:launch": "node --test tests/launch-readiness.test.mjs tests/capture-provenance.test.mjs",
     "check:launch": "node scripts/check-launch.mjs",
     "check:deployment": "node scripts/check-deployment.mjs"
   },

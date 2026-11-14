@@ -1,74 +1,74 @@
 {
-  "scope": "Freshly built, audited and frozen new numeric versions for the 2026-11-14 Store update. Original captures reused with renderer equivalence proof; not publication or physical-device verification.",
+  "scope": "Final integrated and committed builds, with final hashes and exact native gallery reuse proof. GitHub releases and manual Store submission are separate publication states.",
   "artifacts": [
     {
       "product": "Dynamic",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
-      "sourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c",
-      "sourceFile": "Dynamic-1.0.1.pbw"
+      "sha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "sourceCommit": "2254f08ac3a574df11ccb23ea6e3337e53bbe3b2",
+      "sourceFile": "Dynamic-1.0.2.pbw"
     },
     {
       "product": "Halftone",
-      "version": "1.10.2",
+      "version": "1.10.3",
       "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
-      "sourceCommit": "899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
-      "sourceFile": "Halftone-1.10.2.pbw"
+      "sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "sourceCommit": "9158a869aca33959e7b89d080fff410ca86c132f",
+      "sourceFile": "Halftone-1.10.3.pbw"
     },
     {
       "product": "Timer",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
-      "sourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c",
-      "sourceFile": "Timer-1.0.2.pbw"
+      "sha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
+      "sourceCommit": "d777546af3c56d3d69c861a29cac093d4c5b260d",
+      "sourceFile": "Timer-1.0.3.pbw"
     },
     {
       "product": "Dashboard",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
-      "sourceCommit": "aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
-      "sourceFile": "Dashboard-1.0.1.pbw"
+      "sha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
+      "sourceCommit": "415410e782b5aedbb9cfa03724aedc5dab785305",
+      "sourceFile": "Dashboard-1.0.2.pbw"
     },
     {
       "product": "Open Activity",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
       "watchPlatforms": [
         "emery",
         "gabbro"
       ],
-      "sha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
-      "sourceCommit": "4fd2e10791845ca148a6c231817ad5e379c8b47d",
-      "sourceFile": "Open-Activity-1.0.1.pbw"
+      "sha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
+      "sourceCommit": "3c4a5cc53cc0ba02a2e2a55665226d733466d463",
+      "sourceFile": "Open-Activity-1.0.2.pbw"
     },
     {
       "product": "ČHMÚ Weather",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
       "watchPlatforms": [],
-      "sha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
-      "sourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
-      "sourceFile": "CHMU-Weather-1.0.3.pbw"
+      "sha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
+      "sourceCommit": "7a5ee8af666d7f87c7e802a8517909ae2b4e1a7a",
+      "sourceFile": "CHMU-Weather-1.0.4.pbw"
     }
   ]
 }

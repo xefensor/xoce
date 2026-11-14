@@ -100,7 +100,7 @@ export const projects: Project[] = [
     "name": "Dynamic",
     "kind": "watchface",
     "description": "A clock that makes room for your day.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repo": "https://github.com/xefensor/pebble-watchface-dynamic",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     "showcase": {
       "title": "Choose the space your readings need.",
       "text": "Four when idle adds a compact 2×2 grid. Activities and Timeline Peek keep the selected pair. Layout, colours and Activities have their own phone-settings screens, with an example preview and one Save action.",
-      "image": "/images/screenshots/dynamic-1.0.1-20261114-emery-four-split.png"
+      "image": "/images/screenshots/dynamic-1.0.1-demo-20261114-emery-four-split.png"
     },
     "features": [
       "Choose Columns, Stacked rows or Four when idle",
@@ -119,9 +119,9 @@ export const projects: Project[] = [
       "Keep complete percentages and required qualifiers together",
       "Arrange music, Timer and optional notifications in your preferred order"
     ],
-    "image": "/images/screenshots/dynamic-1.0.1-20261114-emery-columns.png",
+    "image": "/images/screenshots/dynamic-1.0.1-demo-20261114-emery-four-split.png",
     "imageVersion": "1.0.1",
-    "imageAlt": "Dynamic 1.0.0, Time 2: clock and readings.",
+    "imageAlt": "Dynamic, Time 2: split clock and four readings while idle.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -138,19 +138,19 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dynamic-1.0.1-20261114-emery-columns.png",
-        "alt": "Dynamic 1.0.0, Time 2: clock and readings."
+        "image": "/images/screenshots/dynamic-1.0.1-demo-20261114-emery-four-split.png",
+        "alt": "Dynamic, Time 2: split clock and four readings while idle."
       },
       "gabbro": {
-        "image": "/images/screenshots/dynamic-1.0.1-20261114-gabbro-columns.png",
-        "alt": "Dynamic 1.0.0, Round 2: clock and readings."
+        "image": "/images/screenshots/dynamic-1.0.1-demo-20261114-gabbro-four-split.png",
+        "alt": "Dynamic, Round 2: split clock and four readings while idle."
       }
     },
     "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
-    "artifactSha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
+    "artifactSha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
     "storeArtwork": {
-      "mark": "/images/store/dynamic-1.0.1-pebble-20261114-mark.png",
-      "shareImage": "/images/store/dynamic-1.0.1-pebble-20261114-banner-emery.png"
+      "mark": "/images/store/dynamic-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/dynamic-xoce-screenshots-20261114-banner-emery.png"
     }
   },
   {
@@ -170,7 +170,7 @@ export const projects: Project[] = [
     "name": "Dashboard",
     "kind": "app",
     "description": "Your activity, notifications and pins. One overview.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repo": "https://github.com/xefensor/pebble-app-dashboard",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -181,16 +181,16 @@ export const projects: Project[] = [
     "showcase": {
       "title": "Your overview, one button away.",
       "text": "See a current activity, an optional notification and your chosen pins together. Open Dashboard when you want more room for the details.",
-      "image": "/images/screenshots/dashboard-1.0.1-20261114-gabbro-overview.png"
+      "image": "/images/screenshots/dashboard-1.0.1-demo-20261114-gabbro-overview.png"
     },
     "features": [
       "Keep an activity, a notification and two pins in one overview",
       "Open collections and use the controls a source provides",
       "Choose readings, actions and app shortcuts for your pins"
     ],
-    "image": "/images/screenshots/dashboard-1.0.1-20261114-emery-overview.png",
+    "image": "/images/screenshots/dashboard-1.0.1-demo-20261114-emery-overview.png",
     "imageVersion": "1.0.1",
-    "imageAlt": "Dashboard 1.0.0, Time 2: overview.",
+    "imageAlt": "Dashboard, Time 2: overview.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -207,19 +207,19 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/dashboard-1.0.1-20261114-emery-overview.png",
-        "alt": "Dashboard 1.0.0, Time 2: overview."
+        "image": "/images/screenshots/dashboard-1.0.1-demo-20261114-emery-overview.png",
+        "alt": "Dashboard, Time 2: overview."
       },
       "gabbro": {
-        "image": "/images/screenshots/dashboard-1.0.1-20261114-gabbro-overview.png",
-        "alt": "Dashboard 1.0.0, Round 2: overview."
+        "image": "/images/screenshots/dashboard-1.0.1-demo-20261114-gabbro-overview.png",
+        "alt": "Dashboard, Round 2: overview."
       }
     },
     "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
-    "artifactSha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
+    "artifactSha256": "98e0c2098f769a6963b26a2f7003953aecf44a7a8c95ad76ef059d2776f63b72",
     "storeArtwork": {
-      "mark": "/images/store/dashboard-1.0.1-pebble-20261114-mark.png",
-      "shareImage": "/images/store/dashboard-1.0.1-pebble-20261114-banner-emery.png"
+      "mark": "/images/store/dashboard-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/dashboard-xoce-screenshots-20261114-banner-emery.png"
     }
   },
   {
@@ -238,7 +238,7 @@ export const projects: Project[] = [
     "name": "Timer",
     "kind": "app",
     "description": "Set a timer. Keep it ready for next time.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "repo": "https://github.com/xefensor/pebble-app-timer",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -249,7 +249,7 @@ export const projects: Project[] = [
     "showcase": {
       "title": "Set it once. Use it again.",
       "text": "Set hours, minutes and seconds with the watch buttons. Your timers stay ready for reuse. Finished countdowns can sound on Time 2 when enabled, alongside vibration; Round 2 uses vibration. Sound respects system mute and Quiet Time.",
-      "image": "/images/screenshots/timer-1.0.2-20261114-gabbro-running.png"
+      "image": "/images/screenshots/timer-1.0.2-demo-20261114-gabbro-running.png"
     },
     "features": [
       "Keep up to eight timers, from five seconds to 24 hours",
@@ -257,9 +257,9 @@ export const projects: Project[] = [
       "Use optional sound and vibration on Time 2; vibration on Round 2",
       "Share the countdown with Dynamic, Halftone or Dashboard through your connected phone"
     ],
-    "image": "/images/screenshots/timer-1.0.2-20261114-emery-running.png",
+    "image": "/images/screenshots/timer-1.0.2-demo-20261114-emery-running.png",
     "imageVersion": "1.0.2",
-    "imageAlt": "Timer 1.0.0, Time 2: running countdown.",
+    "imageAlt": "Timer, Time 2: running countdown.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -276,19 +276,19 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/timer-1.0.2-20261114-emery-running.png",
-        "alt": "Timer 1.0.0, Time 2: running countdown."
+        "image": "/images/screenshots/timer-1.0.2-demo-20261114-emery-running.png",
+        "alt": "Timer, Time 2: running countdown."
       },
       "gabbro": {
-        "image": "/images/screenshots/timer-1.0.2-20261114-gabbro-running.png",
-        "alt": "Timer 1.0.0, Round 2: running countdown."
+        "image": "/images/screenshots/timer-1.0.2-demo-20261114-gabbro-running.png",
+        "alt": "Timer, Round 2: running countdown."
       }
     },
     "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
-    "artifactSha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
+    "artifactSha256": "33bc8ee06bbcc084a70d133a6f126bc4bcb0b90f3e46f5823dc78ea5b38171f6",
     "storeArtwork": {
-      "mark": "/images/store/timer-1.0.2-pebble-20261114-mark.png",
-      "shareImage": "/images/store/timer-1.0.2-pebble-20261114-banner-emery.png"
+      "mark": "/images/store/timer-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/timer-xoce-screenshots-20261114-banner-emery.png"
     }
   },
   {
@@ -310,7 +310,7 @@ export const projects: Project[] = [
     "name": "Open Activity",
     "kind": "app",
     "description": "From the activity you see to the app behind it.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repo": "https://github.com/xefensor/pebble-app-open-activity",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -329,8 +329,8 @@ export const projects: Project[] = [
       "Open from the app list for setup; use Quick Launch to open an activity"
     ],
     "image": "/images/screenshots/open-activity-1.0.1-emery-activities-setup.png",
-    "imageVersion": "1.0.1",
-    "imageAlt": "Open Activity 1.0.0, Time 2: activities and shortcut setup.",
+    "imageVersion": "1.0.0",
+    "imageAlt": "Open Activity, Time 2: activities and shortcut setup.",
     "platform": "PebbleOS",
     "status": "Store release in preparation",
     "previousRelease": {
@@ -348,11 +348,11 @@ export const projects: Project[] = [
     "previews": {
       "emery": {
         "image": "/images/screenshots/open-activity-1.0.1-emery-activities-setup.png",
-        "alt": "Open Activity 1.0.0, Time 2: activities and shortcut setup."
+        "alt": "Open Activity, Time 2: activities and shortcut setup."
       },
       "gabbro": {
         "image": "/images/screenshots/open-activity-1.0.1-gabbro-activities-setup.png",
-        "alt": "Open Activity 1.0.0, Round 2: activities and shortcut setup."
+        "alt": "Open Activity, Round 2: activities and shortcut setup."
       }
     },
     "optionalConnections": [
@@ -360,10 +360,10 @@ export const projects: Project[] = [
       "halftone"
     ],
     "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
-    "artifactSha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
+    "artifactSha256": "bcf32d22f9f9cb3227e2070b763b514ea7202ae503455311ee5b8de1ee98d301",
     "storeArtwork": {
-      "mark": "/images/store/open-activity-1.0.1-pebble-20261114-mark.png",
-      "shareImage": "/images/store/open-activity-1.0.1-pebble-20261114-banner-emery.png"
+      "mark": "/images/store/open-activity-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/open-activity-xoce-screenshots-20261114-banner-emery.png"
     }
   },
   {
@@ -374,7 +374,7 @@ export const projects: Project[] = [
     "platform": "PebbleOS",
     "compatibility": "Pebble Time 2 and Round 2",
     "status": "Store release in preparation",
-    "version": "1.10.2",
+    "version": "1.10.3",
     "repo": "https://github.com/xefensor/halftone-watchface",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
@@ -385,7 +385,7 @@ export const projects: Project[] = [
     "showcase": {
       "title": "A clock with its own character.",
       "text": "Choose the colours and depth that suit you. Weather or other readings keep their place beneath the clock, above your chosen activities and Timeline Peek.",
-      "image": "/images/screenshots/halftone-1.10.2-20261114-gabbro-idle.png"
+      "image": "/images/screenshots/halftone-1.10.2-demo-20261114-gabbro-orange.png"
     },
     "features": [
       "Choose colours, Bigger Text, depth and shadow around the dot border",
@@ -407,9 +407,9 @@ export const projects: Project[] = [
       "chmu-weather"
     ],
     "previewType": "watch",
-    "image": "/images/screenshots/halftone-1.10.2-20261114-emery-idle.png",
+    "image": "/images/screenshots/halftone-1.10.2-demo-20261114-emery-orange.png",
     "imageVersion": "1.10.2",
-    "imageAlt": "Halftone 1.10.1, Time 2: clock with two weather locations.",
+    "imageAlt": "Halftone, Time 2: orange clock with two weather locations.",
     "previousRelease": {
       "version": "1.9.0-rc.6",
       "tag": "v1.9.0-rc.6",
@@ -424,19 +424,19 @@ export const projects: Project[] = [
     ],
     "previews": {
       "emery": {
-        "image": "/images/screenshots/halftone-1.10.2-20261114-emery-idle.png",
-        "alt": "Halftone 1.10.1, Time 2: clock and readings."
+        "image": "/images/screenshots/halftone-1.10.2-demo-20261114-emery-orange.png",
+        "alt": "Halftone, Time 2: orange clock with two readings."
       },
       "gabbro": {
-        "image": "/images/screenshots/halftone-1.10.2-20261114-gabbro-idle.png",
-        "alt": "Halftone 1.10.1, Round 2: clock and readings."
+        "image": "/images/screenshots/halftone-1.10.2-demo-20261114-gabbro-orange.png",
+        "alt": "Halftone, Round 2: orange clock with two readings."
       }
     },
     "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
-    "artifactSha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
+    "artifactSha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
     "storeArtwork": {
-      "mark": "/images/store/halftone-1.10.2-pebble-20261114-mark.png",
-      "shareImage": "/images/store/halftone-1.10.2-pebble-20261114-banner-emery.png"
+      "mark": "/images/store/halftone-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/halftone-xoce-screenshots-20261114-banner-emery.png"
     }
   },
   {
@@ -447,23 +447,23 @@ export const projects: Project[] = [
     "platform": "PebbleOS",
     "compatibility": "Pebble phone app with plugins · Czech weather locations",
     "status": "Store release in preparation",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "repo": "https://github.com/xefensor/pebble-chmu-weather",
     "licence": {
       "name": "PolyForm Noncommercial 1.0.0",
       "url": "https://github.com/xefensor/pebble-chmu-weather/blob/main/LICENSE"
     },
     "description": "Czech observations. Local forecasts. On your Pebble.",
-    "summary": "An unofficial weather provider inside the Pebble phone app. Get nearby ČHMÚ station observations and ALADIN forecasts in Pebble Weather and compatible readings. Optional Open-Meteo adds missing fields and later forecast days.",
+    "summary": "An unofficial weather provider inside the Pebble phone app. Get nearby ČHMÚ station observations and ALADIN forecasts in Pebble Weather and compatible readings. Open-Meteo completion adds missing fields and later forecast days; it starts enabled and can be turned off.",
     "showcase": {
       "title": "Choose where your weather comes from.",
       "text": "Let the plugin find a nearby station or choose a fixed Czech station. Follow the locations and units saved in Pebble, and decide whether to add Open-Meteo forecast information.",
-      "image": "/images/screenshots/chmu-weather-1.0.3-phone-settings.png"
+      "image": "/images/screenshots/chmu-weather-1.0.4-final-phone-settings.png"
     },
     "features": [
       "Use automatic nearby station selection or choose a fixed Czech station",
       "Feed Pebble Weather and compatible watchface readings without an API key",
-      "Optionally add rain probabilities, forecast UV and later forecast days with Open-Meteo"
+      "Use Open-Meteo completion for rain probabilities, forecast UV and later forecast days; turn it off in settings if preferred"
     ],
     "requirements": [
       "Enable Plugins / permissions preview in the official Pebble phone app.",
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     "setupGuide": "/docs/pebble/chmu-weather/",
     "helpGuide": "/docs/pebble/chmu-weather/#if-weather-is-missing",
     "developerNote": "The public plugin uses public ČHMÚ data and optional Open-Meteo fields. It has no watch binary. Personal builds are excluded.",
-    "image": "/images/store/chmu-weather-1.0.3-pebble-20261114-mark.png",
+    "image": "/images/store/chmu-weather-xoce-icons-20261114-mark.svg",
     "imageVersion": "1.0.3",
     "previewType": "icon",
     "imageAlt": "Original XOCE ČHMÚ Weather cloud-and-sun mark; unofficial phone plugin.",
@@ -488,10 +488,10 @@ export const projects: Project[] = [
     "privacyUrl": "/projects/chmu-weather/privacy/",
     "watchPlatforms": [],
     "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
-    "artifactSha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
+    "artifactSha256": "6c57e1191d470cd720e4989b5b1c677747c00fab267c60601f0bc24af8d9af5b",
     "storeArtwork": {
-      "mark": "/images/store/chmu-weather-1.0.3-pebble-20261114-mark.png",
-      "shareImage": "/images/store/chmu-weather-1.0.3-pebble-20261114-banner-phone.png"
+      "mark": "/images/store/chmu-weather-xoce-icons-20261114-mark.svg",
+      "shareImage": "/images/store/chmu-weather-xoce-screenshots-20261114-banner-phone.png"
     }
   },
   {

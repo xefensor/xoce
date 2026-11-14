@@ -288,21 +288,24 @@ for (const entry of [provenance.device_presentation, ...(provenance.additional_d
   const published = path.join(dist, entry.site_path);
   if (!fs.existsSync(published) || createHash('sha256').update(fs.readFileSync(published)).digest('hex') !== entry.sha256) problems.push('Published asset differs from provenance: ' + entry.site_path);
   if (createHash('sha256').update(bytes).digest('hex') !== entry.sha256) problems.push('Native capture pixels changed: ' + entry.site_path);
-  if (bytes.readUInt32BE(16) !== entry.width || bytes.readUInt32BE(20) !== entry.height) problems.push('Native capture dimensions changed: ' + entry.site_path);
+  if (entry.site_path.endsWith('.svg')) {
+    const svg = bytes.toString('utf8').match(/<svg\b[^>]*>/i)?.[0] ?? '';
+    const width = Number(svg.match(/\bwidth="([\d.]+)(?:px)?"/)?.[1]);
+    const height = Number(svg.match(/\bheight="([\d.]+)(?:px)?"/)?.[1]);
+    if (entry.evidence_type !== 'original-xoce-product-mark' || width !== entry.width || height !== entry.height) problems.push('Vector artwork dimensions or classification changed: ' + entry.site_path);
+  } else if (bytes.toString('hex', 0, 8) !== '89504e470d0a1a0a' || bytes.readUInt32BE(16) !== entry.width || bytes.readUInt32BE(20) !== entry.height) problems.push('Native capture dimensions changed: ' + entry.site_path);
 }
+const { representsRelease: checkedCaptureReuse } = await import('./capture-provenance.mjs');
 function representsRelease(capture, version, artifactSha256) {
-  if (!capture) return false;
-  if (capture.capture_version === version) return true;
-  if (capture.represented_release !== version || capture.represented_pbw_sha256 !== artifactSha256 || !capture.release_reuse_proof) return false;
-  const proofPath = path.join(root, 'public', capture.release_reuse_proof);
-  if (!fs.existsSync(proofPath)) return false;
-  const proof = JSON.parse(fs.readFileSync(proofPath, 'utf8'));
-  const verifiedSource = proof.previousPbwSha256 === capture.source_pbw_sha256 || proof.additionalVerifiedCapturePbws?.includes(capture.source_pbw_sha256);
-  return proof.result === 'PASS' && proof.version === version && proof.pbwSha256 === artifactSha256 && verifiedSource && (proof.nativeRendererResourcesUnchanged === true || proof.pluginRuntimeAndSettingsUnchanged === true);
+  return checkedCaptureReuse(capture, version, artifactSha256, proofPath => {
+    const file = path.join(root, 'public', proofPath);
+    return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : undefined;
+  });
 }
+
 for (const project of products.filter(project => project.image)) {
   const capture = provenance.images.find(entry => entry.site_path === project.image);
-  if (!representsRelease(capture, project.imageVersion, project.artifactSha256)) problems.push(`${project.slug}: screenshot version/provenance differs`);
+  if ((!capture || capture.capture_version !== project.imageVersion)) problems.push(`${project.slug}: screenshot version/provenance differs`);
   if (!mainMarkup(`/projects/${project.slug}/`).includes(`${project.name} v${project.imageVersion}`)) problems.push(`${project.slug}: screenshot version caption is missing`);
 }
 for (const project of catalogueProducts) {
@@ -320,7 +323,7 @@ for (const [slug, screenshots] of Object.entries(screenshotGalleries)) {
   for (const screenshot of screenshots) {
     const capture = provenance.images.find(entry => entry.site_path === screenshot.image);
     const expectedEvidence = screenshot.kind === 'watch' ? 'native-emulator-screenshot' : 'packaged-settings-browser-preview';
-    if (!capture || capture.evidence_type !== expectedEvidence || !representsRelease(capture, project?.version, project?.artifactSha256) || screenshot.version !== project?.version || (capture.source_url ?? '/preview-provenance.json') !== screenshot.source) problems.push(`${slug}: screenshot release, source or evidence classification differs: ${screenshot.image}`);
+    if (!capture || capture.evidence_type !== expectedEvidence || capture.capture_version !== screenshot.version || !representsRelease(capture, project?.version, project?.artifactSha256) || (screenshot.representedReleaseVersion ?? screenshot.version) !== project?.version || (capture.source_url ?? '/preview-provenance.json') !== screenshot.source) problems.push(`${slug}: screenshot release, source or evidence classification differs: ${screenshot.image}`);
     if (!capture || capture.width !== screenshot.width || capture.height !== screenshot.height) problems.push(`${slug}: gallery dimensions differ: ${screenshot.image}`);
     if (!references(markup).includes(screenshot.image) || !references(markup).includes(screenshot.source)) problems.push(`${slug}: screenshot or source link missing: ${screenshot.image}`);
     if (screenshot.kind === 'watch' && (screenshot.width !== (screenshot.platform==='gabbro'?260:200) || screenshot.height !== (screenshot.platform==='gabbro'?260:228))) problems.push(`${slug}: native watch capture proportions differ`);

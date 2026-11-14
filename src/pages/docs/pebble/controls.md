@@ -4,23 +4,26 @@ title: Watch controls
 description: Use Timer, Dashboard and Open Activity with predictable watch-button actions.
 section: For users
 order: 3
+setupProducts: [timer, dynamic, halftone, dashboard, open-activity]
 ---
 
 New to the watch? [See the labelled button guide](/pebble/#watch-buttons). **Back** is on the left; **Up**, **Select** and **Down** are on the right.
 
-The apps use Pebble’s physical buttons. The instructions below describe the current development builds; a provider can add capabilities only where a consuming app supports them.
+The apps use Pebble’s physical buttons. The version panel above identifies the releases covered by this guide. Earlier versions may have different settings and controls. Available actions depend on both the source and the app displaying them.
 
-New to Activities? [Learn how a Timer countdown reaches your watchface](/docs/pebble/activities/). An activity displays an update; use the source app to control it.
+New to Activities? [Learn how a Timer countdown reaches your watchface](/docs/pebble/activities/). Timer’s controls stay in Timer; Dashboard can additionally offer controls supplied by other compatible sources.
 
 ## Timer
 
 | Screen | Up | Select | Down | Back |
 | --- | --- | --- | --- | --- |
-| Timer list | Previous row | Open timer or New timer | Next row | Exit |
+| Timer list | Previous row | Open timer or New | Next row | Exit to watchface |
 | Duration editor | Increase the selected field | Next field, then start or save | Decrease the selected field | Previous field or originating screen |
 | Timer detail | Edit remaining or saved duration | Pause, resume or start a Ready timer | More options | Timer list |
 | More options | Previous option | Choose option | Next option | Timer detail |
 | Time’s up | Snooze one minute | Done | Done | Done or timer list |
+
+**New** opens at 00:10:00 with **minutes** selected. Up and Down change the highlighted value; Select advances to seconds, and Select on that final field starts the timer. To set hours, press Back from minutes first. From the countdown detail, Back returns to the list; another Back returns to your watchface. Durations range from five seconds to 24 hours.
 
 ### Reset without restarting
 
@@ -58,11 +61,13 @@ Inside full lists, holding Up or Down repeats navigation. Back restores the prec
 
 Timer does not currently offer Pause/Resume controls in Dashboard. Open Timer to change its run.
 
-The watch shows pending and result feedback for commands. A successful command acknowledgement does not invent a new reading; the provider supplies the resulting value.
+The watch shows pending and result feedback for commands. Confirmation appears when required by the source or your pin settings; it starts on Cancel. A successful command acknowledgement does not invent a new reading; the provider supplies the resulting value.
 
 ## Open Activity
 
-Choose Dynamic or Halftone in Open Activity settings, then launch it through a configured Quick Launch shortcut to open that watchface’s recent Primary or Secondary destination. The destination must still be valid and have an associated installed app.
+In Open Activity settings, choose **Watchface → Dynamic** or **Halftone**, then set **Primary activity** and optionally a different shortcut for **Secondary activity**. Save and assign **Open Activity** to those same shortcuts in Pebble’s **Quick Launch** settings. Allow **Launch apps**, keep the phone connected with plugin support enabled, and use one connected watch.
+
+The shortcut opens the manually selected watchface’s recent Primary or Secondary destination. Change **Watchface** in Open Activity when you switch between Dynamic and Halftone; it does not detect that switch automatically. The destination must still be valid and identify an installed app. An absent Secondary never substitutes Primary.
 
 The helper opens the whole app. For example, a Timer activity opens Timer; it does not address a particular saved timer inside it.
 
@@ -81,3 +86,9 @@ Halftone is a watchface. Change its colours, Big text, dot border and notificati
 ## ČHMÚ Weather
 
 The plugin has no watch screen or watch buttons. Configure it in the Pebble phone app’s Plugins tab. Your watch’s normal Weather app retains its own controls. [Choose the weather source](/docs/pebble/chmu-weather/).
+
+## Text size and appearance
+
+**Text size → Follow Pebble** uses the watch’s text size; Small, Medium and Large are app-specific choices. In Timer, Dashboard and Open Activity, choose **Light** or **Dark** for watch appearance. Their **Follow Pebble** appearance choice currently uses the last explicit Light/Dark choice because automatic appearance following is unavailable. Dynamic and Halftone also offer **Follow Quiet Time** for their day/night palettes.
+
+Save confirms phone storage separately from watch delivery. Open the affected app or watchface while connected to apply display settings, and check its delivery status. For Open Activity, use a normal app-list launch so its setup screen stays open. [Display-settings help](/docs/pebble/troubleshooting/#text-size-or-appearance-has-not-changed).

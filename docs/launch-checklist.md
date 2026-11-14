@@ -6,14 +6,14 @@ Xef authorized publishing the approved website on 2026-11-14. Preparation pages 
 
 | Product | Version | Website | Support | Privacy |
 | --- | --- | --- | --- | --- |
-| Dynamic | 1.0.1 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
-| Halftone | 1.10.2 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
-| Dashboard | 1.0.1 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
-| Timer | 1.0.2 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
-| Open Activity | 1.0.1 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
-| ČHMÚ Weather | 1.0.3 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
+| Dynamic | 1.0.2 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
+| Halftone | 1.10.3 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
+| Dashboard | 1.0.2 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
+| Timer | 1.0.3 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
+| Open Activity | 1.0.2 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
+| ČHMÚ Weather | 1.0.4 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
 
-Public URLs use `https://xefensor.github.io/xoce` before these routes. They become public only when the website is deployed. Until then, use already-published app-owned documentation for Store fields; do not point a live listing to an unavailable page. This website task does not edit app manifests or Store submissions.
+Public URLs use `https://xefensor.github.io/xoce` before these routes. Verify these destinations after the current Pages deployment. GitHub releases are published separately from manual Store submission; use New Release on each existing listing, then Edit for text and artwork. Never create a duplicate listing or change its UUID.
 
 ## After the apps are published
 

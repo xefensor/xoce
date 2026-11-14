@@ -3,8 +3,9 @@ import { sitePath, routePath } from '../lib/site';
 import BaseLayout from './BaseLayout.astro';
 import '../styles/guide.css';
 import Icon from '../components/Icon.astro';
+import SetupAvailability from '../components/SetupAvailability.astro';
 import { docs, docSections } from '../data/docs';
-interface Props { frontmatter: { title: string; description: string; section: string; order?: number }; headings?: { depth: number; slug: string; text: string }[] }
+interface Props { frontmatter: { title: string; description: string; section: string; order?: number; setupProducts?: string[] }; headings?: { depth: number; slug: string; text: string }[] }
 const { frontmatter, headings = [] } = Astro.props;
 const requestPath = routePath(Astro.url.pathname);
 const path = requestPath === '/docs/' ? '/docs/getting-started/' : requestPath;
@@ -60,6 +61,7 @@ const returnTo = userSection
     <main id="main" class="doc-main reading-surface" tabindex="-1">
       <div class="breadcrumb document-bar"><Icon name="book" size={16} /><a href={sitePath('/docs/')}>Docs</a><Icon name="chevron" size={12}/><span>{sectionLabel}</span>{current?.platform && <><Icon name="chevron" size={12}/><span>{current.platform}</span></>}</div>
       <header class="doc-heading"><h1>{frontmatter.title}</h1><p class="lead">{frontmatter.description}</p></header>
+      {frontmatter.setupProducts && <SetupAvailability slugs={frontmatter.setupProducts}/>}
       {sectionHeadings.length > 0 && <details class="guide-contents" data-guide-contents><summary>On this page</summary><nav aria-label="On this page">{sectionHeadings.map(heading => <a href={'#' + heading.slug}>{heading.text}</a>)}</nav></details>}
       <article class="prose"><slot /></article>
       <nav class="doc-pagination" aria-label="Previous and next guides">{previous ? <a href={sitePath(previous.href)}><span>Previous guide</span><strong>{previous.title}</strong></a> : <span />}{next ? <a href={sitePath(next.href)}><span>Next guide <Icon name="arrow" size={14} /></span><strong>{next.title}</strong></a> : <a href={sitePath(returnTo.href)}><span>Back to</span><strong>{returnTo.title}</strong></a>}</nav>

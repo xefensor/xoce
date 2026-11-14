@@ -4,51 +4,64 @@ title: Set up ČHMÚ Weather
 description: Add an optional Czech weather source to Pebble Weather and compatible watchface readings.
 section: For users
 order: 4
+setupProducts: [chmu-weather]
 ---
 
 [ČHMÚ Weather](/projects/chmu-weather/) is an **unofficial weather plugin by Xef**. It runs inside the official Pebble phone app and supplies data to Pebble Weather and compatible watchfaces and apps. It has no watch screen of its own.
 
-This guide covers **ČHMÚ Weather 1.0.2**. Check its product page for release status. It uses public ČHMÚ station observations and ALADIN forecasts, with optional Open-Meteo completion. Coverage is for **Czech locations**; nearby stations do not measure your exact street.
+Use the guide build and installation status listed above. ČHMÚ Weather uses public ČHMÚ station observations and ALADIN forecasts, with optional Open-Meteo completion. Coverage is for **Czech locations**; nearby stations do not measure your exact street.
 
 ## Install the phone plugin
 
-1. Install and update the [official Pebble phone app](https://repebble.com/app). Enable **Settings → Plugins → Plugins/permissions preview** if needed.
-2. Once published, install **ČHMÚ Weather 1.0.2** from the Store link on its [product page](/projects/chmu-weather/), or use the matching manual `.pbw` download.
-3. If installing a `.pbw` manually, open it with the Pebble phone app. On Android, use the download’s **Open with / Share** menu if necessary. On iPhone, open it from Files and choose Pebble in the share sheet. The plugin is installed in the phone app, not as an app in the watch’s launcher.
-4. Allow the required public-data Internet access. Location access is optional when you use a saved location through Pebble’s permission prompts.
-5. Find **ČHMÚ Weather** in the Pebble phone app’s Plugins tab and open its settings.
+1. Install and update the [official Pebble phone app](https://repebble.com/app), then pair your watch. Enable **Settings → Plugins → Plugins / permissions preview** if needed. Phone-app labels can vary by version.
+2. Check the available installation method on the [product page](/projects/chmu-weather/). Use its Store link when available, or open the matching `.pbw` with Pebble. On Android, use **Open with / Share** if necessary. On iPhone, open the file from Files and choose Pebble in the share sheet.
+3. In Pebble’s **Settings → Weather**, add at least one Czech weather location and choose your units. A fixed saved location works without GPS; **Current location** needs Location permission.
+4. Allow the required Internet access to public ČHMÚ data. Backup observations and Open-Meteo have optional network permissions; allow Open-Meteo if you want its extra forecast fields. Pebble handles these permission prompts.
+5. Find **ČHMÚ Weather** in the phone app’s **Plugins** tab and open its settings. Under **Latest loaded readings**, select **Refresh data**.
+
+**Check:** the plugin settings show a connected status and a card for your weather location. Inspect its temperature, source and observation age. A **Measured**, **Forecast estimate** or **Unavailable** badge explains what is loaded. The plugin does not add an app to the watch’s launcher.
 
 There is no API key, separate Android application or weather-service account to create. This is the public plugin, not the separately labelled **ČHMÚ Weather Personal** build.
 
 ## Use it in Pebble Weather
 
-Open **Settings → Weather → Weather provider → ČHMÚ Weather** in the Pebble phone app. It uses your saved weather locations and units.
+To use it for Pebble’s built-in weather, open **Settings → Weather → Weather provider → ČHMÚ Weather** in the phone app. It uses the saved weather locations and units you configured above.
 
 This supplies the watch’s Weather app, weather Timeline information and watchfaces that use Pebble’s weather data. The phone app controls when native Weather updates arrive; selecting a provider does not force an immediate refresh on the watch.
 
+**Check:** the plugin’s location card has usable data, the provider is selected and the watch is connected. If the phone settings have updated but the watch has not, check Pebble’s Weather integration before changing station settings.
+
 ## Use it in Dynamic, Halftone or Dashboard
 
-- **Dynamic and Halftone:** choose the weather readings you want under **Settings → Plugins → Complications**, using slots 1–2. Pick ČHMÚ Weather as the source where the source picker offers that choice.
+- **Dynamic:** open **Settings → Plugins → Complications** in the Pebble phone app. Choose readings for slots **1–2**, or **1–4** for **Four when idle**. Shake switching can also use slot **5**. Pick ČHMÚ Weather where the source picker offers that choice.
+- **Halftone:** choose its readings in the same Complications settings, using slots **1–2**. These shared choices can affect other watchfaces too.
 - **Dashboard:** open Dashboard’s phone settings and add a pinned reading from the weather source.
 
-Start with temperature and precipitation probability. Configure the source first, then return to the watchface or app. You can use ČHMÚ with either watchface; installing the plugin does not select a watchface for you.
+Start with **temperature**. Once that appears, add other readings you want. Precipitation probability needs Open-Meteo completion. A watchface that offers a direct source picker can select ČHMÚ Weather there; this is separate from choosing Pebble’s built-in Weather provider.
+
+**Check:** return to your chosen watchface or Dashboard and confirm the selected reading appears. Weather readings are configured separately from Timer-style Activities. Installing ČHMÚ Weather does not select a watchface for you.
 
 [Dynamic setup](/docs/pebble/setup/#dynamic) · [Halftone setup](/docs/pebble/halftone/) · [Dashboard setup](/docs/pebble/setup/#dashboard)
 
 ## Choose a station and forecast sources
 
-In the plugin’s settings, inspect **Latest loaded readings** and leave station selection on Automatic or choose a nearby station. Refresh there to check the result and its measurement age. Automatic selection looks for a suitable station; a manually selected station stays fixed.
+In **Latest loaded readings**, open the location card’s **Temperature station** selector. Leave it on **Automatic nearby station**, or choose an eligible nearby station. A manual station remains fixed for that weather location; it does not change the location saved in Pebble.
 
-**Complete with Open-Meteo** is on by default. It adds missing fields, rain probabilities and later local forecast days, up to seven days when available. Turning it off disables Open-Meteo requests and use of its cached values. The separate public-build **UV source** choices are Open-Meteo or Off; Open-Meteo UV also requires completion to be enabled.
+Settings **save automatically**. After changing a station or forecast source, select **Refresh data** to inspect the new result. There is no separate Save button. Expand the location’s **Source details** for station selection, measurement time and age, and the sources of individual fields.
+
+Under **Forecast sources**, **Complete with Open-Meteo** is on by default. It adds missing fields, rain probabilities and later local forecast days, up to seven days when available. Turning it off stops Open-Meteo requests and excludes its cached values. Weather already stored by Pebble or another watchface is not retracted.
+
+The public-build **UV source** choices are **Open-Meteo** and **Hide UV**. Open-Meteo UV also requires completion to remain enabled. **How these sources work** explains the forecast sources; it is separate from each location’s **Source details**.
 
 Fresh station observations and forecasts are different. A direct reading marked `~` is a forecast, not a station measurement. UV is a forecast too. Some source details and estimate markers may not survive Pebble’s native Weather integration.
 
 ## If weather is missing
 
-1. Check that the plugin is installed, enabled and has the required permissions.
-2. Check the saved weather location and the plugin’s coverage or error message. A suitable Czech station and forecast town need to be nearby.
-3. Refresh in the plugin’s settings and inspect the last reading’s timestamp and source status.
-4. Confirm the correct weather provider or complication source is selected, then check the watch’s phone connection.
+1. Check that ČHMÚ Weather appears in the phone app’s Plugins tab and has the required permissions. Open its settings from Pebble; opening the settings HTML in a regular browser does not connect it to the plugin.
+2. If no location card appears, check the saved weather locations in Pebble. For a fixed location, confirm the selected place; for Current location, check Location permission.
+3. Select **Refresh data**, then inspect the location’s badge and **Source details**. A supported Czech forecast town must be nearby; station measurements also need a suitable station. A manually selected station can become unavailable for the current location; try **Automatic nearby station**.
+4. If temperature works but rain probability, UV or later forecast days are missing, check **Complete with Open-Meteo**, its network permission and **UV source**. Choosing Open-Meteo UV does not enable completion automatically.
+5. If the plugin settings show usable data but the watch does not, confirm the intended Weather provider or Complications source, then check the watch’s phone connection. These are separate output paths.
 
 Weather-service failures, missing observations and Pebble’s import schedule can delay updates. Refreshing an old measurement does not make the observation newer. The native Weather integration may fall back for a location it cannot use.
 

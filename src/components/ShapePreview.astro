@@ -1,17 +1,35 @@
 ---
 import type { Project, WatchPlatform } from '../data/projects';
 import WatchPreview from './WatchPreview.astro';
+import Icon from './Icon.astro';
 interface Props { project: Project }
 const { project } = Astro.props;
 const shapes: {id: WatchPlatform; name: string}[] = [{id:'emery',name:'Time 2'},{id:'gabbro',name:'Round 2'}];
+const feature: Record<string,string> = {dynamic:'Your clock, with room to adapt.',halftone:'Dots with a little depth.',timer:'A countdown worth keeping.',dashboard:'The useful things, together.','open-activity':'A shortcut back to your activity.'};
 ---
 <fieldset class="shape-preview" data-shape-preview>
   <legend class="sr-only">Preview {project.name} on your watch</legend>
+  <div class="stage-heading"><span class="stage-dot" aria-hidden="true"></span><span>{project.name}</span><span class="stage-kind">XOCE</span></div>
   {shapes.map((shape,index)=><input class="shape-radio sr-only" type="radio" name={`shape-${project.slug}`} id={`${project.slug}-${shape.id}`} value={shape.id} checked={index===0} aria-label={`${project.name} on ${shape.name}`}/>)}
   <div class="shape-choices">{shapes.map(shape=><label for={`${project.slug}-${shape.id}`}>{shape.name}</label>)}</div>
   <div class="shape-stages">{shapes.map(shape=>{
     const preview=project.previews?.[shape.id];
-    return preview && <div class={`shape-stage stage-${shape.id}`}><WatchPreview image={preview.image} alt={preview.alt} platform={shape.id} eager/></div>;
+    return preview && <div class={`shape-stage stage-${shape.id}`}>
+      {project.slug==='open-activity'?<div class="shortcut-journey">
+        <p class="stage-feature">{feature[project.slug]}</p>
+        <div class="journey-shortcut"><span>Configured Quick Launch shortcut</span><Icon name="arrow" size={18}/></div>
+        <div class="journey-pair">
+          <figure><p class="journey-label"><span>01</span> On Dynamic</p><WatchPreview image={`/images/screenshots/dynamic-1.0.1-demo-20261114-${shape.id}-timer-music.png`} alt={`Dynamic on ${shape.name}, showing a Timer activity.`} platform={shape.id} eager/><figcaption>See the countdown on your watchface.</figcaption></figure>
+          <figure><p class="journey-label"><span>02</span> Back in Timer</p><WatchPreview image={`/images/screenshots/timer-1.0.2-demo-20261114-${shape.id}-running.png`} alt={`Timer running on ${shape.name}; a separate example capture.`} platform={shape.id} eager/><figcaption>Open the app to pause or change it.</figcaption></figure>
+        </div>
+        <p class="journey-note">Open Activity connects the shortcut. Separate example states shown.</p>
+      </div>:<><WatchPreview image={preview.image} alt={preview.alt} platform={shape.id} eager/>
+      {project.slug==='dynamic'&&<div class="dynamic-sequence" aria-label="Two native Dynamic layouts">
+        <figure><WatchPreview image={preview.image} alt={`Dynamic on ${shape.name} with four readings while idle.`} platform={shape.id} framed={false}/><figcaption>Four when idle</figcaption></figure>
+        <span class="sequence-arrow" aria-hidden="true"><Icon name="arrow" size={20}/></span>
+        <figure><WatchPreview image={`/images/screenshots/dynamic-1.0.1-demo-20261114-${shape.id}-timer-music.png`} alt={`Dynamic on ${shape.name} makes room for a Timer countdown and music.`} platform={shape.id} framed={false}/><figcaption>Room for an activity</figcaption></figure>
+      </div>}</>}
+    </div>;
   })}</div>
-  <p class="preview-caption">{project.name} v{project.imageVersion} · native emulator<br/>Example data · {project.publication === 'preview' ? 'launch preview' : 'released version'}</p>
+  <p class="preview-caption">{project.name} v{project.imageVersion} · {project.slug==='dynamic'||project.slug==='open-activity'?'Separate example states':feature[project.slug]}</p>
 </fieldset>
