@@ -45,9 +45,9 @@ jobs:
           name: website-browser-evidence
           path: build/qa/browser
           retention-days: 14
-      - name: Verify public Store releases before deployment
+      - name: Verify website publication state before deployment
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        run: npm run check:launch
+        run: npm run check:deployment
       - name: Configure Pages
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5

@@ -1,0 +1,143 @@
+
+> pebble-app-timer@1.0.2 test
+> python3 scripts/test.py && node --test tests/localization*.test.js && npm run test:workflow && npm run check:docs && npm run test:release && python3 scripts/test-localization.py && npm run test:platforms && npm run test:store
+
+timer model: lifecycle, persistence, expiry and boundary checks passed
+timer collection: migration, eight slots, clocks, revisions, editing and persistence passed
+timer fonts: 86,401 countdown bounds, fixed cells, glyph coverage and raster samples passed
+timer UI: conserved sand, monotonic 24h progress, rigid state orientations and bounded finite easing passed
+timer UI motion: rigid120ms choices, native field slide and directional value bounds passed
+timer glance runtime: UTC collisions, latest state, snapshot ownership, persisted reopen, bounded exit and shared-store Appearance coexistence passed
+timer alarm feedback: repeated native pulses, Quiet Time, pending masks, cancellation and timer failure recovery passed
+timer alarm feedback: repeated native pulses, Quiet Time, pending masks, cancellation and timer failure recovery passed
+Timer Wakeup: conflict preserves the valid later alarm and keeps one scheduled event
+timer appearance: isolated key, default/reopen, unchanged-write suppression, failures and readback checks passed
+UI prefs: exact wire, legacy migration, retained Follow fallback, verified commit/reopen and isolated failure paths passed
+TAP version 13
+# Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/alarm-preferences.test.js
+ok 1 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/alarm-preferences.test.js
+  ---
+  duration_ms: 41.51009
+  type: 'test'
+  ...
+# Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/handoff.test.js
+ok 2 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/handoff.test.js
+  ---
+  duration_ms: 125.714007
+  type: 'test'
+  ...
+# Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/settings.test.js
+ok 3 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/settings.test.js
+  ---
+  duration_ms: 47.228611
+  type: 'test'
+  ...
+# Subtest: /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/ui-preferences.test.js
+ok 4 - /home/xela/Projekty/xoce/Watch/pebble-app-timer/tests/ui-preferences.test.js
+  ---
+  duration_ms: 45.430228
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 137.958273
+timer UI state: native viewport clocks, selection identity, native completion and visible status invalidation passed
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.037s
+
+OK
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.042s
+
+OK
+TAP version 13
+# Subtest: tests/localization-page.test.js
+ok 1 - tests/localization-page.test.js
+  ---
+  duration_ms: 116.549224
+  type: 'test'
+  ...
+# Subtest: tests/localization.test.js
+ok 2 - tests/localization.test.js
+  ---
+  duration_ms: 39.98499
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 122.812145
+
+> pebble-app-timer@1.0.2 test:workflow
+> python3 -m unittest discover -s tests -p test_development_workflow.py
+
+....ss...
+----------------------------------------------------------------------
+Ran 9 tests in 0.006s
+
+OK (skipped=2)
+
+> pebble-app-timer@1.0.2 check:docs
+> python3 scripts/check-docs.py
+
+Active documentation links PASS: 39
+
+> pebble-app-timer@1.0.2 test:release
+> python3 -m unittest discover -s tests -p "test_*release*.py"
+
+......................s......................
+----------------------------------------------------------------------
+Ran 45 tests in 1.981s
+
+OK (skipped=1)
+{
+  "result": "PASS",
+  "version": "1.2.3",
+  "files": {
+    "Weather-1.2.3.pbw": "e55e745ef7014c1a783ff19231b62db45c722a41ecfa82148796558390694684",
+    "Weather-1.2.3-source.zip": "2fb59e9e87c602edb012fbf456117c82b879fc3c972c8dce4e621fd40f1219a2",
+    "Weather-1.2.3-store-package.zip": "d7aecf0883c9b6d29c8eb7dde3dac8267087c52d9a3e9168989f33dc9a827a53"
+  },
+  "published": false
+}
+Timer-1.2.3.pbw 4052 1294c9ba345f175c6b9a58ea7dd7380882b5b27f7f0911007bec3c901673bfd1
+Timer-1.2.3-source.zip 4903 d87635f3fad107c8864b8b2aa7b3e6154daf3869b45c5bbe22ea49c1a32cd6fd
+Timer-1.2.3-debug.zip 145 55226e40fac426943bc44c6ab64a956009ed3492d6ce64f82cfa4b5e10b085e8
+Native locale resource: 10730 bytes; selected-language buffer 723 bytes
+Native localization: 17 locales, bounded reads, aliases, cache and corrupt/truncated resource fallback PASS
+
+> pebble-app-timer@1.0.2 test:platforms
+> python3 -m unittest discover -s tests -p test_platform_audit.py
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.384s
+
+OK
+
+> pebble-app-timer@1.0.2 test:store
+> python3 -m unittest discover -s tests -p test_store_kit.py
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.028s
+
+OK

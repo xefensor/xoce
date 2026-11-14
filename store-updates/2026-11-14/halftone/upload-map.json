@@ -5,22 +5,22 @@
   "type": "watchface",
   "pbw": "Halftone-1.10.2.pbw",
   "pbwSha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
-  "sourceCommit": "899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
-  "previousStoreVersion": "1.10.1",
-  "newNumericVersion": true,
-  "publicVersionAndTagAvailabilityChecked": true,
+  "runtimeSourceCommit": "899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
+  "storeSourceCommit": "40363118844834df2a71350658856856514d8617",
+  "publicStoreVersionCheckedOn20261114": "1.10.1",
+  "binaryAction": "upload-prepared-version-if-still-needed",
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
     "emery": [
-      "emery-store-20261114-idle.png",
+      "emery-store-20261114-orange.png",
       "emery-store-20261114-music.png",
       "emery-store-20261114-notification.png",
       "emery-store-20261114-dark.png",
       "emery-store-20261114-peek.png"
     ],
     "gabbro": [
-      "gabbro-store-20261114-idle.png",
+      "gabbro-store-20261114-orange.png",
       "gabbro-store-20261114-music.png",
       "gabbro-store-20261114-notification.png",
       "gabbro-store-20261114-dark.png",
@@ -32,8 +32,10 @@
     "gabbro": "gabbro-family-banner.png"
   },
   "storeIcons": [],
+  "icon_tintable": null,
   "storeUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
   "githubBranch": "https://github.com/xefensor/halftone-watchface/tree/feat/native-pebble-ui",
-  "githubCommit": "https://github.com/xefensor/halftone-watchface/commit/899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
-  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
+  "runtimeSourceUrl": "https://github.com/xefensor/halftone-watchface/commit/899d2ea7f7e8c5a9fb0eef43057c2c8964e28a49",
+  "storeSourceUrl": "https://github.com/xefensor/halftone-watchface/commit/40363118844834df2a71350658856856514d8617",
+  "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators."
 }

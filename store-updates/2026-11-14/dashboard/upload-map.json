@@ -5,10 +5,10 @@
   "type": "watchapp",
   "pbw": "Dashboard-1.0.1.pbw",
   "pbwSha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
-  "sourceCommit": "aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
-  "previousStoreVersion": "1.0.0",
-  "newNumericVersion": true,
-  "publicVersionAndTagAvailabilityChecked": true,
+  "runtimeSourceCommit": "aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
+  "storeSourceCommit": "dbbb7f5ad363e172f0e90f7cb819810cf6811706",
+  "publicStoreVersionCheckedOn20261114": "1.0.0",
+  "binaryAction": "upload-prepared-version-if-still-needed",
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
@@ -27,8 +27,10 @@
     "icon-small-80.png",
     "icon-large-144.png"
   ],
+  "icon_tintable": true,
   "storeUrl": "https://apps.repebble.com/603d814e961c40308c98ce63",
   "githubBranch": "https://github.com/xefensor/pebble-app-dashboard/tree/feat/native-pebble-ui",
-  "githubCommit": "https://github.com/xefensor/pebble-app-dashboard/commit/aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
-  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
+  "runtimeSourceUrl": "https://github.com/xefensor/pebble-app-dashboard/commit/aeb2ee328a5ec75b0b493e25c4f1ac7e1a8889af",
+  "storeSourceUrl": "https://github.com/xefensor/pebble-app-dashboard/commit/dbbb7f5ad363e172f0e90f7cb819810cf6811706",
+  "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators."
 }

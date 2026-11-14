@@ -1,4 +1,4 @@
-"""Replace the working handoff with the newly numbered, verified release files."""
+"""Assemble current Halftone-style listing art with the checked release PBWs."""
 from pathlib import Path
 import hashlib
 import json
@@ -12,6 +12,9 @@ REVIEW = WATCH / "Pebble-Store-Versions-2026-11-14"
 SITE = WATCH.parent / "XOCE-website-update"
 OUT = WATCH / "Pebble-Store-Update-2026-11-14"
 IDENTITY = WATCH / "XOCE-Identity-2026-11-14"
+ARTWORK = Path(__file__).resolve().parent
+store_commits = json.loads((ARTWORK / "store-commits.json").read_text())
+live = {p["repo"]: p for p in json.loads((ARTWORK / "live-store.json").read_text())}
 SLUGS = ["dynamic", "halftone", "timer", "dashboard", "open-activity", "chmu-weather"]
 products = json.loads((REVIEW / "products.json").read_text())
 
@@ -36,10 +39,11 @@ def sums(folder):
     (folder / "SHA256SUMS.txt").write_text("".join(f"{sha(f.read_bytes())}  {f.relative_to(folder).as_posix()}\n" for f in files))
 
 
-if not (REVIEW / "previous-delivery").exists():
-    shutil.move(str(OUT), str(REVIEW / "previous-delivery"))
-    old_zip = WATCH / (OUT.name + ".zip")
-    copy(old_zip, REVIEW / "previous-delivery.zip")
+if OUT.exists():
+    backup = ARTWORK / "previous-material-delivery"
+    assert not backup.exists(), "Keep previous delivery intact; move a repeated working output aside explicitly."
+    shutil.move(str(OUT), str(backup))
+    copy(WATCH / (OUT.name + ".zip"), ARTWORK / "previous-material-delivery.zip")
 OUT.mkdir(exist_ok=True)
 records = []
 for p, slug in zip(products, SLUGS):
@@ -51,7 +55,7 @@ for p, slug in zip(products, SLUGS):
     listing = json.loads((store / "listing.json").read_text())
     art = json.loads((store / "artwork-provenance.json").read_text())
     names = set(art["files"]) | {"listing.json", "description.txt", "release-notes.txt", "artwork-provenance.json", "ARTWORK-LICENSES.txt"}
-    for name in ["description-cs.txt", "capture-provenance.json", "icon-provenance.json"]:
+    for name in ["description-cs.txt", "capture-provenance.json", "orange-capture-provenance.json", "icon-provenance.json"]:
         if (store / name).exists():
             names.add(name)
     for images in listing.get("screenshots", {}).values():
@@ -87,19 +91,25 @@ for p, slug in zip(products, SLUGS):
     branch = subprocess.check_output(["git", "branch", "--show-current"], cwd=repo, text=True).strip()
     plan = {
         "product": p["product"], "version": p["version"], "uuid": p["uuid"], "type": p["type"],
-        "pbw": pbw.name, "pbwSha256": p["sha256"], "sourceCommit": p["sourceCommit"],
-        "previousStoreVersion": p["publicStoreVersion"], "newNumericVersion": True,
-        "publicVersionAndTagAvailabilityChecked": p["storeVersionAvailable"] and p["githubTagAvailable"],
+        "pbw": pbw.name, "pbwSha256": p["sha256"], "runtimeSourceCommit": p["sourceCommit"],
+        "storeSourceCommit": store_commits[p["repo"]],
+        "publicStoreVersionCheckedOn20261114": live[p["repo"]]["version"],
+        "binaryAction": "already-current-edit-listing" if live[p["repo"]]["version"] == p["version"] else "upload-prepared-version-if-still-needed",
         "description": "description.txt", "releaseNotes": "release-notes.txt",
         "screenshotsInUploadOrder": listing.get("screenshots", {}), "platformBanners": listing.get("banners", {}),
-        "storeIcons": listing.get("icons", []), "storeUrl": p["storeUrl"],
-        "githubBranch": remote + "/tree/" + branch, "githubCommit": remote + "/commit/" + p["sourceCommit"],
-        "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed.",
+        "storeIcons": listing.get("icons", []), "icon_tintable": listing.get("icon_tintable"), "storeUrl": p["storeUrl"],
+        "githubBranch": remote + "/tree/" + branch,
+        "runtimeSourceUrl": remote + "/commit/" + p["sourceCommit"],
+        "storeSourceUrl": remote + "/commit/" + store_commits[p["repo"]],
+        "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators.",
     }
     write_json(target / "upload-map.json", plan)
-    lines = [f"# {p['product']} {p['version']} — Store upload", "", f"[Store listing]({p['storeUrl']}) · [Exact source commit]({plan['githubCommit']})", "",
-             f"1. Upload **`{pbw.name}`** as the new **{p['version']}** version, replacing public {p['publicStoreVersion']}.",
-             "2. Paste `description.txt` into the description and `release-notes.txt` into the version notes.",
+    binary_step = (f"The public Store already has **{p['version']}**, matching this checked PBW. Edit the listing artwork; do not upload the same version again."
+                   if plan["binaryAction"] == "already-current-edit-listing" else
+                   f"If the Store still shows **{live[p['repo']]['version']}**, upload **`{pbw.name}`** as **{p['version']}**. If this version has already been uploaded, edit its listing instead; do not duplicate or renumber it for artwork.")
+    lines = [f"# {p['product']} {p['version']} — Store update", "", f"[Store listing]({p['storeUrl']}) · [Runtime source]({plan['runtimeSourceUrl']}) · [Current artwork source]({plan['storeSourceUrl']})", "",
+             "1. " + binary_step,
+             "2. Paste `description.txt` into the description. Use `release-notes.txt` when publishing the prepared binary version.",
              "3. Use the platform banner PNGs and raw screenshot PNGs below. `upload-map.json` gives the exact field mapping.", ""]
     if (target / "description-cs.txt").exists():
         lines += ["`description-cs.txt` is the Czech description.", ""]
@@ -107,18 +117,26 @@ for p, slug in zip(products, SLUGS):
         lines += ["## " + ("Time 2 / Emery" if platform == "emery" else "Round 2 / Gabbro"), "", "Banner: `" + listing["banners"][platform] + "` (720×320).", "", "Screenshots, in order:", ""]
         lines += [str(i) + ". `" + name + "`" for i, name in enumerate(images, 1)] + [""]
     if listing.get("icons"):
-        lines += ["## Icons", "", "- `icon-small-80.png` — 80×80", "- `icon-large-144.png` — 144×144", ""]
+        lines += ["## Icons", "", "- `icon-small-80.png` — 80×80", "- `icon-large-144.png` — 144×144", "",
+                  "Enable the Developer Dashboard setting for a tintable monochrome icon (`icon_tintable=true`). These PNGs contain a solid black glyph and transparent background, so the client can tint the same icon for light and dark mode. Upload the original transparent PNGs, without a tile or background. Local JSON does not change the live Store flag.", "",
+                  "The [official API changelog](https://appstore-api.repebble.com/) documents `icon_tintable`. The exact signed-in Dashboard control label has not been verified. After saving, confirm the public app object's `icon_tintable` is true and inspect both app themes.", ""]
     if p["type"] == "plugin":
         lines += ["Phone plugin: no native watch screenshots or Store banner.", ""]
-    lines += ["SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with this new patch was verified. No new physical-device test is claimed.", ""]
+    lines += ["SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with the prepared PBW was verified. Halftone's orange screens are fresh native emulator captures of its checked 1.10.2 build. No physical-device test is claimed.", ""]
     (target / "UPLOAD.md").write_text("\n".join(lines))
     sums(target)
     records.append(plan)
 
-copy(IDENTITY / "XOCE-tactile-artwork-2026-11-14.zip", OUT / "design-source/XOCE-tactile-artwork-2026-11-14.zip")
-copy(IDENTITY / "ZIP-SHA256SUMS.txt", OUT / "design-source/SHA256SUMS.txt")
-for name in ["banners-contact-sheet.png", "icons-contact-sheet.png"]:
-    copy(IDENTITY / "review" / name, OUT / "review" / name)
+art_zip = ARTWORK / "XOCE-Pebble-Store-Artwork-2026-11-14.zip"
+copy(art_zip, OUT / "design-source" / art_zip.name)
+copy(ARTWORK / (art_zip.name + ".sha256"), OUT / "design-source/SHA256SUMS.txt")
+copy(ARTWORK / "banners-contact-sheet.png", OUT / "review/banners-contact-sheet.png")
+copy(ARTWORK / "icons-light-dark.png", OUT / "review/icons-light-dark.png")
+copy(ARTWORK / "research.json", OUT / "verification/store-artwork-research.json")
+copy(ARTWORK / "live-store.json", OUT / "verification/store-before-artwork-update.json")
+for source in (ARTWORK / "verification").rglob("*"):
+    if source.is_file() and source.suffix in {".json", ".log", ".png"} and not any(part.startswith("emulator-") for part in source.parts):
+        copy(source, OUT / "verification/artwork" / source.relative_to(ARTWORK / "verification"))
 for source in (REVIEW / "verification").rglob("*"):
     if source.is_file():
         copy(source, OUT / "verification" / source.relative_to(REVIEW / "verification"))
@@ -131,26 +149,28 @@ for name in ["packaged-config.html", "fixture.json", "preview.html"]:
     copy(REVIEW / "phone" / name, OUT / "developer/weather-browser" / name)
 write_json(OUT / "manifest.json", {"date": "2026-11-14", "products": records,
     "counts": {"pbws": 6, "nativeScreenshots": 34, "banners": 10, "iconSets": 4},
-    "scope": "Fresh unused patch versions built, audited, frozen and prepared. Earlier releases unchanged. No Store submission or website deployment.",
+    "scope": "Current Halftone-style Store artwork and transparent tintable glyphs, paired with exact previously checked release PBWs. Store upload remains manual; website deployment is separate.",
     "websiteBranch": "https://github.com/xefensor/xoce/tree/feat/pebble-store-launch"})
-table = "\n".join(f"| [{p['product']}]({slug}/UPLOAD.md) | {p['version']} | {p['previousStoreVersion']} |" for slug, p in zip(SLUGS, records))
+table = "\n".join(f"| [{p['product']}]({slug}/UPLOAD.md) | {p['version']} | {p['publicStoreVersionCheckedOn20261114']} |" for slug, p in zip(SLUGS, records))
 (OUT / "README.md").write_text("""# XOCE — Pebble Store update, 14 November 2026
 
-All six PBWs now have new numeric versions, rebuilt from the reviewed source and checked for Store upload. Open each product’s `UPLOAD.md` for the exact file mapping.
+The current Store artwork follows the original orange Halftone banner: bold colour, large white type, a curved patterned edge and illustrated watches with real native screens. Open each product’s `UPLOAD.md` for the exact upload fields.
 
-| Product folder | New version to upload | Replaces public version |
+| Product folder | Checked PBW version | Public Store version checked on 14 November |
 | --- | --- | --- |
 """ + table + """
 
-Each product folder contains its new `.pbw`, plain-text description/release notes, platform banners, raw native screenshots, applicable 80/144 px icons, editable SVGs and licences. There are 34 native screenshots, ten 720×320 banners and four icon sets. Weather is phone-only and has no watch screenshot or Store banner.
+Each product folder contains its checked `.pbw`, plain-text description/release notes, platform banners, raw native screenshots, applicable 80/144 px icons, editable SVGs and licences. There are 34 selected native screenshots, ten 720×320 Store banners and four icon sets. Weather is phone-only and has no watch screenshot or Store banner.
 
-The new versions were absent from public Pebble Store history and GitHub tags when checked. Public UUIDs, saved-state compatibility, reviewed native interfaces and dependency pins are retained. The complete previous numbered artifacts remain unchanged. No old-number PBW is mixed into this handoff.
+These PBWs retain the new numeric versions prepared earlier; artwork does not require another binary version. Weather 1.0.3 is already public and matches the checked PBW: update its listing only. For other apps, upload the prepared version only if it is still missing. Public UUIDs and existing binary bytes are retained. `runtimeSourceCommit` and `storeSourceCommit` distinguish the binary source from the current listing art.
+
+For Timer, Dashboard, Open Activity and Weather, upload the transparent black 80/144 px icons and enable the documented tintable-icon setting (`icon_tintable=true`) in Developer Dashboard. The client can then tint one glyph for light/dark mode. This setting must be saved on the Store; editing local JSON cannot enable it remotely. See `review/icons-light-dark.png` and each guide. Watchfaces have no Store icon upload in this handoff.
 
 Use the `.pbw` in each product folder for the binary field. `developer/` contains matching source/debug archives for maintenance; `design-source/` preserves the original artwork inputs, fonts/licences and recipes. SVGs, product marks and these archives are not extra Store screenshot fields. Preview the banner/icon family in `review/`.
 
-`verification/` records fresh six-app tests/builds, native artifact/configuration and Store-kit checks, strict renderer/resource equivalence, version availability, release preparation and website checks. Previous native PNGs were reused only after renderer equivalence passed; no fresh emulator capture, phone or physical-watch result is claimed.
+`verification/` includes the earlier six-app builds, artifact/configuration checks and strict renderer equivalence, plus fresh six-app tests/Store checks for this artwork pass, binary-alpha icon checks and website browser evidence. Halftone's two orange screens are fresh native QEMU captures of its checked build; other native PNGs were reused after renderer equivalence passed. No physical-watch result is claimed.
 
-The source and this handoff are on the GitHub feature branches linked in the per-product guides and [XOCE website branch](https://github.com/xefensor/xoce/tree/feat/pebble-store-launch). No Store submission, GitHub release publication or website deployment is implied by a branch push.
+The source and this handoff are on the GitHub branches linked in the per-product guides and [XOCE website repository](https://github.com/xefensor/xoce). Website deployment is tracked separately from app publication. No Store submission or GitHub app release is performed by this package.
 
 Verify all payload files with `sha256sum -c SHA256SUMS.txt`. Each product has its own checksum list. The complete ZIP has a separate `.sha256` file beside it.
 """)

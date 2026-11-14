@@ -1,0 +1,182 @@
+
+> dynamic-watchface@1.0.1 test
+> python3 scripts/verify-core.py && node --test tests/*.test.js && python3 scripts/test-native.py && npm run test:workflow && npm run check:docs && npm run test:release && npm run test:platforms && npm run test:assets && npm run test:auditor && npm run test:store
+
+Pinned pebble-watchface-core 0.6.1-dev.1: verified
+Pinned pebble-activities 0.4.5: verified
+TAP version 13
+# Subtest: tests/activity-navigation.test.js
+ok 1 - tests/activity-navigation.test.js
+  ---
+  duration_ms: 58.993797
+  type: 'test'
+  ...
+# Subtest: tests/activity-presentation.test.js
+ok 2 - tests/activity-presentation.test.js
+  ---
+  duration_ms: 77.194289
+  type: 'test'
+  ...
+# Subtest: tests/display-preferences.test.js
+ok 3 - tests/display-preferences.test.js
+  ---
+  duration_ms: 64.410694
+  type: 'test'
+  ...
+# Subtest: tests/index-events.test.js
+ok 4 - tests/index-events.test.js
+  ---
+  duration_ms: 367.180616
+  type: 'test'
+  ...
+# Subtest: tests/localization.test.js
+ok 5 - tests/localization.test.js
+  ---
+  duration_ms: 117.187789
+  type: 'test'
+  ...
+# Subtest: tests/native-preview-fixtures.test.js
+ok 6 - tests/native-preview-fixtures.test.js
+  ---
+  duration_ms: 249.929521
+  type: 'test'
+  ...
+# Subtest: tests/reading-label.test.js
+ok 7 - tests/reading-label.test.js
+  ---
+  duration_ms: 42.706618
+  type: 'test'
+  ...
+# Subtest: tests/settings-preview.test.js
+ok 8 - tests/settings-preview.test.js
+  ---
+  duration_ms: 55.288774
+  type: 'test'
+  ...
+# Subtest: tests/settings-state.test.js
+ok 9 - tests/settings-state.test.js
+  ---
+  duration_ms: 87.499778
+  type: 'test'
+  ...
+# Subtest: tests/settings-style.test.js
+ok 10 - tests/settings-style.test.js
+  ---
+  duration_ms: 99.850972
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 382.223905
+bounded portable state: view 2708, layout 1368, navigation 24 bytes (host ABI)
+covered callbacks: zero decorative registrations/dirty requests; fresh return and static-minute/expiry/locale gates passed
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.149s
+
+OK
+actual native palette resolver: Manual, Quiet Time, retained Follow fallback and all effective type profiles PASS
+native display: exact RGB migration, codec, all profiles/modes, readback failure, legacy mirrors and relaunch PASS
+dynamic production reading plan: overflow wraps before height measurement PASS
+production percentage fitting: both slots, three unit sizes, idle/compact and 0..100% stay inline PASS
+activity-memory.c: PASS
+activity-navigation.c: PASS
+activity-plan-cache.c: PASS
+activity-presentation.c: PASS
+activity-view.c: PASS
+context-effects.c: PASS
+context-session.c: PASS
+font-assets.c: PASS
+font-raster.c: PASS
+media-transition.c: PASS
+music-activity.c: PASS
+music-layout.c: PASS
+native-reading.c: PASS
+native-settings.c: PASS
+reading-layout.c: PASS
+reading-pages.c: PASS
+split-layout.c: PASS
+supporting-type.c: PASS
+test_reading_grid.c: PASS
+watch-layout.c: PASS
+
+> dynamic-watchface@1.0.1 test:workflow
+> python3 -m unittest discover -s tests -p test_development_workflow.py && python3 -m unittest discover -s tests -p test_preview_provenance.py
+
+....ss.......
+----------------------------------------------------------------------
+Ran 13 tests in 0.012s
+
+OK (skipped=2)
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.005s
+
+OK
+
+> dynamic-watchface@1.0.1 check:docs
+> python3 scripts/check-docs.py
+
+Active documentation links PASS: 52
+
+> dynamic-watchface@1.0.1 test:release
+> python3 -m unittest discover -s tests -p "test_*release*.py"
+
+Bundled stay-open Clay configuration: PASS
+........................s..........
+----------------------------------------------------------------------
+Ran 35 tests in 2.645s
+
+OK (skipped=1)
+{
+  "result": "PASS",
+  "version": "1.2.3",
+  "files": {
+    "Weather-1.2.3.pbw": "c36d45d78ce8d2222c913aef96c3decfebcb6dc039a51cfbf7359c9122cad9e8",
+    "Weather-1.2.3-source.zip": "2fb59e9e87c602edb012fbf456117c82b879fc3c972c8dce4e621fd40f1219a2",
+    "Weather-1.2.3-store-package.zip": "416e204572ea7aac361542bddbd2a9ddc42b0bcfa1deda2a97705d2479aee767"
+  },
+  "published": false
+}
+
+> dynamic-watchface@1.0.1 test:platforms
+> python3 -m unittest discover -s tests -p test_platform_audit.py
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.438s
+
+OK
+
+> dynamic-watchface@1.0.1 test:assets
+> python3 -m unittest discover -s tests -p test_native_assets.py
+
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+> dynamic-watchface@1.0.1 test:auditor
+> python3 -m unittest discover -s tests -p test_pinned_dependencies.py
+
+.......................
+----------------------------------------------------------------------
+Ran 23 tests in 0.033s
+
+OK
+
+> dynamic-watchface@1.0.1 test:store
+> python3 -m unittest discover -s tests -p test_store_kit.py
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.033s
+
+OK

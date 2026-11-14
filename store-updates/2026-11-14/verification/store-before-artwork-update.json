@@ -1,0 +1,62 @@
+[
+  {
+    "product": "Dynamic",
+    "repo": "pebble-watchface-dynamic",
+    "version": "1.0.0",
+    "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
+    "icon_tintable": false,
+    "id": "5db601a9303a4eb7baa90331",
+    "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/5db601a9303a4eb7baa90331/1.0.0/97011d88-dd9d-466d-8687-1e4ca86a9884.pbw"
+  },
+  {
+    "product": "Halftone",
+    "repo": "pebble-watchface-halftone",
+    "version": "1.10.1",
+    "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
+    "icon_tintable": false,
+    "id": "48d7f4eab704414c8bc1fa7e",
+    "storeUrl": "https://apps.repebble.com/48d7f4eab704414c8bc1fa7e",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/48d7f4eab704414c8bc1fa7e/1.10.1/c690f191-c019-4eba-ade0-990c2d094330.pbw"
+  },
+  {
+    "product": "Timer",
+    "repo": "pebble-app-timer",
+    "version": "1.0.0",
+    "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+    "icon_tintable": false,
+    "id": "2f8f8cfd4e7e442fb724dac7",
+    "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/2f8f8cfd4e7e442fb724dac7/1.0.0/d1f29b1a-5491-4965-adc7-0c547667320e.pbw"
+  },
+  {
+    "product": "Dashboard",
+    "repo": "pebble-app-dashboard",
+    "version": "1.0.0",
+    "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
+    "icon_tintable": false,
+    "id": "603d814e961c40308c98ce63",
+    "storeUrl": "https://apps.repebble.com/603d814e961c40308c98ce63",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/603d814e961c40308c98ce63/1.0.0/c5c39a05-e75e-4038-a6e8-d49df229d0ff.pbw"
+  },
+  {
+    "product": "Open Activity",
+    "repo": "pebble-app-open-activity",
+    "version": "1.0.0",
+    "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
+    "icon_tintable": false,
+    "id": "59af0a59f7a34cb09a79bcbe",
+    "storeUrl": "https://apps.repebble.com/59af0a59f7a34cb09a79bcbe",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/59af0a59f7a34cb09a79bcbe/1.0.0/d4f1612c-fd32-4175-b3b1-7c262dddf5c5.pbw"
+  },
+  {
+    "product": "ČHMÚ Weather",
+    "repo": "pebble-chmu-weather",
+    "version": "1.0.3",
+    "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
+    "icon_tintable": false,
+    "id": "ef7111ffaeaf4593aaaa85ed",
+    "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
+    "pbwUrl": "https://appstore-api.repebble.com/api/assets/pbw/ef7111ffaeaf4593aaaa85ed/1.0.3/94de106a-401a-4c11-b454-b168fb6043d6.pbw"
+  }
+]

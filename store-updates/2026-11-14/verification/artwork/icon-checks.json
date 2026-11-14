@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "icons": [
+    {
+      "product": "chmu-weather",
+      "file": "icon-small-80.png",
+      "size": 80,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "chmu-weather",
+      "file": "icon-large-144.png",
+      "size": 144,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "dashboard",
+      "file": "icon-small-80.png",
+      "size": 80,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "dashboard",
+      "file": "icon-large-144.png",
+      "size": 144,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "open-activity",
+      "file": "icon-small-80.png",
+      "size": 80,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "open-activity",
+      "file": "icon-large-144.png",
+      "size": 144,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "timer",
+      "file": "icon-small-80.png",
+      "size": 80,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    },
+    {
+      "product": "timer",
+      "file": "icon-large-144.png",
+      "size": 144,
+      "ink": "#000000",
+      "alphaValues": [
+        0,
+        255
+      ],
+      "tintable": true
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+
+> xoce@0.1.0 test
+> npm run check && npm run build && npm run check:links && npm run check:docs && npm run test:launch
+
+
+> xoce@0.1.0 check
+> astro check
+
+19:07:59 [types] Generated 46ms
+19:07:59 [check] Getting diagnostics for Astro files in /home/xela/Projekty/xoce/XOCE-website-update...
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m318[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'guideContentsJump' is declared but its value is never read.
+
+[7m318[0m async function guideContentsJump(scripting = true) {
+[7m   [0m [93m               ~~~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m302[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'routesFromBuild' is declared but its value is never read.
+
+[7m302[0m function routesFromBuild() {
+[7m   [0m [93m         ~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m287[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'headerFits' is declared but its value is never read.
+
+[7m287[0m async function headerFits(width) {
+[7m   [0m [93m               ~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m41[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'designGuides' is declared but its value is never read.
+
+[7m41[0m const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m39[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'isArticle' is declared but its value is never read.
+
+[7m39[0m const isArticle = route => route.startsWith('/docs/') && !Object.hasOwn(redirects, route);
+[7m  [0m [93m      ~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m24[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'visualRoutes' is declared but its value is never read.
+
+[7m24[0m const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m23[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'platformLinks' is declared but its value is never read.
+
+[7m23[0m const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
+[7m  [0m [93m      ~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m18[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'mainSections' is declared but its value is never read.
+
+[7m18[0m const mainSections = [
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m17[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'libraryCount' is declared but its value is never read.
+
+[7m17[0m const libraryCount = projects.length - products.length;
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m16[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'previewApps' is declared but its value is never read.
+
+[7m16[0m const previewApps = availableApps.filter(project => project.previewType === 'watch');
+[7m  [0m [93m      ~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m14[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'catalogueProducts' is declared but its value is never read.
+
+[7m14[0m const catalogueProducts = products.filter(project => project.availability !== 'planned');
+[7m  [0m [93m      ~~~~~~~~~~~~~~~~~[0m
+[96mbuild/qa/final-focused-browser.mjs[0m:[93m9[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'fileURLToPath' is declared but its value is never read.
+
+[7m9[0m import { fileURLToPath, pathToFileURL } from 'node:url';
+[7m [0m [93m         ~~~~~~~~~~~~~[0m
+
+[96mscripts/browser-smoke.mjs[0m:[93m314[0m:[93m10[0m - [93mwarning[0m[90m ts(6133): [0m'routesFromBuild' is declared but its value is never read.
+
+[7m314[0m function routesFromBuild() {
+[7m   [0m [93m         ~~~~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m299[0m:[93m16[0m - [93mwarning[0m[90m ts(6133): [0m'headerFits' is declared but its value is never read.
+
+[7m299[0m async function headerFits(width) {
+[7m   [0m [93m               ~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m40[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'designGuides' is declared but its value is never read.
+
+[7m40[0m const designGuides = ['/docs/design/principles/', '/docs/design/visual-identity/', '/docs/design/ui-patterns/', '/docs/design/interaction/'];
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m38[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'isArticle' is declared but its value is never read.
+
+[7m38[0m const isArticle = route => route.startsWith('/docs/') && !Object.hasOwn(redirects, route);
+[7m  [0m [93m      ~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m23[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'visualRoutes' is declared but its value is never read.
+
+[7m23[0m const visualRoutes = ['/', '/projects/', '/projects/dynamic/', '/projects/dashboard/', '/projects/timer/',
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m22[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'platformLinks' is declared but its value is never read.
+
+[7m22[0m const platformLinks = [{ href:'/pebble/', label:'PebbleOS' }];
+[7m  [0m [93m      ~~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m17[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'mainSections' is declared but its value is never read.
+
+[7m17[0m const mainSections = [
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+[96mscripts/browser-smoke.mjs[0m:[93m16[0m:[93m7[0m - [93mwarning[0m[90m ts(6133): [0m'libraryCount' is declared but its value is never read.
+
+[7m16[0m const libraryCount = projects.length - products.length;
+[7m  [0m [93m      ~~~~~~~~~~~~[0m
+
+Result (50 files): 
+- 0 errors
+- 0 warnings
+- 20 hints
+
+
+> xoce@0.1.0 build
+> astro build
+
+19:08:02 [types] Generated 32ms
+19:08:02 [build] output: "static"
+19:08:02 [build] mode: "static"
+19:08:02 [build] directory: /home/xela/Projekty/xoce/XOCE-website-update/dist/
+19:08:02 [build] Collecting build info...
+19:08:02 [build] ✓ Completed in 65ms.
+19:08:02 [build] Building static entrypoints...
+19:08:02 [WARN] [vite] 
+/xoce/fonts/xoce/FiraSans-Regular.woff referenced in /xoce/fonts/xoce/FiraSans-Regular.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
+19:08:02 [WARN] [vite] 
+/xoce/fonts/xoce/FiraSans-Medium.woff referenced in /xoce/fonts/xoce/FiraSans-Medium.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
+19:08:02 [WARN] [vite] 
+/xoce/fonts/xoce/FiraSans-SemiBold.woff referenced in /xoce/fonts/xoce/FiraSans-SemiBold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
+19:08:02 [WARN] [vite] 
+/xoce/fonts/xoce/FiraSansCondensed-Bold.woff referenced in /xoce/fonts/xoce/FiraSansCondensed-Bold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
+19:08:02 [WARN] [vite] 
+/xoce/fonts/xoce/FiraSansCondensed-ExtraBold.woff referenced in /xoce/fonts/xoce/FiraSansCondensed-ExtraBold.woff didn't resolve at build time, it will remain unchanged to be resolved at runtime
+19:08:02 [vite] ✓ built in 411ms
+19:08:02 [vite] ✓ built in 27ms
+19:08:02 [build] Rearranging server assets...
+
+ generating static routes 
+19:08:02   ├─ /404.html (+10ms) 
+19:08:03   ├─ /about/index.html (+3ms) 
+19:08:03   ├─ /android/index.html (+4ms) 
+19:08:03   ├─ /design/index.html (+4ms) 
+19:08:03   ├─ /developers/index.html (+2ms) 
+19:08:03   ├─ /docs/android/phone/index.html (+3ms) 
+19:08:03   ├─ /docs/design/interaction/index.html (+4ms) 
+19:08:03   ├─ /docs/design/pebble-ui-system/index.html (+3ms) 
+19:08:03   ├─ /docs/design/principles/index.html (+3ms) 
+19:08:03   ├─ /docs/design/ui-patterns/index.html (+2ms) 
+19:08:03   ├─ /docs/design/visual-identity/index.html (+2ms) 
+19:08:03   ├─ /docs/develop/activities/index.html (+2ms) 
+19:08:03   ├─ /docs/develop/building/index.html (+2ms) 
+19:08:03   ├─ /docs/develop/core/index.html (+2ms) 
+19:08:03   ├─ /docs/getting-started/index.html (+3ms) 
+19:08:03   ├─ /docs/pebble/activities/index.html (+2ms) 
+19:08:03   ├─ /docs/pebble/chmu-weather/index.html (+2ms) 
+19:08:03   ├─ /docs/pebble/controls/index.html (+2ms) 
+19:08:03   ├─ /docs/pebble/halftone/index.html (+2ms) 
+19:08:03   ├─ /docs/pebble/phone-connection/index.html (+1ms) 
+19:08:03   ├─ /docs/pebble/setup/index.html (+2ms) 
+19:08:03   ├─ /docs/pebble/troubleshooting/index.html (+2ms) 
+19:08:03   ├─ /docs/project/licensing/index.html (+2ms) 
+19:08:03   ├─ /docs/index.html (+1ms) 
+19:08:03   ├─ /pebble/index.html (+2ms) 
+19:08:03   ├─ /projects/chmu-weather/privacy/index.html (+2ms) 
+19:08:03   ├─ /projects/chmu-weather/support/index.html (+1ms) 
+19:08:03   ├─ /projects/dashboard/privacy/index.html (+1ms) 
+19:08:03   ├─ /projects/dashboard/support/index.html (+1ms) 
+19:08:03   ├─ /projects/dynamic/privacy/index.html (+2ms) 
+19:08:03   ├─ /projects/dynamic/support/index.html (+2ms) 
+19:08:03   ├─ /projects/halftone/privacy/index.html (+1ms) 
+19:08:03   ├─ /projects/halftone/support/index.html (+1ms) 
+19:08:03   ├─ /projects/open-activity/privacy/index.html (+1ms) 
+19:08:03   ├─ /projects/open-activity/support/index.html (+2ms) 
+19:08:03   ├─ /projects/timer/privacy/index.html (+3ms) 
+19:08:03   ├─ /projects/timer/support/index.html (+1ms) 
+19:08:03   ├─ /projects/phone/index.html (+2ms) 
+19:08:03   ├─ /projects/pebble-phone/index.html (+1ms) 
+19:08:03   ├─ /projects/dynamic/index.html (+2ms) 
+19:08:03   ├─ /projects/dashboard/index.html (+1ms) 
+19:08:03   ├─ /projects/timer/index.html (+1ms) 
+19:08:03   ├─ /projects/open-activity/index.html (+1ms) 
+19:08:03   ├─ /projects/halftone/index.html (+1ms) 
+19:08:03   ├─ /projects/chmu-weather/index.html (+1ms) 
+19:08:03   ├─ /projects/activities/index.html (+1ms) 
+19:08:03   ├─ /projects/core/index.html (+1ms) 
+19:08:03   ├─ /projects/index.html (+2ms) 
+19:08:03   ├─ /search.json (+4ms) 
+19:08:03   ├─ /users/index.html (+1ms) 
+19:08:03   ├─ /index.html (+2ms) 
+19:08:03 ✓ Completed in 124ms.
+
+19:08:03 [build] ✓ Completed in 694ms.
+19:08:03 [build] 50 page(s) built in 780ms
+19:08:03 [build] Complete!
+
+> xoce@0.1.0 check:links
+> node scripts/check-site.mjs
+
+{
+  "passed": true,
+  "base": "/xoce/",
+  "pages": 50,
+  "internalReferences": 2570,
+  "anchors": 499,
+  "referencedAssets": 73,
+  "catalogueProducts": 6,
+  "downloadableApps": 0,
+  "plannedProjects": 0,
+  "libraries": 2,
+  "guides": 16,
+  "preservedNativeCaptures": 215,
+  "currentNativeCaptures": 25,
+  "galleryScreenshots": 45,
+  "phoneSettingsPreviews": 11,
+  "pluginIcons": 2
+}
+
+> xoce@0.1.0 check:docs
+> python3 scripts/check-docs.py
+
+Active documentation links PASS: 38
+
+> xoce@0.1.0 test:launch
+> node tests/launch-readiness.test.mjs
+
+TAP version 13
+# Subtest: a preview never reaches the network or advertises an invented release
+ok 1 - a preview never reaches the network or advertises an invented release
+  ---
+  duration_ms: 1.020554
+  type: 'test'
+  ...
+# Subtest: only the exact checked public release passes
+ok 2 - only the exact checked public release passes
+  ---
+  duration_ms: 0.90702
+  type: 'test'
+  ...
+# Subtest: wrong UUID, old Store version, hidden release and missing Round 2 fail
+ok 3 - wrong UUID, old Store version, hidden release and missing Round 2 fail
+  ---
+  duration_ms: 0.252761
+  type: 'test'
+  ...
+# Subtest: a mismatched artifact fails even when both release pages exist
+ok 4 - a mismatched artifact fails even when both release pages exist
+  ---
+  duration_ms: 0.308912
+  type: 'test'
+  ...
+# Subtest: a plugin has no invented watch platform
+ok 5 - a plugin has no invented watch platform
+  ---
+  duration_ms: 0.148537
+  type: 'test'
+  ...
+# Subtest: wrong release URLs, unavailable assets and API failures stop publication
+ok 6 - wrong release URLs, unavailable assets and API failures stop publication
+  ---
+  duration_ms: 0.359718
+  type: 'test'
+  ...
+# Subtest: a GitHub prerelease cannot activate the stable Store launch
+ok 7 - a GitHub prerelease cannot activate the stable Store launch
+  ---
+  duration_ms: 0.225726
+  type: 'test'
+  ...
+# Subtest: website preparation pages deploy without claiming an app release
+ok 8 - website preparation pages deploy without claiming an app release
+  ---
+  duration_ms: 0.899104
+  type: 'test'
+  ...
+# Subtest: preparation deployment rejects installation links and unidentified packages
+ok 9 - preparation deployment rejects installation links and unidentified packages
+  ---
+  duration_ms: 0.400619
+  type: 'test'
+  ...
+# Subtest: published deployment retains complete release and PBW verification
+ok 10 - published deployment retains complete release and PBW verification
+  ---
+  duration_ms: 0.5881
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12.647843

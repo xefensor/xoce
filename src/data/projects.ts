@@ -149,8 +149,8 @@ export const projects: Project[] = [
     "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
     "artifactSha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
     "storeArtwork": {
-      "mark": "/images/store/dynamic-1.0.1-identity-20261114-mark.png",
-      "shareImage": "/images/store/dynamic-1.0.1-identity-20261114-banner-emery.png"
+      "mark": "/images/store/dynamic-1.0.1-pebble-20261114-mark.png",
+      "shareImage": "/images/store/dynamic-1.0.1-pebble-20261114-banner-emery.png"
     }
   },
   {
@@ -218,8 +218,8 @@ export const projects: Project[] = [
     "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
     "artifactSha256": "6f56f4d4451752c2c24ba98cd962ea65d430b398b8a45033dc158ed774574ed8",
     "storeArtwork": {
-      "mark": "/images/store/dashboard-1.0.1-identity-20261114-mark.png",
-      "shareImage": "/images/store/dashboard-1.0.1-identity-20261114-banner-emery.png"
+      "mark": "/images/store/dashboard-1.0.1-pebble-20261114-mark.png",
+      "shareImage": "/images/store/dashboard-1.0.1-pebble-20261114-banner-emery.png"
     }
   },
   {
@@ -287,8 +287,8 @@ export const projects: Project[] = [
     "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
     "artifactSha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
     "storeArtwork": {
-      "mark": "/images/store/timer-1.0.2-identity-20261114-mark.png",
-      "shareImage": "/images/store/timer-1.0.2-identity-20261114-banner-emery.png"
+      "mark": "/images/store/timer-1.0.2-pebble-20261114-mark.png",
+      "shareImage": "/images/store/timer-1.0.2-pebble-20261114-banner-emery.png"
     }
   },
   {
@@ -362,8 +362,8 @@ export const projects: Project[] = [
     "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
     "artifactSha256": "5e9ab0effa9053c1887f7612ac58cd8f42ca27d616ef23d47c614e12f9f317de",
     "storeArtwork": {
-      "mark": "/images/store/open-activity-1.0.1-identity-20261114-mark.png",
-      "shareImage": "/images/store/open-activity-1.0.1-identity-20261114-banner-emery.png"
+      "mark": "/images/store/open-activity-1.0.1-pebble-20261114-mark.png",
+      "shareImage": "/images/store/open-activity-1.0.1-pebble-20261114-banner-emery.png"
     }
   },
   {
@@ -435,8 +435,8 @@ export const projects: Project[] = [
     "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
     "artifactSha256": "2aebe161f36be2368b94ae52e84dce2be58ae6ccb8ac1dd6cf479a10f8848d1d",
     "storeArtwork": {
-      "mark": "/images/store/halftone-1.10.2-identity-20261114-mark.png",
-      "shareImage": "/images/store/halftone-1.10.2-identity-20261114-banner-emery.png"
+      "mark": "/images/store/halftone-1.10.2-pebble-20261114-mark.png",
+      "shareImage": "/images/store/halftone-1.10.2-pebble-20261114-banner-emery.png"
     }
   },
   {
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     "setupGuide": "/docs/pebble/chmu-weather/",
     "helpGuide": "/docs/pebble/chmu-weather/#if-weather-is-missing",
     "developerNote": "The public plugin uses public ČHMÚ data and optional Open-Meteo fields. It has no watch binary. Personal builds are excluded.",
-    "image": "/images/store/chmu-weather-1.0.3-identity-20261114-mark.png",
+    "image": "/images/store/chmu-weather-1.0.3-pebble-20261114-mark.png",
     "imageVersion": "1.0.3",
     "previewType": "icon",
     "imageAlt": "Original XOCE ČHMÚ Weather cloud-and-sun mark; unofficial phone plugin.",
@@ -490,8 +490,8 @@ export const projects: Project[] = [
     "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
     "artifactSha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
     "storeArtwork": {
-      "mark": "/images/store/chmu-weather-1.0.3-identity-20261114-mark.png",
-      "shareImage": "/images/store/chmu-weather-1.0.3-identity-20261114-banner-phone.png"
+      "mark": "/images/store/chmu-weather-1.0.3-pebble-20261114-mark.png",
+      "shareImage": "/images/store/chmu-weather-1.0.3-pebble-20261114-banner-phone.png"
     }
   },
   {

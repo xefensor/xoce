@@ -119,7 +119,7 @@
   "validation": "Current browser proof belongs in ignored build/qa/tactile-identity-20261114; historical reports retain their original scope.",
   "store_family": {
     "date": "2026-11-14",
-    "typography": "Fira Sans / Fira Sans Condensed, outlined in SVG",
+    "typography": "Fira Sans Condensed Bold, outlined",
     "surfaces": [
       "#e8edf0",
       "#172127",
@@ -127,15 +127,18 @@
     ],
     "brandAccent": "#006bb6",
     "productAccents": {
-      "Dynamic": "#55aaff",
-      "Halftone": "#ff8500",
-      "Timer": "#55aaff",
-      "Dashboard": "#79bce6",
-      "Open Activity": "#b6a2ed",
-      "ČHMÚ Weather": "#8bc6ef"
+      "Dynamic": "#0055ff",
+      "Halftone": "#ff5500",
+      "Timer": "#5555ff",
+      "Dashboard": "#00aa55",
+      "Open Activity": "#aa55ff",
+      "ČHMÚ Weather": "#0055ff"
     },
     "nativeScreens": "Unmodified emulator captures; native apps and controls are unchanged.",
     "wordmark": "Outlined XOCE wordmark, same shape in website and banners.",
-    "banners": "720×320 per native platform, with unchanged native capture bytes and credited official frames. Weather banner remains website-only."
+    "banners": "720×320 per native platform, with unchanged native capture bytes and credited official frames. Weather banner remains website-only.",
+    "reference": "Original Halftone orange banner selected by Xef, 2026-11-14",
+    "treatment": "Bold app colour, curved patterned edge, white uppercase title and illustrated watch; original native PNGs embedded unchanged.",
+    "icons": "One black glyph on a transparent background, binary alpha; icon_tintable=true in Store listing. Website foreground adapts to theme."
   }
 }

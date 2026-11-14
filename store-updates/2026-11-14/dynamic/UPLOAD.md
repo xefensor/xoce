@@ -1,9 +1,9 @@
-# Dynamic 1.0.1 — Store upload
+# Dynamic 1.0.1 — Store update
 
-[Store listing](https://apps.repebble.com/5db601a9303a4eb7baa90331) · [Exact source commit](https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c)
+[Store listing](https://apps.repebble.com/5db601a9303a4eb7baa90331) · [Runtime source](https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c) · [Current artwork source](https://github.com/xefensor/pebble-watchface-dynamic/commit/3e21bc0073fe06db8bbafa61e7a52095e2c36f98)
 
-1. Upload **`Dynamic-1.0.1.pbw`** as the new **1.0.1** version, replacing public 1.0.0.
-2. Paste `description.txt` into the description and `release-notes.txt` into the version notes.
+1. If the Store still shows **1.0.0**, upload **`Dynamic-1.0.1.pbw`** as **1.0.1**. If this version has already been uploaded, edit its listing instead; do not duplicate or renumber it for artwork.
+2. Paste `description.txt` into the description. Use `release-notes.txt` when publishing the prepared binary version.
 3. Use the platform banner PNGs and raw screenshot PNGs below. `upload-map.json` gives the exact field mapping.
 
 ## Time 2 / Emery
@@ -30,4 +30,4 @@ Screenshots, in order:
 4. `gabbro-store-20261114-activities.png`
 5. `gabbro-store-20261114-peek.png`
 
-SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with this new patch was verified. No new physical-device test is claimed.
+SVGs, product marks, proof and licence files are editing/reference material. Upload the PNGs named above. Earlier captures retain their original pixels; renderer/resource equality with the prepared PBW was verified. Halftone's orange screens are fresh native emulator captures of its checked 1.10.2 build. No physical-device test is claimed.

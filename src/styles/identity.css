@@ -64,6 +64,12 @@ h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-.025
 .guide-shell .doc-heading h1,.guide-shell .prose :is(h2,h3,h4){font-family:var(--font-display);font-weight:700;letter-spacing:-.015em}
 .site-footer .brand-name{font-family:var(--font-display);font-size:2rem;font-weight:800}
 .footer-brand{border:0;padding:0}.footer-brand .brand-wordmark{width:92px}
+/* Store product glyphs are one-colour transparent images, tinted by the surface. */
+html[data-ui='material']{--product-mark-filter:none}
+html[data-ui='material'][data-theme='dark']{--product-mark-filter:invert(1)}
+@media(prefers-color-scheme:dark){html[data-ui='material']:not([data-theme]){--product-mark-filter:invert(1)}}
+.product-family-mark,.product-family-label img,.plugin-icon,.icon-preview img{filter:var(--product-mark-filter);image-rendering:pixelated;border-radius:0}
+.plugin-portrait img{filter:invert(1);image-rendering:pixelated;border-radius:0}
 @media(hover:hover) and (pointer:fine){.button:active,.search-trigger:active,.icon-button:active{transform:translateY(1px)}}
 @media(max-width:1100px){.header-inner{gap:25px;margin-inline:20px}.brand{padding-right:20px}.brand-wordmark{width:105px}[data-site-nav]{gap:22px}.search-trigger kbd{display:none}.launch-hero{gap:25px;grid-template-columns:.9fr 1.1fr}.hero-watch .watch-preview{--watch-width:205px}.hero-watch.hero-round .watch-preview{--watch-width:205px}.collection-watchface .launch-card{grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px}.collection-watchface .card-picture{padding-right:16px}.collection-watchface .card-copy h3{font-size:1.8rem}}
 @media(max-width:700px){

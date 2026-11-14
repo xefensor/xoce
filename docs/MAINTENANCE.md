@@ -2,9 +2,9 @@
 
 ## Current scope
 
-Xef approved a local Pebble-first Store launch redesign on 2026-11-13. It covers Dynamic 1.0.0, Halftone 1.10.1, Dashboard 1.0.0, Timer 1.0.0, Open Activity 1.0.0 and ČHMÚ Weather 1.0.2. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch interface. Duo and Personal Weather are excluded.
+Xef approved the Pebble-first redesign and requested its public deployment on 2026-11-14. It describes Dynamic 1.0.1, Halftone 1.10.2, Dashboard 1.0.1, Timer 1.0.2, Open Activity 1.0.1 and ČHMÚ Weather 1.0.3. Native products target Time 2 and Round 2. The weather plugin runs on the phone and has no watch interface. Duo and Personal Weather are excluded.
 
-A launch candidate is not a published release. `publication: 'preview'` records have no active Store or PBW links; a site-wide preview notice and `noindex` identify the local preview. Published records require exact verified Store and GitHub artifacts. Existing public releases remain unchanged. [Launch checklist](launch-checklist.md) records the activation process.
+A launch candidate is not a published app release. `publication: 'preview'` records have no active Store or PBW links; a site-wide preview notice and `noindex` identify preparation pages even after their authorized website deployment. `check:deployment` allows that state and retains complete public Store/GitHub verification for published records. `check:launch` remains the all-app activation check. Existing app releases remain unchanged. [Launch checklist](launch-checklist.md) records the activation process.
 
 ## Page jobs and interaction
 
@@ -66,3 +66,8 @@ Xef approved the single homepage concept before implementation. The real site us
 Xef requested uploadable new versions after the public Store numbers were found to be in use. Dynamic, Dashboard and Open Activity are now 1.0.1; Timer is 1.0.2, Halftone is 1.10.2 and ČHMÚ Weather is 1.0.3. `docs/reviewed-artifacts.json` records the rebuilt/frozen PBW hashes and committed source identities. The combined `store-updates/2026-11-14/` folder and ZIP contain these new binaries and the current artwork/copy. Earlier release archives remain unchanged.
 
 Historical captures and provenance stay intact. New versioned website assets retain the original `capture_version` and source PBW hash, alongside the represented release and a public `release_reuse_proof` where strict renderer/resource equality was checked. The asset validator accepts reuse only with the matching target PBW and verified original source. Weather has a fresh Chromium capture of its new packaged settings with a simulated Pebble bridge. The obsolete Dashboard action example is replaced by its current verified overview. Publication/installation gates still apply.
+
+
+## Original Halftone artwork direction — 2026-11-14
+
+Xef rejected the material Store tiles and selected the original orange Halftone banner as the reference. The replacement family uses app colours, curved patterned edges, outlined Fira titles and the original watch illustration style. Halftone has two fresh current-PBW orange native captures, one per platform. Standalone Store screenshots remain raw and unframed. Store watchapp/plugin icons use a black transparent binary glyph; the listing’s documented `icon_tintable` option must be enabled. Website product marks adapt to light/dark surfaces. This listing-only artwork update preserves the checked PBWs and frozen release archives. Current evidence and recipes are in `Watch/Pebble-Store-Artwork-2026-11-14/`.

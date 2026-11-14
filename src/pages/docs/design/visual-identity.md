@@ -38,11 +38,11 @@ System, Light and Dark remain available. An explicit appearance choice persists 
 
 ## Product artwork and images
 
-Product symbols remain recognizable: Timer’s hourglass, Dashboard’s panels, Open Activity’s opening arrow and Weather’s sun/cloud/rain. A subtle material edge connects them to the website. Watchface marks are website artwork rather than Store icon fields.
+Product symbols remain recognizable: Timer’s hourglass, Dashboard’s panels, Open Activity’s opening arrow and Weather’s sun/cloud/rain. They use crisp monochrome glyphs with a transparent background. Website marks follow the page’s light/dark appearance; the graphite product stage uses white glyphs. Watchface marks are website artwork rather than Store icon fields.
 
-Store banners have a large product visual, a readable name and one short benefit. The full native screen stays visible inside a front-on device frame; straps can be cropped within the marketing composition. Standalone Store screenshots remain raw and unframed.
+Xef selected the original orange Halftone banner as the Store reference: a bold colour field, curved patterned edge, large white title and illustrated watch. The family keeps that composition with each app’s colour and motif, and with real native screens for both watch shapes. The Store’s app icons use one-colour transparent glyphs marked `icon_tintable`; no background tile or shadow is baked into those files. Standalone Store screenshots remain raw and unframed.
 
-Native screenshot files and the official Time 2/Round 2 frame files retain their exact bytes and proportions. Frames are credited to Core Devices, with their source and licence status retained in the asset provenance. A composite of an emulator capture and a frame is not a physical-watch photograph or a hardware test.
+Native screenshot files and the website’s official Time 2/Round 2 frame files retain their exact bytes and proportions. Those website frames are credited to Core Devices. The new Store illustrations adapt Xef’s original Halftone SVG instead. Neither composition is a physical-watch photograph or a hardware test. Current orange Halftone captures have native emulator evidence.
 
 New artwork uses new website filenames and provenance records. Historical images and the earlier review bundles stay unchanged. The original generated homepage concept is a design reference; the implemented site is responsive HTML/CSS using actual project assets.
 

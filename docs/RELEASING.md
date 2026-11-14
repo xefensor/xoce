@@ -1,6 +1,6 @@
 # Publishing the XOCE website
 
-The Store redesign remains local until the six Store releases and matching GitHub artifacts pass `npm run check:launch`. The workflow runs this read-only gate before configuring/uploading Pages on main. Branch/PR checks do not require unpublished Store links. See the [launch checklist](launch-checklist.md).
+Xef authorized public deployment of the approved website on 2026-11-14, including clearly labelled app preparation pages. App publication remains separate. The main workflow runs `npm run check:deployment` before uploading Pages: preview records must not advertise installation links, and each published record must pass complete public Store/GitHub artifact verification. Normal build/reference/browser checks enforce the preparation UI too. `npm run check:launch` still requires all six app releases to be published with matching exact bytes before full installation-link activation. See the [launch checklist](launch-checklist.md).
 
 The site is published at **https://xefensor.github.io/xoce/** from `main` in
 [xefensor/xoce](https://github.com/xefensor/xoce). Xef explicitly requested GitHub

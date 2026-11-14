@@ -1,0 +1,27 @@
+{
+  "checkedOn": "2026-11-14",
+  "sources": [
+    {
+      "url": "https://appstore-api.repebble.com/",
+      "section": "Changelog, 2026-10-26",
+      "finding": "The developer marks a transparent monochrome glyph as tintable; public app objects expose icon_tintable for light/dark client rendering."
+    },
+    {
+      "url": "https://developer.repebble.com/guides/appstore-publishing/preparing-a-submission/",
+      "section": "Images",
+      "finding": "Store banner PNGs are 720×320 per platform. Store icon sizes are 80×80 and 144×144 for watchapps. Screenshots retain the exact native display dimensions, without watch outlines."
+    },
+    {
+      "url": "https://developer.repebble.com/guides/appstore-publishing/publishing-an-app/",
+      "section": "Editing a Listing",
+      "finding": "Existing listing icons, banners and screenshots can be edited in Developer Dashboard separately from a binary release."
+    },
+    {
+      "url": "https://developer.repebble.com/guides/app-resources/images/#menu-icon-in-the-launcher",
+      "section": "Menu Icon in the Launcher",
+      "finding": "The watch launcher menuIcon resource is separate from the Store icon uploads; its platform-specific inversion rules must not be confused with icon_tintable."
+    }
+  ],
+  "implementation": "Original code-native SVG glyphs and layouts, deterministic PNG exports; no AI bitmap mockup or copied icon set.",
+  "uiVerificationLimit": "Unauthenticated Store/Dashboard HTML fetches returned HTTP 403. The exact signed-in checkbox label has not been verified; instructions name the documented icon_tintable setting rather than inventing a UI label."
+}

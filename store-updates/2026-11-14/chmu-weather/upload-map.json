@@ -5,10 +5,10 @@
   "type": "plugin",
   "pbw": "CHMU-Weather-1.0.3.pbw",
   "pbwSha256": "6f4ec6d3a426763ad81529faaf00e3bbea066b4a40d4d425d1885552506413e6",
-  "sourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
-  "previousStoreVersion": "1.0.2",
-  "newNumericVersion": true,
-  "publicVersionAndTagAvailabilityChecked": true,
+  "runtimeSourceCommit": "ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
+  "storeSourceCommit": "256d71fcc883a7c8e1baf0068c72015477155601",
+  "publicStoreVersionCheckedOn20261114": "1.0.3",
+  "binaryAction": "already-current-edit-listing",
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {},
@@ -17,8 +17,10 @@
     "icon-small-80.png",
     "icon-large-144.png"
   ],
+  "icon_tintable": true,
   "storeUrl": "https://apps.repebble.com/ef7111ffaeaf4593aaaa85ed",
   "githubBranch": "https://github.com/xefensor/pebble-chmu-weather/tree/feat/xoce-provider-integration",
-  "githubCommit": "https://github.com/xefensor/pebble-chmu-weather/commit/ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
-  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
+  "runtimeSourceUrl": "https://github.com/xefensor/pebble-chmu-weather/commit/ceb0b18aba3a2f5bbf2e55a6ba4fd96c374ef251",
+  "storeSourceUrl": "https://github.com/xefensor/pebble-chmu-weather/commit/256d71fcc883a7c8e1baf0068c72015477155601",
+  "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators."
 }

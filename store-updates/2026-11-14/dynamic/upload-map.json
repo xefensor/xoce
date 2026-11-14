@@ -5,10 +5,10 @@
   "type": "watchface",
   "pbw": "Dynamic-1.0.1.pbw",
   "pbwSha256": "94d68f69ead6131c00a3509140be542c257f4c52a19fd27aacc4f6311b7f7a41",
-  "sourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c",
-  "previousStoreVersion": "1.0.0",
-  "newNumericVersion": true,
-  "publicVersionAndTagAvailabilityChecked": true,
+  "runtimeSourceCommit": "7c8ab9295812394ca5888a68e45a0bdf145d131c",
+  "storeSourceCommit": "3e21bc0073fe06db8bbafa61e7a52095e2c36f98",
+  "publicStoreVersionCheckedOn20261114": "1.0.0",
+  "binaryAction": "upload-prepared-version-if-still-needed",
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
@@ -32,8 +32,10 @@
     "gabbro": "gabbro-family-banner.png"
   },
   "storeIcons": [],
+  "icon_tintable": null,
   "storeUrl": "https://apps.repebble.com/5db601a9303a4eb7baa90331",
   "githubBranch": "https://github.com/xefensor/pebble-watchface-dynamic/tree/feat/native-pebble-ui",
-  "githubCommit": "https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c",
-  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
+  "runtimeSourceUrl": "https://github.com/xefensor/pebble-watchface-dynamic/commit/7c8ab9295812394ca5888a68e45a0bdf145d131c",
+  "storeSourceUrl": "https://github.com/xefensor/pebble-watchface-dynamic/commit/3e21bc0073fe06db8bbafa61e7a52095e2c36f98",
+  "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators."
 }

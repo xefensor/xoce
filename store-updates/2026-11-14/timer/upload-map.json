@@ -5,10 +5,10 @@
   "type": "watchapp",
   "pbw": "Timer-1.0.2.pbw",
   "pbwSha256": "9c3f9d297182eb5d74965e08d667f1e2cd736c7e4bd1afdcef8ea4fa4f75eeea",
-  "sourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c",
-  "previousStoreVersion": "1.0.0",
-  "newNumericVersion": true,
-  "publicVersionAndTagAvailabilityChecked": true,
+  "runtimeSourceCommit": "575db8a52fd61a378db044fe01dd8bb378bdca2c",
+  "storeSourceCommit": "8070b4be2a12f2081d3e7089a87ce27ed40096bf",
+  "publicStoreVersionCheckedOn20261114": "1.0.0",
+  "binaryAction": "upload-prepared-version-if-still-needed",
   "description": "description.txt",
   "releaseNotes": "release-notes.txt",
   "screenshotsInUploadOrder": {
@@ -35,8 +35,10 @@
     "icon-small-80.png",
     "icon-large-144.png"
   ],
+  "icon_tintable": true,
   "storeUrl": "https://apps.repebble.com/2f8f8cfd4e7e442fb724dac7",
   "githubBranch": "https://github.com/xefensor/pebble-app-timer/tree/feat/native-timer-checkpoint",
-  "githubCommit": "https://github.com/xefensor/pebble-app-timer/commit/575db8a52fd61a378db044fe01dd8bb378bdca2c",
-  "checks": "Fresh build/tests, artifact/configuration and Store checks, strict package-equivalence proof, frozen checksums and committed release preparation passed."
+  "runtimeSourceUrl": "https://github.com/xefensor/pebble-app-timer/commit/575db8a52fd61a378db044fe01dd8bb378bdca2c",
+  "storeSourceUrl": "https://github.com/xefensor/pebble-app-timer/commit/8070b4be2a12f2081d3e7089a87ce27ed40096bf",
+  "checks": "Checked release PBWs and source/debug archives retained byte-for-byte. New Store art passed six-app tests and Store checks; icons passed binary-alpha validation. Halftone orange screens freshly captured in both native emulators."
 }

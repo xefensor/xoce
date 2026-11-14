@@ -408,6 +408,14 @@ async function runChecks() {
     }else assert.equal(await client.evaluate(`document.querySelectorAll('[data-watch-platform]').length`),0,'A phone plugin must have no invented watch screen');
   }
   passed('Six distinct products, honest preview installation states, direct support/privacy and both native watch shapes');
+  await navigate('/projects/chmu-weather/');await theme('light');
+  assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.product-family-label img')).filter`),'none');
+  assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.plugin-portrait img')).filter`),'invert(1)');
+  await screenshot('weather-glyph-light');await theme('dark');
+  assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.product-family-label img')).filter`),'invert(1)');
+  assert.equal(await client.evaluate(`getComputedStyle(document.querySelector('.plugin-portrait img')).filter`),'invert(1)');
+  await screenshot('weather-glyph-dark');await theme('light');
+  passed('Monochrome product marks adapt to both page themes and the graphite preview surface');
   for(const route of Object.keys(redirects)) {await navigate(route);const target=resolvedTarget(route);assert.equal(await client.evaluate('location.pathname+location.hash'),target.pathname+target.hash);}
   passed('All compatibility routes still resolve');
   await viewport(1440,1000);await navigate('/');await theme('dark');await navigate('/docs/');assert.equal(await client.evaluate('document.documentElement.dataset.theme'),'dark');

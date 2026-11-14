@@ -1,0 +1,52 @@
+
+> xoce@0.1.0 check:deployment
+> node scripts/check-deployment.mjs
+
+{
+  "ready": true,
+  "checks": [
+    {
+      "product": "Dynamic",
+      "version": "1.0.1",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    },
+    {
+      "product": "Dashboard",
+      "version": "1.0.1",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    },
+    {
+      "product": "Timer",
+      "version": "1.0.2",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    },
+    {
+      "product": "Open Activity",
+      "version": "1.0.1",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    },
+    {
+      "product": "Halftone",
+      "version": "1.10.2",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    },
+    {
+      "product": "ČHMÚ Weather",
+      "version": "1.0.3",
+      "publication": "preview",
+      "ready": true,
+      "problems": []
+    }
+  ],
+  "scope": "Website deployment: preparation records have no installation links; published records require exact public Store/GitHub PBW verification. Does not publish apps."
+}

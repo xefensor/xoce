@@ -43,3 +43,16 @@ export async function verifyRelease(project, request=fetch) {
   }catch(error){errors.push(error.message);}
   return errors;
 }
+
+// Website preparation pages may go live before the associated app release.
+// A published app claim still requires complete public artifact verification.
+export async function verifyWebsiteDeployment(project, request=fetch) {
+  if(project.publication==='published')return verifyRelease(project,request);
+  if(project.publication!=='preview')return ['publication must be preview or published'];
+  const errors=[];
+  if(project.download||project.storeUrl)errors.push('preparation pages must not advertise installation links');
+  if(!/^\d+\.\d+\.\d+$/.test(project.version??''))errors.push('prepared numeric version is missing');
+  if(!/^[a-f\d]{8}-(?:[a-f\d]{4}-){3}[a-f\d]{12}$/i.test(project.uuid??''))errors.push('prepared UUID is missing');
+  if(!/^[a-f\d]{64}$/.test(project.artifactSha256??''))errors.push('prepared PBW SHA256 is missing');
+  return errors;
+}

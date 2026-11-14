@@ -1,17 +1,17 @@
 # Pebble Store website launch
 
-The redesign is a local preview on `feat/pebble-store-launch`. The public site and app releases are separate. Website changes do not authorize Store submission, app publication or a Pages deployment.
+Xef authorized publishing the approved website on 2026-11-14. Preparation pages keep their preview labels and disabled installation links. Website deployment is separate from Store submission and GitHub app release publication.
 
 ## Prepared versions and routes
 
 | Product | Version | Website | Support | Privacy |
 | --- | --- | --- | --- | --- |
-| Dynamic | 1.0.0 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
-| Halftone | 1.10.1 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
-| Dashboard | 1.0.0 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
-| Timer | 1.0.0 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
-| Open Activity | 1.0.0 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
-| ČHMÚ Weather | 1.0.2 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
+| Dynamic | 1.0.1 | `/projects/dynamic/` | `/projects/dynamic/support/` | `/projects/dynamic/privacy/` |
+| Halftone | 1.10.2 | `/projects/halftone/` | `/projects/halftone/support/` | `/projects/halftone/privacy/` |
+| Dashboard | 1.0.1 | `/projects/dashboard/` | `/projects/dashboard/support/` | `/projects/dashboard/privacy/` |
+| Timer | 1.0.2 | `/projects/timer/` | `/projects/timer/support/` | `/projects/timer/privacy/` |
+| Open Activity | 1.0.1 | `/projects/open-activity/` | `/projects/open-activity/support/` | `/projects/open-activity/privacy/` |
+| ČHMÚ Weather | 1.0.3 | `/projects/chmu-weather/` | `/projects/chmu-weather/support/` | `/projects/chmu-weather/privacy/` |
 
 Public URLs use `https://xefensor.github.io/xoce` before these routes. They become public only when the website is deployed. Until then, use already-published app-owned documentation for Store fields; do not point a live listing to an unavailable page. This website task does not edit app manifests or Store submissions.
 
@@ -29,7 +29,9 @@ The app's own physical-device checks and publication approval remain owned by it
 
 ## Checks and deployment
 
-Run `npm test`, preview the built site and run `npm run check:browser`. Then run `npm run check:launch` with network access. The launch check is read-only and requires no account token. It reads:
+Run `npm test`, preview the built site and run `npm run check:browser`. The main Pages workflow runs `npm run check:deployment`: preparation records must have a checked identity and no installation links; published records must pass the full public release verification below. This permits the explicitly authorized website update without falsely publishing apps.
+
+For full app-installation activation, run `npm run check:launch` with network access. This strict check still requires every app to be published, is read-only and needs no account token. It reads:
 
 - `https://appstore-api.repebble.com/api/v1/apps/uuid/<uuid>` for public Store identity, latest release and native platforms;
 - the exact GitHub release tag and its listed PBW asset;
@@ -37,7 +39,7 @@ Run `npm test`, preview the built site and run `npm run check:browser`. Then run
 
 An unavailable API, missing listing, different version, hidden release, incorrect platform or different artifact fails the gate. There is no optimistic fallback. The public Store response shape was inspected on 2026-11-13; changes to that API must be reviewed before adapting verification.
 
-The current preview should fail this check with actionable missing-publication fields. PR/branch validation remains usable. The gate runs on main before Pages artifacts are uploaded, preserving the existing protected main-only hosting workflow.
+Preparation records fail `check:launch` until their exact public releases are verified. The separate deployment gate runs on main before Pages artifacts are uploaded, preserving main-only hosting and the complete verification of any published app claim.
 
 After separately authorized publication, verify the six product pages, installation links, support/privacy URLs and both preview shapes on the public website. The launch banner and `noindex` disappear automatically when all six records are published. No manual or scheduled publishing task is introduced.
 
@@ -45,7 +47,9 @@ After separately authorized publication, verify the six product pages, installat
 
 `python3 scripts/audit-review-packages.py --bundle /path/to/Store-Launch/stable-1.0-2026-11-13 --output docs/reviewed-artifacts.json` reads all six actual appinfo manifests, verifies UUID/version/platforms and checked hashes against website metadata, and records the inspected bytes. The older five-native-app bundle form accepts a separate `--weather-pbw` argument. Both forms require each public product exactly once. This prevents an older cached package from being described as a newer version. The command reads app artifacts and never builds, edits or publishes an app.
 
-## Stable launch acceptance — 2026-11-13
+## Historical stable launch acceptance — 2026-11-13
+
+The following records the earlier app-release plan. The prepared versions above supersede its numbering; website deployment is now separately authorized.
 
 Xef reviewed and accepted the Round 2 implementation and selected listed, stable
 public releases. No additional physical-device review is a prerequisite for this

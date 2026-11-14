@@ -511,6 +511,30 @@
       "height": 260,
       "source": "/preview-provenance.json",
       "platform": "gabbro"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.2-20261114-emery-orange.png",
+      "title": "Original orange palette",
+      "caption": "Current native emulator capture with orange colours and two weather locations; example data.",
+      "alt": "Halftone 1.10.2 on Time 2 in its orange palette.",
+      "kind": "watch",
+      "version": "1.10.2",
+      "width": 200,
+      "height": 228,
+      "source": "/preview-provenance.json",
+      "platform": "emery"
+    },
+    {
+      "image": "/images/screenshots/halftone-1.10.2-20261114-gabbro-orange.png",
+      "title": "Original orange palette",
+      "caption": "Current native emulator capture with orange colours and two weather locations; example data.",
+      "alt": "Halftone 1.10.2 on Round 2 in its orange palette.",
+      "kind": "watch",
+      "version": "1.10.2",
+      "width": 260,
+      "height": 260,
+      "source": "/preview-provenance.json",
+      "platform": "gabbro"
     }
   ],
   "chmu-weather": [

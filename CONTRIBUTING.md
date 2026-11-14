@@ -65,4 +65,4 @@ for manual reruns and recovery.
 
 ## Store launch preview
 
-The six consumer records may describe checked launch candidates when `publication` is `preview`; these have no active installation links. This explicitly approved local preview does not replace public releases. See [launch checklist](docs/launch-checklist.md) for exact Store/GitHub verification and the main deployment gate. Run `npm run test:launch` for the offline verification regressions. `npm run check:launch` performs public read-only network checks and intentionally fails for preview records.
+The six consumer records may describe checked launch candidates when `publication` is `preview`; these have no active installation links. Xef authorized publishing these clearly labelled preparation pages on 2026-11-14. Run `npm run check:deployment` for the website gate: previews remain restricted and published records undergo complete Store/GitHub verification. See [launch checklist](docs/launch-checklist.md). `npm run test:launch` exercises both paths; `npm run check:launch` remains the strict all-app release check and intentionally fails for preview records.

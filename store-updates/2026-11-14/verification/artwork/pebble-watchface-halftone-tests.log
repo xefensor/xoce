@@ -1,0 +1,1918 @@
+
+> halftone@1.10.2 test
+> python3 scripts/verify-core.py && python3 scripts/test-js.py && python3 scripts/test-native.py && npm run test:workflow && npm run test:platforms && npm run test:assets && npm run test:store
+
+Pinned pebble-xoce-ui 0.1.3: verified
+Pinned pebble-watchface-core 0.6.0: verified
+Pinned pebble-activities 0.4.5: verified
+TAP version 13
+# Subtest: native presentation confirms exact roles and retains only navigation metadata
+ok 1 - native presentation confirms exact roles and retains only navigation metadata
+  ---
+  duration_ms: 1.712157
+  type: 'test'
+  ...
+# Subtest: promotion follows native indices without reranking or source lookup
+ok 2 - promotion follows native indices without reranking or source lookup
+  ---
+  duration_ms: 0.234348
+  type: 'test'
+  ...
+# Subtest: missing app destination remains null independently in each role
+ok 3 - missing app destination remains null independently in each role
+  ---
+  duration_ms: 0.189707
+  type: 'test'
+  ...
+# Subtest: a source read does not renew observation or validity and expired data is removed
+ok 4 - a source read does not renew observation or validity and expired data is removed
+  ---
+  duration_ms: 0.755317
+  type: 'test'
+  ...
+# Subtest: old view, native session, duplicate status and invalid indices cannot publish
+ok 5 - old view, native session, duplicate status and invalid indices cannot publish
+  ---
+  duration_ms: 0.227142
+  type: 'test'
+  ...
+# Subtest: new destination mapping clears old hint until that exact view is presented
+ok 6 - new destination mapping clears old hint until that exact view is presented
+  ---
+  duration_ms: 0.163033
+  type: 'test'
+  ...
+# Subtest: source lease and native role changing deadline cap the routing lease
+ok 7 - source lease and native role changing deadline cap the routing lease
+  ---
+  duration_ms: 0.166856
+  type: 'test'
+  ...
+# Subtest: delayed reports cannot manufacture another 45 seconds of freshness
+ok 8 - delayed reports cannot manufacture another 45 seconds of freshness
+  ---
+  duration_ms: 0.167313
+  type: 'test'
+  ...
+# Subtest: absent or non-openable presentation clears the hint
+ok 9 - absent or non-openable presentation clears the hint
+  ---
+  duration_ms: 0.301042
+  type: 'test'
+  ...
+# Subtest: native clearing cannot be undone by an older presentation
+ok 10 - native clearing cannot be undone by an older presentation
+  ---
+  duration_ms: 0.285164
+  type: 'test'
+  ...
+# Subtest: invalid saved records never gain source validity
+ok 11 - invalid saved records never gain source validity
+  ---
+  duration_ms: 0.189525
+  type: 'test'
+  ...
+# Subtest: storage failure does not claim acceptance or log contents
+ok 12 - storage failure does not claim acceptance or log contents
+  ---
+  duration_ms: 0.110889
+  type: 'test'
+  ...
+# Subtest: Notifications opens from either shared role without a special native status
+ok 13 - Notifications opens from either shared role without a special native status
+  ---
+  duration_ms: 0.169347
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13.208028
+TAP version 13
+# Subtest: projection preserves instance context, independent clocks and authoritative metadata
+ok 1 - projection preserves instance context, independent clocks and authoritative metadata
+  ---
+  duration_ms: 3.342073
+  type: 'test'
+  ...
+# Subtest: unknown activity has no guessed timer identity or app destination
+ok 2 - unknown activity has no guessed timer identity or app destination
+  ---
+  duration_ms: 0.390224
+  type: 'test'
+  ...
+# Subtest: declared identity symbols retain distinct generated glyphs including calls and messages
+ok 3 - declared identity symbols retain distinct generated glyphs including calls and messages
+  ---
+  duration_ms: 2.776566
+  type: 'test'
+  ...
+# Subtest: media is explicit and preserves artwork and artist without placeholder labels
+ok 4 - media is explicit and preserves artwork and artist without placeholder labels
+  ---
+  duration_ms: 0.480221
+  type: 'test'
+  ...
+# Subtest: Music can occupy either role and follows Halftone preferences
+ok 5 - Music can occupy either role and follows Halftone preferences
+  ---
+  duration_ms: 0.756611
+  type: 'test'
+  ...
+# Subtest: dual-convention media retains exact provider controls and cannot bypass a provider hide
+ok 6 - dual-convention media retains exact provider controls and cannot bypass a provider hide
+  ---
+  duration_ms: 0.405029
+  type: 'test'
+  ...
+# Subtest: schema4 selects an independent compact detail and preserves both typed datums
+ok 7 - schema4 selects an independent compact detail and preserves both typed datums
+  ---
+  duration_ms: 0.898172
+  type: 'test'
+  ...
+# Subtest: a standard activity with a media icon preserves its clock presentation in either role
+ok 8 - a standard activity with a media icon preserves its clock presentation in either role
+  ---
+  duration_ms: 0.671762
+  type: 'test'
+  ...
+# Subtest: media visual token changes on an item replacement, not artwork, artist or lease
+ok 9 - media visual token changes on an item replacement, not artwork, artist or lease
+  ---
+  duration_ms: 0.590135
+  type: 'test'
+  ...
+# Subtest: typed media playback reaches native state in either role without changing track identity or clocks
+ok 10 - typed media playback reaches native state in either role without changing track identity or clocks
+  ---
+  duration_ms: 2.299863
+  type: 'test'
+  ...
+# Subtest: only verified built-in media and Timer receive host-known app destinations
+ok 11 - only verified built-in media and Timer receive host-known app destinations
+  ---
+  duration_ms: 0.233859
+  type: 'test'
+  ...
+# Subtest: unconfirmed native Timer predictions keep original leases while unrelated uncertain sources yield
+ok 12 - unconfirmed native Timer predictions keep original leases while unrelated uncertain sources yield
+  ---
+  duration_ms: 0.234687
+  type: 'test'
+  ...
+# Subtest: unprojectable earlier sources cannot starve a valid secondary
+ok 13 - unprojectable earlier sources cannot starve a valid secondary
+  ---
+  duration_ms: 0.215574
+  type: 'test'
+  ...
+# Subtest: Notifications use ordinary summary fields and routes with and without message text
+ok 14 - Notifications use ordinary summary fields and routes with and without message text
+  ---
+  duration_ms: 0.53736
+  type: 'test'
+  ...
+# Subtest: notification priority can be secondary, hidden or absent just like other activities
+ok 15 - notification priority can be secondary, hidden or absent just like other activities
+  ---
+  duration_ms: 0.802962
+  type: 'test'
+  ...
+# Subtest: notification adapter duplicates and provider hiding cannot create extra visible content
+ok 16 - notification adapter duplicates and provider hiding cannot create extra visible content
+  ---
+  duration_ms: 0.225662
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24.101663
+TAP version 13
+# Subtest: Canonical current conditions use the exact ten-byte little-endian protocol
+ok 1 - Canonical current conditions use the exact ten-byte little-endian protocol
+  ---
+  duration_ms: 0.712126
+  type: 'test'
+  ...
+# Subtest: Only the published shared vocabulary maps to the agreed six icon kinds
+ok 2 - Only the published shared vocabulary maps to the agreed six icon kinds
+  ---
+  duration_ms: 0.666737
+  type: 'test'
+  ...
+# Subtest: Condition text, probabilities and forecasts never manufacture a current icon
+ok 3 - Condition text, probabilities and forecasts never manufacture a current icon
+  ---
+  duration_ms: 0.151616
+  type: 'test'
+  ...
+# Subtest: Source expiry can shorten the exclusive two-hour cap but cannot extend it
+ok 4 - Source expiry can shorten the exclusive two-hour cap but cannot extend it
+  ---
+  duration_ms: 0.132921
+  type: 'test'
+  ...
+# Subtest: Replaying held conditions or changing units preserves the original confirmation and expiry
+ok 5 - Replaying held conditions or changing units preserves the original confirmation and expiry
+  ---
+  duration_ms: 0.170681
+  type: 'test'
+  ...
+# Subtest: Malformed, future and out-of-range clocks or expiry values hide the condition safely
+ok 6 - Malformed, future and out-of-range clocks or expiry values hide the condition safely
+  ---
+  duration_ms: 0.643859
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8.851063
+TAP version 13
+# Subtest: wire validates all seventeen fields and preserves exact legacy RGBs
+ok 1 - wire validates all seventeen fields and preserves exact legacy RGBs
+  ---
+  duration_ms: 1.382791
+  type: 'test'
+  ...
+# Subtest: legacy Quiet Time migrates independently of the stored day and night palettes
+ok 2 - legacy Quiet Time migrates independently of the stored day and night palettes
+  ---
+  duration_ms: 1.197916
+  type: 'test'
+  ...
+# Subtest: transport ACK stays pending; only the exact native snapshot receipt establishes applied
+ok 3 - transport ACK stays pending; only the exact native snapshot receipt establishes applied
+  ---
+  duration_ms: 0.873535
+  type: 'test'
+  ...
+# Subtest: a fresh mismatched native hello and explicit Retry invalidate old receipts
+ok 4 - a fresh mismatched native hello and explicit Retry invalidate old receipts
+  ---
+  duration_ms: 0.449593
+  type: 'test'
+  ...
+# Subtest: failed revision storage cancels old callbacks and cannot send a reusable revision
+ok 5 - failed revision storage cancels old callbacks and cannot send a reusable revision
+  ---
+  duration_ms: 0.367282
+  type: 'test'
+  ...
+# Subtest: source traffic cannot reset exhausted receipt retries
+ok 6 - source traffic cannot reset exhausted receipt retries
+  ---
+  duration_ms: 0.554098
+  type: 'test'
+  ...
+# Subtest: phone reset adopts native raw colours and mode without replacing phone-only privacy choices
+ok 7 - phone reset adopts native raw colours and mode without replacing phone-only privacy choices
+  ---
+  duration_ms: 0.538688
+  type: 'test'
+  ...
+# Subtest: old transport-only delivery status cannot establish application of the desired choices
+ok 8 - old transport-only delivery status cannot establish application of the desired choices
+  ---
+  duration_ms: 0.468944
+  type: 'test'
+  ...
+# Subtest: native save failure remains pending; changing phone choices rejects previous receipts
+ok 9 - native save failure remains pending; changing phone choices rejects previous receipts
+  ---
+  duration_ms: 0.523301
+  type: 'test'
+  ...
+# Subtest: all supported legacy Quiet Time boolean encodings preserve the selected mode
+ok 10 - all supported legacy Quiet Time boolean encodings preserve the selected mode
+  ---
+  duration_ms: 0.438123
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 13.897095
+TAP version 13
+# Subtest: Forecast packs only the current hour and six hours ahead, with UTC timestamps
+ok 1 - Forecast packs only the current hour and six hours ahead, with UTC timestamps
+  ---
+  duration_ms: 0.88034
+  type: 'test'
+  ...
+# Subtest: Forecast uses the correct hour across midnight and supports half-hour timezones
+ok 2 - Forecast uses the correct hour across midnight and supports half-hour timezones
+  ---
+  duration_ms: 0.188589
+  type: 'test'
+  ...
+# Subtest: Forecast retains native Fahrenheit and converts unrounded Celsius only once
+ok 3 - Forecast retains native Fahrenheit and converts unrounded Celsius only once
+  ---
+  duration_ms: 0.168039
+  type: 'test'
+  ...
+# Subtest: Missing current slot, gaps, nulls, mismatched arrays and bad values are rejected
+ok 4 - Missing current slot, gaps, nulls, mismatched arrays and bad values are rejected
+  ---
+  duration_ms: 0.48799
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 8.297897
+TAP version 13
+# Subtest: Halftone requests display and open-app data without action or entity descriptors
+ok 1 - Halftone requests display and open-app data without action or entity descriptors
+  ---
+  duration_ms: 9.511689
+  type: 'test'
+  ...
+# Subtest: ready and named/numeric complication requests refresh the generic coordinator
+ok 2 - ready and named/numeric complication requests refresh the generic coordinator
+  ---
+  duration_ms: 1.361324
+  type: 'test'
+  ...
+# Subtest: native baseline cancels bootstrap retries including an already queued timer callback
+ok 3 - native baseline cancels bootstrap retries including an already queued timer callback
+  ---
+  duration_ms: 0.751671
+  type: 'test'
+  ...
+# Subtest: obsolete bootstrap waiting behind settings never resets the new native session
+ok 4 - obsolete bootstrap waiting behind settings never resets the new native session
+  ---
+  duration_ms: 11.841256
+  type: 'test'
+  ...
+# Subtest: another ready event replaces the bootstrap retry generation without duplicate chains
+ok 5 - another ready event replaces the bootstrap retry generation without duplicate chains
+  ---
+  duration_ms: 0.943876
+  type: 'test'
+  ...
+# Subtest: late bootstrap transport failure cannot recreate a retry after native confirmation
+ok 6 - late bootstrap transport failure cannot recreate a retry after native confirmation
+  ---
+  duration_ms: 0.716367
+  type: 'test'
+  ...
+# Subtest: the coordinator receives saved clock preference and active-watch language
+ok 7 - the coordinator receives saved clock preference and active-watch language
+  ---
+  duration_ms: 1.704082
+  type: 'test'
+  ...
+# Subtest: obsolete layout choices are ignored while unrelated appearance settings survive
+ok 8 - obsolete layout choices are ignored while unrelated appearance settings survive
+  ---
+  duration_ms: 1.328267
+  type: 'test'
+  ...
+# Subtest: Big text and all optical choices survive native receipts, numeric keys and reopening
+ok 9 - Big text and all optical choices survive native receipts, numeric keys and reopening
+  ---
+  duration_ms: 69.454872
+  type: 'test'
+  ...
+# Subtest: older pending optical settings migrate without transport-only success
+ok 10 - older pending optical settings migrate without transport-only success
+  ---
+  duration_ms: 1.579296
+  type: 'test'
+  ...
+# Subtest: invalid layouts and unsupported fields cannot override unrelated visual settings
+ok 11 - invalid layouts and unsupported fields cannot override unrelated visual settings
+  ---
+  duration_ms: 1.867536
+  type: 'test'
+  ...
+# Subtest: obsolete weather/unit controls never reach the new complication-only watch UI
+ok 12 - obsolete weather/unit controls never reach the new complication-only watch UI
+  ---
+  duration_ms: 0.911368
+  type: 'test'
+  ...
+# Subtest: boolean settings preserve explicit off and reject malformed values
+ok 13 - boolean settings preserve explicit off and reject malformed values
+  ---
+  duration_ms: 0.841832
+  type: 'test'
+  ...
+# Subtest: cancelled or invalid settings do nothing, empty valid settings reconfigure only
+ok 14 - cancelled or invalid settings do nothing, empty valid settings reconfigure only
+  ---
+  duration_ms: 0.692007
+  type: 'test'
+  ...
+# Subtest: settings show complication counts/errors and no hard-coded weather picker
+ok 15 - settings show complication counts/errors and no hard-coded weather picker
+  ---
+  duration_ms: 2.800329
+  type: 'test'
+  ...
+# Subtest: provider error messages are displayed as literal text in Clay settings
+ok 16 - provider error messages are displayed as literal text in Clay settings
+  ---
+  duration_ms: 2.816535
+  type: 'test'
+  ...
+# Subtest: complication controls/status follow the active watch language and rebuild after a language change
+ok 17 - complication controls/status follow the active watch language and rebuild after a language change
+  ---
+  duration_ms: 12.012054
+  type: 'test'
+  ...
+# Subtest: disabled plugin status is explicit and locale lookup falls back to the phone
+ok 18 - disabled plugin status is explicit and locale lookup falls back to the phone
+  ---
+  duration_ms: 6.208412
+  type: 'test'
+  ...
+# Subtest: settings delivery retries busy transport, then reconfigures once
+ok 19 - settings delivery retries busy transport, then reconfigures once
+  ---
+  duration_ms: 1.096836
+  type: 'test'
+  ...
+# Subtest: settings delivery failure is bounded instead of retrying forever
+ok 20 - settings delivery failure is bounded instead of retrying forever
+  ---
+  duration_ms: 0.966248
+  type: 'test'
+  ...
+# Subtest: context source defaults and saved named/numeric settings preserve explicit opt-outs
+ok 21 - context source defaults and saved named/numeric settings preserve explicit opt-outs
+  ---
+  duration_ms: 2.480293
+  type: 'test'
+  ...
+# Subtest: startup and reconnect context requests rebaseline while ordinary requests preserve notification history
+ok 22 - startup and reconnect context requests rebaseline while ordinary requests preserve notification history
+  ---
+  duration_ms: 0.723864
+  type: 'test'
+  ...
+# Subtest: phone-only notification and music choices never enter watch packets and apply before theme retries
+ok 23 - phone-only notification and music choices never enter watch packets and apply before theme retries
+  ---
+  duration_ms: 0.928506
+  type: 'test'
+  ...
+# Subtest: halftone source errors use translated framing and literal HTML-escaped diagnostics
+ok 24 - halftone source errors use translated framing and literal HTML-escaped diagnostics
+  ---
+  duration_ms: 3.74335
+  type: 'test'
+  ...
+# Subtest: Halftone border effects retain their saved wire keys in the complete snapshot
+ok 25 - Halftone border effects retain their saved wire keys in the complete snapshot
+  ---
+  duration_ms: 2.706145
+  type: 'test'
+  ...
+# Subtest: Halftone uses the installed core API and its own complication cache namespace
+ok 26 - Halftone uses the installed core API and its own complication cache namespace
+  ---
+  duration_ms: 0.784352
+  type: 'test'
+  ...
+# Subtest: accent colors preserve zero and valid named/numeric values
+ok 27 - accent colors preserve zero and valid named/numeric values
+  ---
+  duration_ms: 4.910823
+  type: 'test'
+  ...
+# Subtest: invalid accent colors are omitted while valid page settings still deliver
+ok 28 - invalid accent colors are omitted while valid page settings still deliver
+  ---
+  duration_ms: 4.896101
+  type: 'test'
+  ...
+# Subtest: existing colors and privacy choices remain untouched when opening the rebuilt face
+ok 29 - existing colors and privacy choices remain untouched when opening the rebuilt face
+  ---
+  duration_ms: 2.514584
+  type: 'test'
+  ...
+# Subtest: new appearance keys extend the original wire contract without renumbering existing keys
+ok 30 - new appearance keys extend the original wire contract without renumbering existing keys
+  ---
+  duration_ms: 0.122996
+  type: 'test'
+  ...
+# Subtest: animations deliver explicit on and off through named and numeric settings
+ok 31 - animations deliver explicit on and off through named and numeric settings
+  ---
+  duration_ms: 5.438221
+  type: 'test'
+  ...
+# Subtest: malformed animation settings cannot override other valid settings
+ok 32 - malformed animation settings cannot override other valid settings
+  ---
+  duration_ms: 12.57121
+  type: 'test'
+  ...
+# Subtest: opening the face and settings retains saved animation opt-outs
+ok 33 - opening the face and settings retains saved animation opt-outs
+  ---
+  duration_ms: 9.83066
+  type: 'test'
+  ...
+# Subtest: missing or malformed saved animation choices retain the enabled new-install default
+ok 34 - missing or malformed saved animation choices retain the enabled new-install default
+  ---
+  duration_ms: 12.536579
+  type: 'test'
+  ...
+# Subtest: clock format follows Pebble for new installs and preserves legacy explicit choices
+ok 35 - clock format follows Pebble for new installs and preserves legacy explicit choices
+  ---
+  duration_ms: 15.698117
+  type: 'test'
+  ...
+# Subtest: clock format accepts only the three supported numeric choices
+ok 36 - clock format accepts only the three supported numeric choices
+  ---
+  duration_ms: 7.019103
+  type: 'test'
+  ...
+# Subtest: failed settings remain pending for reconnect and clear only after watch acknowledgement
+ok 37 - failed settings remain pending for reconnect and clear only after watch acknowledgement
+  ---
+  duration_ms: 0.945705
+  type: 'test'
+  ...
+# Subtest: an older settings acknowledgement cannot mark a newer save as delivered
+ok 38 - an older settings acknowledgement cannot mark a newer save as delivered
+  ---
+  duration_ms: 0.907466
+  type: 'test'
+  ...
+# Subtest: startup reapplies validated saved presentation without sending private source preferences
+ok 39 - startup reapplies validated saved presentation without sending private source preferences
+  ---
+  duration_ms: 2.000736
+  type: 'test'
+  ...
+# Subtest: native baseline requests recover presentation even when a reset reuses a token
+ok 40 - native baseline requests recover presentation even when a reset reuses a token
+  ---
+  duration_ms: 1.153051
+  type: 'test'
+  ...
+# Subtest: presentation recovery carries pending values forward and ignores late ACKs across a newer save
+ok 41 - presentation recovery carries pending values forward and ignores late ACKs across a newer save
+  ---
+  duration_ms: 1.760763
+  type: 'test'
+  ...
+# Subtest: settings metadata keeps per-slot property and per-feature permission states distinct
+ok 42 - settings metadata keeps per-slot property and per-feature permission states distinct
+  ---
+  duration_ms: 2.238922
+  type: 'test'
+  ...
+# Subtest: private selected readings never enter settings examples or provider error diagnostics
+ok 43 - private selected readings never enter settings examples or provider error diagnostics
+  ---
+  duration_ms: 3.435905
+  type: 'test'
+  ...
+# Subtest: native system-format replies are cached independently of an explicit clock override
+ok 44 - native system-format replies are cached independently of an explicit clock override
+  ---
+  duration_ms: 6.816786
+  type: 'test'
+  ...
+# Subtest: unknown system-format remains explicit metadata instead of inventing a watch preference
+ok 45 - unknown system-format remains explicit metadata instead of inventing a watch preference
+  ---
+  duration_ms: 2.935767
+  type: 'test'
+  ...
+# Subtest: settings group appearance, content and recovery in one three-section page
+ok 46 - settings group appearance, content and recovery in one three-section page
+  ---
+  duration_ms: 2.81003
+  type: 'test'
+  ...
+# Subtest: new night palette and haptic controls deliver validated native preferences only
+ok 47 - new night palette and haptic controls deliver validated native preferences only
+  ---
+  duration_ms: 59.346157
+  type: 'test'
+  ...
+# Subtest: app-only is a phone privacy preference and saved native choices survive opening settings
+ok 48 - app-only is a phone privacy preference and saved native choices survive opening settings
+  ---
+  duration_ms: 4.661703
+  type: 'test'
+  ...
+# Subtest: generic activity discovery starts with the host and follows native session requests
+ok 49 - generic activity discovery starts with the host and follows native session requests
+  ---
+  duration_ms: 1.349604
+  type: 'test'
+  ...
+# Subtest: activity preferences remain phone-only and reconfigure before native settings delivery
+ok 50 - activity preferences remain phone-only and reconfigure before native settings delivery
+  ---
+  duration_ms: 1.987919
+  type: 'test'
+  ...
+# Subtest: generic sources share activity roles while respecting the media opt-out
+ok 51 - generic sources share activity roles while respecting the media opt-out
+  ---
+  duration_ms: 2.222146
+  type: 'test'
+  ...
+# Subtest: ongoing generic activities take priority over music without reordering their sources
+ok 52 - ongoing generic activities take priority over music without reordering their sources
+  ---
+  duration_ms: 2.575478
+  type: 'test'
+  ...
+# Subtest: soonest running deadline is projected even from the eighth timer slot
+ok 53 - soonest running deadline is projected even from the eighth timer slot
+  ---
+  duration_ms: 1.574039
+  type: 'test'
+  ...
+# Subtest: clock ordering preserves other provider positions and stable equal deadlines
+ok 54 - clock ordering preserves other provider positions and stable equal deadlines
+  ---
+  duration_ms: 0.862887
+  type: 'test'
+  ...
+# Subtest: native view selection preserves canonical items, units, artwork and source data across roles
+ok 55 - native view selection preserves canonical items, units, artwork and source data across roles
+  ---
+  duration_ms: 1.200669
+  type: 'test'
+  ...
+# Subtest: retained source results yield to ongoing activities and music
+ok 56 - retained source results yield to ongoing activities and music
+  ---
+  duration_ms: 2.622359
+  type: 'test'
+  ...
+# Subtest: deadline ordering uses each datum state and its anchor plus base
+ok 57 - deadline ordering uses each datum state and its anchor plus base
+  ---
+  duration_ms: 1.114284
+  type: 'test'
+  ...
+# Subtest: Halftone provider preferences reorder Timer and built-in Music in either role and survive restart
+ok 58 - Halftone provider preferences reorder Timer and built-in Music in either role and survive restart
+  ---
+  duration_ms: 2.708992
+  type: 'test'
+  ...
+# Subtest: installed idle provider metadata and absent provider preferences reach settings without activity contents
+ok 59 - installed idle provider metadata and absent provider preferences reach settings without activity contents
+  ---
+  duration_ms: 2.512941
+  type: 'test'
+  ...
+# Subtest: malformed activity preferences are bounded and cannot become native settings or save content
+ok 60 - malformed activity preferences are bounded and cannot become native settings or save content
+  ---
+  duration_ms: 1.205792
+  type: 'test'
+  ...
+# Subtest: phone status does not resend unchanged canonical activities while notification changes reproject
+ok 61 - phone status does not resend unchanged canonical activities while notification changes reproject
+  ---
+  duration_ms: 1.091265
+  type: 'test'
+  ...
+# Subtest: built-in notifications use either shared role, preserve privacy destinations and migrate into editable priority
+ok 62 - built-in notifications use either shared role, preserve privacy destinations and migrate into editable priority
+  ---
+  duration_ms: 3.00645
+  type: 'test'
+  ...
+# Subtest: presented status confirms destination-only navigation metadata for the exact outgoing view
+ok 63 - presented status confirms destination-only navigation metadata for the exact outgoing view
+  ---
+  duration_ms: 1.303161
+  type: 'test'
+  ...
+# Subtest: normal activity work defers settings UI and reuses saved preferences
+ok 64 - normal activity work defers settings UI and reuses saved preferences
+  ---
+  duration_ms: 3.231212
+  type: 'test'
+  ...
+# Subtest: a partial settings storage failure cannot leave the read cache stale
+ok 65 - a partial settings storage failure cannot leave the read cache stale
+  ---
+  duration_ms: 1.021534
+  type: 'test'
+  ...
+1..65
+# tests 65
+# suites 0
+# pass 65
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 360.006416
+TAP version 13
+# Subtest: watch language wins, with phone/English fallback and Norwegian aliases
+ok 1 - watch language wins, with phone/English fallback and Norwegian aliases
+  ---
+  duration_ms: 1.560331
+  type: 'test'
+  ...
+# Subtest: en translates every active control and status
+ok 2 - en translates every active control and status
+  ---
+  duration_ms: 3.316017
+  type: 'test'
+  ...
+# Subtest: cs translates every active control and status
+ok 3 - cs translates every active control and status
+  ---
+  duration_ms: 0.537126
+  type: 'test'
+  ...
+# Subtest: sk translates every active control and status
+ok 4 - sk translates every active control and status
+  ---
+  duration_ms: 0.59173
+  type: 'test'
+  ...
+# Subtest: de translates every active control and status
+ok 5 - de translates every active control and status
+  ---
+  duration_ms: 0.488336
+  type: 'test'
+  ...
+# Subtest: fr translates every active control and status
+ok 6 - fr translates every active control and status
+  ---
+  duration_ms: 0.542937
+  type: 'test'
+  ...
+# Subtest: es translates every active control and status
+ok 7 - es translates every active control and status
+  ---
+  duration_ms: 0.562245
+  type: 'test'
+  ...
+# Subtest: it translates every active control and status
+ok 8 - it translates every active control and status
+  ---
+  duration_ms: 0.818041
+  type: 'test'
+  ...
+# Subtest: pt translates every active control and status
+ok 9 - pt translates every active control and status
+  ---
+  duration_ms: 0.609602
+  type: 'test'
+  ...
+# Subtest: nl translates every active control and status
+ok 10 - nl translates every active control and status
+  ---
+  duration_ms: 0.654368
+  type: 'test'
+  ...
+# Subtest: pl translates every active control and status
+ok 11 - pl translates every active control and status
+  ---
+  duration_ms: 0.46763
+  type: 'test'
+  ...
+# Subtest: da translates every active control and status
+ok 12 - da translates every active control and status
+  ---
+  duration_ms: 0.480912
+  type: 'test'
+  ...
+# Subtest: sv translates every active control and status
+ok 13 - sv translates every active control and status
+  ---
+  duration_ms: 0.786512
+  type: 'test'
+  ...
+# Subtest: no translates every active control and status
+ok 14 - no translates every active control and status
+  ---
+  duration_ms: 0.670314
+  type: 'test'
+  ...
+# Subtest: fi translates every active control and status
+ok 15 - fi translates every active control and status
+  ---
+  duration_ms: 0.407397
+  type: 'test'
+  ...
+# Subtest: hu translates every active control and status
+ok 16 - hu translates every active control and status
+  ---
+  duration_ms: 0.359693
+  type: 'test'
+  ...
+# Subtest: ro translates every active control and status
+ok 17 - ro translates every active control and status
+  ---
+  duration_ms: 0.366448
+  type: 'test'
+  ...
+# Subtest: tr translates every active control and status
+ok 18 - tr translates every active control and status
+  ---
+  duration_ms: 0.546218
+  type: 'test'
+  ...
+# Subtest: translation preserves preference identifiers, defaults and schema while cloning
+ok 19 - translation preserves preference identifiers, defaults and schema while cloning
+  ---
+  duration_ms: 2.205121
+  type: 'test'
+  ...
+# Subtest: custom settings strings resolve all supported locales and return isolated dictionaries
+ok 20 - custom settings strings resolve all supported locales and return isolated dictionaries
+  ---
+  duration_ms: 8.406956
+  type: 'test'
+  ...
+# Subtest: translation preserves provider values and API identifiers in settings metadata
+ok 21 - translation preserves provider values and API identifiers in settings metadata
+  ---
+  duration_ms: 0.325043
+  type: 'test'
+  ...
+# Subtest: all custom controls, source states and save outcomes have complete translations
+ok 22 - all custom controls, source states and save outcomes have complete translations
+  ---
+  duration_ms: 6.602387
+  type: 'test'
+  ...
+# Subtest: Timer preview is named in every supported language
+ok 23 - Timer preview is named in every supported language
+  ---
+  duration_ms: 2.458
+  type: 'test'
+  ...
+# Subtest: borderless settings expose only applicable controls and preserve privacy defaults
+ok 24 - borderless settings expose only applicable controls and preserve privacy defaults
+  ---
+  duration_ms: 0.613088
+  type: 'test'
+  ...
+# Subtest: chunky-motion appearance controls are translated without stale panel or shadow promises
+ok 25 - chunky-motion appearance controls are translated without stale panel or shadow promises
+  ---
+  duration_ms: 3.289066
+  type: 'test'
+  ...
+# Subtest: the full UX pass has explicit translations and keeps privacy and save meanings separate
+ok 26 - the full UX pass has explicit translations and keeps privacy and save meanings separate
+  ---
+  duration_ms: 3.804954
+  type: 'test'
+  ...
+# Subtest: app-only privacy, quiet alerts and colour sharing are explicit in every locale
+ok 27 - app-only privacy, quiet alerts and colour sharing are explicit in every locale
+  ---
+  duration_ms: 2.971684
+  type: 'test'
+  ...
+# Subtest: notification activity copy shares roles and preserves system notification ownership
+ok 28 - notification activity copy shares roles and preserves system notification ownership
+  ---
+  duration_ms: 2.263816
+  type: 'test'
+  ...
+# Subtest: settings cleanup removes obsolete copy and translates the shared priority and privacy controls
+ok 29 - settings cleanup removes obsolete copy and translates the shared priority and privacy controls
+  ---
+  duration_ms: 5.516091
+  type: 'test'
+  ...
+# Subtest: native optical sample limits are explicit in every locale
+ok 30 - native optical sample limits are explicit in every locale
+  ---
+  duration_ms: 1.975385
+  type: 'test'
+  ...
+1..30
+# tests 30
+# suites 0
+# pass 30
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 67.238158
+TAP version 13
+# Subtest: twenty-four native settings states use production ACT3 encoders and retain header controls
+ok 1 - twenty-four native settings states use production ACT3 encoders and retain header controls
+  ---
+  duration_ms: 28.488257
+  type: 'test'
+  ...
+# Subtest: approved normal and compact activity combinations have light and dark native fixtures
+ok 2 - approved normal and compact activity combinations have light and dark native fixtures
+  ---
+  duration_ms: 42.942279
+  type: 'test'
+  ...
+# Subtest: focused complications cover real host values, identity, failures and active/Peek boundaries
+ok 3 - focused complications cover real host values, identity, failures and active/Peek boundaries
+  ---
+  duration_ms: 62.641056
+  type: 'test'
+  ...
+# Subtest: music loading fixtures preserve item identity across artwork and keep the secondary static
+ok 4 - music loading fixtures preserve item identity across artwork and keep the secondary static
+  ---
+  duration_ms: 4.559838
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 148.535219
+TAP version 13
+# Subtest: custom backgrounds fill the gaps around black bezel dots without changing their ink
+ok 1 - custom backgrounds fill the gaps around black bezel dots without changing their ink
+  ---
+  duration_ms: 11.844509
+  type: 'test'
+  ...
+# Subtest: provider artwork and the native Timeline panel keep their original pixels
+ok 2 - provider artwork and the native Timeline panel keep their original pixels
+  ---
+  duration_ms: 6.190929
+  type: 'test'
+  ...
+# Subtest: the canvas keeps its native aspect ratio when its width is constrained
+ok 3 - the canvas keeps its native aspect ratio when its width is constrained
+  ---
+  duration_ms: 0.285514
+  type: 'test'
+  ...
+# Subtest: preview accent contrast follows the native fallback while provider images stay unchanged
+ok 4 - preview accent contrast follows the native fallback while provider images stay unchanged
+  ---
+  duration_ms: 6.775577
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 4
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 32.340405
+TAP version 13
+# Subtest: one weather location retains familiar qualifiers; different selected locations gain public names
+ok 1 - one weather location retains familiar qualifiers; different selected locations gain public names
+  ---
+  duration_ms: 0.924479
+  type: 'test'
+  ...
+# Subtest: explicit public custom labels win without changing descriptors or instances
+ok 2 - explicit public custom labels win without changing descriptors or instances
+  ---
+  duration_ms: 0.157325
+  type: 'test'
+  ...
+# Subtest: home and generic names add identity without repeating the property or displayed value
+ok 3 - home and generic names add identity without repeating the property or displayed value
+  ---
+  duration_ms: 0.247286
+  type: 'test'
+  ...
+# Subtest: finance uses an explicit public ticker or instance identity without guessing a company name
+ok 4 - finance uses an explicit public ticker or instance identity without guessing a company name
+  ---
+  duration_ms: 0.204482
+  type: 'test'
+  ...
+# Subtest: private sources never expose a label even if called outside Core safeguards
+ok 5 - private sources never expose a label even if called outside Core safeguards
+  ---
+  duration_ms: 0.123094
+  type: 'test'
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 5
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 9.211238
+TAP version 13
+# Subtest: offline settings have every native preset and intact 200×228 PNGs
+ok 1 - offline settings have every native preset and intact 200×228 PNGs
+  ---
+  duration_ms: 3.221657
+  type: 'test'
+  ...
+# Subtest: custom preview preserves source artwork and the native Timeline area
+ok 2 - custom preview preserves source artwork and the native Timeline area
+  ---
+  duration_ms: 0.39025
+  type: 'test'
+  ...
+# Subtest: Round 2 previews contain all native states and keep artwork within the physical circle
+ok 3 - Round 2 previews contain all native states and keep artwork within the physical circle
+  ---
+  duration_ms: 2.38496
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 12.369669
+TAP version 13
+# Subtest: settings keys retain the native contract and legacy reads never rewrite storage
+ok 1 - settings keys retain the native contract and legacy reads never rewrite storage
+  ---
+  duration_ms: 1.668176
+  type: 'test'
+  ...
+# Subtest: one verified save commits phone fields and stable activity preferences atomically and survives a new runtime
+ok 2 - one verified save commits phone fields and stable activity preferences atomically and survives a new runtime
+  ---
+  duration_ms: 0.502417
+  type: 'test'
+  ...
+# Subtest: saved retired keys survive while new private or unrecognised fields cannot be injected
+ok 3 - saved retired keys survive while new private or unrecognised fields cannot be injected
+  ---
+  duration_ms: 0.409366
+  type: 'test'
+  ...
+# Subtest: invalid complete drafts are known not saved, failed or unverified storage remains uncertain
+ok 4 - invalid complete drafts are known not saved, failed or unverified storage remains uncertain
+  ---
+  duration_ms: 0.601195
+  type: 'test'
+  ...
+# Subtest: corrupt saved state is not exposed as editable replacement defaults
+ok 5 - corrupt saved state is not exposed as editable replacement defaults
+  ---
+  duration_ms: 0.211505
+  type: 'test'
+  ...
+# Subtest: an active Android runtime must own the save before its restored DOM snapshot is persisted on shutdown
+ok 6 - an active Android runtime must own the save before its restored DOM snapshot is persisted on shutdown
+  ---
+  duration_ms: 0.195399
+  type: 'test'
+  ...
+# Subtest: page preparation keeps all seventeen languages, literal source metadata and current watch palettes
+ok 7 - page preparation keeps all seventeen languages, literal source metadata and current watch palettes
+  ---
+  duration_ms: 16.141046
+  type: 'test'
+  ...
+# Subtest: real SDK numeric keys migrate Halftone colors and optical controls without resetting preferences
+ok 8 - real SDK numeric keys migrate Halftone colors and optical controls without resetting preferences
+  ---
+  duration_ms: 0.539702
+  type: 'test'
+  ...
+# Subtest: settings snapshots use the connected watch shape without persisting it
+ok 9 - settings snapshots use the connected watch shape without persisting it
+  ---
+  duration_ms: 1.992852
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 30.395682
+TAP version 13
+# Subtest: offline legacy Clay transfers the common CSS without a lexical import
+ok 1 - offline legacy Clay transfers the common CSS without a lexical import
+  ---
+  duration_ms: 12.38854
+  type: 'test'
+  ...
+# Subtest: bundled loading and built Clay share one identical base stylesheet
+ok 2 - bundled loading and built Clay share one identical base stylesheet
+  ---
+  duration_ms: 4.581661
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 24.307233
+TAP version 13
+# Subtest: Disabled preview falls back even when the plugin API functions exist
+ok 1 - Disabled preview falls back even when the plugin API functions exist
+  ---
+  duration_ms: 1.589623
+  type: 'test'
+  ...
+# Subtest: Shared weather pins the built-in source and requests only weather values
+ok 2 - Shared weather pins the built-in source and requests only weather values
+  ---
+  duration_ms: 1.796079
+  type: 'test'
+  ...
+# Subtest: Permission denial, transient errors and empty plugin data do not switch weather providers
+ok 3 - Permission denial, transient errors and empty plugin data do not switch weather providers
+  ---
+  duration_ms: 0.422418
+  type: 'test'
+  ...
+# Subtest: An initial empty shared snapshot preserves the offline watch cache until an explicit location change
+ok 4 - An initial empty shared snapshot preserves the offline watch cache until an explicit location change
+  ---
+  duration_ms: 0.255803
+  type: 'test'
+  ...
+# Subtest: Opening or changing settings before the first source response cannot crash or invent a current reading
+ok 5 - Opening or changing settings before the first source response cannot crash or invent a current reading
+  ---
+  duration_ms: 0.360343
+  type: 'test'
+  ...
+# Subtest: Enabling plugins stops the legacy client before shared weather is used
+ok 6 - Enabling plugins stops the legacy client before shared weather is used
+  ---
+  duration_ms: 0.306523
+  type: 'test'
+  ...
+# Subtest: An envelope from another plugin cannot replace Pebble weather
+ok 7 - An envelope from another plugin cannot replace Pebble weather
+  ---
+  duration_ms: 0.204254
+  type: 'test'
+  ...
+# Subtest: A temporary enumeration failure cannot switch an established shared source to legacy weather
+ok 8 - A temporary enumeration failure cannot switch an established shared source to legacy weather
+  ---
+  duration_ms: 0.523516
+  type: 'test'
+  ...
+# Subtest: Synchronous unavailable errors leave no stale handle blocking a later subscription
+ok 9 - Synchronous unavailable errors leave no stale handle blocking a later subscription
+  ---
+  duration_ms: 0.597572
+  type: 'test'
+  ...
+# Subtest: The first configured location is default; an explicit selection uses its stable ID
+ok 10 - The first configured location is default; an explicit selection uses its stable ID
+  ---
+  duration_ms: 0.623665
+  type: 'test'
+  ...
+# Subtest: A missing selected location never silently displays a different city
+ok 11 - A missing selected location never silently displays a different city
+  ---
+  duration_ms: 0.239016
+  type: 'test'
+  ...
+# Subtest: Malformed or missing temperature shapes are ignored safely
+ok 12 - Malformed or missing temperature shapes are ignored safely
+  ---
+  duration_ms: 0.204611
+  type: 'test'
+  ...
+# Subtest: Malformed instance entries cannot crash the subscription callback
+ok 13 - Malformed instance entries cannot crash the subscription callback
+  ---
+  duration_ms: 0.169113
+  type: 'test'
+  ...
+# Subtest: Native Fahrenheit is retained without conversion through rounded Celsius
+ok 14 - Native Fahrenheit is retained without conversion through rounded Celsius
+  ---
+  duration_ms: 0.178676
+  type: 'test'
+  ...
+# Subtest: Follow Pebble units synchronizes the watch while explicit unit preferences remain independent
+ok 15 - Follow Pebble units synchronizes the watch while explicit unit preferences remain independent
+  ---
+  duration_ms: 0.954044
+  type: 'test'
+  ...
+# Subtest: Follow Pebble infers the global display unit from weather when Preferences cannot respond
+ok 16 - Follow Pebble infers the global display unit from weather when Preferences cannot respond
+  ---
+  duration_ms: 0.221539
+  type: 'test'
+  ...
+# Subtest: A units response before weather arrives preserves persisted offline daily details
+ok 17 - A units response before weather arrives preserves persisted offline daily details
+  ---
+  duration_ms: 0.115495
+  type: 'test'
+  ...
+# Subtest: Hourly forecasts select the current UTC hour from a series beginning at midnight
+ok 18 - Hourly forecasts select the current UTC hour from a series beginning at midnight
+  ---
+  duration_ms: 0.149612
+  type: 'test'
+  ...
+# Subtest: A watch refresh re-reads Pebble current conditions without using the legacy HTTP client
+ok 19 - A watch refresh re-reads Pebble current conditions without using the legacy HTTP client
+  ---
+  duration_ms: 0.367144
+  type: 'test'
+  ...
+# Subtest: Identical conditions confirmed by Pebble after two hours remain current instead of becoming forecast
+ok 20 - Identical conditions confirmed by Pebble after two hours remain current instead of becoming forecast
+  ---
+  duration_ms: 0.219397
+  type: 'test'
+  ...
+# Subtest: Replaying a held snapshot cannot renew the age of its current conditions
+ok 21 - Replaying a held snapshot cannot renew the age of its current conditions
+  ---
+  duration_ms: 0.430882
+  type: 'test'
+  ...
+# Subtest: A failed database read keeps cached current conditions and never changes weather providers
+ok 22 - A failed database read keeps cached current conditions and never changes weather providers
+  ---
+  duration_ms: 0.343409
+  type: 'test'
+  ...
+# Subtest: Phone backup reads current conditions at thirty minutes and bounds a stalled database read
+ok 23 - Phone backup reads current conditions at thirty minutes and bounds a stalled database read
+  ---
+  duration_ms: 0.449001
+  type: 'test'
+  ...
+# Subtest: Diagnostics expose the actual source, selected location, native reading, confirmation and error
+ok 24 - Diagnostics expose the actual source, selected location, native reading, confirmation and error
+  ---
+  duration_ms: 0.3875
+  type: 'test'
+  ...
+# Subtest: A null hourly point cannot shift later hours into its position
+ok 25 - A null hourly point cannot shift later hours into its position
+  ---
+  duration_ms: 0.181278
+  type: 'test'
+  ...
+# Subtest: Confirmed current readings update their age while identical forecasts retain their age across restart
+ok 26 - Confirmed current readings update their age while identical forecasts retain their age across restart
+  ---
+  duration_ms: 0.546326
+  type: 'test'
+  ...
+# Subtest: A changed hourly forecast is allowed a new first-seen timestamp
+ok 27 - A changed hourly forecast is allowed a new first-seen timestamp
+  ---
+  duration_ms: 0.253575
+  type: 'test'
+  ...
+# Subtest: Changing current conditions cannot renew the age of an unchanged hourly forecast
+ok 28 - Changing current conditions cannot renew the age of an unchanged hourly forecast
+  ---
+  duration_ms: 0.22003
+  type: 'test'
+  ...
+# Subtest: Explicit temperature units are resent with weather to repair a lost setting or watch reset
+ok 29 - Explicit temperature units are resent with weather to repair a lost setting or watch reset
+  ---
+  duration_ms: 0.319931
+  type: 'test'
+  ...
+# Subtest: Switching A to B and back to A preserves forecast ages and does not reconfirm held current data
+ok 30 - Switching A to B and back to A preserves forecast ages and does not reconfirm held current data
+  ---
+  duration_ms: 0.51149
+  type: 'test'
+  ...
+# Subtest: The original single-location first-seen cache migrates without resetting its age
+ok 31 - The original single-location first-seen cache migrates without resetting its age
+  ---
+  duration_ms: 0.309333
+  type: 'test'
+  ...
+# Subtest: Beta 1 current-plus-hours fingerprints migrate each slot without renewing age
+ok 32 - Beta 1 current-plus-hours fingerprints migrate each slot without renewing age
+  ---
+  duration_ms: 0.965623
+  type: 'test'
+  ...
+# Subtest: Remembered location ages remain bounded to the sixteen most recently used locations
+ok 33 - Remembered location ages remain bounded to the sixteen most recently used locations
+  ---
+  duration_ms: 2.466344
+  type: 'test'
+  ...
+# Subtest: A hung delivery has a bounded retry, and a newer queued reading wins over old callbacks
+ok 34 - A hung delivery has a bounded retry, and a newer queued reading wins over old callbacks
+  ---
+  duration_ms: 0.311714
+  type: 'test'
+  ...
+# Subtest: Location replacement remains atomic when its queued update is superseded before delivery
+ok 35 - Location replacement remains atomic when its queued update is superseded before delivery
+  ---
+  duration_ms: 0.366676
+  type: 'test'
+  ...
+# Subtest: Confirmed Pebble unit preferences outrank lagging weather units in both directions
+ok 36 - Confirmed Pebble unit preferences outrank lagging weather units in both directions
+  ---
+  duration_ms: 0.446603
+  type: 'test'
+  ...
+# Subtest: Weather-unit fallback remains available until a valid preferences response arrives
+ok 37 - Weather-unit fallback remains available until a valid preferences response arrives
+  ---
+  duration_ms: 0.269184
+  type: 'test'
+  ...
+# Subtest: A temporary Weather-source reconnect preserves previously confirmed unit preferences
+ok 38 - A temporary Weather-source reconnect preserves previously confirmed unit preferences
+  ---
+  duration_ms: 0.300717
+  type: 'test'
+  ...
+# Subtest: Changing the measured current-hour blend cannot renew unchanged future forecast slots
+ok 39 - Changing the measured current-hour blend cannot renew unchanged future forecast slots
+  ---
+  duration_ms: 0.261612
+  type: 'test'
+  ...
+# Subtest: Changes to past or distant hours cannot rejuvenate the emitted forecast window
+ok 40 - Changes to past or distant hours cannot rejuvenate the emitted forecast window
+  ---
+  duration_ms: 0.592696
+  type: 'test'
+  ...
+# Subtest: Midnight series rollover keeps overlapping UTC slot ages across restart
+ok 41 - Midnight series rollover keeps overlapping UTC slot ages across restart
+  ---
+  duration_ms: 0.384463
+  type: 'test'
+  ...
+# Subtest: A temporarily missing UTC slot reuses its remembered age when the same value returns
+ok 42 - A temporarily missing UTC slot reuses its remembered age when the same value returns
+  ---
+  duration_ms: 0.324654
+  type: 'test'
+  ...
+# Subtest: Unit conversion and a sub-degree change cannot make a rounded Celsius forecast slot younger
+ok 43 - Unit conversion and a sub-degree change cannot make a rounded Celsius forecast slot younger
+  ---
+  duration_ms: 0.30002
+  type: 'test'
+  ...
+# Subtest: Only emitted slot ages constrain the binary cache; an expired later slot truncates it safely
+ok 44 - Only emitted slot ages constrain the binary cache; an expired later slot truncates it safely
+  ---
+  duration_ms: 0.284715
+  type: 'test'
+  ...
+# Subtest: A changed distant slot cannot revive an expired current forecast
+ok 45 - A changed distant slot cannot revive an expired current forecast
+  ---
+  duration_ms: 0.260958
+  type: 'test'
+  ...
+# Subtest: Per-slot remembered ages remain bounded across locations and moving forecast horizons
+ok 46 - Per-slot remembered ages remain bounded across locations and moving forecast horizons
+  ---
+  duration_ms: 10.530282
+  type: 'test'
+  ...
+# Subtest: Duplicate legacy records preserve the oldest matching UTC slot ages during migration
+ok 47 - Duplicate legacy records preserve the oldest matching UTC slot ages during migration
+  ---
+  duration_ms: 0.550875
+  type: 'test'
+  ...
+# Subtest: Weather details are populated from requested fields and explicitly cleared on location replacement
+ok 48 - Weather details are populated from requested fields and explicitly cleared on location replacement
+  ---
+  duration_ms: 0.352226
+  type: 'test'
+  ...
+# Subtest: Live and one-shot shared subscriptions request canonical current condition codes
+ok 49 - Live and one-shot shared subscriptions request canonical current condition codes
+  ---
+  duration_ms: 0.23245
+  type: 'test'
+  ...
+# Subtest: Unit-only responses before any weather snapshot omit condition data to preserve the offline icon
+ok 50 - Unit-only responses before any weather snapshot omit condition data to preserve the offline icon
+  ---
+  duration_ms: 0.575022
+  type: 'test'
+  ...
+# Subtest: Unknown or missing canonical conditions explicitly clear a previously valid icon on real publication
+ok 51 - Unknown or missing canonical conditions explicitly clear a previously valid icon on real publication
+  ---
+  duration_ms: 0.333445
+  type: 'test'
+  ...
+# Subtest: Held, expired or source-limited conditions are never rejuvenated by configuring the watchface
+ok 52 - Held, expired or source-limited conditions are never rejuvenated by configuring the watchface
+  ---
+  duration_ms: 0.230189
+  type: 'test'
+  ...
+# Subtest: A same-location condition updates or clears independently of a missing temperature
+ok 53 - A same-location condition updates or clears independently of a missing temperature
+  ---
+  duration_ms: 0.193088
+  type: 'test'
+  ...
+# Subtest: Location and source-mode replacements clear icons atomically without mixing conditions
+ok 54 - Location and source-mode replacements clear icons atomically without mixing conditions
+  ---
+  duration_ms: 0.200391
+  type: 'test'
+  ...
+# Subtest: A condition-only update preserves a queued atomic location replacement
+ok 55 - A condition-only update preserves a queued atomic location replacement
+  ---
+  duration_ms: 0.310835
+  type: 'test'
+  ...
+# Subtest: An older one-shot callback cannot replace a newer live condition
+ok 56 - An older one-shot callback cannot replace a newer live condition
+  ---
+  duration_ms: 0.160099
+  type: 'test'
+  ...
+# Subtest: A failed location clear survives a pending condition-only replacement
+ok 57 - A failed location clear survives a pending condition-only replacement
+  ---
+  duration_ms: 0.163672
+  type: 'test'
+  ...
+# Subtest: A unit preference cannot supersede an unacknowledged location clear
+ok 58 - A unit preference cannot supersede an unacknowledged location clear
+  ---
+  duration_ms: 0.147576
+  type: 'test'
+  ...
+# Subtest: A late acknowledgement from a cancelled clear cannot acknowledge the next location
+ok 59 - A late acknowledgement from a cancelled clear cannot acknowledge the next location
+  ---
+  duration_ms: 0.157222
+  type: 'test'
+  ...
+1..59
+# tests 59
+# suites 0
+# pass 59
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 55.310641
+TAP version 13
+# Subtest: upgrading the Halftone namespace removes legacy private values before source discovery
+ok 1 - upgrading the Halftone namespace removes legacy private values before source discovery
+  ---
+  duration_ms: 1.215079
+  type: 'test'
+  ...
+# Subtest: unclassifiable legacy records are discarded instead of retaining possible private content
+ok 2 - unclassifiable legacy records are discarded instead of retaining possible private content
+  ---
+  duration_ms: 0.138265
+  type: 'test'
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 2
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 6.948778
+TAP version 13
+# Subtest: same-day scalar details use the exact 23-byte little-endian protocol with independently rounded C/F
+ok 1 - same-day scalar details use the exact 23-byte little-endian protocol with independently rounded C/F
+  ---
+  duration_ms: 1.621581
+  type: 'test'
+  ...
+# Subtest: native Fahrenheit precision is converted once before rounding either unit
+ok 2 - native Fahrenheit precision is converted once before rounding either unit
+  ---
+  duration_ms: 0.201937
+  type: 'test'
+  ...
+# Subtest: range and rain flags are independent, and a real zero-percent probability stays visible
+ok 3 - range and rain flags are independent, and a real zero-percent probability stays visible
+  ---
+  duration_ms: 0.235081
+  type: 'test'
+  ...
+# Subtest: current daily slots replace scalar values without shifting a missing earlier day
+ok 4 - current daily slots replace scalar values without shifting a missing earlier day
+  ---
+  duration_ms: 0.272716
+  type: 'test'
+  ...
+# Subtest: daily series are selected independently by their own starts, not a shared array index
+ok 5 - daily series are selected independently by their own starts, not a shared array index
+  ---
+  duration_ms: 0.172605
+  type: 'test'
+  ...
+# Subtest: an explicitly null, absent or malformed current daily slot never falls back to yesterday scalars
+ok 6 - an explicitly null, absent or malformed current daily slot never falls back to yesterday scalars
+  ---
+  duration_ms: 0.327743
+  type: 'test'
+  ...
+# Subtest: a held snapshot cannot renew its original confirmation or exceed six hours
+ok 7 - a held snapshot cannot renew its original confirmation or exceed six hours
+  ---
+  duration_ms: 0.208123
+  type: 'test'
+  ...
+# Subtest: snapshot expiry and the local day end are both exclusive and may shorten the six-hour cap
+ok 8 - snapshot expiry and the local day end are both exclusive and may shorten the six-hour cap
+  ---
+  duration_ms: 0.146787
+  type: 'test'
+  ...
+# Subtest: reading old scalar fields again after midnight does not turn them into today forecast
+ok 9 - reading old scalar fields again after midnight does not turn them into today forecast
+  ---
+  duration_ms: 0.248055
+  type: 'test'
+  ...
+# Subtest: place UTC offsets select the place date across UTC midnight and support quarter-hour zones
+ok 10 - place UTC offsets select the place date across UTC midnight and support quarter-hour zones
+  ---
+  duration_ms: 0.355684
+  type: 'test'
+  ...
+# Subtest: missing location offsets and inconsistent DST midnight anchors are hidden rather than guessed from the phone timezone
+ok 11 - missing location offsets and inconsistent DST midnight anchors are hidden rather than guessed from the phone timezone
+  ---
+  duration_ms: 0.17539
+  type: 'test'
+  ...
+# Subtest: rain amount, unitless values and text percentages never become a probability
+ok 12 - rain amount, unitless values and text percentages never become a probability
+  ---
+  duration_ms: 0.177888
+  type: 'test'
+  ...
+# Subtest: malformed and physically invalid range values are hidden without coercion or swapping low/high
+ok 13 - malformed and physically invalid range values are hidden without coercion or swapping low/high
+  ---
+  duration_ms: 0.22195
+  type: 'test'
+  ...
+# Subtest: invalid clocks, offsets, unaligned series and malformed envelope expiry clear the optional row
+ok 14 - invalid clocks, offsets, unaligned series and malformed envelope expiry clear the optional row
+  ---
+  duration_ms: 0.196903
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 14.278153
+TAP version 13
+# Subtest: Pebble is primary; native Celsius is delivered with its observation time
+ok 1 - Pebble is primary; native Celsius is delivered with its observation time
+  ---
+  duration_ms: 2.077975
+  type: 'test'
+  ...
+# Subtest: Fahrenheit requests the native imperial reading, avoiding double rounding
+ok 2 - Fahrenheit requests the native imperial reading, avoiding double rounding
+  ---
+  duration_ms: 0.294397
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble http, reusing the same location
+ok 3 - Falls back on Pebble http, reusing the same location
+  ---
+  duration_ms: 0.445461
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble timeout, reusing the same location
+ok 4 - Falls back on Pebble timeout, reusing the same location
+  ---
+  duration_ms: 0.260049
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble network, reusing the same location
+ok 5 - Falls back on Pebble network, reusing the same location
+  ---
+  duration_ms: 0.207031
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble abort, reusing the same location
+ok 6 - Falls back on Pebble abort, reusing the same location
+  ---
+  duration_ms: 0.167793
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble json, reusing the same location
+ok 7 - Falls back on Pebble json, reusing the same location
+  ---
+  duration_ms: 0.215941
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble schema, reusing the same location
+ok 8 - Falls back on Pebble schema, reusing the same location
+  ---
+  duration_ms: 0.283811
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble null, reusing the same location
+ok 9 - Falls back on Pebble null, reusing the same location
+  ---
+  duration_ms: 0.333674
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble stale, reusing the same location
+ok 10 - Falls back on Pebble stale, reusing the same location
+  ---
+  duration_ms: 0.888832
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble future, reusing the same location
+ok 11 - Falls back on Pebble future, reusing the same location
+  ---
+  duration_ms: 0.251619
+  type: 'test'
+  ...
+# Subtest: Falls back on Pebble invalid, reusing the same location
+ok 12 - Falls back on Pebble invalid, reusing the same location
+  ---
+  duration_ms: 0.158799
+  type: 'test'
+  ...
+# Subtest: Failed primary is cooled down for an hour, then retried
+ok 13 - Failed primary is cooled down for an hour, then retried
+  ---
+  duration_ms: 0.191756
+  type: 'test'
+  ...
+# Subtest: Both providers failing leaves cached watch data untouched; next request recovers
+ok 14 - Both providers failing leaves cached watch data untouched; next request recovers
+  ---
+  duration_ms: 0.126387
+  type: 'test'
+  ...
+# Subtest: Missing fallback temperature/time is never displayed as zero
+ok 15 - Missing fallback temperature/time is never displayed as zero
+  ---
+  duration_ms: 0.205244
+  type: 'test'
+  ...
+# Subtest: Duplicate startup requests are coalesced, but later refreshes are not
+ok 16 - Duplicate startup requests are coalesced, but later refreshes are not
+  ---
+  duration_ms: 0.111854
+  type: 'test'
+  ...
+# Subtest: Unit switch during an in-flight request discards old result and fetches new unit
+ok 17 - Unit switch during an in-flight request discards old result and fetches new unit
+  ---
+  duration_ms: 0.154151
+  type: 'test'
+  ...
+# Subtest: AppMessage delivery is retried without another HTTP request
+ok 18 - AppMessage delivery is retried without another HTTP request
+  ---
+  duration_ms: 0.147231
+  type: 'test'
+  ...
+# Subtest: Permission denial sends no location to either provider and can recover
+ok 19 - Permission denial sends no location to either provider and can recover
+  ---
+  duration_ms: 0.093659
+  type: 'test'
+  ...
+# Subtest: Legacy Pebble hourly data without timestamps is supplemented, not guessed
+ok 20 - Legacy Pebble hourly data without timestamps is supplemented, not guessed
+  ---
+  duration_ms: 0.135251
+  type: 'test'
+  ...
+# Subtest: Forecast failure does not discard live Pebble weather; old forecast is cleared
+ok 21 - Forecast failure does not discard live Pebble weather; old forecast is cleared
+  ---
+  duration_ms: 0.104268
+  type: 'test'
+  ...
+# Subtest: Null/malformed Pebble hours use the timestamped fallback
+ok 22 - Null/malformed Pebble hours use the timestamped fallback
+  ---
+  duration_ms: 0.113997
+  type: 'test'
+  ...
+# Subtest: Phone timer refreshes at 30 minutes without leaving the face or receiving a watch request
+ok 23 - Phone timer refreshes at 30 minutes without leaving the face or receiving a watch request
+  ---
+  duration_ms: 0.195486
+  type: 'test'
+  ...
+# Subtest: XHR that never fires its native timeout falls back at the independent deadline
+ok 24 - XHR that never fires its native timeout falls back at the independent deadline
+  ---
+  duration_ms: 0.172587
+  type: 'test'
+  ...
+# Subtest: Missing location callback is released and retried without reopening
+ok 25 - Missing location callback is released and retried without reopening
+  ---
+  duration_ms: 0.125029
+  type: 'test'
+  ...
+# Subtest: Lost delivery callback is bounded; late ACKs cannot cancel a new attempt
+ok 26 - Lost delivery callback is bounded; late ACKs cannot cancel a new attempt
+  ---
+  duration_ms: 0.17508
+  type: 'test'
+  ...
+# Subtest: Watch request after suspended timers recovers the busy run immediately
+ok 27 - Watch request after suspended timers recovers the busy run immediately
+  ---
+  duration_ms: 0.131195
+  type: 'test'
+  ...
+# Subtest: Two hung providers release busy and schedule a two-minute retry
+ok 28 - Two hung providers release busy and schedule a two-minute retry
+  ---
+  duration_ms: 0.166325
+  type: 'test'
+  ...
+# Subtest: Stopping legacy weather during a hung location lookup cancels retries and ignores late callbacks
+ok 29 - Stopping legacy weather during a hung location lookup cancels retries and ignores late callbacks
+  ---
+  duration_ms: 0.090015
+  type: 'test'
+  ...
+# Subtest: Stopping legacy weather aborts its HTTP lookup and rejects an old reply
+ok 30 - Stopping legacy weather aborts its HTTP lookup and rejects an old reply
+  ---
+  duration_ms: 0.142643
+  type: 'test'
+  ...
+# Subtest: Stopping legacy weather while delivery is hung prevents late ACKs from scheduling another refresh
+ok 31 - Stopping legacy weather while delivery is hung prevents late ACKs from scheduling another refresh
+  ---
+  duration_ms: 0.123574
+  type: 'test'
+  ...
+# Subtest: Returning to legacy within sixty seconds of its last success still requests replacement weather
+ok 32 - Returning to legacy within sixty seconds of its last success still requests replacement weather
+  ---
+  duration_ms: 0.47872
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 23.1782
+bounded portable state: view 2708, layout 1368, navigation 24 bytes (host ABI)
+Halftone supporting layout: 2784 size/optics/height/pose checks passed
+covered callbacks: zero decorative registrations/dirty requests; fresh return and static-minute/expiry/locale gates passed
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.198s
+
+OK
+actual native palette resolver: Manual, Quiet Time, retained Follow fallback and all effective type profiles PASS
+native display: exact RGB migration, codec, all profiles/modes, readback failure, legacy mirrors and relaunch PASS
+halftone production reading plan: overflow wraps before height measurement PASS
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.038s
+
+OK
+activity-memory.c: PASS
+activity-navigation.c: PASS
+activity-plan-cache.c: PASS
+activity-presentation.c: PASS
+activity-view.c: PASS
+context-effects.c: PASS
+context-session.c: PASS
+font-assets.c: PASS
+font-raster.c: PASS
+music-layout.c: PASS
+native-reading.c: PASS
+native-settings.c: PASS
+reading-layout.c: PASS
+reading-presentation.c: PASS
+supporting-type.c: PASS
+watch-layout.c: PASS
+weather-details.c: PASS
+weather-display.c: PASS
+weather-forecast.c: PASS
+weather-icon.c: PASS
+weather-schedule.c: PASS
+
+> halftone@1.10.2 test:workflow
+> python3 -m unittest discover -s tests -p test_development_workflow.py
+
+....ss...
+----------------------------------------------------------------------
+Ran 9 tests in 0.007s
+
+OK (skipped=2)
+
+> halftone@1.10.2 test:platforms
+> python3 -m unittest discover -s tests -p test_platform_audit.py
+
+....
+----------------------------------------------------------------------
+Ran 4 tests in 1.420s
+
+OK
+
+> halftone@1.10.2 test:assets
+> python3 -m unittest discover -s tests -p test_native_assets.py
+
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+
+> halftone@1.10.2 test:store
+> python3 -m unittest discover -s tests -p test_store_kit.py
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.029s
+
+OK
