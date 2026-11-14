@@ -1,6 +1,7 @@
 ---
 import { sitePath, routePath } from '../lib/site';
 import Icon from './Icon.astro';
+import Wordmark from './Wordmark.astro';
 import { projects } from '../data/projects';
 const path = routePath(Astro.url.pathname);
 const currentProject = projects.find(project => path.startsWith(`/projects/${project.slug}/`));
@@ -13,7 +14,7 @@ const links = [
 ---
 <header class="site-header">
   <div class="header-inner wrap">
-    <a class="brand" href={sitePath('/')} aria-label="XOCE home"><span class="brand-name">XOCE</span></a>
+    <a class="brand" href={sitePath('/')} aria-label="XOCE home"><Wordmark/></a>
     <nav id="site-navigation" data-site-nav aria-label="Main navigation">
       {links.map(link => <a href={sitePath(link.href)} aria-current={path === link.href ? 'page' : link.current ? 'true' : undefined}>{link.label}</a>)}
     </nav>
@@ -43,7 +44,7 @@ const links = [
   const theme = document.querySelector<HTMLSelectElement>('[data-theme-select]');
   const system = matchMedia('(prefers-color-scheme: dark)');
   const readPreference = () => { try { return localStorage.getItem('xoce-theme') ?? 'system'; } catch { return 'system'; } };
-  const apply = (choice: string) => { const root = document.documentElement; root.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#1c2222' : '#f5f4ef'); };
+  const apply = (choice: string) => { const root = document.documentElement; root.dataset.theme = choice === 'dark' || (choice === 'system' && system.matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#171d21' : '#e8edf0'); };
   if (theme) theme.value = ['light', 'dark'].includes(readPreference()) ? readPreference() : 'system';
   theme?.addEventListener('change', () => { try { theme.value === 'system' ? localStorage.removeItem('xoce-theme') : localStorage.setItem('xoce-theme', theme.value); } catch {} apply(theme.value); });
   system.addEventListener('change', () => { if (theme?.value === 'system') apply('system'); });

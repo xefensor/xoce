@@ -4,6 +4,7 @@ import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/theme.css';
 import '../styles/launch.css';
+import '../styles/identity.css';
 import { launchPreview } from '../data/projects';
 import { siteOrigin } from '../lib/site';
 import Header from '../components/Header.astro';
@@ -19,7 +20,7 @@ const canonicalUrl = new URL(sitePath(canonical), siteOrigin).href;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="theme-color" content="#e8edf0" />
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href={canonicalUrl} />
     {launchPreview && <meta name="robots" content="noindex,follow"/>}
@@ -28,11 +29,11 @@ const canonicalUrl = new URL(sitePath(canonical), siteOrigin).href;
     <meta property="og:title" content={title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`} />
     <meta property="og:description" content={description} />
     {socialImage && <><meta property="og:image" content={new URL(sitePath(socialImage), siteOrigin).href}/><meta property="og:image:width" content="720"/><meta property="og:image:height" content="320"/></>}
-    <link rel="icon" href="data:," />
+    <link rel="icon" type="image/svg+xml" href={sitePath('/images/identity/favicon.svg')} />
     <noscript><link rel="stylesheet" href={sitePath('/no-js.css')} /></noscript>
     <title>{title === 'XOCE' ? 'XOCE — Xef’s Open Computing Ecosystem' : `${title} — XOCE`}</title>
     <script is:inline>
-      (() => { let saved; try { saved = localStorage.getItem('xoce-theme'); } catch {} const root = document.documentElement; root.dataset.theme = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#1c2222' : '#f5f4ef'); })();
+      (() => { let saved; try { saved = localStorage.getItem('xoce-theme'); } catch {} const root = document.documentElement; root.dataset.theme = saved === 'dark' || (saved !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light'; document.querySelector('meta[name="theme-color"]')?.setAttribute('content', root.dataset.theme === 'dark' ? '#171d21' : '#e8edf0'); })();
     </script>
     <slot name="head" />
   </head>

@@ -383,6 +383,9 @@ async function runChecks() {
   const namedPreviews=await client.evaluate(`Array.from(document.querySelectorAll('.hero-watch>a')).map(a=>({name:a.textContent,top:a.getBoundingClientRect().top,bottom:a.getBoundingClientRect().bottom}))`);
   assert.equal(namedPreviews.length,2);assert.ok(namedPreviews.every(p=>p.top>0&&p.bottom<844),'Both app names and watch models must be in the first mobile screen');
   await screenshot('home-390-first-screen');passed('Mobile homepage names both preview apps before the first scroll');
+  assert.ok(await client.evaluate(`document.fonts.check('400 16px "Fira Sans"','ČHMÚ Weather')&&document.fonts.check('700 32px "Fira Sans Condensed"','XOCE')&&getComputedStyle(document.body).fontFamily.includes('Fira Sans')`),'Self-hosted reading/heading fonts must load, including Czech text');
+  assert.ok(await client.evaluate(`!!document.querySelector('.brand-wordmark svg path')&&document.querySelector('link[rel="icon"]').href.endsWith('/images/identity/favicon.svg')`),'Outlined wordmark and matching favicon must be present');
+  passed('Self-hosted Fira typography and outlined identity load correctly');
   await navigate('/projects/');
   assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-card]').length`),6);
   assert.equal(await client.evaluate(`document.querySelectorAll('[data-project-kind="plugin"]').length`),1);
@@ -427,7 +430,7 @@ async function runChecks() {
   await navigate('/projects/timer/');await click('label[for="timer-gabbro"]');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro').getClientRects().length>0`));await screenshot('timer-round2-no-javascript');
   await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');
   await media('dark','reduce','reduce');await navigate('/projects/halftone/');await noOverflow('/projects/halftone/',390);
-  assert.equal(await client.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()"),'#171b1c');await click('label[for="halftone-gabbro"]');await screenshot('halftone-round2-dark-no-javascript');passed('Dark appearance also works without JavaScript');
+  assert.equal(await client.evaluate("getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()"),'#171d21');await click('label[for="halftone-gabbro"]');await screenshot('halftone-round2-dark-no-javascript');passed('Dark appearance also works without JavaScript');
   await navigate('/docs/pebble/activities/');
   assert.equal(await client.evaluate("!!document.getElementById('try-a-timer-on-your-watchface')"),true);
   assert.ok(await client.evaluate("document.querySelector('article').innerText.includes('Timer still runs the countdown and handles the alarm.')"));

@@ -2,7 +2,7 @@
 
 ## Website fonts
 
-Space Grotesk and Inter are self-hosted from the pinned Fontsource variable-font
+Retained Space Grotesk and Inter assets came from the pinned Fontsource variable-font
 packages (both version 5.3.0). Both use the SIL Open Font License 1.1. Complete
 copyright notices and licence texts are retained in
 `public/fonts/space-grotesk-LICENSE.txt` and `public/fonts/inter-LICENSE.txt`.
@@ -76,3 +76,7 @@ for this website. It replaces the borrowed silk wallpaper in the current pages.
 It does not copy a GNOME, KDE, Microsoft, Apple or Spatial Desktop asset. Current
 asset hashes and design roles are recorded in `docs/xoce-visual-identity.json`.
 This record does not establish a new project-wide website licence.
+
+## Fira Sans and Fira Sans Condensed
+
+The tactile XOCE identity uses self-hosted Latin WOFF exports of Fira Sans and Fira Sans Condensed, licensed under SIL Open Font License 1.1. Copyright (c) 2012–2015, The Mozilla Foundation and Telefonica S.A. Exact pinned upstream sources, Git blob hashes and exported-file hashes are in `public/fonts/xoce/provenance.json`; the unchanged licence is `public/fonts/xoce/OFL.txt`. Subsetting retains the source outlines. Previous font files/licences remain historical.

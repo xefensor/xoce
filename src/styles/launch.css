@@ -79,9 +79,7 @@
   @media (forced-colors: active) { .pebble-device { outline: 1px solid CanvasText; } }
 
 /* Store launch: quiet surfaces, readable product pages, real native captures. */
-html[data-ui='material'] { --preview-surface:var(--shell); --glass-shadow:none; --content-shadow:none; --shadow:none; }
 body::before,body::after { display:none; }
-html[data-ui='material'] .site-header { background:var(--bg); backdrop-filter:none; -webkit-backdrop-filter:none; }
 html[data-ui='material'] .site-footer { background:transparent; border:0; border-top:1px solid var(--line); border-radius:0; box-shadow:none; backdrop-filter:none; }
 .launch-banner { border-bottom:1px solid var(--line); background:var(--shell); color:var(--muted); font-size:.75rem; padding:9px 0; }
 .launch-banner p { display:flex; flex-wrap:wrap; gap:3px 12px; }
@@ -318,5 +316,5 @@ html[data-ui='material'] .site-footer { background:transparent; border:0; border
   .connection-next { padding:22px; }
 }
 
-/* Product marks belong to the apps; the XOCE wordmark stays plain text. */
+/* Product marks accompany the outlined XOCE wordmark. */
 .card-copy h3{display:flex;align-items:center;gap:10px}.product-family-mark{width:36px;height:36px;flex:none;border-radius:8px}.product-family-label{display:flex;align-items:center;gap:10px}.product-family-label img{width:32px;height:32px;border-radius:7px;flex:none}

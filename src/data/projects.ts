@@ -99,7 +99,7 @@ export const projects: Project[] = [
     "developerNote": "A watchface that displays compatible activities; providers supply content while Dynamic owns placement and priority.",
     "name": "Dynamic",
     "kind": "watchface",
-    "description": "An animated clock. Your readings. What’s happening now.",
+    "description": "A clock that makes room for your day.",
     "version": "1.0.0",
     "repo": "https://github.com/xefensor/pebble-watchface-dynamic",
     "licence": {
@@ -149,8 +149,8 @@ export const projects: Project[] = [
     "uuid": "cc1281f1-3b4d-45b5-b235-6881b1fd8fbd",
     "artifactSha256": "9e80b5e57fe44793a886f2fad04ba556aeb96967dc4d2f629235625bbd116190",
     "storeArtwork": {
-      "mark": "/images/store/dynamic-1.0.0-20261114-mark.png",
-      "shareImage": "/images/store/dynamic-1.0.0-20261114-banner-emery.png"
+      "mark": "/images/store/dynamic-1.0.0-identity-20261114-mark.png",
+      "shareImage": "/images/store/dynamic-1.0.0-identity-20261114-banner-emery.png"
     }
   },
   {
@@ -218,8 +218,8 @@ export const projects: Project[] = [
     "uuid": "f76f9fc1-2944-4248-bcc5-3eea2af0183b",
     "artifactSha256": "a0c90d9965278b68b786ad84933767513f38371ad1065ae86a6d1ca09aca9363",
     "storeArtwork": {
-      "mark": "/images/store/dashboard-1.0.0-20261114-mark.png",
-      "shareImage": "/images/store/dashboard-1.0.0-20261114-banner-emery.png"
+      "mark": "/images/store/dashboard-1.0.0-identity-20261114-mark.png",
+      "shareImage": "/images/store/dashboard-1.0.0-identity-20261114-banner-emery.png"
     }
   },
   {
@@ -287,8 +287,8 @@ export const projects: Project[] = [
     "uuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
     "artifactSha256": "61577edc770449f71d5a7b32db1aa6f1b889aab4b6dd07c7996613ddd3ba563f",
     "storeArtwork": {
-      "mark": "/images/store/timer-1.0.0-20261114-mark.png",
-      "shareImage": "/images/store/timer-1.0.0-20261114-banner-emery.png"
+      "mark": "/images/store/timer-1.0.0-identity-20261114-mark.png",
+      "shareImage": "/images/store/timer-1.0.0-identity-20261114-banner-emery.png"
     }
   },
   {
@@ -362,8 +362,8 @@ export const projects: Project[] = [
     "uuid": "d2d0bf48-cf4c-42f6-8b5f-3657fb2de4e9",
     "artifactSha256": "8b3c43d0e6587918dc46f7f94ed0251679e591a19bb80a6b9cc9763a77c15982",
     "storeArtwork": {
-      "mark": "/images/store/open-activity-1.0.0-20261114-mark.png",
-      "shareImage": "/images/store/open-activity-1.0.0-20261114-banner-emery.png"
+      "mark": "/images/store/open-activity-1.0.0-identity-20261114-mark.png",
+      "shareImage": "/images/store/open-activity-1.0.0-identity-20261114-banner-emery.png"
     }
   },
   {
@@ -380,7 +380,7 @@ export const projects: Project[] = [
       "name": "PolyForm Noncommercial 1.0.0",
       "url": "https://github.com/xefensor/halftone-watchface/blob/main/LICENSE"
     },
-    "description": "A bold clock with a halftone finish.",
+    "description": "A bold clock. A border with depth.",
     "summary": "A Fira clock, a distinctive dot border and two readings beneath the time. Make it yours with colour, Bigger Text, depth and shadow, with space below for ongoing updates.",
     "showcase": {
       "title": "A clock with its own character.",
@@ -435,8 +435,8 @@ export const projects: Project[] = [
     "uuid": "d4dd5046-53be-4624-99e8-46e0b377fe66",
     "artifactSha256": "b568c2d6d559833863d3487d387d94cdd6e945ab674ba0b45949f1fa7aa2b8c3",
     "storeArtwork": {
-      "mark": "/images/store/halftone-1.10.1-20261114-mark.png",
-      "shareImage": "/images/store/halftone-1.10.1-20261114-banner-emery.png"
+      "mark": "/images/store/halftone-1.10.1-identity-20261114-mark.png",
+      "shareImage": "/images/store/halftone-1.10.1-identity-20261114-banner-emery.png"
     }
   },
   {
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     "setupGuide": "/docs/pebble/chmu-weather/",
     "helpGuide": "/docs/pebble/chmu-weather/#if-weather-is-missing",
     "developerNote": "The public plugin uses public ČHMÚ data and optional Open-Meteo fields. It has no watch binary. Personal builds are excluded.",
-    "image": "/images/store/chmu-weather-1.0.2-20261114-mark.png",
+    "image": "/images/store/chmu-weather-1.0.2-identity-20261114-mark.png",
     "imageVersion": "1.0.2",
     "previewType": "icon",
     "imageAlt": "Original XOCE ČHMÚ Weather cloud-and-sun mark; unofficial phone plugin.",
@@ -490,8 +490,8 @@ export const projects: Project[] = [
     "uuid": "00866104-6ce5-4ae3-952f-9800f437442c",
     "artifactSha256": "361bb5addbf68794ef17ccb24f3eb648a9e791fc43409734fdc547e56a7aca01",
     "storeArtwork": {
-      "mark": "/images/store/chmu-weather-1.0.2-20261114-mark.png",
-      "shareImage": "/images/store/chmu-weather-1.0.2-20261114-banner-phone.png"
+      "mark": "/images/store/chmu-weather-1.0.2-identity-20261114-mark.png",
+      "shareImage": "/images/store/chmu-weather-1.0.2-identity-20261114-banner-phone.png"
     }
   },
   {

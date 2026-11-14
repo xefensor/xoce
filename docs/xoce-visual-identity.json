@@ -1,32 +1,35 @@
 {
   "scope": "Current local XOCE website visual identity, separate from native app UI standards.",
-  "status": "Device-led product presentation implemented locally; verification is reported separately. Launch previews remain unpublished.",
+  "status": "Approved tactile homepage concept implemented locally across the website; verification reported separately. All publication gates remain.",
   "name": {
     "display": "XOCE",
     "expanded": "Xef’s Open Computing Ecosystem",
-    "treatment": "Plain text; no logo or graphical favicon"
+    "treatment": "Outlined Fira Sans Condensed ExtraBold XOCE wordmark, monochrome and theme-aware; matching blue X favicon."
   },
   "typography": {
-    "family": "Inter Variable",
-    "delivery": "Self-hosted, font-display swap",
-    "heading_face": "Same as body",
-    "legacy_assets": "Retained Space Grotesk files and licence are historical, not the current heading face"
+    "family": "Fira Sans",
+    "heading_face": "Fira Sans Condensed, Bold/ExtraBold",
+    "delivery": "Self-hosted Latin/Latin Extended WOFF exports, font-display swap",
+    "provenance": "public/fonts/xoce/provenance.json",
+    "licence": "SIL OFL 1.1",
+    "legacy_assets": "Inter and Space Grotesk are retained historical assets."
   },
   "palette": {
     "source": "src/styles/theme.css",
     "light": {
-      "background": "#f5f3ee",
-      "text": "#202d2b",
-      "supporting_text": "#52605c",
-      "accent": "#176b5b"
+      "background": "#e8edf0",
+      "text": "#172127",
+      "supporting_text": "#53616c",
+      "accent": "#006bb6"
     },
     "dark": {
-      "background": "#171b1c",
-      "text": "#edf1ed",
-      "supporting_text": "#b8c1bc",
-      "accent": "#8ad9bd"
+      "background": "#171d21",
+      "surface": "#252d33",
+      "text": "#f1f6fa",
+      "supporting_text": "#b3c0c9",
+      "accent": "#29afff"
     },
-    "treatment": "Warm neutral light and charcoal dark backgrounds, teal emphasis, open sections, fine dividers and quiet opaque preview surfaces. Documentation retains its reading surface."
+    "treatment": "Cool silver/graphite materials, fine edge highlights, contact shadows and blue interaction light. Product stages are shared graphite surfaces; documentation retains an opaque reading surface."
   },
   "material_roles": [
     "glass-navigation-surface",
@@ -35,12 +38,13 @@
     "glass-reading-surface"
   ],
   "corner_roles_px": {
-    "pane": 10,
-    "control": 6,
-    "small": 4
+    "pane": 14,
+    "control": 7,
+    "small": 4,
+    "homepage_stage": 26
   },
   "compositions": {
-    "home": "A short product introduction beside paired Dynamic/Time 2 and Halftone/Round 2 frames. Grouped browsing shows two watchfaces, three compact watch-app rows and one phone plugin, followed by an illustrated Timer-to-watchface example and setup/About paths.",
+    "home": "Compact introduction, direct app/setup actions and a single graphite stage with actual Time 2/Dynamic and Round 2/Halftone frames. Shared labelled lower rail. Material watchface tiles, watch-app rows and distinct phone plugin follow.",
     "catalogue": "Paired image-led watchface comparisons, compact watch-app rows beside their group introduction, and a separate Czech weather phone-plugin section. Six consumer products; libraries remain in the developer path.",
     "product": "Purpose, official device or plugin icon, compatibility and installation lead. A product-specific native capture or phone-settings preview illustrates features, followed by relevant connections, the full gallery and setup/support.",
     "about": "Compact two-column opening, project rationale grounded in replaceable apps and interface exploration, platform row and readable stage progression, with one understated Phone-plan paragraph and plain link.",
@@ -73,11 +77,11 @@
     "site_path": "public/images/materials/xoce-planes.svg",
     "source": "Original geometric vector artwork authored for the XOCE website.",
     "sha256": "c908a4d239e4ee9090510f63c21a428fb9df2bfa50d93bfecc65e7e13e8fd72e",
-    "motion": "None; static themed top-of-page mask, reduced on Docs."
+    "motion": "None; historical background planes are not rendered."
   },
   "interaction": {
     "appearance": "System, Light and Dark; explicit choices saved in the browser.",
-    "controls": "Flush controls, visible focus and brief hover/pressed feedback.",
+    "controls": "Immediate pressed states; fine-pointer controls can depress 1px. Touch controls remain stationary. Keyboard focus stays explicit.",
     "motion": "No idle, pointer-following or automatic showcase animation; reduced motion respected.",
     "transparency": "Opaque fallbacks for unsupported backdrop filtering and reduced transparency.",
     "focus": "Ordinary visits leave inputs unfocused; explicit Search focuses its field.",
@@ -85,59 +89,53 @@
   },
   "design_references": [
     {
-      "source": "https://www.gnome.org/",
-      "observation": "Concrete software and device presentation."
+      "source": "Local NativeGlassLab/DESIGN_BRIEF.md",
+      "observation": "Physical interaction, material hierarchy and immediate feedback; no perspective tilt."
     },
     {
-      "source": "https://kde.org/",
-      "observation": "Project identity and distinct software within a broader ecosystem."
+      "source": "https://xefensor.github.io/spatial-desktop/philosophy.html",
+      "observation": "Author’s task-based explanations and useful visible controls."
     },
     {
-      "source": "https://kdeconnect.kde.org/",
-      "observation": "Explain connections through recognizable outcomes such as sharing files and controlling music."
+      "source": "https://repebble.com/",
+      "observation": "Approachable devices and e-paper personality."
     },
     {
-      "source": "https://repebble.com/watch",
-      "observation": "Official Pebble hardware reference; frame image itself comes from the Pebble Appstore."
+      "source": "https://panic.com/transmit/",
+      "observation": "Distinct product personality and concrete presentation."
     },
     {
-      "source": "https://www.apple.com/mac/",
-      "observation": "Readable product presentation and direct action hierarchy."
-    },
-    {
-      "source": "https://fluent2.microsoft.design/material",
-      "observation": "Material density suited to the task."
+      "source": "https://teenage.engineering/products/op-1",
+      "observation": "Material and control discipline; reference only, no copied assets."
     }
   ],
   "historical_material_ancestry": "docs/spatial-material-reference.json",
   "preserved": [
-    "Plain-text XOCE and existing app icons",
-    "Software/Docs/About navigation with direct Docs article entry",
-    "Exact release links, licences and development status",
-    "Unchanged native screenshot pixels and provenance",
-    "Separate canonical Pebble UI standard",
-    "Third-party notices and retained historical evidence"
+    "Exact release links, licences and publication gates",
+    "Unmodified native screenshots and official device frame bytes",
+    "Software/Docs/About routes and keyboard/no-JavaScript use",
+    "Platform-specific app interfaces and historical assets"
   ],
-  "validation": "Final rebuild verification is recorded in docs/qa/VALIDATION.json after checks complete; retained historical reports describe their own source.",
+  "validation": "Current browser proof belongs in ignored build/qa/tactile-identity-20261114; historical reports retain their original scope.",
   "store_family": {
     "date": "2026-11-14",
-    "typography": "Inter, outlined in exported SVG artwork",
+    "typography": "Fira Sans / Fira Sans Condensed, outlined in SVG",
     "surfaces": [
-      "#f5f3ee",
-      "#202d2b",
-      "#172723"
+      "#e8edf0",
+      "#172127",
+      "#252d33"
     ],
-    "brandAccent": "#176b5b",
+    "brandAccent": "#006bb6",
     "productAccents": {
       "Dynamic": "#55aaff",
       "Halftone": "#ff8500",
-      "Timer": "#8ad9bd",
+      "Timer": "#55aaff",
       "Dashboard": "#79bce6",
       "Open Activity": "#b6a2ed",
       "ČHMÚ Weather": "#8bc6ef"
     },
     "nativeScreens": "Unmodified emulator captures; native apps and controls are unchanged.",
-    "wordmark": "Plain XOCE text; product symbols are not a new XOCE logo.",
-    "banners": "720×320 per native platform; Weather artwork is website-only."
+    "wordmark": "Outlined XOCE wordmark, same shape in website and banners.",
+    "banners": "720×320 per native platform, with unchanged native capture bytes and credited official frames. Weather banner remains website-only."
   }
 }

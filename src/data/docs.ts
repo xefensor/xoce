@@ -107,7 +107,7 @@ export const docs: DocLink[] = [
     title: 'Visual identity',
     href: '/docs/design/visual-identity/',
     section: 'Design',
-    description: 'The website’s plain-text name, colour roles, typography and available assets.',
+    description: 'The website’s tactile materials, outlined name, typography and product artwork.',
   },
   {
     title: 'UI patterns',

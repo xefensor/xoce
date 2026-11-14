@@ -49,6 +49,6 @@ Product previews use native emulator captures with example data. Some appear ins
 
 ČHMÚ Weather is independent of ČHMÚ, Open-Meteo and Core Devices. Weather data is attributed to **Český hydrometeorologický ústav (ČHMÚ)** and, when enabled, **Open-Meteo** under their applicable CC BY 4.0 terms. Its icon is original generic weather artwork, not the ČHMÚ logo. [Weather data and third-party notices](https://github.com/xefensor/pebble-chmu-weather/blob/v1.0.1/THIRD_PARTY.md) remain authoritative.
 
-The current website uses self-hosted **Inter** under the SIL Open Font License 1.1. Space Grotesk assets remain from an earlier website design. Both notices remain available: [Inter licence](/fonts/inter-LICENSE.txt) and [retained Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt).
+The current website uses self-hosted **Fira Sans and Fira Sans Condensed** under the [SIL Open Font License 1.1](/fonts/xoce/OFL.txt). [Pinned font sources and hashes](/fonts/xoce/provenance.json) identify the local exports. Previous font files and notices remain available: [Inter licence](/fonts/inter-LICENSE.txt) and [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt).
 
 The website’s own project-wide licence has not been selected. The individual project and third-party licences above remain unchanged.

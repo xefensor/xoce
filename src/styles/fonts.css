@@ -1,14 +1,6 @@
-@font-face {
-  font-family: 'Space Grotesk Variable';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url('@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Inter Variable';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('@fontsource-variable/inter/files/inter-latin-wght-normal.woff2') format('woff2');
-}
+/* Pinned Fira sources, Latin exports and OFL: public/fonts/xoce/provenance.json. */
+@font-face{font-family:'Fira Sans';font-style:normal;font-weight:400;font-display:swap;src:url('/xoce/fonts/xoce/FiraSans-Regular.woff') format('woff')}
+@font-face{font-family:'Fira Sans';font-style:normal;font-weight:500;font-display:swap;src:url('/xoce/fonts/xoce/FiraSans-Medium.woff') format('woff')}
+@font-face{font-family:'Fira Sans';font-style:normal;font-weight:600 900;font-display:swap;src:url('/xoce/fonts/xoce/FiraSans-SemiBold.woff') format('woff')}
+@font-face{font-family:'Fira Sans Condensed';font-style:normal;font-weight:700;font-display:swap;src:url('/xoce/fonts/xoce/FiraSansCondensed-Bold.woff') format('woff')}
+@font-face{font-family:'Fira Sans Condensed';font-style:normal;font-weight:800 900;font-display:swap;src:url('/xoce/fonts/xoce/FiraSansCondensed-ExtraBold.woff') format('woff')}

@@ -9,7 +9,7 @@ A launch candidate is not a published release. `publication: 'preview'` records 
 ## Page jobs and interaction
 
 - Home leads with Pebble products, names both featured watchfaces within the first mobile screen and shows both watch shapes. The wider Android/KDE direction belongs mainly in About.
-- Keep Software/Docs/About navigation, the plain XOCE wordmark, teal, Inter and semantic light/dark colours. Use open sections, quiet preview surfaces and fine dividers. Documentation can retain a stronger reading surface.
+- Keep Software/Docs/About navigation, the outlined XOCE wordmark, self-hosted Fira Sans/Condensed, cool silver/graphite surfaces and blue interaction colour. Use restrained material depth and clear product presentations. Documentation keeps a quiet reading surface.
 - Group the catalogue into two watchfaces, three watch apps and one phone plugin. Libraries and planned products do not appear as consumer app cards. Activities 0.4.4 and Core 0.5.2 remain the pinned public library packages; consuming app repositories own their newer vendored versions.
 - Product pages lead with purpose, native previews, compatibility and installation. Store is the primary action for verified published versions; the matching GitHub PBW is secondary. Configuration help, support and privacy remain directly reachable for people who already installed from the Store.
 - The device-led presentation is for people new to XOCE. Home and Software group paired watchfaces, compact watch-app rows and a distinct phone-plugin section. Product pages follow purpose/device preview, illustrated features, relevant connections, full gallery and setup/support. Home illustrates the Timer-to-watchface example after product browsing; detailed setup stays in the guides.
@@ -51,6 +51,12 @@ Project downloads retain their licences, including PolyForm Noncommercial. Do no
 
 ## Store update — 2026-11-14
 
-The six current PBWs are bound to the Store update manifest and reviewed-artifact hashes. Dynamic includes the adaptive reading layouts and category-based phone settings; Timer includes independent Time 2 alarm sound. Marketing uses the coordinated XOCE family: original product marks and per-platform 720×320 banners, with Inter outlines and unmodified native captures. This does not change native app UI or the plain XOCE wordmark. Product marks are visible in the catalogue and product headers; banners supply product social images. Weather remains a phone-only plugin.
+The six current PBWs are bound to the Store update manifest and reviewed-artifact hashes. Dynamic includes the adaptive reading layouts and category-based phone settings; Timer includes independent Time 2 alarm sound. Marketing uses the coordinated XOCE family: original product marks and per-platform 720×320 banners. The approved tactile revision uses Fira outlines, unmodified native captures and credited official device frames. This does not change native app UI. Product marks are visible in the catalogue and product headers; banners supply product social images. Weather remains a phone-only plugin.
 
 New versioned website assets are appended alongside historical images. Source/runtime commits and current PBW identities remain separate from any public release claim. Existing preview and deployment gates remain authoritative.
+
+## Approved tactile identity — 2026-11-14
+
+Xef approved the single homepage concept before implementation. The real site uses cool silver in light mode, graphite in dark mode, blue actions, an outlined condensed XOCE wordmark and a matching X favicon. Header/controls and product stages have restrained edge highlights and contact shadows; reading text stays flat. The shared homepage stage shows Dynamic’s four-reading split layout and Halftone’s two-location scene, with both product names in the first mobile screen. No generated mockup is used as production UI.
+
+`src/styles/theme.css` owns the material/colour roles; `src/styles/identity.css` owns the approved website presentation. Fira sources are pinned and hashed in `public/fonts/xoce/provenance.json`; local Latin WOFF exports include Czech characters and the OFL. Existing Inter/Space Grotesk and historic image files remain available. The new artwork review is `Watch/XOCE-Identity-2026-11-14/`; older review ZIPs are unchanged. App runtime code, PBWs, publication state and launch gates remain separate.

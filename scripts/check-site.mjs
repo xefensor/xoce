@@ -276,6 +276,11 @@ for (const project of catalogueProducts) {
   if (!artifact || artifact.version!==project.version || artifact.uuid.toLowerCase()!==project.uuid?.toLowerCase() || artifact.sha256!==project.artifactSha256 || JSON.stringify(artifact.watchPlatforms)!==JSON.stringify([...(project.watchPlatforms??[])].sort())) problems.push(project.name+': website differs from the inspected PBW');
 }
 const provenance = JSON.parse(fs.readFileSync(path.join(root, 'docs/asset-provenance.json'), 'utf8'));
+const fonts=JSON.parse(fs.readFileSync(path.join(root,'public/fonts/xoce/provenance.json'),'utf8'));
+for(const font of fonts.exports){
+  const file=path.join(root,'public/fonts/xoce',font.file),built=path.join(dist,'fonts/xoce',font.file);
+  if(!fs.existsSync(file)||!fs.existsSync(built)||fs.readFileSync(file).toString('ascii',0,4)!=='wOFF'||createHash('sha256').update(fs.readFileSync(file)).digest('hex')!==font.sha256||createHash('sha256').update(fs.readFileSync(built)).digest('hex')!==font.sha256) problems.push('Pinned self-hosted font differs: '+font.file);
+}
 for (const entry of [provenance.device_presentation, ...(provenance.additional_device_presentations ?? []), ...provenance.images]) {
   const filename = path.join(root, 'public', entry.site_path);
   if (!fs.existsSync(filename)) { problems.push('Missing native capture ' + entry.site_path); continue; }

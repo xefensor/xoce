@@ -1,94 +1,53 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Visual identity
-description: The website’s typography, quiet surfaces, native device previews and content hierarchy.
+description: XOCE’s tactile website identity, materials, typography and native device presentation.
 section: Design
 order: 2
 ---
 
-This guide describes the XOCE website: deep teal, warm white and charcoal, self-hosted Inter, and layered glass with modest corners. The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) owns the watch and phone-settings design separately. The website does not set an Android app palette or final Phone identity.
+XOCE’s website uses cool silver and graphite, blue controls, strong condensed headings and restrained physical depth. Xef approved the homepage concept before it was extended across the site and Store artwork. The identity draws on the actual Pebble apps and Xef’s desktop and Android material experiments.
 
-<span id="name-and-website-mark"></span>
+The [Pebble UI and UX standard](/docs/design/pebble-ui-system/) owns native watch and phone-settings design. These website materials do not replace the apps’ interfaces.
 
-## Project name
+## Colour and material
 
-**XOCE** means **Xef’s Open Computing Ecosystem**. Header and footer use the plain-text name. There is no logo or custom graphical favicon. The individual Pebble apps keep their icons.
+Use semantic roles from `src/styles/theme.css`. Light mode has cool silver backgrounds and near-white working surfaces; dark mode uses graphite. Blue identifies actions, links and focus. Colour is accompanied by labels, shapes or visible state.
 
-Phone remains a working product name. A plan does not establish a finished app icon or visual identity. Asset and source terms are listed in [licensing and source](/docs/project/licensing/).
+The page, working surfaces and controls have distinct roles. Fine edge highlights and contact shadows show the grouping of a header, control or product presentation. Reading areas remain opaque and calm. Text stays sharp and flat, with readable supporting text in both themes.
 
-## Colours by role
+Product stages use a shared graphite surface, keeping the actual native screen the focus. Smaller controls belong to their parent surface. Avoid adding a separate floating panel around every line of text.
 
-Use semantic roles from `src/styles/theme.css`. Light pages use warm-white surfaces and teal actions; dark pages use charcoal and lighter teal. Supporting text stays readable against the surface beneath it.
+## Typography and the name
 
-| Role | CSS property | Use |
-| --- | --- | --- |
-| Background | `--bg` | The page behind its content |
-| Opaque surface | `--paper` | Content and fallbacks that need an opaque base |
-| Main text | `--ink` | Titles, values and reading text |
-| Supporting text | `--muted` | Captions and secondary explanations |
-| Dividers | `--line` | Grouping and boundaries |
-| Filled action | `--accent` | Primary controls |
-| Accent text | `--accent-text` | Links and selected emphasis |
-| Text on an accent | `--accent-ink` | Labels inside filled controls |
-| Focus | `--focus` | Visible keyboard focus |
+**Fira Sans** is the reading and control face. **Fira Sans Condensed Bold/ExtraBold** supplies headings. Body text remains comfortable at mobile sizes; documentation has one bounded reading column.
 
-Use `--accent-text` for coloured words, rather than assuming the fill colour is suitable for text. State and selection also need labels, shapes or icons.
+The **XOCE** wordmark uses outlined Fira Sans Condensed ExtraBold letters. It follows the foreground colour and remains readable in monochrome. The X favicon uses the same letter shape on blue. The name expands to **Xef’s Open Computing Ecosystem**.
 
-The existing app accents use `--product-dynamic`, `--product-dashboard`, `--product-timer` and `--product-open-activity`. These are website roles; native screenshots retain their own colours. Exact values live in the stylesheet, so this guide does not maintain a second palette.
+Fonts are self-hosted Latin/Latin Extended WOFF exports, including Czech characters, with `font-display: swap`. The [font provenance](/fonts/xoce/provenance.json) records pinned upstream sources and hashes; the [SIL OFL licence](/fonts/xoce/OFL.txt) accompanies them. Previous Inter and Space Grotesk files and licences remain available as historical assets.
 
-## Typography
+## Pages and controls
 
-**Inter** is used for headings, reading text, navigation and the plain-text name. It is self-hosted with a system sans-serif fallback and `font-display: swap`.
+Home introduces the actual Pebble apps with a shared watch stage and direct app/setup actions. Dynamic’s four-reading split layout and Halftone’s two-location layout show their different character. Watchface tiles, watch-app rows and a separate phone weather plugin make browsing clear.
 
-Use readable body text, a clear heading hierarchy and short contextual labels. Promotional headings can be larger than guide headings. Let text wrap with the available space; avoid giving every title the same forced line breaks.
+Product pages retain compatibility and installation state beside the preview. About explains the wider KDE Plasma and Android direction accurately. Docs opens the Getting started article and keeps support, setup and developer guidance directly reachable.
 
-Documentation uses one bounded reading column for headings and paragraphs. Wide code and tables may scroll within that column without making the whole page overflow. Navigation, contents and pagination support the article.
+Desktop controls can depress slightly while pressed. Touch controls stay stationary and respond through colour and light. Feedback is immediate and brief. Ordinary visits do not move keyboard focus; opening Search explicitly focuses its field.
 
-Font inputs are recorded in `src/styles/fonts.css`. The [Inter licence](/fonts/inter-LICENSE.txt) and retained [Space Grotesk licence](/fonts/space-grotesk-LICENSE.txt) remain available. Space Grotesk belongs to earlier website styling and is not the current heading face.
+System, Light and Dark remain available. An explicit appearance choice persists across navigation. Reduced motion, reduced transparency and forced colours receive usable fallbacks. Navigation, documentation and watch-shape selection work without JavaScript.
 
-## Surfaces, spacing and controls
+## Product artwork and images
 
-The Store-launch design uses open sections, quiet solid preview surfaces and fine dividers. Layered reading surfaces remain useful for documentation; browsing pages do not need a glass panel around every block.
+Product symbols remain recognizable: Timer’s hourglass, Dashboard’s panels, Open Activity’s opening arrow and Weather’s sun/cloud/rain. A subtle material edge connects them to the website. Watchface marks are website artwork rather than Store icon fields.
 
-| Surface | CSS role | Purpose |
-| --- | --- | --- |
-| Navigation | `--glass-navigation-surface` | Header and navigation controls |
-| Showcase | `--glass-feature-surface` | Device and software presentations |
-| Regular content | `--glass-surface` | Browsing and supporting information |
-| Reading | `--glass-reading-surface` | Stronger frost behind longer articles |
+Store banners have a large product visual, a readable name and one short benefit. The full native screen stays visible inside a front-on device frame; straps can be cropped within the marketing composition. Standalone Store screenshots remain raw and unframed.
 
-Corners use `--radius-pane` (10px), `--radius-control` (6px) and `--radius-small` (4px). Use spacing and fine dividers inside a surface. Keep controls flush, with clear focus and brief hover or pressed feedback.
+Native screenshot files and the official Time 2/Round 2 frame files retain their exact bytes and proportions. Frames are credited to Core Devices, with their source and licence status retained in the asset provenance. A composite of an emulator capture and a frame is not a physical-watch photograph or a hardware test.
 
-The website’s panels have no plastic rims or recessed reading wells. The official Pebble device frame provides physical context for a watch preview; it is separate from the styling of website controls.
+New artwork uses new website filenames and provenance records. Historical images and the earlier review bundles stay unchanged. The original generated homepage concept is a design reference; the implemented site is responsive HTML/CSS using actual project assets.
 
-Home leads with Pebble products, names both featured watchfaces within the first mobile screen and shows Time 2 and Round 2 together. About owns the wider Android/KDE direction. Product pages let a reader choose either watch shape with native radio controls; nothing automatically cycles.
+## Maintaining the identity
 
-Software opens the catalogue directly. Product pages explain a product and put compatibility beside the download. About owns the project’s scope and stages. Docs opens the actual Getting started article, with Guides, Developers and Design in its reading navigation. There is no extra documentation portal or Lab.
+`src/styles/theme.css` owns colours and material roles; `src/styles/identity.css` owns the approved presentation. Shared components provide navigation, the outlined wordmark and native previews. Documentation’s reading layout remains in `src/styles/guide.css`.
 
-On smaller screens, documentation navigation and contents use native collapsible disclosures. The article remains near the start of the page, and guide navigation works without JavaScript. Routine visits leave keyboard focus alone; explicitly opening Search focuses its search field.
-
-## Appearance and motion
-
-System, Light and Dark are available. An explicit choice is saved in the browser; System follows the operating system.
-
-Decorative background planes are not shown on the launch pages. There is no idle animation, pointer-following effect or automatically advancing showcase. A person chooses which app preview to see. Motion stays brief and optional, and the website respects reduced motion.
-
-Opaque fallbacks keep content readable when backdrop filtering is unavailable or reduced transparency is requested. Important information and actions remain visible in either theme.
-
-## Screenshots and assets
-
-Use actual project captures with useful alt text. Keep the native screenshot files unchanged and preserve their 200 × 228 Time 2 or circular 260 × 260 Round 2 screen proportions.
-
-Home and product pages use the official Pebble Appstore frames for [Time 2](https://apps.repebble.com/images/screenshot_slider_background_emery_v2.png) and [Round 2](https://apps.repebble.com/images/screenshot_slider_background_gabbro.png), credited to Core Devices. Both transparent frame images are unchanged. Native captures fit inside the matching aperture without stretching; matte black fills the unused part of the taller Time 2 aperture. A caption identifies the composite as an emulator preview. It does not imply a photograph of the running app or physical-watch verification.
-
-Direct screen views remain useful for close reading in documentation and compact catalogue previews. No fake phone or desktop app interface is needed to illustrate planned work.
-
-Dashboard’s image is a 0.4.1 emulator capture reused for the unchanged native layout in 0.4.3. Native image origins, source versions and hashes stay in `docs/asset-provenance.json`. Do not relabel an older capture when a release changes.
-
-The offset-plane artwork is authored for XOCE and recorded in `docs/xoce-visual-identity.json`. The older silk artwork remains a historical asset and is not rendered. It is credited to Spatial Desktop and Alexej Tušl (xefensor) under [CC BY-SA 4.0](/licenses/spatial-desktop-artwork-CC-BY-SA-4.0.txt). Adapted material code retains its [GPL 3 terms](/licenses/spatial-desktop-materials-GPL-3.0.txt), recorded in `docs/spatial-material-reference.json`. Those terms do not replace each app’s own licence.
-
-## Maintaining this reference
-
-`src/styles/theme.css` owns colour and material roles. `src/styles/global.css` owns common layout and controls; `src/styles/guide.css` owns the reading layout. Page and component styles handle their specific compositions.
-
-Keep this guide aligned with the implementation. For native app behaviour, use [UI patterns](/docs/design/ui-patterns/), [UX and interaction](/docs/design/interaction/) and the [Pebble standard](/docs/design/pebble-ui-system/). Versioned API contracts remain with the libraries that own them.
+Existing app licences and third-party credits remain authoritative. The earlier Spatial Desktop material ancestry and retained artwork are documented separately; this identity does not grant a new licence to app screenshots or official device frames.

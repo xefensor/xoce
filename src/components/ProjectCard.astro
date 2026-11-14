@@ -10,7 +10,7 @@ const plugin=project.kind==='plugin';
 const platform=project.slug==='halftone'?'gabbro':'emery';
 const preview=project.previews?.[platform];
 ---
-<article class="launch-card" data-project-card data-project-kind={project.kind} data-project-platform={project.platform} data-project-availability={project.availability} data-project-downloadable={project.publication==='published'&&project.download?'true':'false'}>
+<article class="launch-card" data-product={project.slug} data-project-card data-project-kind={project.kind} data-project-platform={project.platform} data-project-availability={project.availability} data-project-downloadable={project.publication==='published'&&project.download?'true':'false'}>
   <a class="card-picture" href={sitePath(`/projects/${project.slug}/`)} aria-label={`Explore ${project.name}`}>
     {preview ? <WatchPreview image={preview.image} alt={preview.alt} platform={platform} framed={false} compact/> : project.image && <img class="plugin-icon" src={sitePath(project.image)} width="144" height="144" alt={project.imageAlt} loading="lazy"/>}
   </a>

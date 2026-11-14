@@ -1,0 +1,79 @@
+/* Shared tactile website presentation, based on Xef's approved homepage concept. */
+body::before,body::after{display:none}
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:700;letter-spacing:-.025em}
+.wrap{width:min(1320px,calc(100% - 64px))}
+.site-header{width:min(1320px,calc(100% - 40px));margin:12px auto 0;top:10px;border:1px solid var(--glass-edge);border-radius:16px;background:var(--glass-navigation-surface);box-shadow:var(--glass-shadow);backdrop-filter:none;-webkit-backdrop-filter:none}
+.header-inner{width:auto;margin-inline:28px;height:68px;gap:40px}
+.brand-wordmark{display:block;width:120px;line-height:0}.brand-wordmark svg{display:block;width:100%;height:auto}
+.brand{padding-right:30px;border-right:1px solid var(--line)}
+[data-site-nav]{gap:32px}[data-site-nav]>a{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--ink)}
+.header-actions{gap:12px}
+.search-trigger,.theme-control,.menu-toggle{border:1px solid var(--glass-edge-soft);border-radius:var(--radius-control);background:var(--glass-face);box-shadow:var(--control-shadow)}
+.search-trigger{padding:0 12px;color:var(--ink)}.theme-control{padding:0 8px}.theme-control select{font-size:.82rem}
+.launch-banner{width:min(1320px,calc(100% - 40px));margin:16px auto 0;border:1px solid color-mix(in srgb,var(--accent) 25%,var(--glass-edge));border-radius:9px;background:color-mix(in srgb,var(--accent) 12%,var(--paper));box-shadow:var(--control-shadow);padding:8px 16px;color:var(--muted)}
+.launch-banner p.wrap{width:100%;margin:0;align-items:center}.launch-banner strong{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1rem}
+.launch-banner strong::before{content:'';width:7px;height:20px;border-radius:2px;background:var(--accent);box-shadow:inset 0 1px #ffffff80}
+.button{font-weight:500;border-color:var(--glass-edge-soft);background:var(--glass-face);box-shadow:var(--control-shadow);transition:background-color 90ms,box-shadow 90ms}
+.button-primary{background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 90%,#fff),var(--accent));border-color:color-mix(in srgb,var(--accent) 90%,var(--ink));color:var(--accent-ink);box-shadow:inset 0 1px #ffffff60,0 2px 3px #17212730}
+.button-primary:hover{background:var(--accent)}.button:active,.search-trigger:active,.icon-button:active{box-shadow:inset 0 1px 3px #00000030;background:var(--glass-down)}
+.button-primary:active{background:var(--accent);color:var(--accent-ink)}
+.text-link{color:var(--accent-text);font-weight:500}
+.eyebrow{font-weight:500}
+.launch-home{padding-top:28px}
+.launch-hero{grid-template-columns:.8fr 1.2fr;gap:36px;padding:0 0 40px}
+.hero-copy .eyebrow{text-transform:uppercase;color:var(--ink);font-family:var(--font-display);font-size:1rem;font-weight:700;letter-spacing:.045em}
+.hero-copy h1{font-family:var(--font-display);font-weight:800;font-size:clamp(3rem,5.5vw,5.2rem);letter-spacing:-.025em;line-height:1.02;margin-top:20px}
+.hero-description{font-size:1.25rem;line-height:1.5;color:var(--ink);margin-top:22px;max-width:31ch}
+.hero-copy .button-row{gap:12px 22px;margin-top:30px}.hero-copy .button{font-size:1rem;padding:12px 18px;min-height:50px}.hero-copy .text-link{font-size:1rem}
+.hero-compatibility{font-size:.9rem;color:var(--muted);margin-top:24px}
+.hero-showcase{min-width:0}
+.hero-pair{position:relative;gap:0;align-items:end;background:linear-gradient(150deg,#343f47,#1c252c 65%,#26323a);border:1px solid #6a7882;border-radius:26px;padding:18px 20px 14px;box-shadow:var(--stage-shadow);overflow:hidden}
+.hero-pair::before{position:absolute;inset:1px;content:'';border:1px solid #ffffff0b;border-radius:24px;pointer-events:none}
+.hero-watch{background:none;border-radius:0;padding:0;display:flex;flex-direction:column;align-items:center}
+.hero-watch .watch-preview{--watch-width:245px;max-width:100%;padding-bottom:10px;position:relative;z-index:1}
+.hero-watch.hero-round .watch-preview{--watch-width:245px;width:min(calc(var(--watch-width) * 502 / 488),100%);padding-top:12px;padding-bottom:0}
+.hero-watch>a{position:relative;width:100%;margin:0;padding:10px 8px 9px;min-height:65px;display:flex;align-items:center;justify-content:center;gap:0;color:#f1f6fa;background:linear-gradient(#ffffff09,#ffffff01);border-block:1px solid #758691;border-left:1px solid #758691;border-radius:18px 0 0 18px;box-shadow:0 3px 4px #00000050;text-decoration:none;z-index:2}
+.hero-watch.hero-round>a{border-left-color:#526571;border-right:1px solid #758691;border-radius:0 18px 18px 0}
+.hero-watch>a strong{font:700 1.3rem/1.1 var(--font-display)}.hero-watch>a span{font-size:.85rem;color:#c0cdd5;margin-top:4px}.hero-watch>a:hover{background:#ffffff10}.hero-watch>a:focus-visible{outline-color:#64c5ff}
+.hero-evidence{margin-top:12px;font-size:.75rem;line-height:1.5;color:var(--muted)}
+.catalogue-group{padding:34px 0 40px}.catalogue-group>header h2{font-size:clamp(2rem,3.6vw,3rem);margin-top:4px}
+.collection-watchface .launch-card{display:grid;grid-template-columns:155px minmax(0,1fr);gap:22px;align-items:center;background:var(--glass-surface);border:1px solid var(--glass-edge);border-radius:var(--radius-pane);box-shadow:var(--glass-shadow);padding:20px;overflow:hidden}
+.collection-watchface .card-picture{position:relative;min-height:170px;padding:0;background:none;border-radius:0;border-right:1px solid var(--line);padding-right:20px}
+.collection-watchface .card-picture .watch-preview{width:140px}.collection-watchface .card-picture .round-preview{width:150px}
+.collection-watchface .card-copy{padding:0}.collection-watchface .card-copy h3{font-size:2rem;margin-top:0}
+.collection-watchface .card-copy>.eyebrow,.collection-watchface .product-family-mark{display:none}
+.collection-watchface .card-copy>p:not(.eyebrow){font-size:.9rem}.collection-watchface .card-copy .text-link{margin-top:5px}
+.collection-watchface [data-product='halftone'] .card-picture{background-image:radial-gradient(var(--line) .7px,transparent .8px);background-size:5px 5px}
+.collection-app .launch-card,.collection-plugin .launch-card{padding:20px;background:var(--glass-surface);border:1px solid var(--glass-edge);border-radius:var(--radius-pane);box-shadow:var(--glass-shadow)}
+.collection-app .card-picture,.collection-plugin .card-picture{background:var(--glass-field);box-shadow:inset 0 1px 3px #00000018;border:1px solid var(--line);border-radius:9px}
+.collection-jump a{padding:8px 13px;min-height:44px;border-radius:var(--radius-control);border:1px solid var(--glass-edge);background:var(--glass-face);box-shadow:var(--control-shadow);text-decoration:none}
+.launch-product-preview{background:linear-gradient(150deg,#343f47,#1c252c 65%,#26323a);border:1px solid #6a7882;box-shadow:var(--stage-shadow);border-radius:24px;color:var(--stage-ink)}
+.launch-product-preview :is(figcaption,.preview-caption){color:var(--stage-muted)}
+.launch-product-preview .shape-choices{border-color:#758691;box-shadow:inset 0 1px #ffffff20}
+.launch-product-preview .shape-choices label{color:var(--stage-ink)}
+.launch-product-preview .shape-radio:checked~.shape-choices label{color:var(--stage-ink)}
+.launch-product-preview .shape-radio[value='emery']:checked~.shape-choices label:first-child,.launch-product-preview .shape-radio[value='gabbro']:checked~.shape-choices label:last-child{background:#354c5d;color:#9bd8ff}
+.launch-product-copy h1{font-family:var(--font-display);font-weight:800;line-height:1.05;letter-spacing:-.02em}
+.story-visual,.activity-example>li,.connection-next{border:1px solid var(--glass-edge);background:var(--glass-feature-surface);box-shadow:var(--glass-shadow)}
+.story-visual img,.capture-stage img{position:relative}
+.launch-product .launch-screenshot-grid .capture-stage{background:var(--glass-field);border:1px solid var(--line);box-shadow:inset 0 1px 3px #00000018}
+.product-next nav a,.product-related a{border-radius:var(--radius-control);padding-inline:12px}
+.product-next nav a:hover,.product-related a:hover{background:var(--glass-hover)}
+.search-dialog{background:var(--paper);box-shadow:var(--glass-shadow),0 20px 80px #00000040;backdrop-filter:none}
+.guide-shell .reading-surface{background:var(--paper);box-shadow:0 1px 3px #17212715;backdrop-filter:none;-webkit-backdrop-filter:none}
+.guide-shell .doc-heading h1,.guide-shell .prose :is(h2,h3,h4){font-family:var(--font-display);font-weight:700;letter-spacing:-.015em}
+.site-footer .brand-name{font-family:var(--font-display);font-size:2rem;font-weight:800}
+.footer-brand{border:0;padding:0}.footer-brand .brand-wordmark{width:92px}
+@media(hover:hover) and (pointer:fine){.button:active,.search-trigger:active,.icon-button:active{transform:translateY(1px)}}
+@media(max-width:1100px){.header-inner{gap:25px;margin-inline:20px}.brand{padding-right:20px}.brand-wordmark{width:105px}[data-site-nav]{gap:22px}.search-trigger kbd{display:none}.launch-hero{gap:25px;grid-template-columns:.9fr 1.1fr}.hero-watch .watch-preview{--watch-width:205px}.hero-watch.hero-round .watch-preview{--watch-width:205px}.collection-watchface .launch-card{grid-template-columns:120px minmax(0,1fr);gap:16px;padding:16px}.collection-watchface .card-picture{padding-right:16px}.collection-watchface .card-copy h3{font-size:1.8rem}}
+@media(max-width:700px){
+ .wrap{width:calc(100% - 32px)}.site-header{width:calc(100% - 24px);margin-top:10px;top:8px;border-radius:12px}.header-inner{height:56px;margin-inline:14px;gap:10px}.brand{padding-right:0;border:0}.brand-wordmark{width:84px}.header-actions{gap:8px}.search-trigger{width:40px;min-height:40px;padding:0;justify-content:center}.search-trigger span{display:none}.theme-control{padding:0 5px;box-shadow:none;background:transparent;border:0}.theme-control>svg{display:none}.theme-control select{min-height:40px;font-size:.75rem;width:64px}.menu-toggle{width:40px;height:40px}
+ [data-site-nav]{background:var(--glass-navigation-surface);border:1px solid var(--glass-edge);border-radius:10px;box-shadow:var(--glass-shadow)}[data-site-nav]>a{font-size:1.15rem}
+ .launch-banner{width:calc(100% - 24px);margin-top:12px;padding:7px 12px;font-size:.68rem}.launch-banner strong{font-size:.88rem}.launch-banner strong::before{height:16px}.launch-banner p{gap:0 10px}
+ .launch-home{padding-top:22px}.launch-hero{grid-template-columns:1fr;gap:22px;padding-bottom:25px}.hero-copy .eyebrow{font-size:.8rem}.hero-copy h1{font-size:2.75rem;margin-top:12px;line-height:1.01}.hero-copy h1 br{display:none}.hero-description{font-size:1rem;line-height:1.45;margin-top:14px}.hero-description br{display:none}.hero-copy .button-row{margin-top:17px;gap:10px 20px}.hero-copy .button{min-height:44px;font-size:.9rem;padding:9px 14px}.hero-copy .text-link{font-size:.9rem}.hero-compatibility{font-size:.77rem;margin-top:12px}
+ .hero-pair{padding:10px 10px 9px;border-radius:20px}.hero-watch .watch-preview{--watch-width:145px;padding-bottom:5px}.hero-watch.hero-round .watch-preview{--watch-width:145px;padding-top:4px}.hero-watch>a{min-height:49px;padding:6px;border-radius:12px 0 0 12px}.hero-watch.hero-round>a{border-radius:0 12px 12px 0}.hero-watch>a strong{font-size:1.05rem}.hero-watch>a span{font-size:.7rem;margin-top:2px}.hero-evidence{font-size:.65rem;margin-top:8px}
+ .catalogue-group{padding:25px 0}.catalogue-group>header{margin-bottom:18px}.catalogue-group>header h2{font-size:2rem}.catalogue-group>header p:not(.eyebrow){font-size:.9rem}.collection-watchface .catalogue-grid{grid-template-columns:1fr;gap:14px}.collection-watchface .launch-card{display:grid;grid-template-columns:105px minmax(0,1fr);gap:16px;padding:16px}.collection-watchface .card-picture{min-height:145px;padding-right:12px}.collection-watchface .card-picture .watch-preview{width:95px}.collection-watchface .card-picture .round-preview{width:105px}.collection-watchface .card-copy{padding:0}.collection-watchface .card-copy h3{font-size:1.65rem}.collection-watchface .card-copy>p:not(.eyebrow){font-size:.83rem}.collection-app .launch-card,.collection-plugin .launch-card{padding:15px}.launch-product-preview{padding:18px 12px;border-radius:20px}.launch-product-copy h1{font-size:3rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}.button:active,.search-trigger:active,.icon-button:active{transform:none}}
+@media(prefers-reduced-transparency:reduce){.site-header,.story-visual,.connection-next,.activity-example>li{background:var(--glass-fallback);backdrop-filter:none;-webkit-backdrop-filter:none}}
+@media(forced-colors:active){.hero-pair,.launch-product-preview,.launch-card,.button,.site-header{background:Canvas;color:CanvasText;border:1px solid CanvasText;box-shadow:none}.hero-watch>a,.hero-watch>a span{color:LinkText;background:Canvas}.hero-copy .button{forced-color-adjust:auto}}
