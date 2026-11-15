@@ -27,7 +27,7 @@ export const docs: DocLink[] = [
     href: '/docs/pebble/setup/',
     section: 'For users',
     platform: 'PebbleOS',
-    description: 'Install from Pebble Store or a verified PBW, configure activities and set Quick Launch shortcuts.',
+    description: 'Install from Pebble Store, follow the illustrated Timer setup and add readings or Quick Launch shortcuts.',
   },
   {
     title: 'Activities: a timer on your watchface',

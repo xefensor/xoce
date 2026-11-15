@@ -10,19 +10,19 @@ const connections: Record<string, { title: string; text: string; detail: string;
     title: 'Leave Timer. Keep the countdown.',
     text: 'Start a countdown in Timer and return to Dynamic. Its remaining time can appear beneath your clock as an activity: an ongoing update from a compatible app.',
     detail: 'Timer still runs the countdown and handles the alarm. Open Timer to pause or resume it. Open Activity can add an optional button shortcut back.',
-    links: ['timer', 'open-activity'], guide: '/docs/pebble/activities/', label: 'Try a countdown on Dynamic',
+    links: ['timer', 'open-activity'], guide: '/docs/pebble/setup/#illustrated-first-setup', label: 'Try a countdown on Dynamic',
   },
   halftone: {
     title: 'Your countdown, beside your clock.',
     text: 'Start a countdown in Timer, then return to Halftone. An activity keeps the time remaining in view below your readings, with room for a second, smaller update.',
     detail: 'Timer still runs the countdown and handles the alarm. Open Timer to change it, or add Open Activity as an optional shortcut back.',
-    links: ['timer', 'open-activity'], guide: '/docs/pebble/activities/', label: 'Try a countdown on Halftone',
+    links: ['timer', 'open-activity'], guide: '/docs/pebble/setup/#illustrated-first-setup', label: 'Try a countdown on Halftone',
   },
   timer: {
     title: 'Take your countdown to your clock.',
     text: 'Add Dynamic or Halftone to see the time remaining after you leave Timer. This shared update is called an activity. Dashboard can also show it in its overview.',
     detail: 'Sharing is optional. Timer keeps its countdown and successfully scheduled alarm on the watch, even without a connected phone.',
-    links: ['dynamic', 'halftone', 'dashboard'], guide: '/docs/pebble/activities/', label: 'Show Timer on a watchface',
+    links: ['dynamic', 'halftone', 'dashboard'], guide: '/docs/pebble/setup/#illustrated-first-setup', label: 'Show Timer on a watchface',
   },
   dashboard: {
     title: 'A different view of the same countdown.',
@@ -63,5 +63,5 @@ const examples = [
     <div class="activity-example-copy"><span aria-hidden="true">0{index + 1}</span><div><h3><a href={sitePath(`/projects/${example.slug}/`)}>{example.title}</a></h3><p>{example.text}</p></div></div>
     <figure><img src={sitePath(example.capture.image)} width={example.capture.width} height={example.capture.height} alt={example.capture.alt} loading="lazy" decoding="async"/><figcaption>v{example.capture.version} · Round 2 native emulator<br/>Separate example captures</figcaption></figure>
   </li>)}</ol>
-  <div class="activity-example-notes"><div><p><strong>Timer still runs the countdown and handles the alarm.</strong> Shared updates need plugin support, source permissions and a connected phone. Music and notification integration needs Android.</p><a class="text-link" href={sitePath('/docs/pebble/activities/#try-a-timer-on-your-watchface')}>Try it step by step<Icon name="arrow" size={16}/></a></div><div><p>Want a shortcut back? <a href={sitePath('/projects/open-activity/')}>Open Activity</a> can open Timer from a configured Quick Launch shortcut. Add it when you need it.</p><a class="text-link" href={sitePath('/docs/pebble/activities/')}>How Activities work<Icon name="arrow" size={16}/></a></div></div>
+  <div class="activity-example-notes"><div><p><strong>Timer still runs the countdown and handles the alarm.</strong> Shared updates need plugin support, source permissions and a connected phone. Music and notification integration needs Android.</p><a class="text-link" href={sitePath('/docs/pebble/setup/#illustrated-first-setup')}>Try it step by step<Icon name="arrow" size={16}/></a></div><div><p>Want a shortcut back? <a href={sitePath('/projects/open-activity/')}>Open Activity</a> can open Timer from a configured Quick Launch shortcut. Add it when you need it.</p><a class="text-link" href={sitePath('/docs/pebble/activities/')}>How Activities work<Icon name="arrow" size={16}/></a></div></div>
 </section>}

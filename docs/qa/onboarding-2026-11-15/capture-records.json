@@ -1,0 +1,110 @@
+{
+  "scope": "CUA screen capture evidence, simulated bridge only",
+  "captures": [
+    {
+      "id": "dynamic-1.0.2-activity-setup-20261115",
+      "site_path": "/images/setup/dynamic-1.0.2-activity-setup-20261115.jpg",
+      "capture_version": "1.0.2",
+      "represented_release": "1.0.2",
+      "source_pbw_sha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "sourceCommit": "2254f08ac3a574df11ccb23ea6e3337e53bbe3b2",
+      "production_settings_sha256": "ba2c5962fc180419b144ef368580390054b95b746d558bd13481129dc163a0c3",
+      "capture_fixture_sha256": "3fc49dfb193738fa11eae84036d59dabb7a6d74b27433dec103a314d7b1cb509",
+      "bridge_fixture_sha256": "47442899d6fa7c9c4ff8dc5ee1f57c8d3206f9a8aa23149d91fd883f358966c1",
+      "sha256": "7cee27dca3e4be309b53b3e3bc8816e105c74ffb8ed70a3d46c2025146d31afb",
+      "width": 1363,
+      "height": 936,
+      "bytes": 39356,
+      "format": "jpeg",
+      "evidence_type": "packaged-settings-browser-preview",
+      "current_release_capture": true,
+      "fixture_data": true,
+      "physical_watch_test_evidence": false,
+      "phone_runtime_test_evidence": false,
+      "source_viewport": {
+        "width": 1363,
+        "height": 936
+      },
+      "display_crop": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 880
+      },
+      "pixel_changes": "none; unchanged CUA browser JPEG, clipped in website CSS only",
+      "source_url": "/preview-provenance.json",
+      "fixture_source": "https://github.com/xefensor/xoce/blob/main/docs/qa/onboarding-2026-11-15/metadata.json",
+      "scope": "Current published PBW settings shown in a 512x880 iframe with a synthetic phone bridge and Timer catalogue. Timer was enabled and moved first through the real controls, then Save confirmed simulated phone persistence while watch delivery remained pending. No live phone, installed provider, permission or hardware result. CSS displays an excerpt of the unchanged full browser image."
+    },
+    {
+      "id": "halftone-1.10.3-activity-setup-20261115",
+      "site_path": "/images/setup/halftone-1.10.3-activity-setup-20261115.jpg",
+      "capture_version": "1.10.3",
+      "represented_release": "1.10.3",
+      "source_pbw_sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "sourceCommit": "9158a869aca33959e7b89d080fff410ca86c132f",
+      "production_settings_sha256": "58357a071333aa33afbc78dbb02bd69cfc01f23e7dc7018a0f00675fccd7c4fe",
+      "capture_fixture_sha256": "73bd93e308d9d13ee7d82f83512b765b039e6c342659b747e449659a3f04b9df",
+      "bridge_fixture_sha256": "47442899d6fa7c9c4ff8dc5ee1f57c8d3206f9a8aa23149d91fd883f358966c1",
+      "sha256": "3439da08a0cc85b4e8fe8f652e6fffb00e4b20e9af7915d4c6a7c6bdcc70afa2",
+      "width": 1363,
+      "height": 936,
+      "bytes": 54229,
+      "format": "jpeg",
+      "evidence_type": "packaged-settings-browser-preview",
+      "current_release_capture": true,
+      "fixture_data": true,
+      "physical_watch_test_evidence": false,
+      "phone_runtime_test_evidence": false,
+      "source_viewport": {
+        "width": 1363,
+        "height": 936
+      },
+      "display_crop": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 880
+      },
+      "pixel_changes": "none; unchanged CUA browser JPEG, clipped in website CSS only",
+      "source_url": "/preview-provenance.json",
+      "fixture_source": "https://github.com/xefensor/xoce/blob/main/docs/qa/onboarding-2026-11-15/metadata.json",
+      "scope": "Current published PBW settings shown in a 512x880 iframe with a synthetic phone bridge and Timer catalogue. Timer was enabled and moved first through the real controls, then Save confirmed simulated phone persistence while watch delivery remained pending. No live phone, installed provider, permission or hardware result. CSS displays an excerpt of the unchanged full browser image."
+    },
+    {
+      "id": "halftone-1.10.3-save-state-20261115",
+      "site_path": "/images/setup/halftone-1.10.3-save-state-20261115.jpg",
+      "capture_version": "1.10.3",
+      "represented_release": "1.10.3",
+      "source_pbw_sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "sourceCommit": "9158a869aca33959e7b89d080fff410ca86c132f",
+      "production_settings_sha256": "58357a071333aa33afbc78dbb02bd69cfc01f23e7dc7018a0f00675fccd7c4fe",
+      "capture_fixture_sha256": "73bd93e308d9d13ee7d82f83512b765b039e6c342659b747e449659a3f04b9df",
+      "bridge_fixture_sha256": "47442899d6fa7c9c4ff8dc5ee1f57c8d3206f9a8aa23149d91fd883f358966c1",
+      "sha256": "697a94bddcc963d413fbe1465b25d120267d6090f562bf2e818ccd4674ef55ce",
+      "width": 1363,
+      "height": 936,
+      "bytes": 48345,
+      "format": "jpeg",
+      "evidence_type": "packaged-settings-browser-preview",
+      "current_release_capture": true,
+      "fixture_data": true,
+      "physical_watch_test_evidence": false,
+      "phone_runtime_test_evidence": false,
+      "source_viewport": {
+        "width": 1363,
+        "height": 936
+      },
+      "display_crop": {
+        "x": 0,
+        "y": 0,
+        "width": 512,
+        "height": 880
+      },
+      "pixel_changes": "none; unchanged CUA browser JPEG, clipped in website CSS only",
+      "source_url": "/preview-provenance.json",
+      "fixture_source": "https://github.com/xefensor/xoce/blob/main/docs/qa/onboarding-2026-11-15/metadata.json",
+      "scope": "Current published PBW settings shown in a 512x880 iframe with a synthetic phone bridge and Timer catalogue. Timer was enabled and moved first through the real controls, then Save confirmed simulated phone persistence while watch delivery remained pending. No live phone, installed provider, permission or hardware result. CSS displays an excerpt of the unchanged full browser image. This is a separate view of Halftone appearance/delivery status after the same example save."
+    }
+  ]
+}

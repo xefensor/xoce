@@ -1,6 +1,7 @@
 ---
 import { consumerProjects } from '../data/projects';
 import ProjectCard from './ProjectCard.astro';
+import WatchfaceComparison from './WatchfaceComparison.astro';
 const groups = [
   { kind: 'watchface', id: 'watchfaces', eyebrow: 'Your everyday clock', title: 'Make it yours.', note: 'Two watchfaces with a character of their own. Choose one as your everyday clock.', slugs: ['dynamic', 'halftone'] },
   { kind: 'app', id: 'watch-apps', eyebrow: '02 / Tools on your wrist', title: 'There when you need them.', note: 'Save a timer, check your overview or take a shortcut. Each is a separate app you open on your watch.', slugs: ['timer', 'dashboard', 'open-activity'] },
@@ -11,5 +12,6 @@ const groups = [
   {groups.map(group => <section class:list={['catalogue-group', `collection-${group.kind}`]} id={group.id} data-project-group aria-labelledby={`${group.id}-title`}>
     <header><p class="eyebrow">{group.eyebrow}</p><h2 id={`${group.id}-title`}>{group.title}</h2><p>{group.note}</p></header>
     <div class="catalogue-grid">{group.slugs.map(slug => <ProjectCard project={consumerProjects.find(p => p.slug === slug)!}/>)}</div>
+    {group.kind === 'watchface' && <WatchfaceComparison/>}
   </section>)}
 </div>

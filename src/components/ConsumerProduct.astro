@@ -9,6 +9,7 @@ import Icon from './Icon.astro';
 import ActivityExplainer from './ActivityExplainer.astro';
 import ProductStory from './ProductStory.astro';
 import PhoneWeatherPreview from './PhoneWeatherPreview.astro';
+import ReleaseHighlights from './ReleaseHighlights.astro';
 interface Props { project: Project }
 const { project } = Astro.props;
 const plugin=project.kind==='plugin';
@@ -26,6 +27,7 @@ const related=projects.filter(p=>(project.optionalConnections??(project.slug==='
       {project.requirements && <ul class="product-requirements">{project.requirements.map(r=><li>{r}</li>)}</ul>}
     </div>
   </section>
+  <ReleaseHighlights project={project}/>
   <ProductStory project={project}/>
   <ActivityExplainer product={project.slug}/>
   <ScreenshotGallery slug={project.slug} name={project.name}/>

@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-15T00:21:19.468Z",
+  "scope": "CUA capture fixtures only; actual packaged UI, synthetic bridge/provider discovery and no hardware/network",
+  "query": "?lang=en|cs&platform=emery|gabbro&capture=1",
+  "captureMode": "capture=1 hides only the added fixture disclosure; original packaged UI is unchanged. Disclosure belongs in the final caption/provenance.",
+  "products": [
+    {
+      "app": "dynamic",
+      "version": "1.0.2",
+      "file": "Dynamic-1.0.2.pbw",
+      "sha256": "4abb6fcc9197f60d0f69e235030043a09ef03629336e6c59c1e6b35e5eb915ca",
+      "url": "https://github.com/xefensor/pebble-watchface-dynamic/releases/download/v1.0.2/Dynamic-1.0.2.pbw",
+      "configSha256": "ba2c5962fc180419b144ef368580390054b95b746d558bd13481129dc163a0c3",
+      "previewSha256": "3fc49dfb193738fa11eae84036d59dabb7a6d74b27433dec103a314d7b1cb509",
+      "preview": "dynamic.html",
+      "originalUiUnchanged": true,
+      "packetGeneratedBy": "Actual plugin.js config handler from verified published PBW; only Timer catalogue/visibility and watch receipt are synthetic",
+      "providerUuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "seedSettings": {
+        "SCREEN_SPLIT": true,
+        "READING_LAYOUT": 2,
+        "HIDE_READING_TITLES": false,
+        "SHAKE_READINGS": false,
+        "LOWER_BACKGROUND_COLOR": 0,
+        "LOWER_TEXT_COLOR": 16777215,
+        "NIGHT_LOWER_BACKGROUND_COLOR": 16777215,
+        "NIGHT_LOWER_TEXT_COLOR": 0,
+        "BACKGROUND_COLOR": 16777215,
+        "TEXT_COLOR": 0,
+        "ACCENT_COLOR": 5614335,
+        "CLOCK_FORMAT": 0,
+        "ANIMATIONS": true,
+        "SHOW_STATUS": true,
+        "SHOW_ACTIVITIES": true,
+        "SHOW_MUSIC": true,
+        "SHOW_NOTIFICATIONS": false,
+        "NOTIFICATION_PREVIEW": false,
+        "NOTIFICATION_APP_ONLY": false,
+        "NOTIFICATION_VIBRATION": 0,
+        "NIGHT_PALETTE": false,
+        "NIGHT_BACKGROUND_COLOR": 0,
+        "NIGHT_TEXT_COLOR": 16777215,
+        "NIGHT_ACCENT_COLOR": 5614335,
+        "NOTIFICATION_APPS": "",
+        "TEXT_SIZE": 0,
+        "APPEARANCE_MODE": 2,
+        "MANUAL_APPEARANCE": 0,
+        "__dynamicActivityPreferences": {
+          "order": [
+            "builtin:music",
+            "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+            "builtin:notifications"
+          ],
+          "hidden": [
+            "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+            "builtin:notifications"
+          ]
+        }
+      },
+      "initial": {
+        "activityPlugins": true,
+        "music": true,
+        "notifications": false,
+        "timerShown": false,
+        "order": [
+          "Music",
+          "Timer",
+          "Notifications"
+        ]
+      },
+      "save": "Simulated exact phone persistence acknowledgement; memory only, resets on reload",
+      "watch": "Pending; no fake watch receipt, retry remains pending",
+      "controls": [
+        "Activities",
+        "Show activity plugins",
+        "Activity priority",
+        "Show Timer",
+        "Reorder",
+        "Move up",
+        "Done",
+        "Save"
+      ]
+    },
+    {
+      "app": "halftone",
+      "version": "1.10.3",
+      "file": "Halftone-1.10.3.pbw",
+      "sha256": "199fdad4a20a885f66216075ed07bd336b86fe50c574413f8a5f89a3fc086a9d",
+      "url": "https://github.com/xefensor/halftone-watchface/releases/download/v1.10.3/Halftone-1.10.3.pbw",
+      "configSha256": "58357a071333aa33afbc78dbb02bd69cfc01f23e7dc7018a0f00675fccd7c4fe",
+      "previewSha256": "73bd93e308d9d13ee7d82f83512b765b039e6c342659b747e449659a3f04b9df",
+      "preview": "halftone.html",
+      "originalUiUnchanged": true,
+      "packetGeneratedBy": "Actual plugin.js config handler from verified published PBW; only Timer catalogue/visibility and watch receipt are synthetic",
+      "providerUuid": "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+      "seedSettings": {
+        "BACKGROUND_COLOR": 16733440,
+        "TEXT_COLOR": 16777215,
+        "DEPTH_EFFECT": false,
+        "TEXT_SHADOW": false,
+        "LARGE_TEXT": false,
+        "PANEL_TRANSITIONS": true,
+        "ACCENT_COLOR": 5614335,
+        "CLOCK_FORMAT": 0,
+        "ANIMATIONS": true,
+        "SHOW_STATUS": true,
+        "SHOW_ACTIVITIES": true,
+        "SHOW_MUSIC": true,
+        "SHOW_NOTIFICATIONS": false,
+        "NOTIFICATION_PREVIEW": false,
+        "NOTIFICATION_APP_ONLY": false,
+        "NOTIFICATION_VIBRATION": 0,
+        "NIGHT_PALETTE": false,
+        "NIGHT_BACKGROUND_COLOR": 0,
+        "NIGHT_TEXT_COLOR": 16777215,
+        "NIGHT_ACCENT_COLOR": 5614335,
+        "NOTIFICATION_APPS": "",
+        "TEXT_SIZE": 0,
+        "APPEARANCE_MODE": 2,
+        "MANUAL_APPEARANCE": 0,
+        "__halftoneActivityPreferences": {
+          "order": [
+            "builtin:music",
+            "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+            "builtin:notifications"
+          ],
+          "hidden": [
+            "50e9ef12-a5ab-4369-a3b5-3447bfba5151",
+            "builtin:notifications"
+          ]
+        }
+      },
+      "initial": {
+        "activityPlugins": true,
+        "music": true,
+        "notifications": false,
+        "timerShown": false,
+        "order": [
+          "Music",
+          "Timer",
+          "Notifications"
+        ]
+      },
+      "save": "Simulated exact phone persistence acknowledgement; memory only, resets on reload",
+      "watch": "Pending; no fake watch receipt, retry remains pending",
+      "controls": [
+        "Content & priority",
+        "Show activity plugins",
+        "Activity priority",
+        "Show Timer",
+        "Move up",
+        "Save"
+      ]
+    }
+  ],
+  "bridgeSource": "bridge-fixture.js",
+  "bridgeSourceSha256": "47442899d6fa7c9c4ff8dc5ee1f57c8d3206f9a8aa23149d91fd883f358966c1",
+  "bridgeContractCheck": "PASS: actual packaged plugin validates the seed; non-browser VM checked load, exact Save echo and independent watch Pending"
+}

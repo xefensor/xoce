@@ -1,10 +1,11 @@
 ---
 layout: ../../../layouts/DocLayout.astro
 title: Set up your Pebble
-description: Try Timer on its own, show its countdown on a watchface, then add optional shortcuts and readings.
+description: Follow the illustrated Timer setup, show its countdown on a watchface, then add optional shortcuts and readings.
 section: For users
 order: 2
 setupProducts: [timer, dynamic, halftone, dashboard, open-activity, chmu-weather]
+illustratedSetup: true
 ---
 
 New to XOCE? [Choose your apps first](/docs/#choose-what-you-need). Start with **Timer**, then add **Dynamic or Halftone** if you want a countdown on your everyday clock. Dashboard, Open Activity and ČHMÚ Weather are optional.

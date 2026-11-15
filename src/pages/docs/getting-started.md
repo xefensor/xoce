@@ -40,6 +40,8 @@ Follow [Timer’s setup steps](/docs/pebble/setup/#timer) to create a one-minute
 
 ### 2. Keep a countdown on your watchface
 
+[See the settings and steps in pictures](/docs/pebble/setup/#illustrated-first-setup), then use this short checklist:
+
 1. Choose [Dynamic](/docs/pebble/setup/#dynamic) or [Halftone](/docs/pebble/halftone/), and finish its phone-settings setup first.
 2. Enable shared information, show Timer in the watchface’s **Activity priority**, and save. **✓ Saved** confirms phone storage; wait for watch delivery if the page reports it as pending.
 3. Now start a **12-minute** timer. From Timer’s detail screen, press Back to the list, then Back again to return to the watchface. Keep the phone connected.

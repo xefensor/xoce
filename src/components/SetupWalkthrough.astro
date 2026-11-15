@@ -1,0 +1,45 @@
+---
+import { setupExamples } from '../data/setup';
+import { sitePath } from '../lib/site';
+import '../styles/setup-guide.css';
+---
+<section class="setup-walkthrough" aria-labelledby="illustrated-first-setup" data-setup-walkthrough>
+  <h2 id="illustrated-first-setup">A countdown on your watchface, in pictures</h2>
+  <p>Install <a href={sitePath('/projects/timer/')}>Timer</a> and one watchface, then follow its settings below. If Timer is new to you, <a href="#timer">try a one-minute countdown on its own</a> first.</p>
+  <aside class="setup-before" aria-label="Before sharing a countdown">
+    <strong>First, in the Pebble phone app</strong>
+    <p>Pair Time 2 or Round 2, enable the app’s Plugins / permissions preview, and allow the sources you choose. Keep the phone connected. <a href="#enable-shared-information">See the permissions steps.</a></p>
+    <p>On Android, built-in music and notifications also need their permissions. iPhone does not support those built-in sources in these releases; the Timer example uses its own provider.</p>
+  </aside>
+  <fieldset class="setup-choice">
+    <legend>Which watchface did you choose?</legend>
+    {setupExamples.map((example, index) => <label><input type="radio" name="setup-watchface" id={`setup-${example.project.slug}`} value={example.project.slug} checked={index === 0}/><span>{example.project.name}</span></label>)}
+  </fieldset>
+  {setupExamples.map(example => <section class={`setup-face setup-face-${example.project.slug}`} aria-labelledby={`setup-${example.project.slug}-title`} data-setup-face={example.project.slug}>
+    <h3 id={`setup-${example.project.slug}-title`}>{example.project.name} · v{example.project.version}</h3>
+    <ol class="setup-steps">
+      <li>
+        <div class="setup-step-copy"><h4>Open {example.category}</h4><p>Use the gear on {example.project.name}’s page in Pebble, then choose <strong>{example.category}</strong>. These are the watchface’s settings, separate from Pebble’s own permissions screen.</p></div>
+        <figure><a class="setup-crop" href={sitePath(example.landing.image)} style={`aspect-ratio:${example.landing.width}/${example.landingCrop.height};--setup-offset:${100 * example.landingCrop.top / example.landing.height}%`} aria-label={`Open full ${example.project.name} settings capture`}><img src={sitePath(example.landing.image)} width={example.landing.width} height={example.landing.height} alt={`${example.project.name} settings with ${example.category} visible.`} loading="lazy" decoding="async"/></a><figcaption>Settings v{example.landing.version} · excerpt. Open the image for full context.</figcaption></figure>
+      </li>
+      <li>
+        <div class="setup-step-copy"><h4>Show Timer in Activity priority</h4><p>Turn on <strong>Show activity plugins</strong>, then turn on <strong>Show</strong> for Timer. {example.project.slug === 'dynamic' ? <>To give it the larger activity area, choose <strong>Reorder</strong>, move Timer above competing sources and choose <strong>Done</strong>.</> : <>Use <strong>Move up</strong> beside Timer to put it above competing sources when you want its countdown in the larger area.</>}</p><p>Each watchface keeps its own order. You only need to configure the one you are using.</p></div>
+        <figure><a class="setup-crop setup-phone-image" style={`aspect-ratio:${example.priority.displayWidth}/${example.priority.displayHeight};--setup-offset:0%;--setup-image-width:${100 * example.priority.width / example.priority.displayWidth}%`} href={sitePath(example.priority.image)} aria-label={`Open full ${example.project.name} activity setup capture`}><img src={sitePath(example.priority.image)} width={example.priority.width} height={example.priority.height} alt={example.priority.alt} loading="lazy" decoding="async"/></a><figcaption>{example.project.name} settings v{example.priority.version} · excerpt with an example Timer source.</figcaption></figure>
+      </li>
+      <li>
+        <div class="setup-step-copy"><h4>Save, then check watch delivery</h4><p>Choose <strong>Save</strong> and wait for <strong>✓ Saved</strong>. This confirms phone storage. A separate watch status can still be pending; keep the app connected and use <strong>Retry watch delivery</strong> if offered.</p><p>Phone saving and watch delivery are separate stages. <a href={sitePath('/docs/pebble/troubleshooting/#settings-seem-not-to-save')}>Help with Save and delivery.</a></p></div>
+        <figure class="setup-save-excerpts">
+          {example.save.deliveryCrop && <a class="setup-crop" href={sitePath(example.save.image)} style={`aspect-ratio:${example.save.displayWidth}/${example.save.deliveryCrop.height};--setup-offset:${100 * example.save.deliveryCrop.top / example.save.height}%;--setup-image-width:${100 * example.save.width / example.save.displayWidth}%`} aria-label={`Open full ${example.project.name} watch delivery example`}><img src={sitePath(example.save.image)} width={example.save.width} height={example.save.height} alt="Saved on phone · Pending on watch, with Retry watch delivery." loading="lazy" decoding="async"/></a>}
+          <a class="setup-crop setup-save-crop" href={sitePath(example.save.image)} style={`aspect-ratio:${example.save.displayWidth}/${example.save.footerCrop.height};--setup-offset:${100 * example.save.footerCrop.top / example.save.height}%;--setup-image-width:${100 * example.save.width / example.save.displayWidth}%`} aria-label={`Open full ${example.project.name} Save status example`}><img src={sitePath(example.save.image)} width={example.save.width} height={example.save.height} alt={example.save.alt} loading="lazy" decoding="async"/></a>
+          <figcaption>{example.project.name} settings v{example.save.version} · Save and delivery excerpts from one settings view.</figcaption>
+        </figure>
+      </li>
+      <li>
+        <div class="setup-step-copy"><h4>Start twelve minutes, then go Back twice</h4><p>On the watch, open Timer, choose <strong>New</strong>, set minutes to <strong>12</strong>, then press Select through seconds to start. Press <strong>Back</strong> to the Timer list and <strong>Back</strong> again to your watchface.</p><p><strong>Check:</strong> its activity area shows time remaining. Timer still owns the countdown and alarm; open Timer to pause or resume. <a href={sitePath('/docs/pebble/troubleshooting/#an-activity-is-missing')}>If the countdown is missing.</a></p></div>
+        <figure class="setup-watch-result"><a href={sitePath(example.watch.image)} aria-label={`Open full ${example.project.name} countdown example`}><img src={sitePath(example.watch.image)} width={example.watch.width} height={example.watch.height} alt={example.watch.alt} loading="lazy" decoding="async"/></a><figcaption>Round 2 emulator · captured v{example.watch.version}, reused for v{example.watch.representedReleaseVersion ?? example.watch.version}. Separate example data, not a recording of the phone steps.</figcaption></figure>
+      </li>
+    </ol>
+  </section>)}
+  <p class="setup-evidence">Phone images show the released settings pages in a browser with example providers and simulated phone/watch replies. They illustrate the controls, not a live-phone or physical-watch test. <a href={sitePath('/preview-provenance.json')}>Image sources and versions.</a></p>
+  <p class="setup-details-link"><a href="#before-installing">Full installation and app-by-app instructions follow.</a></p>
+</section>

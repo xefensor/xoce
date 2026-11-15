@@ -63,6 +63,6 @@ retains its report/screenshots for 14 days. Successful `main` runs then publish 
 checked build; pull requests and other branches do not deploy. See the publication guide
 for manual reruns and recovery.
 
-## Store launch preview
+## Store publication
 
-The six consumer records may describe checked launch candidates when `publication` is `preview`; these have no active installation links. Xef authorized publishing these clearly labelled preparation pages on 2026-11-14. Run `npm run check:deployment` for the website gate: previews remain restricted and published records undergo complete Store/GitHub verification. See [launch checklist](docs/launch-checklist.md). `npm run test:launch` exercises both paths; `npm run check:launch` remains the strict all-app release check and intentionally fails for preview records.
+All six current consumer products are published with matching Store/GitHub PBWs verified on 2026-11-14. Future consumer records may describe checked launch candidates when `publication` is `preview`; these have no active installation links. Run `npm run check:deployment` for the website gate: previews remain restricted and published records undergo complete Store/GitHub verification. See [launch checklist](docs/launch-checklist.md). `npm run test:launch` exercises both paths; `npm run check:launch` remains the strict all-app release check and intentionally fails for preview records.

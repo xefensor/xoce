@@ -15,10 +15,12 @@ Start with Timer and one of those watchfaces. You can add Dashboard for an overv
 
 ## Try a timer on your watchface
 
+The [illustrated setup](/docs/pebble/setup/#illustrated-first-setup) shows where to find activity priority and how phone saving differs from watch delivery.
+
 You need **Timer and either Dynamic or Halftone**, the official Pebble phone app with plugin support enabled, the required permissions and a connected phone. [Enable shared information](/docs/pebble/setup/#enable-shared-information), then:
 
 1. Choose Dynamic or Halftone as your active watchface in the Pebble phone app.
-2. Open that watchface’s settings. Under **Activities** in Dynamic, or **Content & priority** in Halftone, turn on **Show activity plugins**. In **Activity priority**, turn on **Show** for Timer. Choose **Reorder**, move Timer above other activities if you want its countdown in the large area, then choose **Done**.
+2. Open that watchface’s settings. Under **Activities** in Dynamic, or **Content & priority** in Halftone, turn on **Show activity plugins**. In **Activity priority**, turn on **Show** for Timer. To give its countdown the large area, move it above competing sources: in Dynamic choose **Reorder**, use the arrows and choose **Done**; Halftone shows the **Move up / Move down** controls directly.
 3. Choose **Save** and wait for **✓ Saved**. That confirms the settings are saved on the phone; any separate watch-delivery message describes whether display settings have reached the watch.
 4. On the watch, open Timer and choose **New**. Minutes are selected first. Use Up or Down to set **12**, press Select to move to seconds, then press Select again to start with zero seconds. The new editor defaults to ten minutes, so two Up presses give twelve. [Timer controls](/docs/pebble/controls/#timer).
 5. From the countdown screen, press **Back twice**: once to the Timer list, then again to your watchface. With the phone connected, its activity area should show the remaining time.

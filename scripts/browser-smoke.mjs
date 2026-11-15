@@ -352,6 +352,23 @@ async function guideContentsJump(scripting = true) {
   return { scripting, ...result };
 }
 
+async function illustratedSetupCheck(suffix) {
+  const route='/docs/pebble/setup/';
+  await navigate(route);
+  await click('label:has(#setup-halftone)');
+  await until(`document.getElementById('setup-halftone').checked&&document.querySelector('[data-setup-face="halftone"]').getClientRects().length>0&&document.querySelector('[data-setup-face="dynamic"]').getClientRects().length===0`, 'native radio reveals only Halftone setup');
+  const selector='[data-setup-face="halftone"] figure:not(.setup-watch-result) img';
+  const imageCount=await client.evaluate(`document.querySelectorAll(${JSON.stringify(selector)}).length`);
+  assert.ok(imageCount>=3,'Halftone setup shows the settings, priority and Save image examples');
+  for(let index=0;index<imageCount;index++) {
+    await client.evaluate(`document.querySelectorAll(${JSON.stringify(selector)})[${index}].closest('figure').scrollIntoView({block:'center',behavior:'instant'})`);
+    await until(`(()=>{const image=document.querySelectorAll(${JSON.stringify(selector)})[${index}];return image.complete&&image.naturalWidth>0&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'));})()`, 'Halftone setup phone image loads at its declared source dimensions');
+  }
+  await noOverflow(route,390);
+  await client.evaluate(`document.querySelector('.setup-choice').scrollIntoView({block:'center',behavior:'instant'})`);
+  await screenshot('illustrated-setup-halftone-390-'+suffix);
+}
+
 async function runChecks() {
   await launch();
   await navigate('/');
@@ -493,11 +510,21 @@ async function runChecks() {
   assert.ok(await client.evaluate(`document.activeElement.matches('[data-menu-toggle]')`));
   await navigate('/projects/timer/');await client.evaluate(`document.getElementById('timer-emery').focus()`);await key('ArrowRight');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);
   passed('Keyboard controls work for mobile navigation and native shape radios');
+  for(const route of ['/','/projects/']) {
+    await navigate(route);await click('[data-watchface-comparison] > summary');
+    await until(`document.querySelector('[data-watchface-comparison]').open`,'native watchface comparison opens');
+    for(const slug of ['dynamic','halftone']) assert.ok(await client.evaluate(`(()=>{const link=document.querySelector('[data-watchface-comparison] a[href="${sitePath('/projects/'+slug+'/')}"]');return link&&link.getClientRects().length>0;})()`),'Open comparison exposes the '+slug+' product link');
+    await noOverflow(route,390);
+    await screenshot('watchface-comparison-'+(route==='/'?'home':'software')+'-390');
+  }
+  await illustratedSetupCheck('javascript');
+  passed('Mobile comparison opens on Home/Software and native setup radios reveal loaded Halftone examples');
   await media('light','reduce','reduce');await navigate('/');await noOverflow('/',390);await screenshot('home-reduced-motion-transparency');
   assert.equal(await client.evaluate(`matchMedia('(prefers-reduced-motion:reduce)').matches&&matchMedia('(prefers-reduced-transparency:reduce)').matches`),true);
   passed('Reduced motion/transparency render without layout loss');
   await client.send('Emulation.setScriptExecutionDisabled',{value:true});scriptingEnabled=false;
   for(const route of ['/','/projects/',...productRoutes,'/docs/',...referenceRoutes,'/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);}
+  await illustratedSetupCheck('no-javascript');passed('Illustrated setup switches to Halftone and loads its phone examples without JavaScript');
   await navigate('/projects/timer/');await click('label[for="timer-gabbro"]');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro').getClientRects().length>0`));await screenshot('timer-round2-no-javascript');
   await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');
   await media('dark','reduce','reduce');await navigate('/projects/halftone/');await noOverflow('/projects/halftone/',390);

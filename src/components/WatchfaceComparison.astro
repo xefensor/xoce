@@ -1,0 +1,60 @@
+---
+import { consumerProjects } from '../data/projects';
+import { sitePath } from '../lib/site';
+
+const dynamic = consumerProjects.find(project => project.slug === 'dynamic')!;
+const halftone = consumerProjects.find(project => project.slug === 'halftone')!;
+---
+<details class="watchface-comparison" data-watchface-comparison>
+  <summary>Compare Dynamic and Halftone</summary>
+  <div class="comparison-content">
+    <p class="comparison-intro">Choose the clock layout you prefer. Both work with Timer and other compatible sources; you use one active watchface at a time.</p>
+    <table>
+      <caption>Watchface layouts, readings and customisation</caption>
+      <colgroup><col class="comparison-feature"/><col/><col/></colgroup>
+      <thead><tr>
+        <th scope="col">Feature</th>
+        <th scope="col"><a href={sitePath('/projects/dynamic/')}>{dynamic.name}</a><span>v{dynamic.version}</span></th>
+        <th scope="col"><a href={sitePath('/projects/halftone/')}>{halftone.name}</a><span>v{halftone.version}</span></th>
+      </tr></thead>
+      <tbody>
+        <tr><th scope="row">Layout</th><td>Choose Columns, Stacked rows or Four when idle.</td><td>A centred Fira clock and a distinctive dotted border.</td></tr>
+        <tr><th scope="row">Readings</th><td>Two selected readings, or four while idle. Activities and Timeline Peek keep the selected pair.</td><td>Two readings beneath the clock, above activities and Timeline Peek.</td></tr>
+        <tr><th scope="row">Make it yours</th><td>Split clock and detail colours, optional reading titles and shake switching.</td><td>Colours, depth and shadow. <strong>Big text</strong> enlarges the clock, date and readings.</td></tr>
+        <tr><th scope="row">Activities</th><td colspan="2">Both can show Timer countdowns, music and optional notifications. Each keeps its own activity order. Open Activity can add a shortcut to the app behind an activity.</td></tr>
+        <tr><th scope="row">Your watch</th><td colspan="2">Both support Pebble Time 2 and Round 2, with layouts fitted to each shape.</td></tr>
+      </tbody>
+    </table>
+    <p class="comparison-note">Shared readings and activities need plugin support in the Pebble phone app and a connected phone. Built-in music and notification sources need Android. Both watchfaces use the same global Complications choices.</p>
+    <nav aria-label="Set up your chosen watchface"><a href={sitePath('/docs/pebble/setup/#dynamic')}>Set up Dynamic</a><a href={sitePath('/docs/pebble/halftone/')}>Set up Halftone</a></nav>
+  </div>
+</details>
+<style>
+  .watchface-comparison { margin-top:20px;border-block:1px solid var(--line); }
+  summary { min-height:52px;padding-block:13px;color:var(--ink);font-size:.9375rem;font-weight:550;line-height:1.65;cursor:pointer; }
+  summary::marker { color:var(--accent-text); }
+  summary:hover { color:var(--accent-text); }
+  summary:focus-visible { outline:2px solid var(--focus);outline-offset:3px;border-radius:var(--radius-small); }
+  .comparison-content { padding-bottom:20px; }
+  .comparison-intro { max-width:76ch;margin:3px 0 18px;color:var(--muted);font-size:.875rem;line-height:1.7; }
+  table { width:100%;table-layout:fixed;border-collapse:collapse;font-size:.875rem;line-height:1.7; }
+  caption { text-align:left;margin-bottom:10px;color:var(--muted);font-size:.8125rem; }
+  .comparison-feature { width:20%; }
+  th,td { padding:14px 16px;text-align:left;vertical-align:top;overflow-wrap:anywhere;border-bottom:1px solid var(--line); }
+  th { color:var(--ink);font-weight:550; }
+  thead th { background:var(--glass-field); }
+  th:first-child { padding-left:12px; }
+  td { color:var(--muted); }
+  td strong { color:var(--ink);font-weight:550; }
+  thead a { display:inline-block;padding-block:4px;color:var(--accent-text);font:700 1.2rem/1.3 var(--font-display);text-underline-offset:.2em; }
+  thead span { display:block;color:var(--muted);font-size:.75rem;font-weight:400; }
+  .comparison-note { margin:16px 0 10px;color:var(--muted);font-size:.8125rem;line-height:1.7; }
+  nav { display:flex;flex-wrap:wrap;gap:8px 24px; }
+  nav a { display:inline-flex;align-items:center;min-height:44px;color:var(--accent-text);font-size:.875rem;text-underline-offset:.2em; }
+  @media(max-width:600px) {
+    .comparison-feature { width:24%; }
+    th,td { padding:12px 8px;font-size:.8125rem;line-height:1.65; }
+    th:first-child { padding-left:4px; }
+    thead a { font-size:1.1rem; }
+  }
+</style>

@@ -23,4 +23,4 @@ Timer owns its countdowns and alarms on the watch. If it says **Alarm not set; k
 
 ## Downloads
 
-Use the product page for the available Pebble Store and matching GitHub PBW links. A launch-preview label means that version is still being prepared. [Previous GitHub releases](https://github.com/xefensor/pebble-app-timer/releases) remain separate from this preview.
+The [product page](/projects/timer/) links to the current published version in Pebble Store and its matching GitHub PBW. For earlier versions, see [GitHub releases](https://github.com/xefensor/pebble-app-timer/releases).

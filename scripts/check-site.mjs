@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import { basePath, sitePath, routePath } from '../src/lib/site.ts';
 import { rankSearchEntries } from '../src/lib/search.mjs';
+import { readImageDimensions } from './image-dimensions.mjs';
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
@@ -236,6 +237,20 @@ const planned = catalogueProducts.filter(project => project.availability === 'pl
 const knownSlugs = new Set(projects.map(project => project.slug));
 function mainMarkup(route) { return pages.get(route)?.html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? ''; }
 function visibleText(markup) { return decode(markup.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(); }
+function elementBlock(markup, tag, matches) {
+  const tokens = new RegExp(`<\\/?${tag}\\b[^>]*>`, 'gi');
+  let opening;
+  while ((opening = tokens.exec(markup))) {
+    if (opening[0].startsWith('</') || !matches(opening[0])) continue;
+    let depth = 1, token;
+    while ((token = tokens.exec(markup))) {
+      depth += token[0].startsWith('</') ? -1 : 1;
+      if (!depth) return { html: markup.slice(opening.index, tokens.lastIndex), start: opening.index, end: tokens.lastIndex };
+    }
+    break;
+  }
+  return undefined;
+}
 function needsLink(route, destination, purpose) {
   if (!references(mainMarkup(route)).includes(destination)) problems.push(`${route}: missing ${purpose} link to ${destination}`);
 }
@@ -289,6 +304,34 @@ const cataloguePlatforms = [...new Set(catalogueProducts.map(project => project.
 if (cataloguePlatforms.length > 1) {
   for (const filter of ['all', ...cataloguePlatforms]) if (!mainMarkup('/projects/').includes(`data-project-filter="${filter}"`)) problems.push(`Missing available-platform filter: ${filter}`);
 } else if (/data-project-filter=/.test(mainMarkup('/projects/'))) problems.push('A single-platform catalogue must not show redundant or empty platform filters');
+for (const route of ['/', '/projects/']) {
+  const main = mainMarkup(route);
+  const comparison = elementBlock(main, 'details', tag => /\bdata-watchface-comparison(?:[\s=>])/.test(tag))?.html ?? '';
+  const summary = comparison.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/i)?.[1] ?? '';
+  if (!comparison || (main.match(/\bdata-watchface-comparison(?:[\s=>])/g) ?? []).length !== 1 || !visibleText(summary) || !/<caption\b/.test(comparison)) {
+    problems.push(`${route}: provide one native watchface comparison with a readable summary and table caption`);
+  }
+  for (const watchface of catalogueProducts.filter(project => project.kind === 'watchface')) {
+    for (const destination of [`/projects/${watchface.slug}/`, watchface.guide]) if (!references(comparison).includes(destination)) problems.push(`${route}: comparison is missing the ${watchface.name} product or setup link`);
+    if (!visibleText(comparison).includes(`v${watchface.version}`)) problems.push(`${route}: comparison must identify the current ${watchface.name} version`);
+  }
+}
+const { highlightsForProject } = await import(pathToFileURL(path.join(root, 'src/data/release-highlights.ts')).href);
+for (const project of catalogueProducts.filter(project => project.publication === 'published')) {
+  const route = `/projects/${project.slug}/`, main = mainMarkup(route);
+  const block = elementBlock(main, 'section', tag => tag.includes(`data-release-highlights="${project.slug}"`));
+  let highlights;
+  try { highlights = highlightsForProject(project); }
+  catch (error) { problems.push(error.message); continue; }
+  if (!block || (main.match(/\bdata-release-highlights=/g) ?? []).length !== 1) { problems.push(`${route}: provide one current release-highlights section`); continue; }
+  if (!block.html.includes(`data-release-tag="${project.tag}"`) || !visibleText(block.html.match(/<h2\b[^>]*>[\s\S]*?<\/h2>/i)?.[0] ?? '').includes(`v${project.version}`)) problems.push(`${route}: release-highlight heading/tag differs from the catalogue`);
+  if (!references(block.html).includes(highlights.source)) problems.push(`${route}: highlights must link to their exact reviewed release`);
+  const changes = [...block.html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(match => visibleText(match[1]));
+  if (JSON.stringify(changes) !== JSON.stringify(highlights.changes) || changes.length < 2 || changes.length > 3) problems.push(`${route}: release highlights differ from the reviewed concise changes`);
+  const hero = elementBlock(main, 'section', tag => tag.includes('aria-labelledby="product-title"'));
+  const story = main.indexOf('id="story-title"');
+  if (!hero || block.start < hero.end || story < block.end) problems.push(`${route}: release highlights must follow the hero and precede the detailed story`);
+}
 if (references(mainMarkup('/')).includes('/projects/phone/')) problems.push('Home must not promote the Phone plan as a featured product');
 needsLink('/about/', '/projects/phone/', 'contextual future Phone plan');
 if (!pages.get('/about/')?.ids.has('phone-plan')) problems.push('About must provide the contextual future Phone direction');
@@ -370,7 +413,13 @@ for (const entry of [provenance.device_presentation, ...(provenance.additional_d
     const width = Number(svg.match(/\bwidth="([\d.]+)(?:px)?"/)?.[1]);
     const height = Number(svg.match(/\bheight="([\d.]+)(?:px)?"/)?.[1]);
     if (entry.evidence_type !== 'original-xoce-product-mark' || width !== entry.width || height !== entry.height) problems.push('Vector artwork dimensions or classification changed: ' + entry.site_path);
-  } else if (bytes.toString('hex', 0, 8) !== '89504e470d0a1a0a' || bytes.readUInt32BE(16) !== entry.width || bytes.readUInt32BE(20) !== entry.height) problems.push('Native capture dimensions changed: ' + entry.site_path);
+  } else {
+    try {
+      const dimensions = readImageDimensions(bytes, { allowJpeg: entry.evidence_type === 'packaged-settings-browser-preview' });
+      const expectedFormat = /\.jpe?g$/i.test(entry.site_path) ? 'jpeg' : 'png';
+      if (dimensions.format !== expectedFormat || dimensions.width !== entry.width || dimensions.height !== entry.height) problems.push('Capture format or dimensions changed: ' + entry.site_path);
+    } catch (error) { problems.push(`${entry.site_path}: ${error.message}`); }
+  }
 }
 const { representsRelease: checkedCaptureReuse } = await import('./capture-provenance.mjs');
 function representsRelease(capture, version, artifactSha256) {
@@ -379,6 +428,53 @@ function representsRelease(capture, version, artifactSha256) {
     return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : undefined;
   });
 }
+
+const setupRoute = '/docs/pebble/setup/';
+const setupMain = mainMarkup(setupRoute);
+const walkthrough = elementBlock(setupMain, 'section', tag => /\bdata-setup-walkthrough(?:[\s=>])/.test(tag))?.html ?? '';
+const { setupExamples } = await import(pathToFileURL(path.join(root, 'src/data/setup.ts')).href);
+const choice = walkthrough.match(/<fieldset\b[^>]*>([\s\S]*?)<\/fieldset>/i)?.[1] ?? '';
+const radios = [...choice.matchAll(/<input\b[^>]*>/gi)].map(match => match[0]);
+function attributeValue(tag, name) { return decode(tag.match(new RegExp(`\\s${name}="([^"]*)"`, 'i'))?.[1] ?? ''); }
+if (!walkthrough || !visibleText(choice.match(/<legend\b[^>]*>([\s\S]*?)<\/legend>/i)?.[1] ?? '') || radios.length !== setupExamples.length || radios.filter(tag => /\schecked(?:[\s=>])/.test(tag)).length !== 1) {
+  problems.push(`${setupRoute}: illustrated setup needs a labelled native watchface radio group with one initial choice`);
+}
+const builtCss = files.filter(filename => filename.endsWith('.css')).map(filename => fs.readFileSync(filename, 'utf8')).join('\n');
+const visibilityRules = [...builtCss.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(match => /display\s*:\s*none\b/.test(match[2])).map(match => match[1]);
+let publicCaptures = [];
+try { publicCaptures = JSON.parse(fs.readFileSync(path.join(dist, 'preview-provenance.json'), 'utf8')).images ?? []; }
+catch (error) { problems.push('Could not read public capture provenance: ' + error.message); }
+for (const example of setupExamples) {
+  const slug = example.project.slug;
+  const face = elementBlock(walkthrough, 'section', tag => tag.includes(`data-setup-face="${slug}"`))?.html ?? '';
+  const radio = radios.find(tag => attributeValue(tag, 'value') === slug) ?? '';
+  const radioId = attributeValue(radio, 'id');
+  if (attributeValue(radio, 'type') !== 'radio' || attributeValue(radio, 'name') !== 'setup-watchface' || !radioId || /\sdisabled(?:[\s=>])/.test(radio) || !face) problems.push(`${setupRoute}: ${slug} must remain selectable with a native radio and readable setup section`);
+  for (const other of setupExamples.filter(item => item.project.slug !== slug)) {
+    if (!visibilityRules.some(selectors => selectors.split(',').some(selector => selector.includes(`:has(#${radioId}:checked)`) && selector.includes(`.setup-face-${other.project.slug}`)))) problems.push(`${setupRoute}: the ${slug} radio must switch the alternate setup using CSS without JavaScript`);
+  }
+  if (!visibleText(face.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i)?.[1] ?? '').includes(`${example.project.name} · v${example.project.version}`)) problems.push(`${setupRoute}: ${slug} setup must identify its current settings version`);
+  const anchors = [...face.matchAll(/<a\b[^>]*>/gi)].flatMap(match => references(match[0]));
+  const images = [...face.matchAll(/<img\b[^>]*>/gi)].flatMap(match => references(match[0]));
+  const figures = [...face.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi)].map(match => match[0]);
+  for (const image of [example.landing, example.priority, example.save, example.watch]) {
+    const capture = provenance.images.find(entry => entry.site_path === image.image);
+    const kind = image === example.watch ? 'native-emulator-screenshot' : 'packaged-settings-browser-preview';
+    if (!capture || capture.evidence_type !== kind || capture.capture_version !== image.version || capture.width !== image.width || capture.height !== image.height || !representsRelease(capture, example.project.version, example.project.artifactSha256)) problems.push(`${setupRoute}: ${slug} illustrated capture differs from its version, dimensions or checked PBW: ${image.image}`);
+    if (image === example.priority || image === example.save) {
+      const crop = capture?.display_crop, viewport = capture?.source_viewport;
+      if (!crop || !['x', 'y', 'width', 'height'].every(key => Number.isInteger(crop[key])) || crop.x < 0 || crop.y < 0 || crop.width <= 0 || crop.height <= 0 || crop.x + crop.width > image.width || crop.y + crop.height > image.height || crop.width !== image.displayWidth || crop.height !== image.displayHeight || viewport?.width !== image.width || viewport?.height !== image.height) problems.push(`${setupRoute}: ${slug} settings crop must fit its unchanged full browser capture and match the displayed pane`);
+    }
+    if (!anchors.includes(image.image) || !images.includes(image.image)) problems.push(`${setupRoute}: each ${slug} setup image must link to its unchanged full capture: ${image.image}`);
+    const caption = figures.filter(figure => references(figure).includes(image.image)).map(figure => visibleText(figure.match(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/i)?.[1] ?? '')).find(text => text.includes(`v${image.version}`));
+    if (!caption || (image.version !== example.project.version && (!caption.includes(`v${example.project.version}`) || !/reus|represent/i.test(caption)))) problems.push(`${setupRoute}: ${slug} setup captions must retain actual capture and represented versions`);
+    const mirrored = publicCaptures.find(entry => entry.site_path === image.image);
+    if (!capture || !mirrored || ['sha256', 'capture_version', 'source_pbw_sha256', 'evidence_type', 'width', 'height', 'represented_release', 'represented_pbw_sha256', 'release_reuse_proof'].some(key => capture[key] !== mirrored[key]) || ['display_crop', 'source_viewport'].some(key => ['x', 'y', 'width', 'height'].some(dimension => capture?.[key]?.[dimension] !== mirrored?.[key]?.[dimension]))) problems.push(`${setupRoute}: ${slug} setup capture must have matching public provenance: ${image.image}`);
+  }
+  for (const destination of ['/docs/pebble/troubleshooting/#settings-seem-not-to-save', '/docs/pebble/troubleshooting/#an-activity-is-missing']) if (!anchors.includes(destination)) problems.push(`${setupRoute}: ${slug} illustrated setup must offer recovery at ${destination}`);
+}
+for (const destination of ['#timer', '#enable-shared-information', '#before-installing', '/preview-provenance.json']) if (!references(walkthrough).includes(destination)) problems.push(`${setupRoute}: illustrated setup is missing its prerequisite, full-instruction or evidence link ${destination}`);
+for (const route of ['/docs/', '/docs/getting-started/', '/docs/pebble/activities/']) needsLink(route, `${setupRoute}#illustrated-first-setup`, 'illustrated first setup');
 
 for (const project of products.filter(project => project.image)) {
   const capture = provenance.images.find(entry => entry.site_path === project.image);
