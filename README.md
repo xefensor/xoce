@@ -9,6 +9,9 @@ The live site is [xefensor.github.io/xoce](https://xefensor.github.io/xoce/). [P
 Use Node 22.23.4 and Python 3.12.15. Dependencies remain pinned to Astro 7.4.7 and TypeScript 6.0.3.
 
 ```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r artwork/requirements.txt
 npm ci --ignore-scripts
 npm test
 npm run preview
@@ -43,3 +46,8 @@ Checks do not upload or publish apps. An authorized push to `main` deploys the w
 ## Development and credits
 
 [CONTRIBUTING](CONTRIBUTING.md), [maintenance contracts](docs/MAINTENANCE.md) and [publication policy](docs/RELEASING.md) describe the repository boundaries. This website package remains UNLICENSED; app downloads retain their own licences, including PolyForm Noncommercial. Original font, screenshot and official Time 2 and Round 2 frame credits remain in the provenance records. No backend, accounts or hosting migration is introduced.
+
+[Shared contributor conventions](docs/contributor-conventions.md) keep the separate
+repositories consistent. [Artwork sources and candidate tools](artwork/README.md)
+replace the old external review-package dependency; exports stay in ignored
+`build/` and existing app assets remain the published authority.

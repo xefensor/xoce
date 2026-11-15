@@ -18,7 +18,7 @@
     "check": "astro check",
     "check:links": "node scripts/check-site.mjs",
     "check:browser": "node scripts/browser-smoke.mjs",
-    "test": "npm run check && npm run build && npm run check:links && npm run check:docs && npm run test:launch && npm run test:search && npm run test:image-dimensions",
+    "test": "npm run check && npm run build && npm run check:links && npm run check:docs && npm run test:launch && npm run test:search && npm run test:image-dimensions && npm run test:artwork",
     "check:docs": "python3 scripts/check-docs.py",
     "check:setup": "python3 scripts/check-setup.py",
     "test:launch": "node --test tests/launch-readiness.test.mjs tests/capture-provenance.test.mjs",
@@ -26,7 +26,8 @@
     "check:deployment": "node scripts/check-deployment.mjs",
     "test:search": "node --test tests/search.test.mjs",
     "test:developer-examples": "node scripts/check-developer-examples.mjs",
-    "test:image-dimensions": "node --test tests/image-dimensions.test.mjs"
+    "test:image-dimensions": "node --test tests/image-dimensions.test.mjs",
+    "test:artwork": "node --test tests/artwork-exports.test.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "0.4.7",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.12",
+    "sharp": "0.35.5",
     "typescript": "6.0.3"
   }
 }

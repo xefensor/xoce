@@ -23,6 +23,8 @@ jobs:
           python-version-file: .python-version
       - run: npm run check:setup
       - run: npm ci --ignore-scripts
+      - name: Install pinned artwork test requirements
+        run: python3 -m pip install -r artwork/requirements.txt
       - run: npm test
       - name: Verify pinned developer examples
         run: npm run test:developer-examples

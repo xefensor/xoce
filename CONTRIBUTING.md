@@ -1,5 +1,8 @@
 # Developing the XOCE website
 
+The [shared contributor conventions](docs/contributor-conventions.md) describe
+the boundaries between XOCE apps, libraries, artwork and this website.
+
 ## Select the development environment
 
 This checkout selects **Node 22.23.4** in `.node-version` and **Python 3.12.15** in
@@ -23,6 +26,7 @@ dependencies are in package-lock.json. No Pebble SDK or sibling checkout is need
 
 ```sh
 npm ci
+python3 -m pip install -r artwork/requirements.txt
 npm test
 npm run dev
 ```

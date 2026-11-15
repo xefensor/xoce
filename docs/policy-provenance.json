@@ -66,12 +66,26 @@
     "project": "dynamic",
     "kind": "privacy",
     "source_repository": "https://github.com/xefensor/pebble-watchface-dynamic",
-    "source_commit": "fe378f2e0b5b6b87086d2afd7846cb5cb0516a59",
+    "source_commit": "1399dd451c8050aba2a7ffd48a25156ebcfad16b",
     "source_path": "PRIVACY.md",
-    "source_sha256": "4769f16802c94d9ab9262ec694a1a0d7229b6aed45846c0f2b85fa2d54569e23",
+    "source_sha256": "752f799178f0900d83d88e5edbb61182b83c55a0017aea6eee4a4be9d525780c",
     "site_path": "/projects/dynamic/privacy/",
-    "adaptation": "First heading moved to page title; privacy body unchanged.",
-    "source_body_sha256": "fdbaf7354c10f311ba920c5ad069fb6f8d81998f81efa1c693e3f908a4624fe2"
+    "adaptation": "First heading moved to page title; corrected current app-owned privacy body copied unchanged. Earlier source provenance is retained below.",
+    "source_body_sha256": "df977d4dbec5ea2f32371b6c0c5a6fa99368c997e3905fbce7794232cbd6f0f3",
+    "previous_sources": [
+      {
+        "project": "dynamic",
+        "kind": "privacy",
+        "source_repository": "https://github.com/xefensor/pebble-watchface-dynamic",
+        "source_commit": "fe378f2e0b5b6b87086d2afd7846cb5cb0516a59",
+        "source_path": "PRIVACY.md",
+        "source_sha256": "4769f16802c94d9ab9262ec694a1a0d7229b6aed45846c0f2b85fa2d54569e23",
+        "site_path": "/projects/dynamic/privacy/",
+        "adaptation": "First heading moved to page title; privacy body unchanged.",
+        "source_body_sha256": "fdbaf7354c10f311ba920c5ad069fb6f8d81998f81efa1c693e3f908a4624fe2"
+      }
+    ],
+    "updated_on": "2026-11-15"
   },
   {
     "project": "dynamic",
@@ -87,12 +101,26 @@
     "project": "halftone",
     "kind": "privacy",
     "source_repository": "https://github.com/xefensor/halftone-watchface",
-    "source_commit": "fd96117d93c0e6a2cafba15fa0d2f79b1562575f",
+    "source_commit": "8366f852a63a7baaf9980d98880e3cdd5681b97d",
     "source_path": "PRIVACY.md",
-    "source_sha256": "a1a335af597484cb4f7c88801aeccec7f17a59ae074c140b68428174cf484753",
+    "source_sha256": "f2144634ed60dfcbb75496b30fafc7dda8289b12128a18ead660736cb9934f59",
     "site_path": "/projects/halftone/privacy/",
-    "adaptation": "First heading moved to page title; privacy body unchanged.",
-    "source_body_sha256": "ad6541cfc100343b035425ebe9437f2b9b1a2b5553fb1eb6f44c020d807b1991"
+    "adaptation": "First heading moved to page title; corrected current app-owned privacy body copied unchanged. Earlier source provenance is retained below.",
+    "source_body_sha256": "512cccd5ea320ffb44256555940fe476a0d146b90bdbe786f0a4c57b837e157f",
+    "previous_sources": [
+      {
+        "project": "halftone",
+        "kind": "privacy",
+        "source_repository": "https://github.com/xefensor/halftone-watchface",
+        "source_commit": "fd96117d93c0e6a2cafba15fa0d2f79b1562575f",
+        "source_path": "PRIVACY.md",
+        "source_sha256": "a1a335af597484cb4f7c88801aeccec7f17a59ae074c140b68428174cf484753",
+        "site_path": "/projects/halftone/privacy/",
+        "adaptation": "First heading moved to page title; privacy body unchanged.",
+        "source_body_sha256": "ad6541cfc100343b035425ebe9437f2b9b1a2b5553fb1eb6f44c020d807b1991"
+      }
+    ],
+    "updated_on": "2026-11-15"
   },
   {
     "project": "halftone",

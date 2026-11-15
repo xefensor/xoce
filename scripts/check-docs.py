@@ -11,6 +11,8 @@ names = [
     "CONTRIBUTING.md",
     "README.md",
     "docs/MAINTENANCE.md",
+    "docs/contributor-conventions.md",
+    "artwork/README.md",
     "docs/RELEASING.md",
     "docs/UI.md",
     "docs/USAGE.md",

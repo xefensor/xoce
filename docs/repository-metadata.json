@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "scope": "Maintained repository About descriptions and website links. These are desired values, not proof that GitHub settings were changed. Archived predecessors keep their existing migration metadata.",
+  "repositories": [
+    {
+      "repository": "xefensor/xoce",
+      "description": "XOCE — Xef’s Open Computing Ecosystem. Website, user guides, developer docs and design references.",
+      "homepage": "https://xefensor.github.io/xoce/"
+    },
+    {
+      "repository": "xefensor/pebble-watchface-dynamic",
+      "description": "Adaptive Pebble Time 2 and Round 2 watchface with live readings and activities. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/dynamic/"
+    },
+    {
+      "repository": "xefensor/halftone-watchface",
+      "description": "Dithered Pebble Time 2 and Round 2 watchface with shared readings and activities. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/halftone/"
+    },
+    {
+      "repository": "xefensor/pebble-app-timer",
+      "description": "Reusable countdown timers for Pebble Time 2 and Round 2, with optional XOCE activity sharing.",
+      "homepage": "https://xefensor.github.io/xoce/projects/timer/"
+    },
+    {
+      "repository": "xefensor/pebble-app-dashboard",
+      "description": "Activities, notifications and pinned readings in one Pebble overview. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/dashboard/"
+    },
+    {
+      "repository": "xefensor/pebble-app-open-activity",
+      "description": "Open apps behind activities shown by Dynamic or Halftone using Pebble Quick Launch. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/open-activity/"
+    },
+    {
+      "repository": "xefensor/pebble-chmu-weather",
+      "description": "ČHMÚ weather data for compatible Pebble apps and watchfaces. Phone-only XOCE plugin.",
+      "homepage": "https://xefensor.github.io/xoce/projects/chmu-weather/"
+    },
+    {
+      "repository": "xefensor/pebble-lib-activities",
+      "description": "Embedded activity summaries, provider conventions and host tools for Pebble apps. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/activities/"
+    },
+    {
+      "repository": "xefensor/pebble-lib-core",
+      "description": "Shared readings and bounded phone-to-watch transport for Pebble watchfaces. Part of XOCE.",
+      "homepage": "https://xefensor.github.io/xoce/projects/core/"
+    },
+    {
+      "repository": "xefensor/pebble-lib-ui",
+      "description": "Shared native presentation helpers and phone settings styles for XOCE Pebble apps.",
+      "homepage": "https://xefensor.github.io/xoce/projects/ui/"
+    }
+  ]
+}
