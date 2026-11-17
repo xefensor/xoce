@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" fill="none">
+  <title>ČHMÚ Weather — tile artwork</title>
+  <desc>Original ČHMÚ Weather decorative geometry for a tile presentation. Broad atmospheric bands and flowing pressure-like contours. No app interface or device is depicted.</desc>
+  <g color="#63d5e9">
+    <path d="M 756 -30 H 611 C 525 47 566 121 620 161 C 681 207 580 272 619 344 C 646 395 702 423 756 463 Z" fill="currentColor" opacity="0.83"/>
+    <path d="M -30 289 C 49 226 134 269 173 331 C 208 385 197 420 231 470 H -30 Z" fill="currentColor" opacity="0.68"/>
+    <path d="M -28 42 C 56 11 134 51 163 114 S 212 182 238 192" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.31"/>
+    <path d="M -30 83 C 44 56 96 85 121 142 S 158 213 196 231" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.46"/>
+    <path d="M 508 -29 C 447 60 504 118 532 174 S 501 276 545 317" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.28"/>
+    <path d="M 562 -28 C 491 57 540 119 574 170 S 541 267 578 322" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.42"/>
+    <path d="M 633 387 C 607 370 581 369 551 379 S 500 405 475 430" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.23"/>
+  </g>
+</svg>

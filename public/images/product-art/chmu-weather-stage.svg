@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960" fill="none">
+  <title>ČHMÚ Weather — stage artwork</title>
+  <desc>Original ČHMÚ Weather decorative geometry for a stage presentation. Broad atmospheric bands and flowing pressure-like contours. No app interface or device is depicted.</desc>
+  <g color="#63d5e9">
+    <path d="M 1010 -40 H 810 C 698 76 762 197 844 263 C 941 340 775 453 850 582 C 890 650 976 681 1010 775 Z" fill="currentColor" opacity="0.85"/>
+    <path d="M -45 681 C 74 599 218 672 271 785 C 318 889 281 944 346 1004 H -45 Z" fill="currentColor" opacity="0.67"/>
+    <path d="M -43 72 C 93 13 210 81 250 183 S 307 308 353 331" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.26"/>
+    <path d="M -39 131 C 67 86 146 139 184 232 S 236 350 300 378" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+    <path d="M -39 191 C 39 164 91 195 126 281 S 164 384 224 415" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.27"/>
+    <path d="M 661 -40 C 563 107 653 202 693 301 S 622 460 699 547" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.26"/>
+    <path d="M 739 -35 C 627 109 710 207 754 300 S 686 462 753 546" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.43"/>
+    <path d="M 933 753 C 872 712 804 720 751 758 S 655 831 600 841" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.34"/>
+    <path d="M 1002 810 C 907 755 827 779 770 822 S 665 894 613 903" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.22"/>
+  </g>
+</svg>

@@ -4,6 +4,7 @@ import type { Project } from '../data/projects';
 import WatchPreview from './WatchPreview.astro';
 import Icon from './Icon.astro';
 import InstallActions from './InstallActions.astro';
+import ProductArtwork from './ProductArtwork.astro';
 interface Props { project: Project; wide?: boolean }
 const { project } = Astro.props;
 const plugin=project.kind==='plugin';
@@ -12,6 +13,7 @@ const preview=project.previews?.[platform];
 ---
 <article class="launch-card" data-product={project.slug} data-project-card data-project-kind={project.kind} data-project-platform={project.platform} data-project-availability={project.availability} data-project-downloadable={project.publication==='published'&&project.download?'true':'false'}>
   <a class="card-picture" href={sitePath(`/projects/${project.slug}/`)} aria-label={`Explore ${project.name}`}>
+    <ProductArtwork slug={project.slug} variant="tile"/>
     <span class="card-product-light" aria-hidden="true"></span>
     {preview ? <WatchPreview image={preview.image} alt={preview.alt} platform={platform} framed={false} compact/> : project.image && <img class="plugin-icon" src={sitePath(project.image)} width="144" height="144" alt={project.imageAlt} loading="lazy"/>}
   </a>

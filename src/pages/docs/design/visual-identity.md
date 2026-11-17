@@ -55,6 +55,10 @@ Home and Software group two watchfaces, three watch apps and a separate phone pl
 
 Use the six symbols and motifs above as a family. Keep the monochrome silhouette clear at small sizes. Device treatment, title typography, spacing and the small XOCE endorsement tie banners together; composition and meaningful geometry belong to each product. Halftone keeps orange dots rather than donating its separator to every other app.
 
+Website stages and cards use **fresh vector compositions based on those banner colours and motifs**. The square stage and wide tile assets in `/images/product-art/` are designed for their website surfaces, with their sources and hashes recorded in the [product artwork manifest](https://github.com/xefensor/xoce/blob/main/docs/product-artwork.json). The specimens above use the same artwork component as the product sections.
+
+Keep artwork decorative: product titles, controls and real device previews remain separate content. Do not crop a complete Store banner into a background or bake its title and watch screen into a website card. Native captures and official frames keep their original bytes, proportions and provenance. Product colour supports identity while the website’s blue continues to identify actions.
+
 | Product | Website identity | Pebble Store artwork | Native launcher |
 | --- | --- | --- | --- |
 | Dynamic | Clock/readings mark, adapting bands, idle and activity examples | Per-platform banner and raw native gallery; no Store icon fields | Transparent25px glyph |
@@ -73,5 +77,7 @@ Dynamic’s side-by-side states and Open Activity’s labelled Dynamic→Timer e
 ## Maintaining the identity
 
 [theme.css](https://github.com/xefensor/xoce/blob/main/src/styles/theme.css) owns colours/material roles; [identity.css](https://github.com/xefensor/xoce/blob/main/src/styles/identity.css) owns the approved presentation; [guide.css](https://github.com/xefensor/xoce/blob/main/src/styles/guide.css) owns reading geometry. The specimens read the production theme declarations at build time. Keep shared navigation, wordmark and preview components in use.
+
+Use the shared `ProductArtwork` component for product stages, tiles and design specimens. Its decorative image must stay outside the accessible content and ignore pointer input. Keep headings, links, shape controls and focus indicators readable in both themes; forced-colour and reduced-transparency modes may omit the decoration without losing information.
 
 Append new versioned artwork and provenance when assets change. Historical images, official device frames, app screenshots, licences and earlier review bundles retain their bytes and credits. Validate desktop/mobile, both themes, keyboard focus and reduced-motion/forced-colour behaviour on the rendered page.

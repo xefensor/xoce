@@ -319,6 +319,30 @@ async function headerFits(width) {
   assert.deepEqual(collisions, [], 'Header controls overlap at ' + width + 'px');
 }
 
+async function productArtworkCheck(route) {
+  const count=await client.evaluate(`document.querySelectorAll('[data-product-art]').length`);
+  if(!count)return;
+  const position=await client.evaluate('({left:scrollX,top:scrollY})');
+  const forcedColors=await client.evaluate(`matchMedia('(forced-colors:active)').matches`);
+  for(let index=0;index<count;index++) {
+    const visible=await client.evaluate(`document.querySelectorAll('[data-product-art]')[${index}].getClientRects().length>0`);
+    if(forcedColors&&!visible)continue;
+    assert.ok(visible,'Product artwork has a visible presentation surface at '+route);
+    await client.evaluate(`document.querySelectorAll('[data-product-art]')[${index}].scrollIntoView({block:'center',behavior:'instant'})`);
+    await until(`(()=>{const image=document.querySelectorAll('[data-product-art]')[${index}].querySelector('img');return image&&image.complete&&image.naturalWidth===Number(image.getAttribute('width'))&&image.naturalHeight===Number(image.getAttribute('height'))&&image.naturalWidth>0;})()`, 'decorative product artwork loads at '+route);
+  }
+  const artwork=await client.evaluate(`Array.from(document.querySelectorAll('[data-product-art]')).map(element=>({hidden:element.getAttribute('aria-hidden'),pointer:getComputedStyle(element).pointerEvents,focusable:element.tabIndex>=0||!!element.querySelector('a,button,input,select,textarea,[tabindex]'),images:Array.from(element.querySelectorAll('img')).map(image=>({alt:image.getAttribute('alt'),pointer:getComputedStyle(image).pointerEvents}))}))`);
+  for(const art of artwork) {
+    assert.equal(art.hidden,'true','Product decoration stays outside accessible content at '+route);
+    assert.equal(art.pointer,'none','Product decoration must not intercept preview controls or card links at '+route);
+    assert.equal(art.focusable,false,'Product decoration must not add keyboard stops at '+route);
+    assert.equal(art.images.length,1);
+    assert.equal(art.images[0].alt,'','Product artwork keeps empty alt text at '+route);
+    assert.equal(art.images[0].pointer,'none');
+  }
+  await client.evaluate(`scrollTo({...${JSON.stringify(position)},behavior:'instant'})`);
+}
+
 function routesFromBuild() {
   function walk(directory) {
     return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -384,7 +408,7 @@ async function runChecks() {
     for(const color of ['light','dark']) {
       await media(color); await navigate('/'); await theme('system');
       for(const route of routes) {
-        await navigate(route);await noOverflow(route,width);
+        await navigate(route);await noOverflow(route,width);await productArtworkCheck(route);
         if([390,1440].includes(width)&&(!route.endsWith('/support/')&&!route.endsWith('/privacy/')||route==='/projects/timer/privacy/'||route==='/projects/chmu-weather/support/')) {
           await screenshot((route==='/'?'home':route.replace(/^\//,'').replace(/\/$/,'').replaceAll('/','-'))+'-'+width+'-'+color);
           const sections = route === '/' ? ['#watchfaces', '#watch-apps', '#weather', '.activity-showcase']
@@ -412,6 +436,7 @@ async function runChecks() {
   await viewport(390,844,true);await media('light');await navigate('/');await theme('light');
   const namedPreviews=await client.evaluate(`Array.from(document.querySelectorAll('.hero-watch>a')).map(a=>({name:a.textContent,top:a.getBoundingClientRect().top,bottom:a.getBoundingClientRect().bottom}))`);
   assert.equal(namedPreviews.length,2);assert.ok(namedPreviews.every(p=>p.top>0&&p.bottom<844),'Both app names and watch models must be in the first mobile screen');
+  for(const name of ['Dynamic','Halftone'])assert.ok(namedPreviews.some(preview=>preview.name.includes(name)),name+' remains named in the first mobile screen');
   await screenshot('home-390-first-screen');passed('Mobile homepage names both preview apps before the first scroll');
   assert.ok(await client.evaluate(`document.fonts.check('400 16px "Fira Sans"','ČHMÚ Weather')&&document.fonts.check('700 32px "Fira Sans Condensed"','XOCE')&&getComputedStyle(document.body).fontFamily.includes('Fira Sans')`),'Self-hosted reading/heading fonts must load, including Czech text');
   assert.ok(await client.evaluate(`!!document.querySelector('.brand-wordmark svg path')&&document.querySelector('link[rel="icon"]').href.endsWith('/images/identity/favicon.svg')`),'Outlined wordmark and matching favicon must be present');
@@ -523,7 +548,7 @@ async function runChecks() {
   assert.equal(await client.evaluate(`matchMedia('(prefers-reduced-motion:reduce)').matches&&matchMedia('(prefers-reduced-transparency:reduce)').matches`),true);
   passed('Reduced motion/transparency render without layout loss');
   await client.send('Emulation.setScriptExecutionDisabled',{value:true});scriptingEnabled=false;
-  for(const route of ['/','/projects/',...productRoutes,'/docs/',...referenceRoutes,'/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);}
+  for(const route of ['/','/projects/',...productRoutes,'/docs/',...referenceRoutes,'/projects/timer/privacy/']){await navigate(route);await noOverflow(route,390);await productArtworkCheck(route);}
   await illustratedSetupCheck('no-javascript');passed('Illustrated setup switches to Halftone and loads its phone examples without JavaScript');
   await navigate('/projects/timer/');await click('label[for="timer-gabbro"]');assert.equal(await client.evaluate(`document.getElementById('timer-gabbro').checked`),true);assert.ok(await client.evaluate(`document.querySelector('.stage-gabbro').getClientRects().length>0`));await screenshot('timer-round2-no-javascript');
   await navigate('/docs/');await guideContentsJump(false);passed('Navigation, reading and shape selection work without JavaScript');

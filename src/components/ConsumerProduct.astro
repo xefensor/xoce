@@ -10,6 +10,7 @@ import ActivityExplainer from './ActivityExplainer.astro';
 import ProductStory from './ProductStory.astro';
 import PhoneWeatherPreview from './PhoneWeatherPreview.astro';
 import ReleaseHighlights from './ReleaseHighlights.astro';
+import ProductArtwork from './ProductArtwork.astro';
 interface Props { project: Project }
 const { project } = Astro.props;
 const plugin=project.kind==='plugin';
@@ -20,7 +21,7 @@ const related=projects.filter(p=>(project.optionalConnections??(project.slug==='
   <nav class="product-breadcrumb" aria-label="Breadcrumb"><a href={sitePath('/projects/')}>Software</a><span aria-hidden="true">/</span><span aria-current="page">{project.name}</span></nav>
   <section class="launch-product-hero" aria-labelledby="product-title">
     <div class="launch-product-copy launch-product-intro"><p class="eyebrow product-family-label">{project.storeArtwork&&<img src={sitePath(project.storeArtwork.mark)} alt="" aria-hidden="true" width="32" height="32"/>}{plugin?'Pebble phone plugin':project.kind==='watchface'?'Pebble watchface':'Pebble watch app'}</p><h1 id="product-title">{project.name}</h1><p class="product-purpose">{project.description}</p></div>
-    <div class="launch-product-preview product-art-stage">{plugin?<PhoneWeatherPreview project={project}/>:<ShapePreview project={project}/>}</div>
+    <div class="launch-product-preview product-art-stage"><ProductArtwork slug={project.slug}/>{plugin?<PhoneWeatherPreview project={project}/>:<ShapePreview project={project}/>}</div>
     <div class="launch-product-copy launch-product-details"><p class="product-summary">{project.summary}</p>
       <InstallActions project={project}/>
       <dl class="launch-facts"><div><dt>Works with</dt><dd>{project.compatibility}</dd></div><div><dt>{project.publication === 'published' ? 'Version' : 'Preview version'}</dt><dd>{project.version}</dd></div></dl>

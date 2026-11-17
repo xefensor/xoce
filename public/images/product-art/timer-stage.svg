@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960" fill="none">
+  <title>Timer — stage artwork</title>
+  <desc>Original Timer decorative geometry for a stage presentation. Open timing arcs and measured radial marks, with an offset timing ring. No app interface or device is depicted.</desc>
+  <g color="#9584ff">
+    <path d="M 963.67 687.91 A 247 247 0 0 1 963.67 218.09" fill="none" stroke="currentColor" stroke-width="56" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+    <path d="M 929.63 773.53 A 339 339 0 0 1 929.63 132.47" fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 894.64 852.37 A 425 425 0 0 1 894.64 53.63" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.22"/>
+    <path d="M -88.41 773.8 A 250 250 0 0 1 204.85 1011.28" fill="none" stroke="currentColor" stroke-width="72" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+    <path d="M -105.78 675.32 A 350 350 0 0 1 304.79 1007.79" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.24"/>
+    <path d="M 244.12 9.53 A 124 124 0 0 1 45.66 85.71" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity="0.24"/>
+    <path d="M 859.72 792.05 L 850.8 808.83" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 778.11 733.84 L 765.15 747.74" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 714.35 656.49 L 698.24 666.56" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 672.78 565.27 L 654.61 570.83" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 656.23 466.4 L 637.25 467.06" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 665.84 366.62 L 647.33 362.34" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 700.95 272.72 L 684.17 263.8" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 759.16 191.11 L 745.26 178.15" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 836.51 127.35 L 826.44 111.24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+  </g>
+</svg>

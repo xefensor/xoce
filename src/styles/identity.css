@@ -90,12 +90,12 @@ html[data-ui='material'][data-theme='dark']{--product-mark-filter:invert(1)}
 .capture-details[open] summary{margin-bottom:6px}
 .capture-details a{display:inline-block;margin-top:5px}
 [data-product]{--product-accent:#66b2ff;--product-pattern:linear-gradient(transparent,transparent)}
-[data-product='dynamic']{--product-accent:#397cff;--product-pattern:repeating-linear-gradient(0deg,transparent 0 40px,#397cff24 41px 42px,transparent 43px 78px)}
-[data-product='halftone']{--product-accent:#ff650b;--product-pattern:radial-gradient(#ff650b75 1.2px,transparent 1.6px)}
-[data-product='timer']{--product-accent:#9584ff;--product-pattern:repeating-radial-gradient(circle at 90% 15%,transparent 0 30px,#9584ff25 31px 32px,transparent 33px 59px)}
-[data-product='dashboard']{--product-accent:#5bceb2;--product-pattern:linear-gradient(#5bceb229 1px,transparent 1px),linear-gradient(90deg,#5bceb229 1px,transparent 1px)}
-[data-product='open-activity']{--product-accent:#b99aff;--product-pattern:repeating-linear-gradient(135deg,transparent 0 46px,#b99aff20 47px 49px,transparent 50px 100px)}
-[data-product='chmu-weather']{--product-accent:#82d6f0;--product-pattern:repeating-radial-gradient(ellipse at 10% 120%,transparent 0 25px,#82d6f025 26px 27px,transparent 28px 51px)}
+[data-product='dynamic']{--product-accent:#3667ff;--product-pattern:repeating-linear-gradient(0deg,transparent 0 40px,#3667ff24 41px 42px,transparent 43px 78px);--product-card-art-position:100% center;}
+[data-product='halftone']{--product-accent:#ff5500;--product-pattern:radial-gradient(#ff550075 1.2px,transparent 1.6px);--product-card-art-position:100% center;}
+[data-product='timer']{--product-accent:#9584ff;--product-pattern:repeating-radial-gradient(circle at 90% 15%,transparent 0 30px,#9584ff25 31px 32px,transparent 33px 59px);--product-card-art-position:100% center;}
+[data-product='dashboard']{--product-accent:#29d38a;--product-pattern:linear-gradient(#29d38a29 1px,transparent 1px),linear-gradient(90deg,#29d38a29 1px,transparent 1px);--product-card-art-position:100% center;}
+[data-product='open-activity']{--product-accent:#bd8aff;--product-pattern:repeating-linear-gradient(135deg,transparent 0 46px,#bd8aff20 47px 49px,transparent 50px 100px);--product-card-art-position:50% center;}
+[data-product='chmu-weather']{--product-accent:#63d5e9;--product-pattern:repeating-radial-gradient(ellipse at 10% 120%,transparent 0 25px,#63d5e925 26px 27px,transparent 28px 51px);--product-card-art-position:100% center;}
 .hero-watch{position:relative;isolation:isolate}
 .hero-watch::before{content:'';position:absolute;inset:2% 0 14%;z-index:-1;background:radial-gradient(ellipse at 50% 50%,color-mix(in srgb,var(--product-accent) 15%,transparent),transparent 70%);pointer-events:none}
 .hero-watch>a{border-bottom-color:var(--product-accent)}

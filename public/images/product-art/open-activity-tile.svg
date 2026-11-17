@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" fill="none">
+  <title>Open Activity — tile artwork</title>
+  <desc>Original Open Activity decorative geometry for a tile presentation. One continuous directional route links distinct nodes around the subject. No app interface or device is depicted.</desc>
+  <g color="#bd8aff">
+    <path d="M -44 75 H 121 Q 176 75 176 130 V 305 Q 176 365 236 365 H 565 Q 625 365 625 305 V 141 Q 625 80 686 80 H 760" fill="none" stroke="currentColor" stroke-width="74" stroke-linecap="round" stroke-linejoin="round" opacity="0.15"/>
+    <path d="M -44 75 H 121 Q 176 75 176 130 V 305 Q 176 365 236 365 H 565 Q 625 365 625 305 V 141 Q 625 80 686 80 H 760" fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    <circle cx="176" cy="218" r="20" fill="currentColor" opacity="0.95"/>
+    <circle cx="393" cy="365" r="17" fill="currentColor" opacity="0.95"/>
+    <circle cx="625" cy="218" r="20" fill="currentColor" opacity="0.95"/>
+    <path d="M 688 54 L 716 80 L 688 106" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+    <path d="M 279 344 L 302 365 L 279 386" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+  </g>
+</svg>

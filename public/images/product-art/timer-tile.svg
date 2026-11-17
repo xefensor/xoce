@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" fill="none">
+  <title>Timer — tile artwork</title>
+  <desc>Original Timer decorative geometry for a tile presentation. Open timing arcs and measured radial marks, with an offset timing ring. No app interface or device is depicted.</desc>
+  <g color="#9584ff">
+    <path d="M 768.21 353.92 A 137 137 0 0 1 768.21 84.08" fill="none" stroke="currentColor" stroke-width="37" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+    <path d="M 752.88 420.23 A 205 205 0 0 1 752.88 17.77" fill="none" stroke="currentColor" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+    <path d="M 735.86 483.1 A 270 270 0 0 1 735.86 -45.1" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+    <path d="M -68.52 343.68 A 157 157 0 0 1 136.9 487.52" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+    <path d="M -78.23 275.67 A 225 225 0 0 1 204.14 473.39" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.2"/>
+    <path d="M 679.33 430.91 L 673.69 441.5" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 608.15 373.27 L 598.96 380.98" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 563.75 293.16 L 552.33 296.87" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 552.58 202.26 L 540.61 201.42" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 576.29 113.79 L 565.5 108.53" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 631.41 40.65 L 623.38 31.73" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 709.92 -6.53 L 705.81 -17.8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <path d="M 129.92 39.79 A 61 61 0 0 1 36.01 73.97" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440" fill="none">
+  <title>Dynamic — tile artwork</title>
+  <desc>Original Dynamic decorative geometry for a tile presentation. Offset modules and adapting bands: one grid makes room for changing information. No app interface or device is depicted.</desc>
+  <g color="#3667ff">
+    <rect x="-45" y="290" width="250" height="92" rx="16" fill="currentColor" opacity="0.8"/>
+    <rect x="-45" y="394" width="328" height="84" rx="16" fill="currentColor" opacity="0.35"/>
+    <rect x="556" y="-22" width="220" height="116" rx="18" fill="currentColor" opacity="0.9"/>
+    <rect x="510" y="112" width="246" height="108" rx="18" fill="currentColor" opacity="0.62"/>
+    <rect x="592" y="238" width="170" height="66" rx="16" fill="currentColor" opacity="0.28"/>
+    <rect x="45" y="42" width="128" height="96" rx="16" fill="none" stroke="currentColor" stroke-width="3" opacity="0.23"/>
+    <path d="M 67 169 H 214 M 67 190 H 160" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.22"/>
+    <rect x="525" y="325" width="126" height="66" rx="14" fill="none" stroke="currentColor" stroke-width="3" opacity="0.2"/>
+    <rect x="184" y="14" width="66" height="22" rx="8" fill="currentColor" opacity="0.38"/>
+  </g>
+</svg>

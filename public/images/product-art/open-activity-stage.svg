@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960" fill="none">
+  <title>Open Activity — stage artwork</title>
+  <desc>Original Open Activity decorative geometry for a stage presentation. One continuous directional route links distinct nodes around the subject. No app interface or device is depicted.</desc>
+  <g color="#bd8aff">
+    <path d="M -48 799 H 133 Q 210 799 210 722 V 274 Q 210 190 294 190 H 741 Q 823 190 823 272 V 727 Q 823 811 907 811 H 1006" fill="none" stroke="currentColor" stroke-width="114" stroke-linecap="round" stroke-linejoin="round" opacity="0.15"/>
+    <path d="M -48 799 H 133 Q 210 799 210 722 V 274 Q 210 190 294 190 H 741 Q 823 190 823 272 V 727 Q 823 811 907 811 H 1006" fill="none" stroke="currentColor" stroke-width="36" stroke-linecap="round" stroke-linejoin="round" opacity="0.84"/>
+    <circle cx="210" cy="540" r="29" fill="currentColor" opacity="0.95"/>
+    <circle cx="524" cy="190" r="26" fill="currentColor" opacity="0.95"/>
+    <circle cx="823" cy="475" r="29" fill="currentColor" opacity="0.95"/>
+    <path d="M 913 775 L 951 811 L 913 847" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity="0.97"/>
+    <path d="M 365 162 L 396 190 L 365 218" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+  </g>
+</svg>

@@ -235,6 +235,7 @@ const catalogueProducts = products.filter(project => project.availability !== 'p
 const libraries = projects.filter(project => project.kind === 'library');
 const planned = catalogueProducts.filter(project => project.availability === 'planned');
 const knownSlugs = new Set(projects.map(project => project.slug));
+const { productArt } = await import(pathToFileURL(path.join(root, 'src/data/product-art.ts')).href);
 function mainMarkup(route) { return pages.get(route)?.html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? ''; }
 function visibleText(markup) { return decode(markup.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi, '').replace(/<[^>]*>/g, ' ')).replace(/\s+/g, ' ').trim(); }
 function elementBlock(markup, tag, matches) {
@@ -254,6 +255,59 @@ function elementBlock(markup, tag, matches) {
 function needsLink(route, destination, purpose) {
   if (!references(mainMarkup(route)).includes(destination)) problems.push(`${route}: missing ${purpose} link to ${destination}`);
 }
+function decorativeArt(markup, slug, composition, from) {
+  const art = elementBlock(markup, 'span', tag => tag.includes(`data-product-art="${slug}"`))?.html ?? '';
+  const images = art.match(/<img\b[^>]*>/gi) ?? [];
+  const expected = composition === 'stage' ? [960, 960] : [720, 440];
+  if (!art || !/^<span\b[^>]*\baria-hidden="true"/.test(art) || images.length !== 1 || !/\salt=""/.test(images[0]) || !references(images[0]).includes(productArt[slug]?.[composition]) || expected.some((value, index) => !images[0].includes(`${index ? 'height' : 'width'}="${value}"`))) {
+    problems.push(`${from}: ${slug} needs decorative ${composition} art with an empty-alt image at its intended dimensions`);
+  }
+}
+for (const project of catalogueProducts) {
+  const route = `/projects/${project.slug}/`;
+  const stage = elementBlock(mainMarkup(route), 'div', tag => /\bclass="[^"]*\bproduct-art-stage\b/.test(tag))?.html ?? '';
+  decorativeArt(stage, project.slug, 'stage', route);
+}
+for (const route of ['/', '/projects/']) {
+  const cards = [...mainMarkup(route).matchAll(/<article\b[^>]*\bdata-project-card\b[^>]*>[\s\S]*?<\/article>/gi)].map(match => match[0]);
+  for (const project of catalogueProducts) decorativeArt(cards.find(card => card.includes(`data-product="${project.slug}"`)) ?? '', project.slug, 'tile', route);
+}
+
+// Decorative website compositions have their own contract; native provenance below is unchanged.
+try {
+  const manifestFile = path.join(root, 'docs/product-artwork.json');
+  const manifestBytes = fs.readFileSync(manifestFile);
+  const artwork = JSON.parse(manifestBytes);
+  const assets = artwork.assets;
+  const classification = 'original-xoce-product-illustration';
+  if (artwork.schema_version !== 1 || artwork.classification !== classification || !Array.isArray(assets) || assets.length !== 12 || new Set(assets.map(asset => asset.public_path)).size !== 12 || new Set(assets.map(asset => asset.file)).size !== 12) throw Error('Expected twelve unique original product-illustration assets');
+  for (const mirror of ['public/product-artwork.json', 'dist/product-artwork.json']) if (!fs.existsSync(path.join(root, mirror)) || !fs.readFileSync(path.join(root, mirror)).equals(manifestBytes)) problems.push(`${mirror}: product artwork manifest must match its source`);
+  const allowedElements = new Set(['svg', 'title', 'desc', 'g', 'path', 'rect', 'circle', 'ellipse', 'line', 'polyline', 'polygon', 'defs', 'lineargradient', 'radialgradient', 'stop', 'clippath', 'mask']);
+  for (const project of catalogueProducts) for (const composition of ['stage', 'tile']) {
+    const entry = assets.find(asset => asset.product === project.slug && asset.composition === composition);
+    const expectedPath = productArt[project.slug]?.[composition];
+    const dimensions = composition === 'stage' ? [960, 960] : [720, 440];
+    if (!entry || entry.classification !== classification || entry.public_path !== expectedPath || entry.file !== `public${expectedPath}` || entry.width !== dimensions[0] || entry.height !== dimensions[1] || !/^[a-f0-9]{64}$/.test(entry.sha256 ?? '')) { problems.push(`${project.slug}: invalid ${composition} artwork identity, dimensions or classification`); continue; }
+    const content = entry.content;
+    if (content?.transparent_background !== true || ['app_ui', 'hardware', 'raster_images', 'rendered_text'].some(key => content?.[key] !== false)) problems.push(`${entry.file}: illustration must remain decorative geometry rather than app/device evidence`);
+    const source = path.join(root, entry.file), built = path.join(dist, entry.public_path);
+    if (!fs.existsSync(source) || !fs.existsSync(built)) { problems.push(`Missing source or built product artwork: ${entry.public_path}`); continue; }
+    const bytes = fs.readFileSync(source), svg = bytes.toString('utf8');
+    if ([bytes, fs.readFileSync(built)].some(data => createHash('sha256').update(data).digest('hex') !== entry.sha256)) problems.push(`${entry.public_path}: product artwork bytes differ from the manifest`);
+    const header = svg.match(/<svg\b[^>]*>/i)?.[0] ?? '';
+    if (dimensions.some((value, index) => Number(header.match(new RegExp(`\\b${index ? 'height' : 'width'}="([\\d.]+)"`))?.[1]) !== value) || !header.includes(`viewBox="0 0 ${dimensions[0]} ${dimensions[1]}"`)) problems.push(`${entry.file}: SVG dimensions/viewBox differ from its composition`);
+    const elements = [...svg.matchAll(/<([a-z][\w:.-]*)\b/gi)].map(match => match[1].toLowerCase());
+    if (!elements.length || elements.some(name => !allowedElements.has(name)) || /<!DOCTYPE|<!ENTITY|\son[\w-]+\s*=|@import|@font-face|\bfont(?:-family|-face)?\s*[:=]/i.test(svg)) problems.push(`${entry.file}: use only self-contained vector geometry without images, scripts, rendered text or fonts`);
+    for (const match of svg.matchAll(/\b(?:href|src)\s*=\s*(["'])(.*?)\1|url\(\s*(["']?)(.*?)\3\s*\)/gi)) {
+      const target = (match[2] ?? match[4] ?? '').trim();
+      if (!/^#[A-Za-z_][\w:.-]*$/.test(target)) problems.push(`${entry.file}: external or embedded resource is forbidden`);
+    }
+    const reference = entry.reference;
+    const banner = `public${project.storeArtwork?.shareImage}`;
+    if (reference?.repository !== 'https://github.com/xefensor/xoce' || reference.path !== banner || !/^[a-f0-9]{40}$/.test(reference.commit ?? '') || reference.commit !== artwork.source_revision || !/^[a-f0-9]{64}$/.test(reference.sha256 ?? '')) { problems.push(`${entry.file}: banner reference must identify the current product artwork`); continue; }
+    for (const file of [path.join(root, banner), path.join(dist, project.storeArtwork.shareImage)]) if (!fs.existsSync(file) || createHash('sha256').update(fs.readFileSync(file)).digest('hex') !== reference.sha256) problems.push(`${entry.file}: referenced banner hash differs from the current source or build`);
+  }
+} catch (error) { problems.push('Product artwork manifest: ' + error.message); }
 for (const guide of docs) {
   const page = pages.get(guide.href);
   if (!page || !/<article\b[^>]*class="[^"]*prose/.test(page.html)) problems.push(`${guide.href}: documented guide must be a real article`);

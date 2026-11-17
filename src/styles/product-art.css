@@ -1,0 +1,59 @@
+/* Fresh web compositions. Store banners and native capture files stay separate. */
+.product-artwork{display:block;position:absolute;inset:0;overflow:hidden;pointer-events:none;user-select:none;z-index:0}
+.product-artwork img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center;border:0;border-radius:0;box-shadow:none;filter:none;image-rendering:auto}
+
+/* Shared graphite supports each product's colour in both page themes. */
+.product-art-stage{background:linear-gradient(155deg,color-mix(in srgb,var(--product-accent) 13%,#1c252e),#111820 85%);border:1px solid color-mix(in srgb,var(--product-accent) 42%,#53616c);border-top:3px solid var(--product-accent)}
+.product-art-stage::before{display:none}
+.product-art-stage::after{z-index:0;background:radial-gradient(ellipse at 50% 42%,#121a2233,transparent 68%);pointer-events:none}
+.product-art-stage>.product-artwork{opacity:.95;mask-image:linear-gradient(180deg,transparent 2%,#000 22%,#000 82%,transparent 100%)}
+.product-art-stage>.shape-preview,.product-art-stage>.weather-preview{position:relative;z-index:1}
+.product-art-stage .stage-heading{padding-bottom:12px;border-bottom:1px solid #ffffff22}
+.product-art-stage .shape-choices{background:#111a24df;border-color:#7e8e9c}
+.product-art-stage .preview-caption,.product-art-stage .journey-note,.product-art-stage .weather-preview-note{position:relative;background:#111a24b8;border-radius:5px;padding:5px 8px}
+.product-art-stage .dynamic-sequence{background:linear-gradient(180deg,#111a242b,#111a2499)}
+.product-art-stage .journey-shortcut{background:#121b28d9}
+.launch-product-intro .product-family-label{border-left:4px solid var(--product-accent);padding-left:12px;min-height:34px}
+
+/* Art stays in picture wells; install actions and copy keep reading surfaces. */
+.launch-card .card-picture{background:linear-gradient(145deg,color-mix(in srgb,var(--product-accent) 18%,#1d2630),#111820);border:1px solid #ffffff25;border-radius:11px;box-shadow:inset 0 1px #ffffff16,0 2px 4px #17212720}
+.launch-card .card-picture::before{display:none}
+.launch-card .card-picture::after{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 50% 50%,#0e172826,transparent 78%);pointer-events:none}
+.card-picture>.product-artwork{opacity:.98}
+.card-picture>.product-artwork img{object-position:var(--product-card-art-position,center)}
+.card-picture>.card-product-light{display:none}
+.card-picture .watch-preview,.card-picture .plugin-icon{position:relative;z-index:1}
+.card-picture .plugin-icon{filter:invert(1);width:104px;height:104px}
+.collection-watchface .card-picture{background:linear-gradient(145deg,color-mix(in srgb,var(--product-accent) 18%,#1d2630),#111820);padding:12px 6px;border-right:1px solid #ffffff25;min-height:210px}
+.collection-watchface [data-product='halftone'] .card-picture{background:linear-gradient(145deg,#4b2a20,#111820)}
+.collection-app .card-picture,.collection-plugin .card-picture{background:linear-gradient(145deg,color-mix(in srgb,var(--product-accent) 18%,#1d2630),#111820);border-color:#ffffff25}
+.launch-card:hover .card-copy h3 a{text-decoration:underline;text-decoration-color:var(--product-accent);text-decoration-thickness:2px;text-underline-offset:6px}
+
+/* One homepage stage, two individual watchface identities. */
+.hero-watch::before{display:none}
+.hero-watch>.product-artwork{inset:-20px -25px 65px;opacity:.9;mask-image:linear-gradient(180deg,transparent,#000 24%,#000 68%,transparent)}
+.hero-watch>.watch-preview{position:relative;z-index:1}
+.hero-watch>a{z-index:2}
+
+.design-identity .design-pattern{position:relative;overflow:hidden;background:#18232b!important;border:1px solid #ffffff22}
+.design-identity .design-pattern .product-artwork{opacity:1}
+@media(max-width:1100px){.collection-watchface .card-picture{min-height:190px}}
+@media(max-width:700px){
+ .collection-watchface .card-picture{min-height:165px;padding:10px 4px}
+ .launch-product-intro .product-family-label{padding-left:10px;border-left-width:3px;min-height:30px}
+ .product-art-stage .stage-heading{padding-bottom:10px}
+ .card-picture .plugin-icon{width:78px;height:78px}
+ .hero-watch>.product-artwork{inset:-12px -14px 45px}
+}
+@media(prefers-reduced-transparency:reduce){
+ .product-art-stage>.product-artwork,.card-picture>.product-artwork,.hero-watch>.product-artwork{opacity:.45}
+ .product-art-stage .preview-caption,.product-art-stage .journey-note,.product-art-stage .weather-preview-note,.product-art-stage .journey-shortcut{background:#111a24}
+}
+@media(forced-colors:active){
+ .product-artwork{display:none!important}
+ .card-picture .plugin-icon{visibility:hidden}
+ .launch-card .card-picture,.collection-watchface .card-picture,.collection-watchface [data-product='halftone'] .card-picture,.collection-app .card-picture,.collection-plugin .card-picture,.product-art-stage{background:Canvas;border:1px solid CanvasText;box-shadow:none}
+ .launch-card .card-picture::after{display:none}
+ .product-art-stage .preview-caption,.product-art-stage .journey-note,.product-art-stage .weather-preview-note,.product-art-stage .journey-shortcut,.product-art-stage .shape-choices{background:Canvas}
+ .launch-product-intro .product-family-label{border-color:CanvasText}
+}

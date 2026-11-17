@@ -1,0 +1,11 @@
+---
+import { productArt } from '../data/product-art';
+import { sitePath } from '../lib/site';
+interface Props { slug: string; variant?: 'stage' | 'tile' | 'hero' | 'specimen' }
+const { slug, variant = 'stage' } = Astro.props;
+const art = productArt[slug];
+const tile = variant === 'tile' || variant === 'specimen';
+---
+{art && <span class:list={['product-artwork', `product-artwork--${variant}`]} data-product-art={slug} aria-hidden="true">
+  <img src={sitePath(tile ? art.tile : art.stage)} alt="" width={tile ? 720 : 960} height={tile ? 440 : 960} loading={variant === 'stage' || variant === 'hero' ? 'eager' : 'lazy'} decoding="async"/>
+</span>}

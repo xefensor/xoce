@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-11-17",
+  "classification": "original-xoce-product-illustration",
+  "scope": "New website-only vector compositions inspired by the existing product-specific Store artwork direction. These are not Store upload assets or app screenshots.",
+  "source_revision": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+  "design_contract": {
+    "shared_shell": "Retain graphite/silver material, Fira typography and blue interaction roles. Product colours and geometry are decorative.",
+    "background": "SVG canvas is transparent. Intended over the website graphite product well.",
+    "placement": "Compose behind genuine product previews; preserve readable controls and a quiet central subject area. Stage and tile are independently composed rather than crops.",
+    "preservation": "Existing banner masters, screenshots, icons, app binaries, provenance records and licences remain unchanged.",
+    "editability": "Each SVG is the self-contained editable source: ordinary paths, circles and rectangles, with no external resources, scripts, fonts, filters or raster embeds."
+  },
+  "assets": [
+    {
+      "file": "public/images/product-art/dynamic-stage.svg",
+      "public_path": "/images/product-art/dynamic-stage.svg",
+      "product": "dynamic",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "c220f53c0d033abac960b08e6f12b64550b71151ef4d9b7230ec3649a3504139",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#3667ff",
+      "motif": "Offset modules and adapting bands: one grid makes room for changing information.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/dynamic-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "445a5c2cd17c32e427064e6a5b1033f45294709676474cecb1389521f0bcd082",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/dynamic-tile.svg",
+      "public_path": "/images/product-art/dynamic-tile.svg",
+      "product": "dynamic",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "8513167c95e34bdfb51c9a974aa49e8baa67ffb801dc3924c26d7183f7267aa2",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#3667ff",
+      "motif": "Offset modules and adapting bands: one grid makes room for changing information.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/dynamic-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "445a5c2cd17c32e427064e6a5b1033f45294709676474cecb1389521f0bcd082",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/halftone-stage.svg",
+      "public_path": "/images/product-art/halftone-stage.svg",
+      "product": "halftone",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "b4e677b25b467af9492a8641e12cc214135d8a74aa8c88f959881ac4e2f11777",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#ff5500",
+      "motif": "Graduated orange dither beside a sweeping curved colour field.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/halftone-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "0c0d374b7514a5ce710fc43b6bb026faba41b66c19751a6032e478907eecbdb0",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/halftone-tile.svg",
+      "public_path": "/images/product-art/halftone-tile.svg",
+      "product": "halftone",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "185b59485c9341b673eceed46eca705ad5a8838e09bd88dfb452f3d72c874700",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#ff5500",
+      "motif": "Graduated orange dither beside a sweeping curved colour field.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/halftone-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "0c0d374b7514a5ce710fc43b6bb026faba41b66c19751a6032e478907eecbdb0",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/timer-stage.svg",
+      "public_path": "/images/product-art/timer-stage.svg",
+      "product": "timer",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "9782250efee33f1cc7eaf00a487701dc14a90a8d74919826f875b143d09d61ff",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#9584ff",
+      "motif": "Open timing arcs and measured radial marks, with an offset timing ring.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/timer-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "d26075d3a5cbe7edfbebd6428ab5e05b76bfe3bbbba3fbd8c926641cee435501",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/timer-tile.svg",
+      "public_path": "/images/product-art/timer-tile.svg",
+      "product": "timer",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "54ce2ed0dbaee1154a80bc6afbba0bbdc56d96f6adbf4562f1cc8aff13b55b51",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#9584ff",
+      "motif": "Open timing arcs and measured radial marks, with an offset timing ring.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/timer-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "d26075d3a5cbe7edfbebd6428ab5e05b76bfe3bbbba3fbd8c926641cee435501",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/dashboard-stage.svg",
+      "public_path": "/images/product-art/dashboard-stage.svg",
+      "product": "dashboard",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "7a33bdc2a3d1ad86434ca4a3aa2bcedaa97d872fa4f329bf5ae0f782ae98a695",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#29d38a",
+      "motif": "Unequal panels form a clear, modular information rhythm.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/dashboard-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "677717cfb8d57fe9928277c8f427dd1537aa948920402006ee1a845dba689c29",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/dashboard-tile.svg",
+      "public_path": "/images/product-art/dashboard-tile.svg",
+      "product": "dashboard",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "3a9dfba59d859fd394f475a5fbdc5969abdca157af06d1ec0801f4cea6176f40",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#29d38a",
+      "motif": "Unequal panels form a clear, modular information rhythm.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/dashboard-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "677717cfb8d57fe9928277c8f427dd1537aa948920402006ee1a845dba689c29",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/open-activity-stage.svg",
+      "public_path": "/images/product-art/open-activity-stage.svg",
+      "product": "open-activity",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "878dc8efd4fbf40b22e1f89b5b94d4d12bb3b37db8b56b7acbb881a5b9d79fcb",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#bd8aff",
+      "motif": "One continuous directional route links distinct nodes around the subject.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/open-activity-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "d1084cf25c4d8ad3ba5d433c452cd7072951237873ef1def06db526161c6f87c",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/open-activity-tile.svg",
+      "public_path": "/images/product-art/open-activity-tile.svg",
+      "product": "open-activity",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "f47c351d4e2f8ca4f339b4d19c4520c71ec1895dc28463e5fae4b24a27b23591",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#bd8aff",
+      "motif": "One continuous directional route links distinct nodes around the subject.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/open-activity-xoce-screenshots-20261114-banner-emery.png",
+        "sha256": "d1084cf25c4d8ad3ba5d433c452cd7072951237873ef1def06db526161c6f87c",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/chmu-weather-stage.svg",
+      "public_path": "/images/product-art/chmu-weather-stage.svg",
+      "product": "chmu-weather",
+      "composition": "stage",
+      "width": 960,
+      "height": 960,
+      "sha256": "681fcbbaa6ce57bcb25fcb3338ab16e997651d47f2431df8693bec0e633751df",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#63d5e9",
+      "motif": "Broad atmospheric bands and flowing pressure-like contours.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/chmu-weather-xoce-screenshots-20261114-banner-phone.png",
+        "sha256": "409b2683415669902b839dee29d9e9ef26cbe2f5ca5e40daf03bf5ab3f7852f2",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    },
+    {
+      "file": "public/images/product-art/chmu-weather-tile.svg",
+      "public_path": "/images/product-art/chmu-weather-tile.svg",
+      "product": "chmu-weather",
+      "composition": "tile",
+      "width": 720,
+      "height": 440,
+      "sha256": "18b37df806b0c07e4f9dd92f45d58d9ab60ec4dbf8b8d48bdd36dff03dae8e6e",
+      "classification": "original-xoce-product-illustration",
+      "created_on": "2026-11-17",
+      "primary_colour": "#63d5e9",
+      "motif": "Broad atmospheric bands and flowing pressure-like contours.",
+      "reference": {
+        "repository": "https://github.com/xefensor/xoce",
+        "commit": "f0cac084b6979f1080cad68abfb53b207ca7423b",
+        "path": "public/images/store/chmu-weather-xoce-screenshots-20261114-banner-phone.png",
+        "sha256": "409b2683415669902b839dee29d9e9ef26cbe2f5ca5e40daf03bf5ab3f7852f2",
+        "relationship": "Visual direction only. No paths, crops, screenshots or embedded assets were extracted from the reference."
+      },
+      "content": {
+        "transparent_background": true,
+        "app_ui": false,
+        "hardware": false,
+        "raster_images": false,
+        "rendered_text": false
+      },
+      "evidence_scope": "Original decorative website geometry; no app UI, emulator, hardware or physical-device evidence."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960" fill="none">
+  <title>Dynamic — stage artwork</title>
+  <desc>Original Dynamic decorative geometry for a stage presentation. Offset modules and adapting bands: one grid makes room for changing information. No app interface or device is depicted.</desc>
+  <g color="#3667ff">
+    <rect x="740" y="-44" width="290" height="188" rx="24" fill="currentColor" opacity="0.9"/>
+    <rect x="690" y="168" width="340" height="164" rx="24" fill="currentColor" opacity="0.65"/>
+    <rect x="810" y="356" width="220" height="120" rx="24" fill="currentColor" opacity="0.3"/>
+    <rect x="-75" y="637" width="355" height="112" rx="24" fill="currentColor" opacity="0.85"/>
+    <rect x="-50" y="775" width="420" height="144" rx="24" fill="currentColor" opacity="0.4"/>
+    <rect x="63" y="78" width="178" height="138" rx="20" fill="none" stroke="currentColor" stroke-width="3" opacity="0.24"/>
+    <rect x="130" y="251" width="146" height="76" rx="18" fill="none" stroke="currentColor" stroke-width="3" opacity="0.14"/>
+    <path d="M 75 375 H 253 M 75 403 H 187" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity="0.23"/>
+    <rect x="747" y="674" width="170" height="102" rx="20" fill="none" stroke="currentColor" stroke-width="3" opacity="0.18"/>
+    <rect x="818" y="802" width="105" height="56" rx="16" fill="currentColor" opacity="0.32"/>
+    <rect x="288" y="-20" width="92" height="43" rx="12" fill="currentColor" opacity="0.28"/>
+  </g>
+</svg>

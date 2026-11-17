@@ -3,6 +3,7 @@ import { projects } from '../data/projects';
 import captures from '../data/launch-screenshots.json';
 import { designReferenceHeadings, type DesignReferenceVariant } from '../data/design-reference';
 import { sitePath } from '../lib/site';
+import ProductArtwork from './ProductArtwork.astro';
 import themeSource from '../styles/theme.css?raw';
 import identitySource from '../styles/identity.css?raw';
 import '../styles/design-guide.css';
@@ -78,10 +79,10 @@ const examples = variant === 'patterns' ? [
       <section aria-label="Corner examples"><h3>Shape roles</h3><div class="design-radii">{['small', 'control', 'pane'].map(role => <div><span style={`border-radius:var(--radius-${role})`} aria-hidden="true"></span><code>{role} · {roleValue(light, `radius-${role}`)}</code></div>)}</div></section>
     </div>
     <h3 id="product-identities">Six identities, one family</h3>
-    <p>These product accents identify the presentation. Blue remains the website action colour.</p>
+    <p>Fresh website artwork carries each product’s Store-banner colours and motifs into its own composition. These accents identify the presentation; blue remains the website action colour.</p>
     <div class="design-identity-grid">{identities.map(identity => <a class="design-identity" data-product={identity.slug} href={sitePath(`/projects/${identity.slug}/`)}>
       <span class="design-identity-top"><img class="product-family-mark" src={sitePath(identity.product.storeArtwork!.mark)} width="36" height="36" alt="" loading="lazy"/><strong>{identity.product.name}</strong></span>
-      <span class="design-pattern" aria-hidden="true"></span><span>{identity.symbol}</span><span class="design-support">{identity.motif} · <code>{identity.accent}</code></span>
+      <span class="design-pattern" aria-hidden="true"><ProductArtwork slug={identity.slug} variant="specimen"/></span><span>{identity.symbol}</span><span class="design-support">{identity.motif} · <code>{identity.accent}</code></span>
     </a>)}</div>
   </> : <>
     <p class="design-reference-intro">{variant === 'patterns' ? 'A watchface presents shared activity data; a phone page configures its own app. Their layouts and controls fit different jobs.' : 'Actual Time 2 and Round 2 rendering. Shared hierarchy does not require one font or one rectangular layout across all apps.'}</p>
